@@ -47,6 +47,7 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 \end{equation}
 
 接下来推导下个性质。注意到，如果我们将（某位置上的）两向量相加，那么所得结果的“高”应等于每个求和项的“高”之和，即
+\pagebreak
 \begin{align}
   D(\mathbf{v}_1,\ldots,\underbrace{\mathbf{u}_k+\mathbf{v}_k}_k,&\ldots,\mathbf{v}_n)=\label{Determinant_linear_2}\\
   &D(\mathbf{v}_1,\ldots,\underset{k}{\mathbf{u}_k},\ldots,\mathbf{v}_n)+D(\mathbf{v}_1,\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_n)\notag
@@ -76,10 +77,10 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 
 \subsection{对“列置换”保持原值}
 接下来的性质看上去也很自然。它就是：如果我们取一向量（比如$\mathbf{v}_j$），并且将它加上另一向量$\mathbf{v}_k$的若干倍，那么“高”不变，因此
-{\small
 \begin{align}
-  D(\mathbf{v}_1,\ldots,\underbrace{\mathbf{v}_j+\alpha\mathbf{v}_k}_j,\ldots,\underset{k}{\mathbf{v}_k},\ldots,&\mathbf{v}_n)=D(\mathbf{v}_1,\ldots,\underset{j}{\mathbf{v}_j},\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_n).\label{Preserve_column_replacement}
-\end{align}}
+  D(\mathbf{v}_1,\ldots,\underbrace{\mathbf{v}_j+\alpha\mathbf{v}_k}_j,\ldots,\underset{k}{\mathbf{v}_k},&\ldots,\mathbf{v}_n)\label{Preserve_column_replacement}\\
+  &=D(\mathbf{v}_1,\ldots,\underset{j}{\mathbf{v}_j},\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_n).\notag
+\end{align}
 换言之，若施加第三类{\bf 列变换}，行列式不变。
 
 不过，该性质并不独立——它是式 \eqref{Determinant_0} 以及线性 \eqref{Determinant_linear_1} 和 \eqref{Determinant_linear_2} 的简单推论。也即
@@ -176,15 +177,17 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 
 接下来的命题推广了性质 \eqref{Preserve_column_replacement}。如我们之前所述，该性质可从我们在本节所用的行列式的三大“基本”性质推导出来。
 
-\marginpar{\small 注意，此处向一列加入自身的若干倍是不允许的，我们只能加入其他列的倍数。}
-
 \begin{proposition}
-  如果我们向其中一列加上其余列的线性组合（并保持其余列不变），那么行列式不变。特别地，行列式在“列置换”（第三类列变换）下是保持原值的。
+  如果我们向其中一列加上其余列的线性组合（并保持其余列不变），\marginpar{\small 注意，此处向一列加入自身的若干倍是不允许的，我们只能加入其他列的倍数。}那么行列式不变。特别地，行列式在“列置换”（第三类列变换）下是保持原值的。
 \end{proposition}
 
 \begin{proof}
   取定向量$\mathbf{v}_k$，并令$\mathbf{u}$是其余向量的线性组合\[\mathbf{u}=\sum_{j\neq k}\alpha_j\mathbf{v}_j.\]
-  于是由线性可得{\small \[D(\mathbf{v}_1,\ldots,\underbrace{\mathbf{v}_k+\mathbf{u}}_k,\ldots,\mathbf{v}_n)=D(\mathbf{v}_1,\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_n)+D(\mathbf{v}_1,\ldots,\underset{k}{\mathbf{u}},\ldots,\mathbf{v}_n),\]}
+  于是由线性可得
+  \begin{align*}
+    D(\mathbf{v}_1,\ldots,\underbrace{\mathbf{v}_k+\mathbf{u}}_k,\ldots,&\mathbf{v}_n)\\
+    =D(\mathbf{v}_1,\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_n)+D(\mathbf{v}_1,\ldots,\underset{k}{\mathbf{u}},\ldots,\mathbf{v}_n),
+  \end{align*}
   由命题 \ref{prop:det_0} 可得，最后一项等于$0$。
 \end{proof}
 
@@ -200,7 +203,7 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 下一类重要矩阵是所谓{\bf 三角}矩阵。称方阵$A=\{a_{j,k}\}_{j,j=1}^{n}$是{\bf 上三角的}，若所有在主对角线{\bf 之下}的项都为$0$，也即对于所有$k<j$有$a_{j,k}=0$。称方阵是{\bf 下三角的}，若所有在主对角线{\bf 之上}的项都为$0$，也即对于所有$j<k$有$a_{j,k}=0$。称一矩阵是{\bf 三角的}，若其是下三角的或是上三角的。
 
 容易看出\begin{center}
-  \fbox{\parbox{0.8\linewidth}{三角矩阵的行列式等于对角线上各项的乘积：\[\det A=a_{1,1}a_{2,2}\ldots a_{n,n}.\]}}
+  \fbox{\parbox{0.8\linewidth}{{\bf 三角}矩阵的行列式等于对角线上各项的乘积：\[\det A=a_{1,1}a_{2,2}\ldots a_{n,n}.\]}}
 \end{center}
 
 的确如此：若一个三角矩阵的主对角线上有项为零，那么其不可逆（容易通过列变换来检验之），因此上式两端都等于零。若所有对角线上的项都非零，那么利用列置换（第三类列变换），我们可将该矩阵转化成对角矩阵（且保持对角矩阵不变）：对于上三角矩阵，首先将第$2,3,\dots,n$列减去第一列的适当倍数，将第一行中（除第一项外）全部变成$0$，然后将第$3,\dots,n$列减去第二列的适当倍数，以此类推。
@@ -209,14 +212,69 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 
 \subsection{计算行列式}
 
+现在可以利用行列式的兴致来进行计算：只需作列变换（即对$A^{T}$作行变换），并且记录所有会使行列式变号的列变换。好在，最常用的变换——行置换，即第三类行变换——不改变行列式的值。因此我们只需记下两种变换：列交换以及将列向量乘以标量。
+
+若$A^T$的阶梯形并不是每列（每行）都有主元，那么$A$不可逆，因此$\det A = 0$。若$A$可逆，我们就得到了三角矩阵，$\det A$就是对角线项的乘积，再乘上一个数用于修正“列交换”和“乘以标量”对行列式的改变。
+
+由上述算法可得，$\det A$仅当矩阵$A$不可逆时为零。将这与命题 \ref{prop:det_0} 结合可得
+\begin{proposition}
+  $\det A=0$当且仅当矩阵$A$不可逆。等价的表述是：$\det A\ne 0$当且仅当$A$可逆。
+\end{proposition}
+
+注意，尽管我们知道了如何计算行列式，但行列式还是没有定义。有人可能会问：为什么不将其定义为上述算法的结果呢？这样做的问题在于，正式而言，这样的结果是不完善的——意思是，我们并没有证明用不同的列变换会得出相同的结果。
+
 \subsection{积和转置的行列式、初等矩阵的行列式}
 
-\begin{theorem}[转置的行列式]
+\begin{theorem}[转置的行列式]\label{thm:det_trans}
   对于方阵$A$，\[\det A = \det(A^T).\]
 \end{theorem}
 
 该定理表明，我们上面讨论的所有关于列的结论同样适用于行。特别地，行列式在{\bf 行变换}和{\bf 列变换}下的表现是相同的。所以我们可以用行变换来计算行列式。
 
+\begin{theorem}[乘积的行列式]\label{thm:det_prod}
+  对于$n\times n$矩阵$A$和$B$有\[\det (AB) = (\det A)(\det B)\]
+  换言之
+  \begin{center}
+    \fbox{乘积的行列式等于行列式的乘积。}
+  \end{center}
+\end{theorem}
+
+两个定理的证明都要用到下述引理：
+\begin{lemma}\label{lem:elementary_det}
+  对方阵$A$和（大小相同的）初等矩阵$E$有\[\det (AE) = (\det A)(\det E)\]
+\end{lemma}
+\begin{proof}
+  完成证明只需确认这三件事：特殊（初等）矩阵的行列式（很容易计算）；右乘初等矩阵等同于作列变换；以及列变换对行列式的影响（已知）。
+
+  初等矩阵的行列式与对应的列变换是一致的，这看似是个巧合，实则不然：对于列变换，其对应的初等矩阵可通过对恒等矩阵$I$作对应的列变换来获得。因此，其行列式是$1$（$I$的行列式）乘以列变换对行列式的改变。
+
+  至此，证明就完成了。乍一看有些不可思议，但上面几段就完成了对该引理{\bf 完整而严谨}的证明！
+\end{proof}
+
+应用引理 \ref{lem:elementary_det} $N$次可得下述推论。
+
+\begin{corollary}\label{col:det_multiply_elementary}
+  对于任意矩阵$A$，以及任意一组初等矩阵$E_1,E_2,\ldots,E_N$（所有矩阵都是$n\times n$的）\[\det(AE_1E_2\ldots E_N)=(\det A)(\det E_1)(\det E_2)\ldots(\det E_N)\]
+\end{corollary}
+\begin{lemma}\label{lem:invert_elementary_prod}
+  任意可逆矩阵都是一系列初等矩阵的乘积。\footnote{这其实是第 \ref{chap:LinearSystems} 章的定理 \ref{thm:invert_elementary_prod}。故原书此处的证明略去。}
+\end{lemma}
+\begin{proof}[\autoref{thm:det_trans} 的证明]
+  首先，容易验证，对于任意初等矩阵都有$\det E = \det(E^T)$。注意，只需对于可逆矩阵$A$证明此定理，因为若$A$不可逆，那么$A^T$也不可逆，则两者的行列式都为零。
+
+  由引理 \ref{lem:invert_elementary_prod}，矩阵$A$可表示为若干初等矩阵的乘积\[A=E_1E_2\ldots E_N,\]
+  由推论 \ref{col:det_multiply_elementary}，$A$的行列式等于初等矩阵的行列式之积。由于取转置只会将每个初等矩阵都变为其转置并将乘的顺序反过来，所以由推论 \ref{col:det_multiply_elementary} 可知$\det A = \det(A^T)$。
+\end{proof}
+\begin{proof}[\autoref{thm:det_prod} 的证明]
+  首先假设$B$可逆。那么由引理 \ref{lem:invert_elementary_prod} 可得，$B$可表示为若干初等矩阵之积
+  \[B=E_1E_2\ldots E_N,\]
+  因此由推论 \ref{col:det_multiply_elementary}
+  \[\det(AB)=(\det A)[(\det E_1)(\det E_2)\ldots(\det E_N)]=(\det A)(\det B).\]
+  
+  若$B$不可逆，那么乘积$AB$也不可逆，因此该定理也就是$0=0$。
+
+  为证明乘积$AB=C$不可逆，假设其可逆。那么将等式$AB=C$同时左乘$C^{-1}$，可得$C^{-1}AB=I$，则$C^{-1}A$是$B$的左逆，因此$B$是左可逆的。又由于$B$是方阵，所以$B$可逆，这就出现了矛盾。
+\end{proof}
 \subsection{行列式性质总结}
 
 首先，重申一遍：{\bf 行列式只对方阵有定义！}由于我们知道了$\det A = \det A^T$，所以对于列成立的结论对于行也是成立的。
@@ -250,6 +308,10 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 \end{enumerate}
   \item 利用行变换或列变换来计算下列行列式：
   \[\begin{vmatrix}0&1&2\\-1&0&-3\\2&3&0\end{vmatrix},\quad\begin{vmatrix}1&2&3\\4&5&6\\7&8&9\end{vmatrix},\quad\begin{vmatrix}1&0&-2&3\\-3&1&1&2\\0&4&-1&1\\2&3&0&1\end{vmatrix},\quad\begin{vmatrix}1&x\\1&y\end{vmatrix}.\]
+  \item 称方阵（$n\times n$矩阵）$A$是斜对称的（或反对称的），若$A^T = -A$。证明：若$A$是斜对称的且$n$为奇数，那么$\det A = 0$。该结论在$n$为偶数时还成立吗？
+  \item 称方阵$A$是{\bf 幂零的}，若对某正整数$k$有$A^k = \mathbf{0}$。证明：对幂零矩阵$A$有$\det A = 0$。
+  \item 证明：若矩阵$A$和$B$相似，则$\det A = \det B$。
+  \item 称实方阵$Q$为正交的，若$Q^TQ = I$。证明：若$Q$为正交矩阵，则$\det Q = \pm 1$。
   \item 证明：\[\begin{vmatrix}1&x&x^2\\1&y&y^2\\1&z&z^2\end{vmatrix}=(z-x)(z-y)(y-x).\]这是所谓范德蒙行列式的一个特例。
 \end{problemset}
 
