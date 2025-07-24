@@ -1,0 +1,454 @@
+
+%%%%%%%%%%%%%%%%% 线性方程组 %%%%%%%%%%%%%%
+
+\chapter{线性方程组}\label{chap:LinearSystems}
+
+\section{线性方程组的多副面孔}
+
+关于线性方程组为何物，有多种视角。第一种（也是最朴素的一种），就是将其视作含有$n$个未知数$x_1,\dots,x_n$的$m$个线性方程，
+\[\left\{\begin{array}{cccccccccc}a_{1,1}x_1&+&a_{1,2}x_2&+&\ldots&+&a_{1,n}x_n&=&b_1\\a_{2,1}x_1&+&a_{2,2}x_2&+&\ldots&+&a_{2,n}x_n&=&b_2\\\cdots\\a_{m,1}x_1&+&a_{m,2}x_2&+&\ldots&+&a_{m,n}x_n&=&b_m&.\end{array}\right.\]
+
+求解该方程组即求出{\bf 所有}同时满足这$m$个方程的数$x_1,\dots,x_n$构成的$n$-元组。
+
+如果记$\mathbf{x}:=(x_{1},x_{2},\ldots,x_{n})^{T}\in\mathbb{F}^{n},\mathbf{b}=(b_{1},b_{2},\ldots,b_{m})^{T}\in\mathbb{F}^{m}$，且记
+\[A=\begin{pmatrix}a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&&\vdots\\a_{m,1}&a_{m,2}&\ldots&a_{m,n}\end{pmatrix},\]
+那么上述线性方程组可以写成{\bf 矩阵形式}（也即{\bf 矩阵-向量方程}）
+\[A\mathbf{x}=\mathbf{b}.\]
+求解上述方程即求出所有满足$A\mathbf{x}=\mathbf{b}$的向量$\mathbf{x}\in\mathbb{F}^{n}$。
+
+最后，回想一下矩阵-向量乘法的“列乘以坐标”规则，我们可以将原方程组写为{\bf 向量方程}
+\[x_1\mathbf{a}_1+x_2\mathbf{a}_2+\cdots+x_n\mathbf{a}_n=\mathbf{b},\]
+其中$\mathbf{a}_k$是矩阵$A$的第$k$列，$\mathbf{a}_k=(a_{1,k},a_{2,k},\dots,a_{m,k})^T,k=1,2,\dots,n$。
+
+注意，上面三例本质上只是同种数学对象的不同表达而已。
+
+在开始解释如何求解线性方程组之前，我们首先注意，未知数的记法——比如$x_k,y_k$或者其他名称——都无关紧要。所以，求解线性方程组所必需的信息全部包含于两者：矩阵$A$（称为线性方程组的{\bf 系数矩阵}）和（右端）向量$\mathbf{b}$。进而，我们所需的全部信息都包含于以下矩阵
+\pagebreak
+\[\left(
+  \begin{array}{cccc|c}
+      a_{1,1} & a_{1,2} & \ldots & a_{1,n} & b_1    \\
+      a_{2,1} & a_{2,2} & \ldots & a_{2,n} & b_2    \\
+      \vdots  & \vdots  &        & \vdots  & \vdots \\
+      a_{m,1} & a_{m,2} & \ldots & a_{m,n} & b_m    \\
+    \end{array}
+  \right)\]
+该矩阵是通过将列向量$\mathbf{b}$增加到矩阵$A$右端获得的，称为线性方程组的{\bf 增广矩阵}。我们通常会在$A$和$\mathbf{b}$之间插入一条竖线来区分增广矩阵和系数矩阵。
+
+
+\section{线性方程组的解、阶梯形和简化阶梯形}
+
+线性方程组是用{\bf 高斯-若当消元法}（有时也称为{\bf 行化简}）来求解的。通过对线性方程组的增广矩阵的行作变换（也即对方程作变换），我们将其化为一简单的形式——即所谓{\bf 阶梯形}。当线性方程组具有{\bf 阶梯形}时，我们就很容易写出其解。
+
+\subsection{行变换}
+
+行变换有三种：
+\begin{enumerate}
+  \item 行交换：交换矩阵的两行；
+  \item 缩放：将一行乘以非零标量$a$；
+  \item 行置换：将第$k$行换为它与第$j$行的常数倍之和，而保持其他行不变。
+\end{enumerate}
+
+显然，变换1和2并不会改变线性方程组的解——它们实质上就没有改变原方程组。
+
+至于变换3，我们容易看出它并不会使方程组的解减少。意即，令“新”方程组由“旧”方程组经过第3种行变换得来。那么“旧”方程组的每个解都是“新”方程组的解。
+
+要看出为什么变换3不会导致解增加，也就是“新”方程组的任一解也是“旧”方程组的解，我们只需注意到第3种行变换是{\bf 可逆的}，也即，“旧”方程组也可以通过对“新”方程组进行第3种行变换得来（你能说出是什么样的变换吗？）
+
+\subsubsection{行变换与乘以初等矩阵}
+
+关于上述行变换为何不改变方程组的解，还有一种更为“高级”的解释，也即，每种行变换都等价于左乘一种特殊的初等矩阵。
+
+\setcounter{MaxMatrixCols}{12}
+具体地说，乘以矩阵
+\[
+\begin{pNiceMatrix}[margin,first-row,first-col]
+    &        &        &        & j      &        &        &        & k      &                        &              & \\
+    & 1      &        &        & \vdots &        &        &        & \vdots & \Block{3-3}<\LARGE>{0} &              & \\
+    &        & \ddots &        & \vdots &        &        &        & \vdots &                        & \hspace{1em} & \\
+    &        &        & 1      & \vdots &        &        &        & \vdots &                        &              & \\
+  j & \cdots & \cdots & \cdots & 0      & \cdots & \cdots & \cdots & 1      &                        &              & \\
+    &        &        &        & \vdots & 1      &        &        & \vdots &                        &              & \\
+    &        &        &        & \vdots &        & \ddots &        & \vdots &                        &              & \\
+    &        &        &        & \vdots &        &        & 1      & \vdots &                        &              & \\
+  k & \cdots & \cdots & \cdots & 1      & \cdots & \cdots & \cdots & 0      &                        &              & \\
+    &        & \Block{3-2}<\LARGE>{0} &        &        &       &        &        &  &            1            &              & \\
+    &        & \hspace{1em} &        &        &       &        &        &  &                        &        \ddots      & \\
+    &        &  &        &        &       &        &        &  &                        &              & 1 
+\end{pNiceMatrix}
+\]
+即交换第$j$行与第$k$行；乘以矩阵
+\[
+\begin{pNiceMatrix}[margin,first-col,first-row]
+    &                        &        &   &   k    &   &                        &   \\
+    & 1                      &        &   & \vdots &   & \Block{3-2}<\LARGE>{0} &   \\
+    &                        & \ddots &   & \vdots &   &                        &   \\
+    &                        &        & 1 & 0      &   &                        &   \\
+  k & \cdots                 & \cdots & 0 & a      & 0 &                        &   \\
+    & \Block{3-2}<\LARGE>{0} &        &   & 0      & 1 &                        &   \\
+    &                        &        &   &        &   & \ddots                 & 0 \\
+    &                        &        &   &        &   & 0                      & 1 \\
+\end{pNiceMatrix}
+\]
+即将第$k$行乘以$a$。最后，乘以矩阵
+\[
+\begin{pNiceMatrix}[margin,first-row,first-col]
+    &                        &        & j      &        & k      &                        &   \\
+    & 1                      &        & \vdots &        & \vdots & \Block{2-2}<\LARGE>{0} &   \\
+    &                        & \ddots & \vdots &        & \vdots &                        &   \\
+  j & \cdots                 & \cdots & 1      & \cdots & 0      &                        &   \\
+    &                        &        & \vdots & \ddots & \vdots &                        &   \\
+  k & \cdots                 & \cdots & a      & \cdots & 1      &                        &   \\
+    & \Block{2-2}<\LARGE>{0} &        &        &        &        & \ddots                 &   \\
+    &                        &        &        &        &        &                        & 1
+\end{pNiceMatrix}
+\]
+即将第$k$行加上第$j$行的$a$倍，并保持其他行不变。
+
+要看出与这些矩阵相乘能实现上述效果，\marginpar{\small 一种描述（或记忆）这些初等矩阵的方式是：它们是向$I$施加对应行变换的结果。}只需要观察列向量乘以这些矩阵会发生什么变化。
+
+注意所有初等矩阵都可逆（这对应于行变换的可逆性）。第一个矩阵的逆就是其本身。要得到第二个矩阵的逆，只需将$a$换成$1/a$。最后，通过将$a$换成$-a$可得第三个矩阵的逆。这些逆的正确性同样可通过观察列向量乘以这些矩阵会发生何种变化来检验。
+
+因此，对方程组$A\mathbf{x}=\mathbf{b}$的增广矩阵作行变换等价于向该方程组左端乘上一个特殊的可逆矩阵$E$。在等式$A\mathbf{x}=\mathbf{b}$两端左乘$E$可得，方程\[A\mathbf{x}=\mathbf{b}\]的任意解也是方程\[EA\mathbf{x}=E\mathbf{b}\]的解。将这个方程左乘$E^{-1}$可得，其任意解是下述方程\[E^{-1}EA\mathbf{x}=E^{-1}E\mathbf{b}\]的解，也就是原方程$A\mathbf{x}=\mathbf{b}$的解。因此，行变换不改变方程组的解集。
+
+\subsection{行化简}
+
+行化简的主要步骤包含下面三步：
+\begin{enumerate}
+  \item 找到该矩阵最左侧的非零列；
+  \item 如有必要，通过施加第一类行变换（行交换），确保该列的第一个（最上方的）项是非零的。该项将被称为{\bf 主元}；
+  \item 通过向第$2,3,\dots,m$行加（或减）第一行的适当倍数，“消去”主元之下的所有非零项（就是将它们都变为$0$）。
+\end{enumerate}
+我们将这些步骤作用于矩阵，则会保持第一行不变，再将这些步骤作用于第$2,3,\dots,m$行，然后是第$3,\dots,m$行，等等。
+
+关键是记住在把某一行下方的所有行都减去该行的若干倍后（步骤3），我们就不再改变该行（甚至不会将该行与其他行进行交换）。
+
+在有限次（至多$m$次）应用主要步骤后，我们就得到了矩阵的{\bf 阶梯形}。
+
+\subsubsection{行化简实例}
+
+考虑如下线性方程组：\[\left\{\begin{array}{c}x_1+2x_2+3x_3=1\\3x_1+2x_2+x_3=7\\2x_1+x_2+2x_3=1\end{array}\right.\]
+该方程组的增广矩阵是
+\[\left(
+  \begin{array}{ccc|c}
+      1 & 2 & 3 & 1   \\
+      3 & 2 & 1 & 7   \\
+      2 & 1 & 2 & 1   \\
+    \end{array}
+  \right)\]
+将第二行减去第一行的$3$倍，并将第三行减去第一行的$2$倍，我们得到：
+\[\begin{pNiceArray}{ccc|c}[margin,last-col]
+  1 & 2 & 3 & 1 &  \\
+  3 & 2 & 1 & 7 & -3R_1  \\
+  2 & 1 & 2 & 1 & -2R_1 \\
+\end{pNiceArray} \quad\sim\quad \left(
+  \begin{array}{ccc|c}
+      1 & 2 & 3 & 1   \\
+      0 & -4 & -8 & 4   \\
+      0 & -3 & -4 & -1   \\
+    \end{array}
+  \right)
+\]
+将第二行乘以$-1/4$可得
+\[\left(
+  \begin{array}{ccc|c}
+    1 & 2 & 3 & 1   \\
+    0 & 1 & 2 & -1   \\
+    0 & -3 & -4 & -1   \\
+  \end{array}
+\right)\]
+将第二行的$3$倍加到第三行，可得
+\[\begin{pNiceArray}{ccc|c}[margin,last-col]
+  1 & 2 & 3 & 1 &  \\
+  0 & 1 & 2 & -1 &   \\
+  0 & -3 & -4 & -1 & +3R_2 \\
+\end{pNiceArray} \quad\sim\quad \left(
+  \begin{array}{ccc|c}
+      1 & 2 & 3 & 1   \\
+      0 & 1 & 2 & -1   \\
+      0 & 0 & 2 & -4   \\
+    \end{array}
+  \right)
+\]
+现在，我们就可用所谓{\bf 回代法}解此方程组了。也就是说，从最后一行（最后一个方程）得出$x_3 = -2$。接下来从第二个方程得到\[x_2=-1-2x_3=-1-2(-2)=3,\]
+最后从第一行（第一个方程）得到\[x_1=1-2x_2-3x_3=1-6+6=1.\]
+因此原方程组的解为\[\left\{\begin{array}{rl}x_1&=1,\\x_2&=3,\\x_3&=-2,\end{array}\right.\]
+或用向量形式表示为\[\mathbf{x}=\begin{pmatrix}1\\3\\-2\end{pmatrix}\]
+或写为$\mathbf{x}=(1,3,-2)^T$。我们可以通过作乘法$A\mathbf{x}$来检验该解，其中$A$为系数矩阵。
+
+我们也可以不用回代法，而是从下到上做行变换，将系数矩阵主对角线上方的所有项全部变为$0$：首先将最后一行乘以$1/2$，后续过程则不言而喻：
+\begin{align*}
+  \begin{pNiceArray}{ccc|c}[margin,last-col]
+    1 & 2 & 3 & 1 & -3R_3 \\
+    0 & 1 & 2 & -1 &  -2R_3 \\
+    0 & 0 & 1 & -2 &  \\
+  \end{pNiceArray} &\sim 
+  \begin{pNiceArray}{ccc|c}[margin,last-col]
+        1 & 2 & 0 & 7 & -2R_2 \\
+        0 & 1 & 0 & 3   \\
+        0 & 0 & 1 & -2   \\
+  \end{pNiceArray}\\
+  &\sim\begin{pNiceArray}{ccc|c}[margin]
+    1 & 0 & 0 & 1 \\
+    0 & 1 & 0 & 3   \\
+    0 & 0 & 1 & -2   \\
+\end{pNiceArray}
+\end{align*}
+然后从增广矩阵一眼可知解为$\mathbf{x}=(1,3,-2)^T$。
+
+留给读者一道习题：梳理回代阶段的行化简算法。
+
+\subsection{阶梯形}\label{subsec:echelon}
+
+矩阵具有{\bf 阶梯形}，若其满足如下两个条件：
+\begin{enumerate}
+  \item 所有的零行（即全部的项都等于$0$的行）位于所有非零项的下方；
+\end{enumerate}
+对于非零行，我们称最左边的非零项为{\bf 先导元}。那么阶梯形的第二个性质可表述为：
+\begin{enumerate}[start=2]
+  \item 任意非零行的先导元必定严格处于前一行先导元的右侧。
+\end{enumerate}
+
+阶梯形中每一行的先导元也称为{\bf 主元}，\marginpar{\small 主元：一行中的先导元（最左侧的非零项）}因为这些项恰为行化简时所用的{\bf 主元}。
+
+阶梯形有个特例是所谓{\bf 三角}形。在上面的例子中我们就得到了这种形式。在这种形式中，系数矩阵是方阵（$n\times n$），其主对角线项均不为零，而主对角线之下的所有项都为零。右端项，或者说增广矩阵的最右列可以是任意的。
+
+在行化简的回代阶段之后，我们就得到了矩阵的所谓{\bf 简化阶梯形}：系数矩阵等于$I$（如上例所示）是简化阶梯形的一个特例。
+
+一般的定义是：称矩阵具有{\bf 简化阶梯形}，若其具有阶梯形且
+\begin{enumerate}[start=3]
+  \item 所有主元都等于$1$；
+  \item 主元之上的所有元素都为$0$。注意，主元之下的所有元素也都是$0$，因为该矩阵具有阶梯形。
+\end{enumerate}
+
+为了从阶梯形得到简化阶梯形，我们按从下到上、从右到左的次序，利用行置换消去主元之上的所有项。
+
+简化阶梯形的一个例子是系数矩阵等于$I$的方程组。在这种情况下，从简化阶梯形就很容易看出解。在一般的情形下，从简化阶梯形看出解也很容易。例如，令方程组（增广矩阵）的简化阶梯形是\[\left(\begin{array}{ccccc|c}\boxed{1}&2&0&0&0&1\\0&0&\boxed{1}&5&0&2\\0&0&0&0&\boxed{1}&3\end{array}\right);\]
+此处我们将主元框出来了。求解所用的思路是，将没有主元的列所对应的变量（所谓{\bf 自由变量}）移到右侧。然后我们可直接写出解为\pagebreak\[\left\{\begin{array}{l}x_1=1-2x_2\\x_2~\text{为自由变量}\\x_3=2-5x_4\\x_4~\text{为自由变量}\\x_5=3\end{array}\right.\]
+或者写成向量形式
+\[\mathbf{x}=\begin{pmatrix}1-2x_2\\x_2\\2-5x_4\\x_4\\3\end{pmatrix}=\begin{pmatrix}1\\0\\2\\0\\3\end{pmatrix}+x_2\begin{pmatrix}-2\\1\\0\\0\\0\end{pmatrix}+x_4\begin{pmatrix}0\\0\\-5\\1\\0\end{pmatrix},\quad x_2,x_4\in\mathbb{F}.\]
+
+也可用回代法从阶梯形求出解：基本思路是从下到上操作，将所有自由变量移到右侧。
+\begin{problemset}
+  \item 将下列线性方程组写成矩阵形式和向量方程形式：
+  \begin{enumerate}[label={\alph*)}]
+    \item $\left\{\begin{array}{rrrrrrrr}x_1&+&2x_2&-&x_3&=&-1\\2x_1&+&2x_2&+&x_3&=&1\\3x_1&+&5x_2&-&2x_3&=&-1\end{array}\right.$
+    \item $\left\{\begin{array}{rrrrrrrr}x_1&-&2x_2&-&x_3&=&1\\2x_1&-&3x_2&+&x_3&=&6\\3x_1&-&5x_2&&&=&7\\x_1&&&+&5x_3&=&9\end{array}\right.$
+    \item $\left\{\begin{array}{rrrrrrrrrr}x_1&+&2x_2&&&+&2x_4&=&6\\3x_1&+&5x_2&-&x_3&+&6x_4&=&17\\2x_1&+&4x_2&+&x_3&+&2x_4&=&12\\2x_1&&&-&7x_3&+&11x_4&=&7\end{array}\right.$
+    \item $\left\{\begin{array}{rrrrrrrrrr}x_1&-&4x_2&-&x_3&+&x_4&=&3\\2x_1&-&8x_2&+&x_3&-&4x_4&=&9\\-x_1&+&4x_2&-&2x_3&+&5x_4&=&-6\end{array}\right.$
+    \item $\left\{\begin{array}{rrrrrrrrrr}x_1&+&2x_2&-&x_3&+&3x_4&=&2\\2x_1&+&4x_2&-&x_3&+&6x_4&=&5\\&&x_2&&&+&2x_4&=&3\end{array}\right.$
+    \item $\left\{\begin{array}{rrrrrrrrrrr}2x_1&-&2x_2&-&x_3&+&6x_4&-&2x_5&=&1\\x_1&-&x_2&+&x_3&+&2x_4&-&x_5&=&2\\4x_1&-&4x_2&+&5x_3&+&7x_4&-&x_5&=&6\end{array}\right.$
+    \item $\left\{\begin{array}{rrrrrrrrrrrr}3x_1&-&x_2&+&x_3&-&x_4&+&2x_5&=&5\\x_1&-&x_2&-&x_3&-&2x_4&-&x_5&=&2\\5x_1&-&2x_2&+&x_3&-&3x_4&+&3x_5&=&10\\2x_1&-&x_2&&&-&2x_4&+&x_5&=&5\end{array}\right.$
+  \end{enumerate}
+  解这些方程组。将解写成向量形式。
+  \item 求出向量方程\[x_1\mathbf{v}_1+x_2\mathbf{v}_2+x_3\mathbf{v}_3=\mathbf{0},\]的{\bf 全部}解，其中$\mathbf{v}_{1}=(1,1,0)^{T},\mathbf{v}_{2}=(0,1,1)^{T},\mathbf{v}_{3}=(1,0,1)^{T}$。关于向量组$\mathbf{v}_1,\mathbf{v}_2,\mathbf{v}_3$的线性无关性（线性相关性），你可以得出什么结论？
+\end{problemset}
+
+\section{主元分析}
+
+通过分析线性方程组增广矩阵的阶梯形（简化阶梯形）的主元，可以回答所有关于解的存在性和唯一性的问题。首先要分析的问题是：方程$A\mathbf{x}=\mathbf{b}$何时会{\bf 不相容}（无解）。稍加思索可立得答案：
+\begin{center}
+  \fbox{\parbox{0.8\linewidth}{方程组不相容（无解），当且仅当{\bf 增广}矩阵的阶梯形的最后一列存在主元，也就是，当且仅当增广矩阵的阶梯形有一行是$\left(\begin{array}{cccc|c}0&0&\ldots&0&b\end{array}\right),b\neq0$。}}
+\end{center}
+的确如此：这样一行对应于方程$0x_1+0x_2+\ldots+0x_n=b\neq0$，而该方程无解。如果不存在这样的行，我们就可以将它化成简化阶梯形并直接看出方程组的解。
+
+下面再列出三个结论。注意，它们是与方程组的{\bf 系数矩阵}而非增广矩阵相关。
+\begin{enumerate}
+  \item 方程组的解（若存在）是唯一的，当且仅当没有自由变量，也就是当且仅当系数矩阵的阶梯形在每一列中都有主元；
+  \item 方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都是相容的，当且仅当系数矩阵的阶梯形在每一行中都有主元；
+  \item 方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都有{\bf 唯一解}，当且仅当系数矩阵$A$的阶梯形在每一行和每一列中都有主元。
+\end{enumerate}
+
+第一个结论很平凡，因为自由变量对应于非唯一性。只是要强调，这一结论{\bf 并不保证}存在性。
+
+第二个结论稍复杂些。若系数矩阵的每行都有主元，{\bf 增广}矩阵的最后一列就不会有主元，因此无论右端项$\mathbf{b}$是什么，方程组都是相容的。
+
+下面证明，如果系数矩阵$A$的阶梯形中有零行，那么可以选择一个右端项$\mathbf{b}$使得方程组$A\mathbf{x}=\mathbf{b}$是不相容的。令$A_e$为系数矩阵$A$的阶梯形。那么\[A_e=EA\]其中$E$是一系列初等矩阵之积，对应于一系列行变换，$E=E_N\dots E_2E_1$。若$A_e$有零行，那么其最后一行也为零。因此，如果取$\mathbf{b}_e=(0,\ldots,0,1)^T$（除了最后一项以外各项全为$0$）那么方程\[A_e\mathbf{x}=\mathbf{b}_e\]无解。方程两端同时左乘$E^{-1}$，并运用$E^{-1}A_{e}=A$，可得方程\[A\mathbf{x}=E^{-1}\mathbf{b}_e\]
+无解。
+
+最后，由结论1和2可立得结论3。{\hfill\qedsymbol}
+
+从以上对于主元的分析可得若干重要推论。为此我们需要注意到
+\begin{center}
+  \fbox{\parbox{0.8\linewidth}{在阶梯形中，任一行和任一列中至多存在一个主元（可以没有主元）。}}
+\end{center}
+
+\subsection{有关线性无关性和基的推论、维数}
+
+通过行化简，很容易回答$\mathbb{F}^n$中的向量组何时为基、线性无关组或张成组的问题。
+
+\begin{proposition}\label{prop:li_span_eq}
+  设有向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}\in\mathbb{F}^{n}$，并令$A=[\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}]$是各列为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$的$n\times m$矩阵。那么
+  \begin{enumerate}
+    \item 向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是线性无关的，当且仅当$A$的阶梯形的每一列都有主元；
+    \item 向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是$\mathbb{F}^{n}$中的完备组（生成组、张成组），当且仅当$A$的阶梯形的每一行都有主元；
+    \item 向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是$\mathbb{F}^{n}$中的基，当且仅当$A$的阶梯形的每一行与每一列都有主元。
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}\in\mathbb{F}^{n}$线性无关，当且仅当方程\[x_1\mathbf{v}_1+x_2\mathbf{v}_2+\ldots+x_m\mathbf{v}_m=\mathbf{0}\]具有唯一（平凡）解$x_{1}=x_{2}=\ldots=x_{m}=0$，或等价于，方程$A\mathbf{x}=\mathbf{0}$具有唯一解$\mathbf{x}=\mathbf{0}$。根据前述结论1，这些等价于矩阵的阶梯形每一列都有主元。
+
+  类似地，向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}\in\mathbb{F}^{n}$是$\mathbb{F}^{n}$中的完备组，当且仅当方程\[x_1\mathbf{v}_1+x_2\mathbf{v}_2+\cdots+x_m\mathbf{v}_m=\mathbf{b}\]对任意右端项$\mathbf{b}\in\mathbb{F}^n$都有解。根据前述结论2，这等价于矩阵的阶梯形的每一行都有主元。
+
+  最后，向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}\in\mathbb{F}^{n}$是$\mathbb{F}^{n}$中的基，当且仅当方程\[x_1\mathbf{v}_1+x_2\mathbf{v}_2+\cdots+x_m\mathbf{v}_m=\mathbf{b}\]对任意右端项$\mathbf{b}\in\mathbb{F}^n$都有唯一解。根据前述结论3，这等价于$A$的阶梯形的每一行和每一列都有主元。
+\end{proof}
+
+\begin{proposition}\label{prop:li_no_more}
+  $\mathbb{F}^{n}$中的任意线性无关向量组不能含有超过$n$个向量。
+\end{proposition}
+
+\begin{proof}
+  设向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}\in\mathbb{F}^{n}$线性无关，并令$A=[\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}]$是各列为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$的$n\times m$矩阵。由命题 \ref{prop:li_span_eq}，$A$的阶梯形的每列都必有主元，而这在$m>n$时是不可能的（主元的数目不会超过行数）。
+\end{proof}
+
+\begin{proposition}\label{prop:basis_same_size}
+  向量空间$V$中的任意两个基都有相同个数的向量。
+\end{proposition}
+
+\begin{proof}
+  设$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$和$\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{m}$是$V$中的两个基。不失一般性，可假设$n\le m$。考虑定义如下的同构$A:\mathbb{F}^{n}\to V$：\[A\mathbf{e}_k=\mathbf{v}_k,\quad k=1,2,\ldots n,\]其中$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$是$\mathbb{R}^n$的标准基。
+
+  由于$A^{-1}$也是同构，因此向量组\[A^{-1}\mathbf{w}_1,A^{-1}\mathbf{w}_2,\ldots,A^{-1}\mathbf{w}_m\]也是基（见第 \ref{chap:BasicNotion} 章的\autoref{thm:preserve_basis}）。因此它是线性无关的，则由命题 \ref{prop:li_no_more} 可知$m\le n$。结合$n\le m$的假设即得$m=n$。
+\end{proof}
+
+接下来的结论是上述命题的一个特殊情况。
+\begin{proposition}\label{prop:basis_size_n}
+    $\mathbb{F}^{n}$中的任意一个基都恰有$n$个向量。
+\end{proposition}
+\begin{proof}
+  从上个命题可立即得到此结论，不过也可以直接证明。设$\mathbf{v}_{1},$ $\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是$\mathbb{F}^{n}$中的基，并令$A$是各列为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$的$n\times m$矩阵。该向量组是基，意味着方程\[A\mathbf{x}=\mathbf{b}\]对任意（所有可能的）右端项$\mathbf{b}$都有唯一解。解的存在性表明（该矩阵的简化阶梯形）每行都有主元，因此主元的数目恰为$n$，唯一性则表明系数矩阵（的阶梯形）每一列都有主元。因此\[m = \text{列数} = \text{主元数} = n\]
+\end{proof}
+
+\begin{proposition}
+  $\mathbb{F}^{n}$中的任意张成（生成）组都至少包含$n$个向量。
+\end{proposition}
+\begin{proof}
+  设$\mathbf{v}_{1},$ $\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是$\mathbb{F}^{n}$中的完备组，并令$A$是各列为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,$ $\mathbf{v}_{m}$的$n\times m$矩阵。命题 \ref{prop:li_span_eq} 的结论2表明，$A$的阶梯形的每行都有主元。因为主元数目不超过列数，所以$n\le m$。
+\end{proof}
+
+\subsection{有关可逆矩阵的推论}
+
+\begin{proposition}
+  矩阵$A$可逆，当且仅当其阶梯形的每一行和每一列都有主元。
+\end{proposition}
+
+\begin{proof}
+  我们在本节开头已讨论过，方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都有唯一解，当且仅当$A$的阶梯形在每一行和每一列中都有主元。又由第 \ref{chap:BasicNotion} 章定理 \ref{thm:invert_unique} 知，矩阵（线性变换）$A$是可逆的，当且仅当方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都有唯一解。
+
+  还有另一种证法：矩阵可逆当且仅当它的各列形成一个基（见第 \ref{chap:BasicNotion} 章 \ref{subsec:invert_eq} 小节的推论 \ref{col:invert_basis}）。而上述命题 \ref{prop:basis_size_n} 表明这等价于矩阵每一行和每一列都有主元。
+\end{proof}
+
+由上述命题立得下述结论：
+\begin{corollary}
+  可逆矩阵必为方阵（$n\times n$矩阵）。
+\end{corollary}
+\begin{proposition}
+  若方阵（$n\times n$矩阵）是左可逆的或右可逆的，那么它是可逆的。换言之，为检验方阵$A$的可逆性，只需检验$AA^{-1}=I,$$A^{-1}A=I$之一。
+\end{proposition}
+
+注意，此命题只适用于方阵！
+
+\begin{proof}
+  我们知道矩阵$A$可逆当且仅当方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都有唯一解。而这又等价于矩阵$A$的阶梯形在每一行和每一列中都有主元。
+
+  若矩阵$A$是左可逆的，那么方程$A\mathbf{x}=\mathbf{0}$有唯一解$\mathbf{x}=\mathbf{0}$。的确如此：若$B$是$A$的左逆（也即$BA=I$），而$\mathbf{x}$满足\[A\mathbf{x}=\mathbf{0},\]
+  那么将此等式两端同时左乘$B$，即得到$\mathbf{x}=\mathbf{0}$，则此解唯一。因此，$A$的阶梯形在每列中都有主元（无自由变量）。若矩阵$A$是方阵（$n\times n$矩阵），那么其阶梯形的每行也必有主元（共$n$个主元，而且每行至多有$1$个主元），因此矩阵是可逆的。
+
+  若矩阵$A$是右可逆的，且$C$是$A$的右逆（$AC=I$），那么对于$\mathbf{x}=C\mathbf{b},\mathbf{b}\in\mathbb{F}^{n}$，有\[A\mathbf{x}=AC\mathbf{b}=I\mathbf{b}=\mathbf{b}.\]
+  因此，对任意右端项$\mathbf{b}$，方程$A\mathbf{x}=\mathbf{b}$都有解$\mathbf{x}=C\mathbf{b}$。于是$A$的阶梯形每一行都有主元。若$A$是方阵，那么它的每一列也都有主元，故$A$可逆。
+\end{proof}
+
+\begin{problemset}
+  \item $b$取何值时，方程组\[\begin{pmatrix}1&2&2\\2&4&6\\1&2&3\end{pmatrix}\mathbf{x}=\begin{pmatrix}1\\4\\b\end{pmatrix}\]有解？对于该$b$，求方程组的通解。
+  \item 判断向量组\[\begin{pmatrix}1\\1\\0\\0\end{pmatrix},\quad\begin{pmatrix}1\\0\\1\\0\end{pmatrix},\quad\begin{pmatrix}0\\0\\1\\1\end{pmatrix},\quad\begin{pmatrix}0\\1\\0\\1\end{pmatrix}\]是否为线性无关的。
+  
+  这四个向量能张成$\RR^4$吗？（换言之，它是张成组吗？）$\CC^4$呢？
+  \item 判断下面哪些向量组是$\RR^3$的基？
+  \begin{enumerate}[label={\alph*)}]
+    \item $(1,2,-1)^{T},(1,0,2)^{T},(2,1,1)^{T}$；
+    \item $(-1,3,2)^{T},(-3,1,3)^{T},(2,10,2)^{T}$；
+    \item $(67,13,-47)^{T},(\pi,-7.84,0)^{T},(3,0,0)^{T}$。
+  \end{enumerate}
+  哪些向量组是$\CC^3$的基？
+  \item 多项式$x^{3}+2x,x^{2}+x+1,x^{3}+5$能否生成（张成）$\mathbb{P}_3$？证明你的结论。
+  \item $\mathbb{F}^4$中的$5$个向量是否线性无关？证明你的结论。
+  \item 证明或证伪：若方阵（$n\times n$矩阵）$A$的列是线性无关的，那么$A^2=AA$的列也是。
+  \item 证明或证伪：若方阵（$n\times n$矩阵）$A$的列是线性无关的，那么$A^3=AAA$的列也是。
+  \item 证明：方程$A\mathbf{x}=\mathbf{0}$有唯一解（即$A$的阶梯形每一列都有主元），那么$A$是左可逆的。{\bf 提示}：初等矩阵可能有用处。
+  
+  {\bf 注意}：正文中已经证明，若$A$是左可逆的则方程$A\mathbf{x}=\mathbf{0}$具有唯一解。此处你需要证明的是该结论的逆命题，而正文中并未给出证明。
+
+  {\bf 注}：这题可能很难，因为它需要对所论述的主题有深刻的理解。然而，当理解需要做些什么之后，这道题就非常简单了。
+  \item 矩阵的简化阶梯形是唯一的吗？证明你的结论。
+  
+  即，假设我们通过作任意行变换（不按照特定的算法）得到简化阶梯形矩阵。究竟是每次都会得到相同的矩阵，还是可能得到不同的矩阵？注意，只能作行变换，不允许做列变换。
+
+  {\bf 提示}：如果你是从可逆矩阵开始做变换呢？另外，主元是始终在同样的列中，还是根据所做的行变换不同而处于不同的列？如果你可以不通过（对简化阶梯形）作相反的行变换来推知主元列的位置，那么主元列的位置就不取决于行变换。
+\end{problemset}
+
+\section{通过行化简求\texorpdfstring{$A^{-1}$}{A**\{-1\}}}
+
+\begin{theorem}
+  任意可逆矩阵都可表示成若干初等矩阵之积。
+\end{theorem}
+
+\begin{proof}
+  如上段所讨论的，$A^{-1}=E_{N}\cdots E_{2}E_{1}$，所以\[A=(A^{-1})^{-1}=E_{1}^{-1}E_{2}^{-1}\cdots E_{N}^{-1}.\]
+\end{proof}
+
+\begin{example*}
+  假设我们要求出以下矩阵的逆。\[\begin{pmatrix}1&4&-2\\-2&-7&7\\3&11&-6\end{pmatrix}.\]
+  向其右侧附上恒等矩阵，并使用行变换可得
+\end{example*}
+
+\section{线性变换在任意基下的表示、坐标变换公式}\label{sec:ChangeOfCoordinate}
+
+% 如下是算法~\ref{alg:euclid}.
+% \begin{algorithm}[H]
+%   \small
+%   \caption{~Euclid's algorithm}\label{alg:euclid}
+%   \begin{algorithmic}[1]
+%     \Procedure{Euclid}{$a,b$}\Comment{The g.c.d. of a and b}
+%     \State $r\gets a\bmod b$
+%     \While{$r\not=0$}\Comment{We have the answer if r is 0}
+%     \State $a\gets b$
+%     \State $b\gets r$
+%     \State $r\gets a\bmod b$
+%     \EndWhile\label{euclidendwhile}
+%     \State \Return $b$\Comment{The gcd is b}
+%     \EndProcedure
+%   \end{algorithmic}
+% \end{algorithm}
+
+
+% 如下是算法~\ref{alg:foo}, 算法宽度可以通过 minipage 宏包调节.
+% \begin{center}
+%   \vspace{-2ex}
+%   \begin{minipage}{.9\linewidth}
+%     \begin{algorithm}[H]
+%       \caption{~算法的名字}\label{alg:foo}
+%       \begin{algorithmic}[1]
+%         \Require input parameters A, B, C
+%         \Ensure output result
+%         \State some description 算法介绍
+%         \For{condition}
+%         \State ...
+%         \If{condition}
+%         \State ...
+%         \Else
+%         \State ...
+%         \EndIf
+%         \EndFor
+%         \While{condition}
+%         \State ...
+%         \EndWhile
+%         \State \Return result
+%       \end{algorithmic}
+%     \end{algorithm}
+%   \end{minipage}
+% \end{center}
+
+
+% \section{\texorpdfstring{{\boldmath$Z=X \cup Y$}}{Z = X union Y} 的情况}
+
+% 这是一个小节标题中出现数学符号的情况.
+

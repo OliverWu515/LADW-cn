@@ -1,0 +1,76 @@
+
+%%%%%%%%%%%%%%%%%% 谱理论初步 %%%%%%%%%%%%%%%%%%%
+
+\chapter{谱理论初步（特征值与特征向量）}
+
+谱理论是帮助我们理解线性算子之结构的主要工具。本章中，我们仅考虑从向量空间至其本身的算子（或与之等价的$n\times n$矩阵）。对于一个这样的线性变换$A:V\to V$，我们可以将其乘以自身，或取其任意次幂，以至将其放进多项式。
+
+谱理论的主要思想是将算子分为简单的几块，并分别分析每一块。
+
+为了解释这一主要思想，我们来考虑{\bf 差分方程}。许多过程可用下面这类方程来描述：\[\mathbf{x}_{n+1}=A\mathbf{x}_{n},\quad n=0,1,2,\ldots,\]
+其中$A:V\to V$是线性变换，$\mathbf{x}_n$是时刻$n$处的系统状态。给定初始状态$\mathbf{x}_{0}$，我们想要知道时刻$n$处的状态$\mathbf{x}_n$、分析$\mathbf{x}_n$的长期演变，等等\footnote{差分方程类似于“离散时间下的\textbf{微分方程}$\mathbf{x}'(t)=A\mathbf{x}(t)$”。为求解微分方程，我们需要计算$e^{tA}:=\sum_{k=0}^{\infty}t^{k}A^{n}/k!$，而谱理论也能帮助我们进行该计算。}。
+
+乍一看，此问题很简单：用公式$\mathbf{x}_n=A^n\mathbf{x}_0$即可得解$\mathbf{x}_n$。但是，如果$n$很大，有几千甚至几百万呢？又，如果我们要分析$n\to\infty$时$\mathbf{x}_n$的演变呢？
+
+此处，{\bf 特征值}和{\bf 特征向量}的思想应运而生。假设$A\mathbf{x}_{0}=\lambda\mathbf{x}_{0}$，其中$\lambda$为某标量。那么$A^{2}\mathbf{x}_{0}=\lambda^{2}\mathbf{x}_{0},A^{3}\mathbf{x}_{0}=\lambda^{3}\mathbf{x}_{0},\ldots,A^n\mathbf{x}_0=\lambda^n\mathbf{x}_0$。这样，解的演变就很容易理解了。
+
+本节我们仅考虑有限维向量空间中的算子。无限维情况下的谱理论要复杂得多，并且此处展示的大多数结论在无限维情况下都不成立。
+
+\section{主要定义}
+
+\subsection{特征值、特征向量、谱}
+
+称
+
+% 插入一个图形并居中放置, 如图~\ref{fig:sinx}.
+% \begin{figure}[htp!]
+%   \centering
+%   \includegraphics[width=7.2cm]{image1}
+%   \caption{函数 $y=\sin(x)$ 的图像}\label{fig:sinx}
+% \end{figure}
+
+% 两个图左右并排放置, 共用一个标题, 如图~\ref{fig:image}.
+% \begin{figure}[htp!]
+%   \centering
+%   \includegraphics[width=0.45\linewidth]{image1}
+%   \hfill
+%   \includegraphics[width=0.45\linewidth]{image2}
+%   \caption{左: 图一的描述;~ 右:图二的描述}
+%   \label{fig:image}
+% \end{figure}
+
+% \clearpage
+% 使用 minipage 排版并排插图, 每个图都有单独的标题. 通过 \verb|autoref| 引用图片: \autoref{fig:image1} 与 \autoref{fig:image2}.
+% \begin{figure}[htp!]
+% \begin{minipage}[t]{0.48\linewidth}
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{image1}
+%   \caption{图一的描述}
+%   \label{fig:image1}
+% \end{minipage}
+% \hfill
+% \begin{minipage}[t]{0.48\linewidth}
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{image2}
+%   \caption{图二的描述}
+%   \label{fig:image2}
+% \end{minipage}
+% \end{figure}
+
+% 使用 subfig 宏包实现多图并排, 如图~\ref{fig:images}.
+% \begin{figure}[htp!]
+% \centering
+% \subfloat[Subcaption A]{\includegraphics[width=0.3\linewidth]{image1}}
+% \hfill
+% \subfloat[Subcaption B]{\includegraphics[width=0.3\linewidth]{image1}}
+% \hfill
+% \subfloat[Subcaption C]{\includegraphics[width=0.3\linewidth]{image1}} \\
+% \subfloat[Subcaption D]{\includegraphics[width=0.3\linewidth]{image2}}
+% \hfill
+% \subfloat[Subcaption E]{\includegraphics[width=0.3\linewidth]{image2}}
+% \hfill
+% \subfloat[Subcaption F]{\includegraphics[width=0.3\linewidth]{image2}}
+% \caption{六个图并排}
+% \label{fig:images}
+% \end{figure}
+

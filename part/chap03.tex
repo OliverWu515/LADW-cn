@@ -1,0 +1,268 @@
+
+%%%%%%%%%%%%%%% 行列式 %%%%%%%%%%%%%
+
+\chapter{行列式}\label{chap:Determinant}
+
+\section{引入}
+
+读者大概已在微积分或代数课中接触了行列式（至少接触过$2\times 2$与$3\times 3$矩阵的行列式）。对于$2\times 2$矩阵
+\[\begin{pmatrix}a&b\\c&d\end{pmatrix}\]
+其行列式为$ad-bc$；$3\times 3$矩阵的行列式可用“大卫之星”法则\footnote{对于$3\times 3$行列式
+\[a = \begin{vmatrix}
+  a_{1,1} & a_{1,2} & a_{1,3} \\
+  a_{2,1} & a_{2,2} & a_{2,3} \\
+  a_{3,1} & a_{3,2} & a_{3,3} 
+\end{vmatrix}\]
+有\[a = \underbrace{a_{1,1}a_{2,2}a_{3,3} + a_{1,2}a_{2,3}a_{3,1} + a_{2,1}a_{3,2}a_{1,3}}_{\text{三条从左上往右下的对角线项之积}} - (\underbrace{a_{1,3}a_{2,2}a_{3,1} + a_{1,2}a_{2,1}a_{3,3} + a_{2,3}a_{3,2}a_{1,1}}_{\text{三条从右上往左下的对角线项之积}})\]
+——译者注}求得。
+
+在本章中，我们期望引入$n\times n$的矩阵的行列式。我不想仅仅给出正式的定义，而想首先给个引子，再导出行列式应具备的一些性质。那么，我们如果要使行列式具备这些性质，就必须按照若干（彼此等价的）方式来定义它，而没有别的选择。
+
+从向量组的行列式出发，会比从矩阵的行列式出发更为方便。而这两者并无实质差别——我们总能将向量（视作列向量）组合成矩阵。
+
+设我们有$\mathbb{R}^n$中的$n$个向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$（注意各向量的长度与向量的个数相等），并且我们想求出由这些向量所确定的平行多面体的$n$维体积。
+
+由向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$所确定的平行多面体，可定义为所有表示如下的向量$\mathbf{v}\in\mathbb{R}^{n}$的集合：
+\[\mathbf{v}=t_1\mathbf{v}_1+t_2\mathbf{v}_2+\cdots+t_n\mathbf{v}_n,\quad0\leq t_k\leq1\quad\forall k=1,2,\ldots,n.\]
+$n=2$与$n=3$的情况很容易可视化——分别为平行四边形和平行六面体。那么，$n$维体积是什么呢？
+
+$n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长度。
+
+最后，引入一些记号。对于一组（列）向量$\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{n}$，我们记其行列式（这是我们将构造的概念）为$D(\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{n})$。如果我们将这些向量组成一个矩阵$A$（其中第$k$列为$\mathbf{a}_{k}$），那么我们使用记号$\det A$：
+\[\det A=D(\mathbf{a}_1,\mathbf{a}_2,\ldots,\mathbf{a}_n)\]
+并且，对矩阵\[A=\begin{pmatrix}a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&&\vdots\\a_{n,1}&a_{n,2}&\ldots&a_{n,n}\end{pmatrix}\]
+其行列式常记为：
+\[\begin{vmatrix}a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&&\vdots\\a_{n,1}&a_{n,2}&\ldots&a_{n,n}\end{vmatrix}.\]
+
+\section{行列式应具备的性质}\label{sec:determinant_prop}
+我们知道，对于$2$维和$3$维情况，平行六面体的“体积”是由{\bf “底面积乘高”}规则确定的：任取一向量，则高等于从这个向量到剩余向量张成的子空间的距离，底面积则为由剩余向量所确定的平行六面体的$(n-1)$维体积。
+
+现在，我们将此处的思想推广到更高维度。我们暂时不关心高和底面积的具体计算，而是说明，如果假设底面积和高满足一些自然的性质，那么我们就能唯一定义体积（行列式），而别无选择。
+
+\subsection{对每个自变量的线性}
+首先，如果我们将向量$\mathbf{v}_1$乘以正数$a$，那么高（即到线性张成空间$\mathcal{L}(\mathbf{v}_{2},\ldots,\mathbf{v}_{n})$的距离）会被乘以$a$。如果我们允许负的高（以及负的体积），那么这个性质就会对所有标量$a$都成立，因此向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的行列式$D(\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n})$就应满足\[D(\alpha\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n})=\alpha D(\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}).\]
+当然，向量$\mathbf{v}_1$并无任何特别之处，所以对于任意下标$k$都有
+\begin{equation}\label{Determinant_linear_1}
+  D(\mathbf{v}_1,\ldots,\underset{k}{\alpha\mathbf{v}_k},\ldots,\mathbf{v}_n)=\alpha D(\mathbf{v}_1,\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_n)
+\end{equation}
+
+接下来推导下个性质。注意到，如果我们将（某位置上的）两向量相加，那么所得结果的“高”应等于每个求和项的“高”之和，即
+\begin{align}
+  D(\mathbf{v}_1,\ldots,\underbrace{\mathbf{u}_k+\mathbf{v}_k}_k,&\ldots,\mathbf{v}_n)=\label{Determinant_linear_2}\\
+  &D(\mathbf{v}_1,\ldots,\underset{k}{\mathbf{u}_k},\ldots,\mathbf{v}_n)+D(\mathbf{v}_1,\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_n)\notag
+\end{align}
+换言之，上述两个性质表明，$n$个向量的行列式{\bf 对每个自变量（向量）是线性的}，意即如果固定$n-1$个向量而将剩余的那个向量视作自变量，我们就得到了一个线性函数。
+
+\begin{remark*}
+  我们已经了解到，{\bf 线性}是一个绝佳的性质，它在很多情况下都大有用处。因此，允许负的高（从而允许负的体积）存在，只是为了得到线性而付出的微不足道的代价。后续如有必要，我们总可以加上绝对值。
+
+  事实上，我们并不因允许负的高存在而牺牲任何东西！恰恰相反，我们反而得到了新东西——行列式的符号包含向量组的信息（取向）。
+\end{remark*}
+
+\subsection{如果两向量重合，则行列式为$0$}
+
+若$\mathbf{v}_{j}=\mathbf{v}_{k}$（$j\ne k$），那么向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是线性相关的，因此\[\dim\operatorname{span}\{\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n\}<n.\]
+不过这样一来体积就一定为$0$【因为某个高（比如从$\mathbf{v}_j$到$\operatorname{span}\{\mathbf{v}_{r}:r\neq j\}$的距离）是$0$】。因此可以很自然地假设
+\begin{equation}\label{Determinant_0}
+  D(\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n)=0\quad\text{若}~\mathbf{v}_j=\mathbf{v}_k(j\neq k).
+\end{equation}
+后续我们还会用到行列式的这条性质。
+
+\begin{remark*}
+  有个更强的性质是：对于线性相关向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$，$D(\mathbf{v}_1,\mathbf{v}_2,$ $\ldots,\mathbf{v}_n)=0$成立。该性质也很自然。
+
+  然而，容易从更弱的假设 \eqref{Determinant_0} 以及线性 \eqref{Determinant_linear_1} 和 \eqref{Determinant_linear_2} 推出此性质。详见命题 \ref{prop:det_0}。
+\end{remark*}
+
+\subsection{对“列置换”保持原值}
+接下来的性质看上去也很自然。它就是：如果我们取一向量（比如$\mathbf{v}_j$），并且将它加上另一向量$\mathbf{v}_k$的若干倍，那么“高”不变，因此
+{\small
+\begin{align}
+  D(\mathbf{v}_1,\ldots,\underbrace{\mathbf{v}_j+\alpha\mathbf{v}_k}_j,\ldots,\underset{k}{\mathbf{v}_k},\ldots,&\mathbf{v}_n)=D(\mathbf{v}_1,\ldots,\underset{j}{\mathbf{v}_j},\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_n).\label{Preserve_column_replacement}
+\end{align}}
+换言之，若施加第三类{\bf 列变换}，行列式不变。
+
+不过，该性质并不独立——它是式 \eqref{Determinant_0} 以及线性 \eqref{Determinant_linear_1} 和 \eqref{Determinant_linear_2} 的简单推论。也即
+\begin{align*}
+  D(\mathbf{v}_{1},&\ldots,\underbrace{\mathbf{v}_{j}+\alpha\mathbf{v}_{k}}_{j},\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_{n})\\
+  &=D(\mathbf{v}_{1},\ldots,\underset{j}{\mathbf{v}_j},\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_{n})+\alpha D(\mathbf{v}_{1},\ldots,\underset{j}{\mathbf{v}_k},\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_{n})\\
+  &=D(\mathbf{v}_{1},\ldots,\underset{j}{\mathbf{v}_j},\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_{n});
+\end{align*}
+此处第一个等号源于线性 \eqref{Determinant_linear_1} 和 \eqref{Determinant_linear_2}，而第二个等号即源于式 \eqref{Determinant_0}。
+
+\subsection{反对称性}
+
+行列式应具备的下个性质是，\marginpar{\small 称多变量函数是{\bf 反对称的}，若交换其任意两个自变量会导致函数值变号。}如果我们交换两个向量，那么行列式变号：
+\begin{equation}\label{antisymmetry}
+  D(\mathbf{v}_1,\ldots,\underset{j}{\mathbf{v}_k},\ldots,\underset{k}{\mathbf{v}_j},\ldots,\mathbf{v}_n)=-D(\mathbf{v}_1,\ldots,\underset{j}{\mathbf{v}_j},\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_n).
+\end{equation}
+这个性质一眼看上去并不自然，但其可由之前的性质推导出来。即，应用 \eqref{Preserve_column_replacement} 三次，再利用式 \eqref{Determinant_linear_1} 即得
+\begin{align*}
+  D&(\mathbf{v}_{1},\ldots,\underset{j}{\mathbf{v}_j},\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_{n})\\
+  &=D(\mathbf{v}_{1},\ldots,\underset{j}{\mathbf{v}_j},\ldots,\underbrace{\mathbf{v}_{k}-\mathbf{v}_{j}}_{k},\ldots,\mathbf{v}_{n})\\
+  &=D(\mathbf{v}_{1},\ldots,\underbrace{\mathbf{v}_{j}+(\mathbf{v}_{k}-\mathbf{v}_{j})}_{j},\ldots,\underbrace{\mathbf{v}_{k}-\mathbf{v}_{j}}_{k},\ldots,\mathbf{v}_{n})\\
+  &=D(\mathbf{v}_{1},\ldots,\underset{j}{\mathbf{v}_k},\ldots,\underbrace{\mathbf{v}_{k}-\mathbf{v}_{j}}_{k},\ldots,\mathbf{v}_{n})\\
+  &=D(\mathbf{v}_{1},\ldots,\underset{j}{\mathbf{v}_k},\ldots,\underbrace{(\mathbf{v}_{k}-\mathbf{v}_{j})-\mathbf{v}_{k}}_{k},\ldots,\mathbf{v}_{n})\\
+  &=D(\mathbf{v}_1,\ldots,\underset{j}{\mathbf{v}_k},\ldots,-\underset{k}{\mathbf{v}_j},\ldots,\mathbf{v}_n)\\
+  &=-D(\mathbf{v}_{1},\ldots,\underset{j}{\mathbf{v}_k},\ldots,\underset{k}{\mathbf{v}_j},\ldots,\mathbf{v}_{n}).
+\end{align*}
+回想一下，性质 \eqref{Preserve_column_replacement} 源于 \eqref{Determinant_0} 和线性 \eqref{Determinant_linear_1}、\eqref{Determinant_linear_2}，因此反对称性 \eqref{antisymmetry} 也源于那些性质。
+
+\subsection{归一化}
+
+最后一个性质是最简单的一个。对于$\mathbb{R}^n$中的标准基$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$，对应的平行多面体是$n$维单位立方体，所以
+\begin{equation}\label{normalization}
+  D(\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n)=1.
+\end{equation}
+用矩阵记号书写就是\[\det(I)=1\]
+
+\section{构造行列式}
+
+接下来的安排是：利用我们在第 \ref{sec:determinant_prop} 节中所确定的行列式应具备的性质，来导出行列式的其余性质（其中有些是极不显而易见的）。我们将展示如何用这些性质结合我们的惯用手段——行化简——来计算行列式。
+
+然后，在第 \ref{sec:determinant_formal} 节中，我们将展示行列式（就是具有我们所需性质的一个函数）是存在且唯一的。毕竟，我们需要确保我们计算与研究的对象是存在的。
+
+我们起初以几何作为引子来引入行列式及其性质，这源于考虑实向量空间$\mathbb{R}^n$中的向量，因此都只能关联到各项为实数的矩阵。尽管如此，以下的构造都只运用代数运算（加法、乘法和除法），因而适用于各项为复数的矩阵，甚至是各项属于任意的域的矩阵。
+
+因此，接下来，我们不仅仅是为实矩阵构造行列式，而同样也为复矩阵（及各项属于任意的域的矩阵）进行构造。从几何出发的引子很优美却只适用于实数情形，但在我们选定了行列式的性质（见下性质1-3）后，所有讨论都适用于一般的情形。
+
+\subsection{基本性质}\label{subsec:basic_prop}
+
+我们将采用行列式的如下基本性质：
+
+\begin{enumerate}[label={\textup{\arabic*}.}]
+  \item 行列式对于每一列都是线性的，用向量记号表述即对于任一下标$k$，对所有标量$\alpha,\beta$都有
+  \[\begin{aligned}
+    D(\mathbf{v}_{1},\ldots,&\underbrace{\alpha\mathbf{u}_{k}+\beta\mathbf{v}_{k}}_{k},\ldots,\mathbf{v}_{n})\\&=\alpha D(\mathbf{v}_{1},\ldots,\underset{k}{\mathbf{u}_{k}},\ldots,\mathbf{v}_{n})+\beta D(\mathbf{v}_{1},\ldots,\underset{k}{\mathbf{v}_{k}},\ldots,\mathbf{v}_{n})
+  \end{aligned}\]
+  \item 行列式是{\bf 反对称的}，即如果交换两列，行列式变号；
+  \item 归一化性质：$\det(I)=1$。
+\end{enumerate}
+
+所有这些性质都在第 \ref{sec:determinant_prop} 节中讨论了。第一个性质就是结合了 \eqref{Determinant_linear_1} 和 \eqref{Determinant_linear_2}，第二个是式 \eqref{antisymmetry}，而第三个是式 \eqref{normalization}。注意，我们并未用性质 \eqref{Determinant_0} 和 \eqref{Preserve_column_replacement}——它们可由上面三个性质推导出来。由这三个性质就能完全定义行列式！
+
+\subsection{由基本性质推导出的行列式性质}
+
+接下来，$\det A=D(\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{n})$就是满足上面 \ref{subsec:basic_prop} 节中所述三个性质的函数。
+
+\begin{proposition}\label{prop:det_0}
+  对于方阵$A$，下面结论成立：
+  \begin{enumerate}[label={\textup{\arabic*}.}]
+    \item 若$A$有一列是零，那么$\det A = 0$；
+    \item 若$A$有两列相等，那么$\det A = 0$；
+    \item 若$A$的其中一列是另一列的若干倍，那么$\det A = 0$；
+    \item 若$A$的各列线性相关，即若该矩阵不可逆，那么$\det A = 0$。
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  结论1由线性立即可得——如果我们将为零的列乘以零，我们并不会改变矩阵及其行列式。而由上节所述性质1，我们应得到$0$。
+
+  行列式的反对称性蕴涵了结论2。的确如此：如果我们交换两个相等的列，我们并没有改变行列式的输入（向量组或矩阵），因此行列式保持不变；另一方面，交换两列会使行列式变号，因此\[\det A = -\det A\]该式成立仅当$\det A = 0$。
+
+  结论3是结论2和线性的一个很显然的推论。
+
+  为证明最后一个结论，首先我们假设第一个向量$\mathbf{v}_1$是其余向量的线性组合：\[\mathbf{v}_1=\alpha_2\mathbf{v}_2+\alpha_3\mathbf{v}_3+\cdots+\alpha_n\mathbf{v}_n=\sum_{k=2}^n\alpha_k\mathbf{v}_k.\]
+  然后由线性可知（以向量记号表示）
+  \[\begin{aligned}
+    D(\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n})&=D\left(\bigl(\sum_{k=2}^{n}\alpha_{k}\mathbf{v}_{k}\bigr),\mathbf{v}_{2},\mathbf{v}_{3},\ldots,\mathbf{v}_{n}\right)\\
+    &=\sum_{k=2}^{n}\alpha_{k}D(\mathbf{v}_{k},\mathbf{v}_{2},\mathbf{v}_{3},\ldots,\mathbf{v}_{n})
+  \end{aligned}\]
+  和式中的每个行列式都等于零，因为它们都含有两个相等的列。
+
+  让我们考虑一般的情况，即考虑向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$线性相关的情形。那么其中有一个向量，比如说$\mathbf{v}_k$，可被表示成其他向量的线性组合。将该向量和$\mathbf{v}_1$交换，我们就得到了刚刚讨论过的情形，因此\[D(\mathbf{v}_1,\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_n)=-D(\mathbf{v}_k,\ldots,\underset{k}{\mathbf{v}_1},\ldots,\mathbf{v}_n)=-0=0,\]
+  故该情况中的行列式也是$0$。
+\end{proof}
+
+接下来的命题推广了性质 \eqref{Preserve_column_replacement}。如我们之前所述，该性质可从我们在本节所用的行列式的三大“基本”性质推导出来。
+
+\marginpar{\small 注意，此处向一列加入自身的若干倍是不允许的，我们只能加入其他列的倍数。}
+
+\begin{proposition}
+  如果我们向其中一列加上其余列的线性组合（并保持其余列不变），那么行列式不变。特别地，行列式在“列置换”（第三类列变换）下是保持原值的。
+\end{proposition}
+
+\begin{proof}
+  取定向量$\mathbf{v}_k$，并令$\mathbf{u}$是其余向量的线性组合\[\mathbf{u}=\sum_{j\neq k}\alpha_j\mathbf{v}_j.\]
+  于是由线性可得{\small \[D(\mathbf{v}_1,\ldots,\underbrace{\mathbf{v}_k+\mathbf{u}}_k,\ldots,\mathbf{v}_n)=D(\mathbf{v}_1,\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_n)+D(\mathbf{v}_1,\ldots,\underset{k}{\mathbf{u}},\ldots,\mathbf{v}_n),\]}
+  由命题 \ref{prop:det_0} 可得，最后一项等于$0$。
+\end{proof}
+
+\subsection{对角矩阵与三角矩阵的行列式}
+
+下面我们准备计算几类重要的特殊矩阵的行列式。第一类是所谓的{\bf 对角}矩阵。回想一下，称方阵$A=\{a_{j,k}\}_{j,j=1}^{n}$是{\bf 对角的}，若其{\bf 主对角线}之外的项全部为零，也即对于所有$j\ne k$有$a_{j,k}=0$。我们常用记号$\operatorname{diag}\{a_1,a_2,\dots,a_n\}$来表示对角矩阵\[\begin{pmatrix}a_1&0&\ldots&0\\0&a_2&\ldots&0\\\vdots&\vdots&\ddots&0\\0&0&\ldots&a_n\end{pmatrix}.\]
+
+由于对角矩阵$\operatorname{diag}\{a_1,a_2,\dots,a_n\}$可由恒等矩阵将各列乘以常数（第$k$列乘以$a_k$）得到，所以
+\begin{center}
+  \fbox{\parbox{0.8\linewidth}{对角矩阵的行列式等于对角线上各项的乘积：\[\det(\mathrm{diag}\{a_1,a_2,\ldots,a_n\})=a_1a_2\ldots a_n.\]}}
+\end{center}
+
+下一类重要矩阵是所谓{\bf 三角}矩阵。称方阵$A=\{a_{j,k}\}_{j,j=1}^{n}$是{\bf 上三角的}，若所有在主对角线{\bf 之下}的项都为$0$，也即对于所有$k<j$有$a_{j,k}=0$。称方阵是{\bf 下三角的}，若所有在主对角线{\bf 之上}的项都为$0$，也即对于所有$j<k$有$a_{j,k}=0$。称一矩阵是{\bf 三角的}，若其是下三角的或是上三角的。
+
+容易看出\begin{center}
+  \fbox{\parbox{0.8\linewidth}{三角矩阵的行列式等于对角线上各项的乘积：\[\det A=a_{1,1}a_{2,2}\ldots a_{n,n}.\]}}
+\end{center}
+
+的确如此：若一个三角矩阵的主对角线上有项为零，那么其不可逆（容易通过列变换来检验之），因此上式两端都等于零。若所有对角线上的项都非零，那么利用列置换（第三类列变换），我们可将该矩阵转化成对角矩阵（且保持对角矩阵不变）：对于上三角矩阵，首先将第$2,3,\dots,n$列减去第一列的适当倍数，将第一行中（除第一项外）全部变成$0$，然后将第$3,\dots,n$列减去第二列的适当倍数，以此类推。
+
+对于下三角矩阵，则需要从左到右进行“列化简”，即首先将第$n-1,\dots,2,1$各列减去最后一列的适当倍数，以此类推。
+
+\subsection{计算行列式}
+
+\subsection{积和转置的行列式、初等矩阵的行列式}
+
+\begin{theorem}[转置的行列式]
+  对于方阵$A$，\[\det A = \det(A^T).\]
+\end{theorem}
+
+该定理表明，我们上面讨论的所有关于列的结论同样适用于行。特别地，行列式在{\bf 行变换}和{\bf 列变换}下的表现是相同的。所以我们可以用行变换来计算行列式。
+
+\subsection{行列式性质总结}
+
+首先，重申一遍：{\bf 行列式只对方阵有定义！}由于我们知道了$\det A = \det A^T$，所以对于列成立的结论对于行也是成立的。
+\begin{enumerate}
+  \item 行列式对于各行（列）都是线性的【将其余各行（列）固定】。
+  \item 如果交换矩阵$A$的两行（列），那么行列式变号。
+  \item 对于三角矩阵（特别地，对角矩阵）而言，其行列式为对角线项的乘积。特别地，$\det I = 1$。
+  \item 若矩阵$A$有零行（或零列），则$\det A = 0$。
+  \item 若$A$有两行（列）相等，那么$\det A = 0$。
+  \item 若$A$的其中一行（列）是另一些行（列）的线性组合，也即，若该矩阵不可逆，那么$\det A = 0$。
+  
+  更一般地，
+  \item $\det A = 0$当且仅当（等价于）$A$不可逆。
+  \item $\det A \neq 0$当且仅当$A$可逆。
+  \item 若我们向矩阵$A$的一行（列）加入其余行（列）的线性组合，那么$\det A$不变。特别地，在行（列）置换下【也即在第三类行（列）变换下】，行列式保持原值。
+  \item $\det A^T = \det A$。
+  \item $\det (AB) = (\det A)(\det B)$。
+  
+  最后：
+  \item 若$A$为$n\times n$矩阵，那么$\det (aA) = a^n(\det A)$。
+\end{enumerate}
+
+最后一个性质源于行列式的线性——回忆一下，要将矩阵乘以$A$，我们需要将各行都乘以$a$，而每次乘法都会将行列式乘以$a$。
+
+\begin{problemset}
+  \item 若$A$为$n\times n$矩阵，那么行列式$\det A$和$\det (5A)$有什么联系？\\{\bf 注}：$\det (5A) = 5\det A$只在$1\times 1$的平凡情形成立。
+  \item 若$A$、$B$如下，那么行列式$\det A$和$\det B$有什么联系？
+  \begin{enumerate}[label={\alph*)}]
+    \item \[A=\begin{pmatrix}a_1&a_2&a_3\\b_1&b_2&b_3\\c_1&c_2&c_3\end{pmatrix},\quad B=\begin{pmatrix}2a_1&3a_2&5a_3\\2b_1&3b_2&5b_3\\2c_1&3c_2&5c_3\end{pmatrix};\]
+    \item \[A=\begin{pmatrix}a_1&a_2&a_3\\b_1&b_2&b_3\\c_1&c_2&c_3\end{pmatrix},\quad B=\begin{pmatrix}3a_1&4a_2+5a_1&5a_3\\3b_1&4b_2+5b_1&5b_3\\3c_1&4c_2+5c_1&5c_3\end{pmatrix}.\]。
+\end{enumerate}
+  \item 利用行变换或列变换来计算下列行列式：
+  \[\begin{vmatrix}0&1&2\\-1&0&-3\\2&3&0\end{vmatrix},\quad\begin{vmatrix}1&2&3\\4&5&6\\7&8&9\end{vmatrix},\quad\begin{vmatrix}1&0&-2&3\\-3&1&1&2\\0&4&-1&1\\2&3&0&1\end{vmatrix},\quad\begin{vmatrix}1&x\\1&y\end{vmatrix}.\]
+  \item 证明：\[\begin{vmatrix}1&x&x^2\\1&y&y^2\\1&z&z^2\end{vmatrix}=(z-x)(z-y)(y-x).\]这是所谓范德蒙行列式的一个特例。
+\end{problemset}
+
+\section{正式定义、行列式的存在性与唯一性}\label{sec:determinant_formal}
+
+\section{余子式展开}
+
+\section{子式与秩}
+
+\section{第 \textup{\ref{chap:Determinant}} 章复习题}
+
+{\zihao{5}
+\begin{enumerate}[label={\textbf{\arabic{section}.\arabic*.}},ref={\arabic{section}.\arabic*}]
+  \item 判断正误：
+  \item 设$A$
+\end{enumerate}}
