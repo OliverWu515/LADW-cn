@@ -307,7 +307,7 @@
   \par
   \vspace{10pt}
   \noindent{\zihao{4}\bfseries\exerciseautorefname}
-  \begin{enumerate}[label={\textbf{\arabic{section}.\arabic*.}},ref={\arabic{section}.\arabic*}]\zihao{5}}{
+  \begin{enumerate}[label={\textbf{\arabic{section}.\arabic*.}},ref={\arabic{section}.\arabic*},leftmargin=2em]\zihao{5}}{
   \end{enumerate}}
 
 %---------- 数学公式设置 ----------

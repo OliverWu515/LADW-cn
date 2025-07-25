@@ -250,7 +250,7 @@
     在许多教材中，基被定义为既完备又线性无关的向量组（由命题 \ref{prop:complete_li_basis}，这种定义和本书的定义是等价的）。尽管这种定义比本书所示的定义更为常见，我还是更喜欢后者。它强调了基的主要性质，即任意向量都能被基向量的线性组合唯一表出。
 \end{remark*}
 
-\begin{proposition}
+\begin{proposition}\label{prop:generating_contain_basis}
     任意（有限）生成组包含一个基。
 \end{proposition}
 
@@ -285,7 +285,7 @@
         \item $n\times n$对称矩阵；
         \item $n\times n$反对称矩阵（$A^T=-A$）。
     \end{enumerate}
-    \item 设向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$是线性无关的，但不是生成组。证明：可以找到向量$\mathbf{v}_{r+1}$使得向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r},\mathbf{v}_{r+1}$是线性无关的。{\bf 提示}：取$\mathbf{v}_{r+1}$为任一无法被表示为线性组合$\sum_{k=1}^r\alpha_k\mathbf{v}_k$的向量，再证明向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r},\mathbf{v}_{r+1}$是线性无关的。
+    \item \label{ex:1_2_5}设向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$是线性无关的，但不是生成组。证明：可以找到向量$\mathbf{v}_{r+1}$使得向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r},\mathbf{v}_{r+1}$是线性无关的。{\bf 提示}：取$\mathbf{v}_{r+1}$为任一无法被表示为线性组合$\sum_{k=1}^r\alpha_k\mathbf{v}_k$的向量，再证明向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r},\mathbf{v}_{r+1}$是线性无关的。
     \item 是否可能出现这样的情况：向量$\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}$是线性相关的，但向量$\mathbf{w}_1=\mathbf{v}_1+\mathbf{v}_2,\mathbf{w}_2=\mathbf{v}_2+\mathbf{v}_3$与$\mathbf{w}_3=\mathbf{v}_3+\mathbf{v}_1$是线性{\bf 无关}的？
 \end{problemset}
 
@@ -583,7 +583,7 @@
 \begin{theorem}\label{thm:trace_commute}
     令$A$和$B$分别为$m\times n$和$n\times m$矩阵（则乘积$AB$和$BA$都是定义完善的）。那么\[\tr (AB)=\tr(BA)\]
 \end{theorem}
-此定理的证明留作习题（见下习题 \ref{ex:5_6}）。其实，这个定理有两种证法。第一种方法是计算$AB$与$BA$的对角线项并比较两者的和。这种方法对于操作嵌套的求和有较高的要求。
+此定理的证明留作习题（见下习题 \ref{ex:1_5_6}）。其实，这个定理有两种证法。第一种方法是计算$AB$与$BA$的对角线项并比较两者的和。这种方法对于操作嵌套的求和有较高的要求。
 
 如果你不擅长代数运算，还可用另一种方法。我们可以考虑两个从$M_{n\times m}$到$\mathbb{F}=\mathbb{F}^1$的线性变换$T$和$T_1$，定义为：\[T(X)=\mathrm{trace}(AX),\quad T_{1}(X)=\mathrm{trace}(XA)\]
 只需证明$T=T_1$即可得证——代入$X=B$可得到原定理。
@@ -601,7 +601,7 @@
     \item 将两个旋转矩阵$T_{\alpha}$和$T_{\beta}$相乘（该乘法是罕见的可交换乘法，即$T_\alpha T_\beta=T_\beta T_\alpha$，故顺序不重要）。据此推导$\sin(\alpha+\beta)$和$\cos(\alpha+\beta)$的公式。
     \item 求出$\mathbb{R}^2$中向直线$x_1=-2x_2$上正交投影的矩阵。{\bf 提示}：向坐标轴$x_1$上投影的矩阵是什么？
     \item 求出线性变换$A,B:\mathbb{R}^{2}\to\mathbb{R}^{2}$使得$AB=\mathbf{0}$但$BA\ne \mathbf{0}$。
-    \item \label{ex:5_6}证明\autoref{thm:trace_commute}，即证明$\tr (AB)=\tr(BA)$。
+    \item \label{ex:1_5_6}证明\autoref{thm:trace_commute}，即证明$\tr (AB)=\tr(BA)$。
     \item 构造非零矩阵$A$使得$A^{2}=\mathbf{0}$。
     \item 求出关于直线$y=-2x/3$的反射的矩阵。请将所有乘法都算到最终结果。
 \end{problemset}

@@ -313,6 +313,19 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
   \item 证明：若矩阵$A$和$B$相似，则$\det A = \det B$。
   \item 称实方阵$Q$为正交的，若$Q^TQ = I$。证明：若$Q$为正交矩阵，则$\det Q = \pm 1$。
   \item 证明：\[\begin{vmatrix}1&x&x^2\\1&y&y^2\\1&z&z^2\end{vmatrix}=(z-x)(z-y)(y-x).\]这是所谓范德蒙行列式的一个特例。
+  \item 设平面$\mathbb{R}^2$中的点$A$、$B$和$C$的坐标分别为$(x_1,y_1)$、$(x_2,y_2)$和$(x_3,y_3)$。证明：三角形$ABC$的面积是\[\frac{1}{2}\begin{vmatrix}1&x_1&y_1\\1&x_2&y_2\\1&x_3&y_3\end{vmatrix}.\]的绝对值。
+  
+  {\bf 提示}：利用行变换与$2\times 2$行列式的几何意义（面积）。
+  \item 令$A$为方阵。证明分块三角矩阵\[\begin{pmatrix}I&\ast\\\mathbf{0}&A\end{pmatrix},\quad\begin{pmatrix}A&\ast\\\mathbf{0}&I\end{pmatrix},\quad\begin{pmatrix}I&\mathbf{0}\\\ast&A\end{pmatrix},\quad\begin{pmatrix}A&\mathbf{0}\\\ast&I\end{pmatrix}\]
+  的行列式都等于$\det A$。此处$\ast$为任意矩阵。
+
+  下面这几题展示了分块矩阵记号的强大用处。
+  \item 利用上一题的结论证明：若$A$和$C$是方阵，那么\[\det\begin{pmatrix}A&B\\\mathbf{0}&C\end{pmatrix}=\det A\det C.\]
+  
+  {\bf 提示}：$\left.\left(\begin{array}{cc}A&B\\\mathbf{0}&C\end{array}\right.\right)=\begin{pmatrix}I&B\\\mathbf{0}&C\end{pmatrix}\begin{pmatrix}A&\mathbf{0}\\\mathbf{0}&I\end{pmatrix}$。
+  \item 令$A$是$m\times n$矩阵，$B$是$n\times m$矩阵。证明：\[\det\begin{pmatrix}\mathbf{0}&A\\-B&I\end{pmatrix}=\det(AB).\]
+  
+  {\bf 提示}：尽管可以通过作行变换将该矩阵转化为容易计算行列式的形式，最简单的方法还是将该矩阵右乘$\begin{pmatrix}I&\mathbf{0}\\B&I\end{pmatrix}$。
 \end{problemset}
 
 \section{正式定义、行列式的存在性与唯一性}\label{sec:determinant_formal}

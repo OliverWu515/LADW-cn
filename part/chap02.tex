@@ -50,7 +50,7 @@
 
 显然，变换1和2并不会改变线性方程组的解——它们实质上就没有改变原方程组。
 
-至于变换3，我们容易看出它并不会使方程组的解减少。意即，令“新”方程组由“旧”方程组经过第3种行变换得来。那么“旧”方程组的每个解都是“新”方程组的解。
+至于变换3，我们容易看出它不会使方程组的解减少。意即，令“新”方程组由“旧”方程组经过第3种行变换得来。那么“旧”方程组的每个解都是“新”方程组的解。
 
 要看出为什么变换3不会导致解增加，也就是“新”方程组的任一解也是“旧”方程组的解，我们只需注意到第3种行变换是{\bf 可逆的}，也即，“旧”方程组也可以通过对“新”方程组进行第3种行变换得来（你能说出是什么样的变换吗？）
 
@@ -118,11 +118,11 @@
   \item 如有必要，通过施加第一类行变换（行交换），确保该列的第一个（最上方的）项是非零的。该项将被称为{\bf 主元}；
   \item 通过向第$2,3,\dots,m$行加（或减）第一行的适当倍数，“消去”主元之下的所有非零项（就是将它们都变为$0$）。
 \end{enumerate}
-我们将这些步骤作用于矩阵，则会保持第一行不变，再将这些步骤作用于第$2,3,\dots,m$行，然后是第$3,\dots,m$行，等等。
+我们先将这些步骤作用于整个矩阵，然后保持第一行不变并将这些步骤作用于第$2,3,\dots,m$行，然后是第$3,\dots,m$行，诸如此类。
 
 关键是记住在把某一行下方的所有行都减去该行的若干倍后（步骤3），我们就不再改变该行（甚至不会将该行与其他行进行交换）。
 
-在有限次（至多$m$次）应用主要步骤后，我们就得到了矩阵的{\bf 阶梯形}。
+在有限次（至多$m$次）应用这些主要步骤后，我们就得到了矩阵的{\bf 阶梯形}。
 
 \subsubsection{行化简实例}
 
@@ -141,7 +141,7 @@
   3 & 2 & 1 & 7 & -3R_1  \\
   2 & 1 & 2 & 1 & -2R_1 \\
 \end{pNiceArray} \quad\sim\quad \left(
-  \begin{array}{ccc|c}
+  \begin{array}{rrr|r}
       1 & 2 & 3 & 1   \\
       0 & -4 & -8 & 4   \\
       0 & -3 & -4 & -1   \\
@@ -150,19 +150,19 @@
 \]
 将第二行乘以$-1/4$可得
 \[\left(
-  \begin{array}{ccc|c}
+  \begin{array}{rrr|r}
     1 & 2 & 3 & 1   \\
     0 & 1 & 2 & -1   \\
     0 & -3 & -4 & -1   \\
   \end{array}
 \right)\]
 将第二行的$3$倍加到第三行，可得
-\[\begin{pNiceArray}{ccc|c}[margin,last-col]
+\[\begin{pNiceArray}{rrr|r}[margin,last-col]
   1 & 2 & 3 & 1 &  \\
   0 & 1 & 2 & -1 &   \\
   0 & -3 & -4 & -1 & +3R_2 \\
 \end{pNiceArray} \quad\sim\quad \left(
-  \begin{array}{ccc|c}
+  \begin{array}{rrr|r}
       1 & 2 & 3 & 1   \\
       0 & 1 & 2 & -1   \\
       0 & 0 & 2 & -4   \\
@@ -177,17 +177,17 @@
 
 我们也可以不用回代法，而是从下到上做行变换，将系数矩阵主对角线上方的所有项全部变为$0$：首先将最后一行乘以$1/2$，后续过程则不言而喻：
 \begin{align*}
-  \begin{pNiceArray}{ccc|c}[margin,last-col]
+  \begin{pNiceArray}{rrr|r}[margin,last-col]
     1 & 2 & 3 & 1 & -3R_3 \\
     0 & 1 & 2 & -1 &  -2R_3 \\
     0 & 0 & 1 & -2 &  \\
   \end{pNiceArray} &\sim 
-  \begin{pNiceArray}{ccc|c}[margin,last-col]
+  \begin{pNiceArray}{rrr|r}[margin,last-col]
         1 & 2 & 0 & 7 & -2R_2 \\
         0 & 1 & 0 & 3   \\
         0 & 0 & 1 & -2   \\
   \end{pNiceArray}\\
-  &\sim\begin{pNiceArray}{ccc|c}[margin]
+  &\sim\begin{pNiceArray}{rrr|r}[margin]
     1 & 0 & 0 & 1 \\
     0 & 1 & 0 & 3   \\
     0 & 0 & 1 & -2   \\
@@ -195,7 +195,7 @@
 \end{align*}
 然后从增广矩阵一眼可知解为$\mathbf{x}=(1,3,-2)^T$。
 
-留给读者一道习题：梳理自底向上阶段的行化简算法。
+留给读者一道习题：梳理从下到上阶段的行化简算法。
 
 \subsection{阶梯形}\label{subsec:echelon}
 
@@ -208,16 +208,16 @@
   \item 任意非零行的先导元必定严格处于前一行先导元的右侧。
 \end{enumerate}
 
-阶梯形中每一行的先导元也称为{\bf 主元}，\marginpar{\small 主元：一行中的先导元（最左侧的非零项）}因为这些项恰为行化简时所用的{\bf 主元}。
+阶梯形中每一行的先导元也称为{\bf 主元}，\marginpar{\small 主元：一行中的先导元（最左侧的非零项）。}因为这些项恰为行化简时所用的{\bf 主元}。
 
-阶梯形有个特例是所谓{\bf 三角}形。在上面的例子中我们就得到了这种形式。在这种形式中，系数矩阵是方阵（$n\times n$），其主对角线项均不为零，而主对角线之下的所有项都为零。右端项，或者说增广矩阵的最右列可以是任意的。
+阶梯形有个特例是所谓{\bf 三角}形。在上面的例子中我们就得到了这种形式。在这种形式中，系数矩阵是方阵（$n\times n$矩阵），其主对角线项均不为零，而主对角线之下的所有项都为零。右端项，或者说增广矩阵的最右列可以是任意的。
 
-在行化简的自底向上阶段之后，我们就得到了矩阵的所谓{\bf 简化阶梯形}：系数矩阵等于$I$（如上例所示）是简化阶梯形的一个特例。
+在行化简的从下到上阶段之后，我们就得到了矩阵的所谓{\bf 简化阶梯形}：系数矩阵等于$I$（如上例所示）是简化阶梯形的一个特例。
 
 一般的定义是：称矩阵具有{\bf 简化阶梯形}，若其具有阶梯形且
 \begin{enumerate}[start=3]
   \item 所有主元都等于$1$；
-  \item 主元之上的所有元素都为$0$。注意，主元之下的所有元素也都是$0$，因为该矩阵具有阶梯形。
+  \item 主元之上的所有项都为$0$。注意，主元之下的所有项也都是$0$，因为该矩阵具有阶梯形。
 \end{enumerate}
 
 为了从阶梯形得到简化阶梯形，我们按从下到上、从右到左的次序，利用行置换消去主元之上的所有项。
@@ -318,7 +318,7 @@
   从上个命题可立即得到此结论，不过也可以直接证明。设$\mathbf{v}_{1},$ $\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是$\mathbb{F}^{n}$中的基，并令$A$是各列为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$的$n\times m$矩阵。该向量组是基，意味着方程\[A\mathbf{x}=\mathbf{b}\]对任意（所有可能的）右端项$\mathbf{b}$都有唯一解。解的存在性表明（该矩阵的简化阶梯形）每行都有主元，因此主元的数目恰为$n$，唯一性则表明系数矩阵（的阶梯形）每一列都有主元。因此\[m = \text{列数} = \text{主元数} = n\]
 \end{proof}
 
-\begin{proposition}
+\begin{proposition}\label{prop:span_more}
   $\mathbb{F}^{n}$中的任意张成（生成）组都至少包含$n$个向量。
 \end{proposition}
 \begin{proof}
@@ -442,7 +442,7 @@
     0&0&3&-1&1&1&
   \end{pNiceArray}\sim
 \end{align*}
-在最后一次行变换中，我们将第一行乘以$3$倍是为了在行化简的自底向上阶段中不出现分数。
+在最后一次行变换中，我们将第一行乘以$3$倍是为了在行化简的从下到上阶段中不出现分数。
 继续作行变换有
 \begin{align*}
   \begin{pNiceArray}{rrr|rrr}[margin,last-col]
@@ -474,7 +474,160 @@
   若$\dim V$是有限值，则称$V$是{\bf 有限维的}；否则称其为{\bf 无限维的}。
 \end{definition*}
 
+命题 \ref{prop:basis_same_size} 确保了维数是定义完善的，也即，它并不依赖于基的选取。
+
+第 \ref{chap:BasicNotion} 章的命题 \ref{prop:generating_contain_basis} 表明，向量空间$V$的任意张成组都包含一个基。由此立得
+\begin{proposition}
+  向量空间$V$是有限维的，当且仅当其包含有限张成组。
+\end{proposition}
+
+假设我们想检验有限维向量空间中的某向量组是否为基（或者检验其是否为线性无关的，或检验其是否完备）。最简单的方法大概是，利用同构$A:V\to \mathbb{R}^n,n=\dim V$将这个问题转化到$\mathbb{R}^n$中，然后就可用行化简（分析主元）来回答这样的问题。
+
+注意，若$\dim V=n$，那么同构$A:V\to \mathbb{R}^n$总是存在的。的确如此：若$\dim V=n$，那么存在基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\in V$，于是可定义同构$A:V\to \mathbb{R}^n$为
+\[A\mathbf{v}_k=\mathbf{e}_k,\quad k=1,2,\ldots,n.\]
+
+下面给出命题 \ref{prop:li_no_more} 和 \ref{prop:span_more} 的两个推论，作为上述方法的示例。
+\begin{proposition}\label{prop:arbit_li_no_more}
+  有限维向量空间$V$中的任意线性无关组不会具有超过$\dim V$个向量。
+\end{proposition}
+\begin{proof}
+  令$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_m\in V$为线性无关组，并令$A:V\to \mathbb{R}^n$为同构。那么$A\mathbf{v}_{1},A\mathbf{v}_{2},\ldots,A\mathbf{v}_{m}$是$\mathbb{R}^n$中的线性无关组，则由命题 \ref{prop:li_no_more} 知$m\le n$。
+\end{proof}
+\begin{proposition}\label{prop:arbit_span_more}
+  有限维向量空间$V$中的任意生成组一定具有超过$\dim V$个向量。
+\end{proposition}
+\begin{proof}
+  令$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_m\in V$为完备组，并令$A:V\to \mathbb{R}^n$为同构。那么$A\mathbf{v}_{1},A\mathbf{v}_{2},\ldots,A\mathbf{v}_{m}$是$\mathbb{R}^n$中的完备组，则由命题 \ref{prop:span_more} 知$m\ge n$。
+\end{proof}
+
+\subsection{将线性无关组补足为基}
+
+下面结论将在后文发挥重要作用。
+
+\begin{proposition}[补足为基]
+  有限维向量空间中的线性无关组可被补足为基，也即，若$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r$是有限维向量空间$V$中的线性无关组，那么可以找到向量$\mathbf{v}_{r+1},\mathbf{v}_{r+2}\ldots,\mathbf{v}_{n}$，使得向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$是$V$中的基。
+\end{proposition}
+
+\begin{proof}
+  令$n=\dim V$。取任意不属于$\operatorname{span}\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}\}$的向量，记其为$\mathbf{v}_{r+1}$（这总是可以完成的，因为向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r$不是生成组）。由第 \ref{chap:BasicNotion} 章的习题 \ref{ex:1_2_5}，向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r,\mathbf{v}_{r+1}$是线性无关的（注意，由命题 \ref{prop:arbit_li_no_more}，$r<n$）。重复此步骤，可得到向量$\mathbf{v}_{r+2}$，等等。
+
+  当我们得到生成组时，就停止此过程。注意，这一过程不会无限持续下去，因为$V$中的线性无关组不会具有超过$n=\dim V$个向量。
+\end{proof}
+
+\subsection{有限维向量空间的子空间}
+
+\begin{theorem}\label{thm:subspace_finite_dimensional}
+  令$V$是向量空间$W$的子空间，且$\dim W < \infty$。那么$V$是有限维的，且$\dim V\le \dim W$。
+
+  此外，若$\dim V= \dim W$，那么$V=W$（仍假设$V$是$W$的子空间）。
+\end{theorem}
+\begin{remark*}
+  这定理初看上去没什么意思——似乎只是 \ref{prop:arbit_li_no_more} 的简单推论。然而，仅在已有$V$的基时，才能应用命题 \ref{prop:arbit_li_no_more}。但此处我们只有$W$中的基，并且无法确定该基中有多少向量属于$V$。事实上，$W$的这个基中可能没有一个向量属于$V$——很容易举出这样的例子。
+\end{remark*}
+
+\begin{proof}[\autoref{thm:subspace_finite_dimensional} 的证明]
+  $V = \{\mathbf{0}\}$为该定理的平凡情形。现在假设$V \ne \{\mathbf{0}\}$。
+
+  我们的目标是找到$V$的一个基。取非零向量$\mathbf{v}_1\in V$。若$V=\operatorname{span}\{\mathbf{v}_1\}$，我们就得到了所需的基（包含单一向量$\mathbf{v}_1$）。
+
+  如若不然，则用归纳法。假设我们已经构造了$r$个线性无关的向量$\mathbf{v}_{1},\ldots,\mathbf{v}_{r}\in V$。若$V=\mathrm{span}\{\mathbf{v}_{k}:1\leq k\leq r\}$，那么我们就寻得了$V$的基。否则，就存在向量$\mathbf{v}_{r+1}\in V$，满足$\mathbf{v}_{r+1}\notin\mathrm{span}\{\mathbf{v}_{k}:1\leq k\leq r\}$。由第 \ref{chap:BasicNotion} 章的习题 \ref{ex:1_2_5}，向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r,\mathbf{v}_{r+1}$是线性无关的。
+\end{proof}
+
+\begin{problemset}
+  \item 判断正误：
+  \begin{enumerate}[label={\alph*)}]
+    \item 每个由有限向量组生成的向量空间都有基；
+    \item 每个向量空间都有（有限）基；
+    \item 一向量空间不会含有超过一个基；
+    \item 若一向量空间包含有限基，那么每个基所具有的向量数目都相同；
+    \item $\mathbb{P}_{n}$的维数是$n$；
+    \item $M_{m\times n}$的维数是$m+n$；
+    \item 若向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$生成（张成）向量空间$V$，那么$V$中每个向量都可唯一写成向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$线性组合的形式；
+    \item 有限维向量空间的每个子空间都是有限维的；
+    \item 如果$V$是维数为$n$的向量空间，那么$V$恰有一个维数为$0$和一个维数为$n$的子空间。
+  \end{enumerate}
+  \item 证明：若$V$是维数为$n$的向量空间，那么$V$中的向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是线性无关的，当且仅当其张成$V$。
+  \item 证明：向量空间$V$中的线性无关向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是基，当且仅当$n=\dim V$。
+  \item （旧题重温：现在这道题应该很简单了）是否可能出现这样的情况：向量$\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}$是线性相关的，但向量$\mathbf{w}_1=\mathbf{v}_1+\mathbf{v}_2,\mathbf{w}_2=\mathbf{v}_2+\mathbf{v}_3$与$\mathbf{w}_3=\mathbf{v}_3+\mathbf{v}_1$是线性{\bf 无关}的？{\bf 提示}：子空间$\operatorname{span}(\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3})$的维数是多少？
+  \item 设向量组$\mathbf{u},\mathbf{v},\mathbf{w}$是$V$的基。证明：$\mathbf{u+v+w},\mathbf{v+w},\mathbf{w}$也是$V$的基。
+  \item 考虑向量空间$\mathbb{R}^{5}$中的向量$\mathbf{v}_{1}=(2,-1,1,5,-3)^{T},\mathbf{v}_{2}=(3,-2,0,0,0)^{T},$ $\mathbf{v}_3=(1,1,50,-921,0)^T$。
+  \begin{enumerate}[label={\alph*)}]
+    \item 证明：这些向量是线性无关的；
+    \item 将这个向量补足为基。
+    
+    如果你先解b)，那么你可以不作任何计算就完成整道题。
+  \end{enumerate}
+\end{problemset}
+
 \section{线性方程组的通解}
+
+在接下来这短短一节中，我们讨论线性方程组的通解（即解集）的结构。
+
+称方程组$A\mathbf{x}=\mathbf{b}$是齐次的，若右端项$\mathbf{b}=\mathbf{0}$，即齐次线性方程组形式为$A\mathbf{x}=\mathbf{0}$。
+
+每个方程组\[A\mathbf{x}=\mathbf{b}\]都可通过取$\mathbf{b}=\mathbf{0}$关联到一个齐次方程组。
+
+\begin{theorem}[线性方程组的通解]\label{thm:general_solution}
+  令向量$\mathbf{x}_1$满足方程$A\mathbf{x}=\mathbf{b}$，并令$H$为其所关联的齐次方程组\[A\mathbf{x}=\mathbf{0}\]的解集。那么集合\[\{\mathbf{x}=\mathbf{x}_1+\mathbf{x}_\mathrm{h}:\mathbf{x}_\mathrm{h}\in H\}\]是方程$A\mathbf{x}=\mathbf{b}$的解集。
+\end{theorem}
+
+该定理还可陈述为
+\begin{center}
+  \fbox{$A\mathbf{x}=\mathbf{b}$的通解} = \fbox{$A\mathbf{x}=\mathbf{b}$的特解} + \fbox{$A\mathbf{x}=\mathbf{0}$的通解}
+\end{center}
+\begin{proof}
+  取定向量$\mathbf{x}_{1}$满足$A\mathbf{x}_{1}=\mathbf{b}$。令向量$\mathrm{x}_\mathrm{h}$满足$A\mathrm{x}_\mathrm{h}=\mathrm{0}$。那么对于$\mathbf{x}=\mathbf{x}_{1}+\mathbf{x}_{\mathrm{h}}$有\[A\mathbf{x}=A(\mathbf{x}_1+\mathbf{x}_\mathrm{h})=A\mathbf{x}_1+A\mathbf{x}_\mathrm{h}=\mathbf{b}+\mathbf{0}=\mathbf{b},\]
+  因此任意形如\[\mathbf{x}=\mathbf{x}_1+\mathbf{x}_\mathrm{h},\quad\mathbf{x}_\mathrm{h}\in H\]的$\mathbf{x}$都是$A\mathbf{x}=\mathbf{b}$的解。
+  
+  现设$\mathbf{x}$满足$A\mathbf{x}=\mathbf{b}$。那么对于$\mathbf{x}_\mathrm{h}:=\mathbf{x}-\mathbf{x}_1$有\[A\mathbf{x}_\mathrm{h}=A(\mathbf{x}-\mathbf{x}_1)=A\mathbf{x}-A\mathbf{x}_1=\mathbf{b}-\mathbf{b}=\mathbf{0},\]
+  所以$\mathbf{x}_\mathrm{h}\in H$。因此$A\mathbf{x}=\mathbf{b}$的\textbf{任意}解$\mathbf{x}$都能表示为$\mathbf{x}=\mathbf{x}_1+\mathbf{x}_\mathrm{h}$，其中$\mathbf{x}_\mathrm{h}\in H$。
+\end{proof}
+
+这个定理的强大之处在于其普遍性。它适用于所有的线性方程，而且我们不需要假设向量空间是有限维的。你还会在微分方程、积分方程、偏微分方程等各种场合与这个定理重逢。除了表明解集的结构，这个定理还使我们得以将对唯一性的分析与对存在性的研究分开。也就是说，要研究唯一性，只需要分析齐次方程$A\mathbf{x}=\mathbf{0}$解的唯一性（这个方程总有解）。
+
+就本书内容而言，这个定理有个直接的应用：我们可借以检验方程$A\mathbf{x}=\mathbf{b}$的解。
+例如，考虑方程组
+\[\begin{pmatrix}2&3&1&4&-9\\1&1&1&1&-3\\1&1&1&2&-5\\2&2&2&3&-8\end{pmatrix}\mathbf{x}=\begin{pmatrix}17\\6\\8\\14\end{pmatrix}.\]
+作行变换，可求出该方程组的解
+\begin{equation}\label{example_solution}
+  \mathbf{x}=\begin{pmatrix}3\\1\\0\\2\\0\end{pmatrix}+x_3\begin{pmatrix}-2\\1\\1\\0\\0\end{pmatrix}+x_5\begin{pmatrix}2\\-1\\0\\2\\1\end{pmatrix},\quad x_3,x_5\in\mathbb{F}.
+\end{equation}
+此处的参数$x_3$和$x_5$可用任意其他字母替代，比如说$t$和$s$。用$x_3$和$x_5$来表示，只是为了提醒我们，这些参数来自相应的自由变量。
+
+现在假设这个解已给出，并要检验其是否正确。当然，我们重做一次行变换，但这太费时了。并且，如果解不是通过标准的方法获得的，那么它可能看起来和从行化简得到的解不同。例如，
+\begin{equation}\label{example_solution_2}
+  \mathbf{x}=\begin{pmatrix}3\\1\\0\\2\\0\end{pmatrix}+s\begin{pmatrix}-2\\1\\1\\0\\0\end{pmatrix}+t\begin{pmatrix}0\\0\\1\\2\\1\end{pmatrix},\quad s,t\in\mathbb{F}
+\end{equation}
+与 \eqref{example_solution} 表示同样的解集（你能看出为什么吗？），这里我们只是将 \eqref{example_solution} 中的最后一个向量替换成了它和第二个向量之和。因此，这个式子和我们根据行化简得到的解相同，不过它是正确的。
+
+检验 \eqref{example_solution} 和 \eqref{example_solution_2} 给出了正确解的最简单方法，就是检验第一个向量$(3,1,0,2,0)^T$满足方程$A\mathbf{x} = \mathbf{b}$，并且其余两个向量（前面有参数的那两个向量）应该满足原方程组所关联的齐次方程组$A\mathbf{x} = \mathbf{0}$。
+
+如果这些检验都通过了，那么我们就可确信由 \eqref{example_solution} 或 \eqref{example_solution_2} 所确定的任意向量都是原方程的解。
+
+注意，这种检验解的方法并不能保证 \eqref{example_solution} 或 \eqref{example_solution_2} 给出所有的解。例如，如果我们漏掉了系数为$x_3$的那一项，上面的检验仍然会全部通过。
+
+所以，如何保证在 \eqref{example_solution} 中，我们没有漏掉或是多出任何一个自由变量？
+
+这就要重新数一下主元的个数。在本例中，作行变换就可知主元数目为$3$。因此，的确应有$2$个自由变量，这样 \eqref{example_solution} 中就没有遗漏任何东西。
+
+如果要{\bf 证明}解的正确性，我们就需要新的概念——矩阵的基本子空间和秩。还要指出，在本例中，没必要作完整的行变换来检验的确只有两个自由变量，\eqref{example_solution} 和 \eqref{example_solution_2} 也都是正确的通解表达式。
+
+\begin{problemset}
+  \item 判断正误：
+  \begin{enumerate}[label={\alph*)}]
+    \item 任意线性方程组都至少有一个解；
+    \item 任意线性方程组都至多有一个解；
+    \item 任意齐次线性方程组都至少有一个解；
+    \item 任意具有$n$个方程$n$个未知数的线性方程组都至少有一个解；
+    \item 任意具有$n$个方程$n$个未知数的线性方程组都至多有一个解；
+    \item 如果对应于给定线性方程组的齐次方程组有解，那么原方程组有解；
+    \item 如果具有$n$个方程$n$个未知数的齐次线性方程组的系数矩阵是可逆的，那么该方程组没有非零解；
+    \item 任意具有$m$个方程$n$个未知数的线性方程组的解集都是$\mathbb{R}^n$的子空间；
+    \item 任意具有$m$个方程$n$个未知数的齐次线性方程组的解集都是$\mathbb{R}^n$的子空间。
+  \end{enumerate}
+  \item 求出通解如下的$2\times 3$线性方程组（具有$2$个方程、$3$个未知数）。
+  \[\begin{pmatrix}1\\1\\0\end{pmatrix}+s\begin{pmatrix}1\\2\\1\end{pmatrix},\quad s\in\mathbb{R}.\]
+\end{problemset}
 
 \section{矩阵的基本子空间、秩}
 
