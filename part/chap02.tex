@@ -5,10 +5,10 @@
 
 \section{线性方程组的多副面孔}
 
-关于线性方程组为何物，有多种视角。第一种（也是最朴素的一种），就是将其视作含有$n$个未知数$x_1,\dots,x_n$的$m$个线性方程，
+关于线性方程组为何物，有多种视角。第一种（也是最朴素的一种），就是将其视作含有$n$个未知数$x_1,x_2,\dots,x_n$的$m$个线性方程，
 \[\left\{\begin{array}{cccccccccc}a_{1,1}x_1&+&a_{1,2}x_2&+&\ldots&+&a_{1,n}x_n&=&b_1\\a_{2,1}x_1&+&a_{2,2}x_2&+&\ldots&+&a_{2,n}x_n&=&b_2\\\cdots\\a_{m,1}x_1&+&a_{m,2}x_2&+&\ldots&+&a_{m,n}x_n&=&b_m&.\end{array}\right.\]
 
-求解该方程组即求出{\bf 所有}同时满足这$m$个方程的数$x_1,\dots,x_n$构成的$n$-元组。
+求解该方程组即求出{\bf 所有}同时满足这$m$个方程的数$x_1,x_2,\dots,x_n$构成的$n$-元组。
 
 如果记$\mathbf{x}:=(x_{1},x_{2},\ldots,x_{n})^{T}\in\mathbb{F}^{n},\mathbf{b}=(b_{1},b_{2},\ldots,b_{m})^{T}\in\mathbb{F}^{m}$，且记
 \[A=\begin{pmatrix}a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&&\vdots\\a_{m,1}&a_{m,2}&\ldots&a_{m,n}\end{pmatrix},\]
@@ -22,7 +22,7 @@
 
 注意，上面三例本质上只是同种数学对象的不同表达而已。
 
-在开始解释如何求解线性方程组之前，我们首先注意，未知数的记法——比如$x_k,y_k$或者其他名称——都无关紧要。所以，求解线性方程组所必需的信息全部包含于两者：矩阵$A$（称为线性方程组的{\bf 系数矩阵}）和（右端）向量$\mathbf{b}$。进而，我们所需的全部信息都包含于以下矩阵
+在开始解释如何求解线性方程组之前，我们首先要注意，未知数的记法——比如$x_k,y_k$或者其他名称——都无关紧要。所以，求解线性方程组所必需的信息全部包含于两者：矩阵$A$（称为线性方程组的{\bf 系数矩阵}）和（右端）向量$\mathbf{b}$。进而，我们所需的全部信息都包含于以下矩阵
 \pagebreak
 \[\left(
   \begin{array}{cccc|c}
@@ -48,7 +48,7 @@
   \item 行置换：将第$k$行换为它与第$j$行的常数倍之和，而保持其他行不变。
 \end{enumerate}
 
-显然，变换1和2并不会改变线性方程组的解——它们实质上就没有改变原方程组。
+显然，变换1和2并不会改变线性方程组的解集——它们实质上就没有改变原方程组。
 
 至于变换3，我们容易看出它不会使方程组的解减少。意即，令“新”方程组由“旧”方程组经过第3种行变换得来。那么“旧”方程组的每个解都是“新”方程组的解。
 
@@ -56,7 +56,7 @@
 
 \subsubsection{行变换与乘以初等矩阵}
 
-关于上述行变换为何不改变方程组的解，还有一种更为“高级”的解释，也即，每种行变换都等价于左乘一种特殊的初等矩阵。
+关于上述行变换为何不改变方程组的解集，还有一种更为“高级”的解释，也即，每种行变换都等价于左乘一种特殊的初等矩阵。
 
 \setcounter{MaxMatrixCols}{12}
 具体地说，乘以矩阵
@@ -114,15 +114,15 @@
 
 行化简的主要步骤包含下面三步：
 \begin{enumerate}
-  \item 找到该矩阵最左侧的非零列；
+  \item 找到矩阵最左侧的非零列；
   \item 如有必要，通过施加第一类行变换（行交换），确保该列的第一个（最上方的）项是非零的。该项将被称为{\bf 主元}；
   \item 通过向第$2,3,\dots,m$行加（或减）第一行的适当倍数，“消去”主元之下的所有非零项（就是将它们都变为$0$）。
 \end{enumerate}
-我们先将这些步骤作用于整个矩阵，然后保持第一行不变并将这些步骤作用于第$2,3,\dots,m$行，然后是第$3,\dots,m$行，诸如此类。
+我们先将这些步骤作用于整个矩阵，然后保持第一行不变并将这些步骤作用于第$2,3,\dots,m$行，然后是第$3,\dots,m$行，以此类推。
 
 关键是记住在把某一行下方的所有行都减去该行的若干倍后（步骤3），我们就不再改变该行（甚至不会将该行与其他行进行交换）。
 
-在有限次（至多$m$次）应用这些主要步骤后，我们就得到了矩阵的{\bf 阶梯形}。
+在有限次（至多$m$次）应用这些步骤后，我们就得到了矩阵的{\bf 阶梯形}。
 
 \subsubsection{行化简实例}
 
@@ -171,7 +171,7 @@
 \]
 现在，我们就可用所谓{\bf 回代法}解此方程组了。也就是说，从最后一行（最后一个方程）得出$x_3 = -2$。接下来从第二个方程得到\[x_2=-1-2x_3=-1-2(-2)=3,\]
 最后从第一行（第一个方程）得到\[x_1=1-2x_2-3x_3=1-6+6=1.\]
-因此原方程组的解为\[\left\{\begin{array}{rl}x_1&=1,\\x_2&=3,\\x_3&=-2,\end{array}\right.\]
+因此原方程组的解为\[\left\{\begin{array}{l}x_1=1,\\x_2=3,\\x_3=-2,\end{array}\right.\]
 或用向量形式表示为\[\mathbf{x}=\begin{pmatrix}1\\3\\-2\end{pmatrix}\]
 或写为$\mathbf{x}=(1,3,-2)^T$。我们可以通过作乘法$A\mathbf{x}$来检验该解，其中$A$为系数矩阵。
 
@@ -223,7 +223,7 @@
 为了从阶梯形得到简化阶梯形，我们按从下到上、从右到左的次序，利用行置换消去主元之上的所有项。
 
 简化阶梯形的一个例子是系数矩阵等于$I$的方程组。在这种情况下，从简化阶梯形就很容易看出解。在一般的情形下，从简化阶梯形看出解也很容易。例如，令方程组（增广矩阵）的简化阶梯形是\[\left(\begin{array}{ccccc|c}\boxed{1}&2&0&0&0&1\\0&0&\boxed{1}&5&0&2\\0&0&0&0&\boxed{1}&3\end{array}\right);\]
-此处我们将主元框出来了。求解所用的思路是，将没有主元的列所对应的变量（所谓{\bf 自由变量}）移到右侧。然后我们可直接写出解为\pagebreak\[\left\{\begin{array}{l}x_1=1-2x_2\\x_2~\text{为自由变量}\\x_3=2-5x_4\\x_4~\text{为自由变量}\\x_5=3\end{array}\right.\]
+此处我们将主元框出来了。求解思路是，将没有主元的列所对应的变量（所谓{\bf 自由变量}）移到右侧。然后我们可直接写出解为\pagebreak\[\left\{\begin{array}{l}x_1=1-2x_2\\x_2~\text{为自由变量}\\x_3=2-5x_4\\x_4~\text{为自由变量}\\x_5=3\end{array}\right.\]
 或者写成向量形式
 \[\mathbf{x}=\begin{pmatrix}1-2x_2\\x_2\\2-5x_4\\x_4\\3\end{pmatrix}=\begin{pmatrix}1\\0\\2\\0\\3\end{pmatrix}+x_2\begin{pmatrix}-2\\1\\0\\0\\0\end{pmatrix}+x_4\begin{pmatrix}0\\0\\-5\\1\\0\end{pmatrix},\quad x_2,x_4\in\mathbb{F}.\]
 
@@ -249,7 +249,7 @@
 \begin{center}
   \fbox{\parbox{0.8\linewidth}{方程组不相容（无解），当且仅当{\bf 增广}矩阵的阶梯形的最后一列存在主元，也就是，当且仅当增广矩阵的阶梯形有一行是$\left(\begin{array}{cccc|c}0&0&\ldots&0&b\end{array}\right),b\neq0$。}}
 \end{center}
-的确如此：这样一行对应于方程$0x_1+0x_2+\ldots+0x_n=b\neq0$，而该方程无解。如果不存在这样的行，我们就可以将它化成简化阶梯形并直接看出方程组的解。
+的确如此：这样一行对应于方程$0x_1+0x_2+\ldots+0x_n=b\neq0$，而该方程无解。如果不存在这样的行，我们就可以将增广矩阵化为简化阶梯形并直接看出方程组的解。
 
 下面再列出三个结论。注意，它们是与方程组的{\bf 系数矩阵}而非增广矩阵相关。
 \begin{enumerate}
@@ -262,7 +262,7 @@
 
 第二个结论稍复杂些。若系数矩阵的每行都有主元，{\bf 增广}矩阵的最后一列就不会有主元，因此无论右端项$\mathbf{b}$是什么，方程组都是相容的。
 
-下面证明，如果系数矩阵$A$的阶梯形中有零行，那么可以选择一个右端项$\mathbf{b}$使得方程组$A\mathbf{x}=\mathbf{b}$是不相容的。令$A_e$为系数矩阵$A$的阶梯形。那么\[A_e=EA\]其中$E$是一系列初等矩阵之积，对应于一系列行变换，$E=E_N\dots E_2E_1$。若$A_e$有零行，那么其最后一行也为零。因此，如果取$\mathbf{b}_e=(0,\ldots,0,1)^T$（除了最后一项以外各项全为$0$）那么方程\[A_e\mathbf{x}=\mathbf{b}_e\]无解。方程两端同时左乘$E^{-1}$，并运用$E^{-1}A_{e}=A$，可得方程\[A\mathbf{x}=E^{-1}\mathbf{b}_e\]
+下面证明，如果系数矩阵$A$的阶梯形中有零行，那么可以选择一个右端项$\mathbf{b}$使得方程组$A\mathbf{x}=\mathbf{b}$是不相容的。令$A_{\mathrm{e}}$为系数矩阵$A$的阶梯形。那么\[A_{\mathrm{e}}=EA\]其中$E$是一系列初等矩阵之积，对应于一系列行变换，$E=E_N\dots E_2E_1$。若$A_{\mathrm{e}}$有零行，那么其最后一行也为零。因此，如果取$\mathbf{b}_\mathrm{e}=(0,\ldots,0,1)^T$（除了最后一项以外各项全为$0$）那么方程\[A_{\mathrm{e}}\mathbf{x}=\mathbf{b}_e\]无解。方程两端同时左乘$E^{-1}$，并运用$E^{-1}A_{\mathrm{e}}=A$，可得方程\[A\mathbf{x}=E^{-1}\mathbf{b}_\mathrm{e}\]
 无解。
 
 最后，由结论1和2可立得结论3。{\hfill\qedsymbol}
@@ -280,7 +280,7 @@
   设有向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}\in\mathbb{F}^{n}$，并令$A=[\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}]$是各列为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$的$n\times m$矩阵。那么
   \begin{enumerate}
     \item 向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是线性无关的，当且仅当$A$的阶梯形的每一列都有主元；
-    \item 向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是$\mathbb{F}^{n}$中的完备组（生成组、张成组），当且仅当$A$的阶梯形的每一行都有主元；
+    \item 向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是$\mathbb{F}^{n}$中的完备组（张成组、生成组），当且仅当$A$的阶梯形的每一行都有主元；
     \item 向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是$\mathbb{F}^{n}$中的基，当且仅当$A$的阶梯形的每一行与每一列都有主元。
   \end{enumerate}
 \end{proposition}
@@ -305,7 +305,7 @@
 \end{proposition}
 
 \begin{proof}
-  设$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$和$\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{m}$是$V$中的两个基。不失一般性，可假设$n\le m$。考虑定义如下的同构$A:\mathbb{F}^{n}\to V$：\[A\mathbf{e}_k=\mathbf{v}_k,\quad k=1,2,\ldots n,\]其中$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$是$\mathbb{R}^n$的标准基。
+  设$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$和$\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{m}$是$V$中两个不同的基。不失一般性，可假设$n\le m$。考虑定义如下的同构$A:\mathbb{F}^{n}\to V$：\[A\mathbf{e}_k=\mathbf{v}_k,\quad k=1,2,\ldots n,\]其中$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$是$\mathbb{R}^n$中的标准基。
 
   由于$A^{-1}$也是同构，因此向量组\[A^{-1}\mathbf{w}_1,A^{-1}\mathbf{w}_2,\ldots,A^{-1}\mathbf{w}_m\]也是基（见第 \ref{chap:BasicNotion} 章的\autoref{thm:preserve_basis}）。因此它是线性无关的，则由命题 \ref{prop:li_no_more} 可知$m\le n$。结合$n\le m$的假设即得$m=n$。
 \end{proof}
@@ -315,7 +315,7 @@
     $\mathbb{F}^{n}$中的任意一个基都恰有$n$个向量。
 \end{proposition}
 \begin{proof}
-  从上个命题可立即得到此结论，不过也可以直接证明。设$\mathbf{v}_{1},$ $\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是$\mathbb{F}^{n}$中的基，并令$A$是各列为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$的$n\times m$矩阵。该向量组是基，意味着方程\[A\mathbf{x}=\mathbf{b}\]对任意（所有可能的）右端项$\mathbf{b}$都有唯一解。解的存在性表明（该矩阵的简化阶梯形）每行都有主元，因此主元的数目恰为$n$，唯一性则表明系数矩阵（的阶梯形）每一列都有主元。因此\[m = \text{列数} = \text{主元数} = n\]
+  从上个命题可立即得到此结论，不过也可以直接证明。设$\mathbf{v}_{1},$ $\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是$\mathbb{F}^{n}$中的基，并令$A$是各列为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$的$n\times m$矩阵。该向量组是基，意味着方程\[A\mathbf{x}=\mathbf{b}\]对任意（所有可能的）右端项$\mathbf{b}$都有唯一解。解的存在性表明该矩阵的简化阶梯形每行都有主元，因此主元的数目恰为$n$，唯一性则表明系数矩阵（的阶梯形）每列都有主元。因此\[m = \text{列数} = \text{主元数} = n\]
 \end{proof}
 
 \begin{proposition}\label{prop:span_more}
@@ -334,7 +334,7 @@
 \begin{proof}
   我们在本节开头已讨论过，方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都有唯一解，当且仅当$A$的阶梯形在每一行和每一列中都有主元。又由第 \ref{chap:BasicNotion} 章定理 \ref{thm:invert_unique} 知，矩阵（线性变换）$A$是可逆的，当且仅当方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都有唯一解。
 
-  还有另一种证法：矩阵可逆当且仅当它的各列形成一个基（见第 \ref{chap:BasicNotion} 章 \ref{subsec:invert_eq} 小节的推论 \ref{col:invert_basis}）。而上述命题 \ref{prop:basis_size_n} 表明这等价于矩阵每一行和每一列都有主元。
+  还有另一种证法：我们知道矩阵可逆当且仅当它的各列形成一个基（见第 \ref{chap:BasicNotion} 章 \ref{subsec:invert_eq} 小节的推论 \ref{col:invert_basis}）。而上述命题 \ref{prop:basis_size_n} 表明这等价于矩阵的阶梯形每一行和每一列都有主元。
 \end{proof}
 
 由上述命题立得下述结论：
@@ -342,7 +342,7 @@
   可逆矩阵必为方阵（$n\times n$矩阵）。
 \end{corollary}
 \begin{proposition}
-  若方阵（$n\times n$矩阵）是左可逆的或右可逆的，那么它是可逆的。换言之，为检验方阵$A$的可逆性，只需检验$AA^{-1}=I,$$A^{-1}A=I$之一。
+  若方阵（$n\times n$矩阵）是左可逆的或右可逆的，那么它是可逆的。换言之，为检验方阵$A$的可逆性，只需检验$AA^{-1}=I$, $A^{-1}A=I$之一。
 \end{proposition}
 
 注意，此命题只适用于方阵！
@@ -351,7 +351,7 @@
   我们知道矩阵$A$可逆当且仅当方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都有唯一解。而这又等价于矩阵$A$的阶梯形在每一行和每一列中都有主元。
 
   若矩阵$A$是左可逆的，那么方程$A\mathbf{x}=\mathbf{0}$有唯一解$\mathbf{x}=\mathbf{0}$。的确如此：若$B$是$A$的左逆（也即$BA=I$），而$\mathbf{x}$满足\[A\mathbf{x}=\mathbf{0},\]
-  那么将此等式两端同时左乘$B$，即得到$\mathbf{x}=\mathbf{0}$，则此解唯一。因此，$A$的阶梯形在每列中都有主元（无自由变量）。若矩阵$A$是方阵（$n\times n$矩阵），那么其阶梯形的每行也必有主元（共$n$个主元，而且每行至多有$1$个主元），因此矩阵是可逆的。
+  那么将此等式两端同时左乘$B$，即得到$\mathbf{x}=\mathbf{0}$，则此解唯一。因此，$A$的阶梯形在每列中都有主元（无自由变量）。若矩阵$A$是方阵（$n\times n$矩阵），那么其阶梯形的每行也必有主元（共$n$个主元，而且每行至多有$1$个主元），因此该矩阵是可逆的。
 
   若矩阵$A$是右可逆的，且$C$是$A$的右逆（$AC=I$），那么对于$\mathbf{x}=C\mathbf{b},\mathbf{b}\in\mathbb{F}^{n}$，有\[A\mathbf{x}=AC\mathbf{b}=I\mathbf{b}=\mathbf{b}.\]
   因此，对任意右端项$\mathbf{b}$，方程$A\mathbf{x}=\mathbf{b}$都有解$\mathbf{x}=C\mathbf{b}$。于是$A$的阶梯形每一行都有主元。若$A$是方阵，那么它的每一列也都有主元，故$A$可逆。
@@ -361,8 +361,8 @@
   \item $b$取何值时，方程组\[\begin{pmatrix}1&2&2\\2&4&6\\1&2&3\end{pmatrix}\mathbf{x}=\begin{pmatrix}1\\4\\b\end{pmatrix}\]有解？对于该$b$，求方程组的通解。
   \item 判断向量组\[\begin{pmatrix}1\\1\\0\\0\end{pmatrix},\quad\begin{pmatrix}1\\0\\1\\0\end{pmatrix},\quad\begin{pmatrix}0\\0\\1\\1\end{pmatrix},\quad\begin{pmatrix}0\\1\\0\\1\end{pmatrix}\]是否为线性无关的。
   
-  这四个向量能张成$\RR^4$吗？（换言之，它是张成组吗？）$\CC^4$呢？
-  \item 判断下面哪些向量组是$\RR^3$的基？
+  这四个向量能张成$\RR^4$吗？（换言之，它是生成组吗？）$\CC^4$呢？
+  \item 判断下面哪些向量组是$\RR^3$中的基？
   \begin{enumerate}[label={\alph*)}]
     \item $(1,2,-1)^{T},(1,0,2)^{T},(2,1,1)^{T}$；
     \item $(-1,3,2)^{T},(-3,1,3)^{T},(2,10,2)^{T}$；
@@ -373,7 +373,7 @@
   \item $\mathbb{F}^4$中的$5$个向量是否线性无关？证明你的结论。
   \item 证明或证伪：若方阵（$n\times n$矩阵）$A$的列是线性无关的，那么$A^2=AA$的列也是。
   \item 证明或证伪：若方阵（$n\times n$矩阵）$A$的列是线性无关的，那么$A^3=AAA$的列也是。
-  \item 证明：方程$A\mathbf{x}=\mathbf{0}$有唯一解（即$A$的阶梯形每一列都有主元），那么$A$是左可逆的。
+  \item 证明：如果方程$A\mathbf{x}=\mathbf{0}$有唯一解（即$A$的阶梯形每一列都有主元），那么$A$是左可逆的。
   
   {\bf 提示}：初等矩阵可能有用处。
   
@@ -390,7 +390,7 @@
 
 \section{通过行化简求\texorpdfstring{$A^{-1}$}{A**\{-1\}}}
 
-如上面所讨论的，可逆矩阵必为方阵，并且其阶梯形一定在每一行和每一列中都有主元。所以可逆矩阵的简化阶梯形是恒等矩阵$I$。因此
+如上面所讨论的，可逆矩阵必为方阵，并且其阶梯形必定在每一行和每一列中都有主元。所以可逆矩阵的简化阶梯形是恒等矩阵$I$。因此
 \begin{center}
   \fbox{\parbox{0.8\linewidth}{任意可逆矩阵都行等价于（即可通过行变换化为）恒等矩阵。}}
 \end{center}
@@ -400,12 +400,12 @@
   \item 向$A$的右侧附上$n\times n$恒等矩阵，将其{\bf 扩充}成$n\times 2n$的矩阵$(A|I)$；
   \item 对扩充后的矩阵作行变换，将$A$变换为恒等矩阵$I$；
   \item 我们添加的矩阵$I$在此过程中自动转化为$A^{-1}$；
-  \item 如果通过行变换不能把$A$变换为$A$，那么$A$不可逆。
+  \item 如果通过行变换不能把$A$变换为恒等矩阵，那么$A$不可逆。
 \end{enumerate}
 
 上述算法有好几种解释。第一种（也是比较朴素的一种）是：我们知道对于可逆矩阵$A$，向量$A^{-1}\mathbf{b}$是方程$A\mathbf{x}=\mathbf{b}$的解。所以为了求出$A^{-1}$的第$k$列，我们需要求出$A\mathbf{x}=\mathbf{e}_k$的解，其中$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$是$\mathbb{R}^n$中的标准基。上述算法就是同时求解了如下$n$个方程\[A\mathbf{x}=\mathbf{e}_k,\quad k=1,2,\ldots,n\]
 
-我们再展示一种更为“高级”的解释。之前我们讨论过，每次行变换都可通过左乘初等矩阵来实现。令$E_{1},E_{2},\ldots,E_{N}$是对应于我们所作的行变换的初等矩阵，并令$E=E_{N}\cdots E_{2}E_{1}$为它们的乘积\footnote{尽管此处顺序无关紧要，但请注意，若行变换$E_1$是最先进行的，那么在乘积中$E_1$是最右侧的一项。}。我们知道行变换可将$A$变为恒等矩阵，也即$EA=I$，故$E=A^{-1}$。同样的行变换作用于扩充的矩阵$(A|I)$，会将其变为$(EA|E) = (I|A^{-1})$。
+我们再展示一种更为“高级”的解释。之前我们讨论过，每次行变换都可通过左乘初等矩阵来实现。令$E_{1},E_{2},\ldots,E_{N}$是对应于我们所作的行变换的初等矩阵，并令$E=E_{N}\cdots E_{2}E_{1}$为它们的乘积\footnote{尽管此处顺序无关紧要，但请注意，若行变换$E_1$是最先进行的，那么在乘积中$E_1$是最右侧的一项。}。我们知道行变换可将$A$变为恒等矩阵，也即$EA=I$，故$E=A^{-1}$。同样的行变换作用于扩充的矩阵$(A|I)$，会将其变为$(EA|E) = (I|A^{-1})$。{\hfill \qedsymbol}
 
 这种运用初等矩阵的“高级”解释蕴涵了之后会用到的一个重要命题：
 
@@ -414,11 +414,12 @@
 \end{theorem}
 
 \begin{proof}
-  如上段所讨论的，$A^{-1}=E_{N}\cdots E_{2}E_{1}$，所以\[A=(A^{-1})^{-1}=E_{1}^{-1}E_{2}^{-1}\cdots E_{N}^{-1}.\]
+  如前两段所讨论的，$A^{-1}=E_{N}\cdots E_{2}E_{1}$，所以\[A=(A^{-1})^{-1}=E_{1}^{-1}E_{2}^{-1}\cdots E_{N}^{-1}.\]
 \end{proof}
 
 \begin{example*}
-  假设我们要求出以下矩阵的逆。\[\begin{pmatrix}1&4&-2\\-2&-7&7\\3&11&-6\end{pmatrix}.\]
+  假设我们要求出以下矩阵的逆。
+  \[\left(\begin{array}{rrr}1&4&-2\\-2&-7&7\\3&11&-6\end{array}\right).\]
   向其右侧附上恒等矩阵，并使用行变换可得
   \begin{align*}
   &\begin{pNiceArray}{rrr|rrr}[last-col]
@@ -460,7 +461,8 @@
 \end{example*}
 
 \begin{problemset}
-  \item 求出下列矩阵的逆：\[\begin{pmatrix}{1}&{2}&{1}\\{3}&{7}&{3}\\{2}&{3}&{4}\end{pmatrix},\quad\begin{pmatrix}{1}&{-1}&{2}\\{1}&{1}&{-2}\\{1}&{1}&{4}\end{pmatrix}.\]
+  \item 求出下列矩阵的逆：
+  \[\left(\begin{array}{ccc}1&2&1\\3&7&3\\2&3&4\end{array}\right),\quad\left(\begin{array}{ccc}1&-1&2\\1&1&-2\\1&1&4\end{array}\right).\]
   给出所有的步骤。
 \end{problemset}
 
@@ -476,12 +478,12 @@
 
 命题 \ref{prop:basis_same_size} 确保了维数是定义完善的，也即，它并不依赖于基的选取。
 
-第 \ref{chap:BasicNotion} 章的命题 \ref{prop:generating_contain_basis} 表明，向量空间$V$的任意张成组都包含一个基。由此立得
+第 \ref{chap:BasicNotion} 章的命题 \ref{prop:generating_contain_basis} 表明，向量空间$V$的任意有限张成组都包含一个基。由此立得
 \begin{proposition}
   向量空间$V$是有限维的，当且仅当其包含有限张成组。
 \end{proposition}
 
-假设我们想检验有限维向量空间中的某向量组是否为基（或者检验其是否为线性无关的，或检验其是否完备）。最简单的方法大概是，利用同构$A:V\to \mathbb{R}^n,n=\dim V$将这个问题转化到$\mathbb{R}^n$中，然后就可用行化简（分析主元）来回答这样的问题。
+假设我们想检验有限维向量空间中的某向量组是否为基（或者检验其是否为线性无关的，或检验其是否完备）。最简单的方法大概是，利用同构$A:V\to \mathbb{R}^n,n=\dim V$将原问题转化到$\mathbb{R}^n$中，然后就可用行化简（分析主元）来回答这样的问题。
 
 注意，若$\dim V=n$，那么同构$A:V\to \mathbb{R}^n$总是存在的。的确如此：若$\dim V=n$，那么存在基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\in V$，于是可定义同构$A:V\to \mathbb{R}^n$为
 \[A\mathbf{v}_k=\mathbf{e}_k,\quad k=1,2,\ldots,n.\]
@@ -494,7 +496,7 @@
   令$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_m\in V$为线性无关组，并令$A:V\to \mathbb{R}^n$为同构。那么$A\mathbf{v}_{1},A\mathbf{v}_{2},\ldots,A\mathbf{v}_{m}$是$\mathbb{R}^n$中的线性无关组，则由命题 \ref{prop:li_no_more} 知$m\le n$。
 \end{proof}
 \begin{proposition}\label{prop:arbit_span_more}
-  有限维向量空间$V$中的任意生成组一定具有超过$\dim V$个向量。
+  有限维向量空间$V$中的任意生成组一定具有至少$\dim V$个向量。
 \end{proposition}
 \begin{proof}
   令$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_m\in V$为完备组，并令$A:V\to \mathbb{R}^n$为同构。那么$A\mathbf{v}_{1},A\mathbf{v}_{2},\ldots,A\mathbf{v}_{m}$是$\mathbb{R}^n$中的完备组，则由命题 \ref{prop:span_more} 知$m\ge n$。
@@ -505,11 +507,11 @@
 下面结论将在后文发挥重要作用。
 
 \begin{proposition}[补足为基]
-  有限维向量空间中的线性无关组可被补足为基，也即，若$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r$是有限维向量空间$V$中的线性无关组，那么可以找到向量$\mathbf{v}_{r+1},\mathbf{v}_{r+2}\ldots,\mathbf{v}_{n}$，使得向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$是$V$中的基。
+  有限维向量空间中的线性无关组可被补足为基，也即，若$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r$是有限维向量空间$V$中的线性无关向量组，那么可以找到向量$\mathbf{v}_{r+1},\mathbf{v}_{r+2}\ldots,\mathbf{v}_{n}$，使得向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$是$V$中的基。
 \end{proposition}
 
 \begin{proof}
-  令$n=\dim V$。取任意不属于$\operatorname{span}\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}\}$的向量，记其为$\mathbf{v}_{r+1}$（这总是可以完成的，因为向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r$不是生成组）。由第 \ref{chap:BasicNotion} 章的习题 \ref{ex:1_2_5}，向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r,\mathbf{v}_{r+1}$是线性无关的（注意，由命题 \ref{prop:arbit_li_no_more}，$r<n$）。重复此步骤，可得到向量$\mathbf{v}_{r+2}$，等等。
+  令$n=\dim V$。取任意不属于$\operatorname{span}\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}\}$的向量，记其为$\mathbf{v}_{r+1}$（这总是可以完成的，因为向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r$不是生成组）。由第 \ref{chap:BasicNotion} 章的习题 \ref{ex:1_2_5}，向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r,\mathbf{v}_{r+1}$是线性无关的（注意，由命题 \ref{prop:arbit_li_no_more}，$r<n$）。对新构造的向量组重复此步骤，可得到向量$\mathbf{v}_{r+2}$，以此类推。
 
   当我们得到生成组时，就停止此过程。注意，这一过程不会无限持续下去，因为$V$中的线性无关组不会具有超过$n=\dim V$个向量。
 \end{proof}
@@ -519,10 +521,10 @@
 \begin{theorem}\label{thm:subspace_finite_dimensional}
   令$V$是向量空间$W$的子空间，且$\dim W < \infty$。那么$V$是有限维的，且$\dim V\le \dim W$。
 
-  此外，若$\dim V= \dim W$，那么$V=W$（仍假设$V$是$W$的子空间）。
+  此外，若$\dim V= \dim W$，则$V=W$（仍假设$V$是$W$的子空间）。
 \end{theorem}
 \begin{remark*}
-  这定理初看上去没什么意思——似乎只是 \ref{prop:arbit_li_no_more} 的简单推论。然而，仅在已有$V$的基时，才能应用命题 \ref{prop:arbit_li_no_more}。但此处我们只有$W$中的基，并且无法确定该基中有多少向量属于$V$。事实上，$W$的这个基中可能没有一个向量属于$V$——很容易举出这样的例子。
+  这定理初看上去没什么意思——似乎只是命题 \ref{prop:arbit_li_no_more} 的简单推论。然而，仅在已有$V$的基时，才能应用命题 \ref{prop:arbit_li_no_more}。但此处我们只有$W$中的基，并且无法确定该基中有多少向量属于$V$。事实上，$W$的这个基中可能没有一个向量属于$V$——很容易举出这样的例子。
 \end{remark*}
 
 \begin{proof}[\autoref{thm:subspace_finite_dimensional} 的证明]
@@ -542,7 +544,7 @@
     \item 若一向量空间包含有限基，那么每个基所具有的向量数目都相同；
     \item $\mathbb{P}_{n}$的维数是$n$；
     \item $M_{m\times n}$的维数是$m+n$；
-    \item 若向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$生成（张成）向量空间$V$，那么$V$中每个向量都可唯一写成向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$线性组合的形式；
+    \item 若向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$生成（张成）向量空间$V$，那么$V$中每个向量都可唯一写成向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的线性组合；
     \item 有限维向量空间的每个子空间都是有限维的；
     \item 如果$V$是维数为$n$的向量空间，那么$V$恰有一个维数为$0$和一个维数为$n$的子空间。
   \end{enumerate}
@@ -559,7 +561,7 @@
   \end{enumerate}
 \end{problemset}
 
-\section{线性方程组的通解}
+\section{线性方程组的通解}\label{sec:general_solution}
 
 在接下来这短短一节中，我们讨论线性方程组的通解（即解集）的结构。
 
@@ -576,7 +578,7 @@
   \fbox{$A\mathbf{x}=\mathbf{b}$的通解} = \fbox{$A\mathbf{x}=\mathbf{b}$的特解} + \fbox{$A\mathbf{x}=\mathbf{0}$的通解}
 \end{center}
 \begin{proof}
-  取定向量$\mathbf{x}_{1}$满足$A\mathbf{x}_{1}=\mathbf{b}$。令向量$\mathrm{x}_\mathrm{h}$满足$A\mathrm{x}_\mathrm{h}=\mathrm{0}$。那么对于$\mathbf{x}=\mathbf{x}_{1}+\mathbf{x}_{\mathrm{h}}$有\[A\mathbf{x}=A(\mathbf{x}_1+\mathbf{x}_\mathrm{h})=A\mathbf{x}_1+A\mathbf{x}_\mathrm{h}=\mathbf{b}+\mathbf{0}=\mathbf{b},\]
+  取定向量$\mathbf{x}_{1}$满足$A\mathbf{x}_{1}=\mathbf{b}$。令向量$\mathbf{x}_\mathrm{h}$满足$A\mathbf{x}_\mathrm{h}=\mathbf{0}$。那么对于$\mathbf{x}=\mathbf{x}_{1}+\mathbf{x}_{\mathrm{h}}$有\[A\mathbf{x}=A(\mathbf{x}_1+\mathbf{x}_\mathrm{h})=A\mathbf{x}_1+A\mathbf{x}_\mathrm{h}=\mathbf{b}+\mathbf{0}=\mathbf{b},\]
   因此任意形如\[\mathbf{x}=\mathbf{x}_1+\mathbf{x}_\mathrm{h},\quad\mathbf{x}_\mathrm{h}\in H\]的$\mathbf{x}$都是$A\mathbf{x}=\mathbf{b}$的解。
   
   现设$\mathbf{x}$满足$A\mathbf{x}=\mathbf{b}$。那么对于$\mathbf{x}_\mathrm{h}:=\mathbf{x}-\mathbf{x}_1$有\[A\mathbf{x}_\mathrm{h}=A(\mathbf{x}-\mathbf{x}_1)=A\mathbf{x}-A\mathbf{x}_1=\mathbf{b}-\mathbf{b}=\mathbf{0},\]
@@ -594,23 +596,23 @@
 \end{equation}
 此处的参数$x_3$和$x_5$可用任意其他字母替代，比如说$t$和$s$。用$x_3$和$x_5$来表示，只是为了提醒我们，这些参数来自相应的自由变量。
 
-现在假设这个解已给出，并要检验其是否正确。当然，我们重做一次行变换，但这太费时了。并且，如果解不是通过标准的方法获得的，那么它可能看起来和从行化简得到的解不同。例如，
+现在假设这个解已给出，并要检验其是否正确。当然，我们可以重做一次行变换，但这太费时了。并且，如果解不是通过标准的方法获得的，那么它可能与从行化简得到的解看起来不同。例如，
 \begin{equation}\label{example_solution_2}
   \mathbf{x}=\begin{pmatrix}3\\1\\0\\2\\0\end{pmatrix}+s\begin{pmatrix}-2\\1\\1\\0\\0\end{pmatrix}+t\begin{pmatrix}0\\0\\1\\2\\1\end{pmatrix},\quad s,t\in\mathbb{F}
 \end{equation}
-与 \eqref{example_solution} 表示同样的解集（你能看出为什么吗？），这里我们只是将 \eqref{example_solution} 中的最后一个向量替换成了它和第二个向量之和。因此，这个式子和我们根据行化简得到的解相同，不过它是正确的。
+与 \eqref{example_solution} 表示同样的解集（你能看出为什么吗？），这里我们只是将 \eqref{example_solution} 中的最后一个向量替换成了它和第二个向量之和。因此，虽然这个式子和我们根据行化简得到的解不同，但它是正确的。
 
-检验 \eqref{example_solution} 和 \eqref{example_solution_2} 给出了正确解的最简单方法，就是检验第一个向量$(3,1,0,2,0)^T$满足方程$A\mathbf{x} = \mathbf{b}$，并且其余两个向量（前面有参数的那两个向量）应该满足原方程组所关联的齐次方程组$A\mathbf{x} = \mathbf{0}$。
+检验 \eqref{example_solution} 和 \eqref{example_solution_2} 给出了正确解的最简单方法，就是检验第一个向量$(3,1,0,2,0)^T$满足方程$A\mathbf{x} = \mathbf{b}$，并且其余两个向量（前面有参数的那两个向量）满足原方程组所关联的齐次方程组$A\mathbf{x} = \mathbf{0}$。
 
-如果这些检验都通过了，那么我们就可确信由 \eqref{example_solution} 或 \eqref{example_solution_2} 所确定的任意向量都是原方程的解。
+如果这些检验都通过了，那么我们就可确信由 \eqref{example_solution} 或 \eqref{example_solution_2} 所确定的任意向量$\mathbf{x}$都是原方程的解。
 
-注意，这种检验解的方法并不能保证 \eqref{example_solution} 或 \eqref{example_solution_2} 给出所有的解。例如，如果我们漏掉了系数为$x_3$的那一项，上面的检验仍然会全部通过。
+注意，这种检验解的方法并不能保证 \eqref{example_solution} 或 \eqref{example_solution_2} 给出所有的解。例如，如果我们漏掉了系数为$x_3$的那一项，上面的检验仍会全部通过。
 
 所以，如何保证在 \eqref{example_solution} 中，我们没有漏掉或是多出任何一个自由变量？
 
-这就要重新数一下主元的个数。在本例中，作行变换就可知主元数目为$3$。因此，的确应有$2$个自由变量，这样 \eqref{example_solution} 中就没有遗漏任何东西。
+这就要重新数一下主元的数目。在本例中，作行变换可知主元数目为$3$。因此，的确应有$2$个自由变量，这样 \eqref{example_solution} 中就没有任何遗漏。
 
-如果要{\bf 证明}解的正确性，我们就需要新的概念——矩阵的基本子空间和秩。还要指出，在本例中，没必要作完整的行变换来检验的确只有两个自由变量，\eqref{example_solution} 和 \eqref{example_solution_2} 也都是正确的通解表达式。
+如果要{\bf 证明}解的正确性，我们就需要新的概念——矩阵的基本子空间和秩。还要指出，在本例中，没必要作完整的行变换来检验的确只有$2$个自由变量，\eqref{example_solution} 和 \eqref{example_solution_2} 也都是正确的通解表达式。
 
 \begin{problemset}
   \item 判断正误：
@@ -631,7 +633,154 @@
 
 \section{矩阵的基本子空间、秩}
 
-\section{线性变换在任意基下的表示、坐标变换公式}\label{sec:ChangeOfCoordinate}
+我们在第 \ref{chap:BasicNotion} 章第 \ref{sec:subspace} 节讨论过，每个线性变换$A:V\to W$都与两个子空间相关联，一个是它的核（零空间）\[\operatorname{Ker}A=\operatorname{Null}A:=\{\mathbf{v}\in V:A\mathbf{v}=\mathbf{0}\}\subset V,\]
+另一个是它的值域\[\operatorname{Ran}A=\{\mathbf{w}\in W:\mathbf{w}=A\mathbf{v},\mathbf{v}\in V\}\subset W.\]
+换言之，核$\ker A$是齐次方程组$A\mathbf{x}=\mathbf{0}$的解集，值域$\rg A$是使得方程$A\mathbf{x}=\mathbf{b}$有解的所有右端项$\mathbf{b}\in W$所成的集合。
+
+若$A$是$m\times n$矩阵，即从$\mathbb{F}^{n}$到$\mathbb{F}^{m}$的映射，那么由矩阵-向量乘法的“列乘以坐标”法则，任意向量$\mathbf{w}\in\operatorname{Ran}A$可表示为$A$的列的线性组合。这就能解释{\bf 列空间}（记号为$\col A$）这一名称的来历，它是$\rg A$的另一种表达。
+
+对于矩阵$A$，在$\rg A$和$\ker A$以外，还常讨论转置矩阵$A^T$的核与值域。通常，$\rg A^T$常称为{\bf 行空间}，而$\ker A^T$常称为{\bf 左零空间}（但往往不用特别的记号来表示它们）。
+
+称$\operatorname{Ran}A,\operatorname{Ker}A,\operatorname{Ran}A^{T},\operatorname{Ker}A^{T}$这四个子空间是矩阵$A$的{\bf 基本子空间}。本节我们将研究四个基本子空间维数上的重要关系。
+
+我们将会用到下面定义——它是线性代数中基础性的定义之一。
+\begin{definition*}
+  对于线性变换（矩阵）$A$，其秩$\rank A$是$A$的值域的维数\[\rank A:=\dim \rg A.\]
+\end{definition*}
+
+\subsection{计算基本子空间和秩}
+
+为计算矩阵的基本子空间和秩，需要作行化简。也即，令$A$为矩阵，$A_{\mathrm{e}}$为其阶梯形
+\begin{enumerate}
+  \item \textbf{原}矩阵$A$的主元列（即作行变换之后，所得阶梯形中具有主元的那些列）就是$\rg A$的（一个）基。
+  \item 阶梯形$A_{\mathrm{e}}$的主元{\bf 行}给出了行空间的一个基。当然，也可以取原矩阵的转置并作行变换。但是，如果我们已经得到$A$的阶梯形（比如说在计算$\rg A$的过程中），那么我们就可马上得到$\rg A^T$。
+  \item 为了求出零空间$\ker A$的基，需要求解齐次方程$A\mathbf{x}=\mathbf{0}$：细节参见下面示例。
+\end{enumerate}
+
+\begin{example*}
+  考虑矩阵\[\begin{pmatrix}1&1&2&2&1\\2&2&1&1&1\\3&3&3&3&2\\1&1&-1&-1&0\end{pmatrix}.\]
+  作行变换可得阶梯形\[\begin{pmatrix}\boxed{1}&1&2&2&1\\0&0&\boxed{-3}&-3&-1\\0&0&0&0&0\\0&0&0&0&0\end{pmatrix}\]
+  （这里框出了主元）。因此，{\bf 原矩阵}的第1、3列，也即\[\begin{pmatrix}1\\2\\3\\1\end{pmatrix},\quad\begin{pmatrix}2\\1\\3\\-1\end{pmatrix}\]
+  给出了$\rg A$的一个基。我们还可马上得到行空间$\rg A^T$的基：{\bf 阶梯形}的第一、二行，即向量\[\begin{pmatrix}1\\1\\2\\2\\1\end{pmatrix},\quad\begin{pmatrix}0\\0\\-3\\-3\\-1\end{pmatrix}\]
+  （此处我们将向量写成列向量。究竟是将向量像此处一样写成列向量还是写成行向量，是个习惯问题。这里我们写成列向量的理由是，尽管我们称$\rg A$是{\bf 行空间}，但我们其实将它定义为$A^T$的列空间）
+
+  为计算零空间$\ker A$的基，我们需要解方程$A\mathbf{x}=\mathbf{0}$。计算$A$的{\bf 简化}阶梯形，对于本例是\[\begin{pmatrix}\boxed{1}&1&0&0&1/3\\0&0&\boxed{1}&1&1/3\\0&0&0&0&0\\0&0&0&0&0\end{pmatrix}.\]
+  \pagebreak
+
+  \noindent 注意，在求解齐次方程$A\mathbf{x}=\mathbf{0}$时，并不需要写出完整的增广矩阵。的确，此时增广矩阵的最后一列全为$0$，在行变换中不会改变。因此，我们不需要真的写出它，而只需记得有这一列，则可从上述简化阶梯形中看出解为\[\left\{\begin{array}{l}x_1=-x_2-\frac{1}{3}x_5,\\x_2~\text{是自由变量},\\x_3=-x_4-\frac{1}{3}x_5\\x_4~\text{是自由变量},\\x_5~\text{是自由变量},\end{array}\right.\]
+  或写成向量形式
+  \begin{equation}\label{basis_of_ker_a}
+    \mathbf{x}=\begin{pmatrix}-x_2-\frac{1}{3}x_5\\x_2\\-x_4-\frac{1}{3}x_5\\x_4\\x_5\end{pmatrix}=x_2\begin{pmatrix}-1\\1\\0\\0\\0\end{pmatrix}+x_4\begin{pmatrix}0\\0\\-1\\1\\0\end{pmatrix}+x_5\begin{pmatrix}-1/3\\0\\-1/3\\0\\1\end{pmatrix}
+  \end{equation}
+  每个自由变量之后的向量，也即向量\[\begin{pmatrix}-1\\1\\0\\0\\0\end{pmatrix},\quad\begin{pmatrix}0\\0\\-1\\1\\0\end{pmatrix},\quad\begin{pmatrix}-1/3\\0\\-1/3\\0\\1\end{pmatrix}\]
+  形成$\ker A$的基。
+
+  遗憾的是，求出$\ker A^T$的基并没有捷径——必须求解方程$A^T\mathbf{x}=\mathbf{0}$。已知$A$的阶梯形并无帮助。
+\end{example*}
+
+\subsection{基本子空间的基的计算方式的解释}
+
+所以，为什么以上方法确实能给出基本子空间的基呢？
+
+\subsubsection{零空间$\ker A$}
+
+零空间$\ker A$的基的求法解释起来可能最容易：因为我们求解了方程$A\mathbf{x}=\mathbf{0}$，即求出它所有的解，那么$\ker A$的所有向量都是我们所得各向量的线性组合。因此，我们所得各向量形成了$\ker A$的张成组。要看出这个向量组是线性无关的，让我们将每个向量都乘以对应的自由变量并求和——见 \eqref{basis_of_ker_a}。那么对于任意自由变量$x_k$，求和结果的第$k$项恰为$x_k$（同样可见 \eqref{basis_of_ker_a}），因此该结果（线性组合）为$\mathbf{0}$只有一种可能，就是所有自由变量都为$0$。
+
+\subsubsection{列空间$\rg A$}
+
+下面我们解释列空间$\rg A$的基的求法为何奏效。首先，注意到$A$的\textbf{简化阶梯形}$A_{\mathrm{re}}$的主元列形成$\rg A_{\mathrm{re}}$的基（并不是原矩阵的列空间的基，而是其简化阶梯形的基！）。因为行变换仅仅是左乘可逆矩阵，所以它并不改变线性无关关系。因此，{\bf 原}矩阵$A$的主元列也是线性无关的。
+
+现在我们说明$A$的主元列张成$A$的列空间。令$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$是$A$的主元列，并令$\mathbf{v}$是$A$的任意一列。我们要证明：$\mathbf{v}$可表示成主元列$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$的线性组合\[\mathbf{v}=\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\cdots+\alpha_r\mathbf{v}_r.\]
+简化阶梯形$A_{\mathrm{re}}$是由$A$左乘初等矩阵得到的：\[A_{\mathrm{re}}=EA\]
+其中$E$是一系列初等矩阵的积，因此$E$是可逆矩阵。向量$E\mathbf{v}_{1},E\mathbf{v}_{2},\ldots,$ $E\mathbf{v}_{r}$是$A_{\mathrm{re}}$的主元列，而$A$的其中一列$\mathbf{v}$被变换为$A_{\mathrm{re}}$的一列$E\mathbf{v}$。因为$A_{\mathrm{re}}$的主元列形成$\rg A_{\mathrm{re}}$的基，所以向量$E\mathbf{v}$可表示为它们的线性组合\[E\mathbf{v}=\alpha_1E\mathbf{v}_1+\alpha_2E\mathbf{v}_2+\ldots+\alpha_rE\mathbf{v}_r.\]
+将该等式两端同时左乘$E^{-1}$，可得如下表达式\[\mathbf{v}=\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\cdots+\alpha_r\mathbf{v}_r,\]
+因此$A$的主元列的确张成$\rg A$。
+
+\subsubsection{行空间$\rg A^T$}
+
+容易看出，$A$的\textbf{阶梯形}$A_{\mathrm{e}}$的主元行是线性无关的。的确如此：令$\mathbf{w}_1,\mathbf{w}_2,\ldots,\mathbf{w}_r$是$A_{\mathrm{e}}$的转置的主元行（因为我们总将这些向量写成列向量）。假设\[\alpha_1\mathbf{w}_1+\alpha_2\mathbf{w}_2+\ldots+\alpha_r\mathbf{w}_r=\mathbf{0}.\]
+考虑$\mathbf{w}_1$的第一个非零项。因为其他所有向量$\mathbf{w}_2,\mathbf{w}_3,\ldots,\mathbf{w}_r$的对应项都等于$0$（由阶梯形的定义），我们可得$\alpha_1=0$。因此可以直接忽略求和式的第一项。
+
+现在考虑$\mathbf{w}_2$的第一个非零项。向量$\mathbf{w}_3,\ldots,\mathbf{w}_r$的对应项都为$0$，因此$\alpha_2=0$。重复此过程，我们可得$\alpha_{k}=0\ \forall k=1,2,\ldots,r$。
+
+要看出$\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{r}$张成行空间，请注意{\bf 行变换并不改变行空间}。直接分析行变换过程就能看出这一点，不过此处我们给出一种更为正式的证法。
+
+对于变换$A$和集合$X$，我们记$A(X)$是所有可被表示成$y=A(x),$ $x\in X$的元素$y$所成的集合\[A(X):=\{y=A(x):x\in X\}.\]
+
+若$A$是$m\times n$矩阵，$A_{\mathrm{e}}$是其阶梯形，$A_{\mathrm{e}}$是由$A$左乘初等矩阵得到的：\[A_{\mathrm{e}}=EA\]
+其中$E$是$m\times m$可逆矩阵（初等矩阵的积）。那么\[\operatorname{Ran}A_{\mathrm{e}}^T=\operatorname{Ran}(A^TE^T)=A^T(\operatorname{Ran}E^T)=A^T(\mathbb{R}^m)=\operatorname{Ran}A^T,\]
+因此，的确有$\rg A^T = \rg A_{\mathrm{e}}^T$。
+
+\subsection{秩定理、基本子空间的维数}
+
+在许多实际应用中，都需要求出矩阵列空间或零空间的基。例如，如上所示，求解齐次方程组$A\mathbf{x}=0$就是求出零空间$\ker A$的基。求出列空间的基也就意味着从张成组中找出一个基（通过移除不必需的列向量）。
+
+然而，上述基本子空间的基的计算方法的最重要应用，就是得出这些子空间的维数关系。
+
+\begin{theorem}[秩定理]
+  对于矩阵$A$，\[\rank A = \rank A^T.\]
+\end{theorem}
+该定理常表述为：
+\begin{center}
+  \fbox{矩阵的{\bf 列秩}等于{\bf 行秩}。}
+\end{center}
+该定理的证明很简单，因为$\rg A$和$\rg A^T$的维数都等于$A$的阶梯形的主元的个数。
+
+下面定理给出了基本子空间的维数之间的重要关系，它也常被称为秩定理。
+
+\begin{theorem}\label{thm:fundamental_thm_of_la}
+  令$A$是$m\times n$矩阵，即从$\mathbb{F}^n$到$\mathbb{F}^m$的线性变换。那么
+  \begin{enumerate}
+    \item $\dim \ker A + \rank A = n$（$A$的定义域的维数）；
+    \item $\dim \ker A^T + \rank A = m$（$A$的目标空间的维数）。
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  利用上述基本子空间的基的求法，本证明非常简单。第一个结论就是，自由变量的数目（$\dim\ker A$）加上基本变量的数目（主元的数目，即$\rank A$）等于列数（$n$）。
+
+  而第二个结论，只需注意到$\rank A = \rank A^T$，就可知道仅仅是将第一个结论应用于$A^T$的结果。
+\end{proof}
+
+为演示上述定理的应用，考虑第 \ref{sec:general_solution} 节的例子。彼时我们考虑了线性方程组\[\begin{pmatrix}2&3&1&4&-9\\1&1&1&1&-3\\1&1&1&2&-5\\2&2&2&3&-8\end{pmatrix}\mathbf{x}=\begin{pmatrix}17\\6\\8\\14\end{pmatrix}.\]
+并求出了其通解表达式
+\begin{equation*}
+  \mathbf{x}=\begin{pmatrix}3\\1\\0\\2\\0\end{pmatrix}+x_3\begin{pmatrix}-2\\1\\1\\0\\0\end{pmatrix}+x_5\begin{pmatrix}2\\-1\\0\\2\\1\end{pmatrix},\quad x_3,x_5\in\mathbb{F}.
+\end{equation*}
+或
+\begin{equation*}
+  \mathbf{x}=\begin{pmatrix}3\\1\\0\\2\\0\end{pmatrix}+s\begin{pmatrix}-2\\1\\1\\0\\0\end{pmatrix}+t\begin{pmatrix}0\\0\\1\\2\\1\end{pmatrix},\quad s,t\in\mathbb{F}
+\end{equation*}
+在第 \ref{sec:general_solution} 节中我们检验了这两个式子给出的向量$\mathbf{x}$都确实是原方程的解。但是，我们如何保证这两个式子给出了{\bf 所有}解呢？
+
+首先，我们知道这两个式子中，最后$2$个向量（前面乘了参数的向量）属于$\ker A$。容易看出，两式中的这两个向量都是线性无关的（两个向量线性相关，当且仅当其中一个向量是另一个的若干倍）。
+
+现在计算维数：交换前两行并作一轮行变换：
+\begin{align*}
+  \begin{pNiceArray}{rrrrr}[margin,first-col]
+    &1&1&1&1&-3\\
+    -2R_1&2&3&1&4&-9\\
+    -R_1&1&1&1&2&-5\\
+    -2R_1&2&2&2&3&-8
+  \end{pNiceArray} &\sim 
+  \begin{pNiceArray}{rrrrr}[margin]
+     1&1&1&1&-3\\0&1&-1&2&-3\\0&0&0&1&-2\\0&0&0&1&-2
+  \end{pNiceArray}
+\end{align*}
+从中已能看出有三个主元，因此$\rank A\ge 3$。（其实我们已经能看出秩为$3$，但是此处只需要推到这个不等式就够了）。由\autoref{thm:fundamental_thm_of_la}，$\rank A+\dim\ker A = 5$，于是$\dim\ker A\le 2$，因此$\ker A$中不会有超过$2$个向量线性无关。因此，上面表达式中的最后两个向量都形成$\ker A$的基，则这两个表达式都给出了原方程的所有解。
+
+秩定理的一个重要推论，就是下面这个将线性方程组解的存在性和唯一性关联起来的定理。
+
+\begin{theorem}
+  令$A$是$m\times n$矩阵。那么方程\[A\mathbf{x}=\mathbf{b}\]
+  对于任一$\mathbf{b}\in\mathbb{R}^m$都有解，当且仅当对偶方程\[A^T\mathbf{x}=\mathbf{0}\]都具有唯一解（仅有平凡解）。（注意，第二个方程中是$A^T$，不是$A$）
+\end{theorem}
+\begin{proof}
+  由\autoref{thm:fundamental_thm_of_la} 可立即得证（只需计算维数）。我们将证明的细节留给读者作为习题。
+\end{proof}
+
+第二个秩定理（\autoref{thm:fundamental_thm_of_la}）有一个非常优美的几何解释：该定理的第一条是说，如果变换$A:\mathbb{F}^{n}\to\mathbb{F}^{m}$具有平凡的核（$\operatorname{Ker}A=\{\mathbf{0}\}$），那么定义域$\mathbb{F}^{n}$和值域$\rg A$的维数相同。如果核不是平凡的，那么该变换会“消掉”$\dim\ker A$维，从而$\dim\rg A = n-\dim\ker A$。
+
+\section{线性变换在任意基下的表示、坐标变更公式}\label{sec:ChangeOfCoordinate}
 
 % 如下是算法~\ref{alg:euclid}.
 % \begin{algorithm}[H]
