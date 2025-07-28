@@ -343,11 +343,11 @@
     因此，$\mathbb{R}$中的任一线性变换仅仅是与常数的乘法。
 \end{example*}
 
-\subsection{$\mathbb{F}^n\to \mathbb{F}^m$的线性变换、矩阵-列向量乘法}
+\subsection{\texorpdfstring{$\mathbb{F}^n\to \mathbb{F}^m$}{F**n到F**m}的线性变换、矩阵-列向量乘法}
 
 线性变换$T:\mathbb{F}^n\to\mathbb{F}^m$也可用一乘法表示，不过不是与标量相乘，而是与矩阵相乘。
 
-我们来看看是如何乘的。令$T:\mathbb{F}^n\to\mathbb{F}^m$为一线性变换。为了对所有向量$\mathbf{x}\in\mathbb{F}^{n}$计算$T(\mathbf{x})$，我们需要什么信息呢？我的观点是，知道$T$作用于标准基$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$的结果就足够了。也即，知道$\mathbb{F}^m$中的这$n$个向量（即若干长度为$m$的向量）就足够了：
+我们来看看是如何乘的。令$T:\mathbb{F}^n\to\mathbb{F}^m$为一线性变换。为了对所有向量$\mathbf{x}\in\mathbb{F}^{n}$计算$T(\mathbf{x})$，我们需要什么信息呢？我的观点是，知道$T$作用于$\mathbb{F}^{n}$中的标准基$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$的结果就足够了。也即，知道$\mathbb{F}^m$中的这$n$个向量（即若干长度为$m$的向量）就足够了：
 \[\mathbf{a}_1=T(\mathbf{e}_1),\quad\mathbf{a}_2:=T(\mathbf{e}_2),\quad\ldots,\quad\mathbf{a}_n:=T(\mathbf{e}_n).\]
 的确如此：令\[\mathbf{x}=\begin{pmatrix}x_1\\x_2\\\vdots\\x_n\end{pmatrix}.\]
 那么$\mathbf{x}=x_{1}\mathbf{e}_{1}+x_{2}\mathbf{e}_{2}+\ldots+x_{n}\mathbf{e}_{n}=\sum_{k=1}^{n}x_{k}\mathbf{e}_{k}$，且有
@@ -362,7 +362,7 @@
 于是，如果我们要使$A\mathbf{x} = T(\mathbf{x})$，我们就有
 \[A\mathbf{x}=\sum_{k=1}^nx_k\mathbf{a}_k=x_1\begin{pmatrix}a_{1,1}\\a_{2,1}\\\vdots\\a_{m,1}\end{pmatrix}+x_2\begin{pmatrix}a_{1,2}\\a_{2,2}\\\vdots\\a_{m,2}\end{pmatrix}+\ldots+x_n\begin{pmatrix}a_{1,n}\\a_{2,n}\\\vdots\\a_{m,n}\end{pmatrix}.\]
 
-因此，矩阵-列向量乘法应该按照下述“{\bf 列乘以坐标}”法则来进行：
+因此，矩阵-向量乘法应该按照下述“{\bf 列乘以坐标}”法则来进行：
 \begin{center}
     \fbox{将矩阵的各列与向量的对应坐标相乘。}
 \end{center}
@@ -741,7 +741,7 @@
 \subsubsection*{例子}
 
 \begin{enumerate}
-    \item 令$A:\mathbb{F}^{n+1}\to\mathbb{P}_{n}^{\mathbb{F}}$（$\mathbb{P}_{n}^{\mathbb{F}}$是次数最高为$n$的多项式$\sum_{k=0}^{n}a_{k}t^{k},\alpha_{k}\in\mathbb{F}$所成的集合）定义为\[A\mathbf{e}_1=1,A\mathbf{e}_2=t,\ldots,A\mathbf{e}_n=t^{n-1},A\mathbf{e}_{n+1}=t^n\]
+    \item 令$A:\mathbb{F}^{n+1}\to\mathbb{P}_{n}^{\mathbb{F}}$（$\mathbb{P}_{n}^{\mathbb{F}}$是次数最高为$n$的多项式$\sum_{k=0}^{n}\alpha_{k}t^{k},\alpha_{k}\in\mathbb{F}$所成的集合）定义为\[A\mathbf{e}_1=1,A\mathbf{e}_2=t,\ldots,A\mathbf{e}_n=t^{n-1},A\mathbf{e}_{n+1}=t^n\]
     由\autoref{thm:basis_to_basis}，$A$为同构，故$\mathbb{P}_n^\mathbb{F}\cong\mathbb{F}^{n+1}$。
     \item 令$V$为$\mathbb{F}$上的向量空间，\marginpar{\small 任一具有基的实向量空间都与$\mathbb{R}^n$（$n$为适当的数）同构。类似地，任一具有基的复向量空间都与$\mathbb{C}^n$同构。}基为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$。定义变换$A:\mathbb{F}^{n}\to V$为\[A\mathbf{e}_k=\mathbf{v}_k,\quad k=1,2,\ldots,n,\]
     其中$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$是$\mathbb{F}^n$的标准基。同样由\autoref{thm:basis_to_basis}，$A$为同构，故$V\cong\mathbb{F}^{n}$。
@@ -849,7 +849,7 @@
 
 本节我们给出线性代数在计算机图形学中的一些实际应用。我们并不会深究细节，而只是陈述一些基本思想。我们会重点解释为什么对于$3$维图像的运算可简化为$4\times 4$矩阵的乘法。
 
-\subsection{$2$维图形}
+\subsection{\texorpdfstring{$2$}{2}维图形}
 
 计算机显示屏可建模为$x$-$y$平面（更准确地说，其中的一个矩形）。显示屏上出现的任意图形都可用一系列{\bf 像素}来表示，而每个像素都被赋予了特定的颜色。每个像素的位置都由行号和列号所确定，二者充当了平面上$x$和$y$坐标的角色。因此，用带$x$-$y$坐标的平面中的矩形来表示计算机屏幕是很合适的——而一个图形只不过是一系列点。
 
@@ -877,7 +877,7 @@
 在本书的后续部分，我们将证明$\mathbb{R}^2$中的所有线性变换都是伸缩、旋转和反射的复合。然而，有时考虑别的变换也可带来便利。例如由下面矩阵所给出的剪切变换：\[\begin{pmatrix}1&\tan\varphi\\0&1\end{pmatrix}.\]
 这个变换会使图形倾斜——水平线仍然保持水平，但是垂直线变成了与水平线夹角为$\varphi$的斜线。
 
-\subsection{$3$维图形}
+\subsection{\texorpdfstring{$3$}{3}维图形}
 
 三维图形学更为复杂。首先我们需要能够对三维的图形对象进行运算，然后我们还需要将其在二维平面（显示器）上显示出来。
 

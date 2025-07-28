@@ -8,7 +8,7 @@
 关于线性方程组为何物，有多种视角。第一种（也是最朴素的一种），就是将其视作含有$n$个未知数$x_1,x_2,\dots,x_n$的$m$个线性方程，
 \[\left\{\begin{array}{cccccccccc}a_{1,1}x_1&+&a_{1,2}x_2&+&\ldots&+&a_{1,n}x_n&=&b_1\\a_{2,1}x_1&+&a_{2,2}x_2&+&\ldots&+&a_{2,n}x_n&=&b_2\\\cdots\\a_{m,1}x_1&+&a_{m,2}x_2&+&\ldots&+&a_{m,n}x_n&=&b_m&.\end{array}\right.\]
 
-求解该方程组即求出{\bf 所有}同时满足这$m$个方程的数$x_1,x_2,\dots,x_n$构成的$n$-元组。
+求解该方程组即求出{\bf 所有}同时满足这$m$个方程的数$x_1,x_2,\dots,x_n$构成的$n$元组。
 
 如果记$\mathbf{x}:=(x_{1},x_{2},\ldots,x_{n})^{T}\in\mathbb{F}^{n},\mathbf{b}=(b_{1},b_{2},\ldots,b_{m})^{T}\in\mathbb{F}^{m}$，且记
 \[A=\begin{pmatrix}a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&&\vdots\\a_{m,1}&a_{m,2}&\ldots&a_{m,n}\end{pmatrix},\]
@@ -45,7 +45,7 @@
 \begin{enumerate}
   \item 行交换：交换矩阵的两行；
   \item 缩放：将一行乘以非零标量$a$；
-  \item 行置换：将第$k$行换为它与第$j$行的常数倍之和，而保持其他行不变。
+  \item 行替换：将第$k$行换为它与第$j$行的常数倍之和，而保持其他行不变。
 \end{enumerate}
 
 显然，变换1和2并不会改变线性方程组的解集——它们实质上就没有改变原方程组。
@@ -220,7 +220,7 @@
   \item 主元之上的所有项都为$0$。注意，主元之下的所有项也都是$0$，因为该矩阵具有阶梯形。
 \end{enumerate}
 
-为了从阶梯形得到简化阶梯形，我们按从下到上、从右到左的次序，利用行置换消去主元之上的所有项。
+为了从阶梯形得到简化阶梯形，我们按从下到上、从右到左的次序，利用行替换消去主元之上的所有项。
 
 简化阶梯形的一个例子是系数矩阵等于$I$的方程组。在这种情况下，从简化阶梯形就很容易看出解。在一般的情形下，从简化阶梯形看出解也很容易。例如，令方程组（增广矩阵）的简化阶梯形是\[\left(\begin{array}{ccccc|c}\boxed{1}&2&0&0&0&1\\0&0&\boxed{1}&5&0&2\\0&0&0&0&\boxed{1}&3\end{array}\right);\]
 此处我们将主元框出来了。求解思路是，将没有主元的列所对应的变量（所谓{\bf 自由变量}）移到右侧。然后我们可直接写出解为\pagebreak\[\left\{\begin{array}{l}x_1=1-2x_2\\x_2~\text{为自由变量}\\x_3=2-5x_4\\x_4~\text{为自由变量}\\x_5=3\end{array}\right.\]
@@ -564,7 +564,7 @@
 
 在接下来这短短一节中，我们讨论线性方程组的通解（即解集）的结构。
 
-称方程组$A\mathbf{x}=\mathbf{b}$是齐次的，若右端项$\mathbf{b}=\mathbf{0}$，即齐次线性方程组形式为$A\mathbf{x}=\mathbf{0}$。
+称方程组$A\mathbf{x}=\mathbf{b}$是齐次的，若右端项$\mathbf{b}=\mathbf{0}$，即齐次方程组形式为$A\mathbf{x}=\mathbf{0}$。
 
 每个方程组\[A\mathbf{x}=\mathbf{b}\]都可通过取$\mathbf{b}=\mathbf{0}$关联到一个齐次方程组。
 
@@ -586,7 +586,7 @@
 
 这个定理的强大之处在于其普遍性。它适用于所有的线性方程，而且我们不需要假设向量空间是有限维的。你还会在微分方程、积分方程、偏微分方程等各种场合与这个定理重逢。除了表明解集的结构，这个定理还使我们得以将对唯一性的分析与对存在性的研究分开。也就是说，要研究唯一性，只需要分析齐次方程$A\mathbf{x}=\mathbf{0}$解的唯一性（这个方程总有解）。
 
-就本书内容而言，这个定理有个直接的应用：我们可借以检验方程$A\mathbf{x}=\mathbf{b}$的解。
+就本书内容而言，这个定理有个直接的应用：我们可借以检验方程组$A\mathbf{x}=\mathbf{b}$的解。
 例如，考虑方程组
 \[\begin{pmatrix}2&3&1&4&-9\\1&1&1&1&-3\\1&1&1&2&-5\\2&2&2&3&-8\end{pmatrix}\mathbf{x}=\begin{pmatrix}17\\6\\8\\14\end{pmatrix}.\]
 作行变换，可求出该方程组的解
@@ -595,7 +595,7 @@
 \end{equation}
 此处的参数$x_3$和$x_5$可用任意其他字母替代，比如说$t$和$s$。用$x_3$和$x_5$来表示，只是为了提醒我们，这些参数来自相应的自由变量。
 
-现在假设这个解已给出，并要检验其是否正确。当然，我们可以重做一次行变换，但这太费时了。并且，如果解不是通过标准的方法获得的，那么它可能与从行化简得到的解看起来不同。例如，
+现在假设这个解已给出，并要检验其是否正确。当然，我们可以重做行变换，但这太费时了。并且，如果解不是通过标准的方法获得的，那么它可能与从行化简得到的解看起来不同。例如，
 \pagebreak
 \begin{equation}\label{example_solution_2}
   \mathbf{x}=\begin{pmatrix}3\\1\\0\\2\\0\end{pmatrix}+s\begin{pmatrix}-2\\1\\1\\0\\0\end{pmatrix}+t\begin{pmatrix}0\\0\\1\\2\\1\end{pmatrix},\quad s,t\in\mathbb{F}
@@ -635,7 +635,7 @@
 
 我们在第 \ref{chap:BasicNotion} 章第 \ref{sec:subspace} 节讨论过，每个线性变换$A:V\to W$都与两个子空间相关联，一个是它的核（零空间）\[\operatorname{Ker}A=\operatorname{Null}A:=\{\mathbf{v}\in V:A\mathbf{v}=\mathbf{0}\}\subset V,\]
 另一个是它的值域\[\operatorname{Ran}A=\{\mathbf{w}\in W:\mathbf{w}=A\mathbf{v},\mathbf{v}\in V\}\subset W.\]
-换言之，核$\ker A$是齐次方程组$A\mathbf{x}=\mathbf{0}$的解集，值域$\rg A$是使得方程$A\mathbf{x}=\mathbf{b}$有解的所有右端项$\mathbf{b}\in W$所成的集合。
+换言之，核$\ker A$是齐次方程$A\mathbf{x}=\mathbf{0}$的解集，值域$\rg A$是使得方程$A\mathbf{x}=\mathbf{b}$有解的所有右端项$\mathbf{b}\in W$所成的集合。
 
 若$A$是$m\times n$矩阵，即从$\mathbb{F}^{n}$到$\mathbb{F}^{m}$的映射，那么由矩阵-向量乘法的“列乘以坐标”法则，任意向量$\mathbf{w}\in\operatorname{Ran}A$可表示为$A$的列的线性组合。这就能解释{\bf 列空间}（记号为$\col A$）这一名称的来历，它是$\rg A$的另一种表达。
 
@@ -662,7 +662,7 @@
   作行变换可得阶梯形\[\begin{pmatrix}\boxed{1}&1&2&2&1\\0&0&\boxed{-3}&-3&-1\\0&0&0&0&0\\0&0&0&0&0\end{pmatrix}\]
   （这里框出了主元）。因此，{\bf 原矩阵}的第1、3列，也即\[\begin{pmatrix}1\\2\\3\\1\end{pmatrix},\quad\begin{pmatrix}2\\1\\3\\-1\end{pmatrix}\]
   给出了$\rg A$的一个基。我们还可马上得到行空间$\rg A^T$的基：$A$的{\bf 阶梯形}的第一、二行，即向量\[\begin{pmatrix}1\\1\\2\\2\\1\end{pmatrix},\quad\begin{pmatrix}0\\0\\-3\\-3\\-1\end{pmatrix}\]
-  （此处我们将向量写成列向量。究竟是将向量像此处一样写成列向量还是写成行向量，是个习惯问题。这里写成列向量的理由是，尽管我们称$\rg A$是{\bf 行空间}，但我们其实将它定义为$A^T$的列空间）
+  （此处我们将向量竖写为列向量。究竟是像此处一样竖写为列向量还是横写为行向量，是个习惯问题。这里写成列向量的理由是，尽管我们称$\rg A^T$是{\bf 行空间}，但我们其实将它定义为$A^T$的列空间）
 
   为计算零空间$\ker A$的基，我们需要解方程$A\mathbf{x}=\mathbf{0}$。计算$A$的{\bf 简化}阶梯形，对于本例是\[\begin{pmatrix}\boxed{1}&1&0&0&1/3\\0&0&\boxed{1}&1&1/3\\0&0&0&0&0\\0&0&0&0&0\end{pmatrix}.\]
   \pagebreak
@@ -682,13 +682,13 @@
 
 所以，为什么以上方法确实能给出基本子空间的基呢？
 
-\subsubsection{零空间$\ker A$}
+\subsubsection{零空间\texorpdfstring{$\ker A$}{Ker A}}
 
 零空间$\ker A$的基的求法解释起来可能最容易：因为我们求解了方程$A\mathbf{x}=\mathbf{0}$，即求出它所有的解，那么$\ker A$中所有向量都是我们所得各向量的线性组合。因此，我们所得各向量形成了$\ker A$的张成组。要看出这个向量组是线性无关的，将每个向量都乘以对应的自由变量并求和——见 \eqref{basis_of_ker_a}。那么对于任意自由变量$x_k$，求和结果的第$k$项恰为$x_k$（同样可见 \eqref{basis_of_ker_a}），因此该结果（线性组合）为$\mathbf{0}$只有一种可能，就是所有自由变量都为$0$。
 
-\subsubsection{列空间$\rg A$}
+\subsubsection{列空间\texorpdfstring{$\rg A$}{Ran A}}
 
-下面我们解释列空间$\rg A$的基的求法为何奏效。首先，注意到$A$的\textbf{简化阶梯形}$A_{\mathrm{re}}$的主元列形成$\rg A_{\mathrm{re}}$的基（并不是原矩阵的列空间的基，而是其简化阶梯形的基！）。因为行变换仅仅是左乘可逆矩阵，所以它并不改变线性无关关系。因此，{\bf 原}矩阵$A$的主元列也是线性无关的。
+下面我们解释列空间$\rg A$的基的求法为何奏效。首先，注意到$A$的\textbf{简化阶梯形}$A_{\mathrm{re}}$的主元列形成$\rg A_{\mathrm{re}}$的基（并不是原矩阵列空间的基，而是其简化阶梯形列空间的基！）。因为行变换仅仅是左乘可逆矩阵，所以它并不改变线性无关关系。因此，{\bf 原}矩阵$A$的主元列也是线性无关的。
 
 现在我们说明$A$的主元列张成$A$的列空间。令$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$是$A$的主元列，并令$\mathbf{v}$是$A$的任意一列。我们要证明：$\mathbf{v}$可表示成主元列$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$的线性组合\[\mathbf{v}=\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\cdots+\alpha_r\mathbf{v}_r.\]
 简化阶梯形$A_{\mathrm{re}}$是由$A$左乘初等矩阵得到的：\[A_{\mathrm{re}}=EA\]
@@ -696,7 +696,7 @@
 将该等式两端同时左乘$E^{-1}$，可得如下表达式\[\mathbf{v}=\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\cdots+\alpha_r\mathbf{v}_r,\]
 因此$A$的主元列的确张成$\rg A$。
 
-\subsubsection{行空间$\rg A^T$}
+\subsubsection{行空间\texorpdfstring{$\rg A^T$}{Ran A**T}}
 
 容易看出，$A$的\textbf{阶梯形}$A_{\mathrm{e}}$的主元行是线性无关的。的确如此：令$\mathbf{w}_1,\mathbf{w}_2,\ldots,\mathbf{w}_r$是$A_{\mathrm{e}}$的主元行的转置（因为我们总将这些向量写成列向量）。假设\[\alpha_1\mathbf{w}_1+\alpha_2\mathbf{w}_2+\ldots+\alpha_r\mathbf{w}_r=\mathbf{0}.\]
 考虑$\mathbf{w}_1$的第一个非零项。因为其他所有向量$\mathbf{w}_2,\mathbf{w}_3,\ldots,\mathbf{w}_r$的对应项都等于$0$（由阶梯形的定义），我们可得$\alpha_1=0$。因此可以直接忽略求和式的第一项。

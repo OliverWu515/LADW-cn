@@ -91,7 +91,8 @@
     linkcolor=black,
     citecolor=blue,
     filecolor=blue,
-    urlcolor=blue
+    urlcolor=blue,
+    bookmarksdepth=3
 }
 \fi
 
