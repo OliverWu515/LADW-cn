@@ -181,9 +181,15 @@
     \fancyhead[RE]{\fangsong\zihao{5}\nouppercase{\leftmark}}
 }
 
+\newcommand{\chapterpagenum}{%
+  \begin{tabular}{@{}r@{}}        % 紧凑竖直排布
+    \rule{0.6cm}{0.1cm}\\[-0.2ex] % ① 画 1.5 cm 宽、0.4 pt 厚的横线，可按需调宽
+    \zihao{5}\thepage             % ② 输出页码
+  \end{tabular}}
+
 %---------- 设置页脚样式 ----------
 \newcommand{\footstyle}{%
-    \fancyfoot[C]{\zihao{5}\thepage}
+    \fancyfoot[R]{\chapterpagenum}
     %\fancyfoot[LE]{\zihao{5}\thepage}
     %\fancyfoot[RO]{\zihao{5}\thepage}
 }
@@ -191,7 +197,7 @@
 %---------- 定义plain样式 ----------
 \fancypagestyle{plain}{%
     \fancyhf{}
-    %\footstyle
+    \footstyle
     \renewcommand{\headrulewidth}{0pt}
     \renewcommand{\footrulewidth}{0pt}
 }

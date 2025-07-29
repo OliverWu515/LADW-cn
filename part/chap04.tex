@@ -20,57 +20,146 @@
 
 \subsection{特征值、特征向量、谱}
 
-称
+称标量$\lambda$为算子$A:V\to V$的\textbf{特征值}，若存在\textbf{非零}向量$\mathbf{v}\in V$使得\[A\mathbf{v}=\lambda\mathbf{v}.\]
+向量$\mathbf{v}$称为$A$（相应于特征值$\lambda$的）特征向量。
 
-% 插入一个图形并居中放置, 如图~\ref{fig:sinx}.
-% \begin{figure}[htp!]
-%   \centering
-%   \includegraphics[width=7.2cm]{image1}
-%   \caption{函数 $y=\sin(x)$ 的图像}\label{fig:sinx}
-% \end{figure}
+如果我们知道$\lambda$是特征值，则很容易求出特征向量：只需求解方程$A\mathbf{x}=\lambda\mathbf{x}$，或与之等价的\[(A-\lambda I)\mathbf{x}=\mathbf{0}.\]
+所以，求出\textbf{所有}相应于特征值$\lambda$的特征向量，就是求出$A-\lambda I$的零空间。这个零空间$\ker(A-\lambda I)$，即所有特征向量及$\mathbf{0}$向量所成的集合，称为\textbf{特征空间}。
 
-% 两个图左右并排放置, 共用一个标题, 如图~\ref{fig:image}.
-% \begin{figure}[htp!]
-%   \centering
-%   \includegraphics[width=0.45\linewidth]{image1}
-%   \hfill
-%   \includegraphics[width=0.45\linewidth]{image2}
-%   \caption{左: 图一的描述;~ 右:图二的描述}
-%   \label{fig:image}
-% \end{figure}
+算子$A$的全体特征值构成的集合称为$A$的\textbf{谱}，常记为$\sigma(A)$。
 
-% \clearpage
-% 使用 minipage 排版并排插图, 每个图都有单独的标题. 通过 \verb|autoref| 引用图片: \autoref{fig:image1} 与 \autoref{fig:image2}.
-% \begin{figure}[htp!]
-% \begin{minipage}[t]{0.48\linewidth}
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{image1}
-%   \caption{图一的描述}
-%   \label{fig:image1}
-% \end{minipage}
-% \hfill
-% \begin{minipage}[t]{0.48\linewidth}
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{image2}
-%   \caption{图二的描述}
-%   \label{fig:image2}
-% \end{minipage}
-% \end{figure}
+\subsection{求出特征值：特征多项式}
 
-% 使用 subfig 宏包实现多图并排, 如图~\ref{fig:images}.
-% \begin{figure}[htp!]
-% \centering
-% \subfloat[Subcaption A]{\includegraphics[width=0.3\linewidth]{image1}}
-% \hfill
-% \subfloat[Subcaption B]{\includegraphics[width=0.3\linewidth]{image1}}
-% \hfill
-% \subfloat[Subcaption C]{\includegraphics[width=0.3\linewidth]{image1}} \\
-% \subfloat[Subcaption D]{\includegraphics[width=0.3\linewidth]{image2}}
-% \hfill
-% \subfloat[Subcaption E]{\includegraphics[width=0.3\linewidth]{image2}}
-% \hfill
-% \subfloat[Subcaption F]{\includegraphics[width=0.3\linewidth]{image2}}
-% \caption{六个图并排}
-% \label{fig:images}
-% \end{figure}
+标量$\lambda$为特征值当且仅当零空间$\ker(A-\lambda I)$是非平凡的（因此方程$(A-\lambda I)\mathbf{x}=\mathbf{0}$有非平凡解）。
 
+设$A$作用在$\mathbb{F}^n$上（即$A:\mathbb{F}^n\to \mathbb{F}^n$）。因为$A$的矩阵是方阵，所以$A-\lambda I$有非平凡零空间，当且仅当它不可逆。我们知道方阵不可逆当且仅当其行列式为$0$。因此
+
+\centerline{\fbox{$\lambda\in\sigma(A)$，即$\lambda$为$A$的特征值$\iff$$\det(A-\lambda I)=0$}}
+
+若$A$为$n\times n$矩阵，那么行列式$\det(A-\lambda)$是关于变量$\lambda$的$n$次多项式。该多项式称为$A$的\textbf{特征多项式}。因此，要求出$A$的所有特征值，只需计算特征多项式并求出它的所有根。
+
+算子的谱的这种求法在维数较高时不太实用：求出高次多项式的根可能非常困难，并且高于$4$次的多项式没有求根公式。因此，在高维下，求特征值和特征向量会用到各种数值方法。
+
+\subsection{求出抽象的算子的特征多项式和特征值}
+
+现在我们知道如何求出一矩阵的谱了。但是，对于作用于抽象的向量空间的算子，我们如何求出其特征值呢？方法其实很简单：
+
+\centerline{\fbox{取任意一个基，并计算该算子关于这个基的矩阵的特征值。}}
+
+可是，我们怎么确保所得结果不会随着基的选取而改变呢？
+
+对此，有多种解释。其中一种解释基于\textbf{相似矩阵}这一概念。回想一下，称方阵$A$和$B$是相似的，如果存在可逆矩阵$S$使得\[A=SBS^{-1}.\]
+注意，相似矩阵的行列式是相同的。的确如此：\[\det A=\det(SBS^{-1})=\det S\det B\det S^{-1}=\det B\]
+因为$\det S^{-1}=1/\det S$。注意，如果$A=SBS^{-1}$那么\[A-\lambda I=SBS^{-1}-\lambda SIS^{-1}=S(BS^{-1}-\lambda IS^{-1})=S(B-\lambda I)S^{-1},\]
+因此矩阵$A-\lambda I$和$B-\lambda I$是相似的。因此\[\det(A-\lambda I)=\det(B-\lambda I),\]即
+
+\centerline{\fbox{相似矩阵的特征多项式是一样的。}}
+
+若$T:V\to V$是线性变换，并且$\mathcal{A}$和$\mathcal{B}$是$V$中的两个基，那么\[\left[T\right]_{\mathcal{AA}}=\left[I\right]_{\mathcal{AB}}\left[T\right]_{\mathcal{BB}}\left[I\right]_{\mathcal{BA}}\]
+又因为$[I]_{\mathcal{BA}}=([I]_{\mathcal{AB}})^{-1}$，所以矩阵$\left[T\right]_{\mathcal{AA}}$和$\left[T\right]_{\mathcal{BB}}$相似。
+
+换言之，同一线性变换关于不同基的矩阵是相似的。
+
+因此，我们可定义算子的特征多项式为这个算子在某个基下的矩阵的特征多项式。如上所讨论的，这并不依赖于基的选取，因此这样定义算子的特征多项式是完善的。
+
+\subsection{复向量空间 VS 实向量空间}
+
+代数基本定理表明，任意（次数至少为$1$）的多项式都有复根。这就意味着，有限维\textbf{复}向量空间中的算子至少有一个特征值，所以它的谱一定非空。
+
+而另方面，在实向量空间中，很容易构造一个不具有\textbf{实}特征值的线性变换，例子之一是$\mathbb{R}^2$中的旋转$R_\alpha,\alpha\ne \pi n$。这样的算子的谱是空集，因为通常假设特征值属于标量域（如果算子作用于$\mathbb{F}$上的向量空间，那么特征值就应属于$\mathbb{F}$）。
+
+因此，复数情形（算子作用于复向量空间）似乎更适于研究谱理论。因为$\mathbb{R}\subset\mathbb{C}$，所以我们总可以将$n\times n$实矩阵视为$\mathbb{C}^n$中的算子，从而允许复特征值存在。将实矩阵视为$\mathbb{C}^n$中的算子是谱理论研究中的惯常做法，并且我们将遵从这一惯例。除非特别说明，求矩阵的特征值都是指求出所有\textbf{复}特征值，而不仅限于实特征值。
+
+注意，抽象的实向量空间中的算子也总能被看成复向量空间中的算子。一种简易的处理方式是，取定一个基（回忆一下：本章中的所有向量空间都是有限维的），然后总是处理关于这个基的坐标向量，并且允许坐标中出现复数——这其实就是完成从$\mathbb{R}^n$中算子到$\mathbb{C}^n$中算子的迁移（上段所述内容）。
+
+这迁移过程其实就展现了实向量空间的所谓\textbf{复化}，而且它还不依赖于基的选取。复化的一种“高端”而又抽象的建构方式可以解释它为什么不依赖于基的选取，这将在第 \ref{chap:InnerProduct} 章第 \ref{subsec:complexification} 节详述。
+
+\subsection{特征值的重数}
+
+请注意，若$p$为多项式，$\lambda$是其零点（即$p(\lambda)=0$），那么$z-\lambda$整除$p(z)$，也即$p$可由$p(z)=(z-\lambda)q(z)$表示，其中$q$为多项式。如果$q(\lambda)=0$，那么$q$同样可被$z-\lambda$整除，所以$(z-\lambda)^2$整除$p$，以此类推。
+
+使得$(z-\lambda)^k$整除$p(z)$的最大正整数$k$称为$\lambda$这个根的重数。
+
+如果$\lambda$是算子（矩阵）$A$的特征值，那么它是特征多项式$p(z)=\det(A-zI)$的根。此根的重数称为特征值$\lambda$的\textbf{（代数）重数}。
+
+任意次数为$n$的多项式$p(z)=\sum_{k=0}^{n}a_{k}z^{k}$都恰有$n$个复根（重根以重数计）。“重根以重数计”的意思是，如果一个根的重数为$d$，就需要列出它$d$次，并且在计数时重复数$d$次。换言之，$p$可表示为\[p(z)=a_n(z-\lambda_1)(z-\lambda_2)\ldots(z-\lambda_n).\]其中$\lambda_{1},\lambda_{2},\ldots,\lambda_{n}$是复根（重根以重数计）。
+
+特征值还有另一种重数：特征空间$\ker(A-\lambda I)$的维数称为特征值$\lambda$的\textbf{几何重数}。
+
+几何重数不如代数重数运用得广泛。所以，当仅提及“重数”时，通常是指\textbf{代数重数}。
+
+顺带说一句：特征值的代数重数和几何重数可能不等。
+
+\begin{proposition}
+    特征值的几何重数不超过其代数重数。
+\end{proposition}
+\begin{proof}
+    见下方习题 \ref{ex:4_1_9}。
+\end{proof}
+
+\subsection{迹与行列式}
+
+\begin{theorem}
+    令$A$为$n\times n$矩阵，并令$\lambda_{1},\lambda_{2},\ldots,\lambda_{n}$是它的（复）特征值（重根以重数计）。那么
+    \begin{enumerate}
+        \item $\tr A=\lambda_1+\lambda_2+\ldots+\lambda_n$。
+        \item $\det A=\lambda_1\lambda_2\ldots\lambda_n$。
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    见下方习题 \ref{ex:4_1_10}、\ref{ex:4_1_11}。
+\end{proof}
+
+\subsection{三角矩阵的特征值}
+
+计算特征值等价于求出矩阵的特征多项式的零点（有可能利用数值方法），而这或许非常耗时。然而，在一种特殊情况中，我们可以直接从矩阵里读出特征值。即
+\begin{center}
+    \fbox{\parbox{0.73\linewidth}{三角矩阵的特征值（重根以重数计）恰为对角线项$a_{1,1},a_{2,2},\ldots,a_{n,n}$。}}
+\end{center}
+
+“三角”此处可指上三角也可指下三角。因为对角矩阵是三角矩阵的一个特例（它既是上三角的又是下三角的），所以
+\begin{center}
+    \fbox{对角矩阵的特征值是其对角线项。}
+\end{center}
+
+有关三角矩阵的这些结论很容易证明：只需将三角矩阵的对角线项减去$\lambda$，再利用“三角矩阵的行列式等于对角线项之积”，即得到特征多项式
+\[\det(A-\lambda I)=(a_{1,1}-\lambda)(a_{2,2}-\lambda)\ldots(a_{n,n}-\lambda)\]
+而它的根恰为$a_{1,1},a_{2,2},\ldots,a_{n,n}$。
+
+\begin{problemset}
+    \item 判断正误：
+    \begin{enumerate}[label={\alph*)}]
+        \item $n$维向量空间中的每个线性算子都有$n$个互异的特征值；
+        \item 一矩阵如果有一个特征向量，就有无数个特征向量；
+        \item 存在没有实特征值的实方阵；
+        \item 存在没有（复）特征值的方阵；
+        \item 相似矩阵总有相同的特征值；
+        \item 相似矩阵总有相同的特征向量；
+        \item 矩阵$A$的两个特征向量的和（非零）总是特征向量；
+        \item 矩阵$A$的相应于同一特征值$\lambda$的两个特征向量的和（非零）总是特征向量。
+    \end{enumerate}
+    \item 求出下列矩阵的特征多项式、特征值和特征向量：
+    \[\begin{pmatrix}4&-5\\2&-3\end{pmatrix},\quad\begin{pmatrix}2&1\\-1&4\end{pmatrix},\quad\begin{pmatrix}1&3&3\\-3&-5&-3\\3&3&1\end{pmatrix}.\]
+    \item 求出旋转矩阵
+    \[\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix}.\]
+    的特征值和特征向量。注意，特征值（以及特征向量）不一定是实的。
+    \item 求出下列矩阵的特征多项式和特征值：
+    \[\begin{pmatrix}1&2&5&67\\0&2&3&6\\0&0&-2&5\\0&0&0&3\end{pmatrix},\begin{pmatrix}2&1&0&2\\0&\pi&43&2\\0&0&16&1\\0&0&0&54\end{pmatrix},\begin{pmatrix}4&0&0&0\\1&3&0&0\\2&4&e&0\\3&3&1&1\end{pmatrix},\begin{pmatrix}4&0&0&0\\1&0&0&0\\2&4&0&0\\3&3&1&1\end{pmatrix}.\]
+    请勿展开特征多项式——保留为因式乘积的形式。
+    \item 证明：三角矩阵的特征值（重根以重数计）恰为其对角线项。
+    \item 称算子$A$是\textbf{幂零的}，若对某$k$有$A^k=\mathbf{0}$。证明：若$A$是幂零的，那么$\sigma(A)=\{0\}$（即$0$是$A$唯一的特征值）。
+    \item 证明分块三角矩阵
+    \[\begin{pmatrix}A&*\\\mathbf{0}&B\end{pmatrix},\]
+    （其中$A$和$B$为方阵）的特征多项式等于$\det(A-\lambda I)\det(B-\lambda I)$。（利用第 \ref{chap:Determinant} 章的习题 \ref{ex:3_3_11}）
+    \item 令$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是向量空间$V$的基。又假设前$k$个基向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{k}$是算子$A$的特征向量，且对应于同一特征值$\lambda$（即$A\mathbf{v}_{j}=\lambda\mathbf{v}_{j},j=1,2,\ldots,k$）。证明：在该基下，算子$A$的矩阵具有分块三角形式\[\begin{pmatrix}\lambda I_k&*\\\mathbf{0}&B\end{pmatrix},\]
+    其中$I_k$是$k\times k$恒等矩阵，$B$为某$(n-k)\times(n-k)$矩阵。
+    \item \label{ex:4_1_9}利用上面两题的结论证明：特征值的几何重数不超过其代数重数。
+    \item \label{ex:4_1_10}证明：矩阵$A$的行列式是其特征值之积（重根以重数计）。
+    
+    \textbf{提示}：首先证明$\det(A-\lambda I)=(\lambda_1-\lambda)(\lambda_2-\lambda)\ldots(\lambda_n-\lambda)$，其中$\lambda_{1},\lambda_{2},\ldots,\lambda_{n}$是特征值（重根以重数计）。然后比照常数项（不含$\lambda$的项）或令$\lambda=0$以得出结论。
+    \item \label{ex:4_1_11}按以下三步骤证明：矩阵的迹等于特征值之和。首先，计算下列等式右侧$\lambda^{n-1}$的系数：\[\det(A-\lambda I)=(\lambda_1-\lambda)(\lambda_2-\lambda)\ldots(\lambda_n-\lambda).\]
+    然后证明$\det(A-\lambda I)$可表示为\[\det(A-\lambda I)=(a_{1,1}-\lambda)(a_{2,2}-\lambda)\ldots(a_{n,n}-\lambda)+q(\lambda)\]
+    其中$q(\lambda)$是次数最高为$n-2$的多项式。最后比照$\lambda^{n-1}$的系数以得出结论。
+\end{problemset}
+
+\section{对角化}
