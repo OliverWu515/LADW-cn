@@ -208,7 +208,7 @@
   \item 任意非零行的先导元必定严格处于前一行先导元的右侧。
 \end{enumerate}
 
-阶梯形中每一行的先导元也称为{\bf 主元}，\marginpar{\small 主元：一行中的先导元（最左侧的非零项）。}因为这些项恰为行化简时所用的{\bf 主元}。
+阶梯形中每行的先导元也称为{\bf 主元}，\marginpar{\small 主元：一行中的先导元（最左侧的非零项）。}因为这些项恰为行化简时所用的{\bf 主元}。
 
 阶梯形有个特例是所谓{\bf 三角}形。在上面的例子中我们就得到了这种形式。在这种形式中，系数矩阵是方阵（$n\times n$矩阵），其主对角线项均不为零，而主对角线之下的所有项都为零。右端项，或者说增广矩阵的最右列可以是任意的。
 
@@ -253,9 +253,9 @@
 
 下面再列出三个结论。注意，它们是与方程组的{\bf 系数矩阵}而非增广矩阵相关。
 \begin{enumerate}
-  \item 方程组的解（若存在）是唯一的，当且仅当没有自由变量，也就是当且仅当系数矩阵的阶梯形在每一列中都有主元；
-  \item 方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都是相容的，当且仅当系数矩阵的阶梯形在每一行中都有主元；
-  \item 方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都有{\bf 唯一解}，当且仅当系数矩阵$A$的阶梯形在每一行和每一列中都有主元。
+  \item 方程组的解（若存在）是唯一的，当且仅当没有自由变量，也就是当且仅当系数矩阵的阶梯形在每列中都有主元；
+  \item 方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都是相容的，当且仅当系数矩阵的阶梯形在每行中都有主元；
+  \item 方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都有{\bf 唯一解}，当且仅当系数矩阵$A$的阶梯形在每行和每列中都有主元。
 \end{enumerate}
 
 第一个结论很平凡，因为自由变量对应于非唯一性。只是要强调，这一结论{\bf 并不保证}存在性。
@@ -278,17 +278,17 @@
 \begin{proposition}\label{prop:li_span_eq}
   设有向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}\in\mathbb{F}^{n}$，并令$A=[\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}]$是各列为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$的$n\times m$矩阵。那么
   \begin{enumerate}
-    \item 向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是线性无关的，当且仅当$A$的阶梯形的每一列都有主元；
-    \item 向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是$\mathbb{F}^{n}$中的完备组（张成组、生成组），当且仅当$A$的阶梯形的每一行都有主元；
-    \item 向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是$\mathbb{F}^{n}$中的基，当且仅当$A$的阶梯形的每一行与每一列都有主元。
+    \item 向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是线性无关的，当且仅当$A$的阶梯形的每列都有主元；
+    \item 向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是$\mathbb{F}^{n}$中的完备组（张成组、生成组），当且仅当$A$的阶梯形的每行都有主元；
+    \item 向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}$是$\mathbb{F}^{n}$中的基，当且仅当$A$的阶梯形的每行与每列都有主元。
   \end{enumerate}
 \end{proposition}
 \begin{proof}
-  向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}\in\mathbb{F}^{n}$线性无关，当且仅当方程\[x_1\mathbf{v}_1+x_2\mathbf{v}_2+\ldots+x_m\mathbf{v}_m=\mathbf{0}\]具有唯一（平凡）解$x_{1}=x_{2}=\ldots=x_{m}=0$，或等价于，方程$A\mathbf{x}=\mathbf{0}$具有唯一解$\mathbf{x}=\mathbf{0}$。根据前述结论1，这些等价于矩阵的阶梯形每一列都有主元。
+  向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}\in\mathbb{F}^{n}$线性无关，当且仅当方程\[x_1\mathbf{v}_1+x_2\mathbf{v}_2+\ldots+x_m\mathbf{v}_m=\mathbf{0}\]具有唯一（平凡）解$x_{1}=x_{2}=\ldots=x_{m}=0$，或等价于，方程$A\mathbf{x}=\mathbf{0}$具有唯一解$\mathbf{x}=\mathbf{0}$。根据前述结论1，这些等价于矩阵的阶梯形每列都有主元。
 
-  类似地，向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}\in\mathbb{F}^{n}$是$\mathbb{F}^{n}$中的完备组，当且仅当方程\[x_1\mathbf{v}_1+x_2\mathbf{v}_2+\cdots+x_m\mathbf{v}_m=\mathbf{b}\]对任意右端项$\mathbf{b}\in\mathbb{F}^n$都有解。根据前述结论2，这等价于矩阵的阶梯形的每一行都有主元。
+  类似地，向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}\in\mathbb{F}^{n}$是$\mathbb{F}^{n}$中的完备组，当且仅当方程\[x_1\mathbf{v}_1+x_2\mathbf{v}_2+\cdots+x_m\mathbf{v}_m=\mathbf{b}\]对任意右端项$\mathbf{b}\in\mathbb{F}^n$都有解。根据前述结论2，这等价于矩阵的阶梯形的每行都有主元。
 
-  最后，向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}\in\mathbb{F}^{n}$是$\mathbb{F}^{n}$中的基，当且仅当方程\[x_1\mathbf{v}_1+x_2\mathbf{v}_2+\cdots+x_m\mathbf{v}_m=\mathbf{b}\]对任意右端项$\mathbf{b}\in\mathbb{F}^n$都有唯一解。根据前述结论3，这等价于$A$的阶梯形的每一行和每一列都有主元。
+  最后，向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{m}\in\mathbb{F}^{n}$是$\mathbb{F}^{n}$中的基，当且仅当方程\[x_1\mathbf{v}_1+x_2\mathbf{v}_2+\cdots+x_m\mathbf{v}_m=\mathbf{b}\]对任意右端项$\mathbf{b}\in\mathbb{F}^n$都有唯一解。根据前述结论3，这等价于$A$的阶梯形的每行和每列都有主元。
 \end{proof}
 
 \begin{proposition}\label{prop:li_no_more}
@@ -327,13 +327,13 @@
 \subsection{有关可逆矩阵的推论}
 
 \begin{proposition}
-  矩阵$A$可逆，当且仅当其阶梯形的每一行和每一列都有主元。
+  矩阵$A$可逆，当且仅当其阶梯形的每行和每列都有主元。
 \end{proposition}
 
 \begin{proof}
-  我们在本节开头已讨论过，方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都有唯一解，当且仅当$A$的阶梯形在每一行和每一列中都有主元。又由第 \ref{chap:BasicNotion} 章定理 \ref{thm:invert_unique} 知，矩阵（线性变换）$A$是可逆的，当且仅当方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都有唯一解。
+  我们在本节开头已讨论过，方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都有唯一解，当且仅当$A$的阶梯形在每行和每列中都有主元。又由第 \ref{chap:BasicNotion} 章定理 \ref{thm:invert_unique} 知，矩阵（线性变换）$A$是可逆的，当且仅当方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都有唯一解。
 
-  还有另一种证法：我们知道矩阵可逆当且仅当它的各列形成一个基（见第 \ref{chap:BasicNotion} 章 \ref{subsec:invert_eq} 小节的推论 \ref{col:invert_basis}）。而上述命题 \ref{prop:basis_size_n} 表明这等价于矩阵的阶梯形每一行和每一列都有主元。
+  还有另一种证法：我们知道矩阵可逆当且仅当它的各列形成一个基（见第 \ref{chap:BasicNotion} 章 \ref{subsec:invert_eq} 小节的推论 \ref{col:invert_basis}）。而上述命题 \ref{prop:basis_size_n} 表明这等价于矩阵的阶梯形每行和每列都有主元。
 \end{proof}
 
 由上述命题立得下述结论：
@@ -347,13 +347,13 @@
 注意，此命题只适用于方阵！
 
 \begin{proof}
-  我们知道矩阵$A$可逆当且仅当方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都有唯一解。而这又等价于矩阵$A$的阶梯形在每一行和每一列中都有主元。
+  我们知道矩阵$A$可逆当且仅当方程$A\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都有唯一解。而这又等价于矩阵$A$的阶梯形在每行和每列中都有主元。
 
   若矩阵$A$是左可逆的，那么方程$A\mathbf{x}=\mathbf{0}$有唯一解$\mathbf{x}=\mathbf{0}$。的确如此：若$B$是$A$的左逆（也即$BA=I$），而$\mathbf{x}$满足\[A\mathbf{x}=\mathbf{0},\]
   那么将此等式两端同时左乘$B$，即得到$\mathbf{x}=\mathbf{0}$，则此解唯一。因此，$A$的阶梯形在每列中都有主元（无自由变量）。若矩阵$A$是方阵（$n\times n$矩阵），那么其阶梯形的每行也必有主元（共$n$个主元，而且每行至多有$1$个主元），因此该矩阵是可逆的。
 
   若矩阵$A$是右可逆的，且$C$是$A$的右逆（$AC=I$），那么对于$\mathbf{x}=C\mathbf{b},\mathbf{b}\in\mathbb{F}^{n}$，有\[A\mathbf{x}=AC\mathbf{b}=I\mathbf{b}=\mathbf{b}.\]
-  因此，对任意右端项$\mathbf{b}$，方程$A\mathbf{x}=\mathbf{b}$都有解$\mathbf{x}=C\mathbf{b}$。于是$A$的阶梯形每一行都有主元。若$A$是方阵，那么它的每一列也都有主元，故$A$可逆。
+  因此，对任意右端项$\mathbf{b}$，方程$A\mathbf{x}=\mathbf{b}$都有解$\mathbf{x}=C\mathbf{b}$。于是$A$的阶梯形每行都有主元。若$A$是方阵，那么它的每列也都有主元，故$A$可逆。
 \end{proof}
 
 \begin{problemset}
@@ -372,7 +372,7 @@
   \item $\mathbb{F}^4$中的$5$个向量是否线性无关？证明你的结论。
   \item 证明或证伪：若方阵（$n\times n$矩阵）$A$的列是线性无关的，那么$A^2=AA$的列也是。
   \item 证明或证伪：若方阵（$n\times n$矩阵）$A$的列是线性无关的，那么$A^3=AAA$的列也是。
-  \item 证明：如果方程$A\mathbf{x}=\mathbf{0}$有唯一解（即$A$的阶梯形每一列都有主元），那么$A$是左可逆的。
+  \item 证明：如果方程$A\mathbf{x}=\mathbf{0}$有唯一解（即$A$的阶梯形每列都有主元），那么$A$是左可逆的。
   
   {\bf 提示}：初等矩阵可能有用处。
   
@@ -389,7 +389,7 @@
 
 \section{通过行化简求\texorpdfstring{$A^{-1}$}{A的逆}}
 
-如上面所讨论的，可逆矩阵必为方阵，并且其阶梯形必定在每一行和每一列中都有主元。所以可逆矩阵的简化阶梯形是恒等矩阵$I$。因此
+如上面所讨论的，可逆矩阵必为方阵，并且其阶梯形必定在每行和每列中都有主元。所以可逆矩阵的简化阶梯形是恒等矩阵$I$。因此
 \begin{center}
   \fbox{\parbox{0.8\linewidth}{任意可逆矩阵都行等价于（即可通过行变换化为）恒等矩阵。}}
 \end{center}
@@ -789,7 +789,7 @@
 
 本小节给出补全为基的一种更为实用的方法。
 
-首先，注意到如果$m\times n$矩阵具有阶梯形，那么它的非零行（显然线性无关）很容易被补全为整个空间$\mathbb{F}^n$的基：只需在合适位置加入几行\footnote{并且不考虑零行，就是将所有零行全部去掉。后续向$A$（原矩阵）加入向量时，也要把对应的非主元行去掉。——译者注}，使所得矩阵仍然具有阶梯形并在每一列都有主元。
+首先，注意到如果$m\times n$矩阵具有阶梯形，那么它的非零行（显然线性无关）很容易被补全为整个空间$\mathbb{F}^n$的基：只需在合适位置加入几行\footnote{并且不考虑零行，就是将所有零行全部去掉。后续向$A$（原矩阵）加入向量时，也要把对应的非主元行去掉。——译者注}，使所得矩阵仍然具有阶梯形并在每列都有主元。
 
 这样，新矩阵的非零行就形成一个基，并且我们还可以按任意次序列出它们，因为向量组是否为基并不取决于向量的次序。
 
