@@ -1,7 +1,7 @@
 
 %%%%%%%%%%%%%%%%%% 谱理论初步 %%%%%%%%%%%%%%%%%%%
 
-\chapter{谱理论初步（特征值与特征向量）}
+\chapter{谱理论初步（特征值与特征向量）}\label{chap:SpectralIntro}
 
 谱理论是帮助我们理解线性算子之结构的主要工具。本章中，我们仅考虑从向量空间至其本身的算子（或与之等价的$n\times n$矩阵）。对于一个这样的线性变换$A:V\to V$，我们可以将其乘以自身，或取其任意次幂，以至将其放进多项式。
 
@@ -163,3 +163,302 @@
 \end{problemset}
 
 \section{对角化}
+
+谱理论的应用之一，是对算子做对角化——求出一个基，使得算子关于该基的矩阵是对角矩阵。这样的基并不总是存在，也就是说并非所有算子都可对角化。可对角化的重要性，源于对角矩阵的幂乃至关于对角矩阵的函数很容易计算，所以如果我们将算子对角化，就很容易计算关于它的函数。
+
+本节我们将解释如何计算关于可对角化算子的函数。我们还将给出算子可对角化的充分必要条件以及一些简单的充分条件。
+
+注意，对于$\mathbb{F}^n$中的算子（矩阵）$A$，它可对角化，意为它可被表示成$A=SDS^{-1}$，其中$D$是对角矩阵（$S$是可逆的）。我们将简要解释这一点。
+
+除非另作说明，本节所有结论对于实向量空间和复向量空间（乃至任意域上的空间）都成立。
+
+\subsection{预备知识}
+
+设向量空间$V$中的算子$A$满足$V$有由$A$的特征向量构成的基$\mathcal{B}=\{\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}\}$，$\lambda_1,\lambda_2,\dots,\lambda_n$是它们对应的特征值。那么$A$关于这个基的矩阵就是对角线项为$\lambda_1,\lambda_2,\dots,\lambda_n$的对角矩阵
+\begin{equation}\label{diag_in_certain_basis}
+    [A]_{\mathcal{BB}}=\operatorname{diag}\{\lambda_1,\lambda_2,\ldots,\lambda_n\}=
+    \begin{pNiceMatrix}
+        \lambda_1                 &           &        &  \Block{2-1}<\LARGE>{0}                         \\
+                                  & \lambda_2 &        &  \\
+        \Block[b]{2-1}<\LARGE>{0} &           & \ddots &                           \\
+                                  &           &        & \lambda_n
+    \end{pNiceMatrix}.
+\end{equation}
+
+另一方面，如果算子$A$关于基$\mathcal{B}=\{\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}\}$的矩阵由 \eqref{diag_in_certain_basis} 给出，那么自然有$A\mathbf{b}_k=\lambda_k\mathbf{b}_k$，即$\lambda_k$是特征值，$\mathbf{b}_k$是对应的特征向量。
+
+注意，上述论证对于实向量空间和复向量空间（乃至任意域上的空间）都成立。
+
+将上述论证应用到$\mathbb{F}^n$中的算子（矩阵）立即可得下述定理。
+注意，虽然在这本书中$\mathbb{F}$指代$\mathbb{R}$或$\mathbb{C}$，但是这个定理对任意的域$\mathbb{F}$都成立。
+
+\begin{theorem}\label{thm:diagonalizable_iff_1}
+    矩阵$A$（各项属于$\mathbb{F}$）可表示为$A=SDS^{-1}$，其中$D$是对角矩阵、$S$是可逆的（两矩阵的各项都属于$\mathbb{F}$），当且仅当$\mathbb{F}^n$中存在由$A$的特征向量构成的基。
+
+    此外，在这种情况下，$D$的对角线项是特征值，$S$的各列是对应的特征向量（第$k$列对应$D$的第$k$个对角线项）。
+\end{theorem}
+\begin{proof}
+    令$D=\operatorname{diag}\{\lambda_1,\lambda_2,\dots,\lambda_n\}$，并令$\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}$是$S$的列（注意因为$S$可逆，所以它的列形成$\mathbb{F}^n$中的基）。那么，等式$A=SDS^{-1}$意味着$D=[A]_\mathcal{BB}$。
+
+    的确如此：$S=[I]_\mathcal{SB}$是从$\mathcal{B}$到标准基$\mathcal{S}$的坐标变换矩阵，因此从$A=SDS^{-1}$我们可得$D=S^{-1}AS=[I]_\mathcal{BS}A[I]_\mathcal{SB}$，这就说明$D=[A]_\mathcal{BB}$。
+
+    然后，可以结合我们上面讨论过的内容：$[A]_\mathcal{BB}=D=\operatorname{diag}\{\lambda_1,$ $\lambda_2,\ldots,\lambda_n\}$当且仅当各$\lambda_k$是特征值，而$\mathbf{b}_k$是$A$的对应的特征向量。
+\end{proof}
+
+\begin{remark*}
+    注意，如果矩阵可表示为$A=SDS^{-1}$（$D$为对角矩阵），那么简单计算即知$S$的各列是$A$的特征向量，$D$的对角线项是对应的特征值。这是\autoref{thm:diagonalizable_iff_1} 的另一种证明方式。
+\end{remark*}
+
+前面我们讨论过，可对角化算子$A:V\to V$恰有$n=\dim V$个特征值（重根以重数计）。复向量空间$V$中的任意算子都有$n$个特征值（重根以重数计）；另一方面，实向量空间中的算子可能没有实特征值。
+
+我们会按照谱理论中的惯例，将实矩阵视为复向量空间$\mathbb{C}^n$中的算子，因此允许特征值和特征向量是复的。除非特别说明，对角化都意为\textbf{复}对角化，即表达式$A=SDS^{-1}$中矩阵$S$和$D$可能含有复数项。
+
+实矩阵何时能进行实对角化（$A=SDS^{-1}$中矩阵$S$和$D$都为实矩阵）这一问题其实很容易回答——见下定理 \ref{thm:diagonalizable_iff_real}。
+
+\subsection{研究对角化的动机之一：关于算子的函数}
+
+令算子$A$关于基$\mathcal{B}=\{\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}\}$的矩阵是由 \eqref{diag_in_certain_basis} 给出的对角矩阵。那么很容易求出算子$A$的$N$次幂。即，$A^N$关于基$\mathcal{B}$的矩阵是
+\[
+[A^N]_{\mathcal{BB}}=\operatorname{diag}\{\lambda_1^N,\lambda_2^N,\ldots,\lambda_n^N\}=
+    \begin{pNiceMatrix}
+        \lambda_1^N                 &           &        &  \Block{2-1}<\LARGE>{0}                         \\
+                                  & \lambda_2^N  &        &  \\
+        \Block[b]{2-1}<\LARGE>{0} &           & \ddots &                           \\
+                                  &           &        & \lambda_n^N 
+    \end{pNiceMatrix}.
+\]
+并且，关于算子的函数也很容易计算：例如，算子（矩阵）的指数$e^{tA}$定义为$e^{tA}=I+tA+\frac{t^{2}A^{2}}{2!}+\frac{t^3A^3}{3!}+\ldots=\sum_{k=0}^{\infty}\frac{t^kA^k}{k!}$，该算子在基$\mathcal{B}$下的矩阵是
+\[[e^{tA}]_\mathcal{BB} = \operatorname{diag}\{e^{\lambda_1t},e^{\lambda_2t},\ldots,e^{\lambda_nt}\}=
+    \begin{pNiceMatrix}
+        e^{\lambda_1t}                 &           &        &  \Block{2-1}<\LARGE>{0}                         \\
+                                  & e^{\lambda_2t} &        &  \\
+        \Block[b]{2-1}<\LARGE>{0} &           & \ddots &                           \\
+                                  &           &        & e^{\lambda_nt}
+    \end{pNiceMatrix}.\]
+
+现设$A$是$\mathbb{F}^n$中的算子。为求出算子$A^N$和$e^{tA}$在标准基$\mathcal{S}$下的矩阵，回想一下坐标变换矩阵$[I]_\mathcal{SB}$是各列为$\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}$的矩阵。称该矩阵为$\mathcal{S}$，那么根据坐标变换公式可得
+\[A=[A]_\mathcal{SS} = S\begin{pNiceMatrix}
+        \lambda_1                 &           &        &  \Block{2-1}<\LARGE>{0}                         \\
+                                  & \lambda_2 &        &  \\
+        \Block[b]{2-1}<\LARGE>{0} &           & \ddots &                           \\
+                                  &           &        & \lambda_n
+    \end{pNiceMatrix}S^{-1}=SDS^{-1}\]
+其中用$D$指代中间的对角矩阵。
+
+类似地，\[A^N =SD^NS^{-1}= S\begin{pNiceMatrix}
+        \lambda_1^N                 &           &        &  \Block{2-1}<\LARGE>{0}                         \\
+                                  & \lambda_2^N  &        &  \\
+        \Block[b]{2-1}<\LARGE>{0} &           & \ddots &                           \\
+                                  &           &        & \lambda_n^N 
+    \end{pNiceMatrix}S^{-1}\]
+$e^{tA}$的矩阵表达式也类似。
+
+另一种看待可对角化算子的幂（以及关于可对角化算子的其他函数）的方式是，如果算子$A$可表示成$A=SDS^{-1}$，那么\[A^N=\underbrace{(SDS^{-1})(SDS^{-1})\ldots(SDS^{-1})}_{N~\text{个}}=SD^NS^{-1}\]
+而且对角矩阵的$N$次幂很容易计算。
+
+\subsection{\texorpdfstring{$n$}{n}个互异特征值的情形}
+
+现在我们给出算子可对角化的一个很简单的\textbf{充分}条件，见下推论 \ref{thm:diagonalizable_suff_1}。
+
+\begin{theorem}\label{thm:li_eigenvector}
+    令$\lambda_1,\lambda_2,\dots,\lambda_r$是$A$的相异特征值，并令$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$是对应的特征向量。那么向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$是线性无关的。
+\end{theorem}
+\begin{proof}
+    我们将对$r$用归纳法。$r=1$的情形是平凡的，因为根据定义，特征向量是非零的，而仅包含非零向量的向量组是线性无关的。
+
+    假设定理对于$r-1$的情形成立。设存在非平凡线性组合
+    \begin{equation}\label{nontrivial_comb_of_eigenvector}
+        c_1\mathbf{v}_1+c_2\mathbf{v}_2+\ldots+c_r\mathbf{v}_r=\sum_{k=1}^rc_k\mathbf{v}_k=\mathbf{0}.
+    \end{equation}
+
+    向 \eqref{nontrivial_comb_of_eigenvector} 作用$A-\lambda_r I$，并且利用$(A-\lambda_{r}I)\mathbf{v}_{r}=\mathbf{0}$，可得\[\sum_{k=1}^{r-1}c_k(\lambda_k-\lambda_r)\mathbf{v}_k=\mathbf{0}.\]
+    由归纳假设，向量$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_{r-1}$线性无关，所以$c_k(\lambda_k-\lambda_r)$对$k=1,2,\dots,r-1$成立。因为$\lambda_k\ne \lambda_r$，我们可知$c_k=0$对$k<r$成立。于是，由 \eqref{nontrivial_comb_of_eigenvector} 得$c_r=0$，即此式实为平凡线性组合。
+\end{proof}
+
+\begin{corollary}\label{thm:diagonalizable_suff_1}
+    若算子$A:V\to V$恰有$n=\dim V$个互异特征值，\marginpar{\small 这个结论虽简单却十分重要且常用。请记住它！}那么它可对角化。
+\end{corollary}
+\begin{proof}
+    对每个特征值$\lambda_k$，令$\mathbf{v}_k$是对应的特征向量（即对每个特征值选取一个特征向量）。由\autoref{thm:li_eigenvector}，向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_{n}$线性无关，又因为它恰好包含$n=\dim V$个向量，所以它是基。
+\end{proof}
+
+\subsection{子空间构成的基（又名子空间的直和）}
+
+为描述可对角化算子，我们需要引入一些新的定义。
+
+令$V_1,V_2,\ldots,V_p$是向量空间$V$的子空间。称这组子空间是$V$的基，如果任意向量$\mathbf{v}\in V$都可唯一写成下面和的形式
+\begin{equation}\label{linear_comb_subspaces}
+    \mathbf{v}=\mathbf{v}_1+\mathbf{v}_2+\ldots+\mathbf{v}_p=\sum_{k=1}^p\mathbf{v}_k,\quad\mathbf{v}_k\in V_k.
+\end{equation}
+此外，我们称一组子空间$V_1,V_2,\ldots,V_p$是线性无关的，若方程\[\mathbf{v}_1+\mathbf{v}_2+\ldots+\mathbf{v}_p=\mathbf{0},\quad\mathbf{v}_k\in V_k\]
+只有平凡解（$\mathbf{v}_{k}=\mathbf{0}\ \forall k=1,2,\ldots,p$）。另一种表述方式是，称一组子空间$V_1,V_2,\ldots,V_p$是线性无关的，当且仅当任意非零向量$\mathbf{v}_k,\mathbf{v}_k\in V_k$构成的向量组是线性无关的。
+
+称一组子空间$V_1,V_2,\ldots,V_p$是生成组（或完备组、张成组），若任意向量$\mathbf{v}\in V$都能写成 \eqref{linear_comb_subspaces} 的形式（不一定唯一）。
+
+\begin{remark}\label{remark:eigenspace_li}
+    根据上述定义可立即发现：\autoref{thm:li_eigenvector} 实际上表明算子$A$的各特征空间$E_k$
+    \[E_k:=\mathrm{Ker}(A-\lambda_kI),\quad\lambda_k\in\sigma(A),\]
+    线性无关。
+\end{remark}
+\begin{remark}
+    容易看出，类似于向量组的基，一组子空间$V_1,V_2,\ldots,V_p$是基当且仅当它既是生成组又是线性无关的。我们将此结论的证明留给读者作为习题。
+\end{remark}
+
+子空间构成的基有个简单的例子：设$V$是向量空间，具有基$\mathbf{v}_{1},$ $\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$。将下标$1,2,\dots,n$分成$p$个子集$\Lambda_{1},\Lambda_{2},\ldots,\Lambda_{p}$，并定义子空间$V_{k}:=\mathrm{span}\{\mathbf{v}_{j}:j\in\Lambda_{k}\}$。显然各子空间$V_k$形成$V$的基。
+
+下面定理表明，在有限维的情形下，上面这个例子是由子空间构成的基的唯一可能情况。
+
+\begin{theorem}\label{thm:union_of_basis_in_subspace_li_basis}
+    令$V_1,V_2,\ldots,V_p$是子空间构成的基，并令每个子空间$V_k$都有（由向量构成的）基$\mathcal{B}_k$\footnote{我们不列出$\mathcal{B}_k$中的向量，只需记住每个$\mathcal{B}_k$都包含$V_k$中的有限多个向量。}。那么这些基的并$\cup_k\mathcal{B}_k$是$V$的基。
+\end{theorem}
+
+为证明该定理，我们需要下面的引理：
+\begin{lemma}\label{lem:union_of_basis_in_subspace_li}
+    令$V_1,V_2,\ldots,V_p$是线性无关的子空间，并设在每个子空间$V_k$中都有线性无关向量组$\mathcal{B}_k$\footnote{同样地，我们不逐一列出$\mathcal{B}_k$中的向量，只需记住每个$\mathcal{B}_k$都包含有限多个向量。}。那么$\mathcal{B}:=\cup_k\mathcal{B}_k$是线性无关组。
+\end{lemma}
+\begin{proof}
+    这个定理的证明只需稍加思索就能作出。书写证明主要的难点在于选用合适的记号。
+    
+    我们不用双下标【一个用于编号$\mathcal{B}_k$，另一个用于编号$\mathcal{B}_k$中的向量】，而只用一个下标：令$n$为$\mathcal{B}:=\cup_k\mathcal{B}_k$中的向量个数，并且将$\mathcal{B}$中的向量排列成：首先是$\mathcal{B}_1$中的向量，然后是$\mathcal{B}_2$中的向量……最后是$\mathcal{B}_p$中的向量。这样一来，我们将$\mathcal{B}$中的所有向量的下标编为$1,2,\dots,n$。下标集合$\{1,2,\dots,n\}$分成$p$个子集$\Lambda_{1},\Lambda_{2},\ldots,\Lambda_{p}$，满足$\mathcal{B}_k$包含向量$\mathbf{b}_{j}:j\in\Lambda_{k}$。
+
+    设存在非平凡线性组合
+    \begin{equation}\label{nontrivial_comb_of_vectors_in_dirsum}
+        c_1\mathbf{v}_1+c_2\mathbf{v}_2+\ldots+c_n\mathbf{v}_n=\sum_{j=1}^nc_j\mathbf{v}_j=\mathbf{0}.
+    \end{equation}
+    记\[\mathbf{v}_k=\sum_{j\in\Lambda_k}c_j\mathbf{v}_j.\]
+    那么 \eqref{nontrivial_comb_of_vectors_in_dirsum} 可写为
+    \[\mathbf{v}_1+\mathbf{v}_2+\cdots+\mathbf{v}_p=\mathbf{0}.\]
+    因为$\mathbf{v}_k\in V_k$，并且各子空间$V_k$线性无关，所以$\mathbf{v}_k=\mathbf{0}\ \forall k$。这意味着对每个$k$都有\[\sum_{j\in\Lambda_k}c_j\mathbf{v}_j=\mathbf{0}\]
+    又因为向量组$\mathbf{b}_{j}:j\in\Lambda_{k}$（即$\mathcal{B}_k$）线性无关，所以对所有$j\in\Lambda_k$，有$c_j=0$。因为该结论对于所有$\Lambda_k$都成立，所以对所有$j$也有$c_j=0$。
+\end{proof}
+
+\begin{proof}[\autoref{thm:union_of_basis_in_subspace_li_basis} 的证明]
+    本定理的证明中，我们将用与引理 \ref{lem:union_of_basis_in_subspace_li} 中相同的记号，即向量组$\mathcal{B}_k$包含向量$\mathbf{b}_{j},j\in\Lambda_{k}$。
+
+    引理 \ref{lem:union_of_basis_in_subspace_li} 表明，向量组$\mathbf{b}_{j},j=1,2,\dots,n$线性无关，因此只需证明这个组是完备的。
+
+    因为子空间构成的组$V_1,V_2,\ldots,V_p$是基，所以任意向量$\mathbf{v}\in V$可表示为\[\mathbf{v}=\mathbf{v}_1+\mathbf{v}_2+\ldots+\mathbf{v}_p=\sum_{k=1}^p\mathbf{v}_k,\quad\mathbf{v}_k\in V_k.\]
+    因为向量$\mathbf{b}_{j},j\in\Lambda_{k}$形成$V_k$中的基，所以向量$\mathbf{v}_k$可表示为\[\mathbf{v}_k=\sum_{j\in\Lambda_k}c_j\mathbf{b}_j,\]
+    因此$\mathbf{v}=\sum_{j=1}^nc_j\mathbf{b}_j$。
+\end{proof}
+
+\subsection{可对角化的判据}
+
+先给出一个简单的必要条件。因为对角矩阵$D=\mathrm{diag}\{\lambda_{1},\lambda_{2},\ldots,\lambda_{n}\}$的特征值（重根以重数计）恰为$\lambda_1,\lambda_2,\dots,\lambda_n$，所以我们可见若算子$A:V\to V$可对角化，则它恰有$n=\dim V$个特征值（重根以重数计）。
+
+下面定理对于实向量空间和复向量空间（乃至任意域上的空间）都成立。
+
+\begin{theorem}\label{thm:algebraic_eq_geometric}
+    令算子$A:V\to V$恰有$n=\dim V$个特征值（重根以重数计）\footnote{因为复向量空间上的任意算子都恰有$n=\dim V$个特征值（重根以重数计），所以这个假设在复数情形下是多余的。}。那么$A$可对角化，当且仅当对每个特征值$\lambda$，特征空间$\ker(A-\lambda I)$的维数（即$\lambda$的几何重数）等于$\lambda$的代数重数。
+\end{theorem}
+\begin{proof}
+    首先注意，对于对角矩阵，特征值的代数重数和几何重数是相等的，因此可对角化算子也是如此。
+
+    下面证明另一方向的蕴涵关系。令$\lambda_1,\lambda_2,\ldots,\lambda_p$是$A$的特征值，并令$E_{k}:=\mathrm{Ker}(A-\lambda_{k}I)$是对应的特征空间。根据注 \ref{remark:eigenspace_li}，子空间$E_k,k=1,2,\dots,p$线性无关。
+
+    令$\mathcal{B}_k$是$E_k$的基。由 \ref{lem:union_of_basis_in_subspace_li}，向量组$\mathcal{B}=\cup_k\mathcal{B}_k$是线性无关向量组。
+
+    我们知道每个$\mathcal{B}_k$包含$\dim E_k$（等于$\lambda_k$的重数）个向量。所以$\mathcal{B}$中的向量的个数等于特征值$\lambda_k$的重数之和。但是特征值的重数之和，就是所有的特征值数量（重根以重数计），恰为$n=\dim V$。所以我们得到了$n=\dim V$个线性无关向量构成的向量组，而这就是基。
+\end{proof}
+
+\subsection{实对角化}
+
+下面的定理实际上已经被证明了（它就是\autoref{thm:algebraic_eq_geometric} 用于实向量空间的情况）。我们在此处写出它，以总结对实矩阵进行实对角化的情况。
+
+\begin{theorem}\label{thm:diagonalizable_iff_real}
+    $n\times n$实矩阵$A$能进行实对角化（即能写成表达式$A=SDS^{-1}$，其中矩阵$S$和$D$都为实矩阵，$D$是对角矩阵，$S$是可逆的），当且仅当$A$能进行复对角化且$A$的所有特征值都是实数。
+\end{theorem}
+
+\subsection{一些例子}
+
+\subsubsection{特征值为实数}
+
+考虑矩阵
+$$A = \left( \begin{array}{cc} 1 & 2 \\ 8 & 1 \end{array} \right).$$
+它的特征多项式等于
+$$
+\left| \begin{array}{cc} 1 - \lambda & 2 \\ 8 & 1 - \lambda \end{array} \right| = (1 - \lambda)^2 - 16$$
+该多项式的根是 $\lambda = 5$ 和 $\lambda = -3$。对特征值 $\lambda = 5$
+$$A - 5I = \left( \begin{array}{cc} 1 - 5 & 2 \\ 8 & 1 - 5 \end{array} \right) = \left( \begin{array}{cc} -4 & 2 \\ 8 & -4 \end{array} \right)$$
+其零空间的基由单个向量 $(1,2)^T$构成，所以这就是该特征值对应的特征向量。
+
+类似地，对于 $\lambda = -3$
+$$
+A - \lambda I = A + 3I = \left( \begin{array}{cc} 4 & 2 \\ 8 & 4 \end{array} \right)$$
+特征空间$\ker (A+3I)$ 由单个向量 $( 1, - 2) ^T$张成。则矩阵$A$可对角化为
+$$A=\left(\begin{array}{cc}1&2\\8&1\end{array}\right)=\left(\begin{array}{cc}1&1\\2&-2\end{array}\right)\left(\begin{array}{cc}5&0\\0&-3\end{array}\right)\left(\begin{array}{cc}1&1\\2&-2\end{array}\right)^{-1}$$
+
+\subsubsection{特征值为复数}
+
+考虑矩阵
+$$A=\left(\begin{array}{cc}1&2\\-2&1\end{array}\right).$$
+其特征多项式为
+$$\left|\begin{array}{cc}1-\lambda&2\\-2&1-\lambda\end{array}\right|=(1-\lambda)^2+2^2$$
+且其特征值（特征多项式的根）为$\lambda=1\pm2i$。对 $\lambda=1+2i$
+$$A-\lambda I=\left(\begin{array}{cc}-2i&2\\-2&-2i\end{array}\right)$$
+该矩阵的秩为$1$，所以特征空间$\ker (A-\lambda T)$ 由一个向量张成，比如 $(1,i)^T$。
+
+因为$A$为实矩阵，我们不需要求$\lambda=1-2i$的特征向量，而是只需将上面的特征向量取复共轭（见下习题 \ref{ex:4_2_2}）。所以，对应于$\lambda=1-2i$的特征向量是 $(1,-i)^{T}$，所以矩阵$A$可对角化为
+$$A=\left(\begin{array}{cc}1&1\\i&-i\end{array}\right)\left(\begin{array}{cc}1+2i&0\\0&1-2i\end{array}\right)\left(\begin{array}{cc}1&1\\i&-i\end{array}\right)^{-1}.$$
+
+\subsubsection{不可对角化}
+
+考虑矩阵
+$$A=\left(\begin{array}{cc}1&1\\0&1\end{array}\right).$$
+其特征多项式为
+$$\left|\begin{array}{cc}1-\lambda&1\\0&1-\lambda\end{array}\right|=(1-\lambda)^2,$$
+所以$A$的特征值为$1$，且其重数为$2$。但很容易看出$\dim\ker(A-I)=1$（$A-I$有$1$个主元，所以有$2-1=1$个自由变量）。所以，特征值$1$的几何重数不等于代数重数，故$A$不可对角化。
+
+还有一种不用\autoref{thm:algebraic_eq_geometric} 的解释：特征空间$\ker(A-1I)$的特征空间是一维的（由向量$(1,0)^T$张成）。如果$A$可对角化，那么它关于某个基具有对角阵$\begin{pmatrix}
+    1&0\\0&1
+\end{pmatrix}$\footnote{注意，关于某个基具有对角阵$\begin{pmatrix}
+    1&0\\0&1
+\end{pmatrix}$的唯一线性变换是恒等变换$I$。因为$A$肯定不是恒等算子，所以我们可以断定$A$不可对角化，所以其实没有必要计算特征空间的维数。}，于是特征空间的维数应为$2$。因此$A$不可对角化。
+
+\begin{problemset}
+    \item 令$A$为$n\times n$矩阵。判断正误：
+    \begin{enumerate}[label={\alph*)}]
+        \item $A^T$和$A$的特征值相同；
+        \item $A^T$和$A$的特征向量相同；
+        \item 若$A$可对角化，那么$A^T$也可对角化。
+    \end{enumerate}
+    证明你的结论。
+    \item \label{ex:4_2_2} 令$A$为各项为实数的方阵，并令$\lambda$为它的复特征值。令$\mathbf{v}=(v_{1},v_{2},\ldots,v_{n})^{T}$是对应的特征向量，$A\mathbf{v}=\lambda\mathbf{v}$。证明：$\overline{\lambda}$是$A$的特征值，且$A\mathbf{\overline{v}}=\overline{\lambda}\mathbf{\overline{v}}$，此处$\mathbf{\overline{v}}$是$\mathbf{v}$的复共轭，${\overline{\mathbf{v}}}:=({\overline{v}}_{1},{\overline{v}}_{2},\ldots,{\overline{v}}_{n})^{T}$。
+    \item 令\[A=\begin{pmatrix}4&3\\1&2\end{pmatrix}.\]通过对角化$A$，求$A^{2004}$。
+    \item 构造矩阵$A$，其特征值为$1$和$3$，对应的特征向量是$(1,2)^T$和$(1,1)^T$。这样的矩阵是唯一的吗？
+    \item 将下列的矩阵对角化（如果可以的话）
+    \begin{enumerate}[label={\alph*)}]
+        \item $\begin{pmatrix}{4}&{-2}\\{1}&{1}\end{pmatrix}$；
+        \item $\begin{pmatrix}{-1}&{-1}\\{6}&{4}\end{pmatrix}$；
+        \item $\begin{pmatrix}{-2}&{2}&{6}\\{5}&{1}&{-6}\\{-5}&{2}&{9}\end{pmatrix}$（$\lambda=2$是它的一个特征值）。
+    \end{enumerate}
+    \item 考虑矩阵\[A=\begin{pmatrix}2&6&-6\\0&5&-2\\0&0&4\end{pmatrix}.\]
+    \begin{enumerate}[label={\alph*)}]
+        \item 求它的特征值。是否可以无需计算就求出特征值？
+        \item 该矩阵可对角化吗？不要通过计算得出答案。
+        \item 如果该矩阵可对角化，则将它对角化。
+    \end{enumerate}
+    \item 将下列矩阵对角化\[\begin{pmatrix}2&0&6\\0&2&4\\0&0&4\end{pmatrix}.\]
+    \item 求出下列矩阵的所有平方根\[A=\begin{pmatrix}5&2\\-3&0\end{pmatrix}\]
+    即求出所有满足$B^2=A$的矩阵$B$。{\bf 提示}：求出对角矩阵的平方根很容易。你可以将答案保留为乘积形式。
+    \item 回忆一下，著名的斐波那契序列\[0,1,1,2,3,5,8,13,21\]
+    定义如下：置$\varphi_0=0,\varphi_1=1$，并定义\[\varphi_{n+2}=\varphi_{n+1}+\varphi_n.\]现要求$\varphi_n$的公式。为此
+    \begin{enumerate}[label={\alph*)}]
+        \item 求$2\times 2$矩阵$A$满足\[\begin{pmatrix}\varphi_{n+2}\\\varphi_{n+1}\end{pmatrix}=A\begin{pmatrix}\varphi_{n+1}\\\varphi_{n}\end{pmatrix}\]
+        \textbf{提示}：将一个看似显然的公式$\varphi_{n+1}=\varphi_{n+1}$和斐波那契递推关系$\varphi_{n+2}=\varphi_{n+1}+\varphi_n$联立。
+        \item 对角化$A$，求出$A^n$的公式。
+        \item 注意到\[\begin{pmatrix}\varphi_{n+1}\\\varphi_n\end{pmatrix}=A^n\begin{pmatrix}\varphi_1\\\varphi_0\end{pmatrix}=A^n\begin{pmatrix}1\\0\end{pmatrix}\]求出$\varphi_n$的公式。（此处你需要计算逆和乘法）
+        \item 证明：向量$(\varphi_{n+1}/\varphi_{n},1)^{T}$收敛到$A$的一个特征向量。
+        
+        你觉得这是巧合吗？
+    \end{enumerate}
+    \item 令$A$为$5\times 5$矩阵，具有$3$个特征值（此处不按重数计）。假设我们知道其中一个特征空间是三维的，能否确定$A$是可对角化的？
+    \item 举出一例不可对角化的$3\times 3$矩阵。在构造出这个矩阵后，你能否使其看上去“一般化”，即看不出该矩阵的特殊结构？
+    \item 令非零矩阵$A$满足$A^5=\mathbf{0}$。证明：$A$不可对角化。更一般地，任何非零的幂零矩阵，即满足$A^N=\mathbf{0}$的非零矩阵$A$都不可对角化。
+    \item 转置变换的特征值：
+    \begin{enumerate}[label={\alph*)}]
+        \item 考虑由$2\times 2$矩阵构成的向量空间$M_{2\times 2}$中的变换$T$，$T(A)=A^T$。求出它的所有特征值和特征向量。这个变换可对角化吗？{\bf 提示}：尽管可以通过写出这个线性变换关于某个基的矩阵，再计算特征多项式……的常规方法计算，但更为简单的办法是直接从定义出发。
+        \item 将$2\times 2$换成$n\times n$，试求解上述问题。
+    \end{enumerate}
+    \item 证明两个子空间$V_1$和$V_2$线性无关，当且仅当$V_1\cap V_2=\{\mathbf{0}\}$。
+\end{problemset}

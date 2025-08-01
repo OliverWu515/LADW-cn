@@ -181,7 +181,7 @@
 
 此处{\bf 生成}、{\bf 张成}和{\bf 完备}是同义词。我本人更喜欢“完备”这个词，这是由于我在算子理论方面的专业背景。“生成”和“张成”则更经常用于线性代数教材中。
 
-显然，任一基都是张成（完备）向量组。并且，如果我们向基$\mathbf{v}_{1},\mathbf{v}_{2},$ $\ldots,\mathbf{v}_{n}$中加入若干向量$\mathbf{v}_{n+1},\ldots,\mathbf{v}_{p}$，那么新的向量组是张成（完备）向量组。的确如此：我们可以将任意向量表示成$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,$ $\mathbf{v}_{n}$的线性组合，并直接忽略新加入的向量（取对应的系数$\alpha_k=0$）。
+显然，任一基都是张成（完备）向量组。并且，如果我们向基$\mathbf{v}_{1},$ $\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$中加入若干向量$\mathbf{v}_{n+1},\ldots,\mathbf{v}_{p}$，那么新的向量组是张成（完备）向量组。的确如此：我们可以将任意向量表示成$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,$ $\mathbf{v}_{n}$的线性组合，并直接忽略新加入的向量（取对应的系数$\alpha_k=0$）。
 
 现在，让我们将注意力转向唯一性。我们不想产生存在性方面的顾虑，因此我们考虑零向量$\mathbf{0}$，其总是能够以线性组合式表出。
 
@@ -353,7 +353,7 @@
 那么$\mathbf{x}=x_{1}\mathbf{e}_{1}+x_{2}\mathbf{e}_{2}+\ldots+x_{n}\mathbf{e}_{n}=\sum_{k=1}^{n}x_{k}\mathbf{e}_{k}$，且有
 \[T(\mathbf{x})=T\left(\sum_{k=1}^nx_k\mathbf{e}_k\right)=\sum_{k=1}^nT(x_k\mathbf{e}_k)=\sum_{k=1}^nx_kT(\mathbf{e}_k)=\sum_{k=1}^nx_k\mathbf{a}_k.\]
 
-因此，如果我们将列向量$\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{n}$一起放入一矩阵$A=[\mathbf{a}_1,\mathbf{a}_2,$ $\ldots,\mathbf{a}_n]$（$\mathbf{a}_{k}$是$A$的第$k$列，$k=1,2,\ldots,n$），该矩阵就包含了$T$的所有信息。
+因此，如果我们将列向量$\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{n}$一起放入一矩阵$A=[\mathbf{a}_1,$ $\mathbf{a}_2,\ldots,\mathbf{a}_n]$（$\mathbf{a}_{k}$是$A$的第$k$列，$k=1,2,\ldots,n$），该矩阵就包含了$T$的所有信息。
 
 下面我们说明如何定义矩阵和列向量的乘积才能将变换$T$表示为乘积$T(\mathbf{x})=A\mathbf{x}$。令
 \[A=\begin{pmatrix}a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&&\vdots\\a_{m,1}&a_{m,2}&\ldots&a_{m,n}\end{pmatrix}.\]

@@ -62,18 +62,18 @@
 具体地说，乘以矩阵
 \[
 \begin{pNiceMatrix}[margin,first-row,first-col]
-    &        &        &        & j      &        &        &        & k      &                        &              & \\
-    & 1      &        &        & \vdots &        &        &        & \vdots & \Block{3-3}<\LARGE>{0} &              & \\
-    &        & \ddots &        & \vdots &        &        &        & \vdots &                        & \hspace{1em} & \\
-    &        &        & 1      & \vdots &        &        &        & \vdots &                        &              & \\
-  j & \cdots & \cdots & \cdots & 0      & \cdots & \cdots & \cdots & 1      &                        &              & \\
-    &        &        &        & \vdots & 1      &        &        & \vdots &                        &              & \\
-    &        &        &        & \vdots &        & \ddots &        & \vdots &                        &              & \\
-    &        &        &        & \vdots &        &        & 1      & \vdots &                        &              & \\
-  k & \cdots & \cdots & \cdots & 1      & \cdots & \cdots & \cdots & 0      &                        &              & \\
-    &        & \Block{3-2}<\LARGE>{0} &        &        &       &        &        &  &            1            &              & \\
-    &        & \hspace{1em} &        &        &       &        &        &  &                        &        \ddots      & \\
-    &        &  &        &        &       &        &        &  &                        &              & 1 
+    &        &                        &        & j      &        &        &        & k      &                        &              &   \\
+    & 1      &                        &        & \vdots &        &        &        & \vdots & \Block{3-3}<\LARGE>{0} &              &   \\
+    &        & \ddots                 &        & \vdots &        &        &        & \vdots &                        & \hspace{1em} &   \\
+    &        &                        & 1      & \vdots &        &        &        & \vdots &                        &              &   \\
+  j & \cdots & \cdots                 & \cdots & 0      & \cdots & \cdots & \cdots & 1      &                        &              &   \\
+    &        &                        &        & \vdots & 1      &        &        & \vdots &                        &              &   \\
+    &        &                        &        & \vdots &        & \ddots &        & \vdots &                        &              &   \\
+    &        &                        &        & \vdots &        &        & 1      & \vdots &                        &              &   \\
+  k & \cdots & \cdots                 & \cdots & 1      & \cdots & \cdots & \cdots & 0      &                        &              &   \\
+    &        & \Block{3-2}<\LARGE>{0} &        &        &        &        &        &        & 1                      &              &   \\
+    &        & \hspace{1em}           &        &        &        &        &        &        &                        & \ddots       &   \\
+    &        &                        &        &        &        &        &        &        &                        &              & 1
 \end{pNiceMatrix}
 \]
 即交换第$j$行与第$k$行；乘以矩阵
@@ -637,7 +637,7 @@
 另一个是它的值域\[\operatorname{Ran}A=\{\mathbf{w}\in W:\mathbf{w}=A\mathbf{v},\mathbf{v}\in V\}\subset W.\]
 换言之，核$\ker A$是齐次方程$A\mathbf{x}=\mathbf{0}$的解集，值域$\rg A$是使得方程$A\mathbf{x}=\mathbf{b}$有解的所有右端项$\mathbf{b}\in W$所成的集合。
 
-若$A$是$m\times n$矩阵，即从$\mathbb{F}^{n}$到$\mathbb{F}^{m}$的映射，那么由矩阵-向量乘法的“列乘以坐标”法则，任意向量$\mathbf{w}\in\operatorname{Ran}A$可表示为$A$的列的线性组合。这就能解释{\bf 列空间}（记号为$\col A$）这一名称的来历，它是$\rg A$的另一种表达。
+若$A$是$m\times n$矩阵，即从$\mathbb{F}^{n}$到$\mathbb{F}^{m}$的映射，那么由矩阵-向量乘法的“列乘以坐标”法则，任意向量$\mathbf{w}\in\operatorname{Ran}A$可表示为$A$的列的线性组合。这就能解释{\bf 列空间}（记号为$\col A$）这一名称的来历，它常用作$\rg A$的另一种表达。
 
 对于矩阵$A$，在$\rg A$和$\ker A$以外，还常讨论转置矩阵$A^T$的核与值域。通常，$\rg A^T$称为{\bf 行空间}，而$\ker A^T$称为{\bf 左零空间}（但往往不用特别的记号来表示它们）。
 

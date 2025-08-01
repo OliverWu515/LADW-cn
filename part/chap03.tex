@@ -40,7 +40,7 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 现在，我们将此处的思想推广到更高维度。我们暂时不关心高和底面积的具体计算，而是说明，如果假设底面积和高满足一些自然的性质，那么我们就能唯一定义体积（行列式），而别无选择。
 
 \subsection{对每个自变量的线性}
-首先，如果我们将向量$\mathbf{v}_1$乘以正数$a$，那么高（即到线性张成空间$\mathcal{L}\{\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\}$的距离）会被乘以$a$。如果我们允许负的高（以及负的体积），那么这个性质就会对所有标量$a$都成立，因此向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的行列式$D(\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n})$就应满足\[D(\alpha\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n})=\alpha D(\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}).\]
+首先，如果我们将向量$\mathbf{v}_1$乘以正数$a$，那么高（即到线性张成空间$\mathcal{L}\{\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\}$的距离）会被乘以$a$。如果我们允许负的高（以及负的体积）存在，那么这个性质就会对所有标量$a$都成立，因此向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的行列式$D(\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n})$就应满足\[D(\alpha\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n})=\alpha D(\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}).\]
 当然，向量$\mathbf{v}_1$并无任何特别之处，所以对于任意下标$k$都有
 \begin{equation}\label{Determinant_linear_1}
   D(\mathbf{v}_1,\ldots,\underset{k}{\alpha\mathbf{v}_k},\ldots,\mathbf{v}_n)=\alpha D(\mathbf{v}_1,\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_n)
@@ -57,20 +57,20 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 \begin{remark*}
   我们已经了解到，{\bf 线性}是一个绝佳的性质，它在很多情况下都大有用处。因此，允许负的高（从而允许负的体积）存在，只是为了得到线性而付出的微不足道的代价。后续如有必要，我们总可以加上绝对值。
 
-  事实上，我们并不因允许负的高存在而牺牲任何东西！恰恰相反，我们反而得到了新东西——行列式的符号包含向量组的信息（取向）。
+  事实上，我们并不因允许负的高存在而有任何损失！恰恰相反，我们反而得到了新东西——行列式的符号包含向量组的信息（取向）。
 \end{remark*}
 
 \subsection{如果两向量重合，则行列式为\texorpdfstring{$0$}{0}}
 
 若$\mathbf{v}_{j}=\mathbf{v}_{k}$（$j\ne k$），那么向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是线性相关的，因此\[\dim\operatorname{span}\{\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n\}<n.\]
-不过这样一来体积就一定为$0$【因为某个高（比如从$\mathbf{v}_j$到$\operatorname{span}\{\mathbf{v}_{r}:r\neq j\}$的距离）是$0$】。因此可以很自然地假设
+不过这样一来体积就一定为$0$【可这样理解：从$\mathbf{v}_j$到$\operatorname{span}\{\mathbf{v}_{r}:r\neq j\}$的距离（“高”）是$0$】。因此可以很自然地假设
 \begin{equation}\label{Determinant_0}
   D(\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n)=0\quad\text{若}~\mathbf{v}_j=\mathbf{v}_k(j\neq k).
 \end{equation}
 后续我们还会用到行列式的这条性质。
 
 \begin{remark*}
-  有个更强的性质是：对于线性相关向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$，$D(\mathbf{v}_1,\mathbf{v}_2,$ $\ldots,\mathbf{v}_n)=0$成立。该性质也很自然。
+  有个更强的性质是：$D(\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n)=0$对于线性相关向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$成立。该性质也很自然。
 
   然而，容易从更弱的假设 \eqref{Determinant_0} 以及线性 \eqref{Determinant_linear_1} 和 \eqref{Determinant_linear_2} 推出此性质。详见命题 \ref{prop:det_0}。
 \end{remark*}
@@ -483,7 +483,7 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 \end{proof}
 
 回忆一下，对于可逆矩阵$A$，方程$A\mathbf{x}=\mathbf{b}$有唯一解\[\mathbf{x}=A^{-1}\mathbf{b}=\frac{1}{\det A}C^T\mathbf{b},\]从而可得上述定理的如下推论：
-\begin{corollary}[Cramer法则]
+\begin{corollary}[克拉默法则]
   对于可逆矩阵$A$，方程$A\mathbf{x}=\mathbf{b}$的解的第$k$项由下式给出\[x_k=\frac{\det B_k}{\det A},\]其中矩阵$B_k$是由$A$将第$k$列换成向量$\mathbf{b}$得到的。
 \end{corollary}
 
