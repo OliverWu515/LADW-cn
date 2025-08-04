@@ -268,7 +268,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 
 下面引理展示了检验一向量正交于一子空间的方法。
 
-\begin{lemma}
+\begin{lemma}\label{lem:vec_ortho_subspace}
     令$E$由向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$张成。那么$\mathbf{v}\perp E$，当且仅当\[\mathbf{v}\perp\mathbf{v}_{k},\quad\forall k=1,2,\ldots,r.\]
 \end{lemma}
 \begin{proof}
@@ -304,9 +304,374 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
     \[\alpha_k=0\quad\forall k,\]所以只有平凡线性组合能得出$\mathbf{0}$。
 \end{proof}
 
-\section{正交投影与格拉姆-施密特正交化}
+\begin{remark*}
+    接下来我们提到“正交组”的时候，一般是指由非零向量形成的正交组。因为零向量$\mathbf{0}$正交于任何向量，所以它可以被加进任意正交组中，但是考虑包含零向量的正交向量组没什么意思。
+\end{remark*}
 
-\section{最小二乘、正交投影的公式}
+\subsection{正交基与规范正交基}
+
+\begin{definition}
+    正交组（规范正交组）$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$如果是基，就称为正交基（规范正交基）。
+\end{definition}
+
+显然，如果$\dim V=n$，那么任意由$n$个非零向量构成的正交组都是正交基。
+
+我们前面讨论过，要求出向量在基下的坐标，需要求解线性方程组。然而，求出向量关于正交基的坐标要容易得多：设$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是正交基，并令\[\mathbf{x}=\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\cdots+\alpha_n\mathbf{v}_n=\sum_{j=1}^n\alpha_j\mathbf{v}_j.\]
+将此式两端与$\mathbf{v}_1$做内积可得
+\[(\mathbf{x},\mathbf{v}_1)=\sum_{j=1}^n\alpha_j(\mathbf{v}_j,\mathbf{v}_1)=\alpha_1(\mathbf{v}_1,\mathbf{v}_1)=\alpha_1\|\mathbf{v}_1\|^2\]
+（若$j\ne 1$则所有的内积$(\mathbf{v}_j,\mathbf{v}_1)=0$）所以\[\alpha_1=\frac{(\mathbf{x},\mathbf{v}_1)}{\|\mathbf{v}_1\|^2}.\]
+类似地，两端与$\mathbf{v}_k$做内积可得
+\[(\mathbf{x},\mathbf{v}_k)=\sum_{j=1}^n\alpha_j(\mathbf{v}_j,\mathbf{v}_k)=\alpha_k(\mathbf{v}_k,\mathbf{v}_k)=\alpha_k\|\mathbf{v}_k\|^2\]
+所以
+\begin{equation}\label{coeff_orthogonal}
+    \alpha_k=\frac{(\mathbf{x},\mathbf{v}_k)}{\|\mathbf{v}_k\|^2}
+\end{equation}
+因此，
+\begin{center}
+    \fbox{\parbox{0.8\linewidth}{要求出向量在正交基下的坐标，无需求解线性方程组，而只需根据 \eqref{coeff_orthogonal} 确定坐标。}}
+\end{center}
+这个公式对于规范正交基尤其简单（$\|\mathbf{v}_k\|^2$）。
+
+也就是说，如果$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是规范正交基，那么任意向量$\mathbf{v}$可表示为
+\begin{equation}\label{coeff_orthonormal}
+    \mathbf{v}=\sum_{k=1}^n(\mathbf{v},\mathbf{v}_k)\mathbf{v}_k.
+\end{equation}
+这个公式有时称为\textbf{抽象正交傅里叶分解}（的雏形）。经典（非抽象）的傅里叶分解用的是一个具体的规范正交组（正余弦或复指数）。我们称上面的公式是\textbf{雏形}，因为真正的傅里叶分解用的是无限的规范正交组。
+
+\begin{remark}
+    规范正交基的重要性在于，如果我们在内积空间$V$中取定规范正交基，那么我们就可以如同处理$\mathbb{F}^n$中的向量一样处理在这个基下的坐标。也就是说，如在本书开头所讨论的那样（第 \ref{chap:BasicNotion} 章注 \ref{remark:fn_to_abstract}），如果我们处理的是具有基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的（域$\mathbb{F}$上的）向量空间$V$，\marginpar{\small 这个注记很重要，它使我们得以将适用于标准向量空间$\mathbb{F}^n$的各种表述迁移至具有规范正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的内积空间$V$。}那么我们可以讨论关于基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的坐标列向量，从而如同对标准坐标空间$\mathbb{F}^n$中的向量那样进行标准向量运算（向量加法与标量乘法）。
+
+    下方的习题 \ref{ex:5_2_3} 说明，如果我们有内积空间$V$中的{\bf 规范正交}基，那么我们要计算两个向量的内积，就可以首先取它们关于这个规范正交基的坐标列向量，然后计算这两个列向量（在$\mathbb{C}^n$或$\mathbb{R}^n$上）的标准内积。
+
+    第 \ref{sec:orthogonalization} 节中将证明，每个有限维内积空间都有规范正交基。于是，有限维内积空间本质上就是标准内积空间$\mathbb{C}^n$（对于实内积空间，就是$\mathbb{R}^n$）而已。
+\end{remark}
+
+\begin{problemset}
+    \item 求出$\mathbb{R}^4$中正交于向量$(1,1,1,1)^T$和$(1,2,3,4)^T$的所有向量。
+    \item 令$A$为$m\times n$实矩阵。描述$(\rg A^T)^\perp$，$(\rg A)^\perp$。
+    \item \label{ex:5_2_3} 令$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$是$V$的规范正交基。
+    \begin{enumerate}[label={\alph*)}]
+        \item 证明：对任意$\mathbf{x}=\sum_{k=1}^{n}\alpha_{k}\mathbf{v}_{k},\mathbf{y}=\sum_{k=1}^{n}\beta_{k}\mathbf{v}_{k}$
+        \[(\mathbf{x},\mathbf{y})=\sum_{k=1}^{n}\alpha_{k}\overline{\beta}_{k}.\]
+        \item 由此推导\textbf{帕塞瓦尔恒等式}
+        \[(\mathbf{x},\mathbf{y})=\sum_{k=1}^n(\mathbf{x},\mathbf{v}_k)\overline{(\mathbf{y},\mathbf{v}_k)}\]
+        \item 假设$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$仅是正交基而不是规范正交基。你能写出这种情形下的帕塞瓦尔恒等式吗？
+    \end{enumerate}
+
+    这题说明，如果我们有规范正交基，那么运用在这个基下的坐标就和运用$\mathbb{C}^n$（或$\mathbb{R}^n$）中的标准坐标完全一样。
+
+    下面这题说明，我们可以通过使一个基具有规范正交性来定义一个内积。
+    \item 令$V$为向量空间，并令$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$是$V$的基。对于$\mathbf{x}=\sum_{k=1}^n\alpha_k\mathbf{v}_k,\mathbf{y}=\sum_{k=1}^n\beta_k\mathbf{v}_k$定义$\langle\mathbf{x},\mathbf{y}\rangle:=\sum_{k=1}^{n}\alpha_{k}\bar{\beta}_{k}$。
+    
+    证明：$\langle\mathbf{x},\mathbf{y}\rangle$是$V$上的内积。
+    \item 令$A$为$m\times n$实矩阵。描述$\mathbb{F}^m$中所有正交于$\rg A$的向量所成的集合。
+\end{problemset}
+
+\section{正交投影与格拉姆-施密特正交化}\label{sec:orthogonalization}
+
+回想一下经典平面几何（$2$维几何）中的正交投影的定义，可以引入下面的定义。令$E$是内积空间$V$的子空间。
+
+\begin{definition}
+    对向量$\mathbf{v}$，其往子空间$E$中的正交投影$P_E\mathbf{v}$是满足下面条件的向量$\mathbf{w}$：
+    \begin{enumerate}
+        \item $\mathbf{w}\in E$；
+        \item $\mathbf{v}-\mathbf{w}\perp E$。
+    \end{enumerate}
+    我们记正交投影为$\mathbf{w}=P_E\mathbf{v}$。
+\end{definition}
+
+在引入一种对象之后，很自然要问：
+\begin{enumerate}
+    \item 这种对象存在吗？
+    \item 这种对象唯一吗？
+    \item 如何求出它？
+\end{enumerate}
+
+我们首先证明正交投影是唯一的。接下来我们给出正交投影的一种求法，这也就证明了其存在性。
+
+下面定理展示了为何正交投影很重要，同时也说明了它的存在性。
+
+\begin{theorem}
+    正交投影$\mathbf{w}=P_E\mathbf{v}$最小化从$\mathbf{v}$到$E$的距离，即对所有$\mathbf{x}\in E$有\[\|\mathbf{v}-\mathbf{w}\|\leq\|\mathbf{v}-\mathbf{x}\|.\]
+    此外，如果对某个$\mathbf{x}\in E$有\[\|\mathbf{v}-\mathbf{w}\|=\|\mathbf{v}-\mathbf{x}\|,\]
+    那么$\mathbf{x}=\mathbf{w}$。
+\end{theorem}
+
+\begin{proof}
+    令$\mathbf{y}=\mathbf{w}-\mathbf{x}$。那么\[\mathbf{v}-\mathbf{x}=\mathbf{v}-\mathbf{w}+\mathbf{w}-\mathbf{x}=\mathbf{v}-\mathbf{w}+\mathbf{y}.\]
+    因为$\mathbf{v}-\mathbf{w}\perp E$，所以有$\mathbf{y}\perp \mathbf{v}-\mathbf{w}$，故由毕达哥拉斯定理
+    \[\|\mathbf{v}-\mathbf{x}\|^2=\|\mathbf{v}-\mathbf{w}\|^2+\|\mathbf{y}\|^2\geq\|\mathbf{v}-\mathbf{w}\|^2.\]
+    注意等号成立仅当$\mathbf{y}=\mathbf{0}$，即$\mathbf{x}=\mathbf{w}$。
+\end{proof}
+
+下面命题阐述了已知$E$的正交基的情况下求出正交投影的方法。
+
+\begin{proposition}\label{prop:projection_solution}
+    如果$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$是$E$的正交基。那么$\mathbf{v}$的正交投影$P_E\mathbf{v}$由下式给出
+    \[P_E\mathbf{v}=\sum_{k=1}^r\alpha_k\mathbf{v}_k,\quad \text{其中}\quad\alpha_k=\frac{(\mathbf{v},\mathbf{v}_k)}{\|\mathbf{v}_k\|^2}.\]
+    换言之
+    \begin{equation}\label{projection_eq}
+        P_E\mathbf{v}=\sum_{k=1}^r\frac{(\mathbf{v},\mathbf{v}_k)}{\|\mathbf{v}_k\|^2}\mathbf{v}_k.
+    \end{equation}
+\end{proposition}
+
+注意，$\alpha_k$的公式与 \ref{coeff_orthogonal} 相同，即将此式应用于规范正交组（不是基）会给出往它的张成空间中的投影。
+
+\begin{remark}
+    从 \ref{projection_eq} 中容易看出正交投影$P_E$是线性变换。
+
+    也可以从正交投影的定义和唯一性中看出$P_E$的线性。的确如此：容易检验对任意$\mathbf{x},\mathbf{y}$，向量$\alpha\mathbf{x}+\beta\mathbf{y}-(\alpha P_{E}\mathbf{x}-\beta P_{E}\mathbf{y})$正交于$E$中的所有向量，所以由定义得$P_{E}(\alpha\mathbf{x}+\beta\mathbf{y})=\alpha P_{E}\mathbf{x}+\beta P_{E}\mathbf{y}$。
+\end{remark}
+
+\begin{remark}
+    回忆$\mathbb{C}^n$和$\mathbb{R}^n$上内积的定义，可以从上述公式 \ref{projection_eq} 得到$\mathbb{C}^n$和$\mathbb{R}^n$上往$E$中投影$P_E$的公式
+    \begin{equation}\label{proj_matrix}
+        P_E=\sum_{k=1}^r\frac{1}{\|\mathbf{v}_k\|^2}\mathbf{v}_k\mathbf{v}_k^*
+    \end{equation}
+    其中$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$形成$E$的正交基。
+\end{remark}
+\begin{proof}[命题 \ref{prop:projection_solution} 的证明]
+    令\[\mathbf{w}:=\sum_{k=1}^r\alpha_k\mathbf{v}_k,\quad \text{其中}\quad\alpha_k=\frac{(\mathbf{v},\mathbf{v}_k)}{\|\mathbf{v}_k\|^2}.\]
+    欲证$\mathbf{v}-\mathbf{w}\in E$。由引理 \ref{lem:vec_ortho_subspace}，只需证明$\mathbf{v}-\mathbf{w}\perp \mathbf{v}_k,k=1,2,\dots,r$。计算内积即得，对$k=1,2,\dots,r$有
+    \[
+    \begin{aligned}
+        \mathbf{(v-w,v_{k})}&=(\mathbf{v},\mathbf{v}_{k})-(\mathbf{w},\mathbf{v}_{k})=(\mathbf{v},\mathbf{v}_{k})-\sum_{j=1}^{r}\alpha_{j}(\mathbf{v}_{j},\mathbf{v}_{k})\\
+        &=(\mathbf{v},\mathbf{v}_{k})-\alpha_{k}(\mathbf{v}_{k},\mathbf{v}_{k})=(\mathbf{v},\mathbf{v}_{k})-\frac{(\mathbf{v},\mathbf{v}_{k})}{\|\mathbf{v}_{k}\|^{2}}\|\mathbf{v}_{k}\|^{2}=0.
+    \end{aligned}
+    \]
+\end{proof}
+
+所以，已知$E$的正交基即可求出往$E$中的正交投影。特别地，由于仅包含一个向量的向量组都是正交组，所以我们可知将向量往一维空间中投影。
+
+但是，如果只知道$E$的基，我们怎么求出正交投影呢？幸运的是，有个简单的算法能从基得出正交基。
+
+\subsection{格拉姆-施密特正交化算法}
+
+假设我们有线性无关组$\mathbf{x}_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{n}$。格拉姆-施密特方法能从该组构造正交组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$，且满足
+\[\mathrm{span}\{\mathbf{x}_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{n}\}=\mathrm{span}\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\}.\]
+此外，对所有$r\le n$有\[\mathrm{span}\{\mathbf{x}_1,\mathbf{x}_2,\ldots,\mathbf{x}_r\}=\mathrm{span}\{\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r\}\]
+
+现在叙述该算法。
+
+\noindent\textbf{步骤1. }置$\mathbf{v}_{1}:=\mathbf{x}_{1}$。记$E_{1}:={\mathrm{span}}\{\mathbf{x}_{1}\}={\mathrm{span}}\{\mathbf{v}_{1}\}$。
+
+\noindent\textbf{步骤2. }定义$\mathbf{v}_2$为\[\mathbf{v}_2=\mathbf{x}_2-P_{E_1}\mathbf{x}_2=\mathbf{x}_2-\frac{(\mathbf{x}_2,\mathbf{v}_1)}{\|\mathbf{v}_1\|^2}\mathbf{v}_1.\] 
+定义$E_2=\mathrm{span}\{\mathbf{v}_1,\mathbf{v}_2\}$。注意$\mathrm{span}\{\mathbf{x}_1,\mathbf{x}_2\}=E_2$。
+
+\noindent\textbf{步骤3. }定义$\mathbf{v}_3$为\[\mathbf{v}_{3}:=\mathbf{x}_{3}-P_{E_{2}}\mathbf{x}_{3}=\mathbf{x}_{3}-\frac{(\mathbf{x}_{3},\mathbf{v}_{1})}{\|\mathbf{v}_{1}\|^{2}}\mathbf{v}_{1}-\frac{(\mathbf{x}_{3},\mathbf{v}_{2})}{\|\mathbf{v}_{2}\|^{2}}\mathbf{v}_{2}\]
+取$E_3=\mathrm{span}\{\mathbf{v}_1,\mathbf{v}_2,\mathbf{v}_3\}$。注意$\mathrm{span}\{\mathbf{x}_1,\mathbf{x}_2,\mathbf{x}_3\}=E_3$。同时注意$\mathbf{x}_3\notin E_2$，所以$\mathbf{v}_3\ne \mathbf{0}$。
+
+……
+
+\noindent\textbf{步骤$r+1$. }假设已经完成此过程的$r$步并得到由非零向量 $\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$ 形成的正交组，使得$E_{r}:=\mathrm{span}\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}\}=\mathrm{span}\{\mathbf{x}_{1},$ $\mathbf{x}_{2},\ldots,\mathbf{x}_{r}\}$。定义
+\[\mathbf{v}_{r+1}:=\mathbf{x}_{r+1}-P_{E_r}\mathbf{x}_{r+1}=\mathbf{x}_{r+1}-\sum_{k=1}^r\frac{(\mathbf{x}_{r+1},\mathbf{v}_k)}{\|\mathbf{v}_k\|^2}\mathbf{v}_k\]
+注意，$\mathbf{x}_{r+1}\notin E_r$，所以$\mathbf{v}_{r+1}\ne \mathbf{0}$。
+
+……
+
+持续进行该算法，即可得到正交组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$。
+
+\subsection{例子}
+
+假设给定向量\[\mathbf{x}_1=(1,1,1)^T,\quad\mathbf{x}_2=(0,1,2)^T,\quad\mathbf{x}_3=(1,0,2)^T,\]
+并且要用格拉姆-施密特方法来将其转化为正交组。第一步我们定义
+$$\mathbf{v}_{1}=\mathbf{x}_{1}=(1,1,1)^{T}.$$
+第二步我们有
+$$
+\mathbf{v}_{2}=\mathbf{x}_{2}-P_{E_{1}}\mathbf{x}_{2}=\mathbf{x}_{2}-\frac{\left(\mathbf{x}_{2}, \mathbf{v}_{1}\right)}{\left\|\mathbf{v}_{1}\right\|^{2}} \mathbf{v}_{1}.$$
+计算得
+$$\left(\mathbf{x}_{2}, \mathbf{v}_{1}\right)=\left(\left(\begin{array}{l}
+0 \\
+1 \\
+2
+\end{array}\right),\left(\begin{array}{l}
+1 \\
+1 \\
+1
+\end{array}\right)\right)=3, \quad\left\|\mathbf{v}_{1}\right\|^{2}=3,$$
+则得
+$$\mathbf{v}_{2}=\left(\begin{array}{l}
+0 \\
+1 \\
+2
+\end{array}\right)-\frac{3}{3}\left(\begin{array}{l}
+1 \\
+1 \\
+1
+\end{array}\right)=\left(\begin{array}{r}
+-1 \\
+0 \\
+1
+\end{array}\right).$$
+最后定义
+$$\mathbf{v}_{3}=\mathbf{x}_{3}-P_{E_{2}}\mathbf{x}_{3}=\mathbf{x}_{3}-\frac{\left(\mathbf{x}_{3}, \mathbf{v}_{1}\right)}{\left\|\mathbf{v}_{1}\right\|^{2}} \mathbf{v}_{1}-\frac{\left(\mathbf{x}_{3}, \mathbf{v}_{2}\right)}{\left\|\mathbf{v}_{2}\right\|^{2}} \mathbf{v}_{2}.$$
+计算得
+\begin{gather*}
+    \left(\left(\begin{array}{l}
+1 \\
+0 \\
+2
+\end{array}\right),\left(\begin{array}{l}
+1 \\
+1 \\
+1
+\end{array}\right)\right)=3, \quad \left(\left(\begin{array}{l}
+1 \\
+0 \\
+2
+\end{array}\right),\left(\begin{array}{r}
+-1 \\
+0 \\
+1
+\end{array}\right)\right)=1, \\
+\left\|\mathbf{v}_{1}\right\|^{2}=3,\quad  \left\|\mathbf{v}_{2}\right\|^{2}=2
+\end{gather*}
+（$\left\|\mathbf{v}_{1}\right\|^{2}$ 之前计算过了）则得
+$$
+\mathbf{v}_{3}=\left(\begin{array}{l}
+1 \\
+0 \\
+2
+\end{array}\right)-\frac{3}{3}\left(\begin{array}{l}
+1 \\
+1 \\
+1
+\end{array}\right)-\frac{1}{2}\left(\begin{array}{r}
+-1 \\
+0 \\
+1
+\end{array}\right)=\left(\begin{array}{r}
+\frac{1}{2} \\
+-1 \\
+\frac{1}{2}
+\end{array}\right)
+$$
+\begin{remark}
+    因为标量乘法不改变正交性，所以可以将格拉姆-施密特方法得到的向量$\mathbf{v}_k$乘以任意非零的数。
+
+    特别地，在很多理论推导中，人们会将向量$\mathbf{v}_k$除以对应的范数$\|\mathbf{v}_k\|$。那么所得的向量组是规范正交的，公式也会更简单。
+
+    不过，在做计算的时候，人们往往会通过将向量的每一项乘上各项分母的最小公倍数来避免得出分数项。所以上述向量$\mathbf{v}_3$大概会被换成$(1,-2,1)^T$。
+\end{remark}
+
+\subsection{正交补、正交分解\texorpdfstring{$V=E\oplus E^\perp$}{V=E+Eperp}}\label{subsec:orthogonal_complement}
+
+\begin{definition*}
+    对子空间$E$，其{\bf 正交补}是所有正交于$E$的向量所成的集合
+    \[E^{\perp}:=\{\mathbf{x}:\mathbf{x}\perp E\}.\]
+\end{definition*}
+
+若$\mathbf{x},\mathbf{y}\perp E$，则任意线性组合$\alpha\mathbf{x}+\beta\mathbf{y}\perp E$（你能看出为什么吗？）。所以$E^\perp$是子空间。
+
+由正交投影的定义，内积空间$V$中的任意向量有唯一表示
+\[\mathbf{v}=\mathbf{v}_{1}+\mathbf{v}_{2},\quad\mathbf{v}_{1}\in E,\mathbf{v}_{2}\perp E(\text{等价于}~\mathbf{v}_{2}\in E^{\perp})\]
+（其中显然有$\mathbf{v}_1=P_E\mathbf{v}$）
+
+这一结论常写为$V=E\oplus E^\perp$，意为任意向量都可唯一分解成上述形式。
+
+下面命题是正交补的一个重要性质。
+
+\begin{proposition}
+    对于子空间$E$，\[(E^\perp)^\perp=E.\]
+\end{proposition}
+
+证明留作习题（见下习题 \ref{ex:6_3_12}）。
+
+\begin{problemset}
+    \item 对向量组$(1,2,-2)^T,(1,-1,4)^T,(2,1,1)^T$应用格拉姆-施密特正交化。
+    \item 对向量组$(1,2,3)^T,(1,3,1)^T$应用格拉姆-施密特正交化。写出往这些向量张成的$2$维子空间中正交投影的矩阵。
+    \item 将上题中的正交组补全为$\mathbb{R}^3$中的正交基，即向其中加入若干个（多少个？）向量以得到正交基。
+    
+    你能描述在$\mathbb{R}^n$或$\mathbb{C}^n$的一般情形下，如何将正交组补全为正交基吗？
+    \item 求出从向量$(2,3,1)^{T}$到由向量$(1,2,3)^T,(1,3,1)^T$张成的子空间的距离。注意，只需要求到子空间的距离，而不需求正交投影。
+    \item 求出从向量$(1,1,1,1)^{T}$到由向量$\mathbf{v}_1=(1,3,1,1)^T,\mathbf{v}_2=(2,-1,1,0)^T$张成的子空间的距离（注意$\mathbf{v}_1\perp\mathbf{v}_2$）。
+    \item 求出从向量$(1,2,3,4)^{T}$到由向量$\mathbf{v}_1=(1,-1,1,0)^T,\mathbf{v}_2=(1,2,1,1)^T$张成的子空间的距离（注意$\mathbf{v}_1\perp\mathbf{v}_2$）。你能不计算投影就求出距离吗？这将简化计算。
+    \item 判断正误：若$E$是$V$的子空间，那么$\dim E + \dim (E^\perp) = \dim V$。论证之。
+    \item 令$P$是内积空间$V$上往子空间$E$的正交投影，$\dim V=n$，$\dim E=r$。求出特征值和特征向量（特征空间）。求出每个特征值的代数重数和几何重数。
+    \item （利用特征值来计算行列式）
+    \begin{enumerate}[label={\alph*)}]
+        \item 求出由$(1,1,\dots,1)^T$张成的$\mathbb{R}^n$的一维子空间的正交投影的矩阵；
+        \item 令$A$是所有项都等于$1$的$n\times n$矩阵。计算其特征值和对应的重数（利用前一题的结论）；
+        \item 计算矩阵$A-I$（即主对角线项都为$0$而其他项都为$1$的矩阵）的特征值（和重数）。
+        \item 计算$\det (A-I)$。
+    \end{enumerate}
+    \item （勒让德多项式）令多项式所成的向量空间上的内积定义为\\ $(f,g)=\int_{-1}^{1}f(t)\overline{g(t)}dt$。对向量组$1,t,t^2,t^3$应用格拉姆-施密特正交化。
+    
+    勒让德多项式是所谓正交多项式的一个特例，后者在数学的许多分支都有重要用途。
+    \item 令$P=P_E$是往子空间$E$的正交投影矩阵。证明：
+    \begin{enumerate}[label={\alph*)}]
+        \item 矩阵$P$是\textbf{自伴的}，意即$P^*=P$。
+        \item $P^2=P$。
+    \end{enumerate}
+    {\bf 提示}：上述两条性质能完全刻画正交投影，即任意满足上述性质的矩阵$P$都是某正交投影的矩阵。我们后续会进行讨论。
+    \item \label{ex:6_3_12} 证明：对子空间$E$有$(E^\perp)^\perp$。{\bf 提示}：容易看出$E$正交于$E^\perp$（为什么？）。为证明\textbf{任意}正交于$E^\perp$的向量$\mathbf{x}$都属于$E$，利用上面 \ref{subsec:orthogonal_complement} 节的分解$V=E\oplus E^\perp$。
+    \item 设$P$是往子空间$E$中的正交投影，$Q$是往正交补$E^\perp$中的正交投影。
+    \begin{enumerate}[label={\alph*)}]
+        \item $P+Q$和$PQ$分别是什么？
+        \item 证明：$P-Q$是它自身的逆。
+    \end{enumerate}
+\end{problemset}
+
+\section{最小平方解、正交投影的公式}
+
+如在第 \ref{chap:LinearSystems} 章中所讨论的，方程
+\[A\mathbf{x}=\mathbf{b}\]
+有解，当且仅当$\mathbf{b}\in\rg A$。但是，如何求解一个无解的方程组呢？
+
+这看起来是个蠢问题——如果无解的话，那就无解呀。但其实，要求解一个无解的方程组的情况会很自然地出现。比如，当我们的方程是从实验数据得到的时候。如果没有任何误差，那么右端项$\mathbf{b}$就示于列空间$\rg A$，并且方程组是相容的；但是，现实中测量误差是不可避免的，所以理论上有解的方程组在现实中也可能无解。那么，这种情况下我们怎么办呢？
+
+\subsection{最小平方解}
+
+最简单的思想就是写出误差\[\|A\mathbf{x}-\mathbf{b}\|\]
+并尝试求出使其最小的$\mathbf{x}$。如果可以求出使得误差为$0$的$\mathbf{x}$，那么方程组是相容的，并且我们得出了精确解。否则，我们就得到了所谓\textbf{最小平方}解\footnote{本术语国内多译为“最小二乘”，实从日文“最小二{\gothic 乗}”之讹误，本书将“square”按照“平方”来翻译，不从通行译法。——译者注}。
+
+术语\textbf{最小平方}的来历是：最小化$\|A\mathbf{x}-\mathbf{b}\|$就等价于最小化
+\[\|A\mathbf{x}-\mathbf{b}\|^2=\sum_{k=1}^m|(A\mathbf{x})_k-b_k|^2=\sum_{k=1}^m|\sum_{j=1}^nA_{k,j}x_j-b_k|^2\]
+即最小化线性函数的平方和。
+
+求出最小平方解有多种方式。如果我们在$\mathbb{R}^n$中讨论，所有数都是实数，我们就可以去掉绝对值，从而对$x_j$求偏导数，并且求出使这些偏导数都为$0$的$x_j$，从而得到极小值。
+
+\subsubsection{几何方法}
+
+然而，求出极小值有一种更简单的方法。即，如果取遍向量$\mathbf{x}$，那么$A\mathbf{x}$给出了$\rg A$中的所有向量，所以$\|A\mathbf{x}-\mathbf{b}\|$的极小值恰为从$\mathbf{b}$到$\rg A$的距离。因此$\|A\mathbf{x}-\mathbf{b}\|$取得极小值，当且仅当$A\mathbf{x}=P_{\operatorname{Ran}A}\mathbf{b}$，其中$P_{\rg A}$表示往列空间$\rg A$中的正交投影。
+
+所以，为求最小平方解，只需解方程\[A\mathbf{x}=P_{\operatorname{Ran}A}\mathbf{b}.\]
+如果在$\rg A$中有正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，则可通过下式求出向量$P_{\operatorname{Ran}A}\mathbf{b}$
+\[P_{\operatorname{Ran}A}\mathbf{b}=\sum_{k=1}^{n}\frac{(\mathbf{b},\mathbf{v}_{k})}{\|\mathbf{v}_{k}\|^{2}}\mathbf{v}_{k}.\]
+如果仅仅知道$\rg A$的基，则需要用格拉姆-施密特正交化来从中得到正交基。
+
+那么理论上说，问题已经解决。但是这个解法还不够简单：它包含格拉姆-施密特正交化，后者的计算开销可能很大。好在，还有一种更简单的解法。
+
+\subsubsection{法方程}
+
+$A\mathbf{x}$是正交投影$P_{\operatorname{Ran}A}\mathbf{b}$当且仅当$\mathbf{b}-A\mathbf{x}\perp\rg A$（$A\mathbf{x}\in\rg A$对所有$\mathbf{x}$都成立）。
+
+若$\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{n}$是$A$的列，那么$\mathbf{b}-A\mathbf{x}\perp\rg A$可重写为
+\[\mathbf{b}-A\mathbf{x}\perp\mathbf{a}_{k}\]
+这意味着\[0=(\mathbf{b}-A\mathbf{x},\mathbf{a}_k)=\mathbf{a}_k^*(\mathbf{b}-A\mathbf{x})\quad\forall k=1,2,\ldots,n.\]
+将$\mathbf{a}_k^*$写在一起即知这些方程等价于\[A^*(\mathbf{b}-A\mathbf{x})=\mathbf{0},\]
+这等价于所谓的\textbf{法方程}
+\[A^*A\mathbf{x}=A^*\mathbf{b}\]
+该方程的解就给出了$\mathbf{A}\mathbf{x}=\mathbf{b}$的最小平方解。
+
+注意，最小平方解唯一，当且仅当$A^*A$可逆。
+
+\subsection{正交投影的公式}
+
+如我们之前已讨论的，如果$\mathbf{x}$是\textbf{法方程}$A^*A\mathbf{x}=A^*\mathbf{b}$的解（即$\mathbf{A}\mathbf{x}=\mathbf{b}$的最小平方解），那么$A\mathbf{x}=P_{\operatorname{Ran}A}\mathbf{b}$。所以，为求$\mathbf{b}$往列空间$\rg A$中的正交投影，需要求解法方程$A^*A\mathbf{x}=A^*\mathbf{b}$，然后将所得的解乘以$A$。
+
+如果算子$A^*A$可逆，那么法方程$A^*A\mathbf{x}=A^*\mathbf{b}$的解是$\mathbf{x}=(A^*A)^{-1}$ $A^*\mathbf{b}$，所以正交投影$P_{\operatorname{Ran}A}\mathbf{b}$可按下式计算\[P_{\operatorname{Ran}A}\mathbf{b}=A(A^*A)^{-1}A^*\mathbf{b}\]
+因为这对于所有$\mathbf{b}$都是成立的，所以\[P_{\operatorname{Ran}A}=A(A^*A)^{-1}A^*\]是往$\rg A$中正交投影的矩阵的公式。
+
+由下面定理可推出，对于$m\times n$矩阵$A$，矩阵$A^*A$可逆当且仅当$\rank A=n$。
+
+\begin{theorem}
+    对于$m\times n$矩阵$A$，\[\ker A = \ker(A^*A).\]
+\end{theorem}
+
+的确如此：由秩定理，$\ker A=\{\mathbf{0}\}$当且仅当$\rank A$为$n$。则由上述定理，$\ker A^*A=\{\mathbf{0}\}$当且仅当$\rank A=n$。因为$A^*A$是方阵，所以它可逆当且仅当$\rank A=n$。
+
+我们将上述定理的证明留作习题。要证明$\ker A = \ker(A^*A)$，需要证明两个包含关系$\ker(A^*A) \subset \ker A$和$\ker A \subset \ker(A^*A)$。其中一个包含关系很平凡，而证明另一个要用到\[\|A\mathbf{x}\|^2=(A\mathbf{x},A\mathbf{x})=(A^*A\mathbf{x},\mathbf{x}).\]
 
 \section{线性映射的伴随、重温基本子空间}
 
