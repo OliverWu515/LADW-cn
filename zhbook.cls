@@ -17,6 +17,7 @@
 \DeclareOption{openany}{\PassOptionsToClass{openany}{ctexbook}}
 \DeclareOption{openright}{\PassOptionsToClass{openright}{ctexbook}}
 \DeclareOption{twoside}{\PassOptionsToClass{twoside}{ctexbook}}
+\PassOptionsToClass{fontset=fandol}{ctexbook}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
 

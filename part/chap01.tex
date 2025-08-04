@@ -30,7 +30,7 @@
 \begin{remark*}
     容易证明，零向量$\mathbf{0}$是唯一的，并且对于给定$\mathbf{v}\in V$，其加法逆元$-\mathbf{v}$也是唯一的。
 
-    同样，（利用性质5、6、8）不难证明$\mathbf{0} = 0\mathbf{v}$对所有$\mathbf{v}\in V$都成立，且有$-\mathbf{v}=(-1)\mathbf{v}$。注意，在证明过程中，我们还需用到向量空间的其他性质，特别是性质3和4。
+    同样，（利用性质5、6和8）不难证明$\mathbf{0} = 0\mathbf{v}$对所有$\mathbf{v}\in V$都成立，且有$-\mathbf{v}=(-1)\mathbf{v}$。注意，在证明过程中，我们还需用到向量空间的其他性质，特别是性质3和4。
 \end{remark*}
 
 若标量为实数，那么我们称$V$为{\bf 实}向量空间。若标量为复数，意即我们可将向量与复数相乘，那么我们称$V$为{\bf 复}向量空间。
@@ -340,7 +340,7 @@
 \begin{example*}
     考察线性变换$T:\mathbb{R}\to\mathbb{R}$。任一此类变换都由下式给出\[T(x)=ax\quad\text{其中}~a=T(1).\]
     的确如此：\[T(x)=T(x\times1)=xT(1)=xa=ax.\]
-    因此，$\mathbb{R}$中的任一线性变换仅仅是与常数的乘法。
+    因此，$\mathbb{R}$上的任一线性变换仅仅是与常数的乘法。
 \end{example*}
 
 \subsection{\texorpdfstring{$\mathbb{F}^n\to \mathbb{F}^m$}{F**n到F**m}的线性变换、矩阵-列向量乘法}
@@ -429,7 +429,7 @@
         \item $\begin{pmatrix}1&2&0&0\\0&1&2&0\\0&0&1&2\\0&0&0&1\end{pmatrix}\begin{pmatrix}1\\2\\3\\4\end{pmatrix}$；
         \item $\begin{pmatrix}1&2&0\\0&1&2\\0&0&1\\0&0&0\end{pmatrix}\begin{pmatrix}1\\2\\3\\4\end{pmatrix}$。
     \end{enumerate}
-    \item 设$\mathbb{R}^2$中的线性变换为关于直线$x_1=x_2$的反射。求其矩阵。
+    \item 设$\mathbb{R}^2$上的线性变换为关于直线$x_1=x_2$的反射。求其矩阵。
     \item 对于下述线性变换，求其矩阵：
     \begin{enumerate}[label={\alph*)}]
         \item $T:\mathbb{R}^2\to\mathbb{R}^3$，定义为$T(x,y)^T=(x+2y,2x-5y,7y)^T$；
@@ -437,7 +437,7 @@
         \item $T:\mathbb{P}_{n}\to\mathbb{P}_{n},Tf(t)=f^{\prime}(t)$（求其关于标准基$1,t,t^2,\ldots,t^n$的矩阵）；
         \item $T:\mathbb{P}_{n}\to\mathbb{P}_{n},Tf(t)=2f(t)+3f^{\prime}(t)-4f^{\prime\prime}(t)$（仍求其关于标准基$1,t,t^2,\ldots,t^n$的矩阵）。
     \end{enumerate}
-    \item 求出表示下列$\mathbb{R}^3$中的线性变换的$3\times 3$矩阵：
+    \item 求出表示下列$\mathbb{R}^3$上的线性变换的$3\times 3$矩阵：
     \begin{enumerate}[label={\alph*)}]
         \item 将所有向量投影至$x$-$y$平面；
         \item 将所有向量关于$x$-$y$平面反射；
@@ -446,9 +446,9 @@
     \item 令$A$为线性变换。若$\mathbf{z}$是直线区间$[\mathbf{x},\mathbf{y}]$的中点，证明：$A\mathbf{z}$是区间$[A\mathbf{x},A\mathbf{y}]$的中点。{\bf 提示}：“$\mathbf{z}$是区间$[\mathbf{x},\mathbf{y}]$的中点”意味着什么？
     \item 复数集合$\mathbb{C}$可与向量空间$\mathbb{R}^2$自然对应——视任一$z=x+iy\in\mathbb{C}$为列向量$(x,y)^T\in\mathbb{R}^2$。
     \begin{enumerate}[label={\alph*)}]
-        \item 视$\mathbb{C}$为复向量空间，证明与$\alpha=a+ib\in\mathbb{C}$的乘法是$\mathbb{C}$中的线性变换。该变换的矩阵是什么？
-        \item 视$\mathbb{C}$为实向量空间$\mathbb{R}^2$，证明与$\alpha=a+ib$的乘法是其中的线性变换。该变换的矩阵是什么？
-        \item 定义$T(x+iy)=2x-y+i(x-3y)$。证明：该变换不是复向量空间$\mathbb{C}$中的线性变换，但如果我们把$\mathbb{C}$视为实向量空间$\mathbb{R}^2$，那么该变换是其中的线性变换（即$T$是实线性变换而非复线性变换）。
+        \item 视$\mathbb{C}$为复向量空间，证明与$\alpha=a+ib\in\mathbb{C}$的乘法是$\mathbb{C}$上的线性变换。该变换的矩阵是什么？
+        \item 视$\mathbb{C}$为实向量空间$\mathbb{R}^2$，证明与$\alpha=a+ib$的乘法是其上的线性变换。该变换的矩阵是什么？
+        \item 定义$T(x+iy)=2x-y+i(x-3y)$。证明：该变换不是复向量空间$\mathbb{C}$上的线性变换，但如果我们把$\mathbb{C}$视为实向量空间$\mathbb{R}^2$，那么该变换是其上的线性变换（即$T$是实线性变换而非复线性变换）。
         
         求出该实线性变换$T$的矩阵。
     \end{enumerate}
@@ -614,7 +614,7 @@
 
 准确地说，恒等变换有无数多个：对任意向量空间$V$，都有一个恒等变换$I=I_{V}:V\to V,I_{V}\mathbf{x}=\mathbf{x},\forall\mathbf{x}\in V$。然而，不致混淆时，我们将用同一符号$I$表示所有的恒等算子（恒等变换）。只有在强调该变换作用于哪个空间时，我们才用记号$I_V$。
 
-显然，\marginpar{\small 通常，线性代数教材中用符号$E$表示恒等矩阵。我更中意$I$，因为在算子理论中用的是它。}如果$I:\mathbb{F}^n\to\mathbb{F}^n$是$\mathbb{F}^n$中的恒等变换，则其矩阵为$n\times n$矩阵\[I=I_n=\begin{pmatrix}1&0&\ldots&0\\0&1&\ldots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\ldots&1\end{pmatrix}\]
+显然，\marginpar{\small 通常，线性代数教材中用符号$E$表示恒等矩阵。我更中意$I$，因为在算子理论中用的是它。}如果$I:\mathbb{F}^n\to\mathbb{F}^n$是$\mathbb{F}^n$上的恒等变换，则其矩阵为$n\times n$矩阵\[I=I_n=\begin{pmatrix}1&0&\ldots&0\\0&1&\ldots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\ldots&1\end{pmatrix}\]
 （主对角线上全为$1$，而其余地方全为$0$）。当我们需要强调矩阵的大小时，就用$I_n$做个记号；否则我们用$I$即可。
 
 显然，对于任意线性变换$A$，等式\[AI=A,\quad IA=A\]成立（只要乘积是有定义的）。
@@ -652,7 +652,7 @@
     称矩阵是{\bf 可逆的}（意即{\bf 左可逆}且{\bf 右可逆}），如果相应的线性变换是可逆的（意即{\bf 左可逆}且{\bf 右可逆}）。
 \end{definition*}
 
-\autoref{thm:inverse_unique} 表明矩阵$A$是可逆的，若存在唯一的矩阵$A^{-1}$使得$A^{-1}A=I,AA^{-1}=I$。矩阵$A^{-1}$称作$A$的{\bf 逆}。
+\autoref{thm:inverse_unique} 表明若存在唯一的矩阵$A^{-1}$使得$A^{-1}A=I,AA^{-1}=I$，则矩阵$A$是可逆的。矩阵$A^{-1}$称作$A$的{\bf 逆}。
 
 \subsubsection*{例子}
 

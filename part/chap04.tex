@@ -14,7 +14,7 @@
 
 此处，{\bf 特征值}和{\bf 特征向量}的思想应运而生。假设$A\mathbf{x}_{0}=\lambda\mathbf{x}_{0}$，其中$\lambda$为某标量。那么$A^{2}\mathbf{x}_{0}=\lambda^{2}\mathbf{x}_{0},A^{3}\mathbf{x}_{0}=\lambda^{3}\mathbf{x}_{0},\ldots,A^n\mathbf{x}_0=\lambda^n\mathbf{x}_0$。这样，解的演变就很容易理解了。
 
-本节我们仅考虑有限维向量空间中的算子。无限维情况下的谱理论要复杂得多，并且此处展示的大多数结论在无限维情况下都不成立。
+本节我们仅考虑有限维向量空间上的算子。无限维情况下的谱理论要复杂得多，并且此处展示的大多数结论在无限维情况下都不成立。
 
 \section{主要定义}
 
@@ -65,13 +65,13 @@
 
 \subsection{复向量空间 VS 实向量空间}
 
-代数基本定理表明，任意（次数至少为$1$）的多项式都有复根。这就意味着，有限维\textbf{复}向量空间中的算子至少有一个特征值，所以它的谱一定非空。
+代数基本定理表明，任意（次数至少为$1$）的多项式都有复根。这就意味着，有限维\textbf{复}向量空间上的算子至少有一个特征值，所以它的谱一定非空。
 
 而另方面，在实向量空间中，很容易构造一个不具有\textbf{实}特征值的线性变换，例子之一是$\mathbb{R}^2$中的旋转$R_\alpha,\alpha\ne \pi n$。这样的算子的谱是空集，因为通常假设特征值属于标量域（如果算子作用于$\mathbb{F}$上的向量空间，那么特征值就应属于$\mathbb{F}$）。
 
-因此，复数情形（算子作用于复向量空间）似乎更适于研究谱理论。因为$\mathbb{R}\subset\mathbb{C}$，所以我们总可以将$n\times n$实矩阵视为$\mathbb{C}^n$中的算子，从而允许复特征值存在。将实矩阵视为$\mathbb{C}^n$中的算子是谱理论研究中的惯常做法，并且我们将遵从这一惯例。除非另有说明，求矩阵的特征值都是指求出所有\textbf{复}特征值，而不仅限于实特征值。
+因此，复数情形（算子作用于复向量空间）似乎更适于研究谱理论。因为$\mathbb{R}\subset\mathbb{C}$，所以我们总可以将$n\times n$实矩阵视为$\mathbb{C}^n$上的算子，从而允许复特征值存在。将实矩阵视为$\mathbb{C}^n$上的算子是谱理论研究中的惯常做法，并且我们将遵从这一惯例。除非另有说明，求矩阵的特征值都是指求出所有\textbf{复}特征值，而不仅限于实特征值。
 
-注意，抽象的实向量空间中的算子也总能被看成复向量空间中的算子。一种简易的处理方式是，取定一个基（回忆一下：本章中的所有向量空间都是有限维的），然后围绕关于这个基的坐标向量展开讨论，并且允许坐标中出现复数——这其实就是完成从$\mathbb{R}^n$中算子到$\mathbb{C}^n$中算子的迁移（上段所述内容）。
+注意，抽象的实向量空间上的算子也总能被看成复向量空间上的算子。一种简易的处理方式是，取定一个基（回忆一下：本章中的所有向量空间都是有限维的），然后围绕关于这个基的坐标向量展开讨论，并且允许坐标中出现复数——这其实就是完成从$\mathbb{R}^n$中算子到$\mathbb{C}^n$中算子的迁移（上段所述内容）。
 
 这迁移过程其实就展现了实向量空间的所谓\textbf{复化}，而且它还不依赖于基的选取。复化的一种“高端”而又抽象的建构方式可以解释它为什么不依赖于基的选取，这将在第 \ref{chap:InnerProduct} 章第 \ref{subsec:complexification} 节详述。
 
@@ -169,13 +169,13 @@
 
 本节我们将解释如何计算关于可对角化算子的函数。我们还将给出算子可对角化的充分必要条件以及一些简单的充分条件。
 
-注意，$\mathbb{F}^n$中的算子（矩阵）$A$可对角化，意为它可被表示成$A=SDS^{-1}$，其中$D$是对角矩阵（$S$是可逆的）。我们将简要解释这一点。
+注意，$\mathbb{F}^n$上的算子（矩阵）$A$可对角化，意为它可被表示成$A=SDS^{-1}$，其中$D$是对角矩阵（$S$是可逆的）。我们将简要解释这一点。
 
 除非另作说明，本节所有结论对于实向量空间和复向量空间（乃至任意域上的空间）都成立。
 
 \subsection{预备知识}
 
-设向量空间$V$中的算子$A$满足$V$有由$A$的特征向量构成的基$\mathcal{B}=\{\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}\}$，$\lambda_1,\lambda_2,\dots,\lambda_n$是它们对应的特征值。那么$A$关于这个基的矩阵就是对角线项为$\lambda_1,\lambda_2,\dots,\lambda_n$的对角矩阵
+设向量空间$V$上的算子$A$满足$V$有由$A$的特征向量构成的基$\mathcal{B}=\{\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}\}$，$\lambda_1,\lambda_2,\dots,\lambda_n$是它们对应的特征值。那么$A$关于这个基的矩阵就是对角线项为$\lambda_1,\lambda_2,\dots,\lambda_n$的对角矩阵
 \begin{equation}\label{diag_in_certain_basis}
     [A]_{\mathcal{BB}}=\operatorname{diag}\{\lambda_1,\lambda_2,\ldots,\lambda_n\}=
     \begin{pNiceMatrix}
@@ -190,7 +190,7 @@
 
 注意，上述论证对于实向量空间和复向量空间（乃至任意域上的向量空间）都成立。
 
-将上述论证应用到$\mathbb{F}^n$中的算子（矩阵）立即可得下述定理。
+将上述论证应用到$\mathbb{F}^n$上的算子（矩阵）立即可得下述定理。
 注意，虽然在这本书中$\mathbb{F}$指代$\mathbb{C}$或$\mathbb{R}$，但是这个定理对任意的域$\mathbb{F}$都成立。
 
 \begin{theorem}\label{thm:diagonalizable_iff_1}
@@ -199,7 +199,7 @@
     此外，在这种情况下，$D$的对角线项是特征值，$S$的各列是对应的特征向量（第$k$列对应$D$的第$k$个对角线项）。
 \end{theorem}
 \begin{proof}
-    令$D=\operatorname{diag}\{\lambda_1,\lambda_2,\dots,\lambda_n\}$，并令$\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}$是$S$的列（注意因为$S$可逆，所以它的列形成$\mathbb{F}^n$中的基）。那么，等式$A=SDS^{-1}$意味着$D=[A]_\mathcal{BB}$。
+    令$D=\operatorname{diag}\{\lambda_1,\lambda_2,\dots,\lambda_n\}$，并令$\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}$是$S$的列（注意因为$S$可逆，所以它的列形成$\mathbb{F}^n$的基）。那么，等式$A=SDS^{-1}$意味着$D=[A]_\mathcal{BB}$。
 
     的确如此：$S=[I]_\mathcal{SB}$是从$\mathcal{B}$到标准基$\mathcal{S}$的坐标变换矩阵，因此从$A=SDS^{-1}$我们可得$D=S^{-1}AS=[I]_\mathcal{BS}A[I]_\mathcal{SB}$，这就说明$D=[A]_\mathcal{BB}$。
 
@@ -210,9 +210,9 @@
     注意，如果矩阵可表示为$A=SDS^{-1}$（$D$为对角矩阵），那么可据此直接计算得$S$的各列是$A$的特征向量，$D$的对角线项是对应的特征值。这是\autoref{thm:diagonalizable_iff_1} 中对应结论的另一种证明方式。
 \end{remark*}
 
-前面我们讨论过，可对角化算子$A:V\to V$恰有$n=\dim V$个特征值（以重数计）。复向量空间$V$中的任意算子都有$n$个特征值（以重数计）；另一方面，实向量空间中的算子可能没有实特征值。
+前面我们讨论过，可对角化算子$A:V\to V$恰有$n=\dim V$个特征值（以重数计）。复向量空间$V$中的任意算子都有$n$个特征值（以重数计）；另一方面，实向量空间上的算子可能没有实特征值。
 
-我们会按照谱理论中的惯例，将实矩阵视为复向量空间$\mathbb{C}^n$中的算子，因此允许特征值和特征向量是复的。除非另有说明，矩阵的对角化都意为\textbf{复}对角化，即表达式$A=SDS^{-1}$中矩阵$S$和$D$可能含有复数。
+我们会按照谱理论中的惯例，将实矩阵视为复向量空间$\mathbb{C}^n$上的算子，因此允许特征值和特征向量是复的。除非另有说明，矩阵的对角化都意为\textbf{复}对角化，即表达式$A=SDS^{-1}$中矩阵$S$和$D$可能含有复数。
 
 实矩阵何时能进行实对角化（$A=SDS^{-1}$中$S$和$D$都为实矩阵）这一问题其实很容易回答——见下定理 \ref{thm:diagonalizable_iff_real}。
 
@@ -237,7 +237,7 @@
                                   &           &        & e^{\lambda_nt}
     \end{pNiceMatrix}.\]
 
-现设$A$是$\mathbb{F}^n$中的算子。为求出算子$A^N$和$e^{tA}$在标准基$\mathcal{S}$下的矩阵，回想一下坐标变换矩阵$[I]_\mathcal{SB}$是各列为$\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}$的矩阵。称该矩阵为$\mathcal{S}$，那么根据坐标变换公式可得
+现设$A$是$\mathbb{F}^n$上的算子。为求出算子$A^N$和$e^{tA}$在标准基$\mathcal{S}$下的矩阵，回想一下坐标变换矩阵$[I]_\mathcal{SB}$是各列为$\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}$的矩阵。称该矩阵为$\mathcal{S}$，那么根据坐标变换公式可得
 \[A=[A]_\mathcal{SS} = S\begin{pNiceMatrix}
         \lambda_1                 &           &        &  \Block{2-1}<\LARGE>{0}                         \\
                                   & \lambda_2 &        &  \\
@@ -339,7 +339,7 @@ $e^{tA}$的矩阵表达式也类似。
     引理 \ref{lem:union_of_basis_in_subspace_li} 表明，向量组$\mathbf{b}_{j},j=1,2,\dots,n$线性无关，因此只需证明这个组是完备的。
 
     因为子空间构成的组$V_1,V_2,\ldots,V_p$是基，所以任意向量$\mathbf{v}\in V$可表示为\[\mathbf{v}=\mathbf{v}_1+\mathbf{v}_2+\ldots+\mathbf{v}_p=\sum_{k=1}^p\mathbf{v}_k,\quad\mathbf{v}_k\in V_k.\]
-    因为向量$\mathbf{b}_{j},j\in\Lambda_{k}$形成$V_k$中的基，所以向量$\mathbf{v}_k$可表示为\[\mathbf{v}_k=\sum_{j\in\Lambda_k}c_j\mathbf{b}_j,\]
+    因为向量$\mathbf{b}_{j},j\in\Lambda_{k}$形成$V_k$的基，所以向量$\mathbf{v}_k$可表示为\[\mathbf{v}_k=\sum_{j\in\Lambda_k}c_j\mathbf{b}_j,\]
     因此$\mathbf{v}=\sum_{j=1}^nc_j\mathbf{b}_j$。
 \end{proof}
 
@@ -357,7 +357,7 @@ $e^{tA}$的矩阵表达式也类似。
 
     下面证明另一方向的蕴涵关系。令$\lambda_1,\lambda_2,\ldots,\lambda_p$是$A$的特征值，并令$E_{k}:=\mathrm{Ker}(A-\lambda_{k}I)$是对应的特征空间。根据注 \ref{remark:eigenspace_li}，子空间$E_k,k=1,2,\dots,p$线性无关。
 
-    令$\mathcal{B}_k$是$E_k$的基。由引理 \ref{lem:union_of_basis_in_subspace_li}，向量组$\mathcal{B}=\cup_k\mathcal{B}_k$是线性无关向量组。
+    令$\mathcal{B}_k$是$E_k$的基。由引理 \ref{lem:union_of_basis_in_subspace_li}，$\mathcal{B}=\cup_k\mathcal{B}_k$是线性无关向量组。
 
     我们知道每个$\mathcal{B}_k$包含$\dim E_k$（等于$\lambda_k$的重数）个向量。所以$\mathcal{B}$中的向量个数等于各特征值$\lambda_k$的重数之和。但是特征值的重数之和，就是所有特征值的数量（以重数计），而这恰为$n=\dim V$。所以我们得到了$n=\dim V$个特征向量构成的线性无关向量组，也就得到了特征向量构成的基。
 \end{proof}
@@ -414,7 +414,7 @@ $$\left|\begin{array}{cc}1-\lambda&1\\0&1-\lambda\end{array}\right|=(1-\lambda)^
     1&0\\0&1
 \end{pmatrix}$\footnote{注意，关于某个基具有对角阵$\begin{pmatrix}
     1&0\\0&1
-\end{pmatrix}$的唯一线性变换是恒等变换$I$。因为$A$肯定不是恒等算子，所以我们可以断定$A$不可对角化，所以其实没有必要计算特征空间的维数。}，于是特征空间的维数应为$2$。因此$A$不可对角化。
+\end{pmatrix}$的唯一线性变换是恒等变换$I$。因为$A$肯定不是恒等变换，所以我们可以断定$A$不可对角化，所以其实没有必要计算特征空间的维数。}，则特征空间的维数应为$2$。因此$A$不可对角化。
 
 \begin{problemset}
     \item 令$A$为$n\times n$矩阵。判断正误：
@@ -453,7 +453,7 @@ $$\left|\begin{array}{cc}1-\lambda&1\\0&1-\lambda\end{array}\right|=(1-\lambda)^
         
         你觉得这是巧合吗？
     \end{enumerate}
-    \item 令$A$为$5\times 5$矩阵，具有$3$个特征值（此处不按重数计）。假设我们知道其中一个特征空间是三维的，能否确定$A$是可对角化的？
+    \item 令$A$为$5\times 5$矩阵，具有$3$个特征值（此处不按重数计）。假设我们知道其中一个特征空间是三维的，能否确定$A$是否可对角化？
     \item 举出一例不可对角化的$3\times 3$矩阵。在构造出这个矩阵后，你能否使其看上去“一般化”，即看不出该矩阵的特殊结构？
     \item 令非零矩阵$A$满足$A^5=\mathbf{0}$。证明：$A$不可对角化。更一般地，任何非零的幂零矩阵，即满足$A^N=\mathbf{0}$的非零矩阵$A$都不可对角化。
     \item 转置变换的特征值：

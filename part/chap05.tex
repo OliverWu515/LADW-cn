@@ -2,9 +2,307 @@
 
 \chapter{内积空间}\label{chap:InnerProduct}
 
-\section{\texorpdfstring{$\mathbb{R}^n$}{R**n}和\texorpdfstring{$\mathbb{C}^n$}{C**n}中的内积、内积空间}
+有关内积空间的理论只建立在实向量空间和复向量空间上，所以在本章中$\mathbb{F}$总是$\mathbb{R}$或$\mathbb{C}$。本章中的结论通常不能推广到任意域上的向量空间。
+
+本章中的大多数结论和计算过程适用于实数和复数情形（并且结论的表述相同）。在极少数情况中，实数情形和复数情形有差异，此时我们会说明考虑的是哪种情形，否则就是对两种情形都成立。
+
+最后，当结论和计算过程适用于实数和复数情形时，我们用复数情形下的公式，它们在实数情形下也正确，虽然有时会复杂一点。
+
+\section{\texorpdfstring{$\mathbb{R}^n$}{R**n}和\texorpdfstring{$\mathbb{C}^n$}{C**n}上的内积、内积空间}
+
+\subsection{\texorpdfstring{$\mathbb{R}^n$}{R**n}上的内积和范数}
+
+在$2$维和$3$维中，我们利用毕达哥拉斯法则\footnote{即勾股定理。——译者注}定义向量$\mathbf{x}$的长度（即从其终点到原点的距离），例如在$\mathbb{R}^3$中向量的长度定义为\[\|\mathbf{x}\|=\sqrt{x_1^2+x_2^2+x_3^2}.\]
+将该公式推广到所有的$n$是很自然的——向量$\mathbf{x}\in\mathbb{R}^n$的\textbf{范数}定义为\[\|\mathbf{x}\|=\sqrt{x_1^2+x_2^2+\ldots+x_n^2}.\]
+\textbf{范数}这个花哨的词用于替代长度。
+
+$\mathbb{R}^3$上的\textbf{点积}定义为$\mathbf{x}\cdot\mathbf{y}=x_1y_1+x_2y_2+x_3y_3$，其中$\mathbf{x}=(x_1,x_2,x_3)^T$，$\mathbf{y}=(y_1,y_2,y_3)^T$。
+
+类似地，\marginpar{\small 尽管内积也表示为$\mathbf{x}\cdot\mathbf{y}$并且称作点积（后面会说明原因），我们更倾向于使用$(\mathbf{x},\mathbf{y})$。}在$\mathbb{R}^n$上我们可定义两向量$\mathbf{x}=(x_{1},x_{2},\ldots,x_{n})^{T},\mathbf{y}=(y_{1},y_{2},\ldots,y_{n})^{T}$的\textbf{内积}$(\mathbf{x},\mathbf{y})$为\[(\mathbf{x},\mathbf{y}):=x_1y_1+x_2y_2+\ldots+x_ny_n=\mathbf{y}^T\mathbf{x},\]
+故$\|\mathbf{x}\|=\sqrt{(\mathbf{x},\mathbf{x})}$。
+
+注意，$\mathbf{y}^T\mathbf{x}=\mathbf{x}^T\mathbf{y}$，而我们都使用记号$\mathbf{y}^T\mathbf{x}$只是为了统一起见。
+
+\subsection{\texorpdfstring{$\mathbb{C}^n$}{C**n}上的内积和范数}
+
+下面定义$\mathbb{C}^n$上的内积和范数。如之前所见，从谱理论的视角来看，复向量空间$\mathbb{C}^n$是最为自然的：即便研究的是各项为实数的矩阵（或者实向量空间上的算子），特征值也可能是复的，于是我们就需要在复向量空间中研究。
+
+对于复数$z=x+iy$，我们有$|z|^2=x^2+y^2=z\overline{z}$。若$\mathbf{z}\in\mathbb{C}^{n}$由下式给出\[\mathbf{z}=\begin{pmatrix}z_1\\z_2\\\vdots\\z_n\end{pmatrix}=\begin{pmatrix}x_1+iy_1\\x_2+iy_2\\\vdots\\x_n+iy_n\end{pmatrix},\]
+很自然定义其范数$\|\mathbf{z}\|$为\[\|\mathbf{z}\|^2=\sum_{k=1}^n(x_k^2+y_k^2)=\sum_{k=1}^n|z_k|^2.\]
+现在我们尝试定义$\mathbb{C}^n$上的内积使得$\|\mathbf{z}\|^2=(\mathbf{z},\mathbf{z})$。一种做法是定义$(\mathbf{z},\mathbf{w})$为\[(\mathbf{z},\mathbf{w})=z_{1}\overline{w}_{1}+z_{2}\overline{w}_{2}+\ldots+z_{n}\overline{w}_{n}=\sum_{k=1}^{n}z_{k}\overline{w}_{k},\]
+这就是$\mathbb{C}^n$上\textbf{标准}内积的定义。
+
+为简化记号，我们引入一个新概念：定义矩阵$A$的\textbf{埃尔米特伴随}（或简称\textbf{伴随}）$A^\ast$为$A^\ast=\overline{A}^T$，意即先取矩阵的转置，再取各项的复共轭。注意对于实矩阵$A$，有$A\ast={A}^T$。
+
+利用$A^\ast$的概念，可以将$\mathbb{C}^n$上的标准内积写成\[(\mathbf{z},\mathbf{w})=\mathbf{w}^\ast\mathbf{z}.\]
+\begin{remark*}
+    容易看出，还可以在$\mathbb{C}^n$上定义另一种标准内积以满足$\|\mathbf{z}\|^2=(\mathbf{z},\mathbf{z})$，即定义内积为\[(\mathbf{z},\mathbf{w})_1=\overline{z}_1w_1+\overline{z}_2w_2+\ldots+\overline{z}_nw_n=\mathbf{z}^*\mathbf{w}.\]
+    我们并未指明内积应满足的性质，但只有$\mathbf{z}^*\mathbf{w}$和$\mathbf{w}^\ast\mathbf{z}$能满足$\|\mathbf{z}\|^2=(\mathbf{z},\mathbf{z})$。
+
+    注意，上述两种内积的定义实质上是等价的：唯一的区别仅在于记号，因为$(\mathbf{z},\mathbf{w})_1=(\mathbf{w},\mathbf{z})$。
+
+    尽管第二种内积定义看上去更为自然，但第一种（$(\mathbf{z},\mathbf{w})=\mathbf{w}^\ast\mathbf{z}$）使用得更为广泛，所以我们将采用它。
+\end{remark*}
+
+\subsection{内积空间}
+
+$\mathbb{R}^n$和$\mathbb{C}^n$上的内积满足下列性质：
+\begin{enumerate}
+    \item （共轭）对称性：$(\mathbf{x},\mathbf{y})={\overline{(\mathbf{y},\mathbf{x})}}$；注意，对实向量空间，该性质仅仅是对称性，即$(\mathbf{x},\mathbf{y})=(\mathbf{y},\mathbf{x})$；
+    \item 线性：对于所有向量$\mathbf{x},\mathbf{y},\mathbf{z}$和所有标量$\alpha,\beta$，有$(\alpha\mathbf{x}+\beta\mathbf{y},\mathbf{z})=\alpha(\mathbf{x},\mathbf{z})+\beta(\mathbf{y},\mathbf{z})$；
+    \item 非负性：$(\mathbf{x},\mathbf{x})\geq0\forall\mathbf{x}$；
+    \item 非退化性：$(\mathbf{x},\mathbf{x})=0$当且仅当$\mathbf{x}=\mathbf{0}$。
+\end{enumerate}
+
+令$V$是（复或实）向量空间。$V$上的\textbf{内积}是一个函数，它将每对向量$\mathbf{x},\mathbf{y}$都对应到标量$(\mathbf{x},\mathbf{y})$，该函数满足上述性质1-4。
+
+注意对实向量空间$V$，我们假设$(\mathbf{x},\mathbf{y})$总是实数，而对于复向量空间，内积$(\mathbf{x},\mathbf{y})$可能是复数。
+
+带有定义于其上的内积的向量空间$V$称为\textbf{内积空间}。给定内积空间，可定义其上的范数为\[\|\mathbf{x}\|=\sqrt{(\mathbf{x},\mathbf{x})}.\]
+
+\subsubsection{例子}
+
+\begin{example}
+    设$V$是$\mathbb{R}^n$或$\mathbb{C}^n$。我们在上面已经定义了内积$(\mathbf{x},\mathbf{y})=\mathbf{y}^*\mathbf{x}=\sum_{k=1}^nx_k\overline{y}_k$。
+
+    该内积称为$\mathbb{R}^n$或$\mathbb{C}^n$上的{\bf 标准内积}。
+\end{example}
+
+我们将用符号$\mathbb{F}$来指代$\mathbb{R}$和$\mathbb{C}$。当我们陈述一个有关向量空间$\mathbb{F}^n$的结论时，该结论适用于$\mathbb{R}^n$和$\mathbb{C}^n$。
+
+\begin{example}
+    令$V$是由次数至多为$n$的多项式构成的向量空间$\mathbb{P}^n$。定义内积为
+    \[(f,g)=\int_{-1}^{1}f(t)\overline{g(t)}dt.\]
+    容易验证其满足上述性质1-4。
+
+    这个定义适用于实数和复数情形。在实数情形下，我们只对实系数多项式取内积，则上式中的复共轭可去掉。
+\end{example}
+
+回忆一下，方阵$A$的迹定义为对角线项之和：\[\operatorname{trace}A:=\sum_{k=1}^{n}a_{k,k}.\]
+
+\begin{example}
+    对由$m\times n$矩阵所构成的向量空间$M_{m\times n}$，定义所谓弗罗贝尼乌斯内积为\[(A,B)=\tr (B^\ast A).\]
+    同样容易验证其满足性质1-4，即我们确实定义了一个内积。
+
+    注意到\[\operatorname{trace}(B^*A)=\sum_{j,k}A_{j,k}\overline{B}_{j,k},\]
+    所以该内积与$\mathbb{C}^{mn}$上的标准内积相同。
+\end{example}
+
+\subsection{内积的性质}
+
+本节中的结论不仅对于$\mathbb{F}^n$成立，而且对于任意内积空间都成立。证明它们只需用到内积的性质1-4。
+
+首先注意，性质1和2蕴涵
+
+\begin{enumerate}
+    \item[2'] $(\mathbf{x},\alpha\mathbf{y}+\beta\mathbf{z})=\overline{\alpha}(\mathbf{x},\mathbf{y})+\overline{\beta}(\mathbf{x},\mathbf{z})$。
+\end{enumerate}
+的确：
+\[\begin{aligned}
+    (\mathbf{x},\alpha\mathbf{y}+\beta\mathbf{z})=\overline{(\alpha\mathbf{y}+\beta\mathbf{z},\mathbf{x})}&=\overline{\alpha(\mathbf{y},\mathbf{x})+\beta(\mathbf{z},\mathbf{x})}\\
+    &=\overline{\alpha}\overline{(\mathbf{y},\mathbf{x})}+\overline{\beta}\overline{(\mathbf{z},\mathbf{x})}=\overline{\alpha}(\mathbf{x},\mathbf{y})+\overline{\beta}(\mathbf{x},\mathbf{z})
+\end{aligned}\]
+还要注意，性质2蕴涵对于所有向量$\mathbf{x}$有\[(\mathbf{0},\mathbf{x})=(\mathbf{x},\mathbf{0})=0.\]
+\begin{lemma}
+    令$\mathbf{x}$是内积空间$V$中的向量。那么$\mathbf{x}=\mathbf{0}$当且仅当
+    \begin{equation}\label{inner_0}
+        (\mathbf{x},\mathbf{y})=0,\quad \forall \mathbf{y}\in V.
+    \end{equation}
+\end{lemma}
+\begin{proof}
+    因为$(\mathbf{0},\mathbf{y})=0$，我们只需证明 \eqref{inner_0} 表明$\mathbf{x}=\mathbf{0}$。将$\mathbf{y}=\mathbf{x}$代入 \eqref{inner_0} 可得$(\mathbf{x},\mathbf{x})=0$，所以$\mathbf{x}=\mathbf{0}$。
+\end{proof}
+
+对差值$\mathbf{x}-\mathbf{y}$运用上述推论可得
+\begin{corollary}
+    令$\mathbf{x},\mathbf{y}$是内积空间$V$中的向量。等式$\mathbf{x}=\mathbf{y}$成立当且仅当\[(\mathbf{x},\mathbf{z})=(\mathbf{y},\mathbf{z})\quad\forall\mathbf{z}\in V.\]
+\end{corollary}
+
+下面推论很简单却很常用：
+\begin{corollary}
+    设两个算子$A,B:X\to Y$满足\[(A\mathbf{x},\mathbf{y})=(B\mathbf{x},\mathbf{y})\quad\forall\mathbf{x}\in X,\forall\mathbf{y}\in Y.\]
+    那么$A=B$。
+\end{corollary}
+\begin{proof}
+    由上一个推论（取定$\mathbf{x}$并取所有可能的$\mathbf{y}$），我们可得$A\mathbf{x}=B\mathbf{x}$。因为这对于所有$\mathbf{x}\in X$都成立，所以变换$A$和$B$相同。
+\end{proof}
+
+下面性质将范数和内积联系起来。
+\begin{theorem}[柯西-施瓦兹不等式]
+    \[|(\mathbf{x},\mathbf{y})|\leq\|\mathbf{x}\|\cdot\|\mathbf{y}\|.\]
+\end{theorem}
+\begin{proof}
+    我们将呈现的证明并不是最简短的，但它展示了该结论核心思想的渊源。
+
+    首先考虑实数情形。如果$\mathbf{y}=\mathbf{0}$，该结论是平凡的，所以可假设$\mathbf{y}\neq \mathbf{0}$。由内积的性质，对于所有标量$t$有\[0\leq\|\mathbf{x}-t\mathbf{y}\|^2=(\mathbf{x}-t\mathbf{y},\mathbf{x}-t\mathbf{y})=\|\mathbf{x}\|^2-2t(\mathbf{x},\mathbf{y})+t^2\|\mathbf{y}\|^2.\]
+    特别地，该不等式对$t={\frac{(\mathbf{x},\mathbf{y})}{\|\mathbf{y}\|^{2}}}$成立\footnote{这是上述二次多项式的极小值点。可以这样计算：对$t$求导并令导数等于$0$。}，该点处不等式变为\[0\leq\|\mathbf{x}\|^2-2\frac{(\mathbf{x},\mathbf{y})^2}{\|\mathbf{y}\|^2}+\frac{(\mathbf{x},\mathbf{y})^2}{\|\mathbf{y}\|^2}=\|\mathbf{x}\|^2-\frac{(\mathbf{x},\mathbf{y})^2}{\|\mathbf{y}\|^2},\]
+    而这就是我们要证的不等式。
+
+    复数情形有多种处理方式。一种方法是将$\mathbf{x}$换成$\alpha\mathbf{x}$，其中$\alpha$是复常数且$|\alpha|=1$，使得$(\alpha\mathbf{x},\mathbf{y})$是实数，然后重复对于实数情形的证明。
+
+    另一种可行方法是，再次考虑
+    \[
+    \begin{aligned}
+        0\leq\|\mathbf{x}-t\mathbf{y}\|^{2}&=(\mathbf{x}-t\mathbf{y},\mathbf{x}-t\mathbf{y})=(\mathbf{x},\mathbf{x}-t\mathbf{y})-t(\mathbf{y},\mathbf{x}-t\mathbf{y})\\
+        &=\|\mathbf{x}\|^{2}-t(\mathbf{y},\mathbf{x})-\bar{t}(\mathbf{x},\mathbf{y})+|t|^{2}\|\mathbf{y}\|^{2}.
+    \end{aligned}
+    \]
+    将$t=\frac{(\mathbf{x},\mathbf{y})}{\|\mathbf{y}\|^{2}}=\frac{\overline{(\mathbf{x},\mathbf{y})}}{\|\mathbf{y}\|^{2}}$代入此不等式，即得\[0\leq\|\mathbf{x}\|^2-\frac{|(\mathbf{x},\mathbf{y})|^2}{\|\mathbf{y}\|^2}\]
+    而这就是我们所需的不等式。
+
+    注意，上面这段已经可以作为该定理的完整且正式的证明。在它之前作的推导，只是为了解释我们为什么要为$t$取这个特定值。
+\end{proof}
+
+由柯西-施瓦兹不等式可直接推出下述引理。
+
+\begin{lemma}[三角不等式]
+    对一内积空间中的任意向量$\mathbf{x},\mathbf{y}$，
+    \[\|\mathbf{x}+\mathbf{y}\|\leq\|\mathbf{x}\|+\|\mathbf{y}\|.\]
+\end{lemma}
+\begin{proof}
+    \begin{align*}
+        \|\mathbf{x}+\mathbf{y}\|^{2}=(\mathbf{x}+\mathbf{y},\mathbf{x}+\mathbf{y})&=\|\mathbf{x}\|^{2}+\|\mathbf{y}\|^{2}+(\mathbf{x},\mathbf{y})+(\mathbf{y},\mathbf{x})\\&\leq\|\mathbf{x}\|^{2}+\|\mathbf{y}\|^{2}+2|(\mathbf{x},\mathbf{y})|\\&\leq\|\mathbf{x}\|^2+\|\mathbf{y}\|^2+2\|\mathbf{x}\|\cdot\|\mathbf{y}\|=(\|\mathbf{x}\|+\|\mathbf{y}\|)^2.
+    \end{align*}
+\end{proof}
+下述\textbf{极化恒等式}使我们得以由范数重建出内积：
+\begin{lemma}[极化恒等式]\label{lem:polarization}
+    对$\mathbf{x},\mathbf{y}\in V$，若$V$是实内积空间\[(\mathbf{x},\mathbf{y})=\frac{1}{4}\left(\left\|\mathbf{x}+\mathbf{y}\right\|^2-\left\|\mathbf{x}-\mathbf{y}\right\|^2\right)\]
+    若$V$是复内积空间，则\[(\mathbf{x},\mathbf{y})=\frac{1}{4}\sum_{\alpha=\pm1,\pm i}\alpha\|\mathbf{x}+\alpha\mathbf{y}\|^2\]
+\end{lemma}
+该定理通过直接计算就能证明，我们将证明留给读者作为习题。
+
+内积空间上范数的另一个重要性质也可以通过直接计算来证明。
+
+\begin{lemma}[平行四边形恒等式]\label{lem:parallelogram}
+    对任意向量$\mathbf{u},\mathbf{v}$，\[\|\mathbf{u}+\mathbf{v}\|^2+\|\mathbf{u}-\mathbf{v}\|^2=2(\|\mathbf{u}\|^2+\|\mathbf{v}\|^2).\]
+\end{lemma}
+
+在$2$维空间中，该定理将平行四边形的边与对角线联系起来，其名称即源于此。这是平面几何中的著名结论。
+
+\subsection{范数、赋范空间}\label{subsec:normed_space}
+
+前面我们证明了范数$\|\mathbf{v}\|$满足下列性质：
+\begin{enumerate}
+    \item 齐次性：对于所有向量$\mathbf{v}$和所有标量$\alpha$，有$\|\alpha\mathbf{v}\|=|\alpha|\cdot\|\mathbf{v}\|$。
+    \item 三角不等式：$\|\mathbf{u}+\mathbf{v}\|\leq\|\mathbf{u}\|+\|\mathbf{v}\|$。
+    \item 非负性：对于所有向量$\mathbf{v}$，$\|\mathbf{v}\|\geq0$；
+    \item 非退化性：$\|\mathbf{v}\|=0$当且仅当$\mathbf{v}=\mathbf{0}$。
+\end{enumerate}
+
+假设向量空间$V$中，我们将每个向量都对应到一个数$\|\mathbf{v}\|$，并且满足上述性质1-4。那么就称函数$\mathbf{v}\mapsto\|\mathbf{v}\|$为范数。配有范数的向量空间$V$称为\textbf{赋范空间}。
+
+任何内积空间都是赋范空间，因为范数$\|\mathbf{v}\|=\sqrt{(\mathbf{v},\mathbf{v})}$满足上述性质1-4。然而，还有很多赋范空间。例如，给定$p$（$1\le p<\infty$），可在$\mathbb{R}^n$或$\mathbb{C}^n$上定义范数$\|\cdot\|_p$为
+\[\|\mathbf{x}\|_p=(|x_1|^p+|x_2|^p+\ldots+|x_n|^p)^{1/p}=\left(\sum_{k=1}^n|x_k|^p\right)^{1/p}.\]
+还可以定义范数$\|\cdot\|_\infty$（$p=\infty$）为
+\[\|\mathbf{x}\|_\infty=\max\{|x_k|:k=1,2,\ldots,n\}.\]
+$p=2$时的$\|\cdot\|_p$就是通常的由内积获得的范数。
+
+要检验$\|\cdot\|_p$的确是范数，需要检验它满足上述性质1-4。性质1、3和4很容易检验，留给读者作为习题。三角不等式（性质2）对于$p=1$和$p=\infty$很容易验证（而$p=2$的情形我们已经证明过了）。
+
+$p$为其他值时，三角不等式是成立的，但是证明不那么容易，此处就不呈现了。$\|\cdot\|_p$的三角不等式有个特殊的名称——闵可夫斯基不等式，它是用德国数学家H.闵可夫斯基的名字命名的。
+
+注意，$p\ne 2$时的范数$\|\cdot\|_p$不能由内积得到。容易看出，该范数不能由$\mathbb{R}^n$或$\mathbb{C}^n$上的\textbf{标准}内积得到。但还不止于此——能产生范数$\|\cdot\|_p,p\ne 2$的内积是\textbf{无法构造的}！
+
+这个结论其实很容易证明。由引理 \ref{lem:parallelogram}，任意由内积得到的范数都比满足平行四边形恒等式。容易看出平行四边形恒等式对于范数$\|\cdot\|_p,p\ne 2$是不成立的——容易找到$\mathbb{R}^2$中的反例，并由此得到其他所有向量空间中的反例。
+
+事实上，如下面定理所保证的，平行四边形等式是由内积得到的范数的独有特征。
+\begin{theorem}
+    赋范空间上的范数源于某个内积，当且仅当其满足平行四边形恒等式
+    \[\|\mathbf{u}+\mathbf{v}\|^2+\|\mathbf{u}-\mathbf{v}\|^2=2(\|\mathbf{u}\|^2+\|\mathbf{v}\|^2)\quad\forall\mathbf{u},\mathbf{v}\in V.\]
+\end{theorem}
+
+引理 \ref{lem:parallelogram} 表明由内积得到的范数满足平行四边形恒等式。
+
+逆命题证明起来复杂些。如果给定了一个范数，并且该范数来自内积，那么该内积一定是由极化恒等式给出（见引理 \ref{lem:polarization}）。但我们需要证明由极化恒等式得到的$(\mathbf{x},\mathbf{y})$的确是内积，也就是它满足内积的所有性质。
+
+可以验证，如果范数满足平行四边形恒等式，那么由极化恒等式得到的内积$(\mathbf{x},\mathbf{y})$的确是内积（即满足内积的所有性质）。然而，该证明有点太复杂了，所以不在此处展示。
+
+\begin{problemset}
+    \item 计算：\[(3+2i)(5-3i),\quad\frac{2-3i}{1-2i},\quad\mathrm{Re}\left(\frac{2-3i}{1-2i}\right),\quad(1+2i)^3,\quad\mathrm{Im}((1+2i)^3).\]
+    \item 对向量$\mathbf{x}=(1,2i,1+i)^T,\mathbf{y}=(i,2-i,3)^T$，计算
+    \begin{enumerate}[label={\alph*)}]
+        \item $(\mathbf{x},\mathbf{y}),\|\mathbf{x}\|^2,\|\mathbf{y}\|^2,\|\mathbf{y}\|$；
+        \item $(3\mathbf{x},2i\mathbf{y}),(2\mathbf{x},i\mathbf{x}+2\mathbf{y})$；
+        \item $\|\mathbf{x}+2\mathbf{y}\|$。
+    \end{enumerate}
+    \textbf{注}：当你完成a)后，可以只运用内积的性质完成b)和c)，而不需要计算出其中所有向量。
+    \item 令$\|\mathbf{u}\|=2,\|\mathbf{v}\|=3,(\mathbf{u},\mathbf{v})=2+i$，计算：
+    \[\|\mathbf{u}+\mathbf{v}\|^2,\quad\|\mathbf{u}-\mathbf{v}\|^2,\quad(\mathbf{u}+\mathbf{v},\mathbf{u}-i\mathbf{v}),\quad(\mathbf{u}+3i\mathbf{v},4i\mathbf{u}).\]
+    \item 证明：对内积空间中的向量$\mathbf{x},\mathbf{y}$\[\|\mathbf{x}\pm\mathbf{y}\|^2=\|\mathbf{x}\|^2+\|\mathbf{y}\|^2\pm2\operatorname{Re}(\mathbf{x},\mathbf{y})\]
+    回忆一下，$\operatorname{Re}z=\frac12(z+\overline{z})$
+    \item 解释为何下面这些不是给定向量空间上的内积：
+    \begin{enumerate}[label={\alph*)}]
+        \item $\mathbb{R}^{2}$上的$(\mathbf{x},\mathbf{y})=x_{1}y_{1}-x_{2}y_{2}$；
+        \item $2\times 2$实矩阵构成的向量空间上的$(A,B)=\mathrm{trace}(A+B)$；
+        \item 多项式构成的向量空间上的$(f,g)=\int_0^1f^{\prime}(t)\overline{g(t)}dt$，其中$f'(t)$代表导数。
+    \end{enumerate}
+    \item （柯西-施瓦兹不等式取等的条件）证明：\[|(\mathbf{x},\mathbf{y})|=\|\mathbf{x}\|\cdot\|\mathbf{y}\|\]当且仅当其中一个向量是另一个的倍数。\textbf{提示}：分析柯西-施瓦兹不等式的证明。
+    \item 证明内积空间$V$的平行四边形恒等式：\[\|\mathbf{x}+\mathbf{y}\|^2+\|\mathbf{x}-\mathbf{y}\|^2=2(\|\mathbf{x}\|^2+\|\mathbf{y}\|^2).\]
+    \item 设$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是内积空间$V$中的张成组（特别地，是$V$的基）。证明：
+    \begin{enumerate}[label={\alph*)}]
+        \item 如果$(\mathbf{x},\mathbf{v})=0$对于所有向量$\mathbf{v}\in V$成立，那么$\mathbf{x}=\mathbf{0}$；
+        \item 如果$(\mathbf{x},\mathbf{v}_k)=0\ \forall k$，那么$\mathbf{x}=\mathbf{0}$；
+        \item 如果$(\mathbf{x},\mathbf{v}_k)=(\mathbf{y},\mathbf{v}_k)\ \forall k$，那么$\mathbf{x}=\mathbf{y}$。
+    \end{enumerate}
+    \item 考虑具有范数$\|\cdot\|_p$的向量空间$\mathbb{R}^2$（\ref{subsec:normed_space} 节所述）。对$p=1,2,\infty$，画出范数$\|\cdot\|_p$下的“单位球”$B_p$：
+    \[B_p:=\{\mathbf{x}\in\mathbb{R}^2:\|\mathbf{x}\|_p\leq1\}.\]
+    你能猜出对于其他的$p$，球$B_p$是什么样吗？
+\end{problemset}
 
 \section{正交性、正交基与规范正交基}
+
+\begin{definition}
+    称两向量$\mathbf{u}$和$\mathbf{v}$是{\bf 正交的}（或{\bf 垂直的}），若$(\mathbf{u},\mathbf{v})=0$。我们用$\mathbf{u}\perp \mathbf{v}$表示两向量垂直。
+\end{definition}
+
+注意，对于正交向量$\mathbf{u}$和$\mathbf{v}$，我们有下面的所谓毕达哥拉斯恒等式：
+\[\|\mathbf{u}+\mathbf{v}\|^2=\|\mathbf{u}\|^2+\|\mathbf{v}\|^2\quad\text{若}~\mathbf{u}\perp\mathbf{v}.\]
+证明就是简单计算：\[\|\mathbf{u}+\mathbf{v}\|^2=(\mathbf{u}+\mathbf{v},\mathbf{u}+\mathbf{v})=(\mathbf{u},\mathbf{u})+(\mathbf{v},\mathbf{v})+(\mathbf{u},\mathbf{v})+(\mathbf{v},\mathbf{u})=\|\mathbf{u}\|^2+\|\mathbf{v}\|^2\]
+（由于正交性，$(\mathbf{u},\mathbf{v})=(\mathbf{v},\mathbf{v})=0$）
+
+\begin{definition}
+    称向量$\mathbf{v}$正交于子空间$E$，若$\mathbf{v}$正交于$E$中的所有向量$\mathbf{w}$。
+
+    称子空间$E$和$F$是正交的，如果$E$中的所有向量都正交于$F$，也即$E$中的所有向量都正交于$F$中的所有向量。
+\end{definition}
+
+下面引理展示了检验一向量正交于一子空间的方法。
+
+\begin{lemma}
+    令$E$由向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$张成。那么$\mathbf{v}\perp E$，当且仅当\[\mathbf{v}\perp\mathbf{v}_{k},\quad\forall k=1,2,\ldots,r.\]
+\end{lemma}
+\begin{proof}
+    由定义得，若$\mathbf{v}\perp E$，那么$\mathbf{v}$正交于$E$中的所有向量。特别地，$\mathbf{v}\perp\mathbf{v}_{k}, k=1,2,\ldots,r$。
+
+    另一方面，设$\mathbf{v}\perp\mathbf{v}_{k}, k=1,2,\ldots,r$。因为各向量$\mathbf{v}_k$张成$E$，所以任意向量$\mathbf{w}\in E$都能被表示成线性组合$\sum_{k=1}^{r}\alpha_{k}\mathbf{v}_{k}$。那么\[(\mathbf{v},\mathbf{w})=\sum_{k=1}^r\alpha_k(\mathbf{v},\mathbf{v}_k)=0,\]
+    所以$\mathbf{v}\perp \mathbf{w}$。
+\end{proof}
+\begin{definition}
+    称向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是{\bf 正交的}，如果任意两个向量都彼此正交（即如果$(\mathbf{v}_{j},\mathbf{v}_{k})=0,j\neq k$）。
+
+    如果还有$\|\mathbf{v}_k\|=1$对所有$k$成立，我们就称该向量组是{\bf 规范正交的}。
+\end{definition}
+
+\begin{lemma}[广义毕达哥拉斯恒等式]\label{lem:gen_pytha}
+    令$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是正交向量组。那么\[\left\|\sum_{k=1}^n\alpha_k\mathbf{v}_k\right\|^2=\sum_{k=1}^n|\alpha_k|^2\|\mathbf{v}_k\|^2\]
+\end{lemma}
+
+这个公式对于规范正交向量组（$\|\mathbf{v}_k\|=1$）特别简洁。
+
+\begin{proof}[引理的证明]
+    \[\left\|\sum_{k=1}^{n}\alpha_{k}\mathbf{v}_{k}\right\|^{2}=\left(\sum_{k=1}^{n}\alpha_{k}\mathbf{v}_{k},\sum_{j=1}^{n}\alpha_{j}\mathbf{v}_{j}\right)=\sum_{k=1}^{n}\sum_{j=1}^{n}\alpha_{k}\overline{\alpha}_{j}(\mathbf{v}_{k},\mathbf{v}_{j}).\]
+    因为正交性（$(\mathbf{v}_{j},\mathbf{v}_{k})=0,j\neq k$），所以只需对$j=k$的项求和，这就恰好会给出\[\sum_{k=1}^n|\alpha_k|^2(\mathbf{v}_k,\mathbf{v}_k)=\sum_{k=1}^n|\alpha_k|^2\|\mathbf{v}_k\|^2.\]
+\end{proof}
+
+\begin{corollary}
+    任意由非零向量构成的正交向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是线性无关的。
+\end{corollary}
+\begin{proof}
+    假设有一组标量使得$\sum_{k=1}^n\alpha_k\mathbf{v}_k=\mathbf{0}$。那么由广义毕达哥拉斯恒等式（引理 \ref{lem:gen_pytha}）
+    \[0=\|\mathbf{0}\|^2=\sum_{k=1}^n|\alpha_k|^2\|\mathbf{v}_k\|^2.\]
+    因为$\|\mathbf{v}_k\|\ne0(\mathbf{v}\ne0)$，我们可得结论：
+    \[\alpha_k=0\quad\forall k,\]所以只有平凡线性组合能得出$\mathbf{0}$。
+\end{proof}
 
 \section{正交投影与格拉姆-施密特正交化}
 
