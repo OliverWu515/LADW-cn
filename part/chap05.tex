@@ -623,7 +623,7 @@ $$
 \subsection{最小平方解}
 
 最简单的思想就是写出误差\[\|A\mathbf{x}-\mathbf{b}\|\]
-并尝试求出使其最小的$\mathbf{x}$。如果可以求出使得误差为$0$的$\mathbf{x}$，那么方程组是相容的，并且我们得出了精确解。否则，我们就得到了所谓\textbf{最小平方}解\footnote{本术语国内多译为“最小二乘”，实从日文“最小二{\gothic 乗}”之讹误，本书将“square”按照“平方”来翻译，不从通行译法。——译者注}。
+并尝试求出使其最小的$\mathbf{x}$。如果可以求出使得误差为$0$的$\mathbf{x}$，那么方程组是相容的，并且我们得出了精确解。否则，我们就得到了所谓\textbf{最小平方}解\footnote{本术语国内多译为“最小二乘”，实从日文“最小二{\gothic 乗}”，比较生硬，本书将“square”按照“平方”来翻译，不从通行译法。——译者注}。
 
 术语\textbf{最小平方}的来历是：最小化$\|A\mathbf{x}-\mathbf{b}\|$就等价于最小化
 \[\|A\mathbf{x}-\mathbf{b}\|^2=\sum_{k=1}^m|(A\mathbf{x})_k-b_k|^2=\sum_{k=1}^m|\sum_{j=1}^nA_{k,j}x_j-b_k|^2\]
@@ -636,7 +636,7 @@ $$
 然而，求出极小值有一种更简单的方法。即，如果取遍向量$\mathbf{x}$，那么$A\mathbf{x}$给出了$\rg A$中的所有向量，所以$\|A\mathbf{x}-\mathbf{b}\|$的极小值恰为从$\mathbf{b}$到$\rg A$的距离。因此$\|A\mathbf{x}-\mathbf{b}\|$取得极小值，当且仅当$A\mathbf{x}=P_{\operatorname{Ran}A}\mathbf{b}$，其中$P_{\rg A}$表示往列空间$\rg A$中的正交投影。
 
 所以，为求最小平方解，只需解方程\[A\mathbf{x}=P_{\operatorname{Ran}A}\mathbf{b}.\]
-如果在$\rg A$中有正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，则可通过下式求出向量$P_{\operatorname{Ran}A}\mathbf{b}$
+如果已知$\rg A$中的正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，则可通过下式求出向量$P_{\operatorname{Ran}A}\mathbf{b}$
 \[P_{\operatorname{Ran}A}\mathbf{b}=\sum_{k=1}^{n}\frac{(\mathbf{b},\mathbf{v}_{k})}{\|\mathbf{v}_{k}\|^{2}}\mathbf{v}_{k}.\]
 如果仅仅知道$\rg A$的基，则需要用格拉姆-施密特正交化来从中得到正交基。
 
@@ -652,7 +652,7 @@ $A\mathbf{x}$是正交投影$P_{\operatorname{Ran}A}\mathbf{b}$当且仅当$\mat
 将$\mathbf{a}_k^*$写在一起即知这些方程等价于\[A^*(\mathbf{b}-A\mathbf{x})=\mathbf{0},\]
 这等价于所谓的\textbf{法方程}
 \[A^*A\mathbf{x}=A^*\mathbf{b}\]
-该方程的解就给出了$\mathbf{A}\mathbf{x}=\mathbf{b}$的最小平方解。
+该方程的解就给出了$A\mathbf{x}=\mathbf{b}$的最小平方解。
 
 注意，最小平方解唯一，当且仅当$A^*A$可逆。
 
@@ -673,7 +673,151 @@ $A\mathbf{x}$是正交投影$P_{\operatorname{Ran}A}\mathbf{b}$当且仅当$\mat
 
 我们将上述定理的证明留作习题。要证明$\ker A = \ker(A^*A)$，需要证明两个包含关系$\ker(A^*A) \subset \ker A$和$\ker A \subset \ker(A^*A)$。其中一个包含关系很平凡，而证明另一个要用到\[\|A\mathbf{x}\|^2=(A\mathbf{x},A\mathbf{x})=(A^*A\mathbf{x},\mathbf{x}).\]
 
+\subsection{例子之一：拟合直线}
+
+我们介绍几个例子，这几个例子会很自然地用到最小平方解。假设我们知道两个量$x$和$y$的关系是$y=a+bx$。系数$a$和$b$是未知的，并且我们想根据实验数据求出它们。
+
+假设我们进行了$n$次实验并得到$n$个数对$(x_k,y_k),k=1,2,\dots,n$。理想情况下，所有点$(x_k,y_k)$都应该在一条直线上，但是由于测量误差，这往往不会发生——各点会接近一条直线但不会恰好在上面。这里最小平方解就会有用处了！
+
+理想情况下，系数$a$与$b$应满足方程\[a+bx_k=y_k,\quad k=1,2,\ldots,n\]
+（注意，$x_k$和$y_k$是固定的数，而未知数是$a$和$b$）如果能求出满足条件的$a$和$b$，那是我们走运；如果求不出，通行的做法是最小化总的二次误差\[\sum_{k=1}^n|a+bx_k-y_k|^2.\]
+而最小化这个误差恰恰就是求出下列方程组的最小平方解：
+\[\begin{pmatrix}1&x_1\\1&x_2\\\vdots&\vdots\\1&x_n\end{pmatrix}\begin{bmatrix}a\\b\end{bmatrix}=\begin{pmatrix}y_1\\y_2\\\vdots\\y_n\end{pmatrix}\]
+（回想一下，$x_k$和$y_k$是给定的数，而未知数是$a$和$b$）
+
+\subsubsection{例子}
+
+假设数据 $(x_k, y_k)$ 由下列数对构成
+\[ (-2,4), (-1,2), (0,1), (2,1), (3,1)\]
+那么我们需要求出下列方程组的最小平方解
+$$\left(\begin{array}{rr}
+1 & -2 \\
+1 & -1 \\
+1 & 0 \\
+1 & 2 \\
+1 & 3
+\end{array}\right)\left[\begin{array}{l}
+a \\
+b
+\end{array}\right]=\left(\begin{array}{l}
+4 \\
+2 \\
+1 \\
+1 \\
+1
+\end{array}\right)$$
+那么
+$$A^{*} A=\left(\begin{array}{rrrrr}
+1 & 1 & 1 & 1 & 1 \\
+-2 & -1 & 0 & 2 & 3
+\end{array}\right)\left(\begin{array}{rrrrr}
+1 & -2 \\
+1 & -1 \\
+1 & 0 \\
+1 & 2 \\
+1 & 3
+\end{array}\right)=\left(\begin{array}{rr}
+5 & 2 \\
+2 & 18
+\end{array}\right)$$
+并且
+$$A^{*} \mathbf{b}=\left(\begin{array}{rrrrr}
+1 & 1 & 1 & 1 & 1 \\
+-2 & -1 & 0 & 2 & 3
+\end{array}\right)\left(\begin{array}{l}
+4 \\
+2 \\
+1 \\
+1 \\
+1
+\end{array}\right)=\left(\begin{array}{r}
+9 \\
+-5
+\end{array}\right)$$
+所以法方程 $A^{*} A \mathbf{x}=A^{*} \mathbf{b}$ 可写为
+$$\left(\begin{array}{rr}
+5 & 2 \\
+2 & 18
+\end{array}\right)\left(\begin{array}{l}
+a \\
+b
+\end{array}\right)=\left(\begin{array}{r}
+9 \\
+-5
+\end{array}\right)$$
+此方程的解是
+$$a=2, b=-1 / 2,$$
+所以最佳拟合直线是
+$$
+y=2-1 / 2 x.$$
+
+\subsection{更多例子：曲线和平面}
+
+最小平方拟合并不只适用于直线，它还能应用于更为一般的曲线，以及更高维情形中的平面。
+
+唯一的约束就是，待求的参数需要以线性的形式被容纳进来。通用的算法如下：
+\begin{enumerate}
+    \item 求出你的数据应该满足的方程（如果能精确匹配）；
+    \item 将这些方程写成线性方程组，其中未知量是你要求的参数。注意，该方程组不需要是相容的（通常也不是）；
+    \item 求出方程组的最小平方解。
+\end{enumerate}
+
+\subsubsection{曲线拟合的例子}
+
+假设我们知道$x$和$y$之间的关系由二次式$y=a+bx+cx^2$给出，因此我们需要用这些数据拟合抛物线$y=a+bx+cx^2$。那么未知数$a,b,c$应满足方程
+$$a+bx_k+cx_k^2=y_k,\quad k=1,2,\ldots,n$$
+或写成矩阵形式
+$$\left(\begin{array}{ccc}1&x_1&x_1^2\\1&x_2&x_2^2\\\vdots&\vdots&\vdots\\1&x_n&x_n^2\end{array}\right)\left(\begin{array}{c}a\\b\\c\end{array}\right)=\left(\begin{array}{c}y_1\\y_2\\\vdots\\y_n\end{array}\right)$$
+例如，根据上个例子中的数据，我们需要求出如下线性方程组的最小平方解
+$$\left(\begin{array}{ccc}1&-2&4\\1&-1&1\\1&0&0\\1&2&4\\1&3&9\end{array}\right)\left(\begin{array}{c}a\\b\\c\end{array}\right)=\left(\begin{array}{c}4\\2\\1\\1\\1\end{array}\right).$$
+那么
+\[A^*A=\left(\begin{array}{ccccc}1&1&1&1&1\\-2&-1&0&2&3\\4&1&0&4&9\end{array}\right)\left(\begin{array}{ccc}1&-2&4\\1&-1&1\\1&0&0\\1&2&4\\1&3&9\end{array}\right)=\left(\begin{array}{ccc}5&2&18\\2&18&26\\18&26&114\end{array}\right)\]
+并且
+\[A^*\mathbf{b}=\left(\begin{array}{ccccc}1&1&1&1&1\\-2&-1&0&2&3\\4&1&0&4&9\end{array}\right)\left(\begin{array}{c}4\\2\\1\\1\\1\end{array}\right)=\left(\begin{array}{c}9\\-5\\31\end{array}\right).\]
+因此法方程 $A^*A\mathbf{x}=A^*\mathbf{b}$ 为
+$$\left(\begin{array}{ccc}5&2&18\\2&18&26\\18&26&114\end{array}\right)\left(\begin{array}{c}a\\b\\c\end{array}\right)=\left(\begin{array}{c}9\\-5\\31\end{array}\right)$$
+其有唯一解
+$$a=86/77,\quad b=-62/77,\quad c=43/154.$$
+因此，
+$$y=86/77-62x/77+43x^2/154$$
+是最佳拟合抛物线。
+
+\subsubsection{平面拟合}
+
+另一个例子是，将数据\[(x_k,y_k,z_k)\in\mathbb{R}^3,\quad k=1,2,\ldots n.\]
+拟合成一个平面$z=a+bx+cy$。在精确匹配的情况下，数据应满足方程
+\[a+bx_k+cy_k=z_k,\quad k=1,2,\ldots,n,\]
+或写成矩阵形式\[\begin{pmatrix}1&x_1&y_1\\1&x_2&y_2\\\vdots&\vdots&\vdots\\1&x_n&y_n\end{pmatrix}\begin{pmatrix}a\\b\\c\end{pmatrix}=\begin{pmatrix}z_1\\z_2\\\vdots\\z_n\end{pmatrix}.\]
+因此，要求出最佳拟合平面，就需要写出该方程组的最小平方解（未知数是$a,b,c$）。
+
+\begin{problemset}
+    \item 求出下列方程组的最小平方解\[\begin{pmatrix}1&0\\0&1\\1&1\end{pmatrix}\mathbf{x}=\begin{pmatrix}1\\1\\0\end{pmatrix}\]
+    \item 求出往矩阵\[\begin{pmatrix}1&1\\2&-1\\-2&4\end{pmatrix}.\]
+    的列空间的正交投影$P$的矩阵。用两种方法完成：格拉姆-施密特正交化和投影的公式。
+
+    比较两个结果。
+    \item 求出点$(-2,4),(-1,3),(0,1),(2,0)$的最佳直线拟合（最小平方解）。
+    \item 将四个点$(1,1,3),(0,3,6),(2,1,5),(0,0,0)$拟合成平面$z=a+bx+cy$。
+    为此
+    \begin{enumerate}[label={\alph*)}]
+        \item 求出有$3$个未知数$a,b,c$的$4$个方程，满足平面经过全部$4$个点（这个方程组不一定有解）；
+        \item 求出方程组的最小平方解。
+    \end{enumerate}
+    \item \textbf{最小范数解}。令方程$A\mathbf{x}=\mathbf{b}$有解，并令$A$有非平凡的核（因而解是不唯一的）。证明：
+    \begin{enumerate}[label={\alph*)}]
+        \item $A\mathbf{x}=\mathbf{b}$存在唯一能使得范数$\|\mathbf{x}\|$最小的解$\mathbf{x}_0$，即存在唯一的$\mathbf{x}_0$，使得$A\mathbf{x}_0=\mathbf{b}$且$\|\mathbf{x}_0\|\le \|\mathbf{x}\|$对所有满足$A\mathbf{x}=\mathbf{b}$的$\|\mathbf{x}\|$成立。
+        \item 对于所有满足$A\mathbf{x}=\mathbf{b}$的$\mathbf{x}$，有$\mathbf{x}_{0}=P_{(\mathrm{Ker}A)^{\perp}}\mathbf{x}$。
+    \end{enumerate}
+    \item \textbf{最小范数最小平方解}。将上述问题的结论应用于方程$A\mathbf{x}=P_{\operatorname{Ran}A}\mathbf{b}$以证明：
+    \begin{enumerate}[label={\alph*)}]
+        \item 方程$A\mathbf{x}=\mathbf{b}$存在唯一能使得范数$\|\mathbf{x}\|$最小的最小平方解$\mathbf{x}_0$。
+        \item 对于$A\mathbf{x}=\mathbf{b}$的所有最小平方解$\mathbf{x}$，有$\mathbf{x}_{0}=P_{(\operatorname{Ker}A)^{\perp}}\mathbf{x}$。
+    \end{enumerate}
+\end{problemset}
+
 \section{线性映射的伴随、重温基本子空间}
+
+\subsection{伴随矩阵和伴随算子}
 
 \section{等距映射和幺正算子、幺正矩阵和正交矩阵}
 
