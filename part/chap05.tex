@@ -2,9 +2,9 @@
 
 \chapter{内积空间}\label{chap:InnerProduct}
 
-有关内积空间的理论只建立在实向量空间和复向量空间上，所以在本章中$\mathbb{F}$总是$\mathbb{R}$或$\mathbb{C}$。本章中的结论通常不能推广到任意域上的向量空间。
+内积空间的理论只建立在实向量空间和复向量空间上，所以在本章中$\mathbb{F}$总是$\mathbb{R}$或$\mathbb{C}$。本章中的结论通常不能推广到任意域上的向量空间。
 
-本章中的大多数结论和计算过程适用于实数和复数情形（并且结论的表述相同）。在极少数情况中，实数情形和复数情形有差异，此时我们会说明考虑的是哪种情形，否则就是对两种情形都成立。
+本章中的大多数结论和计算过程适用于实数和复数情形（并且结论的表述相同）。在极少数情况中，实数和复数情形有差异，此时我们会说明考虑的是哪种情形，否则就是对两种情形都成立。
 
 最后，当结论和计算过程适用于实数和复数情形时，我们用复数情形下的公式，它们在实数情形下也正确，虽然有时会复杂一点。
 
@@ -27,34 +27,34 @@ $\mathbb{R}^3$上的\textbf{点积}定义为$\mathbf{x}\cdot\mathbf{y}=x_1y_1+x_
 
 下面定义$\mathbb{C}^n$上的内积和范数。如之前所见，从谱理论的视角来看，复向量空间$\mathbb{C}^n$是最为自然的：即便研究的是各项为实数的矩阵（或者实向量空间上的算子），特征值也可能是复的，于是我们就需要在复向量空间中研究。
 
-对于复数$z=x+iy$，我们有$|z|^2=x^2+y^2=z\overline{z}$。若$\mathbf{z}\in\mathbb{C}^{n}$由下式给出\[\mathbf{z}=\begin{pmatrix}z_1\\z_2\\\vdots\\z_n\end{pmatrix}=\begin{pmatrix}x_1+iy_1\\x_2+iy_2\\\vdots\\x_n+iy_n\end{pmatrix},\]
-很自然定义其范数$\|\mathbf{z}\|$为\[\|\mathbf{z}\|^2=\sum_{k=1}^n(x_k^2+y_k^2)=\sum_{k=1}^n|z_k|^2.\]
+对于复数$z=x+iy$，我们有$|z|^2=x^2+y^2=z\overline{z}$。若$\mathbf{z}\in\mathbb{C}^{n}$形如\[\mathbf{z}=\begin{pmatrix}z_1\\z_2\\\vdots\\z_n\end{pmatrix}=\begin{pmatrix}x_1+iy_1\\x_2+iy_2\\\vdots\\x_n+iy_n\end{pmatrix},\]
+就能很自然由下式定义其范数$\|\mathbf{z}\|$：\[\|\mathbf{z}\|^2=\sum_{k=1}^n(x_k^2+y_k^2)=\sum_{k=1}^n|z_k|^2.\]
 现在我们尝试定义$\mathbb{C}^n$上的内积使得$\|\mathbf{z}\|^2=(\mathbf{z},\mathbf{z})$。一种做法是定义$(\mathbf{z},\mathbf{w})$为\[(\mathbf{z},\mathbf{w})=z_{1}\overline{w}_{1}+z_{2}\overline{w}_{2}+\ldots+z_{n}\overline{w}_{n}=\sum_{k=1}^{n}z_{k}\overline{w}_{k},\]
 这就是$\mathbb{C}^n$上\textbf{标准}内积的定义。
 
-为简化记号，我们引入一个新概念：定义矩阵$A$的\textbf{埃尔米特伴随}（或简称\textbf{伴随}）$A^\ast$为$A^\ast=\overline{A}^T$，意即先取矩阵的转置，再取各项的复共轭。注意对于实矩阵$A$，有$A\ast={A}^T$。
+为简化记号，我们引入一个新概念：定义矩阵$A$的\textbf{埃尔米特伴随}（或简称\textbf{伴随}）$A^\ast$为$A^\ast=\overline{A^T}$，意即先取矩阵的转置，再取各项的复共轭。注意对于实矩阵$A$，有$A^\ast={A}^T$。
 
 利用$A^\ast$的概念，可以将$\mathbb{C}^n$上的标准内积写成\[(\mathbf{z},\mathbf{w})=\mathbf{w}^\ast\mathbf{z}.\]
 \begin{remark*}
-    容易看出，还可以在$\mathbb{C}^n$上定义另一种标准内积以满足$\|\mathbf{z}\|^2=(\mathbf{z},\mathbf{z})$，即定义内积为\[(\mathbf{z},\mathbf{w})_1=\overline{z}_1w_1+\overline{z}_2w_2+\ldots+\overline{z}_nw_n=\mathbf{z}^*\mathbf{w}.\]
+    容易看出，还可以在$\mathbb{C}^n$上定义另一种内积以满足$\|\mathbf{z}\|^2=(\mathbf{z},\mathbf{z})$，即定义内积为\[(\mathbf{z},\mathbf{w})_1=\overline{z}_1w_1+\overline{z}_2w_2+\ldots+\overline{z}_nw_n=\mathbf{z}^*\mathbf{w}.\]
     我们并未指明内积应满足的性质，但只有$\mathbf{z}^*\mathbf{w}$和$\mathbf{w}^\ast\mathbf{z}$能满足$\|\mathbf{z}\|^2=(\mathbf{z},\mathbf{z})$。
 
-    注意，上述两种内积的定义实质上是等价的：唯一的区别仅在于记号，因为$(\mathbf{z},\mathbf{w})_1=(\mathbf{w},\mathbf{z})$。
+    注意，上述两种内积的定义实质上是等价的，唯一的区别仅在于记号，因为$(\mathbf{z},\mathbf{w})_1=(\mathbf{w},\mathbf{z})$。
 
     尽管第二种内积定义看上去更为自然，但第一种（$(\mathbf{z},\mathbf{w})=\mathbf{w}^\ast\mathbf{z}$）使用得更为广泛，所以我们将采用它。
 \end{remark*}
 
 \subsection{内积空间}
 
-$\mathbb{R}^n$和$\mathbb{C}^n$上的内积满足下列性质：
+我们定义的$\mathbb{R}^n$和$\mathbb{C}^n$上的内积满足下列性质：
 \begin{enumerate}
-    \item （共轭）对称性：$(\mathbf{x},\mathbf{y})={\overline{(\mathbf{y},\mathbf{x})}}$；注意，对实向量空间，该性质仅仅是对称性，即$(\mathbf{x},\mathbf{y})=(\mathbf{y},\mathbf{x})$；
+    \item （共轭）对称性：$(\mathbf{x},\mathbf{y})={\overline{(\mathbf{y},\mathbf{x})}}$；注意，对实向量空间，该性质简化为对称性，即$(\mathbf{x},\mathbf{y})=(\mathbf{y},\mathbf{x})$；
     \item 线性：对于所有向量$\mathbf{x},\mathbf{y},\mathbf{z}$和所有标量$\alpha,\beta$，有$(\alpha\mathbf{x}+\beta\mathbf{y},\mathbf{z})=\alpha(\mathbf{x},\mathbf{z})+\beta(\mathbf{y},\mathbf{z})$；
-    \item 非负性：$(\mathbf{x},\mathbf{x})\geq0\forall\mathbf{x}$；
+    \item 非负性：$(\mathbf{x},\mathbf{x})\geq0\ \forall\mathbf{x}$；
     \item 非退化性：$(\mathbf{x},\mathbf{x})=0$当且仅当$\mathbf{x}=\mathbf{0}$。
 \end{enumerate}
 
-令$V$是（复或实）向量空间。$V$上的\textbf{内积}是一个函数，它将每对向量$\mathbf{x},\mathbf{y}$都对应到标量$(\mathbf{x},\mathbf{y})$，该函数满足上述性质1-4。
+令$V$是（复或实）向量空间。$V$上的\textbf{内积}是一个函数，它将每对向量$\mathbf{x},\mathbf{y}$都对应到标量$(\mathbf{x},\mathbf{y})$，且该函数满足上述性质1-4。
 
 注意对实向量空间$V$，我们假设$(\mathbf{x},\mathbf{y})$总是实数，而对于复向量空间，内积$(\mathbf{x},\mathbf{y})$可能是复数。
 
@@ -65,20 +65,20 @@ $\mathbb{R}^n$和$\mathbb{C}^n$上的内积满足下列性质：
 \begin{example}
     设$V$是$\mathbb{R}^n$或$\mathbb{C}^n$。我们在上面已经定义了内积$(\mathbf{x},\mathbf{y})=\mathbf{y}^*\mathbf{x}=\sum_{k=1}^nx_k\overline{y}_k$。
 
-    该内积称为$\mathbb{R}^n$或$\mathbb{C}^n$上的{\bf 标准内积}。
+    该内积称为$\mathbb{R}^n$或$\mathbb{C}^n$上的{\bf 标准}内积。
 \end{example}
 
 我们将用符号$\mathbb{F}$来指代$\mathbb{R}$和$\mathbb{C}$。当我们陈述一个有关向量空间$\mathbb{F}^n$的结论时，该结论适用于$\mathbb{R}^n$和$\mathbb{C}^n$。
 
 \begin{example}
-    令$V$是由次数至多为$n$的多项式构成的向量空间$\mathbb{P}^n$。定义内积为
+    令$V$是由次数至多为$n$的多项式构成的向量空间$\mathbb{P}_n$。定义内积为
     \[(f,g)=\int_{-1}^{1}f(t)\overline{g(t)}dt.\]
     容易验证其满足上述性质1-4。
 
     这个定义适用于实数和复数情形。在实数情形下，我们只对实系数多项式取内积，则上式中的复共轭可去掉。
 \end{example}
 
-回忆一下，方阵$A$的迹定义为对角线项之和：\[\operatorname{trace}A:=\sum_{k=1}^{n}a_{k,k}.\]
+回忆一下，方阵$A$的\textbf{迹}定义为对角线项之和：\[\operatorname{trace}A:=\sum_{k=1}^{n}a_{k,k}.\]
 
 \begin{example}
     对由$m\times n$矩阵所构成的向量空间$M_{m\times n}$，定义所谓弗罗贝尼乌斯内积为\[(A,B)=\tr (B^\ast A).\]
@@ -103,18 +103,18 @@ $\mathbb{R}^n$和$\mathbb{C}^n$上的内积满足下列性质：
     &=\overline{\alpha}\overline{(\mathbf{y},\mathbf{x})}+\overline{\beta}\overline{(\mathbf{z},\mathbf{x})}=\overline{\alpha}(\mathbf{x},\mathbf{y})+\overline{\beta}(\mathbf{x},\mathbf{z})
 \end{aligned}\]
 还要注意，性质2蕴涵对于所有向量$\mathbf{x}$有\[(\mathbf{0},\mathbf{x})=(\mathbf{x},\mathbf{0})=0.\]
-\begin{lemma}
+\begin{lemma}\label{lem:x_0_inner_0}
     令$\mathbf{x}$是内积空间$V$中的向量。那么$\mathbf{x}=\mathbf{0}$当且仅当
     \begin{equation}\label{inner_0}
         (\mathbf{x},\mathbf{y})=0,\quad \forall \mathbf{y}\in V.
     \end{equation}
 \end{lemma}
 \begin{proof}
-    因为$(\mathbf{0},\mathbf{y})=0$，我们只需证明 \eqref{inner_0} 表明$\mathbf{x}=\mathbf{0}$。将$\mathbf{y}=\mathbf{x}$代入 \eqref{inner_0} 可得$(\mathbf{x},\mathbf{x})=0$，所以$\mathbf{x}=\mathbf{0}$。
+    因为$(\mathbf{0},\mathbf{y})=0$，我们只需证明 \eqref{inner_0} 蕴涵$\mathbf{x}=\mathbf{0}$。将$\mathbf{y}=\mathbf{x}$代入 \eqref{inner_0} 可得$(\mathbf{x},\mathbf{x})=0$，所以$\mathbf{x}=\mathbf{0}$。
 \end{proof}
 
-对差值$\mathbf{x}-\mathbf{y}$运用上述推论可得
-\begin{corollary}
+对差值$\mathbf{x}-\mathbf{y}$运用上述引理可得
+\begin{corollary}\label{col:inner_eq_vec_eq}
     令$\mathbf{x},\mathbf{y}$是内积空间$V$中的向量。等式$\mathbf{x}=\mathbf{y}$成立当且仅当\[(\mathbf{x},\mathbf{z})=(\mathbf{y},\mathbf{z})\quad\forall\mathbf{z}\in V.\]
 \end{corollary}
 
@@ -132,7 +132,7 @@ $\mathbb{R}^n$和$\mathbb{C}^n$上的内积满足下列性质：
     \[|(\mathbf{x},\mathbf{y})|\leq\|\mathbf{x}\|\cdot\|\mathbf{y}\|.\]
 \end{theorem}
 \begin{proof}
-    我们将呈现的证明并不是最简短的，但它展示了该结论核心思想的渊源。
+    我们将呈现的证明并不是最简短的，但它展示了证明核心思路的由来。
 
     首先考虑实数情形。如果$\mathbf{y}=\mathbf{0}$，该结论是平凡的，所以可假设$\mathbf{y}\neq \mathbf{0}$。由内积的性质，对于所有标量$t$有\[0\leq\|\mathbf{x}-t\mathbf{y}\|^2=(\mathbf{x}-t\mathbf{y},\mathbf{x}-t\mathbf{y})=\|\mathbf{x}\|^2-2t(\mathbf{x},\mathbf{y})+t^2\|\mathbf{y}\|^2.\]
     特别地，该不等式对$t={\frac{(\mathbf{x},\mathbf{y})}{\|\mathbf{y}\|^{2}}}$成立\footnote{这是上述二次多项式的极小值点。可以这样计算：对$t$求导并令导数等于$0$。}，该点处不等式变为\[0\leq\|\mathbf{x}\|^2-2\frac{(\mathbf{x},\mathbf{y})^2}{\|\mathbf{y}\|^2}+\frac{(\mathbf{x},\mathbf{y})^2}{\|\mathbf{y}\|^2}=\|\mathbf{x}\|^2-\frac{(\mathbf{x},\mathbf{y})^2}{\|\mathbf{y}\|^2},\]
@@ -147,13 +147,13 @@ $\mathbb{R}^n$和$\mathbb{C}^n$上的内积满足下列性质：
         &=\|\mathbf{x}\|^{2}-t(\mathbf{y},\mathbf{x})-\bar{t}(\mathbf{x},\mathbf{y})+|t|^{2}\|\mathbf{y}\|^{2}.
     \end{aligned}
     \]
-    将$t=\frac{(\mathbf{x},\mathbf{y})}{\|\mathbf{y}\|^{2}}=\frac{\overline{(\mathbf{x},\mathbf{y})}}{\|\mathbf{y}\|^{2}}$代入此不等式，即得\[0\leq\|\mathbf{x}\|^2-\frac{|(\mathbf{x},\mathbf{y})|^2}{\|\mathbf{y}\|^2}\]
+    将$t=\frac{(\mathbf{x},\mathbf{y})}{\|\mathbf{y}\|^{2}}=\frac{\overline{(\mathbf{y},\mathbf{x})}}{\|\mathbf{y}\|^{2}}$代入此不等式，即得\[0\leq\|\mathbf{x}\|^2-\frac{|(\mathbf{x},\mathbf{y})|^2}{\|\mathbf{y}\|^2}\]
     而这就是我们所需的不等式。
 
-    注意，上面这段已经可以作为该定理的完整且正式的证明。在它之前作的推导，只是为了解释我们为什么要为$t$取这个特定值。
+    注意，上面这一段已经可以作为该定理的完整且正式的证明。在它之前作的推导，只是为了解释我们为什么要为$t$取这个特定值。
 \end{proof}
 
-由柯西-施瓦兹不等式可直接推出下述引理。
+由柯西-施瓦兹不等式可立即推出下述引理。
 
 \begin{lemma}[三角不等式]
     对一内积空间中的任意向量$\mathbf{x},\mathbf{y}$，
@@ -166,10 +166,10 @@ $\mathbb{R}^n$和$\mathbb{C}^n$上的内积满足下列性质：
 \end{proof}
 下述\textbf{极化恒等式}使我们得以由范数重建出内积：
 \begin{lemma}[极化恒等式]\label{lem:polarization}
-    对$\mathbf{x},\mathbf{y}\in V$，若$V$是实内积空间\[(\mathbf{x},\mathbf{y})=\frac{1}{4}\left(\left\|\mathbf{x}+\mathbf{y}\right\|^2-\left\|\mathbf{x}-\mathbf{y}\right\|^2\right)\]
+    对$\mathbf{x},\mathbf{y}\in V$，若$V$是实内积空间，则\[(\mathbf{x},\mathbf{y})=\frac{1}{4}\left(\left\|\mathbf{x}+\mathbf{y}\right\|^2-\left\|\mathbf{x}-\mathbf{y}\right\|^2\right)\]
     若$V$是复内积空间，则\[(\mathbf{x},\mathbf{y})=\frac{1}{4}\sum_{\alpha=\pm1,\pm i}\alpha\|\mathbf{x}+\alpha\mathbf{y}\|^2\]
 \end{lemma}
-该定理通过直接计算就能证明，我们将证明留给读者作为习题。
+该引理通过直接计算就能证明，我们将证明留给读者作为习题。
 
 内积空间上范数的另一个重要性质也可以通过直接计算来证明。
 
@@ -177,7 +177,7 @@ $\mathbb{R}^n$和$\mathbb{C}^n$上的内积满足下列性质：
     对任意向量$\mathbf{u},\mathbf{v}$，\[\|\mathbf{u}+\mathbf{v}\|^2+\|\mathbf{u}-\mathbf{v}\|^2=2(\|\mathbf{u}\|^2+\|\mathbf{v}\|^2).\]
 \end{lemma}
 
-在$2$维空间中，该定理将平行四边形的边与对角线联系起来，其名称即源于此。这是平面几何中的著名结论。
+在$2$维空间中，该引理将平行四边形的边与对角线联系起来，其名称即源于此。这是平面几何中的著名结论。
 
 \subsection{范数、赋范空间}\label{subsec:normed_space}
 
@@ -185,13 +185,13 @@ $\mathbb{R}^n$和$\mathbb{C}^n$上的内积满足下列性质：
 \begin{enumerate}
     \item 齐次性：对于所有向量$\mathbf{v}$和所有标量$\alpha$，有$\|\alpha\mathbf{v}\|=|\alpha|\cdot\|\mathbf{v}\|$。
     \item 三角不等式：$\|\mathbf{u}+\mathbf{v}\|\leq\|\mathbf{u}\|+\|\mathbf{v}\|$。
-    \item 非负性：对于所有向量$\mathbf{v}$，$\|\mathbf{v}\|\geq0$；
+    \item 非负性：对于所有向量$\mathbf{v}$，有$\|\mathbf{v}\|\geq0$。
     \item 非退化性：$\|\mathbf{v}\|=0$当且仅当$\mathbf{v}=\mathbf{0}$。
 \end{enumerate}
 
 假设向量空间$V$中，我们将每个向量都对应到一个数$\|\mathbf{v}\|$，并且满足上述性质1-4。那么就称函数$\mathbf{v}\mapsto\|\mathbf{v}\|$为范数。配有范数的向量空间$V$称为\textbf{赋范空间}。
 
-任何内积空间都是赋范空间，因为范数$\|\mathbf{v}\|=\sqrt{(\mathbf{v},\mathbf{v})}$满足上述性质1-4。然而，还有很多赋范空间。例如，给定$p$（$1\le p<\infty$），可在$\mathbb{R}^n$或$\mathbb{C}^n$上定义范数$\|\cdot\|_p$为
+任何内积空间都是赋范空间，因为范数$\|\mathbf{v}\|=\sqrt{(\mathbf{v},\mathbf{v})}$满足上述性质1-4。然而，还有很多别的赋范空间。例如，给定$p$（$1\le p<\infty$），可在$\mathbb{R}^n$或$\mathbb{C}^n$上定义范数$\|\cdot\|_p$为
 \[\|\mathbf{x}\|_p=(|x_1|^p+|x_2|^p+\ldots+|x_n|^p)^{1/p}=\left(\sum_{k=1}^n|x_k|^p\right)^{1/p}.\]
 还可以定义范数$\|\cdot\|_\infty$（$p=\infty$）为
 \[\|\mathbf{x}\|_\infty=\max\{|x_k|:k=1,2,\ldots,n\}.\]
@@ -199,13 +199,13 @@ $p=2$时的$\|\cdot\|_p$就是通常的由内积获得的范数。
 
 要检验$\|\cdot\|_p$的确是范数，需要检验它满足上述性质1-4。性质1、3和4很容易检验，留给读者作为习题。三角不等式（性质2）对于$p=1$和$p=\infty$很容易验证（而$p=2$的情形我们已经证明过了）。
 
-$p$为其他值时，三角不等式是成立的，但是证明不那么容易，此处就不呈现了。$\|\cdot\|_p$的三角不等式有个特殊的名称——闵可夫斯基不等式，它是用德国数学家H.闵可夫斯基的名字命名的。
+$p$为其他值时，三角不等式是成立的，但是证明不那么容易，此处就不呈现了。$\|\cdot\|_p$的三角不等式有个特殊的名称——{\bf 闵可夫斯基不等式}，它是用德国数学家H.闵可夫斯基的名字命名的。
 
 注意，$p\ne 2$时的范数$\|\cdot\|_p$不能由内积得到。容易看出，该范数不能由$\mathbb{R}^n$或$\mathbb{C}^n$上的\textbf{标准}内积得到。但还不止于此——能产生范数$\|\cdot\|_p,p\ne 2$的内积是\textbf{无法构造的}！
 
-这个结论其实很容易证明。由引理 \ref{lem:parallelogram}，任意由内积得到的范数都比满足平行四边形恒等式。容易看出平行四边形恒等式对于范数$\|\cdot\|_p,p\ne 2$是不成立的——容易找到$\mathbb{R}^2$中的反例，并由此得到其他所有向量空间中的反例。
+这个结论其实很容易证明。由引理 \ref{lem:parallelogram}，任意由内积得到的范数都必满足平行四边形恒等式。容易看出平行四边形恒等式对于范数$\|\cdot\|_p,p\ne 2$是不成立的——容易找到$\mathbb{R}^2$中的反例，并由此得到其他所有向量空间中的反例。
 
-事实上，如下面定理所保证的，平行四边形等式是由内积得到的范数的独有特征。
+事实上，如下面定理所保证的，平行四边形恒等式是由内积得到的范数的独有特征。
 \begin{theorem}
     赋范空间上的范数源于某个内积，当且仅当其满足平行四边形恒等式
     \[\|\mathbf{u}+\mathbf{v}\|^2+\|\mathbf{u}-\mathbf{v}\|^2=2(\|\mathbf{u}\|^2+\|\mathbf{v}\|^2)\quad\forall\mathbf{u},\mathbf{v}\in V.\]
@@ -215,7 +215,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 
 逆命题证明起来复杂些。如果给定了一个范数，并且该范数来自内积，那么该内积一定是由极化恒等式给出（见引理 \ref{lem:polarization}）。但我们需要证明由极化恒等式得到的$(\mathbf{x},\mathbf{y})$的确是内积，也就是它满足内积的所有性质。
 
-可以验证，如果范数满足平行四边形恒等式，那么由极化恒等式得到的内积$(\mathbf{x},\mathbf{y})$的确是内积（即满足内积的所有性质）。然而，该证明有点太复杂了，所以不在此处展示。
+可以验证，如果范数满足平行四边形恒等式，那么由极化恒等式得到的内积$(\mathbf{x},\mathbf{y})$的确是内积（即满足内积的所有性质）。然而，该证明略显复杂，所以此处按下不表。
 
 \begin{problemset}
     \item 计算：\[(3+2i)(5-3i),\quad\frac{2-3i}{1-2i},\quad\mathrm{Re}\left(\frac{2-3i}{1-2i}\right),\quad(1+2i)^3,\quad\mathrm{Im}((1+2i)^3).\]
@@ -226,11 +226,11 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
         \item $\|\mathbf{x}+2\mathbf{y}\|$。
     \end{enumerate}
     \textbf{注}：当你完成a)后，可以只运用内积的性质完成b)和c)，而不需要计算出其中所有向量。
-    \item 令$\|\mathbf{u}\|=2,\|\mathbf{v}\|=3,(\mathbf{u},\mathbf{v})=2+i$，计算：
+    \item 令$\|\mathbf{u}\|=2,\|\mathbf{v}\|=3,(\mathbf{u},\mathbf{v})=2+i$。计算：
     \[\|\mathbf{u}+\mathbf{v}\|^2,\quad\|\mathbf{u}-\mathbf{v}\|^2,\quad(\mathbf{u}+\mathbf{v},\mathbf{u}-i\mathbf{v}),\quad(\mathbf{u}+3i\mathbf{v},4i\mathbf{u}).\]
     \item 证明：对内积空间中的向量$\mathbf{x},\mathbf{y}$\[\|\mathbf{x}\pm\mathbf{y}\|^2=\|\mathbf{x}\|^2+\|\mathbf{y}\|^2\pm2\operatorname{Re}(\mathbf{x},\mathbf{y})\]
-    回忆一下，$\operatorname{Re}z=\frac12(z+\overline{z})$
-    \item 解释为何下面这些不是给定向量空间上的内积：
+    回忆一下，$\operatorname{Re}z=\frac12(z+\overline{z})$。
+    \item 解释为何下面这些{\bf 不是}给定向量空间上的内积：
     \begin{enumerate}[label={\alph*)}]
         \item $\mathbb{R}^{2}$上的$(\mathbf{x},\mathbf{y})=x_{1}y_{1}-x_{2}y_{2}$；
         \item $2\times 2$实矩阵构成的向量空间上的$(A,B)=\mathrm{trace}(A+B)$；
@@ -244,7 +244,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
         \item 如果$(\mathbf{x},\mathbf{v}_k)=0\ \forall k$，那么$\mathbf{x}=\mathbf{0}$；
         \item 如果$(\mathbf{x},\mathbf{v}_k)=(\mathbf{y},\mathbf{v}_k)\ \forall k$，那么$\mathbf{x}=\mathbf{y}$。
     \end{enumerate}
-    \item 考虑具有范数$\|\cdot\|_p$的向量空间$\mathbb{R}^2$（\ref{subsec:normed_space} 节所述）。对$p=1,2,\infty$，画出范数$\|\cdot\|_p$下的“单位球”$B_p$：
+    \item 考虑具有范数$\|\cdot\|_p$（\ref{subsec:normed_space} 节所述）的向量空间$\mathbb{R}^2$。对$p=1,2,\infty$，画出范数$\|\cdot\|_p$下的“单位球”$B_p$：
     \[B_p:=\{\mathbf{x}\in\mathbb{R}^2:\|\mathbf{x}\|_p\leq1\}.\]
     你能猜出对于其他的$p$，球$B_p$是什么样吗？
 \end{problemset}
@@ -252,13 +252,13 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 \section{正交性、正交基与规范正交基}
 
 \begin{definition}
-    称两向量$\mathbf{u}$和$\mathbf{v}$是{\bf 正交的}（或{\bf 垂直的}），若$(\mathbf{u},\mathbf{v})=0$。我们用$\mathbf{u}\perp \mathbf{v}$表示两向量垂直。
+    称两向量$\mathbf{u}$和$\mathbf{v}$是{\bf 正交的}（或{\bf 垂直的}），若$(\mathbf{u},\mathbf{v})=0$。我们用$\mathbf{u}\perp \mathbf{v}$表示两向量正交。
 \end{definition}
 
 注意，对于正交向量$\mathbf{u}$和$\mathbf{v}$，我们有下面的所谓毕达哥拉斯恒等式：
 \[\|\mathbf{u}+\mathbf{v}\|^2=\|\mathbf{u}\|^2+\|\mathbf{v}\|^2\quad\text{若}~\mathbf{u}\perp\mathbf{v}.\]
 证明就是简单计算：\[\|\mathbf{u}+\mathbf{v}\|^2=(\mathbf{u}+\mathbf{v},\mathbf{u}+\mathbf{v})=(\mathbf{u},\mathbf{u})+(\mathbf{v},\mathbf{v})+(\mathbf{u},\mathbf{v})+(\mathbf{v},\mathbf{u})=\|\mathbf{u}\|^2+\|\mathbf{v}\|^2\]
-（由于正交性，$(\mathbf{u},\mathbf{v})=(\mathbf{v},\mathbf{v})=0$）
+（由于正交性，$(\mathbf{u},\mathbf{v})=(\mathbf{v},\mathbf{u})=0$）
 
 \begin{definition}
     称向量$\mathbf{v}$正交于子空间$E$，若$\mathbf{v}$正交于$E$中的所有向量$\mathbf{w}$。
@@ -817,9 +817,125 @@ $$y=86/77-62x/77+43x^2/154$$
 
 \section{线性映射的伴随、重温基本子空间}
 
-\subsection{伴随矩阵和伴随算子}
+\subsection{伴随矩阵和伴随变换}
 
-\section{等距映射和幺正算子、幺正矩阵和正交矩阵}
+回忆一下，$m\times n$矩阵$A$的\textbf{埃尔米特伴随}（或简称\textbf{伴随}）定义为$A^*:=\overline{A^T}$。换言之，矩阵$A^*$是通过将转置矩阵$A^T$的各项取复共轭得到的。
+
+下列恒等式是伴随矩阵的核心性质：
+\[\boxed{(A\mathbf{x},\mathbf{y})=(\mathbf{x},A^*\mathbf{y})\quad\forall\mathbf{x}\in\mathbb{C}^n,\forall\mathbf{y}\in\mathbb{C}^m.}\]
+在证明这个恒等式之前，我们先介绍一些有用的公式。首先，回想一下，对转置矩阵有恒等式$(AB)^T=B^TA^T$。因为对于复数$z$和$w$有$\overline{zw}=\overline{z}\,\overline{w}$，所以对于伴随成立下述恒等式\[(AB)^*=B^*A^*\]
+
+并且，因为$(A^T)^T=A$且$\overline{\overline{z}}=z$，\[(A^*)^*=A.\]
+
+现在我们就做好了准备，可以证明核心的恒等式：
+\[(A\mathbf{x},\mathbf{y})=\mathbf{y}^*A\mathbf{x}=(A^*\mathbf{y})^*\mathbf{x}=(\mathbf{x},A^*\mathbf{y});\]
+第一个和最后一个等号源于$\mathbb{F}^n$上内积的定义，中间的等号则源于\[(A^*\mathbf{x})^*=\mathbf{x}^*(A^*)^*=\mathbf{x}^*A.\]
+
+\subsubsection{伴随的唯一性}\label{subsubsec:adjoint_uniqueness}
+
+上述核心的恒等式$(A\mathbf{x},\mathbf{y})=(\mathbf{x},A^*\mathbf{y})$常用作伴随变换的定义。首先要注意，伴随变换是唯一的：若矩阵$B$满足\[(A\mathbf{x},\mathbf{y})=(\mathbf{x},B\mathbf{y})\quad\forall\mathbf{x},\mathbf{y},\]
+那么$B=A^*$。的确如此：由$A^*$的定义，对给定的$\mathbf{y}$我们有\[(\mathbf{x},A^*\mathbf{y})=(\mathbf{x},B\mathbf{y})\quad\forall\mathbf{x},\]
+因而由推论 \ref{col:inner_eq_vec_eq}，$A^*\mathbf{y}=B\mathbf{y}$。因为它对于所有$\mathbf{y}$都成立，所以线性变换$A^*$和$B$——进而也是矩阵$A^*$和$B$——相同。
+
+\subsubsection{抽象情形下的伴随变换}
+
+上述核心的恒等式$(A\mathbf{x},\mathbf{y})=(\mathbf{x},A^*\mathbf{y})$可用于在抽象情形下定义伴随变换，此时$A:V\to W$是从一内积空间到另一内积空间的变换：定义$A^*:W\to V$为满足下式的变换
+\[(A\mathbf{x},\mathbf{y})=(\mathbf{x},A^{*}\mathbf{y})\quad\forall\mathbf{x}\in V,\forall\mathbf{y}\in W.\]
+为什么这样的变换存在呢？我们可以构造它来说明这点。考虑$V$的规范正交基$\mathcal{A}=\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\}$和$W$的规范正交基$\mathcal{B}=\{\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{m}\}$。若$[A]_\mathcal{BA}$是$A$关于这些基的矩阵，则变换$A^*$可通过定义其矩阵$[A^*]_\mathcal{AB}$如下来实现：
+\[\left[A^*\right]_{\mathcal{AB}}=(\left[A\right]_{\mathcal{BA}})^*.\]
+证明此式确实能给出伴随变换，留给读者作为习题。
+
+注意，上述 \ref{subsubsec:adjoint_uniqueness} 节中的推理表明，伴随变换是唯一的。
+
+\subsubsection{有用的公式}
+
+下面展示伴随变换（矩阵）的常用性质。我们将证明留给读者作为习题。
+\begin{enumerate}
+    \item $(A+B)^{*}=A^{*}+B^{*}$；
+    \item $(\alpha A)^{*}=\overline{\alpha}A^{*}$；
+    \item $(AB)^{*}=B^{*}A^{*}$；
+    \item $(A^{*})^{*}=A$；
+    \item $(\mathbf{y},A\mathbf{x})=(A^{*}\mathbf{y},\mathbf{x})$。
+\end{enumerate}
+
+\subsection{基本子空间之间的关系}
+
+\begin{theorem}\label{thm:geometric_relation_adjoint_fundamental}
+    令$A:V\to W$是从一内积空间到另一内积空间的变换。那么
+    \begin{enumerate}
+        \item $\operatorname{Ker}A^*=(\operatorname{Ran}A)^\perp$；
+        \item $\operatorname{Ker}A=(\operatorname{Ran}A^{*})^{\perp}$；
+        \item $\operatorname{Ran}A=(\operatorname{Ker}A^{*})^{\perp}$；
+        \item $\operatorname{Ran}A^*=(\operatorname{Ker}A)^\perp$。
+    \end{enumerate}
+\end{theorem}
+
+\begin{remark*}
+    早先，在第 \ref{chap:LinearSystems} 章第 \ref{sec:fundamental_subspace} 中定义基本子空间时，用的是$A^T$而不是$A^*$（一般的文献中也都这样定义）。当然，对于实矩阵来说这两者并无差异，所以在实数情形下，上述定理能给出之前定义的基本子空间的几何描述。
+
+    利用$A^T$定义的基本子空间的几何阐释见于后面的第8章，见第3节定理3.7。该定理和此处的\autoref{thm:geometric_relation_adjoint_fundamental} 本质上一样，只是表述略有区别。
+    %TODO 添加引用
+\end{remark*}
+
+\begin{proof}[\autoref{thm:geometric_relation_adjoint_fundamental} 的证明]
+    首先，注意到因为对于子空间$E$有$(E^\perp)^\perp = E$，所以结论1和3等价。同理，结论2和4也等价。最后，结论2就是将结论1应用到变换$A^*$的结果（此处我们运用了$(A^*)^*=A$）。
+
+    所以要证明这个定理，只需证明结论1。
+
+    我们将呈现该结论的两种证法：用矩阵的证法，以及“不变式”证明——即不依赖于基和坐标的证法。
+
+    在用矩阵的证法中，假设$A$是$m\times n$矩阵，即$A:\mathbb{F}^n\to \mathbb{F}^m$。一般情形总可以化归到这种情形：选取$V$和$W$中的规范正交基，并考虑$A$关于这两个基的矩阵即可。
+
+    令$\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{n}$是$A$的列。注意，$\mathbf{x}\in(\rg A)^\perp$当且仅当$\mathbf{x}\perp \mathbf{a}_{k}$（即$(\mathbf{x}, \mathbf{a}_{k})=0$）$\forall k=1,2,\dots,n$。
+
+    由$\mathbb{F}^n$上内积的定义，这意味着\[0=(\mathbf{x},\mathbf{a}_k)=\mathbf{a}_k^*\mathbf{x}\quad\forall k=1,2,\ldots,n.\]
+    由于$\mathbf{a}_k^*$是$A^*$的第$k$行，所以上述$n$个等式等价于方程\[A^*\mathbf{x}=\mathbf{0}.\]
+    所以我们证明了$\mathbf{x}\in(\rg A)^\perp$当且仅当$A^*\mathbf{x}=\mathbf{0}$，而这就是结论1。
+
+    现在展示不依赖于坐标的证法。$x\in(\rg A)^\perp$意味着$\mathbf{x}$正交于所有形如$A\mathbf{y}$的向量，即\[(\mathbf{x},A\mathbf{y})=0\quad\forall\mathbf{y}.\]
+    因为$(\mathbf{x},A\mathbf{y})=(A^*\mathbf{x},\mathbf{y})$，所以此恒等式等价于\[(A^*\mathbf{x},\mathbf{y})=0\quad\forall\mathbf{y},\]
+    而由引理 \ref{lem:x_0_inner_0}，这等价于$A^*\mathbf{x}=\mathbf{0}$。所以我们证明了$\mathbf{x}\in(\rg A)^\perp$当且仅当$A^*\mathbf{x}=\mathbf{0}$，而这恰好就是本定理结论1。
+\end{proof}
+
+\subsection{线性变换的“本质”部分}
+
+上述定理让变换$A$的结构和基本子空间的几何特性更清晰了。由该定理可得，变换$A$可表示为两变换的复合：往$\rg A^*$中的正交投影与从$\rg A^*$到$\rg A$的同构。
+
+的确如此：将$A$限制在定义域$\rg A^*$和目标空间$\rg A$，得到$\widetilde{A}:\rg A^*\to \rg A$为
+\[\widetilde{A}\mathbf{x}=A\mathbf{x},\quad\forall\mathbf{x}\in\operatorname{Ran}A^{*}.\]
+因为$\ker A=(\rg A^*)^\perp$，所以有\[A\mathbf{x}=AP_{\operatorname{Ran}A^*}\mathbf{x}=\widetilde{A}P_{\operatorname{Ran}A^*}\mathbf{x}\quad\forall\mathbf{x}\in X;\]
+这里用到了$\mathbf{x}-P_{\mathrm{Ran~}A^{*}}\mathbf{x}\in(\operatorname{Ran}A^{*})^{\perp}=\operatorname{Ker}A$。于是我们可写出
+\begin{equation}\label{A_and_A_tilde}
+    A\mathbf{x}=\widetilde{A}P_{\mathrm{Ran}A^{*}}\mathbf{x}\quad\forall\mathbf{x}\in X,
+\end{equation}
+或者等价地说，$A=\widetilde{A}P_{\mathrm{Ran}A^{*}}$。
+
+还请注意，$\widetilde{A}:\mathrm{Ran}A^{*}\to\mathrm{Ran}A$是可逆变换。首先注意到$\ker \widetilde{A}=\{\mathbf{0}\}$：若$\mathbf{x}\in\rg A^*$满足$\widetilde{A}\mathbf{x}=A\mathbf{x}=\mathbf{0}$，那么$\mathbf{x}\in\ker A=(\rg A^*)^\perp$，所以$\mathbf{x}\in\operatorname{Ran}A^{*}\cap(\operatorname{Ran}A^{*})^{\perp}$，于是$\mathbf{x}=\mathbf{0}$。于是，要证明$\widetilde{A}$可逆，只需证明$\widetilde{A}$是满射。
+而这可由 \eqref{A_and_A_tilde} 立得：
+\[\operatorname{Ran}\widetilde{A}=\widetilde{A}\operatorname{Ran}A^*=AP_{\operatorname{Ran}A^*}X=AX=\operatorname{Ran}A.\]
+
+同构$\widetilde{A}$有时称为算子$A$的“本质部分”（这是个不规范的用语）。
+
+“本质部分”$\widetilde{A}:\mathrm{Ran}A^{*}\to\mathrm{Ran}A$是同构，蕴涵了“复”秩定理：$\rank A=\rank A^*$。不过，这个定理当然也可由一个简单的观察得到——复共轭不会改变矩阵的秩，即$\rank A=\rank \overline{A}$。
+
+\begin{problemset}
+    \item 证明：对于方阵$A$，等式$\det(A^*)=\overline{\det (A)}$成立。
+    \item 求出往下列矩阵的四个基本子空间中正交投影的矩阵。
+    \[A=\begin{pmatrix}1&1&1\\1&3&2\\2&4&3\end{pmatrix}.\]
+    注意，你只需要求其中两个投影：如果你选择适当的两个来求，就很容易从中得到另外两个（回忆一下往$E$和$E^\perp$中的投影的关系）。
+    \item 令$A$为$m\times n$矩阵。证明：$\ker A=\ker (A^*A)$。
+    
+    为此你需要证明两个包含关系：$\ker (A^*A)\subset \ker A$和$\ker A\subset \ker (A^*A)$。其中一个包含关系很平凡，而证明另一个要用到\[\|A\mathbf{x}\|^2=(A\mathbf{x},A\mathbf{x})=(A^*A\mathbf{x},\mathbf{x}).\]
+    \item 利用等式$\ker A=\ker (A^*A)$证明：
+    \begin{enumerate}[label={\alph*)}]
+        \item $\rank A=\rank (A^*A)$；
+        \item 若$A\mathbf{x}=\mathbf{0}$仅有平凡解，那么$A$是左可逆的。（可以写出左逆的公式）
+    \end{enumerate}
+    \item 假设对矩阵$A$有矩阵$A^*A$可逆，因此往$\rg A$中的正交投影由公式\linebreak $A(A^*A)^{-1}A^*$给出。你能写出往其他三个基本子空间（$\ker A,\ker A^*,\rg A^*$）正交投影的公式吗？
+    \item 令$P$是自伴的（$P^*=P$）并令$P^2=P$。证明：$P$是一个正交投影的矩阵。{\bf 提示}：考虑分解$\mathbf{x}=\mathbf{x}_1+\mathbf{x}_2$，$\mathbf{x}_1\in\rg P,\mathbf{x}_2\perp\rg P$，并证明$P\mathbf{x}_1=\mathbf{x}_1,P\mathbf{x}_2=\mathbf{0}$。证明等式之一需要用到自伴性质，而另一个需要用到$P^2=P$。
+\end{problemset}
+
+\section{等距变换和幺正变换、幺正矩阵和正交矩阵}
 
 \section{\texorpdfstring{$\mathbb{R}^n$}{R**n}中的刚体运动}
 

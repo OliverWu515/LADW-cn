@@ -17,18 +17,31 @@
 \DeclareOption{openany}{\PassOptionsToClass{openany}{ctexbook}}
 \DeclareOption{openright}{\PassOptionsToClass{openright}{ctexbook}}
 \DeclareOption{twoside}{\PassOptionsToClass{twoside}{ctexbook}}
-\PassOptionsToClass{fontset=fandol}{ctexbook}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
 
 %---------- 中文字体宏包 ----------
 \PassOptionsToPackage{no-math}{fontspec}
+\PassOptionsToClass{fontset=none}{ctexbook}
 
 %---------- 载入Class ----------
 \LoadClass[UTF8,a4paper]{ctexbook}
 \@ifclasslater{ctexbook}{2017/01/01}{}{%
     \ClassError{zhbook}{ctex >= 2017/01/01 is required ...}{}%
 }
+
+%---------- 自定义字体设置 ----------
+\setCJKmainfont[Mapping=fullwidth-stop, BoldFont={FandolSong-Bold.otf}, ItalicFont={FandolKai-Regular.otf}]{FandolSong-Regular.otf}
+\setCJKsansfont[Mapping=fullwidth-stop, BoldFont=FandolHei-Bold.otf]{FandolHei-Regular.otf}
+\setCJKmonofont[Mapping=fullwidth-stop]{FandolFang-Regular.otf}
+\setCJKfamilyfont{zhsong}[Mapping=fullwidth-stop,BoldFont=FandolSong-Bold.otf]{FandolSong-Regular.otf}
+\setCJKfamilyfont{zhhei}[Mapping=fullwidth-stop,BoldFont=FandolHei-Bold.otf]{FandolHei-Regular.otf}
+\setCJKfamilyfont{zhkai}[Mapping=fullwidth-stop]{FandolKai-Regular.otf}
+\setCJKfamilyfont{zhfs}[Mapping=fullwidth-stop]{FandolFang-Regular.otf}
+\newcommand*{\songti}{\CJKfamily{zhsong}}
+\newcommand*{\heiti}{\CJKfamily{zhhei}}
+\newcommand*{\kaishu}{\CJKfamily{zhkai}}
+\newcommand*{\fangsong}{\CJKfamily{zhfs}}
 
 %---------- 定义页边距 ----------
 \RequirePackage{geometry}
@@ -177,9 +190,9 @@
 %---------- 定义页眉页脚 ----------
 \newcommand{\headstyle}{%
     %\fancyhead[C]{\fangsong\zihao{5} \@title}
-    \fancyhead[RO,LE]{\fangsong\zihao{5}$\cdot$\:\thepage\:$\cdot$}
-    \fancyhead[LO]{\fangsong\zihao{5}\nouppercase{\rightmark}}
-    \fancyhead[RE]{\fangsong\zihao{5}\nouppercase{\leftmark}}
+    \fancyhead[RO,LE]{\sffamily\zihao{5}$\cdot$\:\thepage\:$\cdot$}
+    \fancyhead[LO]{\sffamily\fangsong\zihao{5}\nouppercase{\rightmark}}
+    \fancyhead[RE]{\sffamily\fangsong\zihao{5}\nouppercase{\leftmark}}
 }
 
 \newcommand{\chapterpagenum}{%
@@ -265,9 +278,9 @@
 
 %---------- 数学定理设置 ----------
 \newtheoremstyle{zhbook}{\topsep}{\topsep}%
-{\kaishu}{}{\bfseries}{.}{5pt plus 1pt minus 1pt}{}%%
+{\kaishu}{}{\heiti}{\sffamily .}{5pt plus 1pt minus 1pt}{\thmname{#1}\thmnumber{\sffamily #2}\thmnote{ \normalfont (#3)}}%%
 \theoremstyle{zhbook}
-% \theoremstyle{zhbook}
+% \theoremstyle{plain}
 \newtheorem{theorem}{定理}[section]
 \newtheorem{lemma}[theorem]{引理}
 \newtheorem{corollary}[theorem]{推论}
@@ -292,7 +305,7 @@
     %\normalfont \topsep6\p@\@plus6\p@\relax
     \normalfont \topsep3\p@\@plus3\p@\relax
     \trivlist\item[\hskip\labelsep
-    \bfseries #1\@addpunct{:\,}]\ignorespaces
+    \heiti #1\@addpunct{:\,}]\ignorespaces
 }{%
     \popQED\endtrivlist\@endpefalse
 }
@@ -314,8 +327,9 @@
 \newenvironment{problemset}{
   \par
   \vspace{10pt}
+  \pdfbookmark[2]{\exerciseautorefname}{problemset-\thechapter-\thesection}
   \noindent{\zihao{4}\bfseries\exerciseautorefname}
-  \begin{enumerate}[label={\textbf{\arabic{section}.\arabic*.}},ref={\arabic{section}.\arabic*},leftmargin=2em]\zihao{5}}{
+  \begin{enumerate}[label={\textsf{\arabic{section}.\arabic*.}},ref={\arabic{section}.\arabic*},leftmargin=2em]\zihao{5}}{
   \end{enumerate}}
 
 %---------- 数学公式设置 ----------
