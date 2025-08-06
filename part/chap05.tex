@@ -284,37 +284,37 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 \end{definition}
 
 \begin{lemma}[广义毕达哥拉斯恒等式]\label{lem:gen_pytha}
-    令$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是正交向量组。那么\[\left\|\sum_{k=1}^n\alpha_k\mathbf{v}_k\right\|^2=\sum_{k=1}^n|\alpha_k|^2\|\mathbf{v}_k\|^2\]
+    令$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是正交向量组。则\[\left\|\sum_{k=1}^n\alpha_k\mathbf{v}_k\right\|^2=\sum_{k=1}^n|\alpha_k|^2\|\mathbf{v}_k\|^2\]
 \end{lemma}
 
 这个公式对于规范正交向量组（$\|\mathbf{v}_k\|=1$）特别简洁。
 
 \begin{proof}[引理的证明]
     \[\left\|\sum_{k=1}^{n}\alpha_{k}\mathbf{v}_{k}\right\|^{2}=\left(\sum_{k=1}^{n}\alpha_{k}\mathbf{v}_{k},\sum_{j=1}^{n}\alpha_{j}\mathbf{v}_{j}\right)=\sum_{k=1}^{n}\sum_{j=1}^{n}\alpha_{k}\overline{\alpha}_{j}(\mathbf{v}_{k},\mathbf{v}_{j}).\]
-    因为正交性（$(\mathbf{v}_{j},\mathbf{v}_{k})=0,j\neq k$），所以只需对$j=k$的项求和，这就恰好会给出\[\sum_{k=1}^n|\alpha_k|^2(\mathbf{v}_k,\mathbf{v}_k)=\sum_{k=1}^n|\alpha_k|^2\|\mathbf{v}_k\|^2.\]
+    因为正交性（若$j\neq k$则$(\mathbf{v}_{k},\mathbf{v}_{j})=0$），所以只需对$j=k$的项求和，这就恰好会给出\[\sum_{k=1}^n|\alpha_k|^2(\mathbf{v}_k,\mathbf{v}_k)=\sum_{k=1}^n|\alpha_k|^2\|\mathbf{v}_k\|^2.\]
 \end{proof}
 
 \begin{corollary}
     任意由非零向量构成的正交向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是线性无关的。
 \end{corollary}
 \begin{proof}
-    假设有一组标量使得$\sum_{k=1}^n\alpha_k\mathbf{v}_k=\mathbf{0}$。那么由广义毕达哥拉斯恒等式（引理 \ref{lem:gen_pytha}）
+    假设有$\alpha_1,\alpha_2,\dots,\alpha_n$使得$\sum_{k=1}^n\alpha_k\mathbf{v}_k=\mathbf{0}$。那么由广义毕达哥拉斯恒等式（引理 \ref{lem:gen_pytha}）
     \[0=\|\mathbf{0}\|^2=\sum_{k=1}^n|\alpha_k|^2\|\mathbf{v}_k\|^2.\]
-    因为$\|\mathbf{v}_k\|\ne0(\mathbf{v}\ne0)$，我们可得结论：
+    因为$\|\mathbf{v}_k\|\ne\mathbf{0}(\mathbf{v}_k\ne\mathbf{0})$，我们可得结论：
     \[\alpha_k=0\quad\forall k,\]所以只有平凡线性组合能得出$\mathbf{0}$。
 \end{proof}
 
 \begin{remark*}
-    接下来我们提到“正交组”的时候，一般是指由非零向量形成的正交组。因为零向量$\mathbf{0}$正交于任何向量，所以它可以被加进任意正交组中，但是考虑包含零向量的正交向量组没什么意思。
+    接下来我们提到“正交向量组”的时候，一般是指由非零向量形成的正交向量组。因为零向量$\mathbf{0}$正交于任何向量，所以它可以被加进任意正交向量组中，但是考虑包含零向量的正交向量组没什么意思。
 \end{remark*}
 
 \subsection{正交基与规范正交基}
 
 \begin{definition}
-    正交组（规范正交组）$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$如果是基，就称为正交基（规范正交基）。
+    正交向量组（规范正交向量组）$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$如果是基，就称为正交基（规范正交基）。
 \end{definition}
 
-显然，如果$\dim V=n$，那么任意由$n$个非零向量构成的正交组都是正交基。
+显然，如果$\dim V=n$，那么任意由$n$个非零向量构成的正交向量组都是正交基。
 
 我们前面讨论过，要求出向量在基下的坐标，需要求解线性方程组。然而，求出向量关于正交基的坐标要容易得多：设$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是正交基，并令\[\mathbf{x}=\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\cdots+\alpha_n\mathbf{v}_n=\sum_{j=1}^n\alpha_j\mathbf{v}_j.\]
 将此式两端与$\mathbf{v}_1$做内积可得
@@ -330,16 +330,16 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 \begin{center}
     \fbox{\parbox{0.8\linewidth}{要求出向量在正交基下的坐标，无需求解线性方程组，而只需根据 \eqref{coeff_orthogonal} 确定坐标。}}
 \end{center}
-这个公式对于规范正交基尤其简单（$\|\mathbf{v}_k\|^2$）。
+这个公式对于规范正交基尤其简单（$\|\mathbf{v}_k\|=1$）。
 
 也就是说，如果$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是规范正交基，那么任意向量$\mathbf{v}$可表示为
 \begin{equation}\label{coeff_orthonormal}
     \mathbf{v}=\sum_{k=1}^n(\mathbf{v},\mathbf{v}_k)\mathbf{v}_k.
 \end{equation}
-这个公式有时称为\textbf{抽象正交傅里叶分解}（的雏形）。经典（非抽象）的傅里叶分解用的是一个具体的规范正交组（正余弦或复指数）。我们称上面的公式是\textbf{雏形}，因为真正的傅里叶分解用的是无限的规范正交组。
+这个公式有时称为\textbf{抽象正交傅里叶分解}（的雏形）。经典（非抽象）的傅里叶分解用的是一个具体的规范正交向量组（正余弦或复指数）。我们称上面的公式是\textbf{雏形}，因为真正的傅里叶分解用的是无限的规范正交向量组。
 
 \begin{remark}
-    规范正交基的重要性在于，如果我们在内积空间$V$中取定规范正交基，那么我们就可以如同处理$\mathbb{F}^n$中的向量一样处理在这个基下的坐标。也就是说，如在本书开头所讨论的那样（第 \ref{chap:BasicNotion} 章注 \ref{remark:fn_to_abstract}），如果我们处理的是具有基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的（域$\mathbb{F}$上的）向量空间$V$，\marginpar{\small 这个注记很重要，它使我们得以将适用于标准向量空间$\mathbb{F}^n$的各种表述迁移至具有规范正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的内积空间$V$。}那么我们可以讨论关于基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的坐标列向量，从而如同对标准坐标空间$\mathbb{F}^n$中的向量那样进行标准向量运算（向量加法与标量乘法）。
+    规范正交基的重要性在于，如果我们在内积空间$V$中取定规范正交基，那么我们就可以如同处理$\mathbb{F}^n$中的向量一样处理在这个基下的坐标。也就是说，如在本书开头所讨论的那样（第 \ref{chap:BasicNotion} 章注 \ref{remark:fn_to_abstract}），如果我们处理的是具有基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的（域$\mathbb{F}$上的）向量空间$V$，\marginpar{\small 这个注记很重要，它使我们得以将适用于标准内积空间$\mathbb{F}^n$的各种表述迁移至具有规范正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的内积空间$V$。}那么我们可以讨论关于基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的坐标列向量，从而如同对标准坐标空间$\mathbb{F}^n$中的向量那样进行标准向量运算（向量加法与标量乘法）。
 
     下方的习题 \ref{ex:5_2_3} 说明，如果我们有内积空间$V$中的{\bf 规范正交}基，那么我们要计算两个向量的内积，就可以首先取它们关于这个规范正交基的坐标列向量，然后计算这两个列向量（在$\mathbb{C}^n$或$\mathbb{R}^n$上）的标准内积。
 
@@ -415,7 +415,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
     \end{equation}
 \end{proposition}
 
-注意，$\alpha_k$的公式与 \ref{coeff_orthogonal} 相同，即将此式应用于规范正交组（不是基）会给出往它的张成空间中的投影。
+注意，$\alpha_k$的公式与 \ref{coeff_orthogonal} 相同，即将此式应用于规范正交向量组（不是基）会给出往它的张成空间中的投影。
 
 \begin{remark}
     从 \ref{projection_eq} 中容易看出正交投影$P_E$是线性变换。
@@ -441,13 +441,13 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
     \]
 \end{proof}
 
-所以，已知$E$的正交基即可求出往$E$中的正交投影。特别地，由于仅包含一个向量的向量组都是正交组，所以我们可知将向量往一维空间中投影。
+所以，已知$E$的正交基即可求出往$E$中的正交投影。特别地，由于仅包含一个向量的向量组都是正交向量组，所以我们可知将向量往一维空间中投影。
 
 但是，如果只知道$E$的基，我们怎么求出正交投影呢？幸运的是，有个简单的算法能从基得出正交基。
 
 \subsection{格拉姆-施密特正交化算法}
 
-假设我们有线性无关组$\mathbf{x}_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{n}$。格拉姆-施密特方法能从该组构造正交组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$，且满足
+假设我们有线性无关组$\mathbf{x}_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{n}$。格拉姆-施密特方法能从该组构造正交向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$，且满足
 \[\mathrm{span}\{\mathbf{x}_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{n}\}=\mathrm{span}\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\}.\]
 此外，对所有$r\le n$有\[\mathrm{span}\{\mathbf{x}_1,\mathbf{x}_2,\ldots,\mathbf{x}_r\}=\mathrm{span}\{\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r\}\]
 
@@ -463,18 +463,18 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 
 ……
 
-\noindent\textbf{步骤$r+1$. }假设已经完成此过程的$r$步并得到由非零向量 $\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$ 形成的正交组，使得$E_{r}:=\mathrm{span}\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}\}=\mathrm{span}\{\mathbf{x}_{1},$ $\mathbf{x}_{2},\ldots,\mathbf{x}_{r}\}$。定义
+\noindent\textbf{步骤$r+1$. }假设已经完成此过程的$r$步并得到由非零向量 $\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$ 形成的正交向量组，使得$E_{r}:=\mathrm{span}\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}\}=\mathrm{span}\{\mathbf{x}_{1},$ $\mathbf{x}_{2},\ldots,\mathbf{x}_{r}\}$。定义
 \[\mathbf{v}_{r+1}:=\mathbf{x}_{r+1}-P_{E_r}\mathbf{x}_{r+1}=\mathbf{x}_{r+1}-\sum_{k=1}^r\frac{(\mathbf{x}_{r+1},\mathbf{v}_k)}{\|\mathbf{v}_k\|^2}\mathbf{v}_k\]
 注意，$\mathbf{x}_{r+1}\notin E_r$，所以$\mathbf{v}_{r+1}\ne \mathbf{0}$。
 
 ……
 
-持续进行该算法，即可得到正交组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$。
+持续进行该算法，即可得到正交向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$。
 
 \subsection{例子}
 
 假设给定向量\[\mathbf{x}_1=(1,1,1)^T,\quad\mathbf{x}_2=(0,1,2)^T,\quad\mathbf{x}_3=(1,0,2)^T,\]
-并且要用格拉姆-施密特方法来将其转化为正交组。第一步我们定义
+并且要用格拉姆-施密特方法来将其转化为正交向量组。第一步我们定义
 $$\mathbf{v}_{1}=\mathbf{x}_{1}=(1,1,1)^{T}.$$
 第二步我们有
 $$
@@ -580,9 +580,9 @@ $$
 \begin{problemset}
     \item 对向量组$(1,2,-2)^T,(1,-1,4)^T,(2,1,1)^T$应用格拉姆-施密特正交化。
     \item 对向量组$(1,2,3)^T,(1,3,1)^T$应用格拉姆-施密特正交化。写出往这些向量张成的$2$维子空间中正交投影的矩阵。
-    \item 将上题中的正交组补全为$\mathbb{R}^3$中的正交基，即向其中加入若干个（多少个？）向量以得到正交基。
+    \item 将上题中的正交向量组补全为$\mathbb{R}^3$中的正交基，即向其中加入若干个（多少个？）向量以得到正交基。
     
-    你能描述在$\mathbb{R}^n$或$\mathbb{C}^n$的一般情形下，如何将正交组补全为正交基吗？
+    你能描述在$\mathbb{R}^n$或$\mathbb{C}^n$的一般情形下，如何将正交向量组补全为正交基吗？
     \item 求出从向量$(2,3,1)^{T}$到由向量$(1,2,3)^T,(1,3,1)^T$张成的子空间的距离。注意，只需要求到子空间的距离，而不需求正交投影。
     \item 求出从向量$(1,1,1,1)^{T}$到由向量$\mathbf{v}_1=(1,3,1,1)^T,\mathbf{v}_2=(2,-1,1,0)^T$张成的子空间的距离（注意$\mathbf{v}_1\perp\mathbf{v}_2$）。
     \item 求出从向量$(1,2,3,4)^{T}$到由向量$\mathbf{v}_1=(1,-1,1,0)^T,\mathbf{v}_2=(1,2,1,1)^T$张成的子空间的距离（注意$\mathbf{v}_1\perp\mathbf{v}_2$）。你能不计算投影就求出距离吗？这将简化计算。
