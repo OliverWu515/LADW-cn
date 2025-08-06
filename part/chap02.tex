@@ -292,7 +292,7 @@
 \end{proof}
 
 \begin{proposition}\label{prop:li_no_more}
-  $\mathbb{F}^{n}$中的任意线性无关向量组不能含有超过$n$个向量。
+  $\mathbb{F}^{n}$中的任意线性无关组不能含有超过$n$个向量。
 \end{proposition}
 
 \begin{proof}
@@ -506,7 +506,7 @@
 下面结论将在后文发挥重要作用。
 
 \begin{proposition}[补全为基]\label{prop:completion}
-  有限维向量空间中的线性无关组可被补全为基，也即，若$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r$是有限维向量空间$V$中的线性无关向量组，那么可以找到向量$\mathbf{v}_{r+1},\mathbf{v}_{r+2}\ldots,\mathbf{v}_{n}$，使得向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$是$V$的基。
+  有限维向量空间中的线性无关组可被补全为基，也即，若$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r$是有限维向量空间$V$中的线性无关组，那么可以找到向量$\mathbf{v}_{r+1},\mathbf{v}_{r+2}\ldots,\mathbf{v}_{n}$，使得向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$是$V$的基。
 \end{proposition}
 
 \begin{proof}
@@ -548,7 +548,7 @@
     \item 如果$V$是维数为$n$的向量空间，那么$V$恰有一个维数为$0$和一个维数为$n$的子空间。
   \end{enumerate}
   \item 证明：若$V$是维数为$n$的向量空间，那么$V$中的向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是线性无关的，当且仅当其张成$V$。
-  \item 证明：向量空间$V$中的线性无关向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是基，当且仅当$n=\dim V$。
+  \item 证明：向量空间$V$中的线性无关组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是基，当且仅当$n=\dim V$。
   \item （旧题重温：现在这道题应该很简单了）是否可能出现这样的情况：向量$\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}$是线性相关的，但向量$\mathbf{w}_1=\mathbf{v}_1+\mathbf{v}_2,\mathbf{w}_2=\mathbf{v}_2+\mathbf{v}_3$与$\mathbf{w}_3=\mathbf{v}_3+\mathbf{v}_1$是线性{\bf 无关}的？{\bf 提示}：子空间$\operatorname{span}\{\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}\}$的维数是多少？
   \item 设向量组$\mathbf{u},\mathbf{v},\mathbf{w}$是$V$的基。证明：$\mathbf{u+v+w},\mathbf{v+w},\mathbf{w}$也是$V$的基。
   \item 考虑向量空间$\mathbb{R}^{5}$中的向量$\mathbf{v}_{1}=(2,-1,1,5,-3)^{T},\mathbf{v}_{2}=(3,-2,0,0,0)^{T},$ $\mathbf{v}_3=(1,1,50,-921,0)^T$。
@@ -783,7 +783,7 @@
 
 \subsection{将线性无关组补全为基}
 
-如之前第 \ref{sec:finite_dimensional_space} 节的命题 \ref{prop:completion} 所述，任意线性无关组都可补全为基，即给定有限维向量空间$V$中的线性无关向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r$，可以找到$\mathbf{v}_{r+1},\mathbf{v}_{r+2},\ldots,\mathbf{v}_{n}$，使得向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$是$V$的基。
+如之前第 \ref{sec:finite_dimensional_space} 节的命题 \ref{prop:completion} 所述，任意线性无关组都可补全为基，即给定有限维向量空间$V$中的线性无关组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r$，可以找到$\mathbf{v}_{r+1},\mathbf{v}_{r+2},\ldots,\mathbf{v}_{n}$，使得向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$是$V$的基。
 
 理论上说，该命题的证明给出了求向量$\mathbf{v}_{r+1},\mathbf{v}_{r+2},\ldots,\mathbf{v}_{n}$的算法，但此算法并不实用。
 

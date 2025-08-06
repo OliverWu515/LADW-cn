@@ -203,7 +203,7 @@
 
 %---------- 设置页脚样式 ----------
 \newcommand{\footstyle}{%
-    \fancyfoot[R]{\chapterpagenum}
+    \fancyfoot[R]{\sffamily\chapterpagenum}
     %\fancyfoot[LE]{\zihao{5}\thepage}
     %\fancyfoot[RO]{\zihao{5}\thepage}
 }

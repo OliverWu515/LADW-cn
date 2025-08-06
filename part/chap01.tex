@@ -5,26 +5,32 @@
 
 \section{向量空间}\label{sec:vector_space}
 
-向量空间$V$是一系列对象所构成的（非空）集合，这些对象称为向量（本书中以粗体小写字母表示，例如$\mathbf{v}$）。其上还定义了两种运算——向量的加法以及向量与数（标量）的乘法\footnote{我们需要让向量和其他对象看起来有些区别，因此在本书中我们使用粗体小写字母来表示向量，并用正体小写字母来表示数（标量）。一些（更为进阶的）教材中，拉丁字母用于表示向量而希腊字母用于表示标量；在一些更为进阶的教材里，任意字母可用于表示任意对象，而读者须从上下文推断每个符号的含义。我认为，尤其对于初学者而言，对不同对象加以视觉上的区分是有助于理解的，因此总用粗体小写字母来表示向量。在黑板上，则用箭头（如$\vec{v}$所示）来标识向量。}，这两种运算满足所得结果总属于$V$，以及以下的八条性质（所谓向量空间的{\bf 公理}）：
+向量空间$V$是一系列对象所构成的（非空）集合，这些对象称为向量（本书中以粗体小写字母表示，例如$\mathbf{v}$）。其上还定义了两种运算——向量的加法以及向量与数（标量）的乘法\footnote{我们需要让向量和其他对象看起来有些区别，因此在本书中我们使用粗体小写字母来表示向量，并用正体小写字母来表示数（标量）。一些（进阶的）教材中，拉丁字母用于表示向量而希腊字母用于表示标量；更为进阶的教材里，任意字母可用于表示任意对象，而读者须从上下文推断每个符号的含义。我认为，尤其对于初学者而言，对不同对象加以视觉上的区分是有助于理解的，因此总用粗体小写字母来表示向量。在黑板上，则用箭头来标识向量（如$\vec{v}$所示）。}，这两种运算满足所得结果总属于$V$，以及以下的八条性质（所谓向量空间的{\bf 公理}）：
 
-{\bf 前} 4 {\bf 条性质是关于加法的：}\marginpar{\small 问题来了：“这些性质怎么记得住呢？”回答是，并不需要记忆，详见后文！}
+前 4 条性质是关于加法的：\marginpar{\small 问题来了：“这些性质怎么记得住呢？”回答是，并不需要记忆，详见后文！}
 \begin{enumerate}
-    \item 交换律：对于所有 $\mathbf{v},\mathbf{w}\in V$，有$\mathbf{v} + \mathbf{w} = \mathbf{w} + \mathbf{v}$；
-    \item 结合律：对于所有 $\mathbf{u},\mathbf{v},\mathbf{w}\in V$，有$(\mathbf{u}+\mathbf{v})+\mathbf{w}=\mathbf{u}+(\mathbf{v}+\mathbf{w})$；
+    \item 交换律：对于所有 $\mathbf{v},\mathbf{w}\in V$，都有$\mathbf{v} + \mathbf{w} = \mathbf{w} + \mathbf{v}$；
+    \item 结合律：对于所有 $\mathbf{u},\mathbf{v},\mathbf{w}\in V$，都有$(\mathbf{u}+\mathbf{v})+\mathbf{w}=\mathbf{u}+(\mathbf{v}+\mathbf{w})$；
     \item 零向量：存在一个特殊的向量，记作$\mathbf{0}$，其满足$\mathbf{v}+\mathbf{0} = \mathbf{v}$对于所有$\mathbf{v}\in V$都成立；
     \item 加法逆元：对于每个向量$\mathbf{v}\in V$，都存在向量$\mathbf{w}\in V$使得$\mathbf{v}+\mathbf{w}=\mathbf{0}$。这一加法逆元常记作$-\mathbf{v}$；
-    
-    {\bf 接下来两条性质是有关乘法的：}
+\end{enumerate}
+
+接下来两条性质是有关乘法的：
+
+\begin{enumerate}[start=5]
     \item 乘法恒等元：对于所有$\mathbf{v}\in V$，都有$1\mathbf{v}=\mathbf{v}$；
     \item 乘法结合律：对于所有$\mathbf{v}\in V$和所有标量$\alpha,\beta$，都有$(\alpha\beta)\mathbf{v} = \alpha(\beta\mathbf{v})$；
-    
-    {\bf 最后是两条分配性质，它们将乘法与加法联系起来：}
+\end{enumerate}
+
+最后是两条分配性质，它们将乘法与加法联系起来：
+
+\begin{enumerate}[start=7]
     \item 对于所有$\mathbf{u},\mathbf{v}\in V$和所有标量$\alpha$，都有$\alpha(\mathbf{u}+\mathbf{v})=\alpha\mathbf{u}+\alpha\mathbf{v}$；
     \item 对于所有$\mathbf{v}\in V$和所有标量$\alpha,\beta$，都有$(\alpha+\beta)\mathbf{v}=\alpha\mathbf{v}+\beta\mathbf{v}$。
 \end{enumerate}
 
 \begin{remark*}
-    上述性质看起来很难记忆，但其实没必要记——它们就是标量代数运算的性质，而这些内容你在中学期间就已经知道了。唯一新出现的难点是，你需要理解运算可作用的对象。你可以将向量相加，也可以将向量与数（标量）相乘。当然，你还可以对于数进行之前你学过的所有运算。然而，你不能将两个向量相乘，或将向量和数加在一起。
+    上述性质看起来很难记忆，但其实没必要记——它们就是标量代数的运算律，而这些内容你在中学期间就已经知道了。唯一新出现的难点是，你需要理解运算可作用的对象。你可以将向量相加，也可以将向量与数（标量）相乘。当然，你还可以对于数进行之前你学过的所有运算。然而，你不能将两个向量相乘，或将向量和数加在一起。
 \end{remark*}
 
 \begin{remark*}
@@ -219,9 +225,9 @@
     假设向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}$是线性相关的。那么存在标量$\alpha_{k}$，\\$\sum_{k=1}^{p}|\alpha_{k}|\neq0$使得
     \[\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\cdots+\alpha_p\mathbf{v}_p=\mathbf{0}.\]
     令$k$为使得$\alpha_k\ne 0$的下标。于是，将除了$\alpha_{k}\mathbf{v}_{k}$之外的项移到右端可得\[\alpha_k\mathbf{v}_k=-\sum_{\begin{subarray}{c}j=1\\j\neq k\end{subarray}}^p\alpha_j\mathbf{v}_j.\]
-    将两边都除以$\alpha_k$可得式\eqref{eq_2_1}，其中$\beta_j = -\alpha_j/\alpha_k$。
+    将两边都除以$\alpha_k$可得式 \eqref{eq_2_1}，其中$\beta_j = -\alpha_j/\alpha_k$。
 
-    另一方面，若\eqref{eq_2_1}成立，那么$\mathbf{0}$可被表示为非平凡线性组合\[\mathbf{v}_k-\sum_{\begin{subarray}{c}j=1\\j\neq k\end{subarray}}^p\beta_j\mathbf{v}_j=\mathbf{0}.\]
+    另一方面，若 \eqref{eq_2_1} 成立，那么$\mathbf{0}$可被表示为非平凡线性组合\[\mathbf{v}_k-\sum_{\begin{subarray}{c}j=1\\j\neq k\end{subarray}}^p\beta_j\mathbf{v}_j=\mathbf{0}.\]
 \end{proof}
 
 显然，任一基都是线性无关组。的确如此：若向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是基，那么$\mathbf{0}$可被唯一表示为\[\mathbf{0}=\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\cdots+\alpha_n\mathbf{v}_n=\sum_{k=1}^n\alpha_k\mathbf{v}_k.\]
@@ -291,7 +297,7 @@
 
 \section{线性变换、矩阵-向量乘法}
 
-从集合$X$到集合$Y$的\textbf{变换}$T$是一种对应关系，\marginpar{\small “变换”、“映射”、\\“算子”、“函数”都是指同类对象。\footnote{一般来说，算子的定义域和陪域一样。本书有些地方的“算子”实为一般的变换，翻译将予以区分。——译者注}}将任意自变量（输入）$x\in X$对应到一值（输出）$y=T(x)\in Y$。
+从集合$X$到集合$Y$的\textbf{变换}$T$是一种对应关系，\marginpar{\small “变换”、“映射”、\\“算子”、“函数”都是指同类对象。\footnotemark}将任意自变量（输入）$x\in X$对应到一值（输出）$y=T(x)\in Y$。\footnotetext{一般来说，算子的定义域和陪域一样。本书有些地方的“算子”实为一般的变换，翻译将予以区分。——译者注}
 
 集合$X$称为$T$的{\bf 定义域}，集合$Y$称为$T$的{\bf 目标空间}或{\bf 陪域}。
 
@@ -326,7 +332,7 @@
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics{figures/fig1_3_1.pdf}
+    \includegraphics[scale=0.9]{figures/fig1_3_1.pdf}
     \caption{旋转}
 \end{figure}
 
