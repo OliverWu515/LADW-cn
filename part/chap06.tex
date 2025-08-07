@@ -1,0 +1,125 @@
+%%%%%%%%%%%%%%%%%% 内积空间上算子的结构 %%%%%%%%%%%%%%%%%%%
+
+\chapter{内积空间上算子的结构}\label{chap:StructinInnerProdSpace}
+
+\section{算子的上三角（舒尔）表示}
+
+\begin{equation}
+    \begin{pNiceArray}{c|ccc}
+        \lambda_1 & & * & \\
+        \Hline
+        0 & & & \\
+        \vdots & & A_1 & \\
+        0 & & & 
+    \end{pNiceArray}
+\end{equation}
+
+\section{自伴算子和正规算子的谱定理}
+
+\begin{equation*}
+    \begin{pNiceArray}{c|ccc}
+        a_{1,1} & a_{1,2} & \ldots & a_{1,n}\\
+        \Hline
+        0 & & & \\
+        \vdots & & N_1 & \\
+        0 & & & 
+    \end{pNiceArray}
+\end{equation*}
+
+\begin{equation*}
+    \begin{pNiceArray}{c|ccc}
+        a_{1,1} & 0 & \ldots & 0\\
+        \Hline
+        0 & & & \\
+        \vdots & & N_1 & \\
+        0 & & & 
+    \end{pNiceArray}
+\end{equation*}
+
+\begin{equation*}
+    N^*N = \begin{pNiceArray}{c|ccc}
+        |a_{1,1}|^2 & 0 & \ldots & 0\\
+        \Hline
+        0 & & & \\
+        \vdots & & N_1^*N_1 & \\
+        0 & & & 
+    \end{pNiceArray},\quad 
+    \begin{pNiceArray}{c|ccc}
+        |a_{1,1}|^2 & 0 & \ldots & 0\\
+        \Hline
+        0 & & & \\
+        \vdots & & N_1N_1^* & \\
+        0 & & & 
+    \end{pNiceArray},
+\end{equation*}
+
+\section{极分解和奇异值分解}
+
+\section{奇异值分解的应用}
+
+\section{正交矩阵的结构}
+
+\[
+    \begin{pNiceMatrix}
+        R_{\varphi_1}             &               &        &               & \Block{2-1}<\LARGE>{0} \\
+                                  & R_{\varphi_2} &        &               &                        \\
+                                  &               & \ddots &               &                        \\
+        \Block[b]{2-1}<\LARGE>{0} &               &        & R_{\varphi_k} &                        \\
+                                  &               &        &               & I_{n-2k}
+    \end{pNiceMatrix}.
+\]
+
+\begin{equation*}
+    \begin{pNiceArray}{c|ccc}
+        R_{-\alpha} &  & * & \\
+        \Hline
+         & & & \\
+        \mathbf{0} & & U_1 & \\
+         & & & 
+    \end{pNiceArray}
+\end{equation*}
+
+\begin{equation*}
+    \begin{pNiceArray}{c|ccc}
+        R_{-\alpha} &  & \mathbf{0} & \\
+        \Hline
+         & & & \\
+        \mathbf{0} & & U_1 & \\
+         & & & 
+    \end{pNiceArray}
+\end{equation*}
+
+\begin{equation*}
+    I = U^*U = \begin{pNiceArray}{c|ccc}
+        I &  & \mathbf{0} & \\
+        \Hline
+         & & & \\
+        \mathbf{0} & & U_1^*U_1 & \\
+         & & & 
+    \end{pNiceArray}
+\end{equation*}
+
+\[
+    \begin{pNiceMatrix}
+        R_{-\alpha_1}             &               &        &               &        & \Block{2-1}<\LARGE>{0} \\
+                                  & R_{-\alpha_2} &        &               &        &                        \\
+                                  &               & \ddots &               &        &                        \\
+                                  &               &        & R_{-\alpha_d} &        &                        \\
+        \Block[b]{2-1}<\LARGE>{0} &               &        &               & -I_{r} &                        \\
+                                  &               &        &               &        & -I_{l}                 \\
+    \end{pNiceMatrix}.
+\]
+
+\[
+    \begin{pNiceMatrix}
+        R_{\varphi_1}             &               &        &               &       & \Block{2-1}<\LARGE>{0} \\
+                                  & R_{\varphi_2} &        &               &       &                        \\
+                                  &               & \ddots &               &       &                        \\
+                                  &               &        & R_{\varphi_k} &       &                        \\
+        \Block[b]{2-1}<\LARGE>{0} &               &        &               & I_{r} &                        \\
+                                  &               &        &               &       & -1                     \\
+    \end{pNiceMatrix}.
+\]
+
+\section{取向}
+

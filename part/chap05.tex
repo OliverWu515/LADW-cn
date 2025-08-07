@@ -433,12 +433,10 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 \begin{proof}[命题 \ref{prop:projection_solution} 的证明]
     令\[\mathbf{w}:=\sum_{k=1}^r\alpha_k\mathbf{v}_k,\quad \text{其中}\quad\alpha_k=\frac{(\mathbf{v},\mathbf{v}_k)}{\|\mathbf{v}_k\|^2}.\]
     欲证$\mathbf{v}-\mathbf{w}\in E$。由引理 \ref{lem:vec_ortho_subspace}，只需证明$\mathbf{v}-\mathbf{w}\perp \mathbf{v}_k,k=1,2,\dots,r$。计算内积即得，对$k=1,2,\dots,r$有
-    \[
-    \begin{aligned}
+    \begin{align*}
         (\mathbf{v-w},\mathbf{v}_{k})&=(\mathbf{v},\mathbf{v}_{k})-(\mathbf{w},\mathbf{v}_{k})=(\mathbf{v},\mathbf{v}_{k})-\sum_{j=1}^{r}\alpha_{j}(\mathbf{v}_{j},\mathbf{v}_{k})\\
-        &=(\mathbf{v},\mathbf{v}_{k})-\alpha_{k}(\mathbf{v}_{k},\mathbf{v}_{k})=(\mathbf{v},\mathbf{v}_{k})-\frac{(\mathbf{v},\mathbf{v}_{k})}{\|\mathbf{v}_{k}\|^{2}}\|\mathbf{v}_{k}\|^{2}=0.
-    \end{aligned}\qedhere
-    \]
+        &=(\mathbf{v},\mathbf{v}_{k})-\alpha_{k}(\mathbf{v}_{k},\mathbf{v}_{k})=(\mathbf{v},\mathbf{v}_{k})-\frac{(\mathbf{v},\mathbf{v}_{k})}{\|\mathbf{v}_{k}\|^{2}}\|\mathbf{v}_{k}\|^{2}=0.\qedhere
+    \end{align*}
 \end{proof}
 
 所以，已知$E$的正交基即可求出往$E$中的正交投影。特别地，由于仅包含一个向量的向量组都是正交向量组，所以我们知道了如何将向量往一维空间中正交投影。
@@ -575,7 +573,7 @@ $$
     对于子空间$E$，\[(E^\perp)^\perp=E.\]
 \end{proposition}
 
-证明留作习题（见下习题 \ref{ex:6_3_12}）。
+证明留作习题（见下习题 \ref{ex:5_3_12}）。
 
 \begin{problemset}
     \item 对向量组$(1,2,-2)^T,(1,-1,4)^T,(2,1,1)^T$应用格拉姆-施密特正交化。
@@ -602,7 +600,7 @@ $$
         \item $P^2=P$。
     \end{enumerate}
     {\bf 提示}：上述两条性质能完全刻画正交投影，即任意满足上述性质的矩阵$P$都是某正交投影的矩阵。我们后续会进行讨论。
-    \item \label{ex:6_3_12} 证明：对子空间$E$有$(E^\perp)^\perp=E$。{\bf 提示}：容易看出$E$正交于$E^\perp$（为什么？）。为证明\textbf{任意}正交于$E^\perp$的向量$\mathbf{x}$都属于$E$，利用上面 \ref{subsec:orthogonal_complement} 节的分解$V=E\oplus E^\perp$。
+    \item \label{ex:5_3_12} 证明：对子空间$E$有$(E^\perp)^\perp=E$。{\bf 提示}：容易看出$E$正交于$E^\perp$（为什么？）。为证明\textbf{任意}正交于$E^\perp$的向量$\mathbf{x}$都属于$E$，利用上面 \ref{subsec:orthogonal_complement} 节的分解$V=E\oplus E^\perp$。
     \item 设$P$是往子空间$E$中的正交投影，$Q$是往正交补$E^\perp$中的正交投影。
     \begin{enumerate}[label={\alph*)}]
         \item $P+Q$和$PQ$分别是什么？
@@ -631,18 +629,18 @@ $A\mathbf{x}=\mathbf{b}$
 
 \subsubsection{几何方法}
 
-然而，求出最小值点有一种更简单的方法。即，如果取遍向量$\mathbf{x}$，那么$A\mathbf{x}$给出$\rg A$中的所有向量，所以$\|A\mathbf{x}-\mathbf{b}\|$的最小值恰为从$\mathbf{b}$到$\rg A$的距离。因此$\|A\mathbf{x}-\mathbf{b}\|$取得最小值，当且仅当$A\mathbf{x}=P_{\operatorname{Ran}A}\mathbf{b}$，其中$P_{\rg A}$表示往列空间$\rg A$中的正交投影。
+然而，求出最小值点有一种更简单的方法。即，如果取遍向量$\mathbf{x}$，那么$A\mathbf{x}$给出$\rg A$中的所有向量，所以$\|A\mathbf{x}-\mathbf{b}\|$的最小值恰为从$\mathbf{b}$到$\rg A$的距离。因此$\|A\mathbf{x}-\mathbf{b}\|$取得最小值，当且仅当$A\mathbf{x}=P_{\rg A}\mathbf{b}$，其中$P_{\rg A}$表示往列空间$\rg A$中的正交投影。
 
-所以，为求最小平方解，只需解方程\[A\mathbf{x}=P_{\operatorname{Ran}A}\mathbf{b}.\]
-如果已知$\rg A$的正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，则可通过下式求出向量$P_{\operatorname{Ran}A}\mathbf{b}$
-\[P_{\operatorname{Ran}A}\mathbf{b}=\sum_{k=1}^{n}\frac{(\mathbf{b},\mathbf{v}_{k})}{\|\mathbf{v}_{k}\|^{2}}\mathbf{v}_{k}.\]
+所以，为求最小平方解，只需解方程\[A\mathbf{x}=P_{\rg A}\mathbf{b}.\]
+如果已知$\rg A$的正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，则可通过下式求出向量$P_{\rg A}\mathbf{b}$
+\[P_{\rg A}\mathbf{b}=\sum_{k=1}^{n}\frac{(\mathbf{b},\mathbf{v}_{k})}{\|\mathbf{v}_{k}\|^{2}}\mathbf{v}_{k}.\]
 如果仅仅知道$\rg A$的基，则需要用格拉姆-施密特正交化来从中得到正交基。
 
 那么理论上说，问题已经解决。但是这个解法还不够简单：它包含格拉姆-施密特正交化，后者的计算开销可能很大。好在，还有一种更简单的解法。
 
 \subsubsection{法方程}
 
-$A\mathbf{x}$是正交投影$P_{\operatorname{Ran}A}\mathbf{b}$当且仅当$\mathbf{b}-A\mathbf{x}\perp\rg A$（$A\mathbf{x}\in\rg A$对所有$\mathbf{x}$都成立）。
+$A\mathbf{x}$是正交投影$P_{\rg A}\mathbf{b}$当且仅当$\mathbf{b}-A\mathbf{x}\perp\rg A$（$A\mathbf{x}\in\rg A$对所有$\mathbf{x}$都成立）。
 
 若$\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{n}$是$A$的列，那么$\mathbf{b}-A\mathbf{x}\perp\rg A$可重写为
 \[\mathbf{b}-A\mathbf{x}\perp\mathbf{a}_{k},\quad\forall k=1,2,\ldots,n.\]
@@ -656,10 +654,10 @@ $A\mathbf{x}$是正交投影$P_{\operatorname{Ran}A}\mathbf{b}$当且仅当$\mat
 
 \subsection{正交投影的公式}
 
-如我们之前已讨论的，如果$\mathbf{x}$是\textbf{法方程}$A^*A\mathbf{x}=A^*\mathbf{b}$的解（即$A\mathbf{x}=\mathbf{b}$的最小平方解），那么$A\mathbf{x}=P_{\operatorname{Ran}A}\mathbf{b}$。所以，为求$\mathbf{b}$往列空间$\rg A$中的正交投影，需要求解法方程$A^*A\mathbf{x}=A^*\mathbf{b}$，然后将所得的解乘以$A$。
+如我们之前已讨论的，如果$\mathbf{x}$是\textbf{法方程}$A^*A\mathbf{x}=A^*\mathbf{b}$的解（即$A\mathbf{x}=\mathbf{b}$的最小平方解），那么$A\mathbf{x}=P_{\rg A}\mathbf{b}$。所以，为求$\mathbf{b}$往列空间$\rg A$中的正交投影，需要求解法方程$A^*A\mathbf{x}=A^*\mathbf{b}$，然后将所得的解乘以$A$。
 
-如果算子$A^*A$可逆，那么法方程$A^*A\mathbf{x}=A^*\mathbf{b}$的解是$\mathbf{x}=(A^*A)^{-1}$ $A^*\mathbf{b}$，所以正交投影$P_{\operatorname{Ran}A}\mathbf{b}$可按下式计算\[P_{\operatorname{Ran}A}\mathbf{b}=A(A^*A)^{-1}A^*\mathbf{b}\]
-因为这对于所有$\mathbf{b}$都成立，所以往$\rg A$中正交投影的矩阵的公式是\[P_{\operatorname{Ran}A}=A(A^*A)^{-1}A^*\]
+如果算子$A^*A$可逆，那么法方程$A^*A\mathbf{x}=A^*\mathbf{b}$的解是$\mathbf{x}=(A^*A)^{-1}$ $A^*\mathbf{b}$，所以正交投影$P_{\rg A}\mathbf{b}$可按下式计算\[P_{\rg A}\mathbf{b}=A(A^*A)^{-1}A^*\mathbf{b}\]
+因为这对于所有$\mathbf{b}$都成立，所以往$\rg A$中正交投影的矩阵的公式是\[P_{\rg A}=A(A^*A)^{-1}A^*\]
 
 由下面定理可推出，对于$m\times n$矩阵$A$，矩阵$A^*A$可逆当且仅当$\rank A=n$。
 
@@ -680,7 +678,7 @@ $A\mathbf{x}$是正交投影$P_{\operatorname{Ran}A}\mathbf{b}$当且仅当$\mat
 理想情况下，系数$a$与$b$应满足方程\[a+bx_k=y_k,\quad k=1,2,\ldots,n\]
 （注意，$x_k$和$y_k$是固定的数，而未知数是$a$和$b$）如果能求出满足条件的$a$和$b$，那是我们走运；如果求不出，通行的做法是最小化总的二次误差\[\sum_{k=1}^n|a+bx_k-y_k|^2.\]
 而最小化这个误差恰恰就是求出下列方程组的最小平方解：
-\[\begin{pmatrix}1&x_1\\1&x_2\\\vdots&\vdots\\1&x_n\end{pmatrix}\begin{bmatrix}a\\b\end{bmatrix}=\begin{pmatrix}y_1\\y_2\\\vdots\\y_n\end{pmatrix}\]
+\[\begin{pmatrix}1&x_1\\1&x_2\\\vdots&\vdots\\1&x_n\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix}=\begin{pmatrix}y_1\\y_2\\\vdots\\y_n\end{pmatrix}\]
 （回想一下，$x_k$和$y_k$是给定的数，而未知数是$a$和$b$）
 
 \subsubsection{例子}
@@ -804,14 +802,14 @@ $$y=86/77-62x/77+43x^2/154$$
         \item $A\mathbf{x}=\mathbf{b}$存在唯一能使得范数$\|\mathbf{x}\|$最小的解$\mathbf{x}_0$，即存在唯一的$\mathbf{x}_0$，使得$A\mathbf{x}_0=\mathbf{b}$且$\|\mathbf{x}_0\|\le \|\mathbf{x}\|$对所有满足$A\mathbf{x}=\mathbf{b}$的$\|\mathbf{x}\|$成立。
         \item 对于所有满足$A\mathbf{x}=\mathbf{b}$的$\mathbf{x}$，有$\mathbf{x}_{0}=P_{(\mathrm{Ker}A)^{\perp}}\mathbf{x}$。
     \end{enumerate}
-    \item \textbf{最小范数最小平方解}。将上述问题的结论应用于方程$A\mathbf{x}=P_{\operatorname{Ran}A}\mathbf{b}$以证明：
+    \item \textbf{最小范数最小平方解}。将上述问题的结论应用于方程$A\mathbf{x}=P_{\rg A}\mathbf{b}$以证明：
     \begin{enumerate}[label={\alph*)}]
         \item 方程$A\mathbf{x}=\mathbf{b}$存在唯一能使得范数$\|\mathbf{x}\|$最小的最小平方解$\mathbf{x}_0$。
-        \item 对于$A\mathbf{x}=\mathbf{b}$的所有最小平方解$\mathbf{x}$，有$\mathbf{x}_{0}=P_{(\operatorname{Ker}A)^{\perp}}\mathbf{x}$。
+        \item 对于$A\mathbf{x}=\mathbf{b}$的所有最小平方解$\mathbf{x}$，有$\mathbf{x}_{0}=P_{(\ker A)^{\perp}}\mathbf{x}$。
     \end{enumerate}
 \end{problemset}
 
-\section{线性映射的伴随、重温基本子空间}
+\section{线性变换的伴随、重温基本子空间}
 
 \subsection{伴随矩阵和伴随变换}
 
@@ -821,9 +819,9 @@ $$y=86/77-62x/77+43x^2/154$$
 \[\boxed{(A\mathbf{x},\mathbf{y})=(\mathbf{x},A^*\mathbf{y})\quad\forall\mathbf{x}\in\mathbb{C}^n,\forall\mathbf{y}\in\mathbb{C}^m.}\]
 在证明这个恒等式之前，我们先介绍一些有用的公式。首先，回想一下，对转置矩阵有恒等式$(AB)^T=B^TA^T$。因为对于复数$z$和$w$有$\overline{zw}=\overline{z}\,\overline{w}$，所以对于伴随成立下述恒等式\[(AB)^*=B^*A^*\]
 
-并且，因为$(A^T)^T=A$且$\overline{\overline{z}}=z$，\[(A^*)^*=A.\]
+并且，因为$(A^T)^T=A$且$\overline{\overline{z}}=z$，所以\[(A^*)^*=A.\]
 
-现在我们就做好了准备，可以证明核心的恒等式：
+有了这些准备，我们即可证明核心的恒等式：
 \[(A\mathbf{x},\mathbf{y})=\mathbf{y}^*A\mathbf{x}=(A^*\mathbf{y})^*\mathbf{x}=(\mathbf{x},A^*\mathbf{y});\]
 第一个和最后一个等号源于$\mathbb{F}^n$上内积的定义，中间的等号则源于\[(A^*\mathbf{x})^*=\mathbf{x}^*(A^*)^*=\mathbf{x}^*A.\]
 
@@ -859,17 +857,17 @@ $$y=86/77-62x/77+43x^2/154$$
 \begin{theorem}\label{thm:geometric_relation_adjoint_fundamental}
     令$A:V\to W$是从一内积空间到另一内积空间的变换。那么
     \begin{enumerate}
-        \item $\operatorname{Ker}A^*=(\operatorname{Ran}A)^\perp$；
-        \item $\operatorname{Ker}A=(\operatorname{Ran}A^{*})^{\perp}$；
-        \item $\operatorname{Ran}A=(\operatorname{Ker}A^{*})^{\perp}$；
-        \item $\operatorname{Ran}A^*=(\operatorname{Ker}A)^\perp$。
+        \item $\ker A^*=(\rg A)^\perp$；
+        \item $\ker A=(\rg A^{*})^{\perp}$；
+        \item $\rg A=(\ker A^{*})^{\perp}$；
+        \item $\rg A^*=(\ker A)^\perp$。
     \end{enumerate}
 \end{theorem}
 
 \begin{remark*}
-    早先，在第 \ref{chap:LinearSystems} 章第 \ref{sec:fundamental_subspace} 中定义基本子空间时，用的是$A^T$而不是$A^*$（一般的文献中也都这样定义）。当然，对于实矩阵来说这两者并无差异，所以在实数情形下，上述定理能给出之前定义的基本子空间的几何描述。
+    早先，在第 \ref{chap:LinearSystems} 章第 \ref{sec:fundamental_subspace} 节中定义基本子空间时，用的是$A^T$而不是$A^*$（一般的文献中也都这样定义）。当然，对于实矩阵来说这两者并无差异，所以在实数情形下，上述定理能给出之前定义的基本子空间的几何描述。
 
-    利用$A^T$定义的基本子空间的几何阐释见于后面的第8章，见第3节定理3.7。该定理和此处的\autoref{thm:geometric_relation_adjoint_fundamental} 本质上一样，只是表述略有区别。
+    利用$A^T$定义的基本子空间的几何阐释见于后面的第8章（见第3节定理3.7）。该定理中的公式和此处\autoref{thm:geometric_relation_adjoint_fundamental} 中的本质上一样，只是表述略有区别。
     %TODO 添加引用
 \end{remark*}
 
@@ -878,7 +876,7 @@ $$y=86/77-62x/77+43x^2/154$$
 
     所以要证明这个定理，只需证明结论1。
 
-    我们将呈现该结论的两种证法：用矩阵的证法，以及“不变式”证明——即不依赖于基和坐标的证法。
+    我们将呈现该结论的两种证法：用矩阵的证法，以及“不变式”证法——即不依赖于基和坐标的证法。
 
     在用矩阵的证法中，假设$A$是$m\times n$矩阵，即$A:\mathbb{F}^n\to \mathbb{F}^m$。一般情形总可以化归到这种情形：选取$V$和$W$中的规范正交基，并考虑$A$关于这两个基的矩阵即可。
 
@@ -888,7 +886,7 @@ $$y=86/77-62x/77+43x^2/154$$
     由于$\mathbf{a}_k^*$是$A^*$的第$k$行，所以上述$n$个等式等价于方程\[A^*\mathbf{x}=\mathbf{0}.\]
     所以我们证明了$\mathbf{x}\in(\rg A)^\perp$当且仅当$A^*\mathbf{x}=\mathbf{0}$，而这就是结论1。
 
-    现在展示不依赖于坐标的证法。$x\in(\rg A)^\perp$意味着$\mathbf{x}$正交于所有形如$A\mathbf{y}$的向量，即\[(\mathbf{x},A\mathbf{y})=0\quad\forall\mathbf{y}.\]
+    现在展示不依赖于基和坐标的证法。$\mathbf{x}\in(\rg A)^\perp$意味着$\mathbf{x}$正交于所有形如$A\mathbf{y}$的向量，即\[(\mathbf{x},A\mathbf{y})=0\quad\forall\mathbf{y}.\]
     因为$(\mathbf{x},A\mathbf{y})=(A^*\mathbf{x},\mathbf{y})$，所以此恒等式等价于\[(A^*\mathbf{x},\mathbf{y})=0\quad\forall\mathbf{y},\]
     而由引理 \ref{lem:x_0_inner_0}，这等价于$A^*\mathbf{x}=\mathbf{0}$。所以我们证明了$\mathbf{x}\in(\rg A)^\perp$当且仅当$A^*\mathbf{x}=\mathbf{0}$，而这恰好就是本定理结论1。
 \end{proof}
@@ -897,25 +895,25 @@ $$y=86/77-62x/77+43x^2/154$$
 
 上述定理让变换$A$的结构和基本子空间的几何特性更清晰了。由该定理可得，变换$A$可表示为两变换的复合：往$\rg A^*$中的正交投影与从$\rg A^*$到$\rg A$的同构。
 
-的确如此：将$A$限制在定义域$\rg A^*$和目标空间$\rg A$，得到$\widetilde{A}:\rg A^*\to \rg A$为
-\[\widetilde{A}\mathbf{x}=A\mathbf{x},\quad\forall\mathbf{x}\in\operatorname{Ran}A^{*}.\]
-因为$\ker A=(\rg A^*)^\perp$，所以有\[A\mathbf{x}=AP_{\operatorname{Ran}A^*}\mathbf{x}=\widetilde{A}P_{\operatorname{Ran}A^*}\mathbf{x}\quad\forall\mathbf{x}\in X;\]
-这里用到了$\mathbf{x}-P_{\mathrm{Ran~}A^{*}}\mathbf{x}\in(\operatorname{Ran}A^{*})^{\perp}=\operatorname{Ker}A$。于是我们可写出
+的确如此：将$A$限制在定义域$\rg A^*$和目标空间$\rg A$，得到$\widetilde{A}:\rg A^*\to \rg A$，则
+\[\widetilde{A}\mathbf{x}=A\mathbf{x},\quad\forall\mathbf{x}\in\rg A^{*}.\]
+因为$\ker A=(\rg A^*)^\perp$，所以有\[A\mathbf{x}=AP_{\rg A^*}\mathbf{x}=\widetilde{A}P_{\rg A^*}\mathbf{x}\quad\forall\mathbf{x}\in X;\]
+这里用到了$\mathbf{x}-P_{\mathrm{Ran~}A^{*}}\mathbf{x}\in(\rg A^{*})^{\perp}=\ker A$。于是我们可写出
 \begin{equation}\label{A_and_A_tilde}
-    A\mathbf{x}=\widetilde{A}P_{\mathrm{Ran}A^{*}}\mathbf{x}\quad\forall\mathbf{x}\in X,
+    A\mathbf{x}=\widetilde{A}P_{\rg A^{*}}\mathbf{x}\quad\forall\mathbf{x}\in X,
 \end{equation}
-或者等价地说，$A=\widetilde{A}P_{\mathrm{Ran}A^{*}}$。
+或者等价地说，$A=\widetilde{A}P_{\rg A^{*}}$。
 
-还请注意，$\widetilde{A}:\mathrm{Ran}A^{*}\to\mathrm{Ran}A$是可逆变换。首先注意到$\ker \widetilde{A}=\{\mathbf{0}\}$：若$\mathbf{x}\in\rg A^*$满足$\widetilde{A}\mathbf{x}=A\mathbf{x}=\mathbf{0}$，那么$\mathbf{x}\in\ker A=(\rg A^*)^\perp$，所以$\mathbf{x}\in\operatorname{Ran}A^{*}\cap(\operatorname{Ran}A^{*})^{\perp}$，于是$\mathbf{x}=\mathbf{0}$。于是，要证明$\widetilde{A}$可逆，只需证明$\widetilde{A}$是满射。
+还请注意，$\widetilde{A}:\rg A^{*}\to\rg A$是可逆变换。首先注意到$\ker \widetilde{A}=\{\mathbf{0}\}$：若$\mathbf{x}\in\rg A^*$满足$\widetilde{A}\mathbf{x}=A\mathbf{x}=\mathbf{0}$，那么$\mathbf{x}\in\ker A=(\rg A^*)^\perp$，所以$\mathbf{x}\in\rg A^{*}\cap(\rg A^{*})^{\perp}$，于是$\mathbf{x}=\mathbf{0}$。于是，要证明$\widetilde{A}$可逆，只需证明$\widetilde{A}$是满射。
 而这可由 \eqref{A_and_A_tilde} 立得：
-\[\operatorname{Ran}\widetilde{A}=\widetilde{A}\operatorname{Ran}A^*=AP_{\operatorname{Ran}A^*}X=AX=\operatorname{Ran}A.\]
+\[\rg \widetilde{A}=\widetilde{A}\rg A^*=AP_{\rg A^*}X=AX=\rg A.\]
 
 同构$\widetilde{A}$有时称为算子$A$的“本质部分”（这是个不规范的用语）。
 
-“本质部分”$\widetilde{A}:\mathrm{Ran}A^{*}\to\mathrm{Ran}A$是同构，蕴涵了“复”秩定理：$\rank A=\rank A^*$。不过，这个定理当然也可由一个简单的观察得到——复共轭不会改变矩阵的秩，即$\rank A=\rank \overline{A}$。
+$A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了“复”秩定理：$\rank A=\rank A^*$。不过，这个定理当然也可由一个简单的观察得到——复共轭不会改变矩阵的秩，即$\rank A=\rank \overline{A}$。
 
 \begin{problemset}
-    \item 证明：对于方阵$A$，等式$\det(A^*)=\overline{\det (A)}$成立。
+    \item \label{ex:5_5_1}证明：对于方阵$A$，等式$\det(A^*)=\overline{\det (A)}$成立。
     \item 求出往下列矩阵的四个基本子空间中正交投影的矩阵。
     \[A=\begin{pmatrix}1&1&1\\1&3&2\\2&4&3\end{pmatrix}.\]
     注意，你只需要求其中两个投影：如果你选择适当的两个来求，就很容易从中得到另外两个（回忆一下往$E$和$E^\perp$中的投影的关系）。
@@ -928,12 +926,258 @@ $$y=86/77-62x/77+43x^2/154$$
         \item 若$A\mathbf{x}=\mathbf{0}$仅有平凡解，那么$A$是左可逆的。（可以写出左逆的公式）
     \end{enumerate}
     \item 假设对矩阵$A$有矩阵$A^*A$可逆，因此往$\rg A$中的正交投影由公式\linebreak $A(A^*A)^{-1}A^*$给出。你能写出往其他三个基本子空间（$\ker A,\ker A^*,\rg A^*$）正交投影的公式吗？
-    \item 令$P$是自伴的（$P^*=P$）并令$P^2=P$。证明：$P$是一个正交投影的矩阵。{\bf 提示}：考虑分解$\mathbf{x}=\mathbf{x}_1+\mathbf{x}_2$，$\mathbf{x}_1\in\rg P,\mathbf{x}_2\perp\rg P$，并证明$P\mathbf{x}_1=\mathbf{x}_1,P\mathbf{x}_2=\mathbf{0}$。证明等式之一需要用到自伴性质，而另一个需要用到$P^2=P$。
+    \item 令$P$是自伴的（$P^*=P$）并令$P^2=P$。证明：$P$是一个正交投影的矩阵。{\bf 提示}：考虑分解$\mathbf{x}=\mathbf{x}_1+\mathbf{x}_2$，$\mathbf{x}_1\in\rg P,\mathbf{x}_2\perp\rg P$，并证明$P\mathbf{x}_1=\mathbf{x}_1,P\mathbf{x}_2=\mathbf{0}$。证明等式之一需要用到自伴性质，而证明另一个需要用到$P^2=P$。
 \end{problemset}
 
 \section{等距变换和幺正变换、幺正矩阵和正交矩阵}
 
+\subsection{主要定义}
+
+\begin{definition*}
+    称变换$U:X\to Y$是{\bf 等距变换}，如果它保持范数：\[\|U\mathbf{x}\|=\|\mathbf{x}\|\quad\forall\mathbf{x}\in X.\]
+\end{definition*}
+
+下述定理说明等距变换保持内积。
+
+\begin{theorem}\label{thm:isometry_preserve_inner}
+    变换$U:X\to Y$是等距变换，当且仅当其保持内积，即当且仅当\[(\mathbf{x},\mathbf{y})=(U\mathbf{x},U\mathbf{y})\quad\forall\mathbf{x},\mathbf{y}\in X.\]
+\end{theorem}
+
+\begin{proof}
+    利用极化恒等式（引理 \ref{lem:polarization}）来证明。例如，若$X$是复向量空间，则
+    \[\begin{aligned}
+        (U\mathbf{x},U\mathbf{y})&=\frac{1}{4}\sum_{\alpha=\pm1,\pm i}\alpha\|U\mathbf{x}+\alpha U\mathbf{y}\|^2\\
+        &=\frac{1}{4}\sum_{\alpha=\pm1,\pm i}\alpha\|U(\mathbf{x}+\alpha\mathbf{y})\|^2\\
+        &=\frac{1}{4}\sum_{\alpha=\pm1,\pm i}\alpha\|\mathbf{x}+\alpha\mathbf{y}\|^{2}=(\mathbf{x},\mathbf{y}).
+    \end{aligned}\]
+    类似地，对于实向量空间$X$有
+    \begin{align*}
+        (U\mathbf{x},U\mathbf{y})&=\frac{1}{4}\left(\|U\mathbf{x}+U\mathbf{y}\|^{2}-\|U\mathbf{x}-U\mathbf{y}\|^{2}\right)\\
+        &=\frac{1}{4}\left(\|U(\mathbf{x}+\mathbf{y})\|^2-\|U(\mathbf{x}-\mathbf{y})\|^2\right)\\
+        &=\frac{1}{4}\left(\|\mathbf{x}+\mathbf{y}\|^2-\|\mathbf{x}-\mathbf{y}\|^2\right)=(\mathbf{x},\mathbf{y}).\qedhere
+    \end{align*}
+\end{proof}
+
+\begin{lemma}
+    变换$U:X\to Y$是等距的，当且仅当$U^*U=I$。
+\end{lemma}
+\begin{proof}
+    若$U^*U=I$，那么由伴随变换的定义
+    \[(\mathbf{x},\mathbf{x})=(U^*U\mathbf{x},\mathbf{x})=(U\mathbf{x},U\mathbf{x})\quad\forall\mathbf{x}\in X.\]
+    因此$\|\mathbf{x}\|=\|U\mathbf{x}\|$，所以$U$是等距变换。
+
+    另一方面，若$U$是等距变换，那么由伴随变换的定义和\autoref{thm:isometry_preserve_inner}，可得对所有$\mathbf{x}\in X$
+    \[(U^*U\mathbf{x},\mathbf{y})=(U\mathbf{x},U\mathbf{y})=(\mathbf{x},\mathbf{y})\quad\forall\mathbf{y}\in X,\]
+    因此由推论 \ref{col:inner_eq_vec_eq} 知$U^*U\mathbf{x}=\mathbf{x}$。因为此式对所有$\mathbf{x}\in X$都成立，所以$U^*U=I$。
+\end{proof}
+
+上述引理意味着等距变换总是左可逆的（$U^*$就是左逆）。
+
+\begin{definition*}
+    称等距变换$U:X\to Y$是{\bf 幺正}变换，若其可逆。
+\end{definition*}
+
+\begin{proposition}\label{prop:iso_to_uni}
+    等距变换$U:X\to Y$是幺正变换，当且仅当$\dim X=\dim Y$。
+\end{proposition}
+\begin{proof}
+    因为$U$是等距变换，所以它是左可逆的，又因为$\dim X=\dim Y$，所以它可逆（左可逆的方阵是可逆的）。
+
+    另一方面，若$U:X\to Y$是可逆的，那么$\dim X=\dim Y$（只有方阵才可逆，而同构向量空间有相同的维数）。
+\end{proof}
+
+称方阵$U$是{\bf 幺正的}，若$U^*U=I$，即幺正矩阵是作用于$\mathbb{F}^n$的幺正算子的矩阵。
+
+各项为实数的幺正矩阵称为{\bf 正交}矩阵。正交矩阵可理解为作用于实向量空间$\mathbb{R}^n$的幺正算子的矩阵。
+
+幺正变换有几个性质：
+\begin{enumerate}
+    \item 对幺正变换$U$，有$U^{-1}=U^*$；
+    \item 如果$U$是幺正的，那么$U^*=U^{-1}$也是幺正的；
+    \item 如果$U$是等距变换，$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是规范正交基，那么$U\mathbf{v}_1,$\linebreak $U\mathbf{v}_2,\ldots,U\mathbf{v}_n$是规范正交向量组。进一步，如果$U$是幺正变换，那么$U\mathbf{v}_1,U\mathbf{v}_2,\ldots,U\mathbf{v}_n$是规范正交基。
+    \item 一系列幺正变换的乘积也是幺正变换。
+\end{enumerate}
+
+\subsection{例子}
+
+首先，注意到
+
+\centerline{\fbox{矩阵$U$是等距的，当且仅当它的列形成规范正交向量组。}}
+
+直接计算乘积$U^*U$即可检验该结论。
+
+容易检验，旋转矩阵\[\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix}\]
+的各列彼此正交，并且各列的范数都是$1$。因此，旋转矩阵是等距的，又因为它是方阵，所以它是幺正的。又因为旋转矩阵的各项都是实数，所以它是正交矩阵。
+
+下个例子要更抽象一些。令$X$和$Y$是内积空间，$\dim X=\dim Y=n$，并令$\mathbf{x}_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{n}$和$\mathbf{y}_1,\mathbf{y}_2,\ldots,\mathbf{y}_n$分别为$X$和$Y$的规范正交基。定义变换$U:X\to Y$为
+\[U\mathbf{x}_{k}=\mathbf{y}_{k},\quad k=1,2,\ldots,n.\]
+因为对于向量$\mathbf{x}=c_1\mathbf{x}_1+c_2\mathbf{x}_2+\ldots+c_n\mathbf{x}_n$有
+\[\|\mathbf{x}\|^{2}=|c_{1}|^{2}+|c_{2}|^{2}+\ldots+|c_{n}|^{2}\]
+且有\[\|U\mathbf{x}\|^{2}=\left\|U\left(\sum_{k=1}^{n}c_{k}\mathbf{x}_{k}\right)\right\|^{2}=\left\|\sum_{k=1}^{n}c_{k}\mathbf{y}_{k}\right\|^{2}=\sum_{k=1}^{n}|c_{k}|^{2},\]
+所以对所有$\mathbf{x}\in X$有$\|U\mathbf{x}\|=\|\mathbf{x}\|$，所以$U$是幺正变换。
+
+\subsection{幺正变换的性质}
+
+\begin{proposition}\label{prop:unitary_property}
+    令$U$是幺正矩阵。那么
+    \begin{enumerate}
+        \item $|\det U|=1$。特别地，对正交矩阵有$\det U=\pm 1$；
+        \item 若$\lambda$是$U$的特征值，那么$|\lambda|=1$。
+    \end{enumerate}
+\end{proposition}
+\begin{remark*}
+    注意，正交矩阵的特征值不一定为实数（行列式则不是这样）。我们所熟悉的旋转矩阵就是一个例子。
+\end{remark*}
+
+\begin{proof}[命题 \ref{prop:unitary_property} 的证明]
+    令$\det U=z$。因为$\det(U^*)=\overline{\det(U)}$（见习题 \ref{ex:5_5_1}），所以有\[|z|^2=\overline{z}z=\det(U^*U)=\det I=1,\]
+    因此$|\det U|=|z|=1$。结论1得证。
+
+    为证明结论2，注意到如果$U\mathbf{x}=\lambda\mathbf{x}$那么
+    \[\|U\mathbf{x}\|=\|\lambda\mathbf{x}\|=|\lambda|\cdot\|\mathbf{x}\|,\]
+    故$|\lambda|=1$。
+\end{proof}
+
+\subsection{幺正等价变换}
+
+\begin{definition*}
+    称变换（矩阵）$A$和$B$是{\bf 幺正等价的}，若存在幺正变换$U$使得$A=UBU^*$。
+\end{definition*}
+
+因为对于幺正变换$U$有$U^{-1}=U^*$，所以任意两个幺正等价矩阵都是相似的。
+
+逆命题则不成立：很容易构造一对相似但不幺正等价的矩阵。
+
+下述命题给出了一种构造反例的方法。
+
+\begin{proposition}
+    矩阵$A$幺正等价于对角矩阵，当且仅当存在由它的特征向量构成的正交（或规范正交）基。
+\end{proposition}
+
+\begin{proof}
+    令$A=UBU^*$，并令$B\mathbf{x}=\lambda\mathbf{x}$。那么$AU\mathbf{x}=UBU^*U\mathbf{x}=UB\mathbf{x}=U(\lambda\mathbf{x})=\lambda U\mathbf{x}$，即$U\mathbf{x}$是$A$的特征向量。
+
+    因此，令$A$幺正等价于对角矩阵$D$，即令$A=UDU^*$。标准基向量$\mathbf{e}_k$是$D$的特征向量，所以向量$U\mathbf{e}_k$是$A$的特征向量。因为$U$是幺正的，所以向量组$U\mathbf{e}_1,U\mathbf{e}_2,\ldots,U\mathbf{e}_n$是规范正交基。
+
+    现令$A$的特征向量构成正交基$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$。如有需要，可将各向量$\mathbf{u}_{k}$除以其范数，于是总可假设向量组$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$是\textbf{规范正交}基。令$D$是$A$关于基$\mathcal{B}=\{\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}\}$的矩阵。显然，$D$是对角矩阵。
+
+    记$U$是各列为$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$的矩阵。因为各列构成规范正交基，所以$U$是幺正的。由坐标变换公式得\[A=\left[A\right]_{\mathcal{SS}}=\left[I\right]_{\mathcal{SB}}[A]_{\mathcal{BB}}[I]_{\mathcal{BS}}=UDU^{-1}\]
+    又由于$U$是幺正的，所以$A=UDU^*$。
+\end{proof}
+
+\begin{problemset}
+    \item 正交分解下列矩阵：
+    \[\begin{pmatrix}1&2\\2&1\end{pmatrix},\quad\begin{pmatrix}0&-1\\1&0\end{pmatrix},\quad\begin{pmatrix}0&2&2\\2&0&2\\2&2&0\end{pmatrix}\]
+    即，对每个矩阵$A$，求出幺正矩阵$U$和对角矩阵$D$使得$A=UDU^*$。
+    \item 判断正误：矩阵幺正等价于对角矩阵，当且仅当存在它的特征向量构成的正交（或规范正交）基。
+    \item 证明极化恒等式\[(A\mathbf{x},\mathbf{y})=\frac{1}{4}\left[(A(\mathbf{x}+\mathbf{y}),\mathbf{x}+\mathbf{y})-(A(\mathbf{x}-\mathbf{y}),\mathbf{x}-\mathbf{y})\right]\quad(\text{实数情形, }A=A^*),\]
+    与\[(A\mathbf{x},\mathbf{y})=\frac{1}{4}\sum_{\alpha=\pm1,\pm i}\alpha(A(\mathbf{x}+\alpha\mathbf{y}),\mathbf{x}+\alpha\mathbf{y})\quad(\text{复数情形, }A\text{ 可任取})\]
+    \item 证明：一系列幺正（正交）矩阵的乘积仍是幺正（正交）矩阵。
+    \item 令$U:X\to X$是有限维内积空间上的线性变换。判断正误：
+    \begin{enumerate}[label={\alph*)}]
+        \item 若对所有$\mathbf{x}\in X$有$\|U\mathbf{x}\|=\|\mathbf{x}\|$，那么$U$是幺正的；
+        \item 若对规范正交基$\mathbf{e}_{1},\mathbf{e}_{2},\ldots,\mathbf{e}_{n}$有$\|U\mathbf{e}_k\|=\|\mathbf{e}_k\|$，那么$U$是幺正的。
+    \end{enumerate}
+    证明你的结论，或举出反例。
+    \item 令$A$和$B$是幺正等价的$n\times n$矩阵。
+    \begin{enumerate}[label={\alph*)}]
+        \item 证明：$\tr(A^*A)=\tr(B^*B)$；
+        \item 利用a)证明：\[\sum_{j,k=1}^n|A_{j,k}|^2=\sum_{j,k=1}^n|B_{j,k}|^2.\]
+        \item 利用b)证明：矩阵\[\begin{pmatrix}1&2\\2&i\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}i&4\\1&1\end{pmatrix}\]不是幺正等价的。
+    \end{enumerate}
+    \item 下列各对矩阵中，哪些是幺正等价的？
+    \begin{enumerate}[label={\alph*)}]
+        \item $\begin{pmatrix}1&0\\0&1\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}0&1\\1&0\end{pmatrix}$。
+        \item $\begin{pmatrix}0&1\\1&0\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}0&1/2\\1/2&0\end{pmatrix}$。
+        \item $\begin{pmatrix}0&1&0\\-1&0&0\\0&0&1\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}2&0&0\\0&-1&0\\0&0&0\end{pmatrix}$。
+        \item $\begin{pmatrix}0&1&0\\-1&0&0\\0&0&1\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}1&0&0\\0&-i&0\\0&0&i\end{pmatrix}$。
+        \item $\begin{pmatrix}1&1&0\\0&2&2\\0&0&3\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}1&0&0\\0&2&0\\0&0&3\end{pmatrix}$。
+    \end{enumerate}
+    {\bf 提示}：很容易排除不是幺正等价的矩阵：请记住，幺正等价矩阵是相似的，而相似矩阵的迹、行列式和特征值都是一样的。
+
+    另外，前一题的结论也有助于排除不是幺正等价的矩阵。
+
+    最后，矩阵幺正等价于对角矩阵，当且仅当存在它的特征向量构成的正交基。
+    \item 令$U$是$2\times 2$正交矩阵，$\det U=1$。证明：$U$是旋转矩阵。
+    \pagebreak
+    \item 令$U$是$3\times 3$正交矩阵，$\det U=1$。证明：
+    \begin{enumerate}[label={\alph*)}]
+        \item $1$是$U$的特征值。
+        \item 若$\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}$是规范正交基，并满足$U\mathbf{v}_{1}=\mathbf{v}_{1}$（记住，$1$是特征值之一），那么$U$关于该基的矩阵是\[\begin{pmatrix}1&0&0\\0&\cos\alpha&-\sin\alpha\\0&\sin\alpha&\cos\alpha\end{pmatrix},\]
+        其中$\alpha$是一个角度值。
+
+        {\bf 提示}：证明：因为$\mathbf{v}_1$是$U$的特征向量，所以在$1$之下的所有项都必为零；因为$\mathbf{v}_1$也是$U^*$的特征向量（为什么？），所以在$1$右侧的所有项也都必为零。然后证明右下角的$2\times 2$矩阵是行列式为$1$的正交矩阵，再利用前一题的结论。
+    \end{enumerate}
+\end{problemset}
+
 \section{\texorpdfstring{$\mathbb{R}^n$}{R**n}中的刚体运动}
+
+内积空间$V$中的刚体运动，是保持间距的变换$f:V\to V$，即
+\[\|f(\mathbf{x})-f(\mathbf{y})\|=\|\mathbf{x}-\mathbf{y}\|\quad\forall\mathbf{x},\mathbf{y}\in V.\]
+注意，在这个定义里，我们并未假设变换$f$是线性的。
+
+显然，任意幺正变换都是刚体运动。刚体运动的另一个例子是平移量为$\mathbf{a}\in V$的平移，即$f(\mathbf{x})=\mathbf{x}+\mathbf{a}$。
+
+本节的主要结论是下述定理，它指出，{\bf 实}内积空间中的任意刚体运动都是正交变换和平移的复合。
+
+\begin{theorem}\label{thm:no_translation_orthogonal}
+    令$f$是实内积空间$X$中的刚体运动，并令$T(\mathbf{x}):=f(\mathbf{x})-f(\mathbf{0})$。那么$T$是正交变换。
+\end{theorem}
+
+为证明该定理，我们需要下面这个简单的引理。
+
+\begin{lemma}\label{lem:no_translation_property}
+    令$T$定义如\autoref{thm:no_translation_orthogonal}。那么对于所有$\mathbf{x},\mathbf{y}\in X$：
+    \begin{enumerate}
+        \item $\|T\mathbf{x}\|=\|\mathbf{x}\|$；
+        \item $\|T(\mathbf{x})-T(\mathbf{y})\|=\|\mathbf{x}-\mathbf{y}\|$；
+        \item $(T(\mathbf{x}),T(\mathbf{y}))=(\mathbf{x},\mathbf{y})$。
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    为证明结论1，注意到
+    \[\|T(\mathbf{x})\|=\|f(\mathbf{x})-f(\mathbf{0})\|=\|\mathbf{x}-\mathbf{0}\|=\|\mathbf{x}\|.\]
+    结论2可通过下面这串等式得到：
+    \[\begin{aligned}
+        \|T(\mathbf{x})-T(\mathbf{y})\|&=\|(f(\mathbf{x})-f(\mathbf{0}))-(f(\mathbf{y})-f(\mathbf{0}))\|\\&=\|f(\mathbf{x})-f(\mathbf{y})\|=\|\mathbf{x}-\mathbf{y}\|.
+    \end{aligned}\]
+    还有一种解释是，$T$是两个刚体运动的复合（首先是$f$，再接上平移量为$\mathbf{a}=-f(\mathbf{0})$的平移），而容易看出，刚体运动的复合还是刚体运动。因为$T(\mathbf{0})=\mathbf{0}$，则$\|T(\mathbf{x})\|=\|T(\mathbf{x})-T(\mathbf{0})\|$，进而结论1可视为结论2的特例。
+
+    为证明结论3，注意到在实内积空间中有\[\left\|T(\mathbf{x})-T(\mathbf{y})\right\|^2=\left\|T(\mathbf{x})\right\|^2+\left\|T(\mathbf{y})\right\|^2-2(T(\mathbf{x}),T(\mathbf{y})),\]
+    以及\[\|\mathbf{x}-\mathbf{y}\|^2=\|\mathbf{x}\|^2+\|\mathbf{y}\|^2-2(\mathbf{x},\mathbf{y}).\]
+    回想一下$\|T(\mathbf{x})-T(\mathbf{y})\|=\|\mathbf{x}-\mathbf{y}\|$以及$\|T(\mathbf{x})\|=\|\mathbf{x}\|,\|T(\mathbf{y})\|=\|\mathbf{y}\|$，可立即得到待证结论。
+\end{proof}
+
+\begin{proof}[\autoref{thm:no_translation_orthogonal} 的证明]
+    首先注意到对所有$\mathbf{x}\in X$，有\[\|T(\mathbf{x})\|=\|f(\mathbf{x})-f(\mathbf{0})\|=\|\mathbf{x}-\mathbf{0}\|=\|\mathbf{x}\|,\]
+    所以$T$保持范数，即$\|T\mathbf{x}\|=\|\mathbf{x}\|$。
+
+    我们想要从等式$\|T\mathbf{x}\|=\|\mathbf{x}\|$得出$T$为等距变换，但为此我们需要证明$T$是线性变换。
+
+    为此，取定$X$的规范正交基$\mathbf{e}_{1},\mathbf{e}_{2},\ldots,\mathbf{e}_{n}$，并令$\mathbf{b}_k:=T(\mathbf{e}_k),k=1,2,\dots,n$。因为$T$保持内积（引理 \ref{lem:no_translation_property} 的结论3），所以$\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n$是规范正交向量组。事实上，因为$\dim X=n$（$\mathbf{e}_{1},\mathbf{e}_{2},\ldots,\mathbf{e}_{n}$共有$n$个向量），所以可得$\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n$是规范正交{\bf 基}。
+
+    令$\mathbf{x}=\sum_{k=1}^{n}\alpha_{k}\mathbf{e}_{k}$。回忆一下抽象正交傅里叶分解 \eqref{coeff_orthonormal}，可得$\alpha_k=(\mathbf{x},\mathbf{e}_k)$。将抽象正交傅里叶分解 \eqref{coeff_orthonormal} 应用于$T(\mathbf{x})$和规范正交基$\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n$，可得\[T(\mathbf{x})=\sum_{k=1}^n(T(\mathbf{x}),\mathbf{b}_k)\mathbf{b}_k.\]
+    因为\[(T(\mathbf{x}),\mathbf{b}_k)=(T(\mathbf{x}),T(\mathbf{e}_k))=(\mathbf{x},\mathbf{e}_k)=\alpha_k,\]
+    故可得\[T\left(\sum_{k=1}^n\alpha_k\mathbf{e}_k\right)=\sum_{k=1}^n\alpha_k\mathbf{b}_k.\]
+    这就意味着$T$是线性变换，其关于基$\mathcal{S}:=\{\mathbf{e}_{1},\mathbf{e}_{2},\ldots,\mathbf{e}_{n}\}$和$\mathcal{B}:=\{\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}\}$的矩阵是恒等矩阵，即$[T]_{\mathcal{B}\mathcal{S}}=I$。
+
+    另一种证明$T$是线性变换的方法是进行以下计算：
+    \[\begin{aligned}
+        &\|T(\mathbf{x}+\alpha\mathbf{y})-(T(\mathbf{x})+\alpha T(\mathbf{y}))\|^{2}=\|(T(\mathbf{x}+\alpha\mathbf{y})-T(\mathbf{x}))-\alpha T(\mathbf{y})\|^{2}\\
+        &=\|T(\mathbf{x}+\alpha\mathbf{y})-T(\mathbf{x})\|^2+\alpha^2\|T(\mathbf{y})\|^2-2\alpha(T(\mathbf{x}+\alpha\mathbf{y})-T(\mathbf{x}),T(\mathbf{y}))\\
+        &=\|\mathbf{x}+\alpha\mathbf{y}-\mathbf{x}\|^2+\alpha^2\|\mathbf{y}\|^2-2\alpha(T(\mathbf{x}+\alpha\mathbf{y}),T(\mathbf{y}))+2\alpha(T(\mathbf{x}),T(\mathbf{y}))\\
+        &=\alpha^2\|\mathbf{y}\|^2+\alpha^2\|\mathbf{y}\|^2-2\alpha(\mathbf{x}+\alpha\mathbf{y},\mathbf{y})+2\alpha(\mathbf{x},\mathbf{y})\\
+        &=2\alpha^2\|\mathbf{y}\|^2-2\alpha(\mathbf{x},\mathbf{y})-2\alpha^2(\mathbf{y},\mathbf{y})+2\alpha(\mathbf{x},\mathbf{y})=0
+    \end{aligned}\]
+    因此\[T(\mathbf{x}-\alpha\mathbf{y})=T(\mathbf{x})+\alpha T(\mathbf{y}),\]
+    这就意味着$T$是线性的（取$\mathbf{x}=\mathbf{0}$或$\alpha=1$，可分别得到线性变换定义中的两条性质）。
+
+    因此$T$是满足$\|T\mathbf{x}\|=\|\mathbf{x}\|$的线性变换，即$T$是等距变换。因为$T:X\to X$，所以$T$是幺正变换（见命题 \ref{prop:iso_to_uni}）。这就完成了证明，因为正交变换就是实内积空间上的幺正变换。
+\end{proof}
+
+\begin{problemset}
+    \item 给出$\mathbb{C}^n$上的一刚体运动$T$，$T(\mathbf{0})=\mathbf{0}$，且$T$不是线性变换。
+\end{problemset}
 
 \section{复化和实化}
 

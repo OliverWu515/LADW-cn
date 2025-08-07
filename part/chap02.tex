@@ -633,15 +633,15 @@
 
 \section{矩阵的基本子空间、秩}\label{sec:fundamental_subspace}
 
-我们在第 \ref{chap:BasicNotion} 章第 \ref{sec:subspace} 节讨论过，每个线性变换$A:V\to W$都与两个子空间相关联，一个是它的核（零空间）\[\operatorname{Ker}A=\operatorname{Null}A:=\{\mathbf{v}\in V:A\mathbf{v}=\mathbf{0}\}\subset V,\]
-另一个是它的值域\[\operatorname{Ran}A=\{\mathbf{w}\in W:\mathbf{w}=A\mathbf{v},\mathbf{v}\in V\}\subset W.\]
+我们在第 \ref{chap:BasicNotion} 章第 \ref{sec:subspace} 节讨论过，每个线性变换$A:V\to W$都与两个子空间相关联，一个是它的核（零空间）\[\ker A=\operatorname{Null}A:=\{\mathbf{v}\in V:A\mathbf{v}=\mathbf{0}\}\subset V,\]
+另一个是它的值域\[\rg A=\{\mathbf{w}\in W:\mathbf{w}=A\mathbf{v},\mathbf{v}\in V\}\subset W.\]
 换言之，核$\ker A$是齐次方程$A\mathbf{x}=\mathbf{0}$的解集，值域$\rg A$是使得方程$A\mathbf{x}=\mathbf{b}$有解的所有右端项$\mathbf{b}\in W$所成的集合。
 
-若$A$是$m\times n$矩阵，即从$\mathbb{F}^{n}$到$\mathbb{F}^{m}$的映射，那么由矩阵-向量乘法的“列乘以坐标”法则，任意向量$\mathbf{w}\in\operatorname{Ran}A$可表示为$A$的列的线性组合。这就能解释{\bf 列空间}（记号为$\col A$）这一名称的来历，它常用作$\rg A$的另一种表达。
+若$A$是$m\times n$矩阵，即从$\mathbb{F}^{n}$到$\mathbb{F}^{m}$的映射，那么由矩阵-向量乘法的“列乘以坐标”法则，任意向量$\mathbf{w}\in\rg A$可表示为$A$的列的线性组合。这就能解释{\bf 列空间}（记号为$\col A$）这一名称的来历，它常用作$\rg A$的另一种表达。
 
 对于矩阵$A$，在$\rg A$和$\ker A$以外，还常讨论转置矩阵$A^T$的核与值域。通常，$\rg A^T$称为{\bf 行空间}，而$\ker A^T$称为{\bf 左零空间}（但往往不用特别的记号来表示它们）。
 
-称$\operatorname{Ran}A,\operatorname{Ker}A,\operatorname{Ran}A^{T},\operatorname{Ker}A^{T}$这四个子空间是矩阵$A$的{\bf 基本子空间}。本节我们将研究四个基本子空间维数上的重要关系。
+称$\rg A,\ker A,\rg A^{T},\ker A^{T}$这四个子空间是矩阵$A$的{\bf 基本子空间}。本节我们将研究四个基本子空间维数上的重要关系。
 
 我们将会用到下面定义——它是线性代数中基础性的定义之一。
 \begin{definition*}
@@ -708,7 +708,7 @@
 对于变换$A$和集合$X$，我们记$A(X)$是所有可被表示成$y=A(x),$ $x\in X$的元素$y$所成的集合\[A(X):=\{y=A(x):x\in X\}.\]
 
 若$A$是$m\times n$矩阵，$A_{\mathrm{e}}$是其阶梯形，由$A$左乘初等矩阵得到：\[A_{\mathrm{e}}=EA\]
-其中$E$是$m\times m$可逆矩阵（初等矩阵的积）。那么\[\operatorname{Ran}A_{\mathrm{e}}^T=\operatorname{Ran}(A^TE^T)=A^T(\operatorname{Ran}E^T)=A^T(\mathbb{R}^m)=\operatorname{Ran}A^T,\]
+其中$E$是$m\times m$可逆矩阵（初等矩阵的积）。那么\[\rg A_{\mathrm{e}}^T=\rg (A^TE^T)=A^T(\rg E^T)=A^T(\mathbb{R}^m)=\rg A^T,\]
 因此，的确有$\rg A^T = \rg A_{\mathrm{e}}^T$。
 
 \subsection{秩定理、基本子空间的维数}
@@ -779,7 +779,7 @@
   由\autoref{thm:fundamental_thm_of_la} 可立即得证（只需计算维数）。我们将证明的细节留给读者作为习题。
 \end{proof}
 
-第二个秩定理（\autoref{thm:fundamental_thm_of_la}）有一个非常优美的几何解释：该定理的第一条是说，如果变换$A:\mathbb{F}^{n}\to\mathbb{F}^{m}$具有平凡的核（$\operatorname{Ker}A=\{\mathbf{0}\}$），那么定义域$\mathbb{F}^{n}$和值域$\rg A$的维数相同。如果核不是平凡的，那么该变换会“消掉”$\dim\ker A$维，从而$\dim\rg A = n-\dim\ker A$。
+第二个秩定理（\autoref{thm:fundamental_thm_of_la}）有一个非常优美的几何解释：该定理的第一条是说，如果变换$A:\mathbb{F}^{n}\to\mathbb{F}^{m}$具有平凡的核（$\ker A=\{\mathbf{0}\}$），那么定义域$\mathbb{F}^{n}$和值域$\rg A$的维数相同。如果核不是平凡的，那么该变换会“消掉”$\dim\ker A$维，从而$\dim\rg A = n-\dim\ker A$。
 
 \subsection{将线性无关组补全为基}
 
@@ -862,7 +862,7 @@
 
 矩阵$[T]_{\mathcal{BA}}$很容易求：它的第$k$列就是坐标向量$\left[T\mathbf{a}_k\right]_{\mathcal{B}}$（对照$\mathbb{F}^n$到$\mathbb{F}^m$的线性变换的矩阵的求法）。
 
-类似于$\mathbb{F}^n\to \mathbb{F}^m$的线性变换以及标准基的情形，此处线性变换的复合也等价于它们矩阵的乘积，只需稍微留意这些矩阵是关于哪些基。即，令$T_{1}:X\to Y$及$T_{2}:Y\to Z$是线性变换，并令$\mathcal{A},\mathcal{B}$和$\mathcal{C}$分别为$X,Y$和$Z$的基。那么对复合映射$T=T_2T_1$
+类似于$\mathbb{F}^n\to \mathbb{F}^m$的线性变换以及标准基的情形，此处线性变换的复合也等价于它们矩阵的乘积，只需稍微留意这些矩阵是关于哪些基。即，令$T_{1}:X\to Y$及$T_{2}:Y\to Z$是线性变换，并令$\mathcal{A},\mathcal{B}$和$\mathcal{C}$分别为$X,Y$和$Z$的基。那么对复合变换$T=T_2T_1$
 \[T:X\to Z,\quad T\mathbf{x}:=T_2(T_1(\mathbf{x}))\]
 我们有
 \begin{equation}\label{mul_of_matrix}
@@ -874,7 +874,7 @@
 
 \subsection{坐标变换矩阵}
 
-设向量空间$V$有两个基$\mathcal{A} = \{\mathbf{a}_1,\mathbf{a}_2,\ldots,\mathbf{a}_n\}$和$\mathcal{B} = \{\mathbf{b}_1,\mathbf{b}_2,\ldots,$ $\mathbf{b}_n\}$。考虑恒等映射$I=I_V$及其关于这些基的矩阵$[I]_{\mathcal{BA}}$。根据定义有\[\left[\mathbf{v}\right]_{\mathcal{B}}=[I]_{\mathcal{BA}}\left[\mathbf{v}\right]_{\mathcal{A}},\quad\forall\mathbf{v}\in V,\]
+设向量空间$V$有两个基$\mathcal{A} = \{\mathbf{a}_1,\mathbf{a}_2,\ldots,\mathbf{a}_n\}$和$\mathcal{B} = \{\mathbf{b}_1,\mathbf{b}_2,\ldots,$ $\mathbf{b}_n\}$。考虑恒等变换$I=I_V$及其关于这些基的矩阵$[I]_{\mathcal{BA}}$。根据定义有\[\left[\mathbf{v}\right]_{\mathcal{B}}=[I]_{\mathcal{BA}}\left[\mathbf{v}\right]_{\mathcal{A}},\quad\forall\mathbf{v}\in V,\]
 也即，对于任意向量$\mathbf{v}\in V$，矩阵$[I]_{\mathcal{BA}}$将它在基$\mathcal{A}$中的坐标变换为在基$\mathcal{B}$中的坐标。矩阵$[I]_{\mathcal{BA}}$常称为（从基$\mathcal{A}$到基$\mathcal{B}$的）\textbf{坐标变换}矩阵。
 
 矩阵$[I]_{\mathcal{BA}}$很容易计算：根据求解线性变换矩阵的一般规则，它的第$k$列是基$\mathcal{A}$中第$k$个元素的坐标$\left[\mathbf{a}_k\right]_{\mathcal{B}}$。
