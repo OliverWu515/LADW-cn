@@ -230,7 +230,7 @@
 也可用回代法从阶梯形求出解：基本思路是从下到上操作，将所有自由变量移到右侧。
 \begin{problemset}
   \item 将下列线性方程组写成矩阵形式和向量方程形式：
-  \begin{enumerate}[label={\alph*)}]
+  \begin{probenumerate}
     \item $\left\{\begin{array}{rrrrrrrr}x_1&+&2x_2&-&x_3&=&-1\\2x_1&+&2x_2&+&x_3&=&1\\3x_1&+&5x_2&-&2x_3&=&-1\end{array}\right.$
     \item $\left\{\begin{array}{rrrrrrrr}x_1&-&2x_2&-&x_3&=&1\\2x_1&-&3x_2&+&x_3&=&6\\3x_1&-&5x_2&&&=&7\\x_1&&&+&5x_3&=&9\end{array}\right.$
     \item $\left\{\begin{array}{rrrrrrrrrr}x_1&+&2x_2&&&+&2x_4&=&6\\3x_1&+&5x_2&-&x_3&+&6x_4&=&17\\2x_1&+&4x_2&+&x_3&+&2x_4&=&12\\2x_1&&&-&7x_3&+&11x_4&=&7\end{array}\right.$
@@ -238,7 +238,7 @@
     \item $\left\{\begin{array}{rrrrrrrrrr}x_1&+&2x_2&-&x_3&+&3x_4&=&2\\2x_1&+&4x_2&-&x_3&+&6x_4&=&5\\&&x_2&&&+&2x_4&=&3\end{array}\right.$
     \item $\left\{\begin{array}{rrrrrrrrrrr}2x_1&-&2x_2&-&x_3&+&6x_4&-&2x_5&=&1\\x_1&-&x_2&+&x_3&+&2x_4&-&x_5&=&2\\4x_1&-&4x_2&+&5x_3&+&7x_4&-&x_5&=&6\end{array}\right.$
     \item $\left\{\begin{array}{rrrrrrrrrrrr}3x_1&-&x_2&+&x_3&-&x_4&+&2x_5&=&5\\x_1&-&x_2&-&x_3&-&2x_4&-&x_5&=&2\\5x_1&-&2x_2&+&x_3&-&3x_4&+&3x_5&=&10\\2x_1&-&x_2&&&-&2x_4&+&x_5&=&5\end{array}\right.$
-  \end{enumerate}
+  \end{probenumerate}
   解这些方程组。将解写成向量形式。
   \item 求出向量方程\[x_1\mathbf{v}_1+x_2\mathbf{v}_2+x_3\mathbf{v}_3=\mathbf{0},\]的{\bf 全部}解，其中$\mathbf{v}_{1}=(1,1,0)^{T},\mathbf{v}_{2}=(0,1,1)^{T},\mathbf{v}_{3}=(1,0,1)^{T}$。关于向量组$\mathbf{v}_1,\mathbf{v}_2,\mathbf{v}_3$的线性无关性（线性相关性），你可以得出什么结论？
 \end{problemset}
@@ -362,11 +362,11 @@
   
   这四个向量能张成$\RR^4$吗？（换言之，它是生成组吗？）$\CC^4$呢？
   \item 判断下面哪些向量组是$\RR^3$的基？
-  \begin{enumerate}[label={\alph*)}]
+  \begin{probenumerate}
     \item $(1,2,-1)^{T},(1,0,2)^{T},(2,1,1)^{T}$；
     \item $(-1,3,2)^{T},(-3,1,3)^{T},(2,10,2)^{T}$；
     \item $(67,13,-47)^{T},(\pi,-7.84,0)^{T},(3,0,0)^{T}$。
-  \end{enumerate}
+  \end{probenumerate}
   哪些向量组是$\CC^3$的基？
   \item 多项式$x^{3}+2x,x^{2}+x+1,x^{3}+5$能否生成（张成）$\mathbb{P}_3$？证明你的结论。
   \item $\mathbb{F}^4$中的$5$个向量是否线性无关？证明你的结论。
@@ -536,7 +536,7 @@
 
 \begin{problemset}
   \item 判断正误：
-  \begin{enumerate}[label={\alph*)}]
+  \begin{probenumerate}
     \item 每个由有限向量组生成的向量空间都有基；
     \item 每个向量空间都有（有限）基；
     \item 一向量空间不会含有超过一个基；
@@ -546,18 +546,18 @@
     \item 若向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$生成（张成）向量空间$V$，那么$V$中每个向量都可唯一写成向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的线性组合；
     \item 有限维向量空间的每个子空间都是有限维的；
     \item 如果$V$是维数为$n$的向量空间，那么$V$恰有一个维数为$0$和一个维数为$n$的子空间。
-  \end{enumerate}
+  \end{probenumerate}
   \item 证明：若$V$是维数为$n$的向量空间，那么$V$中的向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是线性无关的，当且仅当其张成$V$。
   \item 证明：向量空间$V$中的线性无关组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是基，当且仅当$n=\dim V$。
   \item （旧题重温：现在这道题应该很简单了）是否可能出现这样的情况：向量$\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}$是线性相关的，但向量$\mathbf{w}_1=\mathbf{v}_1+\mathbf{v}_2,\mathbf{w}_2=\mathbf{v}_2+\mathbf{v}_3$与$\mathbf{w}_3=\mathbf{v}_3+\mathbf{v}_1$是线性{\bf 无关}的？{\bf 提示}：子空间$\operatorname{span}\{\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}\}$的维数是多少？
   \item 设向量组$\mathbf{u},\mathbf{v},\mathbf{w}$是$V$的基。证明：$\mathbf{u+v+w},\mathbf{v+w},\mathbf{w}$也是$V$的基。
   \item 考虑向量空间$\mathbb{R}^{5}$中的向量$\mathbf{v}_{1}=(2,-1,1,5,-3)^{T},\mathbf{v}_{2}=(3,-2,0,0,0)^{T},$ $\mathbf{v}_3=(1,1,50,-921,0)^T$。
-  \begin{enumerate}[label={\alph*)}]
+  \begin{probenumerate}
     \item 证明：这些向量是线性无关的；
     \item 将这个向量补全为基。
     
     如果你先解b)，那么你可以不做任何计算就完成整道题。
-  \end{enumerate}
+  \end{probenumerate}
 \end{problemset}
 
 \section{线性方程组的通解}\label{sec:general_solution}
@@ -616,7 +616,7 @@
 
 \begin{problemset}
   \item 判断正误：
-  \begin{enumerate}[label={\alph*)}]
+  \begin{probenumerate}
     \item 任意线性方程组都至少有一个解；
     \item 任意线性方程组都至多有一个解；
     \item 任意齐次线性方程组都至少有一个解；
@@ -626,7 +626,7 @@
     \item 如果具有$n$个方程$n$个未知数的齐次线性方程组的系数矩阵是可逆的，那么该方程组没有非零解；
     \item 任意具有$m$个方程$n$个未知数的线性方程组的解集都是$\mathbb{R}^n$的子空间；
     \item 任意具有$m$个方程$n$个未知数的齐次线性方程组的解集都是$\mathbb{R}^n$的子空间。
-  \end{enumerate}
+  \end{probenumerate}
   \item 求出通解如下的$2\times 3$线性方程组（具有$2$个方程、$3$个未知数）。
   \[\begin{pmatrix}1\\1\\0\end{pmatrix}+s\begin{pmatrix}1\\2\\1\end{pmatrix},\quad s\in\mathbb{R}.\]
 \end{problemset}
@@ -805,7 +805,7 @@
 
 \begin{problemset}
   \item 判断正误：
-  \begin{enumerate}[label={\alph*)}]
+  \begin{probenumerate}
     \item 矩阵的秩等于其非零列的数目；
     \item $m\times n$零矩阵是唯一秩为$0$的$m\times n$矩阵；
     \item 初等行变换不改变秩；
@@ -814,7 +814,7 @@
     \item 矩阵的秩等于该矩阵中线性无关行数目的最大值；
     \item $n\times n$矩阵的秩至多为$n$；
     \item 秩为$n$的$n\times n$矩阵是可逆的。
-  \end{enumerate}
+  \end{probenumerate}
   \item 一个$54\times 37$矩阵的秩为$31$。它的四个基本子空间维数是多少？
   \item 计算下列矩阵的四个基本子空间的秩和基：
   \[\begin{pmatrix}1&1&0\\0&1&1\\1&1&0\end{pmatrix},\quad\begin{pmatrix}1&2&3&1&1\\1&4&0&1&2\\0&2&-3&0&1\\1&0&0&0&0\end{pmatrix}.\]
@@ -826,11 +826,11 @@
   \item 证明如果两个$n\times n$矩阵$A$和$B$的乘积$AB$可逆，那么$A$和$B$都可逆。即便你知道行列式，也不要用——我们还没讲到那里。{\bf 提示}：利用上面两题的结论。
   \item 证明：若$A\mathbf{x}=\mathbf{0}$有唯一解，那么方程$A^{T}\mathbf{x}=\mathbf{b}$对于任意右端项$\mathbf{b}$都有解。{\bf 提示}：数主元的个数。
   \item 写出具有对应性质的矩阵，或者解释这样的矩阵为什么不存在：
-  \begin{enumerate}[label={\alph*)}]
+  \begin{probenumerate}
     \item 列空间包含$(1,0,0)^T,(0,0,1)^T$，行空间包含$(1,1)^T,(1,2)^T$；
     \item 列空间由$(1,1,1)^T$张成，零空间由$(1,2,3)^T$张成；
     \item 列空间是$\mathbb{R}^4$，行空间是$\mathbb{R}^3$。
-  \end{enumerate}
+  \end{probenumerate}
   {\bf 提示}：首先检验维数关系。
   \item $A$和$B$的四个基本子空间相同，是否意味着$A=B$？
   \item 将下列矩阵的行补全为$\mathbb{R}^7$的基：\[\begin{pmatrix}e^3&3&4&0&-\pi&6&-2\\0&0&2&-1&\pi^e&1&1\\0&0&0&0&3&-3&2\\0&0&0&0&0&0&1\end{pmatrix}\]
@@ -937,18 +937,18 @@
 
 \begin{problemset}
   \item 判断正误：
-  \begin{enumerate}[label={\alph*)}]
+  \begin{probenumerate}
     \item 每个坐标变换矩阵都是方阵；
     \item 每个坐标变换矩阵都可逆；
     \item 称矩阵$A$和$B$相似，若存在矩阵$Q$使得$B=Q^TAQ$；
     \item 称矩阵$A$和$B$相似，若存在矩阵$Q$使得$B=Q^{-1}AQ$；
     \item 相似矩阵不一定是方阵。
-  \end{enumerate}
+  \end{probenumerate}
   \item 考虑向量组\[(1,2,1,1)^T,\quad(0,1,3,1)^T,\quad(0,3,2,0)^T,\quad(0,1,0,0)^T.\]
-  \begin{enumerate}[label={\alph*)}]
+  \begin{probenumerate}
     \item 证明：它是$\mathbb{F}^4$的基。尽量少做计算。
     \item 求坐标变换矩阵，将在这个基中的坐标变为$\mathbb{F}^4$中的标准坐标（即标准基$\mathbf{e}_{1},\ldots,\mathbf{e}_{4}$中的坐标）。
-  \end{enumerate}
+  \end{probenumerate}
   \item 求坐标变换矩阵，将在$\mathbb{P}_1$的基$1,1+t$中的坐标变为在基$1-t,2t$中的坐标。
   \item 设$T$是$\mathbb{F}^2$中的线性算子，定义为（标准坐标下）\[T\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}3x+y\\x-2y\end{pmatrix}\]
   求出$T$在标准基以及在下面这个基中的坐标。\[(1,1)^T,\quad (1,2)^T\]

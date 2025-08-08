@@ -131,7 +131,7 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 
 我们将采用行列式的如下基本性质：
 
-\begin{enumerate}[label={\textup{\arabic*}.}]
+\begin{enumerate}
   \item 行列式对于每列都是线性的，用向量记号表述即对于任一下标$k$，对所有标量$\alpha,\beta$都有
   \[\begin{aligned}
     D(\mathbf{v}_{1},\ldots,&\underbrace{\alpha\mathbf{u}_{k}+\beta\mathbf{v}_{k}}_{k},\ldots,\mathbf{v}_{n})\\&=\alpha D(\mathbf{v}_{1},\ldots,\underset{k}{\mathbf{u}_{k}},\ldots,\mathbf{v}_{n})+\beta D(\mathbf{v}_{1},\ldots,\underset{k}{\mathbf{v}_{k}},\ldots,\mathbf{v}_{n})
@@ -148,7 +148,7 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 
 \begin{proposition}\label{prop:det_0}
   对于方阵$A$，下面结论成立：
-  \begin{enumerate}[label={\textup{\arabic*}.}]
+  \begin{enumerate}
     \item 若$A$有一列是零，那么$\det A = 0$；
     \item 若$A$有两列相等，那么$\det A = 0$；
     \item 若$A$的其中一列是另一列的若干倍，那么$\det A = 0$；
@@ -301,10 +301,10 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 \begin{problemset}
   \item 若$A$为$n\times n$矩阵，那么行列式$\det A$和$\det (5A)$有什么联系？\\{\bf 注}：$\det (5A) = 5\det A$只在$1\times 1$的平凡情形成立。
   \item 若$A$、$B$如下，那么行列式$\det A$和$\det B$有什么联系？
-  \begin{enumerate}[label={\alph*)}]
+  \begin{probenumerate}
     \item \[A=\begin{pmatrix}a_1&a_2&a_3\\b_1&b_2&b_3\\c_1&c_2&c_3\end{pmatrix},\quad B=\begin{pmatrix}2a_1&3a_2&5a_3\\2b_1&3b_2&5b_3\\2c_1&3c_2&5c_3\end{pmatrix};\]
     \item \[A=\begin{pmatrix}a_1&a_2&a_3\\b_1&b_2&b_3\\c_1&c_2&c_3\end{pmatrix},\quad B=\begin{pmatrix}3a_1&4a_2+5a_1&5a_3\\3b_1&4b_2+5b_1&5b_3\\3c_1&4c_2+5c_1&5c_3\end{pmatrix}.\]。
-\end{enumerate}
+\end{probenumerate}
   \item 利用行变换或列变换来计算下列行列式：
   \[\begin{vmatrix}0&1&2\\-1&0&-3\\2&3&0\end{vmatrix},\quad\begin{vmatrix}1&2&3\\4&5&6\\7&8&9\end{vmatrix},\quad\begin{vmatrix}1&0&-2&3\\-3&1&1&2\\0&4&-1&1\\2&3&0&1\end{vmatrix},\quad\begin{vmatrix}1&x\\1&y\end{vmatrix}.\]
   \item 称方阵（$n\times n$矩阵）$A$是斜对称的（或反对称的），若$A^T = -A$。证明：若$A$是斜对称的且$n$为奇数，那么$\det A = 0$。该结论在$n$为偶数时还成立吗？
@@ -385,19 +385,19 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 
 \begin{problemset}
   \item 假设置换$\sigma$将$(1,2,3,4,5)$对应到$(5,4,1,2,3)$。
-  \begin{enumerate}[label={\alph*)}]
+  \begin{probenumerate}
     \item 求出$\sigma$的符号；
     \item $\sigma^{2}:=\sigma\circ\sigma$作用于$(1,2,3,4,5)$会得到什么？
     \item 逆置换$\sigma^{-1}$作用于$(1,2,3,4,5)$会得到什么？
     \item $\sigma^{-1}$的符号是什么？
-  \end{enumerate}
+  \end{probenumerate}
   \item 令$P$为\textbf{置换矩阵}，即包含$0$和$1$的$n\times n$矩阵，并且在每行和每列中都恰有一个$1$。
-  \begin{enumerate}[label={\alph*)}]
+  \begin{probenumerate}
     \item 你能描述这个矩阵对应的线性变换吗？这就能解释其名称的来历。
     \item 证明：$P$可逆。你可否描述$P^{-1}$？
     \item 证明：对于某个$N>0$有\[P^N:=\underbrace{PP\ldots P}_{N~\text{个}}=I.\]
     利用结论：置换的个数是有限的。
-  \end{enumerate}
+  \end{probenumerate}
   \item 为什么$(1,2,\dots,9)$的置换有偶数个，并且其中奇置换恰好占一半？\textbf{提示}：该问题用置换的知识可能很难解答，但利用行列式就很容易。
   \item 若$\sigma$ 是奇置换，解释为何$\sigma^{2}$是偶置换，而$\sigma^{-1}$是奇置换。
   \item 利用正式定义 \eqref{formal_definition} 来计算$n\times n$矩阵的行列式需要多少次乘法和加法？不考虑$\operatorname{sign}\sigma$的计算过程。
@@ -520,12 +520,12 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
   利用余子式展开证明：$D_n=D_{n-1}+D_{n-2}$。这说明，$D_n$所成序列就是斐波那契序列$1,2,3,5,8,13,21,\ldots$。
   \item 范德蒙行列式再讨论——目标是证明$(n+1)\times (n+1)$范德蒙行列式的如下公式\[\begin{vmatrix}1&c_0&c_0^2&\ldots&c_0^n\\1&c_1&c_1^2&\ldots&c_1^n\\\vdots&\vdots&\vdots&&\vdots\\1&c_n&c_n^2&\ldots&c_n^n\end{vmatrix}=\prod_{0\leq j<k\leq n}(c_k-c_j)\]
   我们将运用归纳法。为此
-  \begin{enumerate}[label={\alph*)}]
+  \begin{probenumerate}
     \item 检验：该公式适用于$n=1,n=2$的情形。
     \item 记最后一行的变量$c_n$为$x$，并证明原行列式是$n$次多项式$A_{0}+A_{1}x+A_{2}x^{2}+\ldots+A_{n}x^{n}$，其中系数$A_k$取决于$c_{0},c_{1},\ldots,c_{n-1}$。
     \item 证明：上问的多项式有零点$x=c_0,c_1,\ldots,c_{n-1}$，因此它可表示为$A_n\cdot(x-c_0)(x-c_1)\ldots(x-c_{n-1})$，其中$A_n$如上问所示。
     \item 假设范德蒙行列式的公式对于$n-1$的情形成立，计算$A_n$并证明公式对$n$的情形成立。
-  \end{enumerate}
+  \end{probenumerate}
   \item 利用余子式展开计算$n\times n$矩阵的行列式需要做多少次乘法？求出表达式。
 \end{problemset}
 
@@ -555,10 +555,9 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 
 \section{第~\textup{\ref{chap:Determinant}}~章复习题}
 
-{\zihao{5}
-\begin{enumerate}[label={\textbf{\arabic{section}.\arabic*.}},ref={\arabic{section}.\arabic*},leftmargin=2em]
+\begin{probenumerate}\zihao{5}
   \item 判断正误：
-  \begin{enumerate}[label={\alph*)}]
+  \begin{probenumerate}
     \item 行列式只对方阵有定义。
     \item 如果$A$的两行或两列相同，那么$\det A=0$。
     \item 如果$B$是由$A$经过交换两行（或两列）得到的，那么$\det B=\det A$。
@@ -569,18 +568,20 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
     \item $\det (AB)=\det(A)\det (B)$。
     \item 矩阵$A$可逆，当且仅当$\det A\ne 0$。
     \item 若$A$为可逆矩阵，那么$\det (A^{-1})=1/\det(A)$。
-  \end{enumerate}
+  \end{probenumerate}
   \item 设$A$为$n\times n$矩阵。$\det (3A),\det (-A)$和$\det (A^{2})$与$\det A$分别是什么关系？
   \item 若$A$和$A^{-1}$的各项都是整数，$\det A=3$是否可能？{\bf 提示}：$\det(A)\det(A^{-1})$是多少？
   \item 令$\mathbf{v}_1,\mathbf{v}_2$是$\mathbb{R}^2$中的向量，并令$A$是各列为$\mathbf{v}_1,\mathbf{v}_2$的$2\times 2$矩阵。证明：$|\det A|$是两边为$\mathbf{v}_1,\mathbf{v}_2$的平行四边形的面积。
   
-  首先考虑$\mathbf{v}_1=(x_1,0)^T$的情形。为推广到一般情形$\mathbf{v}_1=(x_1,y_1)^T$，将$A$左乘旋转矩阵从而将向量$\mathbf{v}_1$变换为$(\tilde{x}_1,0)^T$。{\bf 提示}：旋转矩阵的行列式是多少？
-\end{enumerate}
+  首先考虑$\mathbf{v}_1=(x_1,0)^T$的情形。为推广到一般情形$\mathbf{v}_1=(x_1,y_1)^T$，将$A$左乘旋转矩阵从而将向量$\mathbf{v}_1$变换为$(\tilde{x}_1,0)^T$。
+  
+  {\bf 提示}：旋转矩阵的行列式是多少？
+\end{probenumerate}
 
-\noindent 下面这题展示了行列式的符号与一组向量的所谓{\bf 取向}之间的关系。
+\noindent {\zihao{5} 下面这题展示了行列式的符号与一组向量的所谓{\bf 取向}之间的关系。}
 
-\begin{enumerate}[label={\textbf{\arabic{section}.\arabic*.}},ref={\arabic{section}.\arabic*},leftmargin=2em,start=5]
+\begin{probenumerate}[start=5]\zihao{5}
   \item 令$\mathbf{v}_1,\mathbf{v}_2$是$\mathbb{R}^2$中的向量。证明：$D(\mathbf{v}_1,\mathbf{v}_2)>0$，当且仅当存在旋转$T_\alpha$使得向量$T_\alpha\mathbf{v}_1$平行于$\mathbf{e}_1$（且同向）并且向量$T_\alpha\mathbf{v}_2$处于上半平面$x_2>0$中（即处于$\mathbf{e}_2$所在的半平面中）。
   
   {\bf 提示}：旋转矩阵的行列式是多少？
-\end{enumerate}}
+\end{probenumerate}

@@ -197,8 +197,8 @@
 
 \newcommand{\chapterpagenum}{%
   \begin{tabular}{@{}r@{}}        % 紧凑竖直排布
-    \rule{0.6cm}{0.1cm}\\[-0.2ex] % ① 画 1.5 cm 宽、0.4 pt 厚的横线，可按需调宽
-    \zihao{5}\thepage             % ② 输出页码
+    \rule{0.6cm}{0.1cm}\\[-0.2ex] % 画横线，可按需调宽
+    \zihao{5}\thepage             % 输出页码
   \end{tabular}}
 
 %---------- 设置页脚样式 ----------
@@ -278,7 +278,8 @@
 
 %---------- 数学定理设置 ----------
 \newtheoremstyle{zhbook}{\topsep}{\topsep}%
-{\kaishu}{}{\heiti}{\sffamily .}{5pt plus 1pt minus 1pt}{\thmname{#1}\thmnumber{\sffamily #2}\thmnote{ \normalfont (#3)}}%%
+{\kaishu}{}{\heiti}{\sffamily .}{5pt plus 1pt minus 1pt}%
+{\thmname{#1}\thmnumber{\sffamily #2}\thmnote{ \normalfont (#3)}}%%
 \theoremstyle{zhbook}
 % \theoremstyle{plain}
 \newtheorem{theorem}{定理}[section]
@@ -324,14 +325,6 @@
 \newcommand{\propertyautorefname}{性质}
 \newcommand{\conjectureautorefname}{猜想}
 
-\newenvironment{problemset}{
-  \par
-  \vspace{10pt}
-  \pdfbookmark[2]{\exerciseautorefname}{problemset-\thechapter-\thesection}
-  \noindent{\zihao{4}\bfseries\exerciseautorefname}
-  \begin{enumerate}[label={\textsf{\arabic{section}.\arabic*.}},ref={\arabic{section}.\arabic*},leftmargin=2em]\zihao{5}}{
-  \end{enumerate}}
-
 %---------- 数学公式设置 ----------
 \allowdisplaybreaks[4]
 
@@ -354,6 +347,20 @@
 %---------- 列表样式设置 ----------
 \RequirePackage{enumitem}
 \setlist{nolistsep}
+
+%---------- 设置习题样式 ----------
+
+\newlist{probenumerate}{enumerate}{2} % 最多嵌套2层
+\setlist[probenumerate,1]{label={\textsf{\arabic{section}.\arabic*.}},ref={\arabic{section}.\arabic*},leftmargin=2em}
+\setlist[probenumerate,2]{label={\alph*)},leftmargin=*}
+
+\newenvironment{problemset}{
+  \par
+  \vspace{10pt}
+  \pdfbookmark[2]{\exerciseautorefname}{problemset-\thechapter-\thesection}
+  \noindent{\zihao{4}\bfseries\exerciseautorefname}
+  \begin{probenumerate}\zihao{5}}{
+  \end{probenumerate}}
 
 %---------- 定义新的标题页面 ----------
 \renewcommand{\maketitle}[1][15em]{%

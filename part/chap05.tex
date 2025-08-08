@@ -221,30 +221,30 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 \begin{problemset}
     \item 计算：\[(3+2i)(5-3i),\quad\frac{2-3i}{1-2i},\quad\mathrm{Re}\left(\frac{2-3i}{1-2i}\right),\quad(1+2i)^3,\quad\mathrm{Im}((1+2i)^3).\]
     \item 对向量$\mathbf{x}=(1,2i,1+i)^T,\mathbf{y}=(i,2-i,3)^T$，计算
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item $(\mathbf{x},\mathbf{y}),\|\mathbf{x}\|^2,\|\mathbf{y}\|^2,\|\mathbf{y}\|$；
         \item $(3\mathbf{x},2i\mathbf{y}),(2\mathbf{x},i\mathbf{x}+2\mathbf{y})$；
         \item $\|\mathbf{x}+2\mathbf{y}\|$。
-    \end{enumerate}
+    \end{probenumerate}
     \textbf{注}：当你完成a)后，可以只运用内积的性质完成b)和c)，而不需要计算出其中所有向量。
     \item 令$\|\mathbf{u}\|=2,\|\mathbf{v}\|=3,(\mathbf{u},\mathbf{v})=2+i$。计算：
     \[\|\mathbf{u}+\mathbf{v}\|^2,\quad\|\mathbf{u}-\mathbf{v}\|^2,\quad(\mathbf{u}+\mathbf{v},\mathbf{u}-i\mathbf{v}),\quad(\mathbf{u}+3i\mathbf{v},4i\mathbf{u}).\]
     \item 证明：对内积空间中的向量$\mathbf{x},\mathbf{y}$\[\|\mathbf{x}\pm\mathbf{y}\|^2=\|\mathbf{x}\|^2+\|\mathbf{y}\|^2\pm2\operatorname{Re}(\mathbf{x},\mathbf{y})\]
     回忆一下，$\operatorname{Re}z=\frac12(z+\overline{z})$。
     \item 解释为何下面这些{\bf 不是}给定向量空间上的内积：
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item $\mathbb{R}^{2}$上的$(\mathbf{x},\mathbf{y})=x_{1}y_{1}-x_{2}y_{2}$；
         \item $2\times 2$实矩阵构成的向量空间上的$(A,B)=\mathrm{trace}(A+B)$；
         \item 多项式构成的向量空间上的$(f,g)=\int_0^1f^{\prime}(t)\overline{g(t)}dt$，其中$f'(t)$代表导数。
-    \end{enumerate}
+    \end{probenumerate}
     \item （柯西-施瓦兹不等式取等的条件）证明：\[|(\mathbf{x},\mathbf{y})|=\|\mathbf{x}\|\cdot\|\mathbf{y}\|\]当且仅当其中一个向量是另一个的倍数。\textbf{提示}：分析柯西-施瓦兹不等式的证明。
     \item 证明内积空间$V$的平行四边形恒等式：\[\|\mathbf{x}+\mathbf{y}\|^2+\|\mathbf{x}-\mathbf{y}\|^2=2(\|\mathbf{x}\|^2+\|\mathbf{y}\|^2).\]
     \item 设$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是内积空间$V$中的张成组（特别地，是$V$的基）。证明：
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item 如果$(\mathbf{x},\mathbf{v})=0$对于所有$\mathbf{v}\in V$成立，那么$\mathbf{x}=\mathbf{0}$；
         \item 如果$(\mathbf{x},\mathbf{v}_k)=0\ \forall k$，那么$\mathbf{x}=\mathbf{0}$；
         \item 如果$(\mathbf{x},\mathbf{v}_k)=(\mathbf{y},\mathbf{v}_k)\ \forall k$，那么$\mathbf{x}=\mathbf{y}$。
-    \end{enumerate}
+    \end{probenumerate}
     \item 考虑具有范数$\|\cdot\|_p$（\ref{subsec:normed_space} 节所述）的向量空间$\mathbb{R}^2$。对$p=1,2,\infty$，画出范数$\|\cdot\|_p$下的“单位球”$B_p$：
     \[B_p:=\{\mathbf{x}\in\mathbb{R}^2:\|\mathbf{x}\|_p\leq1\}.\]
     你能猜出对于其他的$p$，球$B_p$是什么样吗？
@@ -351,13 +351,13 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
     \item 求出$\mathbb{R}^4$中正交于向量$(1,1,1,1)^T$和$(1,2,3,4)^T$的所有向量。
     \item 令$A$为$m\times n$实矩阵。描述$(\rg A^T)^\perp$，$(\rg A)^\perp$。
     \item \label{ex:5_2_3} 令$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$是$V$的规范正交基。
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item 证明：对任意$\mathbf{x}=\sum_{k=1}^{n}\alpha_{k}\mathbf{v}_{k},\mathbf{y}=\sum_{k=1}^{n}\beta_{k}\mathbf{v}_{k}$
         \[(\mathbf{x},\mathbf{y})=\sum_{k=1}^{n}\alpha_{k}\overline{\beta}_{k}.\]
         \item 由此推导\textbf{帕塞瓦尔恒等式}
         \[(\mathbf{x},\mathbf{y})=\sum_{k=1}^n(\mathbf{x},\mathbf{v}_k)\overline{(\mathbf{y},\mathbf{v}_k)}\]
         \item 假设$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$仅是正交基而不是规范正交基。你能写出这种情形下的帕塞瓦尔恒等式吗？
-    \end{enumerate}
+    \end{probenumerate}
 
     这题说明，如果我们有规范正交基，那么运用在这个基下的坐标就和运用$\mathbb{C}^n$（或$\mathbb{R}^n$）中的标准坐标完全一样。
 
@@ -588,25 +588,25 @@ $$
     \item 判断正误：若$E$是$V$的子空间，那么$\dim E + \dim (E^\perp) = \dim V$。论证之。
     \item 令$P$是往内积空间$V$的子空间$E$的正交投影，$\dim V=n$，$\dim E=r$。求其特征值和特征向量（特征空间），并求每个特征值的代数重数和几何重数。
     \item （利用特征值来计算行列式）
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item 求往$\mathbb{R}^n$的由向量$(1,1,\dots,1)^T$张成的一维子空间的正交投影的矩阵；
         \item 令$A$是所有项都等于$1$的$n\times n$矩阵。计算其特征值和对应的重数（利用前一题的结论）；
         \item 计算矩阵$A-I$（即主对角线项都为$0$而其他项都为$1$的矩阵）的特征值（及其重数）。
         \item 计算$\det (A-I)$。
-    \end{enumerate}
+    \end{probenumerate}
     \item （勒让德多项式）令多项式所成的向量空间上的内积定义为 $(f,g)=$\linebreak $\int_{-1}^{1}f(t)\overline{g(t)}dt$。对向量组$1,t,t^2,t^3$应用格拉姆-施密特正交化。勒让德多项式是所谓正交多项式的一个特例，后者在数学的许多分支都有重要用途。
     \item 令$P=P_E$是往子空间$E$的正交投影的矩阵。证明：
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item 矩阵$P$是\textbf{自伴的}，意即$P^*=P$。
         \item $P^2=P$。
-    \end{enumerate}
+    \end{probenumerate}
     {\bf 提示}：上述两条性质能完全刻画正交投影，即任意满足上述性质的矩阵$P$都是某正交投影的矩阵。我们后续会对此进行讨论。
     \item \label{ex:5_3_12} 证明：对子空间$E$有$(E^\perp)^\perp=E$。{\bf 提示}：容易看出$E$正交于$E^\perp$（为什么？）。为证明\textbf{任意}正交于$E^\perp$的向量$\mathbf{x}$都属于$E$，利用上面 \ref{subsec:orthogonal_complement} 节的分解$V=E\oplus E^\perp$。
     \item 设$P$是往子空间$E$上的正交投影，$Q$是往正交补$E^\perp$上的正交投影。
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item $P+Q$和$PQ$分别是什么？
         \item 证明：$P-Q$是它自身的逆。
-    \end{enumerate}
+    \end{probenumerate}
 \end{problemset}
 
 \section{最小平方解、正交投影的公式}
@@ -794,20 +794,20 @@ $$y=86/77-62x/77+43x^2/154$$
     \item 求出点$(-2,4),(-1,3),(0,1),(2,0)$的最佳直线拟合（最小平方解）。
     \item 将四个点$(1,1,3),(0,3,6),(2,1,5),(0,0,0)$拟合成平面$z=a+bx+cy$。
     为此
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item 求出有$3$个未知数$a,b,c$的$4$个方程，满足平面经过全部$4$个点（这个方程组不一定有解）；
         \item 求出方程组的最小平方解。
-    \end{enumerate}
+    \end{probenumerate}
     \item \textbf{最小范数解}。令方程$A\mathbf{x}=\mathbf{b}$有解，并令$A$有非平凡的核（因而解是不唯一的）。证明：
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item $A\mathbf{x}=\mathbf{b}$存在唯一能使得范数$\|\mathbf{x}\|$最小的解$\mathbf{x}_0$，即存在唯一的$\mathbf{x}_0$，使得$A\mathbf{x}_0=\mathbf{b}$且$\|\mathbf{x}_0\|\le \|\mathbf{x}\|$对所有满足$A\mathbf{x}=\mathbf{b}$的$\|\mathbf{x}\|$成立。
         \item 对于所有满足$A\mathbf{x}=\mathbf{b}$的$\mathbf{x}$，有$\mathbf{x}_{0}=P_{(\mathrm{Ker}A)^{\perp}}\mathbf{x}$。
-    \end{enumerate}
+    \end{probenumerate}
     \item \textbf{最小范数最小平方解}。将上述问题的结论应用于方程$A\mathbf{x}=P_{\rg A}\mathbf{b}$以证明：
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item 方程$A\mathbf{x}=\mathbf{b}$存在唯一能使得范数$\|\mathbf{x}\|$最小的最小平方解$\mathbf{x}_0$。
         \item 对于$A\mathbf{x}=\mathbf{b}$的所有最小平方解$\mathbf{x}$，有$\mathbf{x}_{0}=P_{(\ker A)^{\perp}}\mathbf{x}$。
-    \end{enumerate}
+    \end{probenumerate}
 \end{problemset}
 
 \section{线性变换的伴随、重温基本子空间}
@@ -922,10 +922,10 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
     
     为此你需要证明两个包含关系：$\ker (A^*A)\subset \ker A$和$\ker A\subset \ker (A^*A)$。其中一个包含关系很平凡，而证明另一个要用到\[\|A\mathbf{x}\|^2=(A\mathbf{x},A\mathbf{x})=(A^*A\mathbf{x},\mathbf{x}).\]
     \item 利用等式$\ker A=\ker (A^*A)$证明：
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item $\rank A=\rank (A^*A)$；
         \item 若$A\mathbf{x}=\mathbf{0}$仅有平凡解，那么$A$是左可逆的。（可以写出左逆的公式）
-    \end{enumerate}
+    \end{probenumerate}
     \item 假设对矩阵$A$有矩阵$A^*A$可逆，因此往$\rg A$上的正交投影由公式\linebreak $A(A^*A)^{-1}A^*$给出。你能写出往其他三个基本子空间（$\ker A,\ker A^*,\rg A^*$）正交投影的公式吗？
     \item 令$P$是自伴的（$P^*=P$）并令$P^2=P$。证明：$P$是一个正交投影的矩阵。{\bf 提示}：考虑分解$\mathbf{x}=\mathbf{x}_1+\mathbf{x}_2$，$\mathbf{x}_1\in\rg P,\mathbf{x}_2\perp\rg P$，并证明$P\mathbf{x}_1=\mathbf{x}_1,P\mathbf{x}_2=\mathbf{0}$。证明等式之一需要用到自伴性质，而证明另一个需要用到$P^2=P$。
 \end{problemset}
@@ -1075,25 +1075,25 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
     与\[(A\mathbf{x},\mathbf{y})=\frac{1}{4}\sum_{\alpha=\pm1,\pm i}\alpha(A(\mathbf{x}+\alpha\mathbf{y}),\mathbf{x}+\alpha\mathbf{y})\quad(\text{复数情形, }A\text{ 可任取})\]
     \item 证明：一系列幺正（正交）矩阵的乘积仍是幺正（正交）矩阵。
     \item 令$U:X\to X$是有限维内积空间上的线性变换。判断正误：
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item 若对所有$\mathbf{x}\in X$有$\|U\mathbf{x}\|=\|\mathbf{x}\|$，那么$U$是幺正的；
         \item 若对规范正交基$\mathbf{e}_{1},\mathbf{e}_{2},\ldots,\mathbf{e}_{n}$有$\|U\mathbf{e}_k\|=\|\mathbf{e}_k\|$，那么$U$是幺正的。
-    \end{enumerate}
+    \end{probenumerate}
     证明你的结论，或举出反例。
     \item 令$A$和$B$是幺正等价的$n\times n$矩阵。
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item 证明：$\tr(A^*A)=\tr(B^*B)$；
         \item 利用a)证明：\[\sum_{j,k=1}^n|A_{j,k}|^2=\sum_{j,k=1}^n|B_{j,k}|^2.\]
         \item 利用b)证明：矩阵\[\begin{pmatrix}1&2\\2&i\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}i&4\\1&1\end{pmatrix}\]不是幺正等价的。
-    \end{enumerate}
+    \end{probenumerate}
     \item 下列各对矩阵中，哪些是幺正等价的？
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item $\begin{pmatrix}1&0\\0&1\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}0&1\\1&0\end{pmatrix}$。
         \item $\begin{pmatrix}0&1\\1&0\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}0&1/2\\1/2&0\end{pmatrix}$。
         \item $\begin{pmatrix}0&1&0\\-1&0&0\\0&0&1\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}2&0&0\\0&-1&0\\0&0&0\end{pmatrix}$。
         \item $\begin{pmatrix}0&1&0\\-1&0&0\\0&0&1\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}1&0&0\\0&-i&0\\0&0&i\end{pmatrix}$。
         \item $\begin{pmatrix}1&1&0\\0&2&2\\0&0&3\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}1&0&0\\0&2&0\\0&0&3\end{pmatrix}$。
-    \end{enumerate}
+    \end{probenumerate}
     {\bf 提示}：很容易排除不是幺正等价的矩阵：请记住，幺正等价矩阵是相似的，而相似矩阵的迹、行列式和特征值都是一样的。
 
     另外，前一题的结论也有助于排除不是幺正等价的矩阵。
@@ -1102,13 +1102,13 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
     \item 令$U$是$2\times 2$正交矩阵，$\det U=1$。证明：$U$是旋转矩阵。
     \pagebreak
     \item 令$U$是$3\times 3$正交矩阵，$\det U=1$。证明：
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item $1$是$U$的特征值。
         \item 若$\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}$是规范正交基，并满足$U\mathbf{v}_{1}=\mathbf{v}_{1}$（记住，$1$是特征值之一），那么$U$关于该基的矩阵是\[\begin{pmatrix}1&0&0\\0&\cos\alpha&-\sin\alpha\\0&\sin\alpha&\cos\alpha\end{pmatrix},\]
         其中$\alpha$是一个角度值。
 
         {\bf 提示}：证明：因为$\mathbf{v}_1$是$U$的特征向量，所以在$1$之下的所有项都必为零；因为$\mathbf{v}_1$也是$U^*$的特征向量（为什么？），所以在$1$右侧的所有项也都必为零。然后证明右下角的$2\times 2$矩阵是行列式为$1$的正交矩阵，再利用前一题的结论。
-    \end{enumerate}
+    \end{probenumerate}
 \end{problemset}
 
 \section{\texorpdfstring{$\mathbb{R}^n$}{R**n}中的刚体运动}

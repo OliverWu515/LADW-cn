@@ -129,7 +129,7 @@
 
 \begin{problemset}
     \item 判断正误：
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item $n$维向量空间中的每个线性算子都有$n$个互异的特征值；
         \item 一矩阵如果有一个特征向量，就有无数个特征向量；
         \item 存在没有实特征值的实方阵；
@@ -138,7 +138,7 @@
         \item 相似矩阵总有相同的特征向量；
         \item 矩阵$A$的两个特征向量的和（非零）总是特征向量；
         \item 矩阵$A$的相应于同一特征值$\lambda$的两个特征向量的和（非零）总是特征向量。
-    \end{enumerate}
+    \end{probenumerate}
     \item 求出下列矩阵的特征多项式、特征值和特征向量：
     \[\begin{pmatrix}4&-5\\2&-3\end{pmatrix},\quad\begin{pmatrix}2&1\\-1&4\end{pmatrix},\quad\begin{pmatrix}1&3&3\\-3&-5&-3\\3&3&1\end{pmatrix}.\]
     \item 求出旋转矩阵
@@ -418,33 +418,33 @@ $$\left|\begin{array}{cc}1-\lambda&1\\0&1-\lambda\end{array}\right|=(1-\lambda)^
 
 \begin{problemset}
     \item 令$A$为$n\times n$矩阵。判断正误：
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item $A^T$和$A$的特征值相同；
         \item $A^T$和$A$的特征向量相同；
         \item 若$A$可对角化，那么$A^T$也可对角化。
-    \end{enumerate}
+    \end{probenumerate}
     证明你的结论。
     \item \label{ex:4_2_2} 令$A$为各项为实数的方阵，并令$\lambda$为它的复特征值。令$\mathbf{v}=(v_{1},v_{2},\ldots,v_{n})^{T}$是对应的特征向量，$A\mathbf{v}=\lambda\mathbf{v}$。证明：$\overline{\lambda}$是$A$的特征值，且$A\mathbf{\overline{v}}=\overline{\lambda}\mathbf{\overline{v}}$，此处$\mathbf{\overline{v}}$是向量$\mathbf{v}$的复共轭，${\overline{\mathbf{v}}}:=({\overline{v}}_{1},{\overline{v}}_{2},\ldots,{\overline{v}}_{n})^{T}$。
     \item 令\[A=\begin{pmatrix}4&3\\1&2\end{pmatrix}.\]通过对角化$A$，求$A^{2004}$。
     \item 构造矩阵$A$，其特征值为$1$和$3$，对应的特征向量分别是$(1,2)^T$和$(1,1)^T$。这样的矩阵是唯一的吗？
     \item 将下列的矩阵对角化（如果可以的话）
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item $\begin{pmatrix}{4}&{-2}\\{1}&{1}\end{pmatrix}$；
         \item $\begin{pmatrix}{-1}&{-1}\\{6}&{4}\end{pmatrix}$；
         \item $\begin{pmatrix}{-2}&{2}&{6}\\{5}&{1}&{-6}\\{-5}&{2}&{9}\end{pmatrix}$（$\lambda=2$是它的一个特征值）。
-    \end{enumerate}
+    \end{probenumerate}
     \item 考虑矩阵\[A=\begin{pmatrix}2&6&-6\\0&5&-2\\0&0&4\end{pmatrix}.\]
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item 求它的特征值。是否可以无需计算就求出特征值？
         \item 该矩阵可对角化吗？不要通过计算得出答案。
         \item 如果该矩阵可对角化，则将它对角化。
-    \end{enumerate}
+    \end{probenumerate}
     \item 将下列矩阵对角化\[\begin{pmatrix}2&0&6\\0&2&4\\0&0&4\end{pmatrix}.\]
     \item 求出下列矩阵的所有平方根\[A=\begin{pmatrix}5&2\\-3&0\end{pmatrix}\]
     即求出所有满足$B^2=A$的矩阵$B$。{\bf 提示}：求出对角矩阵的平方根很容易。你可以将答案保留为乘积形式。
     \item 回忆一下，著名的斐波那契序列\[0,1,1,2,3,5,8,13,21\]
     定义如下：置$\varphi_0=0,\varphi_1=1$，并定义\[\varphi_{n+2}=\varphi_{n+1}+\varphi_n.\]现要求$\varphi_n$的公式。为此
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item 求$2\times 2$矩阵$A$满足\[\begin{pmatrix}\varphi_{n+2}\\\varphi_{n+1}\end{pmatrix}=A\begin{pmatrix}\varphi_{n+1}\\\varphi_{n}\end{pmatrix}\]
         \textbf{提示}：将一个看似显然的公式$\varphi_{n+1}=\varphi_{n+1}$和斐波那契递推关系$\varphi_{n+2}=\varphi_{n+1}+\varphi_n$联立。
         \item 对角化$A$，并求出$A^n$的公式。
@@ -452,14 +452,14 @@ $$\left|\begin{array}{cc}1-\lambda&1\\0&1-\lambda\end{array}\right|=(1-\lambda)^
         \item 证明：向量$(\varphi_{n+1}/\varphi_{n},1)^{T}$收敛到$A$的一个特征向量。
         
         你觉得这是巧合吗？
-    \end{enumerate}
+    \end{probenumerate}
     \item 令$A$为$5\times 5$矩阵，具有$3$个特征值（此处不按重数计）。假设我们知道其中一个特征空间是三维的，能否确定$A$是否可对角化？
     \item 举出一例不可对角化的$3\times 3$矩阵。在构造出这个矩阵后，你能否使其看上去“一般化”，即看不出该矩阵的特殊结构？
     \item 令非零矩阵$A$满足$A^5=\mathbf{0}$。证明：$A$不可对角化。更一般地，任何非零的幂零矩阵，即满足$A^N=\mathbf{0}$的非零矩阵$A$都不可对角化。
     \item 转置变换的特征值：
-    \begin{enumerate}[label={\alph*)}]
+    \begin{probenumerate}
         \item 考虑由$2\times 2$矩阵构成的向量空间$M_{2\times 2}$中的变换$T$，$T(A)=A^T$。求出它的所有特征值和特征向量。这个变换可对角化吗？{\bf 提示}：尽管可以通过写出这个线性变换关于某个基的矩阵，再计算特征多项式……的常规方法计算，但更为简单的办法是直接从定义出发。
         \item 将$2\times 2$换成$n\times n$，再求解上述问题。
-    \end{enumerate}
+    \end{probenumerate}
     \item 证明：两个子空间$V_1$和$V_2$线性无关，当且仅当$V_1\cap V_2=\{\mathbf{0}\}$。
 \end{problemset}
