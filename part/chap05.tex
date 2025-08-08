@@ -18,7 +18,8 @@
 
 $\mathbb{R}^3$上的\textbf{点积}定义为$\mathbf{x}\cdot\mathbf{y}=x_1y_1+x_2y_2+x_3y_3$，其中$\mathbf{x}=(x_1,x_2,x_3)^T$，$\mathbf{y}=(y_1,y_2,y_3)^T$。
 
-类似地，\marginpar{\small 尽管内积也表示为$\mathbf{x}\cdot\mathbf{y}$并且称作点积（后面会说明原因），我们更倾向于使用$(\mathbf{x},\mathbf{y})$。}在$\mathbb{R}^n$上我们可定义两向量$\mathbf{x}=(x_{1},x_{2},\ldots,x_{n})^{T},\mathbf{y}=(y_{1},y_{2},\ldots,y_{n})^{T}$的\textbf{内积}$(\mathbf{x},\mathbf{y})$为\[(\mathbf{x},\mathbf{y}):=x_1y_1+x_2y_2+\ldots+x_ny_n=\mathbf{y}^T\mathbf{x},\]
+%TODO: 确认边注的句意
+类似地，\marginpar{\small 尽管内积也表示为$\mathbf{x}\cdot\mathbf{y}$并且称作点积，我们更倾向于使用$(\mathbf{x},\mathbf{y})$（后面会说明原因）。}在$\mathbb{R}^n$上我们可定义两向量$\mathbf{x}=(x_{1},x_{2},\ldots,x_{n})^{T},\mathbf{y}=(y_{1},y_{2},\ldots,y_{n})^{T}$的\textbf{内积}$(\mathbf{x},\mathbf{y})$为\[(\mathbf{x},\mathbf{y}):=x_1y_1+x_2y_2+\ldots+x_ny_n=\mathbf{y}^T\mathbf{x},\]
 故$\|\mathbf{x}\|=\sqrt{(\mathbf{x},\mathbf{x})}$。
 
 注意，$\mathbf{y}^T\mathbf{x}=\mathbf{x}^T\mathbf{y}$，而我们都使用记号$\mathbf{y}^T\mathbf{x}$只是为了统一起见。
@@ -189,13 +190,13 @@ $\mathbb{R}^3$上的\textbf{点积}定义为$\mathbf{x}\cdot\mathbf{y}=x_1y_1+x_
     \item 非退化性：$\|\mathbf{v}\|=0$当且仅当$\mathbf{v}=\mathbf{0}$。
 \end{enumerate}
 
-假设向量空间$V$中，我们将每个向量$\mathbf{v}$都对应到一个数$\|\mathbf{v}\|$，并且满足上述性质1-4。那么就称函数$\mathbf{v}\mapsto\|\mathbf{v}\|$为范数。配有范数的向量空间$V$称为\textbf{赋范空间}。
+假设向量空间$V$中，我们将每个向量$\mathbf{v}$都对应到一个数$\|\mathbf{v}\|$，并且使得上述性质1-4成立。那么就称函数$\mathbf{v}\mapsto\|\mathbf{v}\|$为范数。配有范数的向量空间$V$称为\textbf{赋范空间}。
 
 任何内积空间都是赋范空间，因为范数$\|\mathbf{v}\|=\sqrt{(\mathbf{v},\mathbf{v})}$满足上述性质1-4。然而，还有很多别的赋范空间。例如，给定$p$（$1\le p<\infty$），可在$\mathbb{R}^n$或$\mathbb{C}^n$上定义范数$\|\cdot\|_p$为
 \[\|\mathbf{x}\|_p=(|x_1|^p+|x_2|^p+\ldots+|x_n|^p)^{1/p}=\left(\sum_{k=1}^n|x_k|^p\right)^{1/p}.\]
 还可以定义范数$\|\cdot\|_\infty$（$p=\infty$）为
 \[\|\mathbf{x}\|_\infty=\max\{|x_k|:k=1,2,\ldots,n\}.\]
-$p=2$时的$\|\cdot\|_p$就是通常的由内积获得的范数。
+$p=2$时的范数$\|\cdot\|_p$就是通常的由内积获得的范数。
 
 要检验$\|\cdot\|_p$的确是范数，需要检验它满足上述性质1-4。性质1、3和4很容易检验，留给读者作为习题。三角不等式（性质2）对于$p=1$和$p=\infty$很容易验证（而$p=2$的情形我们已经证明过了）。
 
@@ -372,7 +373,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 回想一下经典平面几何（$2$维几何）中的正交投影的定义，可以引入下面的定义。令$E$是内积空间$V$的子空间。
 
 \begin{definition}
-    对向量$\mathbf{v}$，其往子空间$E$中的正交投影$P_E\mathbf{v}$是满足下面条件的向量$\mathbf{w}$：
+    对向量$\mathbf{v}$，其往子空间$E$上的正交投影$P_E\mathbf{v}$是满足下面条件的向量$\mathbf{w}$：
     \begin{enumerate}
         \item $\mathbf{w}\in E$；
         \item $\mathbf{v}-\mathbf{w}\perp E$。
@@ -415,7 +416,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
     \end{equation}
 \end{proposition}
 
-注意，$\alpha_k$的公式与 \eqref{coeff_orthogonal} 相同，即将此式应用于正交向量组（不是基）会给出往它的张成空间中的投影。
+注意，$\alpha_k$的公式与 \eqref{coeff_orthogonal} 相同，即将此式应用于正交向量组（不是基）会给出往它的张成空间上的投影。
 
 \begin{remark}
     从公式 \eqref{projection_eq} 中容易看出正交投影$P_E$是线性变换。
@@ -424,7 +425,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 \end{remark}
 
 \begin{remark}
-    回忆$\mathbb{C}^n$和$\mathbb{R}^n$上内积的定义，可以从上述公式 \eqref{projection_eq} 得到$\mathbb{C}^n$和$\mathbb{R}^n$上往$E$中正交投影$P_E$的矩阵的公式
+    回忆$\mathbb{C}^n$和$\mathbb{R}^n$上内积的定义，可以从上述公式 \eqref{projection_eq} 得到$\mathbb{C}^n$和$\mathbb{R}^n$上往$E$上正交投影$P_E$的矩阵的公式
     \begin{equation}\label{proj_matrix}
         P_E=\sum_{k=1}^r\frac{1}{\|\mathbf{v}_k\|^2}\mathbf{v}_k\mathbf{v}_k^*
     \end{equation}
@@ -439,7 +440,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
     \end{align*}
 \end{proof}
 
-所以，已知$E$的正交基即可求出往$E$中的正交投影。特别地，由于仅包含一个向量的向量组都是正交向量组，所以我们知道了如何将向量往一维空间中正交投影。
+所以，已知$E$的正交基即可求出往$E$上的正交投影。特别地，由于仅包含一个向量的向量组都是正交向量组，所以我们知道了如何将向量往一维空间上正交投影。
 
 但是，如果只知道$E$的基，我们怎么求出正交投影呢？幸运的是，有个简单的算法能从基得出正交基。
 
@@ -544,18 +545,18 @@ $$
 \frac{1}{2}
 \end{array}\right)
 $$
-\begin{remark}
+\begin{remark*}
     因为标量乘法不改变正交性，所以可以将格拉姆-施密特方法得到的向量$\mathbf{v}_k$乘以任意非零的数。
 
     特别地，在很多理论推导中，人们会将向量$\mathbf{v}_k$除以对应的范数$\|\mathbf{v}_k\|$来将它{\bf 归一化}。那么所得向量组是规范正交的，公式也会更简单。
 
     不过，在做计算的时候，人们往往会通过将向量的每一项乘上各项分母的最小公倍数来避免得出分数项。所以上述向量$\mathbf{v}_3$大概会被换成$(1,-2,1)^T$。
-\end{remark}
+\end{remark*}
 
 \subsection{正交补、正交分解\texorpdfstring{$V=E\oplus E^\perp$}{V=E+Eperp}}\label{subsec:orthogonal_complement}
 
 \begin{definition*}
-    对子空间$E$，其{\bf 正交补}是所有正交于$E$的向量所成的集合
+    对子空间$E$，其{\bf 正交补} $E^{\perp}$是所有正交于$E$的向量所成的集合
     \[E^{\perp}:=\{\mathbf{x}:\mathbf{x}\perp E\}.\]
 \end{definition*}
 
@@ -577,12 +578,12 @@ $$
 
 \begin{problemset}
     \item 对向量组$(1,2,-2)^T,(1,-1,4)^T,(2,1,1)^T$应用格拉姆-施密特正交化。
-    \item 对向量组$(1,2,3)^T,(1,3,1)^T$应用格拉姆-施密特正交化。写出往这些向量张成的$2$维子空间中正交投影的矩阵。
-    \item 将上题中的正交向量组补全为$\mathbb{R}^3$的正交基，即向其中加入若干个（多少个？）向量以得到正交基。
+    \item 对向量组$(1,2,3)^T,(1,3,1)^T$应用格拉姆-施密特正交化。写出往这些向量张成的$2$维子空间上正交投影的矩阵。
+    \item 将上题所得正交向量组补全为$\mathbb{R}^3$的正交基，即向其中加入若干个（多少个？）向量以得到正交基。
     
     你能描述在$\mathbb{R}^n$或$\mathbb{C}^n$的一般情形下，如何将正交向量组补全为正交基吗？
-    \item 求出从向量$(2,3,1)^{T}$到由向量$(1,2,3)^T,(1,3,1)^T$张成的子空间的距离。注意，只需要求到子空间的距离，而不需求正交投影。
-    \item 求出向量$(1,1,1,1)^{T}$往由向量$\mathbf{v}_1=(1,3,1,1)^T,\mathbf{v}_2=(2,-1,1,0)^T$张成的子空间中的正交投影（注意$\mathbf{v}_1\perp\mathbf{v}_2$）。
+    \item 求出从向量$(2,3,1)^{T}$到由向量$(1,2,3)^T,(1,3,1)^T$张成的子空间的距离。注意，只需要求到子空间的距离，而不需要求正交投影。
+    \item 求出向量$(1,1,1,1)^{T}$往由向量$\mathbf{v}_1=(1,3,1,1)^T,\mathbf{v}_2=(2,-1,1,0)^T$张成的子空间上的正交投影（注意$\mathbf{v}_1\perp\mathbf{v}_2$）。
     \item 求出从向量$(1,2,3,4)^{T}$到由向量$\mathbf{v}_1=(1,-1,1,0)^T,\mathbf{v}_2=(1,2,1,1)^T$张成的子空间的距离（注意$\mathbf{v}_1\perp\mathbf{v}_2$）。你能不计算投影就求出距离吗？这将简化计算。
     \item 判断正误：若$E$是$V$的子空间，那么$\dim E + \dim (E^\perp) = \dim V$。论证之。
     \item 令$P$是往内积空间$V$的子空间$E$的正交投影，$\dim V=n$，$\dim E=r$。求其特征值和特征向量（特征空间），并求每个特征值的代数重数和几何重数。
@@ -599,9 +600,9 @@ $$
         \item 矩阵$P$是\textbf{自伴的}，意即$P^*=P$。
         \item $P^2=P$。
     \end{enumerate}
-    {\bf 提示}：上述两条性质能完全刻画正交投影，即任意满足上述性质的矩阵$P$都是某正交投影的矩阵。我们后续会进行讨论。
+    {\bf 提示}：上述两条性质能完全刻画正交投影，即任意满足上述性质的矩阵$P$都是某正交投影的矩阵。我们后续会对此进行讨论。
     \item \label{ex:5_3_12} 证明：对子空间$E$有$(E^\perp)^\perp=E$。{\bf 提示}：容易看出$E$正交于$E^\perp$（为什么？）。为证明\textbf{任意}正交于$E^\perp$的向量$\mathbf{x}$都属于$E$，利用上面 \ref{subsec:orthogonal_complement} 节的分解$V=E\oplus E^\perp$。
-    \item 设$P$是往子空间$E$中的正交投影，$Q$是往正交补$E^\perp$中的正交投影。
+    \item 设$P$是往子空间$E$上的正交投影，$Q$是往正交补$E^\perp$上的正交投影。
     \begin{enumerate}[label={\alph*)}]
         \item $P+Q$和$PQ$分别是什么？
         \item 证明：$P-Q$是它自身的逆。
@@ -629,7 +630,7 @@ $A\mathbf{x}=\mathbf{b}$
 
 \subsubsection{几何方法}
 
-然而，求出最小值点有一种更简单的方法。即，如果取遍向量$\mathbf{x}$，那么$A\mathbf{x}$给出$\rg A$中的所有向量，所以$\|A\mathbf{x}-\mathbf{b}\|$的最小值恰为从$\mathbf{b}$到$\rg A$的距离。因此$\|A\mathbf{x}-\mathbf{b}\|$取得最小值，当且仅当$A\mathbf{x}=P_{\rg A}\mathbf{b}$，其中$P_{\rg A}$表示往列空间$\rg A$中的正交投影。
+然而，求出最小值点有一种更简单的方法。即，如果取遍向量$\mathbf{x}$，那么$A\mathbf{x}$给出$\rg A$中的所有向量，所以$\|A\mathbf{x}-\mathbf{b}\|$的最小值恰为从$\mathbf{b}$到$\rg A$的距离。因此$\|A\mathbf{x}-\mathbf{b}\|$取得最小值，当且仅当$A\mathbf{x}=P_{\rg A}\mathbf{b}$，其中$P_{\rg A}$表示往列空间$\rg A$上的正交投影。
 
 所以，为求最小平方解，只需解方程\[A\mathbf{x}=P_{\rg A}\mathbf{b}.\]
 如果已知$\rg A$的正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，则可通过下式求出向量$P_{\rg A}\mathbf{b}$
@@ -654,10 +655,10 @@ $A\mathbf{x}$是正交投影$P_{\rg A}\mathbf{b}$当且仅当$\mathbf{b}-A\mathb
 
 \subsection{正交投影的公式}
 
-如我们之前已讨论的，如果$\mathbf{x}$是\textbf{法方程}$A^*A\mathbf{x}=A^*\mathbf{b}$的解（即$A\mathbf{x}=\mathbf{b}$的最小平方解），那么$A\mathbf{x}=P_{\rg A}\mathbf{b}$。所以，为求$\mathbf{b}$往列空间$\rg A$中的正交投影，需要求解法方程$A^*A\mathbf{x}=A^*\mathbf{b}$，然后将所得的解乘以$A$。
+如我们之前已讨论的，如果$\mathbf{x}$是\textbf{法方程}$A^*A\mathbf{x}=A^*\mathbf{b}$的解（即$A\mathbf{x}=\mathbf{b}$的最小平方解），那么$A\mathbf{x}=P_{\rg A}\mathbf{b}$。所以，为求$\mathbf{b}$往列空间$\rg A$上的正交投影，需要求解法方程$A^*A\mathbf{x}=A^*\mathbf{b}$，然后将所得的解乘以$A$。
 
 如果算子$A^*A$可逆，那么法方程$A^*A\mathbf{x}=A^*\mathbf{b}$的解是$\mathbf{x}=(A^*A)^{-1}$ $A^*\mathbf{b}$，所以正交投影$P_{\rg A}\mathbf{b}$可按下式计算\[P_{\rg A}\mathbf{b}=A(A^*A)^{-1}A^*\mathbf{b}\]
-因为这对于所有$\mathbf{b}$都成立，所以往$\rg A$中正交投影的矩阵的公式是\[P_{\rg A}=A(A^*A)^{-1}A^*\]
+因为这对于所有$\mathbf{b}$都成立，所以往$\rg A$上正交投影的矩阵的公式是\[P_{\rg A}=A(A^*A)^{-1}A^*\]
 
 由下面定理可推出，对于$m\times n$矩阵$A$，矩阵$A^*A$可逆当且仅当$\rank A=n$。
 
@@ -893,7 +894,7 @@ $$y=86/77-62x/77+43x^2/154$$
 
 \subsection{线性变换的“本质”部分}
 
-上述定理让变换$A$的结构和基本子空间的几何特性更清晰了。由该定理可得，变换$A$可表示为两变换的复合：往$\rg A^*$中的正交投影与从$\rg A^*$到$\rg A$的同构。
+上述定理让变换$A$的结构和基本子空间的几何特性更清晰了。由该定理可得，变换$A$可表示为两变换的复合：往$\rg A^*$上的正交投影与从$\rg A^*$到$\rg A$的同构。
 
 的确如此：将$A$限制在定义域$\rg A^*$和目标空间$\rg A$，得到$\widetilde{A}:\rg A^*\to \rg A$，则
 \[\widetilde{A}\mathbf{x}=A\mathbf{x},\quad\forall\mathbf{x}\in\rg A^{*}.\]
@@ -914,9 +915,9 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 
 \begin{problemset}
     \item \label{ex:5_5_1}证明：对于方阵$A$，等式$\det(A^*)=\overline{\det (A)}$成立。
-    \item 求出往下列矩阵的四个基本子空间中正交投影的矩阵。
+    \item 求出往下列矩阵的四个基本子空间上正交投影的矩阵。
     \[A=\begin{pmatrix}1&1&1\\1&3&2\\2&4&3\end{pmatrix}.\]
-    注意，你只需要求其中两个投影：如果你选择适当的两个来求，就很容易从中得到另外两个（回忆一下往$E$和$E^\perp$中的投影的关系）。
+    注意，你只需要求其中两个投影：如果你选择适当的两个来求，就很容易从中得到另外两个（回忆一下往$E$和$E^\perp$上的投影的关系）。
     \item 令$A$为$m\times n$矩阵。证明：$\ker A=\ker (A^*A)$。
     
     为此你需要证明两个包含关系：$\ker (A^*A)\subset \ker A$和$\ker A\subset \ker (A^*A)$。其中一个包含关系很平凡，而证明另一个要用到\[\|A\mathbf{x}\|^2=(A\mathbf{x},A\mathbf{x})=(A^*A\mathbf{x},\mathbf{x}).\]
@@ -925,7 +926,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
         \item $\rank A=\rank (A^*A)$；
         \item 若$A\mathbf{x}=\mathbf{0}$仅有平凡解，那么$A$是左可逆的。（可以写出左逆的公式）
     \end{enumerate}
-    \item 假设对矩阵$A$有矩阵$A^*A$可逆，因此往$\rg A$中的正交投影由公式\linebreak $A(A^*A)^{-1}A^*$给出。你能写出往其他三个基本子空间（$\ker A,\ker A^*,\rg A^*$）正交投影的公式吗？
+    \item 假设对矩阵$A$有矩阵$A^*A$可逆，因此往$\rg A$上的正交投影由公式\linebreak $A(A^*A)^{-1}A^*$给出。你能写出往其他三个基本子空间（$\ker A,\ker A^*,\rg A^*$）正交投影的公式吗？
     \item 令$P$是自伴的（$P^*=P$）并令$P^2=P$。证明：$P$是一个正交投影的矩阵。{\bf 提示}：考虑分解$\mathbf{x}=\mathbf{x}_1+\mathbf{x}_2$，$\mathbf{x}_1\in\rg P,\mathbf{x}_2\perp\rg P$，并证明$P\mathbf{x}_1=\mathbf{x}_1,P\mathbf{x}_2=\mathbf{0}$。证明等式之一需要用到自伴性质，而证明另一个需要用到$P^2=P$。
 \end{problemset}
 
