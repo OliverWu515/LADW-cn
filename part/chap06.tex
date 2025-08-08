@@ -2,58 +2,372 @@
 
 \chapter{内积空间上算子的结构}\label{chap:StructinInnerProdSpace}
 
+本章我们仍然假设所有向量空间都是有限维的，并且仍然只处理实向量空间或复向量空间——内积空间的理论不适用于一般的域上的向量空间。如未指明向量空间，则有关表述对实向量空间和复向量空间都成立。
+
+为了避免重复书写实质上相同的公式，我们都用复数情形下的公式，它们在实数情形下也正确，虽然有时会复杂一点。
+
 \section{算子的上三角（舒尔）表示}
 
-\begin{equation}
-    \begin{pNiceArray}{c|ccc}
-        \lambda_1 & & * & \\
-        \Hline
-        0 & & & \\
-        \vdots & & A_1 & \\
-        0 & & & 
-    \end{pNiceArray}
-\end{equation}
+\begin{theorem}\label{thm:schur}
+    令$A:X\to X$是作用于复内积空间的算子。那么存在$X$的规范正交基$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$，使得$A$关于该基的矩阵是上三角的。
+
+    换言之，任意$n\times n$矩阵$A$都可表示为$A=UTU^*$，其中$U$是幺正的，$T$是上三角矩阵。
+\end{theorem}
+
+\begin{proof}
+    我们通过对$\dim X$用归纳法来证明本定理。若$\dim X=1$，则该定理是平凡的，这是因为任意$1\times 1$矩阵都是上三角的。
+
+    假设我们证明了该定理在$\dim X=n-1$时是成立的，并要证明它在$\dim X=n$时也成立。
+
+    令$\lambda_1$是$A$的特征值，并令$\mathbf{u}_1$（$\|\mathbf{u}_1\|=1$）是对应的特征向量，$A\mathbf{u}_1=\lambda_1\mathbf{u}_1$。记$E=\mathbf{u}_1^\perp$，并令$\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是$E$的规范正交基（显然$\dim E=\dim X-1=n-1$），因此$\mathbf{u}_1,\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是$X$的规范正交基。在该基下，$A$的矩阵形如
+    \begin{equation}\label{upper_triangular_with_ortho}
+        \begin{pNiceArray}{c|ccc}
+            \lambda_1 & & * & \\
+            \Hline
+            0 & & & \\
+            \vdots & & A_1 & \\
+            0 & & & 
+        \end{pNiceArray}
+    \end{equation}
+    此处$\lambda_1$之下的所有项都是零，$\ast$表示我们不在意第一行中位于$\lambda_1$右侧的项。
+
+    我们在意的是右下角$(n-1)\times (n-1)$的块，记其为$A_1$。
+
+    注意，$A_1$确定了$E$上的一个线性变换，又由于$\dim E=n-1$，所以由归纳假设可得，存在规范正交基（不妨记其为$\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$）使得$A_1$的矩阵是上三角的。
+
+    因此$A$关于规范正交基$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$的矩阵形如 \eqref{upper_triangular_with_ortho}，其中$A_1$是上三角的。因此$A$关于该基的矩阵也是上三角的。
+\end{proof}
+
+\begin{remark*}
+    注意，此证明中引入的子空间$E=\mathbf{u}_1^\perp$在$A$下不是不变的，即$AE\subset E$并不一定成立。这意味着$A_1$不是$A$的一部分，而是由$A$构造出来的变换。
+
+    还请注意，$AE\subset E$当且仅当记作$\ast$的所有项（即第一行中除了$\lambda_1$以外的项）都是零。
+\end{remark*}
+
+\begin{remark*}
+    注意，即便$A$是实矩阵，矩阵$U$和$T$还是可能有复数项。比如，旋转矩阵
+    \[\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix},\quad\alpha\neq k\pi,k\in\mathbb{Z}\]
+    就不幺正等价于实上三角矩阵（甚至不会与之相似）。的确如此：该矩阵的特征值是复数，而上三角矩阵的特征值恰为对角线项。
+\end{remark*}
+
+\begin{remark*}
+    有个类似于定理 \ref{thm:schur} 的结论，可在任意向量空间（不需要有内积）上成立并被证明。该结论是说，任意算子都关于某个基具有上三角矩阵。为证明之，可以仿照定理 \ref{thm:schur} 的证明，也可以为$V$配以内积（取$V$的基，并使其具有规范正交性，见第 \ref{chap:InnerProduct} 章的习题 \ref{ex:5_2_4}）。
+
+    注意，适用于内积空间的版本（定理 \ref{thm:schur}）比适用于一般向量空间的版本更强，因为它指出总可以找到满足条件的规范正交基，而不仅仅是基。
+\end{remark*}
+
+下面定理是定理 \ref{thm:schur} 在实数情形下的版本。
+
+\begin{theorem}\label{thm:schur_real}
+    令$A:X\to X$是作用于{\bf 实}内积空间的算子。假设$A$的所有特征值都是实数【即$A$恰存在$n=\dim X$个实特征值（以重数计）】。那么存在$X$的规范正交基$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$，使得$A$关于该基的矩阵是上三角的。
+
+    换言之，任意特征值全为实数的$n\times n$实矩阵$A$都可表示为$A=UTU^*=UTU^T$，其中$U$是正交的，$T$是实上三角矩阵。
+\end{theorem}
+
+\begin{remark}\label{remark:eig_complex}
+    回忆一下，我们在第 \ref{chap:SpectralIntro} 章第 \ref{subsec:complex_vs_real} 节中讨论过，“实向量空间$X$上算子$A$的特征值”总是指$X_\mathbb{C}$（$X$的复化）上的$A_\mathbb{C}$（$A$的复化）的特征值。
+
+    如果$X=\mathbb{R}^n$，那么允许各坐标为复数，即得到其复化$\mathbb{C}^n$。$\mathbb{R}^n$上算子$A$的复化（即与{\bf 实}矩阵$A$的乘法）仍是与同一实矩阵的乘法，只不过所乘向量属于$\mathbb{C}^n$。
+
+    有关复化的更多细节，详见第 \ref{chap:SpectralIntro} 章第 \ref{subsec:complex_vs_real} 节和第 \ref{chap:InnerProduct} 章第 \ref{subsec:complexification} 节。
+\end{remark}
+
+\begin{proof}[\autoref{thm:schur_real} 的证明]
+    为证明该定理，只需分析定理 \ref{thm:schur} 的证明。不失一般性，假设算子（矩阵）作用于$\mathbb{R}^n$。
+
+    假设定理对于$(n-1)\times (n-1)$矩阵成立。如定理 \ref{thm:schur} 的证明，令$\lambda_1$是$A$的实特征值，$\mathbf{u}_1\in\mathbb{R}^n$（$\|\mathbf{u}_1\|=1$）是对应的特征向量，并令$\mathbf{u}_1,\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是$\mathbb{R}^n$的规范正交基。
+    
+    在该基下，$A$的矩阵形如 \eqref{upper_triangular_with_ortho}，其中$A_1$是实矩阵。
+
+    如果我们能证明$A_1$只有实特征值，即可完成整个证明。的确如此：这样一来，由归纳假设，存在$E=\mathbf{u}_1^\perp$的规范正交基$\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$，使得$A$在该基下的矩阵是上三角的，所以$A$关于基$\mathbf{u}_1,\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$的矩阵也是上三角的。
+
+    为证明$A_1$只有实特征值，注意到\[\det(A-\lambda I)=(\lambda_1-\lambda)\det(A_1-\lambda)\]
+    （可按第一行进行余子式展开）于是$A_1$的任意特征值也是$A$的特征值，而$A$只有实特征值！
+\end{proof}
+
+\begin{problemset}
+    \item 利用算子的上三角表示来重新证明：行列式是特征值的积，迹是特征值的和（特征值均按重数计）。
+\end{problemset}
 
 \section{自伴算子和正规算子的谱定理}
 
-\begin{equation*}
-    \begin{pNiceArray}{c|ccc}
-        a_{1,1} & a_{1,2} & \ldots & a_{1,n}\\
-        \Hline
-        0 & & & \\
-        \vdots & & N_1 & \\
-        0 & & & 
-    \end{pNiceArray}
-\end{equation*}
+本节中，我们讨论幺正等价于对角矩阵的矩阵（算子）。
 
-\begin{equation*}
-    \begin{pNiceArray}{c|ccc}
-        a_{1,1} & 0 & \ldots & 0\\
-        \Hline
-        0 & & & \\
-        \vdots & & N_1 & \\
-        0 & & & 
-    \end{pNiceArray}
-\end{equation*}
+回忆一下，称算子$A$是自伴的，若$A=A^*$。自伴算子（关于规范正交基）的矩阵，即满足$A^*=A$的矩阵，称为埃尔米特矩阵。
 
-\begin{equation*}
-    N^*N = \begin{pNiceArray}{c|ccc}
-        |a_{1,1}|^2 & 0 & \ldots & 0\\
-        \Hline
-        0 & & & \\
-        \vdots & & N_1^*N_1 & \\
-        0 & & & 
-    \end{pNiceArray},\quad 
-    \begin{pNiceArray}{c|ccc}
-        |a_{1,1}|^2 & 0 & \ldots & 0\\
-        \Hline
-        0 & & & \\
-        \vdots & & N_1N_1^* & \\
-        0 & & & 
-    \end{pNiceArray},
-\end{equation*}
+术语{\bf 自伴}与{\bf 埃尔米特}本质上同义。人们通常在提及算子时用自伴而在提及矩阵时用埃尔米特。我们尽量遵循此惯例，但因为我们通常不区分算子及其矩阵，所以有时会混用这两个术语。
+
+\begin{theorem}\label{thm:self_adjoint_operator_real_eig}
+    令$A=A^*$是内积空间$X$上的自伴算子（$X$可以是实的也可以是复的）。那么$A$的所有特征值都是实数，并且$X$存在由$A$的特征向量构成的规范正交基。
+\end{theorem}
+
+该定理可按矩阵形式重述如下：
+
+\begin{theorem}\label{thm:self_adjoint_matrix_diagonalize}
+    令$A=A^*$是自伴矩阵（从而是方阵）。那么$A$可表示为\[A=UDU^*\]其中$U$是幺正矩阵，$D$是实对角矩阵。
+
+    此外，若$A$是实矩阵，那么$U$可选为实矩阵（即正交矩阵）。
+\end{theorem}
+
+\begin{proof}
+    为证明复内积空间中的定理 \ref{thm:self_adjoint_operator_real_eig} 和 \ref{thm:self_adjoint_matrix_diagonalize}，首先应用定理 \ref{thm:schur}，找出$X$的一个规范正交基，使得$A$关于该基的矩阵是上三角的。现在问：什么样的上三角矩阵是自伴的？
+
+    答案是直接的：上三角矩阵是自伴的，当且仅当其为实对角矩阵。定理 \ref{thm:self_adjoint_operator_real_eig} 得证（从而也有定理 \ref{thm:self_adjoint_matrix_diagonalize}）。
+
+    为处理实向量空间的情形，首先注意到由刚刚证明的复数情形，$A$的特征值都是实数\footnote{回想一下（见上方的注 \ref{remark:eig_complex}），“实向量空间$X$上算子的特征值”总是指$X_\mathbb{C}$（$X$的复化）上原算子的复化的特征值。}。那么，只需应用定理 \ref{thm:schur_real}，并再次注意到自伴的上三角矩阵仅有对角阵即可。
+\end{proof}
+
+\begin{remark*}
+    许多教材只考虑实矩阵，则定理 \ref{thm:self_adjoint_matrix_diagonalize} 常称为“{\bf 对称}矩阵的谱定理”。然而要强调，定理 \ref{thm:self_adjoint_matrix_diagonalize} 对{\bf 复}对称矩阵是不成立的：该定理是对埃尔米特矩阵成立，特别地，也对{\bf 实}对称矩阵成立。
+\end{remark*}
+
+现在给出“自伴算子的特征值为实数”的不依赖于基的证明。令$A=A^*$，$A\mathbf{x}=\lambda\mathbf{x},\mathbf{x}\neq0$。那么\[(A\mathbf{x},\mathbf{x})=(\lambda\mathbf{x},\mathbf{x})=\lambda(\mathbf{x},\mathbf{x})=\lambda\|\mathbf{x}\|^2.\]
+另方面，\[(A\mathbf{x},\mathbf{x})=(\mathbf{x},A^*\mathbf{x})=(\mathbf{x},A\mathbf{x})=(\mathbf{x},\lambda\mathbf{x})=\overline{\lambda}(\mathbf{x},\mathbf{x})=\overline{\lambda}\|\mathbf{x}\|^2,\]
+因此$\lambda\|\mathbf{x}\|^2=\overline{\lambda}\|\mathbf{x}\|^2$。因为$\|\mathbf{x}\|\ne 0$（$\mathbf{x}\ne \mathbf{0}$），所以$\lambda=\overline{\lambda}$，故$\lambda$为实数。
+
+根据定理 \ref{thm:self_adjoint_operator_real_eig}，自伴算子的特征空间是正交的。下面给出该结论的另一种证明。
+
+\begin{proposition}
+    令$A=A^*$是自伴算子，并令$\mathbf{u},\mathbf{v}$是它的特征向量，$A\mathbf{u}=\lambda\mathbf{u},A\mathbf{v}=\mu\mathbf{v}$。那么，若$\lambda\ne\mu$，那么$\mathbf{u}$和$\mathbf{v}$正交。
+\end{proposition}
+\begin{proof}
+    该命题可由谱定理（定理 \ref{thm:self_adjoint_operator_real_eig}）得到，但此处我们直接证明之。我们有\[(A\mathbf{u},\mathbf{v})=(\lambda\mathbf{u},\mathbf{v})=\lambda(\mathbf{u},\mathbf{v}).\]
+    另一方面，\[(A\mathbf{u},\mathbf{v})=(\mathbf{u},A^*\mathbf{v})=(\mathbf{u},A\mathbf{v})=(\mathbf{u},\mu\mathbf{v})=\overline{\mu}(\mathbf{u},\mathbf{v})=\mu(\mathbf{u},\mathbf{v})\]
+    （最后一个等式成立，是因为自伴算子的特征值是实数）因此$\lambda(\mathbf{u},\mathbf{v})=\mu(\mathbf{u},\mathbf{v})$。若$\lambda\ne \mu$，则只能$(\mathbf{u},\mathbf{v})=0$。
+\end{proof}
+
+现在我们尝试找出什么样的矩阵幺正等价于对角矩阵。容易检验，对角矩阵$D$满足\[D^*D=DD^*.\]因此如果矩阵$A$关于某个规范正交基具有对角矩阵，那么$A^*A=AA^*$。
+
+\begin{definition}
+    算子（矩阵）$N$称为{\bf 正规}的，若$N^*N=NN^*$。
+\end{definition}
+
+显然，任意自伴算子$A=A^*$都是正规的。并且，任意幺正算子$U:X\to X$也是正规的，因为$U^*U=UU^*=I$。
+
+注意，正规算子是一向量空间到其自身的变换，而不是从一向量空间到另一向量空间的。所以，如果$U$是从一向量空间到另一向量空间的幺正变换，那么不能说$U$是正规的。
+
+\begin{theorem}\label{thm:normal_diag}
+    复向量空间上的任意正规算子$N$的特征向量能构成规范正交基。
+
+    换言之，任意满足$N^*N=NN^*$的矩阵$N$能表示为\[N=UDU^*\]其中$U$是幺正矩阵，$D$是对角阵。
+\end{theorem}
+
+\begin{remark*}
+    注意，上述定理中即便$N$是实矩阵，也不能断定矩阵$U$和$D$是实的。此外，很容易证明如果$D$是实的，那么$N$一定是自伴的。
+\end{remark*}
+
+\begin{proof}[定理 \ref{thm:normal_diag} 的证明]
+    要证明定理 \ref{thm:normal_diag}，先应用定理 \ref{thm:schur}，从而得到一个规范正交基，$N$关于该基的矩阵是上三角的。为完成该定理的证明，只需证明上三角的正规矩阵一定是对角的。
+
+    我们将对矩阵的维数用归纳法来证明。$1\times 1$矩阵的情形是平凡的，因为任意$1\times 1$矩阵都是对角阵。
+
+    假设我们已经证明任意$(n-1)\times (n-1)$上三角正规矩阵都是对角的，现在要证明这对于$n\times n$矩阵也是成立的。令$N$是$n\times n$上三角正规矩阵。可将其写为
+    \begin{equation*}
+        \begin{pNiceArray}{c|ccc}
+            a_{1,1} & a_{1,2} & \ldots & a_{1,n}\\
+            \Hline
+            0 & & & \\
+            \vdots & & N_1 & \\
+            0 & & & 
+        \end{pNiceArray}
+    \end{equation*}
+    其中$N_1$是$(n-1)\times (n-1)$上三角正规矩阵。
+
+    我们来比较$N^*N$和$NN^*$左上角（第一行第一列）的项。直接计算表明
+    \[(N^*N)_{1,1}=\overline{a}_{1,1}a_{1,1}=|a_{1,1}|^2\]
+    且有\[(NN^*)_{1,1}=|a_{1,1}|^2+|a_{1,2}|^2+\ldots+|a_{1,n}|^2.\]
+    因此，$(N^*N)_{1,1}=(NN^*)_{1,1}$当且仅当$a_{1,2}=\ldots=a_{1,n}=0$。因此，矩阵$N$形如
+    \begin{equation*}
+        \begin{pNiceArray}{c|ccc}
+            a_{1,1} & 0 & \ldots & 0\\
+            \Hline
+            0 & & & \\
+            \vdots & & N_1 & \\
+            0 & & & 
+        \end{pNiceArray}
+    \end{equation*}
+    从上述表达式可得
+    \begin{equation*}
+        N^*N = \begin{pNiceArray}{c|ccc}
+            |a_{1,1}|^2 & 0 & \ldots & 0\\
+            \Hline
+            0 & & & \\
+            \vdots & & N_1^*N_1 & \\
+            0 & & & 
+        \end{pNiceArray},\quad 
+        \begin{pNiceArray}{c|ccc}
+            |a_{1,1}|^2 & 0 & \ldots & 0\\
+            \Hline
+            0 & & & \\
+            \vdots & & N_1N_1^* & \\
+            0 & & & 
+        \end{pNiceArray},
+    \end{equation*}
+    因此$N_1^*N_1=N_1N_1^*$，这意味着矩阵$N_1$是正规的，由归纳假设可得它是对角的。于是矩阵$N$也是对角的。
+\end{proof}
+
+下面命题给出了正规算子的一个很有用的刻画。
+
+\begin{proposition}
+    算子$N:X\to X$是正规的，当且仅当\[\|N\mathbf{x}\|=\|N^*\mathbf{x}\|\quad\forall\mathbf{x}\in X.\]
+\end{proposition}
+\begin{proof}
+    令$N$是正规的，$N^*N=NN^*$。那么\[\|N\mathbf{x}\|^2=(N\mathbf{x},N\mathbf{x})=(N^*N\mathbf{x},\mathbf{x})=(NN^*\mathbf{x},\mathbf{x})=(N^*\mathbf{x},N^*\mathbf{x})=\|N^*\mathbf{x}\|^2\]
+    所以$\|N\mathbf{x}\|=\|N^{*}\mathbf{x}\|$。
+
+    现在令\[\|N\mathbf{x}\|=\|N^*\mathbf{x}\|\quad\forall\mathbf{x}\in X.\]
+    由极化恒等式（第 \ref{chap:InnerProduct} 章引理 \ref{lem:polarization}）可得对所有$\mathbf{x},\mathbf{y}\in X$
+    \begin{align*}
+        (N^{*}N\mathbf{x},\mathbf{y})=(N\mathbf{x},N\mathbf{y})&=\frac{1}{4}\sum_{\alpha=\pm1,\pm i}\alpha\|N\mathbf{x}+\alpha N\mathbf{y}\|^{2}\\
+        &=\frac{1}{4}\sum_{\alpha=\pm1,\pm i}\alpha\|N(\mathbf{x}+\alpha\mathbf{y})\|^2\\
+        &=\frac{1}{4}\sum_{\alpha=\pm1,\pm i}\alpha\|N^{*}(\mathbf{x}+\alpha\mathbf{y})\|^{2}\\
+        &=\frac{1}{4}\sum_{\alpha=\pm1,\pm i}\alpha\|N^{*}\mathbf{x}+\alpha N^{*}\mathbf{y}\|^{2}\\
+        &=(N^*\mathbf{x},N^*\mathbf{y})=(NN^*\mathbf{x},\mathbf{y})
+    \end{align*}
+    因此（见第 \ref{chap:InnerProduct} 章推论 \ref{col:Ax_Bx_A_eq_B}），$N^N=NN^*$。
+\end{proof}
+
+\begin{problemset}
+    \item 判断正误：
+    \begin{probenumerate}
+        \item 每个幺正算子$U:X\to X$都是正规的。
+        \item 一矩阵是幺正的，当且仅当其可逆。
+        \item 如果两个矩阵是幺正等价的，则这两个矩阵也是相似的。
+        \item 自伴算子之和仍然自伴。
+        \item 幺正算子的伴随是幺正的。
+        \item 正规算子的伴随是正规的。
+        \item 如果线性算子的所有特征值是$1$，那么该算子必为幺正或正交的。
+        \item 如果正规算子的所有特征值是$1$，那么该算子是恒等算子。
+        \item 线性算子可能只保持范数而不保持内积。
+    \end{probenumerate}
+    \item 判断正误：正规算子之和仍然正规。论证你的结论。
+    \item 证明：幺正等价于对角矩阵的算子是正规的。
+    \item 正交分解下列矩阵\[A=\begin{pmatrix}
+        3&2\\2&3
+    \end{pmatrix}\]求出$A$的所有平方根，即求出所有满足$B^2=A$的矩阵$B$。注意，$A$的所有平方根都是自伴的。
+    \item 判断正误：任意自伴矩阵有自伴的平方根。论证之。
+    \item 正交分解下列矩阵\[A=\begin{pmatrix}
+        7&2\\2&4
+    \end{pmatrix}\]即将其表示为$A=UDU^*$，其中$D$是对角阵，$U$是幺正的。
+
+    在$A$的所有平方根（即所有满足$B^2=A$的矩阵$B$）中，找出具有正特征值的那个。你可将$B$保留为矩阵乘积。
+    \item 判断正误：
+    \begin{probenumerate}
+        \item 两个自伴算子的乘积仍是自伴的；
+        \item 若$A$是自伴的，那么$A^k$是自伴的。
+    \end{probenumerate}
+    论证你的结论。
+    \item 令$A$是$m\times n$矩阵。证明：
+    \begin{probenumerate}
+        \item $A^*A$是自伴的；
+        \item $A^*A$的所有特征值都非负；
+        \item $A^*A+I$可逆。
+    \end{probenumerate}
+    \item 对于下列结论，如果正确则证明之，如果不正确则给出反例：
+    \begin{probenumerate}
+        \item 若$A=A^*$，那么$A+iI$是可逆的；
+        \item 若$U$是幺正的，那么$U+\frac34I$是可逆的；
+        \item 若$A$是实矩阵，那么$A-iI$是可逆的。
+    \end{probenumerate}
+    \item 正交分解旋转矩阵\[R_\alpha=\begin{pmatrix}
+        \cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha
+    \end{pmatrix}\]其中$\alpha$不是$\pi$的整数倍。注意，此处你会得到复特征值。
+    \item 正交分解矩阵\[A=\begin{pmatrix}
+        \cos\alpha&\sin\alpha\\\sin\alpha&-\cos\alpha
+    \end{pmatrix}\]
+    {\bf 提示}：此处你会得到实特征值。三角函数的恒等式$\sin2x=2\sin x\cos x,$ $\sin^2x=(1-\cos2x)/2,\cos^2x=(1+\cos2x)/2$（应用于$x=\alpha/2$）有助于简化特征向量的表达式。
+    \item 你能从几何角度描述上题中矩阵$A$所确定的线性变换吗？它的几何描述特别简单。
+    \item 证明：具有单位模长特征值（即所有特征值都满足$|\lambda_k|=1$）的正规算子是幺正的。{\bf 提示}：考虑对角化。
+    \item 证明：具有实特征值的正规算子是自伴的。
+    \item 举例说明：定理 \ref{thm:normal_diag} 的结论对于{\bf 复}对称矩阵不成立。即
+    \begin{probenumerate}
+        \item 构造一个（可对角化的）$2\times 2$复对称矩阵，其特征向量不能构成正交基；
+        \item 构造一个$2\times 2$复对称矩阵，其不能被对角化。
+    \end{probenumerate}
+\end{problemset}
 
 \section{极分解和奇异值分解}
+
+\subsection{正定算子、平方根}
+
+\begin{definition*}
+    称自伴算子$A:X\to X$是{\bf 正定的}，若\[(A\mathbf{x},\mathbf{x})>0\quad\forall\mathbf{x}\neq\mathbf{0},\]
+    称其为{\bf 正半定的}，若\[(A\mathbf{x},\mathbf{x})>0\quad\forall\mathbf{x}\in X,\]
+    我们将用记号$A>0$指代正定算子，并用记号$A\ge 0$指代正半定算子。
+\end{definition*}
+
+下述定理描述了正定和正半定算子。
+
+\begin{theorem}
+    令$A=A^*$。则
+    \begin{enumerate}
+        \item $A>0$当且仅当$A$的所有特征值都是正数。
+        \item $A\ge 0$当且仅当$A$的所有特征值都是非负数。
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    选取一个规范正交基，使得$A$关于该基的矩阵是对角的（见定理 \ref{thm:self_adjoint_operator_real_eig}）。为完成证明，只需留意，对角矩阵是正定（正半定）的，当且仅当其所有对角线项都是正的（非负的）。
+\end{proof}
+
+\begin{corollary}
+    令$A=A^*\ge 0$是正半定算子。存在唯一的正半定算子$B$使得$B^2=A$。
+\end{corollary}
+
+这样的$B$称为$A$的（正）平方根，并记作$\sqrt{A}$或$A^{1/2}$。
+
+\begin{proof}
+    首先证明$\sqrt{A}$存在。令$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是由$A$的特征向量构成的规范正交基，并令$\lambda_{1},\lambda_{2},\ldots,\lambda_{n}$是对应的特征值。注意，因为$A\ge 0$，所以全体$\lambda_k\ge 0$。
+
+    关于基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，$A$的矩阵是对角线项为$\lambda_{1},\lambda_{2},\ldots,\lambda_{n}$的\linebreak 对角阵$\operatorname{diag}\{\lambda_{1},\lambda_{2},\ldots,\lambda_{n}\}$。定义算子$B$，其关于同一个基的矩阵为\linebreak $\mathrm{diag}\{\sqrt{\lambda_{1}},\sqrt{\lambda_{2}},\ldots,\sqrt{\lambda_{n}}\}$。
+
+    显然，$B=B^*\ge 0$，并且$B^2=A$。
+
+    为证明$B$是唯一的，假设存在算子$C=C^*\ge 0$使得$C^2=A$。令$\mathbf{u}_1,\mathbf{u}_2,\ldots,\mathbf{u}_n$是由$C$的特征向量构成的规范正交基，并令$\mu_{1},\mu_{2},\ldots,\mu_{n}$是对应的特征值（注意$\mu_k\ge 0\ \forall k$）。$C$关于基$\mathbf{u}_1,\mathbf{u}_2,\ldots,\mathbf{u}_n$的矩阵是对角阵$\mathrm{diag}\{\mu_{1},\mu_{2},\ldots,\mu_{n}\}$，因而$A=C^2$关于相同基的矩阵是$\mathrm{diag}\{\mu_{1}^{2},\mu_{2}^{2},\ldots,\mu_{n}^{2}\}$。这意味着，$A$的任意特征值都形如$\mu_k^2$，并且如果$A\mathbf{x}=\lambda\mathbf{x}$，那么$C\mathbf{x}=\sqrt\lambda\mathbf{x}$。
+
+    因此，关于上面的基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，算子$C$的矩阵是对角矩阵\linebreak $\mathrm{diag}\{\sqrt{\lambda_{1}},\sqrt{\lambda_{2}},\ldots,\sqrt{\lambda_{n}}\}$，即$B=C$。
+\end{proof}
+
+\subsection{变换的模、极分解}
+
+考虑变换$A:X\to Y$。其{\bf 埃尔米特平方} $A^*A$是$X$上的正半定算子。的确如此：
+\[(A^*A)^*=A^*(A^*)^*=A^*A\]
+并且\[(A^*A\mathbf{x},\mathbf{x})=(A\mathbf{x},A\mathbf{x})=\|A\mathbf{x}\|^2\geq0\quad\forall\mathbf{x}\in X.\]
+因此，存在（唯一的）半正定平方根$R=\sqrt{A^*A}$。该算子$R$称为变换$A$的{\bf 模}，常记为$|A|$。
+
+$A$的模显示了变换$A$的“大小”：
+\begin{proposition}\label{prop:modulus_preserve_norm}
+    对线性变换$A:X\to Y$，\[\||A|\mathbf{x}\|=\|A\mathbf{x}\|\quad\forall\mathbf{x}\in X.\]
+\end{proposition}
+
+\begin{proof}
+    对任意$\mathbf{x}\in X$，
+    \[\begin{aligned}
+        \|\|A\|\mathbf{x}\|^{2}&=(|A|\mathbf{x},|A|\mathbf{x})=(|A|^*|A|\mathbf{x},\mathbf{x})=(|A|^2\mathbf{x},\mathbf{x})\\
+        &=(A^*A\mathbf{x},\mathbf{x})=(A\mathbf{x},A\mathbf{x})=\|A\mathbf{x}\|^2
+    \end{aligned}\qedhere\]
+\end{proof}
+
+\begin{corollary}
+    \[\ker A=\ker |A|=(\rg |A|)^\perp.\]
+\end{corollary}
+\begin{proof}
+    第一个等号可直接由命题 \ref{prop:modulus_preserve_norm} 得到，第二个等号源于$\ker T=(\rg T^*)^\perp$（$|A|$是自伴的）。
+\end{proof}
+\begin{theorem}[算子的极分解]
+    令$A:X\to X$是算子（方阵）。那么$A$可表示为\[A=U|A|,\]其中$U$是幺正算子。
+\end{theorem}
+\begin{remark*}
+    上述幺正算子$U$通常不唯一。从定理的证明中，我们将发现$U$唯一当且仅当$A$可逆。
+\end{remark*}
+\begin{remark*}
+    极分解$A=U|A|$对从一个空间到另一个空间的变换$A:X\to Y$也成立。不过在这种情况中，只能保证$U$是从$\rg |A|=(\ker A)^\perp$到$Y$的{\bf 等距变换}。
+
+    若$\dim X\le \dim Y$，那么这个等距变换扩展为从整个$X$到$Y$的等距变换（而若$\dim X=\dim Y$，这个变换就成为幺正算子）。
+\end{remark*}
+
+\subsection{奇异值、施密特分解}
+
+\subsection{施密特分解的矩阵表示、奇异值分解}
 
 \section{奇异值分解的应用}
 

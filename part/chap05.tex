@@ -120,7 +120,7 @@ $\mathbb{R}^3$上的\textbf{点积}定义为$\mathbf{x}\cdot\mathbf{y}=x_1y_1+x_
 \end{corollary}
 
 下面推论很简单却很常用：
-\begin{corollary}
+\begin{corollary}\label{col:Ax_Bx_A_eq_B}
     设两个算子$A,B:X\to Y$满足\[(A\mathbf{x},\mathbf{y})=(B\mathbf{x},\mathbf{y})\quad\forall\mathbf{x}\in X,\forall\mathbf{y}\in Y.\]
     那么$A=B$。
 \end{corollary}
@@ -362,7 +362,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
     这题说明，如果我们有规范正交基，那么运用在这个基下的坐标就和运用$\mathbb{C}^n$（或$\mathbb{R}^n$）中的标准坐标完全一样。
 
     下面这题说明，我们可以通过使一个基具有规范正交性来定义一个内积。
-    \item 令$V$为向量空间，并令$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$是$V$的基。对于$\mathbf{x}=\sum_{k=1}^n\alpha_k\mathbf{v}_k,\mathbf{y}=\sum_{k=1}^n\beta_k\mathbf{v}_k$定义$\langle\mathbf{x},\mathbf{y}\rangle:=\sum_{k=1}^{n}\alpha_{k}\bar{\beta}_{k}$。
+    \item \label{ex:5_2_4} 令$V$为向量空间，并令$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$是$V$的基。对于$\mathbf{x}=\sum_{k=1}^n\alpha_k\mathbf{v}_k,\mathbf{y}=\sum_{k=1}^n\beta_k\mathbf{v}_k$定义$\langle\mathbf{x},\mathbf{y}\rangle:=\sum_{k=1}^{n}\alpha_{k}\bar{\beta}_{k}$。
     
     证明：$\langle\mathbf{x},\mathbf{y}\rangle$是$V$上的内积。
     \item 令$A$为$m\times n$实矩阵。描述$\mathbb{F}^m$中所有正交于$\rg A$的向量所成的集合。
@@ -810,7 +810,7 @@ $$y=86/77-62x/77+43x^2/154$$
     \end{probenumerate}
 \end{problemset}
 
-\section{线性变换的伴随、重温基本子空间}
+\section{线性变换的伴随、再探基本子空间}
 
 \subsection{伴随矩阵和伴随变换}
 
