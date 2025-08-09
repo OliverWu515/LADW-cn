@@ -259,7 +259,7 @@ $e^{tA}$的矩阵表达式也类似。
 
 \subsection{\texorpdfstring{$n$}{n}个互异特征值的情形}
 
-现在我们给出算子可对角化的一个很简单的\textbf{充分}条件，见下推论 \ref{col:diagonalizable_suff_1}。
+现在我们给出算子可对角化的一个很简单的\textbf{充分}条件，见下推论 \ref{cor:diagonalizable_suff_1}。
 
 \begin{theorem}\label{thm:li_eigenvector}
     令$\lambda_1,\lambda_2,\dots,\lambda_r$是$A$的相异特征值，并令$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$是对应的特征向量。那么向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$是线性无关的。
@@ -276,7 +276,7 @@ $e^{tA}$的矩阵表达式也类似。
     由归纳假设，向量$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_{r-1}$线性无关，所以$c_k(\lambda_k-\lambda_r)$对$k=1,2,\dots,r-1$成立。因为$\lambda_k\ne \lambda_r$，我们可知$c_k=0$对$k<r$成立。于是，由 \eqref{nontrivial_comb_of_eigenvector} 得$c_r=0$，即此式实为平凡线性组合。
 \end{proof}
 
-\begin{corollary}\label{col:diagonalizable_suff_1}
+\begin{corollary}\label{cor:diagonalizable_suff_1}
     若算子$A:V\to V$恰有$n=\dim V$个互异特征值，\marginpar{\small 这个结论虽简单却十分重要且常用。请记住它！}那么它可对角化。
 \end{corollary}
 \begin{proof}

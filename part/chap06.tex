@@ -79,7 +79,7 @@
     
     在该基下，$A$的矩阵形如 \eqref{upper_triangular_with_ortho}，其中$A_1$是实矩阵。
 
-    如果我们能证明$A_1$只有实特征值，即可完成整个证明。的确如此：这样一来，由归纳假设，存在$E=\mathbf{u}_1^\perp$的规范正交基$\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$，使得$A$在该基下的矩阵是上三角的，所以$A$关于基$\mathbf{u}_1,\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$的矩阵也是上三角的。
+    如果我们能证明$A_1$只有实特征值，即可完成整个证明。的确如此：这样一来，由归纳假设，存在$E=\mathbf{u}_1^\perp$的规范正交基$\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$，使得$A_1$在该基下的矩阵是上三角的，所以$A$关于基$\mathbf{u}_1,\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$的矩阵也是上三角的。
 
     为证明$A_1$只有实特征值，注意到\[\det(A-\lambda I)=(\lambda_1-\lambda)\det(A_1-\lambda)\]
     （可按第一行进行余子式展开）于是$A_1$的任意特征值也是$A$的特征值，而$A$只有实特征值！
@@ -114,7 +114,7 @@
 
     答案是直接的：上三角矩阵是自伴的，当且仅当其为实对角矩阵。定理 \ref{thm:self_adjoint_operator_real_eig} 得证（从而也有定理 \ref{thm:self_adjoint_matrix_diagonalize}）。
 
-    为处理实向量空间的情形，首先注意到由刚刚证明的复数情形，$A$的特征值都是实数\footnote{回想一下（见上方的注 \ref{remark:eig_complex}），“实向量空间$X$上算子的特征值”总是指$X_\mathbb{C}$（$X$的复化）上原算子的复化的特征值。}。那么，只需应用定理 \ref{thm:schur_real}，并再次注意到自伴的上三角矩阵仅有对角阵即可。
+    为处理实向量空间的情形，首先注意到由刚刚证明的复数情形，$A$的特征值都是实数\footnote{回想一下（见上方的注 \ref{remark:eig_complex}），“实向量空间$X$上算子的特征值”总是指$X_\mathbb{C}$（$X$的复化）上原算子的{\bf 复化}的特征值。}。那么，只需应用定理 \ref{thm:schur_real}，并再次注意到自伴的上三角矩阵仅有对角阵即可。
 \end{proof}
 
 \begin{remark*}
@@ -128,7 +128,7 @@
 根据定理 \ref{thm:self_adjoint_operator_real_eig}，自伴算子的特征空间是正交的。下面给出该结论的另一种证明。
 
 \begin{proposition}
-    令$A=A^*$是自伴算子，并令$\mathbf{u},\mathbf{v}$是它的特征向量，$A\mathbf{u}=\lambda\mathbf{u},A\mathbf{v}=\mu\mathbf{v}$。那么，若$\lambda\ne\mu$，那么$\mathbf{u}$和$\mathbf{v}$正交。
+    令$A=A^*$是自伴算子，并令$\mathbf{u},\mathbf{v}$是它的特征向量，$A\mathbf{u}=\lambda\mathbf{u},A\mathbf{v}=\mu\mathbf{v}$。那么，若$\lambda\ne\mu$，那么特征向量$\mathbf{u}$和$\mathbf{v}$正交。
 \end{proposition}
 \begin{proof}
     该命题可由谱定理（定理 \ref{thm:self_adjoint_operator_real_eig}）得到，但此处我们直接证明之。我们有\[(A\mathbf{u},\mathbf{v})=(\lambda\mathbf{u},\mathbf{v})=\lambda(\mathbf{u},\mathbf{v}).\]
@@ -142,7 +142,7 @@
     算子（矩阵）$N$称为{\bf 正规}的，若$N^*N=NN^*$。
 \end{definition*}
 
-显然，任意自伴算子$A=A^*$都是正规的。并且，任意幺正算子$U:X\to X$也是正规的，因为$U^*U=UU^*=I$。
+显然，任意自伴算子（$A=A^*$）都是正规的。并且，任意幺正算子$U:X\to X$也是正规的，因为$U^*U=UU^*=I$。
 
 注意，正规算子是一向量空间到其自身的变换，而不是从一向量空间到另一向量空间的。所以，如果$U$是从一向量空间到另一向量空间的幺正变换，那么不能说$U$是正规的。
 
@@ -171,7 +171,7 @@
             0 & & & 
         \end{pNiceArray}
     \end{equation*}
-    其中$N_1$是$(n-1)\times (n-1)$上三角正规矩阵。
+    其中$N_1$是$(n-1)\times (n-1)$上三角矩阵。
 
     我们来比较$N^*N$和$NN^*$左上角（第一行第一列）的项。直接计算表明
     \[(N^*N)_{1,1}=\overline{a}_{1,1}a_{1,1}=|a_{1,1}|^2\]
@@ -224,7 +224,7 @@
         &=\frac{1}{4}\sum_{\alpha=\pm1,\pm i}\alpha\|N^{*}\mathbf{x}+\alpha N^{*}\mathbf{y}\|^{2}\\
         &=(N^*\mathbf{x},N^*\mathbf{y})=(NN^*\mathbf{x},\mathbf{y})
     \end{align*}
-    因此（见第 \ref{chap:InnerProduct} 章推论 \ref{col:Ax_Bx_A_eq_B}），$N^*N=NN^*$。
+    因此（见第 \ref{chap:InnerProduct} 章推论 \ref{cor:Ax_Bx_A_eq_B}），$N^*N=NN^*$。
 \end{proof}
 
 \begin{problemset}
@@ -253,7 +253,7 @@
     在$A$的所有平方根（即所有满足$B^2=A$的矩阵$B$）中，找出具有正特征值的那个。你可将$B$保留为矩阵乘积。
     \item 判断正误：
     \begin{probenumerate}
-        \item 两个自伴算子的乘积仍是自伴的；
+        \item 两个自伴矩阵的乘积仍是自伴的；
         \item 若$A$是自伴的，那么$A^k$是自伴的。
     \end{probenumerate}
     论证你的结论。
@@ -322,7 +322,7 @@
 
     显然，$B=B^*\ge 0$，并且$B^2=A$。
 
-    为证明$B$是唯一的，假设存在算子$C=C^*\ge 0$使得$C^2=A$。令$\mathbf{u}_1,\mathbf{u}_2,\ldots,\mathbf{u}_n$是由$C$的特征向量构成的规范正交基，并令$\mu_{1},\mu_{2},\ldots,\mu_{n}$是对应的特征值（注意$\mu_k\ge 0\ \forall k$）。$C$关于基$\mathbf{u}_1,\mathbf{u}_2,\ldots,\mathbf{u}_n$的矩阵是对角阵$\mathrm{diag}\{\mu_{1},\mu_{2},\ldots,\mu_{n}\}$，因而$A=C^2$关于相同基的矩阵是$\mathrm{diag}\{\mu_{1}^{2},\mu_{2}^{2},\ldots,\mu_{n}^{2}\}$。这意味着，$A$的任意特征值都形如$\mu_k^2$，并且如果$A\mathbf{x}=\lambda\mathbf{x}$，那么$C\mathbf{x}=\sqrt\lambda\mathbf{x}$。
+    为证明$B$是唯一的，假设存在算子$C=C^*\ge 0$使得$C^2=A$。令$\mathbf{u}_1,\mathbf{u}_2,\ldots,\mathbf{u}_n$是由$C$的特征向量构成的规范正交基，并令$\mu_{1},\mu_{2},\ldots,\mu_{n}$是对应的特征值（注意$\mu_k\ge 0\ \forall k$）。$C$关于基$\mathbf{u}_1,\mathbf{u}_2,\ldots,\mathbf{u}_n$的矩阵是对角阵$\mathrm{diag}\{\mu_{1},\mu_{2},\ldots,\mu_{n}\}$，因而$A=C^2$关于相同基的矩阵是$\mathrm{diag}\{\mu_{1}^{2},\mu_{2}^{2},\ldots,\mu_{n}^{2}\}$。这意味着，$A$的任意特征值$\lambda$都形如$\mu_k^2$，并且如果$A\mathbf{x}=\lambda\mathbf{x}$，那么$C\mathbf{x}=\sqrt\lambda\mathbf{x}$。
 
     因此，关于上面的基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，算子$C$的矩阵是对角矩阵\linebreak $\mathrm{diag}\{\sqrt{\lambda_{1}},\sqrt{\lambda_{2}},\ldots,\sqrt{\lambda_{n}}\}$，即$B=C$。
 \end{proof}
@@ -341,19 +341,19 @@ $A$的模显示了变换$A$的“大小”：
 
 \begin{proof}
     对任意$\mathbf{x}\in X$，
-    \[\begin{aligned}
-        \|\|A\|\mathbf{x}\|^{2}&=(|A|\mathbf{x},|A|\mathbf{x})=(|A|^*|A|\mathbf{x},\mathbf{x})=(|A|^2\mathbf{x},\mathbf{x})\\
-        &=(A^*A\mathbf{x},\mathbf{x})=(A\mathbf{x},A\mathbf{x})=\|A\mathbf{x}\|^2
-    \end{aligned}\qedhere\]
+    \begin{align*}
+        \||A|\mathbf{x}\|^{2}&=(|A|\mathbf{x},|A|\mathbf{x})=(|A|^*|A|\mathbf{x},\mathbf{x})=(|A|^2\mathbf{x},\mathbf{x})\\
+        &=(A^*A\mathbf{x},\mathbf{x})=(A\mathbf{x},A\mathbf{x})=\|A\mathbf{x}\|^2\qedhere
+    \end{align*}
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{cor:ker_a_ker_moda}
     \[\ker A=\ker |A|=(\rg |A|)^\perp.\]
 \end{corollary}
 \begin{proof}
     第一个等号可直接由命题 \ref{prop:modulus_preserve_norm} 得到，第二个等号源于$\ker T=(\rg T^*)^\perp$（$|A|$是自伴的）。
 \end{proof}
-\begin{theorem}[算子的极分解]
+\begin{theorem}[算子的极分解]\label{thm:polar_decomp}
     令$A:X\to X$是算子（方阵）。那么$A$可表示为\[A=U|A|,\]其中$U$是幺正算子。
 \end{theorem}
 \begin{remark*}
@@ -364,6 +364,22 @@ $A$的模显示了变换$A$的“大小”：
 
     若$\dim X\le \dim Y$，那么这个等距变换扩展为从整个$X$到$Y$的等距变换（而若$\dim X=\dim Y$，这个变换就成为幺正算子）。
 \end{remark*}
+
+\begin{proof}[\autoref{thm:polar_decomp} 的证明]
+    考虑向量$\mathbf{x}\in\operatorname{Ran}|A|$。那么向量$\mathbf{x}$可表示为$\mathbf{x}=|A|\mathbf{v}$（$\mathbf{v}\in X$）。
+
+    定义$U_0\mathbf{x}:=A\mathbf{v}$。由命题 \ref{prop:modulus_preserve_norm}，
+    \[\|U_0\mathbf{x}\|=\|A\mathbf{v}\|=\||A|\mathbf{v}\|=\|\mathbf{x}\|\]
+    这样看来，$U_0$是从$\rg |A|$到$X$的等距变换。
+
+    但首先，我们需要证明$U_0$是定义完善的。令$\mathbf{v}_1$是另一个满足$\mathbf{x}=|A|\mathbf{v}_1$的向量。这样，由$\mathbf{x}=|A|\mathbf{v}=|A|\mathbf{v}_1$可得，$\mathbf{v}-\mathbf{v}_1\in\ker|A|=\ker A$（据推论 \ref{cor:ker_a_ker_moda}），所以$A\mathbf{v}=A\mathbf{v}_1$，这意味着$U_0\mathbf{x}$是定义完善的。
+
+    则构造出了$A=U_0|A|$。验证$U_0$是线性变换，留给读者作为习题。
+
+    要将$U_0$延拓为幺正算子$U$，我们求幺正变换$U_1:\ker A\to$\linebreak $(\rg A)^\perp=\ker A^*$。这总可以实现，因为对于方阵$A$有$\dim\ker A=\dim\ker A^*$（秩定理）。
+
+    容易验证，$U=U_0+U_1$是幺正算子，且有$A=U|A|$。
+\end{proof}
 
 \subsection{奇异值、施密特分解}
 
@@ -502,10 +518,44 @@ $A$的模显示了变换$A$的“大小”：
         \item $A=\begin{pmatrix}{-3}&{1}\\{6}&{-2}\\{6}&{-2}\end{pmatrix}$；
         \item $A={\begin{pmatrix}{3}&{2}&{2}\\{2}&{3}&{-2}\end{pmatrix}}$。
     \end{probenumerate}
-    \item 
+    \item 求下列矩阵的奇异值分解\[A=\begin{pmatrix}
+        2&3\\0&2
+    \end{pmatrix}\]利用它求出
+    \begin{probenumerate}
+        \item $\max_{\|\mathbf{x}\|\leq1}\|A\mathbf{x}\|$，以及使之取得最大值的向量；
+        \item $\min_{\|\mathbf{x}\|=1}\|A\mathbf{x}\|$，以及使之取得最小值的向量；
+        \item $\mathbb{R}^2$中闭单位球的像$A(B)$，$B=\{\mathbf{x}\in\mathbb{R}^2:\|\mathbf{x}\|\le 1\}$。从几何角度描述$A(B)$。
+    \end{probenumerate}
+    \item 证明：对方阵$A$，$|\det A|=\det |A|$。
+    \item 判断正误：
+    \begin{probenumerate}
+        \item 矩阵的奇异值也是该矩阵的特征值。
+        \item 矩阵$A$的奇异值是$A^*A$的特征值。
+        \item 如果$s$是矩阵$A$的奇异值，$c$是标量，那么$|c|s$是$cA$的奇异值。
+        \item 任意线性算子的奇异值都是非负的。
+        \item 自伴矩阵的奇异值与其特征值相同。
+    \end{probenumerate}
+    \item 令$A$是$m\times n$矩阵。证明：矩阵$A^*A$和$AA^*$的{\bf 非零}特征值（以重数计）相同。你能指出，何时$A^*A$和$AA^*$的零特征值具有相同的重数吗？
+    \item 令$s$是算子$A$的最大奇异值，并令$\lambda$是$A$的特征值中绝对值最大的一个。证明$|\lambda|\le s$。
+    \item （即为第一题，从略）
+    \item 证明：矩阵$A$的算子范数与其弗罗贝尼乌斯范数相同，当且仅当矩阵的秩为$1$。{\bf 提示}：第一题可能有用。
+    \item 对矩阵$A$\[A=\begin{pmatrix}2&-3\\0&2\end{pmatrix},\]
+    描述单位球的逆像，即所有满足$\|A\mathbf{x}\|\le 1$的$\mathbf{x}\in\mathbb{R}^2$。利用奇异值分解。
 \end{problemset}
 
 \section{奇异值分解的应用}
+
+如前面所讨论的，奇异值分解就是关于两个不同的规范正交基的对角化。因为我们用了两个不同的基，所以从奇异值分解不太能看出算子在特征值方面的性质。例如，奇异值分解中的$\Sigma$  \eqref{SVD_diag} 的对角线项不是$A$的特征值。又注意到，对 \eqref{SVD} 所示的$A=W\Sigma V^*$，一般有$A^n\ne W\Sigma^n V^*$，所以这种对角化无助于求出关于该矩阵的函数。
+
+然而，如下面几个例子所示，奇异值能给出大量有关线性变换的所谓{\bf 度量性质}的信息。
+
+注：进行奇异值分解，需要求出埃尔米特（自伴）矩阵$A^*A$的特征值和特征向量。要求特征值，通常要先计算特征多项式，再求根，云云。这看起来是个复杂的过程——尤其是考虑到高于$5$次的多项式没有求根公式。
+
+然而，求出埃尔米特矩阵的特征值和特征向量，已有很高效的数值方法，它们能达到要求的任意精度。这些方法并不涉及计算特征多项式以及求根，而是通过迭代直接计算特征值和特征向量。因为埃尔米特矩阵的特征向量能构成正交基，所以这些方法特别适用于它们。
+
+此处我们将不会讨论这些方法——这超出了本书的范围。然而，请你相信，计算埃尔米特矩阵的特征值和特征向量，进而求出奇异值分解，都有很高效的数值方法。这些方法非常高效，计算开销只比解线性方程组稍高一点点。
+
+\subsection{单位球的像}
 
 \section{正交矩阵的结构}
 

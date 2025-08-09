@@ -253,7 +253,7 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 
 应用引理 \ref{lem:elementary_det} $N$次可得下述推论。
 
-\begin{corollary}\label{col:det_multiply_elementary}
+\begin{corollary}\label{cor:det_multiply_elementary}
   对于任意矩阵$A$，以及任意一组初等矩阵$E_1,E_2,\ldots,E_N$（所有矩阵都是$n\times n$的）\[\det(AE_1E_2\ldots E_N)=(\det A)(\det E_1)(\det E_2)\ldots(\det E_N)\]
 \end{corollary}
 \begin{lemma}\label{lem:invert_elementary_prod}
@@ -263,12 +263,12 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
   首先，容易验证，对于任意初等矩阵都有$\det E = \det(E^T)$。注意，只需对于可逆矩阵$A$证明此定理，因为若$A$不可逆，那么$A^T$也不可逆，则两者的行列式都为零。
 
   由引理 \ref{lem:invert_elementary_prod}，矩阵$A$可表示为若干初等矩阵的乘积\[A=E_1E_2\ldots E_N,\]
-  由推论 \ref{col:det_multiply_elementary}，$A$的行列式等于初等矩阵的行列式之积。由于取转置只会将每个初等矩阵都变为其转置并将乘的顺序反过来，所以由推论 \ref{col:det_multiply_elementary} 可知$\det A = \det A^T$。
+  由推论 \ref{cor:det_multiply_elementary}，$A$的行列式等于初等矩阵的行列式之积。由于取转置只会将每个初等矩阵都变为其转置并将乘的顺序反过来，所以由推论 \ref{cor:det_multiply_elementary} 可知$\det A = \det A^T$。
 \end{proof}
 \begin{proof}[\autoref{thm:det_prod} 的证明]
   首先假设$B$可逆。那么由引理 \ref{lem:invert_elementary_prod} 可得，$B$可表示为若干初等矩阵之积
   \[B=E_1E_2\ldots E_N,\]
-  因此由推论 \ref{col:det_multiply_elementary}
+  因此由推论 \ref{cor:det_multiply_elementary}
   \[\det(AB)=(\det A)[(\det E_1)(\det E_2)\ldots(\det E_N)]=(\det A)(\det B).\]
   
   若$B$不可逆，那么乘积$AB$也不可逆，因此该定理也就是$0=0$。

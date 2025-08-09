@@ -115,12 +115,12 @@ $\mathbb{R}^3$上的\textbf{点积}定义为$\mathbf{x}\cdot\mathbf{y}=x_1y_1+x_
 \end{proof}
 
 对差值$\mathbf{x}-\mathbf{y}$运用上述引理可得
-\begin{corollary}\label{col:inner_eq_vec_eq}
+\begin{corollary}\label{cor:inner_eq_vec_eq}
     令$\mathbf{x},\mathbf{y}$是内积空间$V$中的向量。等式$\mathbf{x}=\mathbf{y}$成立当且仅当\[(\mathbf{x},\mathbf{z})=(\mathbf{y},\mathbf{z})\quad\forall\mathbf{z}\in V.\]
 \end{corollary}
 
 下面推论很简单却很常用：
-\begin{corollary}\label{col:Ax_Bx_A_eq_B}
+\begin{corollary}\label{cor:Ax_Bx_A_eq_B}
     设两个算子$A,B:X\to Y$满足\[(A\mathbf{x},\mathbf{y})=(B\mathbf{x},\mathbf{y})\quad\forall\mathbf{x}\in X,\forall\mathbf{y}\in Y.\]
     那么$A=B$。
 \end{corollary}
@@ -830,7 +830,7 @@ $$y=86/77-62x/77+43x^2/154$$
 
 上述核心的恒等式$(A\mathbf{x},\mathbf{y})=(\mathbf{x},A^*\mathbf{y})$常用作伴随变换的定义。首先要注意，伴随变换是唯一的：若矩阵$B$满足\[(A\mathbf{x},\mathbf{y})=(\mathbf{x},B\mathbf{y})\quad\forall\mathbf{x},\mathbf{y},\]
 那么$B=A^*$。的确如此：由$A^*$的定义，对给定的$\mathbf{y}$我们有\[(\mathbf{x},A^*\mathbf{y})=(\mathbf{x},B\mathbf{y})\quad\forall\mathbf{x},\]
-因而由推论 \ref{col:inner_eq_vec_eq}，$A^*\mathbf{y}=B\mathbf{y}$。因为它对于所有$\mathbf{y}$都成立，所以线性变换$A^*$和$B$——进而也是矩阵$A^*$和$B$——相同。
+因而由推论 \ref{cor:inner_eq_vec_eq}，$A^*\mathbf{y}=B\mathbf{y}$。因为它对于所有$\mathbf{y}$都成立，所以线性变换$A^*$和$B$——进而也是矩阵$A^*$和$B$——相同。
 
 \subsubsection{抽象情形下的伴随变换}
 
@@ -969,13 +969,13 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 
     另一方面，若$U$是等距变换，那么由伴随变换的定义和\autoref{thm:isometry_preserve_inner}，可得对所有$\mathbf{x}\in X$
     \[(U^*U\mathbf{x},\mathbf{y})=(U\mathbf{x},U\mathbf{y})=(\mathbf{x},\mathbf{y})\quad\forall\mathbf{y}\in X,\]
-    因此由推论 \ref{col:inner_eq_vec_eq} 知$U^*U\mathbf{x}=\mathbf{x}$。因为此式对所有$\mathbf{x}\in X$都成立，所以$U^*U=I$。
+    因此由推论 \ref{cor:inner_eq_vec_eq} 知$U^*U\mathbf{x}=\mathbf{x}$。因为此式对所有$\mathbf{x}\in X$都成立，所以$U^*U=I$。
 \end{proof}
 
 上述引理意味着等距变换总是左可逆的（$U^*$就是左逆）。
 
 \begin{definition*}
-    称等距变换$U:X\to Y$是{\bf 幺正}变换，若其可逆。
+    称等距变换$U:X\to Y$是{\bf 幺正}变换\footnote{unitary也常音译作“酉”。采用“幺正”，是因为该词中，“幺”既从音，也从义（“幺”即“一”），而“正”即“正规”。而“幺正”算子是特征值绝对值均为“一”的“正规”算子。——译者注。}，若其可逆。
 \end{definition*}
 
 \begin{proposition}\label{prop:iso_to_uni}
@@ -1027,7 +1027,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
     \end{enumerate}
 \end{proposition}
 \begin{remark*}
-    注意，正交矩阵的特征值不一定为实数（行列式则不是这样）。我们所熟悉的旋转矩阵就是一个例子。
+    注意，正交矩阵的特征值不一定为实数（行列式则不是这样）。我们熟悉的旋转矩阵就是一个例子。
 \end{remark*}
 
 \begin{proof}[命题 \ref{prop:unitary_property} 的证明]
@@ -1107,7 +1107,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
         \item 若$\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}$是规范正交基，并满足$U\mathbf{v}_{1}=\mathbf{v}_{1}$（记住，$1$是特征值之一），那么$U$关于该基的矩阵是\[\begin{pmatrix}1&0&0\\0&\cos\alpha&-\sin\alpha\\0&\sin\alpha&\cos\alpha\end{pmatrix},\]
         其中$\alpha$是一个角度值。
 
-        {\bf 提示}：证明：因为$\mathbf{v}_1$是$U$的特征向量，所以在$1$之下的所有项都必为零；因为$\mathbf{v}_1$也是$U^*$的特征向量（为什么？），所以在$1$右侧的所有项也都必为零。然后证明右下角的$2\times 2$矩阵是行列式为$1$的正交矩阵，再利用前一题的结论。
+        {\bf 提示}：先证明，因为$\mathbf{v}_1$是$U$的特征向量，所以在$1$之下的所有项都必为零；因为$\mathbf{v}_1$也是$U^*$的特征向量（为什么？），所以在$1$右侧的所有项也都必为零。然后证明右下角的$2\times 2$矩阵是行列式为$1$的正交矩阵，再利用前一题的结论。
     \end{probenumerate}
 \end{problemset}
 
@@ -1170,7 +1170,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
         &=\alpha^2\|\mathbf{y}\|^2+\alpha^2\|\mathbf{y}\|^2-2\alpha(\mathbf{x}+\alpha\mathbf{y},\mathbf{y})+2\alpha(\mathbf{x},\mathbf{y})\\
         &=2\alpha^2\|\mathbf{y}\|^2-2\alpha(\mathbf{x},\mathbf{y})-2\alpha^2(\mathbf{y},\mathbf{y})+2\alpha(\mathbf{x},\mathbf{y})=0
     \end{aligned}\]
-    因此\[T(\mathbf{x}-\alpha\mathbf{y})=T(\mathbf{x})+\alpha T(\mathbf{y}),\]
+    因此\[T(\mathbf{x}+\alpha\mathbf{y})=T(\mathbf{x})+\alpha T(\mathbf{y}),\]
     这就意味着$T$是线性的（取$\mathbf{x}=\mathbf{0}$或$\alpha=1$，可分别得到线性变换定义中的两条性质）。
 
     因此$T$是满足$\|T\mathbf{x}\|=\|\mathbf{x}\|$的线性变换，即$T$是等距变换。因为$T:X\to X$，所以$T$是幺正变换（见命题 \ref{prop:iso_to_uni}）。这就完成了证明，因为正交变换就是实内积空间上的幺正变换。
