@@ -136,11 +136,11 @@
     （最后一个等式成立，是因为自伴算子的特征值是实数）因此$\lambda(\mathbf{u},\mathbf{v})=\mu(\mathbf{u},\mathbf{v})$。若$\lambda\ne \mu$，则只能$(\mathbf{u},\mathbf{v})=0$。
 \end{proof}
 
-现在我们尝试找出什么样的矩阵幺正等价于对角矩阵。容易检验，对角矩阵$D$满足\[D^*D=DD^*.\]因此如果矩阵$A$关于某个规范正交基具有对角矩阵，那么$A^*A=AA^*$。
+现在我们尝试找出什么样的矩阵幺正等价于对角矩阵。容易检验，对角矩阵$D$满足\[D^*D=DD^*.\]因此如果算子$A$关于某个规范正交基具有对角矩阵，那么$A^*A=AA^*$。
 
-\begin{definition}
+\begin{definition*}
     算子（矩阵）$N$称为{\bf 正规}的，若$N^*N=NN^*$。
-\end{definition}
+\end{definition*}
 
 显然，任意自伴算子$A=A^*$都是正规的。并且，任意幺正算子$U:X\to X$也是正规的，因为$U^*U=UU^*=I$。
 
@@ -224,7 +224,7 @@
         &=\frac{1}{4}\sum_{\alpha=\pm1,\pm i}\alpha\|N^{*}\mathbf{x}+\alpha N^{*}\mathbf{y}\|^{2}\\
         &=(N^*\mathbf{x},N^*\mathbf{y})=(NN^*\mathbf{x},\mathbf{y})
     \end{align*}
-    因此（见第 \ref{chap:InnerProduct} 章推论 \ref{col:Ax_Bx_A_eq_B}），$N^N=NN^*$。
+    因此（见第 \ref{chap:InnerProduct} 章推论 \ref{col:Ax_Bx_A_eq_B}），$N^*N=NN^*$。
 \end{proof}
 
 \begin{problemset}
@@ -279,7 +279,7 @@
     \item 你能从几何角度描述上题中矩阵$A$所确定的线性变换吗？它的几何描述特别简单。
     \item 证明：具有单位模长特征值（即所有特征值都满足$|\lambda_k|=1$）的正规算子是幺正的。{\bf 提示}：考虑对角化。
     \item 证明：具有实特征值的正规算子是自伴的。
-    \item 举例说明：定理 \ref{thm:normal_diag} 的结论对于{\bf 复}对称矩阵不成立。即
+    \item 举例说明：定理 \ref{thm:self_adjoint_matrix_diagonalize} 的结论对于{\bf 复}对称矩阵不成立。即
     \begin{probenumerate}
         \item 构造一个（可对角化的）$2\times 2$复对称矩阵，其特征向量不能构成正交基；
         \item 构造一个$2\times 2$复对称矩阵，其不能被对角化。
@@ -292,7 +292,7 @@
 
 \begin{definition*}
     称自伴算子$A:X\to X$是{\bf 正定的}，若\[(A\mathbf{x},\mathbf{x})>0\quad\forall\mathbf{x}\neq\mathbf{0},\]
-    称其为{\bf 正半定的}，若\[(A\mathbf{x},\mathbf{x})>0\quad\forall\mathbf{x}\in X,\]
+    称其为{\bf 正半定的}，若\[(A\mathbf{x},\mathbf{x})\ge 0\quad\forall\mathbf{x}\in X,\]
     我们将用记号$A>0$指代正定算子，并用记号$A\ge 0$指代正半定算子。
 \end{definition*}
 
@@ -367,7 +367,143 @@ $A$的模显示了变换$A$的“大小”：
 
 \subsection{奇异值、施密特分解}
 
+\begin{definition*}
+    $|A|$的特征值称为$A$的{\bf 奇异值}。换言之，如果$\lambda_{1},\lambda_{2},\ldots,\lambda_{n}$是$A^*A$的特征值，那么$\sqrt{\lambda_{1}},\sqrt{\lambda_{2}},\ldots,\sqrt{\lambda_{n}}$是$A$的奇异值。
+\end{definition*}
+\begin{remark*}
+    文献中往往将奇异值定义为$A^*A$的特征值的算术平方根，而并不借助$|A|$。
+
+    我认为变换的模这一概念很重要，所以在上面介绍了它。不过，变换的模的概念在后文（定义施密特和奇异值分解）并不会再被用到。并且，下面会说明，$A$的模很容易从奇异值分解中构造出来。
+\end{remark*}
+
+考虑变换$A:X\to Y$，并令$\sigma_1,\sigma_2,\ldots,\sigma_n$是$A$的奇异值（以重数计）。假设$\sigma_1,\sigma_2,\ldots,\sigma_r$是$A$的{\bf 非零}奇异值（以重数计）。特别地，这意味着$\sigma_k=0,k>r$。
+
+根据奇异值的定义，$\sigma_{1}^{2},\sigma_{2}^{2},\ldots,\sigma_{n}^{2}$是$A^*A$的特征值。令$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是由$A^*A$的特征向量构成的规范正交基\footnote{我们知道，对于自伴算子（此处是$A^*A$），存在由其特征向量构成的规范正交基。}，$A^{*}A\mathbf{v}_{k}=\sigma_{k}^{2}\mathbf{v}_{k}$。
+
+\begin{proposition}
+    向量组\[\mathbf{w}_k:=\frac{1}{\sigma_k}A\mathbf{v}_k,\quad k=1,2,\ldots,r\]
+    是规范正交向量组。
+\end{proposition}
+
+\begin{proof}
+    因为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$是规范正交向量组，所以
+    \[(A\mathbf{v}_j,A\mathbf{v}_k)=(A^*A\mathbf{v}_j,\mathbf{v}_k)=(\sigma_j^2\mathbf{v}_j,\mathbf{v}_k)=\sigma_j^2(\mathbf{v}_j,\mathbf{v}_k)=\left\{\begin{array}{ll}0,&\quad j\neq k\\\sigma_j^2,&\quad j=k\end{array}\right.\qedhere\]
+\end{proof}
+
+用上述命题的记号，变换$A$可表示为
+\begin{equation}\label{schmidt_decomp_1}
+    A=\sum_{k=1}^r\sigma_k\mathbf{w}_k\mathbf{v}_k^*,
+\end{equation}
+或等价地说
+\begin{equation}\label{schmidt_decomp_2}
+    A\mathbf{x}=\sum_{k=1}^r\sigma_k(\mathbf{x},\mathbf{v}_k)\mathbf{w}_k.
+\end{equation}
+的确如此：我们知道$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是$X$的规范正交基，那么将$\mathbf{x}=\mathbf{v}_j$代入 \eqref{schmidt_decomp_2} 可得
+\[\sum_{k=1}^r\sigma_k(\mathbf{v}_j,\mathbf{v}_k)\mathbf{w}_k=\sigma_j(\mathbf{v}_j,\mathbf{v}_j)\mathbf{w}_j=\sigma_j\mathbf{w}_j=A\mathbf{v}_j\quad\text{若}~j=1,2,\ldots,r,\]
+且有\[\sum_{k=1}^r\sigma_k(\mathbf{v}_k^*\mathbf{v}_j)\mathbf{w}_k=\mathbf{0}=A\mathbf{v}_j\quad\text{对于}~j>r.\]
+所以 \eqref{schmidt_decomp_1} 的左右两侧对基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的作用相同，因此它们相同。
+
+\begin{definition*}
+    上述分解 \eqref{schmidt_decomp_1} 或 \eqref{schmidt_decomp_2} 称为变换$A$的{\bf 施密特分解}。
+\end{definition*}
+\begin{remark*}
+    一个变换的施密特分解不唯一。为什么？
+\end{remark*}
+\begin{lemma}
+    令$A$可表示为\[A=\sum_{k=1}^r\sigma_k\mathbf{w}_k\mathbf{v}_k^*\]
+    其中$\sigma_k>0$，$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r},\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{r}$是规范正交向量组。
+    
+    那么该表达式给出了$A$的一个施密特分解。
+\end{lemma}
+
+\begin{proof}
+    我们只需证明$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$是$A^*A$的特征向量，$A^{*}A\mathbf{v}_{k}=\sigma_{k}^{2}\mathbf{v}_{k}$。因为$\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{r}$是规范正交向量组，所以
+    \[\mathbf{w}_k^*\mathbf{w}_j=(\mathbf{w}_j,\mathbf{w}_k)=\delta_{k,j}:=\left\{\begin{array}{ll}0,&\quad j\neq k\\1,&\quad j=k,\end{array}\right.\]
+    因此\[A^{*}A=\sum_{k=1}^{r}\sigma_{k}^{2}\mathbf{v}_{k}\mathbf{v}_{k}^{*}.\]
+    因为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$是规范正交向量组，所以\[A^*A\mathbf{v}_j=\sum_{k=1}^r\sigma_k^2\mathbf{v}_k\mathbf{v}_k^*\mathbf{v}_j=\sigma_j^2\mathbf{v}_j\]
+    所以各$\mathbf{v}_j$是$A^*A$的特征向量。
+\end{proof}
+
+\begin{corollary}
+    令\[A=\sum_{k=1}^r\sigma_k\mathbf{w}_k\mathbf{v}_k^*\]是$A$的施密特分解。那么\[A^*=\sum_{k=1}^r\sigma_k\mathbf{v}_k\mathbf{w}_k^*\]是$A^*$的施密特分解。
+\end{corollary}
+
 \subsection{施密特分解的矩阵表示、奇异值分解}
+
+施密特分解可以写成优美的矩阵形式。我们假设$A:\mathbb{F}^n\to \mathbb{F}^m$，其中$\mathbb{F}$是$\mathbb{C}$或$\mathbb{R}$（取定$X$和$Y$的规范正交基，并围绕关于这些基的坐标展开讨论，总能化归到这种情况）。令$\sigma_{1},\sigma_{2},\ldots,\sigma_{r}$是$A$的非零奇异值，并令
+\[A=\sum_{k=1}^r\sigma_k\mathbf{w}_k\mathbf{v}_k^*\]
+是$A$的施密特分解。
+
+容易看出此式可改写为
+\begin{equation}\label{schmidt_decomp_3}
+    A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*
+\end{equation}
+其中$\widetilde{\Sigma}=\operatorname{diag}\{\sigma_1,\sigma_2,\dots,\sigma_r\}$，$\widetilde{V}$和$\widetilde{W}$分别是各列为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$和$\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{r}$的矩阵。（你能确定各矩阵的大小吗？）
+
+注意，因为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$和$\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{r}$是规范正交向量组，所以$\widetilde{V}$和$\widetilde{W}$是等距矩阵。还请注意，$r=\rank A$（见下习题 \ref{ex:6_3_1}）。
+
+若矩阵$A$可逆，那么$m=n=r$，矩阵$\widetilde{V}$和$\widetilde{W}$是幺正的，$\widetilde{\Sigma}$是可逆的对角矩阵。
+
+其实，总可以用幺正的$V$和$W$（而不仅是$\widetilde{V}$和$\widetilde{W}$）来写出类似 \ref{schmidt_decomp_3} 的表达式，并且在许多情形下使用这种表达式更加便利。要写出这样的表达式，首先需要将向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$和$\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{r}$分别补全为$\mathbb{F}^n$和$\mathbb{F}^m$的规范正交基。
+
+回忆一下，为了将$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$补全为$\mathbb{F}^n$的规范正交基，只需求出$\ker V^*$的规范正交基$\mathbf{v}_{r+1},\ldots,\mathbf{v}_{n}$，从而向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$就是$\mathbb{F}^n$的规范正交基。而从一般的基得到规范正交基，总可以通过格拉姆-施密特正交化来完成。
+
+这样一来，$A$可表示为
+\begin{equation}\label{SVD}
+    A=W\Sigma V^*
+\end{equation}
+其中$V\in M_{n\times n}^{\mathbb{F}}$和$W\in M_{m\times m}^{\mathbb{F}}$分别是各列为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$和\linebreak $\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{m}$的幺正矩阵，且$\Sigma$是$m\times n$“对角”矩阵
+\begin{equation}\label{SVD_diag}
+    \Sigma_{j,k}=\left\{\begin{array}{ll}{\sigma_{k}}&{\quad j=k\leq r;}\\{0}&{\quad\text{其他}.}\end{array}\right.
+\end{equation}
+换言之，向对角矩阵$\operatorname{diag}\{\sigma_1,\sigma_2,\dots,\sigma_r\}$的右下角补零，使其扩充为$m\times n$大小，就得到了矩阵$\Sigma$。
+
+\begin{definition}
+    矩阵$A\in M_{m\times n}^{\mathbb{F}}$（回忆一下，$\mathbb{F}$是$\mathbb{C}$或$\mathbb{R}$）的{\bf 奇异值分解}（SVD）是形如 \eqref{SVD} 的分解，即$A=W\Sigma V^*$，其中$V\in M_{n\times n}^{\mathbb{F}}$和$W\in M_{m\times m}^{\mathbb{F}}$是幺正矩阵，$\Sigma\in M_{m\times n}^{\mathbb{R}_+}$是“对角”矩阵（意为对于所有$k=1,2,\dots,\min\{m,n\}$有$\sigma_{k,k}\ge 0$，而对于所有$j\ne k$有$\sigma_{j,k}=0$）。
+
+    表达式 \eqref{schmidt_decomp_3} 常称为{\bf 简化}或{\bf 紧凑} SVD。更确切地说，简化SVD的表达式为$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$，其中$\widetilde{\Sigma}\in M_{r\times r}^{\mathbb{R}_+},r\le\min\{m,n\}$是对角矩阵且各对角线项严格大于零，$\widetilde{W}\in M_{n\times r}^{\mathbb{F}}$和$\widetilde{V}\in M_{m\times r}^{\mathbb{F}}$是等距矩阵。此外，我们还要求$\widetilde{W}$和$\widetilde{V}$中至少有一个不是方阵。
+\end{definition}
+
+\begin{remark}
+    容易看出，如果$A=W\Sigma V^*$是$A$的奇异值分解，那么$\sigma_k:=\sigma_{k,k}$是$A$的奇异值，即$\sigma_k^2$是$A^*A$的特征值。此外，$V$的各列$\mathbf{v}_k$是$A^*A$的对应特征向量，即$A^{*}A\mathbf{v}_{k}=\sigma_{k}^{2}\mathbf{v}_{k}$。还请注意，若$\sigma\ne 0$，那么$\mathbf{w}_k=\frac{1}{\sigma_k}A\mathbf{v}_k$。
+
+    所有这些都意味着，按照本节前面叙述的方法，可由施密特分解 \eqref{schmidt_decomp_2} 构造出奇异值分解$A=W\Sigma V^*$。
+\end{remark}
+
+简化奇异值分解可解释为对不可逆矩阵$A$的施密特分解 \eqref{schmidt_decomp_2} 的矩阵形式。对可逆矩阵$A$，施密特分解的矩阵形式得到的是（非简化的）奇异值分解。
+
+\begin{remark}
+    奇异值分解$A=W\Sigma V^*$的另一种解释是，$\Sigma$是$A$在（规范正交）基$\mathcal{A}=\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\}$和$\mathcal{B}=\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{n}$下的矩阵，即$\Sigma=[A]_\mathcal{BA}$。
+
+    我们将在后文用到这种解释。
+\end{remark}
+
+\subsubsection{从奇异值分解到极分解}
+
+注意，如果我们知道方阵$A$的奇异值分解$A=W\Sigma V^*$，就可由此写出$A$的极分解：
+\begin{equation}\label{polar_decomp}
+    A=W\Sigma V^*=(W V^*)(V\Sigma V^*)=U|A|
+\end{equation}
+其中$|A|=V\Sigma V^*$，$U=W V^*$。
+
+为说明这的确是极分解，注意到$V\Sigma V^*$是自伴且正半定的算子，且有
+\[A^*A=V\Sigma W^*W\Sigma V^*=V\Sigma\Sigma V^*=V\Sigma V^*V\Sigma V^*=(V\Sigma V^*)^2.\]
+故根据$|A|$的定义（$A^*A$的唯一正半定平方根），可见$|A|=V\Sigma V^*$。变换$WV^*$是两个幺正变换的乘积，自然是幺正的，所以 \eqref{polar_decomp} 确实是$A$的极分解。
+
+注意，此处的推证过程只适用于方阵，因为如果$A$不是方阵，那么乘积$V\Sigma$没有定义（维数不匹配，你能看出来是怎么回事吗？）。
+
+\begin{problemset}
+    \item \label{ex:6_3_1} 证明：矩阵$A$的非零奇异值的数量等于它的秩。
+    \item 求下列矩阵$A$的施密特分解$A=\sum_{k=1}^{r}s_{k}\mathbf{w}_{k}\mathbf{v}_{k}^{*}$：
+    \[\begin{pmatrix}2&3\\0&2\end{pmatrix},\quad\begin{pmatrix}7&1\\0&0\\5&5\end{pmatrix},\quad\begin{pmatrix}1&1\\0&1\\-1&1\end{pmatrix}.\]
+    \item 令$A$是可逆矩阵，并令$A=W\Sigma V^*$是它的奇异值分解。求出$A^*$和$A^{-1}$的奇异值分解。
+    \item 求下列矩阵的奇异值分解$A=W\Sigma V^*$，其中$V$和$W$是幺正矩阵：
+    \begin{probenumerate}
+        \item $A=\begin{pmatrix}{-3}&{1}\\{6}&{-2}\\{6}&{-2}\end{pmatrix}$；
+        \item $A={\begin{pmatrix}{3}&{2}&{2}\\{2}&{3}&{-2}\end{pmatrix}}$。
+    \end{probenumerate}
+    \item 
+\end{problemset}
 
 \section{奇异值分解的应用}
 
