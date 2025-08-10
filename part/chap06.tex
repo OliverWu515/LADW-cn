@@ -121,7 +121,7 @@
     许多教材只考虑实矩阵，则定理 \ref{thm:self_adjoint_matrix_diagonalize} 常称为“{\bf 对称}矩阵的谱定理”。然而要强调，定理 \ref{thm:self_adjoint_matrix_diagonalize} 对{\bf 复}对称矩阵是不成立的：该定理是对埃尔米特矩阵成立，特别地，也对{\bf 实}对称矩阵成立。
 \end{remark*}
 
-现在给出“自伴算子的特征值为实数”的不依赖于基的证明。令$A=A^*$，$A\mathbf{x}=\lambda\mathbf{x},\mathbf{x}\neq0$。那么\[(A\mathbf{x},\mathbf{x})=(\lambda\mathbf{x},\mathbf{x})=\lambda(\mathbf{x},\mathbf{x})=\lambda\|\mathbf{x}\|^2.\]
+现在给出“自伴算子的特征值为实数”的不依赖于基的证明。令$A=A^*$，$A\mathbf{x}=\lambda\mathbf{x},\mathbf{x}\neq\mathbf{0}$。那么\[(A\mathbf{x},\mathbf{x})=(\lambda\mathbf{x},\mathbf{x})=\lambda(\mathbf{x},\mathbf{x})=\lambda\|\mathbf{x}\|^2.\]
 另方面，\[(A\mathbf{x},\mathbf{x})=(\mathbf{x},A^*\mathbf{x})=(\mathbf{x},A\mathbf{x})=(\mathbf{x},\lambda\mathbf{x})=\overline{\lambda}(\mathbf{x},\mathbf{x})=\overline{\lambda}\|\mathbf{x}\|^2,\]
 因此$\lambda\|\mathbf{x}\|^2=\overline{\lambda}\|\mathbf{x}\|^2$。因为$\|\mathbf{x}\|\ne 0$（$\mathbf{x}\ne \mathbf{0}$），所以$\lambda=\overline{\lambda}$，故$\lambda$为实数。
 
@@ -488,8 +488,8 @@ $A$的模显示了变换$A$的“大小”：
 
 简化奇异值分解可解释为对不可逆矩阵$A$的施密特分解 \eqref{schmidt_decomp_2} 的矩阵形式。对可逆矩阵$A$，施密特分解的矩阵形式得到的是（非简化的）奇异值分解。
 
-\begin{remark}
-    奇异值分解$A=W\Sigma V^*$的另一种解释是，$\Sigma$是$A$在（规范正交）基$\mathcal{A}=\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\}$和$\mathcal{B}=\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{n}$下的矩阵，即$\Sigma=[A]_\mathcal{BA}$。
+\begin{remark}\label{remark:Singular_orthonormal_diag}
+    奇异值分解$A=W\Sigma V^*$的另一种解释是，$\Sigma$是$A$在（规范正交）基$\mathcal{A}=\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\}$和$\mathcal{B}=\{\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{n}\}$下的矩阵，即$\Sigma=[A]_\mathcal{BA}$。
 
     我们将在后文用到这种解释。
 \end{remark}
@@ -557,6 +557,120 @@ $A$的模显示了变换$A$的“大小”：
 
 \subsection{单位球的像}
 
+以下面问题为例。令$A:\mathbb{R}^n\to \mathbb{R}^m$是线性变换，并令$B=\{\mathbf{x}\in\mathbb{R}^n:\|\mathbf{x}\|\le 1\}$是$\mathbb{R}^n$中的闭{\bf 单位球}。现要描述$A(B)$，即要求出单位球在线性变换下被变成了什么。
+
+我们首先考虑最简单的情况——$A$是对角阵$\operatorname{diag}\{\sigma_1,\sigma_2,\dots,\sigma_n\},$ $\sigma_k>0,k=1,2,\dots,n$。那么，对$\mathbf{x}=(x_{1},x_{2},\ldots,x_{n})^{T}$和$\mathbf{y}=A\mathbf{x}=(y_{1},y_{2},\ldots,y_{n})^{T}$，有$y_k=\sigma_k x_k$（等价地说，$x_k=y_k/\sigma_k$）对$k=1,2,\dots,n$成立。因此
+\[\mathbf{y}=(y_1,y_2,\ldots,y_n)^T=A\mathbf{x}\quad\text{对}~\|\mathbf{x}\|\leq1,\]
+当且仅当各坐标$y_1,y_2,\dots,y_n$满足下列不等式
+\[\frac{y_1^2}{\sigma_1^2}+\frac{y_2^2}{\sigma_2^2}+\cdots+\frac{y_n^2}{\sigma_n^2}=\sum_{k=1}^n\frac{y_k^2}{\sigma_k^2}\leq1\]
+（这其实就是不等式$\|\mathbf{x}\|^2=\sum_k x_k^2\leq1$）
+
+$\mathbb{R}^n$中满足上述不等式的点构成的集合称为椭球。若$n=2$，那么它是半长轴为$\sigma_1$和$\sigma_2$的椭圆；而若$n=3$，它是半长轴为$\sigma_1$、$\sigma_2$和$\sigma_3$的椭球。在$\mathbb{R}^n$中，这个集合的几何也很容易可视化，并且我们称该集合是半长轴为$\sigma_1,\sigma_2,\dots,\sigma_n$的椭球。向量$\mathbf{e}_{1},\mathbf{e}_{2},\ldots,\mathbf{e}_{n}$，或更准确地说，这些向量所在的直线，称为该椭球的{\bf 主轴}。
+
+奇异值分解本质上是说，内积空间上的任意算子都可关于一对规范正交基进行对角化（见注 \ref{remark:Singular_orthonormal_diag}）。也就是说，考虑奇异值分解 \eqref{schmidt_decomp_1} 中的规范正交基$\mathcal{A}=\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\}$和$\mathcal{B}=\{\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{n}\}$，那么$A$关于这些基的矩阵是对角阵
+\[[A]_{\mathcal{B}\mathcal{A}}=\mathrm{diag}\{\sigma_n:n=1,2,\ldots,n\}.\]
+假设所有$\sigma_k>0$，并重复前述的推理过程，容易说明，任意的点$\mathbf{y}=A\mathbf{x}\in A(B)$当且仅当该点满足不等式\[\frac{y_1^2}{\sigma_1^2}+\frac{y_2^2}{\sigma_2^2}+\cdots+\frac{y_n^2}{\sigma_n^2}=\sum_{k=1}^n\frac{y_k^2}{\sigma_k^2}\leq1\]
+其中$y_1,y_2,\dots,y_n$是$\mathbf{y}$在规范正交基$\mathcal{B}=\{\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{n}\}$（而不仅是标准基）下的坐标。类似地，$(x_1,x_2,\ldots,x_n)^T=[\mathbf{x}]_{\mathcal{A}}$。
+
+而这实质上就是之前的椭球，只不过旋转了（主轴与之前不同，但仍然正交）！
+
+下面展示另一种解释。
+
+考虑一般情形：矩阵$A$不一定是方阵，且（或）并非所有的奇异值都是非零的。首先考虑$A$是形如 \eqref{SVD_diag} 的“对角”矩阵$\Sigma$的情况。容易看出，单位球$B$的像$\Sigma B$是半长轴为$\sigma_1,\sigma_2,\dots,\sigma_r$的椭球（不在整个空间中，而仅在$\rg \Sigma$中）。
+
+现在考虑更一般的情况，即$A=W\Sigma V^*$，其中$V,W$是幺正算子。首先，幺正变换不会改变单位球（因为它保持范数），因此$V^*(B)=B$。然后，我们已知$\Sigma B$是$\rg \Sigma$中的半长轴为$\sigma_1,\sigma_2,\dots,\sigma_r$的椭球。接着，又由于幺正变换不改变几何形状，所以$W(\Sigma(B))$仍是具有相同半长轴的椭球。由于$W$和$V^*$都可逆，所以从$A=W\Sigma V^*$不难看出$W$将$\rg \Sigma$变换为$\rg A$，因此我们可得出结论：
+\begin{center}
+    \fbox{\parbox{0.96\linewidth}{闭单位球$B$的像$A(B)$是$\rg A$中的椭球，半长轴为$\sigma_1,\sigma_2,\dots,\sigma_r$。此处$r$是$A$的非零奇异值的个数，即$A$的秩。}}
+\end{center}
+
+\subsection{线性变换的算子范数}
+
+给定线性变换$A:X\to Y$，考虑以下最优化问题：求出单位球$B=\{\mathbf{x}\in\mathbb{R}^n:\|\mathbf{x}\|\le 1\}$上$\|A\mathbf{x}\|$的最大值。
+
+同样，可借助奇异值分解来解决此问题。对于各项非负的“对角”矩阵$A$（类似奇异值分解的定义中的矩阵$\Sigma$），上述最大值即最大的对角线项。的确如此：令$s_1,s_2,\ldots,s_r$是$A$的非零对角线项，并令$s_1$是其中的最大者。由于对$\mathbf{x}=(x_1,x_2,\ldots,x_n)^T$有
+\begin{equation}\label{Ax_singular}
+    A\mathbf{x}=\sum_{k=1}^rs_kx_k\mathbf{e}_k,
+\end{equation}
+故可得
+\[\|A\mathbf{x}\|^{2}=\sum_{k=1}^{r}s_{k}^{2}|x_{k}|^{2}\leq s_{1}^{2}\sum_{k=1}^{r}|x_{k}|^{2}=s_{1}^{2}\cdot\|\mathbf{x}\|^{2},\]
+因此$\|A\mathbf{x}\|\le s_1\|\mathbf{x}\|$。另一方面，$\|A\mathbf{e}_{1}\|=\|s_{1}\mathbf{e}_{1}\|=s_{1}\|\mathbf{e}_{1}\|$，所以$s_1$确实是单位球$B$上$\|A\mathbf{x}\|$的最大值。注意，在上面的论证中，我们并未假设矩阵$A$是方阵，而仅仅假设“主对角线”之外的所有项都是$0$，因此 \eqref{Ax_singular} 成立。
+
+为处理一般情形，我们考虑奇异值分解 \eqref{SVD} $A=W\Sigma V^*$，其中$W,V$是幺正算子，$\Sigma$是各项非负的“对角”矩阵。因为幺正变换不改变范数，所以$\|A\mathbf{x}\|$在单位球$B$上的最大值是$\Sigma$的最大对角线项，即
+\begin{center}
+    \fbox{$\|A\mathbf{x}\|$在单位球$B$上的最大值是$A$的最大奇异值。}
+\end{center}
+\begin{definition*}
+    $\max\{\|A\mathbf{x}\|:\mathbf{x}\in X,\|\mathbf{x}\|\le 1\}$称为$A$的算子范数，记作$\|A\|$。
+\end{definition*}
+
+容易看出，$\|A\|$满足范数的所有性质（留作习题）：
+\begin{enumerate}
+    \item $\|\alpha A\|=|\alpha|\cdot\|A\|$；
+    \item $\|A+B\|\leq\|A\|+\|B\|$；
+    \item 对所有$A$均有$\|A\|\ge 0$；
+    \item $\|A\|= 0$当且仅当$\|A\|=\mathbf{0}$。
+\end{enumerate}
+所以，它的确是由$X$到$Y$的线性变换构成的向量空间上的范数。
+
+算子范数的主要性质之一是如下不等式\[\|A\mathbf{x}\|\leq\|A\|\cdot\|\mathbf{x}\|,\]
+从范数$\|\mathbf{x}\|$的齐次性很容易得到。
+
+事实上，可以证明，算子范数$\|A\|$是满足
+\[\|A\mathbf{x}\|\leq C\|\mathbf{x}\|\quad\forall\mathbf{x}\in X.\]
+的最好（最小）的$C$。这往往被用于定义算子范数。
+
+在线性变换构成的向量空间上，我们已经定义过一种范数——弗罗贝尼乌斯范数，或称希尔伯特-施密特范数 $\|A\|_2$，\[\|A\|_2=\tr (A^*A).\]
+那么，我们来比较一下这两种范数。
+
+令$s_{1},s_{2},\ldots,s_{r}$是$A$的非零奇异值（以重数计），并令$s_1$是最大的奇异值。那么$s_1^2,s_2^2,\dots,s_r^2$是$A^*A$的非零特征值（同样以重数计）。回忆一下，迹等于特征值的和，于是\[\|A\|_2^2=\operatorname{trace}(A^*A)=\sum_{k=1}^rs_k^2.\]
+另一方面，我们知道$A$的算子范数等于其最大奇异值，即$\|A\|=s_1$。所以我们可得$\|A\|\le\|A\|_2$，也就是
+\begin{center}
+    \fbox{矩阵的算子范数不大于其弗罗贝尼乌斯范数。}
+\end{center}
+这条结论也可以用柯西-施瓦兹不等式直接证明——有些教材中就是用这种方法。此处这种证明的美妙之处在于，不需要任何计算，还揭示了该不等式背后的深层次原因。
+
+\subsection{矩阵的条件数}
+
+假设有可逆矩阵$A$，欲求解方程$A\mathbf{x}=\mathbf{b}$。该方程的解自然是$\mathbf{x}=A^{-1}\mathbf{b}$，但我们要分析，如果方程中的数据仅仅是粗略的，会发生什么。
+
+这在现实中是会发生的——比如数据是从实验中得到的。即便我们得到了确切的数据，计算机运算时产生的舍入误差也可能使数据产生相同的失真。
+
+我们考虑一个简单的失真模型——假设方程右侧有微小误差。这就意味着我们不是求解$A\mathbf{x}=\mathbf{b}$，而是求解\[A\mathbf{x}=\mathbf{b}+\Delta\mathbf{b},\]
+其中$\Delta\mathbf{b}$是右端项$\mathbf{b}$的微小扰动。
+
+于是，我们并不是得到$A\mathbf{x}=\mathbf{b}$的精确解$\mathbf{x}$，而是得到$A(\mathbf{x}+\Delta\mathbf{x})=\mathbf{b}+\Delta\mathbf{b}$的近似解$\mathbf{x}+\Delta\mathbf{x}$。我们假设$A$可逆，从而$\Delta\mathbf{x}=A^{-1}\Delta\mathbf{b}$。
+
+我们想知道解的相对误差$\|\Delta\mathbf{x}\|/\|\mathbf{x}\|$相比于右端项的相对误差$\|\Delta\mathbf{b}\|/\|\mathbf{b}\|$有多大。容易看出
+\[\frac{\|\Delta\mathbf{x}\|}{\|\mathbf{x}\|}=\frac{\|A^{-1}\Delta\mathbf{b}\|}{\|\mathbf{x}\|}=\frac{\|A^{-1}\Delta\mathbf{b}\|}{\|\mathbf{b}\|}\frac{\|\mathbf{b}\|}{\|\mathbf{x}\|}=\frac{\|A^{-1}\Delta\mathbf{b}\|}{\|\mathbf{b}\|}\frac{\|A\mathbf{x}\|}{\|\mathbf{x}\|}.\]
+因为$\|A^{-1}\Delta\mathbf{b}\|\le A^{-1}\cdot \|\Delta\mathbf{b}\|$，并且$\|A\mathbf{x}\|\le\|A\|\cdot \|\mathbf{x}\|$，所以可得
+\[\frac{\|\Delta\mathbf{x}\|}{\|\mathbf{x}\|}\leq\|A^{-1}\|\cdot\|A\|\cdot\frac{\|\Delta\mathbf{b}\|}{\|\mathbf{b}\|}.\]
+
+$\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的解$\mathbf{x}$的相对误差与右端项$\mathbf{b}$的相对误差的依赖程度。
+
+我们看看这个量和奇异值有何关系。令$A$的奇异值是$s_{1},s_{2},\ldots,s_{n}$，并设$s_1$和$s_n$分别是最大的和最小的奇异值。我们知道算子的（算子）范数等于其最大奇异值，所以
+\[\|A\|=s_1,\quad\|A^{-1}\|=\frac{1}{s_n},\]
+因此\[\|A\|\cdot\|A^{-1}\|=\frac{s_1}{s_n}.\]
+换言之
+\begin{center}
+    \fbox{矩阵的条件数等于其最大和最小奇异值之比。}
+\end{center}
+
+前面我们推得，$\frac{\|\Delta\mathbf{x}\|}{\|\mathbf{x}\|}\leq\|A^{-1}\|\cdot\|A\|\cdot\frac{\|\Delta\mathbf{b}\|}{\|\mathbf{b}\|}$。不难看出，这个估计是紧的，即可以选取右端项$\mathbf{b}$和误差$\Delta\mathbf{b}$，使得等号成立：
+\[\frac{\|\Delta\mathbf{x}\|}{\|\mathbf{x}\|}=\|A^{-1}\|\cdot\|A\|\cdot\frac{\|\Delta\mathbf{b}\|}{\|\mathbf{b}\|}.\]
+只需置$\mathbf{b}=\mathbf{w}_{1}$和$\Delta\mathbf{b}=\alpha\mathbf{w}_{n}$，其中$\mathbf{w}_{1}$和$\mathbf{w}_{n}$分别是奇异值分解$A=W\Sigma V^*$中矩阵$W$的第一列和最后一列，$\alpha$是任意标量。此处，按惯例，将奇异值按非增顺序排列为$s_{1}\geq s_{2}\geq\ldots\geq s_{n}$，故$s_1$是最大的奇异值，$s_n$是最小的奇异值。
+
+我们将细节留给读者作为习题。
+
+称矩阵是{\bf 良态的}，如果它的条件数不太大。如果条件数很大，就称矩阵是病态的。“大”与“小”依问题而定——与可获得的右端项的精度，以及所需的解的精度等都有关系。
+
+\subsection{矩阵的有效秩}
+
+理论上讲，矩阵的秩很容易计算：只需做行化简再数出主元的个数就行了。然而，在实际应用中，并不总这样简单——主要原因是，我们常常不知道确切的矩阵，而只知道它达到某个精度的估计。
+
+此外，即便我们知道确切的矩阵，大多数的计算程序在运算过程中都会引入舍入误差，所以实际上我们无法区分“为零的主元”和“很小的主元”。
+
+\subsection{摩尔-彭罗斯逆（伪逆）}
+
 \section{正交矩阵的结构}
 
 \[
@@ -623,3 +737,16 @@ $A$的模显示了变换$A$的“大小”：
 
 \section{取向}
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{figures/fig6_6_1.pdf}
+    \caption{$\mathbb{R}^2$中的取向}
+    \label{fig_6_1}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{figures/fig6_6_2.pdf}
+    \caption{$\mathbb{R}^3$中的取向}
+    \label{fig_6_2}
+\end{figure}
