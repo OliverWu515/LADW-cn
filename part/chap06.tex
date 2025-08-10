@@ -475,9 +475,9 @@ $A$的模显示了变换$A$的“大小”：
 换言之，向对角矩阵$\operatorname{diag}\{\sigma_1,\sigma_2,\dots,\sigma_r\}$的右下角补零，使其扩充为$m\times n$大小，就得到了矩阵$\Sigma$。
 
 \begin{definition}
-    矩阵$A\in M_{m\times n}^{\mathbb{F}}$（回忆一下，$\mathbb{F}$是$\mathbb{C}$或$\mathbb{R}$）的{\bf 奇异值分解}（SVD）是形如 \eqref{SVD} 的分解，即$A=W\Sigma V^*$，其中$V\in M_{n\times n}^{\mathbb{F}}$和$W\in M_{m\times m}^{\mathbb{F}}$是幺正矩阵，$\Sigma\in M_{m\times n}^{\mathbb{R}_+}$是“对角”矩阵（意为对于所有$k=1,2,\dots,\min\{m,n\}$有$\sigma_{k,k}\ge 0$，而对于所有$j\ne k$有$\sigma_{j,k}=0$）。
+    矩阵$A\in M_{m\times n}^{\mathbb{F}}$（回忆一下，$\mathbb{F}$是$\mathbb{C}$或$\mathbb{R}$）的{\bf 奇异值分解}（SVD）是形如 \eqref{SVD} 的分解，即$A=W\Sigma V^*$，其中$W\in M_{m\times m}^{\mathbb{F}}$和$V\in M_{n\times n}^{\mathbb{F}}$是幺正矩阵，$\Sigma\in M_{m\times n}^{\mathbb{R}_+}$是“对角”矩阵（意为对于所有$k=1,2,\dots,\min\{m,n\}$有$\sigma_{k,k}\ge 0$，而对于所有$j\ne k$有$\sigma_{j,k}=0$）。
 
-    表达式 \eqref{schmidt_decomp_3} 常称为{\bf 简化}或{\bf 紧凑} SVD。更确切地说，简化SVD的表达式为$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$，其中$\widetilde{\Sigma}\in M_{r\times r}^{\mathbb{R}_+},r\le\min\{m,n\}$是对角矩阵且各对角线项严格大于零，$\widetilde{W}\in M_{n\times r}^{\mathbb{F}}$和$\widetilde{V}\in M_{m\times r}^{\mathbb{F}}$是等距矩阵。此外，我们还要求$\widetilde{W}$和$\widetilde{V}$中至少有一个不是方阵。
+    表达式 \eqref{schmidt_decomp_3} 常称为{\bf 简化}或{\bf 紧凑} SVD。更确切地说，简化SVD的表达式为$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$，其中$\widetilde{\Sigma}\in M_{r\times r}^{\mathbb{R}_+},r\le\min\{m,n\}$是对角矩阵且各对角线项严格大于零，$\widetilde{W}\in M_{m\times r}^{\mathbb{F}}$和$\widetilde{V}\in M_{n\times r}^{\mathbb{F}}$是等距矩阵。此外，我们还要求$\widetilde{W}$和$\widetilde{V}$中至少有一个不是方阵。
 \end{definition}
 
 \begin{remark}
@@ -669,71 +669,181 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 此外，即便我们知道确切的矩阵，大多数的计算程序在运算过程中都会引入舍入误差，所以实际上我们无法区分“为零的主元”和“很小的主元”。
 
-\subsection{摩尔-彭罗斯逆（伪逆）}
+处理舍入误差的一个朴素的思路是，当计算秩（以及与之相关的其他对象，比如列空间、核等）时，设定一个容许值（很小的数），若某主元小于这个容许值，就视其为零。这个方法的优势就是它很简单，因为很容易编程实现。然而，这个方法有个关键的缺陷：无法看出容许值会造成什么影响。比如，如果将容许值设为$10^{-6}$，我们会损失什么？设成$10^{-8}$又会有多少改进？
+
+尽管上述方法对良态矩阵很好用，它在一般情形下并不十分可靠。
+
+一种更好的方法是用奇异值。这种方法需要做更多计算，但会给出更好的结果，解释起来也更清晰。我们同样设定一个很小的数作为容许值，然后做奇异值分解。然后我们只需视小于容许值的奇异值为零。这种方法的优势在于我们知道自己在做什么：奇异值就是椭球$A(B)$（$B$是闭单位球）的半长轴，所以设定容许值就是在确定多“薄”的椭球应被视为“平”的。
+
+\subsection{摩尔-彭罗斯（伪）逆}
+
+如我们在第 \ref{chap:InnerProduct} 章第 \ref{sec:least_square} 节所讨论的，最小平方解给出了方程$A\mathbf{x}=\mathbf{b}$无解时的“次优解”（并且在$A\mathbf{x}=\mathbf{b}$有解时也能给出其解）。
+
+注意，最小平方解并未解决唯一性的问题：法方程$A^*A\mathbf{x}=A^*\mathbf{b}$的解未必是唯一的。其有一个自然的特解——最小范数解。这样的解是唯一的，并且可以通过取任意解往$(\operatorname{Ker}A^*A)^\perp=(\operatorname{Ker}A)^\perp$的投影来获得，见第 \ref{chap:InnerProduct} 章习题 \ref{ex:5_4_5} 和 \ref{ex:5_4_6}。
+
+不难看出，如果$A$的{\bf 简化}奇异值分解是$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$，那么最小范数最小平方解$\mathbf{x}_0$由下式给出：
+\begin{equation}\label{ls_ln_sol}
+    \mathbf{x}_{0}=\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}\mathbf{b}.
+\end{equation}
+的确如此——$\mathbf{x}_0$是$A\mathbf{x}=\mathbf{b}$的最小平方解（即$A\mathbf{x}=P_{\rg A}\mathbf{b}$的解）：
+\[A\mathbf{x}_{0}=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^{*}\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}\mathbf{b}=\widetilde{W}\widetilde{\Sigma}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}\mathbf{b}=\widetilde{W}\widetilde{W}^{*}\mathbf{b}=P_{\mathrm{Ran}A}\mathbf{b};\]
+最后一个等号，是由于$\widetilde{W}\widetilde{W}^{*}=P_{\operatorname{Ran}\widetilde{W}}$（$P_{\rg\widetilde{W}}=\widetilde{W}(\widetilde{W}^{*}\widetilde{W})^{-1}\widetilde{W}^{*}=\widetilde{W}\widetilde{W}^{*}$）并且$\rg\widetilde{W}=\rg A$（见下习题 \ref{ex:6_4_4}）。
+
+方程$A\mathbf{x}=P_{\rg A}\mathbf{b}$的通解是
+\[\mathbf{x}=\mathbf{x}_0+\mathbf{y},\quad \mathbf{y}\in\operatorname{Ker}A,\]
+所以$\mathbf{x}_0$是$A\mathbf{x}=P_{\rg A}\mathbf{b}$的唯一最小范数解，或者等价地说，是$A\mathbf{x}=\mathbf{b}$的最小范数最小平方解。
+
+\begin{definition}
+    算子$A^+:=\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}$（其中$A$的{\bf 简化}奇异值分解为$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$）称为算子$A$的{\bf 摩尔-彭罗斯逆}（或{\bf 摩尔-彭罗斯伪逆}）。换言之，算子的{\bf 摩尔-彭罗斯逆}给出了$A\mathbf{x}=\mathbf{b}$的唯一最小平方解。
+\end{definition}
+
+\begin{remark}
+    在文献中，摩尔-彭罗斯逆常定义为满足下列性质的矩阵$A^+$：
+    \begin{enumerate}
+        \item $AA^{+}A=A$；
+        \item $A^{+}AA^{+}=A^{+}$；
+        \item $(AA^+)^*=AA^+$；
+        \item $(A^{+}A)^{*}=A^{+}A$。
+    \end{enumerate}
+
+    很容易检验，算子$A^+:=\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}$满足上述性质1-4。
+
+    还可以证明，满足上述性质1-4的算子$A^+$是唯一的，尽管证明稍有些难度。的确如此：将等式1右乘和左乘$A^+$，可分别得到$(A^+A)^{2}=A^{+}A$和$(AA^+)^{2}=AA^{+}$，再结合性质3和4，即得$A^{+}A$和$AA^{+}$都是正交投影（见第 \ref{chap:InnerProduct} 章习题 \ref{ex:5_5_6}）。
+
+    $\operatorname{Ker}A\subset\operatorname{Ker}A^{+}A$是平凡的，而由等式1，$\operatorname{Ker}A^{+}A\subset\operatorname{Ker}A$（为什么？），所以$\operatorname{Ker}A^{+}A=\operatorname{Ker}A$。而这就意味着$A^{+}A$是往$(\ker A)^\perp=\rg A^*$的正交投影：\[A^{+}A=P_{\rg A^*}.\]
+
+    性质1还意味着，对所有$\mathbf{y}\in \rg A$，有$AA^{+}\mathbf{y}=\mathbf{y}$。因为$AA^+$是正交投影，所以$\rg A\subset \rg AA^+$。反方向的包含关系$\rg AA^+\subset \rg A$是平凡的，所以$AA^+$是往$\rg A$的正交投影：\[AA^+=P_{\rg A}.\]
+
+    已知$A^{+}A$和$AA^+$，可重写性质2为\[P_{\rg A^*}A^+=A^+\quad\text{或}\quad A^+P_{\rg A}=A^+.\]
+    结合两式得到\[P_{\rg A^*}A^+P_{\rg A}=A^+.\]
+
+    最后，对目标空间$A$中的任意$\mathbf{b}$有\[\mathbf{x}_0:=A^+\mathbf{b}=P_{\operatorname{Ran}A^*}A^+\mathbf{b}\in\operatorname{Ran}A^*\]
+    以及\[A\mathbf{x}_{0}=AA^{+}\mathbf{b}=P_{\operatorname{Ran}A}\mathbf{b},\]
+    即$\mathbf{x}_0$是$A\mathbf{x}=\mathbf{b}$的最小平方解。因为$\mathbf{x}_0\in \rg A^*=(\ker A)^\perp$，所以根据我们之前的讨论，$\mathbf{x}_0$是最小范数最小平方解。但是，如我们之前证明的，这样的最小平方解由 \eqref{ls_ln_sol} 给出，因此必有$A^+=\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}$。\qed
+\end{remark}
+
+\begin{problemset}
+    \item 求出下列矩阵的范数和条件数：
+    \begin{probenumerate}
+        \item $A=\begin{pmatrix}
+            4&0\\1&3
+        \end{pmatrix}$。
+        \item $A=\begin{pmatrix}
+            5&3\\-3&3
+        \end{pmatrix}$。
+    \end{probenumerate}
+
+    对a)问中的矩阵$A$，给出一个右端项$\mathbf{b}$和误差$\Delta\mathbf{b}$使得
+    \[\frac{\|\Delta\mathbf{x}\|}{\|\mathbf{x}\|}=\|A\|\cdot\|A^{-1}\|\cdot\frac{\|\Delta\mathbf{b}\|}{\|\mathbf{b}\|};\]
+    这里$A\mathbf{x}=\mathbf{b}$且$A\Delta\mathbf{x}=\Delta\mathbf{b}$。
+    \item 令$A$是正规算子，并令$\lambda_1,\lambda_2,\ldots,\lambda_n$是它的特征值（以重数计）。证明：$A$的奇异值是$|\lambda_1|,|\lambda_2|,\dots,|\lambda_n|$。
+    \item 求出矩阵\[A=\begin{pmatrix}2&1&1\\1&2&1\\1&1&2\end{pmatrix}\]
+    的奇异值、范数和条件数。如果你利用上题的结论并回答下列几个问题，可以不用任何计算就得出答案：
+    \begin{probenumerate}
+        \item 往某子空间$E$上正交投影$P_E$的奇异值（特征值）是什么？
+        \item 往由向量$(1,1,1)^T$张成的子空间上正交投影的矩阵是什么？
+        \item 算子$T$与$aT+bI$（$a,b$为标量）的特征值有什么关系？
+    \end{probenumerate}
+    \pagebreak
+    \item \label{ex:6_4_4} 令$A$的{\bf 简化}奇异值分解为$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$。证明$\rg A=\rg \widetilde{W}$，再通过取伴随证明$\rg A^*=\rg \widetilde{V}$。
+    \item 利用奇异值分解$A=W\Sigma V^*$，写出摩尔-彭罗斯逆$A^+$的公式。
+    \item {\bf 吉洪诺夫正则化}：证明摩尔-彭罗斯逆$A^+$可用下述极限计算：
+    \[A^{+}=\lim_{\varepsilon\to0+}(A^{*}A+\varepsilon I)^{-1}A^{*}=\lim_{\varepsilon\to0+}A^{*}(AA^{*}+\varepsilon I)^{-1}.\]
+\end{problemset}
 
 \section{正交矩阵的结构}
 
-\[
-    \begin{pNiceMatrix}
-        R_{\varphi_1}             &               &        &               & \Block{2-1}<\LARGE>{0} \\
-                                  & R_{\varphi_2} &        &               &                        \\
-                                  &               & \ddots &               &                        \\
-        \Block[b]{2-1}<\LARGE>{0} &               &        & R_{\varphi_k} &                        \\
-                                  &               &        &               & I_{n-2k}
-    \end{pNiceMatrix}.
-\]
+满足$\det U=1$的正交矩阵$U$常称作{\bf 旋转}。下述定理解释了这个名称的来历。
 
-\begin{equation*}
-    \begin{pNiceArray}{c|ccc}
-        R_{-\alpha} &  & * & \\
-        \Hline
-         & & & \\
-        \mathbf{0} & & U_1 & \\
-         & & & 
-    \end{pNiceArray}
-\end{equation*}
+\begin{theorem}\label{thm:rotation_orthogonal}
+    令$U$是$\mathbb{R}^n$上的正交算子，并令$\det U=1$。\footnote{对一般的正交矩阵$U$，$\det U=\pm 1$。}那么存在规范正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，使得$U$关于该基的矩阵具有如下分块对角形式
+    \[
+        \begin{pNiceMatrix}
+            R_{\varphi_1}             &               &        &               & \Block{2-1}<\LARGE>{0} \\
+                                    & R_{\varphi_2} &        &               &                        \\
+                                    &               & \ddots &               &                        \\
+            \Block[b]{2-1}<\LARGE>{0} &               &        & R_{\varphi_k} &                        \\
+                                    &               &        &               & I_{n-2k}
+        \end{pNiceMatrix}.
+    \]
+    其中$R_{\varphi_k}$是$2$维旋转，\[R_{\varphi_k}=\begin{pmatrix}\cos\varphi_k&-\sin\varphi_k\\\sin\varphi_k&\cos\varphi_k\end{pmatrix}\]
+    $I_{n-2k}$代表大小为$(n-2k)\times (n-2k)$的恒等矩阵。
+\end{theorem}
 
-\begin{equation*}
-    \begin{pNiceArray}{c|ccc}
-        R_{-\alpha} &  & \mathbf{0} & \\
-        \Hline
-         & & & \\
-        \mathbf{0} & & U_1 & \\
-         & & & 
-    \end{pNiceArray}
-\end{equation*}
+\begin{proof}
+    \[\mathbf{x}:=\operatorname{Re}\mathbf{u}=(\mathbf{u}+\overline{\mathbf{u}})/2,\quad\mathbf{y}=\operatorname{Im}\mathbf{u}=(\mathbf{u}-\overline{\mathbf{u}})/(2i),\]
+    \[U\mathbf{x}=U\frac{1}{2}(\mathbf{u}+\overline{\mathbf{u}})=\frac{1}{2}(\lambda\mathbf{u}+\overline{\lambda}\overline{\mathbf{u}})=\mathrm{Re}(\lambda\mathbf{u}).\]
+    \[U\mathbf{y}=\frac{1}{2i}U(\mathbf{u}-\overline{\mathbf{u}})=\frac{1}{2i}(\lambda\mathbf{u}-\overline{\lambda}\overline{\mathbf{u}})=\mathrm{Im}(\lambda\mathbf{u}).\]
+    \begin{align*}
+        \lambda\mathbf{u}&=(\cos\alpha+i\sin\alpha)(\mathbf{x}+i\mathbf{y})\\
+        &=((\cos\alpha)\mathbf{x}-(\sin\alpha)\mathbf{y})+i((\cos\alpha)\mathbf{y}+(\sin\alpha)\mathbf{x}).
+    \end{align*}
+    所以
+    \[U\mathbf{x}=\operatorname{Re}(\lambda\mathbf{u})=(\cos\alpha)\mathbf{x}-(\sin\alpha)\mathbf{y},\; U\mathbf{y}=\operatorname{Im}(\lambda\mathbf{u})=(\cos\alpha)\mathbf{y}+(\sin\alpha)\mathbf{x}.\]
+    \[R_{-\alpha}=\begin{pmatrix}\cos\alpha&\sin\alpha\\-\sin\alpha&\cos\alpha\end{pmatrix}\]
 
-\begin{equation*}
-    I = U^*U = \begin{pNiceArray}{c|ccc}
-        I &  & \mathbf{0} & \\
-        \Hline
-         & & & \\
-        \mathbf{0} & & U_1^*U_1 & \\
-         & & & 
-    \end{pNiceArray}
-\end{equation*}
+    \begin{equation*}
+        \begin{pNiceArray}{c|ccc}
+            R_{-\alpha} &  & * & \\
+            \Hline
+            & & & \\
+            \mathbf{0} & & U_1 & \\
+            & & & 
+        \end{pNiceArray}
+    \end{equation*}
 
-\[
-    \begin{pNiceMatrix}
-        R_{-\alpha_1}             &               &        &               &        & \Block{2-1}<\LARGE>{0} \\
-                                  & R_{-\alpha_2} &        &               &        &                        \\
-                                  &               & \ddots &               &        &                        \\
-                                  &               &        & R_{-\alpha_d} &        &                        \\
-        \Block[b]{2-1}<\LARGE>{0} &               &        &               & -I_{r} &                        \\
-                                  &               &        &               &        & -I_{l}                 \\
-    \end{pNiceMatrix}.
-\]
+    \begin{equation*}
+        \begin{pNiceArray}{c|ccc}
+            R_{-\alpha} &  & \mathbf{0} & \\
+            \Hline
+            & & & \\
+            \mathbf{0} & & U_1 & \\
+            & & & 
+        \end{pNiceArray}
+    \end{equation*}
 
-\[
-    \begin{pNiceMatrix}
-        R_{\varphi_1}             &               &        &               &       & \Block{2-1}<\LARGE>{0} \\
-                                  & R_{\varphi_2} &        &               &       &                        \\
-                                  &               & \ddots &               &       &                        \\
-                                  &               &        & R_{\varphi_k} &       &                        \\
-        \Block[b]{2-1}<\LARGE>{0} &               &        &               & I_{r} &                        \\
-                                  &               &        &               &       & -1                     \\
-    \end{pNiceMatrix}.
-\]
+    \begin{equation*}
+        I = U^*U = \begin{pNiceArray}{c|ccc}
+            I &  & \mathbf{0} & \\
+            \Hline
+            & & & \\
+            \mathbf{0} & & U_1^*U_1 & \\
+            & & & 
+        \end{pNiceArray}
+    \end{equation*}
+
+    \[
+        \begin{pNiceMatrix}
+            R_{-\alpha_1}             &               &        &               &        & \Block{2-1}<\LARGE>{0} \\
+                                    & R_{-\alpha_2} &        &               &        &                        \\
+                                    &               & \ddots &               &        &                        \\
+                                    &               &        & R_{-\alpha_d} &        &                        \\
+            \Block[b]{2-1}<\LARGE>{0} &               &        &               & -I_{r} &                        \\
+                                    &               &        &               &        & -I_{l}                 \\
+        \end{pNiceMatrix}.
+    \]
+\end{proof}
+
+\begin{theorem}
+    令$U$是$\mathbb{R}^n$上的正交算子，并令$\det U=-1$。那么存在规范正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，使得$U$关于该基的矩阵具有如下分块对角形式
+    \[
+        \begin{pNiceMatrix}
+            R_{\varphi_1}             &               &        &               &       & \Block{2-1}<\LARGE>{0} \\
+                                    & R_{\varphi_2} &        &               &       &                        \\
+                                    &               & \ddots &               &       &                        \\
+                                    &               &        & R_{\varphi_k} &       &                        \\
+            \Block[b]{2-1}<\LARGE>{0} &               &        &               & I_{r} &                        \\
+                                    &               &        &               &       & -1                     \\
+        \end{pNiceMatrix}.
+    \]
+    其中$r=n-2k-1$，$R_{\varphi_k}$是$2$维旋转，\[R_{\varphi_k}=\begin{pmatrix}\cos\varphi_k&-\sin\varphi_k\\\sin\varphi_k&\cos\varphi_k\end{pmatrix}\]
+    $I_{n-2k}$代表大小为$(n-2k)\times (n-2k)$的恒等矩阵。
+\end{theorem}
+我们将证明留给读者作为习题。需要对定理 \ref{thm:rotation_orthogonal}
+
+\[R_\alpha\begin{pmatrix}x_{n-1}\\x_n\end{pmatrix}=\begin{pmatrix}a_{n-1}\\0\end{pmatrix},\]
+
+\[R_1=\begin{pmatrix}I_{n-2}&\mathbf{0}\\\mathbf{0}&R_\alpha\end{pmatrix}\]
 
 \section{取向}
 
