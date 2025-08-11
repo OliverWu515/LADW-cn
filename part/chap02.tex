@@ -306,7 +306,7 @@
 \begin{proof}
   设$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$和$\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{m}$是$V$中两个不同的基。不失一般性，可假设$n\le m$。考虑定义如下的同构$A:\mathbb{F}^{n}\to V$：\[A\mathbf{e}_k=\mathbf{v}_k,\quad k=1,2,\ldots n,\]其中$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$是$\mathbb{R}^n$中的标准基。
 
-  由于$A^{-1}$也是同构，因此向量组\[A^{-1}\mathbf{w}_1,A^{-1}\mathbf{w}_2,\ldots,A^{-1}\mathbf{w}_m\]也是基（见第 \ref{chap:BasicNotion} 章的\autoref{thm:preserve_basis}）。因此它是线性无关的，则由命题 \ref{prop:li_no_more} 可知$m\le n$。结合$n\le m$的假设即得$m=n$。
+  由于$A^{-1}$也是同构，因此向量组\[A^{-1}\mathbf{w}_1,A^{-1}\mathbf{w}_2,\ldots,A^{-1}\mathbf{w}_m\]也是基（见第 \ref{chap:BasicNotion} 章的定理 \ref{thm:preserve_basis}）。因此它是线性无关的，则由命题 \ref{prop:li_no_more} 可知$m\le n$。结合$n\le m$的假设即得$m=n$。
 \end{proof}
 
 接下来的结论是上述命题的一个特殊情况。
@@ -526,7 +526,7 @@
   这定理初看上去没什么意思——似乎只是命题 \ref{prop:arbit_li_no_more} 的简单推论。然而，仅在已有$V$的基时，才能应用命题 \ref{prop:arbit_li_no_more}。但此处我们只有$W$的基，并且无法确定该基中有多少向量属于$V$。事实上，$W$的这个基中可能没有一个向量属于$V$——很容易举出这样的例子。
 \end{remark*}
 
-\begin{proof}[\autoref{thm:subspace_finite_dimensional} 的证明]
+\begin{proof}[定理 \ref{thm:subspace_finite_dimensional} 的证明]
   $V = \{\mathbf{0}\}$为该定理的平凡情形。现在假设$V \ne \{\mathbf{0}\}$。
 
   我们的目标是找到$V$的一个基。取非零向量$\mathbf{v}_1\in V$。若$V=\operatorname{span}\{\mathbf{v}_1\}$，我们就得到了所需的基（包含单一向量$\mathbf{v}_1$）。
@@ -767,7 +767,7 @@
      1&1&1&1&-3\\0&1&-1&2&-3\\0&0&0&1&-2\\0&0&0&1&-2
   \end{pNiceArray}
 \end{align*}
-从中已能看出有三个主元，因此$\rank A\ge 3$。（其实我们已经能看出秩为$3$，但是此处只需要推到这个不等式就够了）。由\autoref{thm:fundamental_thm_of_la}，$\rank A+\dim\ker A = 5$，于是$\dim\ker A\le 2$，因此$\ker A$中不会有超过$2$个向量线性无关。因此，上面表达式中的最后两个向量都形成$\ker A$的基，则这两个表达式都给出了原方程的所有解。
+从中已能看出有三个主元，因此$\rank A\ge 3$。（其实我们已经能看出秩为$3$，但是此处只需要推到这个不等式就够了）。由定理 \ref{thm:fundamental_thm_of_la}，$\rank A+\dim\ker A = 5$，于是$\dim\ker A\le 2$，因此$\ker A$中不会有超过$2$个向量线性无关。因此，上面表达式中的最后两个向量都形成$\ker A$的基，则这两个表达式都给出了原方程的所有解。
 
 秩定理的一个重要推论，就是下面这个将线性方程组解的存在性和唯一性关联起来的定理。
 
@@ -776,10 +776,10 @@
   对于任一$\mathbf{b}\in\mathbb{R}^m$都有解，当且仅当对偶方程\[A^T\mathbf{x}=\mathbf{0}\]具有唯一解（仅有平凡解）。（注意，第二个方程中是$A^T$，不是$A$）
 \end{theorem}
 \begin{proof}
-  由\autoref{thm:fundamental_thm_of_la} 可立即得证（只需计算维数）。我们将证明的细节留给读者作为习题。
+  由定理 \ref{thm:fundamental_thm_of_la} 可立即得证（只需计算维数）。我们将证明的细节留给读者作为习题。
 \end{proof}
 
-第二个秩定理（\autoref{thm:fundamental_thm_of_la}）有一个非常优美的几何解释：该定理的第一条是说，如果变换$A:\mathbb{F}^{n}\to\mathbb{F}^{m}$具有平凡的核（$\ker A=\{\mathbf{0}\}$），那么定义域$\mathbb{F}^{n}$和值域$\rg A$的维数相同。如果核不是平凡的，那么该变换会“消掉”$\dim\ker A$维，从而$\dim\rg A = n-\dim\ker A$。
+第二个秩定理（定理 \ref{thm:fundamental_thm_of_la}）有一个非常优美的几何解释：该定理的第一条是说，如果变换$A:\mathbb{F}^{n}\to\mathbb{F}^{m}$具有平凡的核（$\ker A=\{\mathbf{0}\}$），那么定义域$\mathbb{F}^{n}$和值域$\rg A$的维数相同。如果核不是平凡的，那么该变换会“消掉”$\dim\ker A$维，从而$\dim\rg A = n-\dim\ker A$。
 
 \subsection{将线性无关组补全为基}
 

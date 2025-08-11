@@ -607,7 +607,7 @@
     \item 将两个旋转矩阵$T_{\alpha}$和$T_{\beta}$相乘（该乘法是罕见的可交换乘法，即$T_\alpha T_\beta=T_\beta T_\alpha$，故顺序不重要）。据此推导$\sin(\alpha+\beta)$和$\cos(\alpha+\beta)$的公式。
     \item 求出$\mathbb{R}^2$中向直线$x_1=-2x_2$上正交投影的矩阵。{\bf 提示}：向坐标轴$x_1$上投影的矩阵是什么？
     \item 求出线性变换$A,B:\mathbb{R}^{2}\to\mathbb{R}^{2}$使得$AB=\mathbf{0}$但$BA\ne \mathbf{0}$。
-    \item \label{ex:1_5_6}证明\autoref{thm:trace_commute}，即证明$\tr (AB)=\tr(BA)$。
+    \item \label{ex:1_5_6}证明定理 \ref{thm:trace_commute}，即证明$\tr (AB)=\tr(BA)$。
     \item 构造非零矩阵$A$使得$A^{2}=\mathbf{0}$。
     \item 求出关于直线$y=-2x/3$的反射的矩阵。请将所有乘法都算到最终结果。
 \end{problemset}
@@ -646,7 +646,7 @@
     变换$A^{-1}$称作$A$的{\bf 逆}。
 \end{corollary*}
 
-\begin{proof}[\autoref{thm:inverse_unique} 的证明]
+\begin{proof}[定理 \ref{thm:inverse_unique} 的证明]
     令$BA=I$且$AC=I$。那么\[BAC=B(AC)=BI=B.\]
     另一方面，\[BAC=(BA)C=IC=C,\]
     因此$B=C$。
@@ -658,7 +658,7 @@
     称矩阵是{\bf 可逆的}（意即{\bf 左可逆}且{\bf 右可逆}），如果相应的线性变换是可逆的（意即{\bf 左可逆}且{\bf 右可逆}）。
 \end{definition*}
 
-\autoref{thm:inverse_unique} 表明若存在唯一的矩阵$A^{-1}$使得$A^{-1}A=I,AA^{-1}=I$，则矩阵$A$是可逆的。矩阵$A^{-1}$称作$A$的{\bf 逆}。
+定理 \ref{thm:inverse_unique} 表明若存在唯一的矩阵$A^{-1}$使得$A^{-1}A=I,AA^{-1}=I$，则矩阵$A$是可逆的。矩阵$A^{-1}$称作$A$的{\bf 逆}。
 
 \subsubsection*{例子}
 
@@ -735,7 +735,7 @@
     若$A$为同构，那么$A^{-1}$也是同构。因此我们可以把上述定理表述成$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$是基当且仅当$A\mathbf{v}_{1},A\mathbf{v}_{2},\ldots,A\mathbf{v}_{n}$是基。
 \end{remark*}
 
-\autoref{thm:preserve_basis} 的逆命题也是成立的。
+定理 \ref{thm:preserve_basis} 的逆命题也是成立的。
 
 \begin{theorem}\label{thm:basis_to_basis}
     令$A:V\to W$是线性映射，并令$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$和$\mathbf{w}_1,\mathbf{w}_2,\ldots,$ $\mathbf{w}_n$分别为$V$和$W$的基。若$A\mathbf{v}_{k}=\mathbf{w}_{k},k=1,2,\dots,n$，那么$A$是同构。
@@ -748,9 +748,9 @@
 
 \begin{enumerate}
     \item 令$A:\mathbb{F}^{n+1}\to\mathbb{P}_{n}^{\mathbb{F}}$（$\mathbb{P}_{n}^{\mathbb{F}}$是次数最高为$n$的多项式$\sum_{k=0}^{n}\alpha_{k}t^{k},\alpha_{k}\in\mathbb{F}$所成的集合）定义为\[A\mathbf{e}_1=1,A\mathbf{e}_2=t,\ldots,A\mathbf{e}_n=t^{n-1},A\mathbf{e}_{n+1}=t^n\]
-    由\autoref{thm:basis_to_basis}，$A$为同构，故$\mathbb{P}_n^\mathbb{F}\cong\mathbb{F}^{n+1}$。
+    由定理 \ref{thm:basis_to_basis}，$A$为同构，故$\mathbb{P}_n^\mathbb{F}\cong\mathbb{F}^{n+1}$。
     \item 令$V$为$\mathbb{F}$上的向量空间，\marginpar{\small 任一具有基的实向量空间都与$\mathbb{R}^n$（$n$为适当的数）同构。类似地，任一具有基的复向量空间都与$\mathbb{C}^n$同构。}基为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$。定义变换$A:\mathbb{F}^{n}\to V$为\[A\mathbf{e}_k=\mathbf{v}_k,\quad k=1,2,\ldots,n,\]
-    其中$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$是$\mathbb{F}^n$的标准基。同样由\autoref{thm:basis_to_basis}，$A$为同构，故$V\cong\mathbb{F}^{n}$。
+    其中$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$是$\mathbb{F}^n$的标准基。同样由定理 \ref{thm:basis_to_basis}，$A$为同构，故$V\cong\mathbb{F}^{n}$。
     \item 由$2\times 3$矩阵（各项属于$\mathbb{F}$）所构成的向量空间$M_{2\times3}^{\mathrm{F}}$同构于$\mathbb{F}^6$；
     \item 更一般地，$M_{m\times n}^{\mathbb{F}}\cong\mathbb{F}^{m\cdot n}$。
 \end{enumerate}

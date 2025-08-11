@@ -134,8 +134,8 @@
         \item 一矩阵如果有一个特征向量，就有无数个特征向量；
         \item 存在没有实特征值的实方阵；
         \item 存在没有（复）特征值的方阵；
-        \item 相似矩阵总有相同的特征值；
-        \item 相似矩阵总有相同的特征向量；
+        \item 相似矩阵的特征值总相同；
+        \item 相似矩阵的特征向量总相同；
         \item 矩阵$A$的两个特征向量的和（非零）总是特征向量；
         \item 矩阵$A$的相应于同一特征值$\lambda$的两个特征向量的和（非零）总是特征向量。
     \end{probenumerate}
@@ -207,7 +207,7 @@
 \end{proof}
 
 \begin{remark*}
-    注意，如果矩阵可表示为$A=SDS^{-1}$（$D$为对角矩阵），那么可据此直接计算得$S$的各列是$A$的特征向量，$D$的对角线项是对应的特征值。这是\autoref{thm:diagonalizable_iff_1} 中对应结论的另一种证明方式。
+    注意，如果矩阵可表示为$A=SDS^{-1}$（$D$为对角矩阵），那么可据此直接计算得$S$的各列是$A$的特征向量，$D$的对角线项是对应的特征值。这是定理 \ref{thm:diagonalizable_iff_1} 中对应结论的另一种证明方式。
 \end{remark*}
 
 前面我们讨论过，可对角化算子$A:V\to V$恰有$n=\dim V$个特征值（以重数计）。复向量空间$V$中的任意算子都有$n$个特征值（以重数计）；另一方面，实向量空间上的算子可能没有实特征值。
@@ -280,7 +280,7 @@ $e^{tA}$的矩阵表达式也类似。
     若算子$A:V\to V$恰有$n=\dim V$个互异特征值，\marginpar{\small 这个结论虽简单却十分重要且常用。请记住它！}那么它可对角化。
 \end{corollary}
 \begin{proof}
-    对每个特征值$\lambda_k$，令$\mathbf{v}_k$是对应的特征向量（即对每个特征值选取一个特征向量）。由\autoref{thm:li_eigenvector}，向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_{n}$线性无关，又因为它恰好包含$n=\dim V$个向量，所以它是基。
+    对每个特征值$\lambda_k$，令$\mathbf{v}_k$是对应的特征向量（即对每个特征值选取一个特征向量）。由定理 \ref{thm:li_eigenvector}，向量组$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_{n}$线性无关，又因为它恰好包含$n=\dim V$个向量，所以它是基。
 \end{proof}
 
 \subsection{子空间构成的基（又名子空间的直和）}
@@ -297,7 +297,7 @@ $e^{tA}$的矩阵表达式也类似。
 称一组子空间$V_1,V_2,\ldots,V_p$是生成组（或完备组、张成组），若任意向量$\mathbf{v}\in V$都能写成 \eqref{linear_comb_subspaces} 的形式（不一定唯一）。
 
 \begin{remark}\label{remark:eigenspace_li}
-    根据上述定义可立即发现：\autoref{thm:li_eigenvector} 实际上表明算子$A$的各特征空间
+    根据上述定义可立即发现：定理 \ref{thm:li_eigenvector} 实际上表明算子$A$的各特征空间
     \[E_k:=\ker (A-\lambda_kI),\quad\lambda_k\in\sigma(A),\]
     线性无关。
 \end{remark}
@@ -333,7 +333,7 @@ $e^{tA}$的矩阵表达式也类似。
     又因为向量组$\mathbf{b}_{j}:j\in\Lambda_{k}$（即$\mathcal{B}_k$）线性无关，所以对所有$j\in\Lambda_k$，有$c_j=0$。因为该结论对于所有$\Lambda_k$都成立，所以对所有$j$也有$c_j=0$。
 \end{proof}
 
-\begin{proof}[\autoref{thm:union_of_basis_in_subspace_li_basis} 的证明]
+\begin{proof}[定理 \ref{thm:union_of_basis_in_subspace_li_basis} 的证明]
     本定理的证明中，我们将用与引理 \ref{lem:union_of_basis_in_subspace_li} 中相同的记号，即向量组$\mathcal{B}_k$包含向量$\mathbf{b}_{j},j\in\Lambda_{k}$。
 
     引理 \ref{lem:union_of_basis_in_subspace_li} 表明，向量组$\mathbf{b}_{j},j=1,2,\dots,n$线性无关，因此只需证明这个组是完备的。
@@ -364,7 +364,7 @@ $e^{tA}$的矩阵表达式也类似。
 
 \subsection{实对角化}
 
-下面的定理实际上已经被证明了（它就是\autoref{thm:algebraic_eq_geometric} 用于实向量空间的情况）。我们在此处写出它，以总结对实矩阵进行实对角化的情况。
+下面的定理实际上已经被证明了（它就是定理 \ref{thm:algebraic_eq_geometric} 用于实向量空间的情况）。我们在此处写出它，以总结对实矩阵进行实对角化的情况。
 
 \begin{theorem}\label{thm:diagonalizable_iff_real}
     $n\times n$实矩阵$A$能进行实对角化（即能写成表达式$A=SDS^{-1}$，其中矩阵$S$和$D$都为实矩阵，$D$是对角矩阵，$S$是可逆的），当且仅当$A$能进行复对角化且$A$的所有特征值都是实数。
@@ -410,7 +410,7 @@ $$A=\left(\begin{array}{cc}1&1\\0&1\end{array}\right).$$
 $$\left|\begin{array}{cc}1-\lambda&1\\0&1-\lambda\end{array}\right|=(1-\lambda)^2,$$
 所以$A$的特征值为$1$，且其重数为$2$。但很容易看出$\dim\ker(A-I)=1$（$A-I$有$1$个主元，所以有$2-1=1$个自由变量）。所以，特征值$1$的几何重数不等于代数重数，故$A$不可对角化。
 
-还有一种不用\autoref{thm:algebraic_eq_geometric} 的解释：特征空间$\ker(A-1I)$的特征空间是一维的（由向量$(1,0)^T$张成）。如果$A$可对角化，那么它应关于某个基具有对角阵$\begin{pmatrix}
+还有一种不用定理 \ref{thm:algebraic_eq_geometric} 的解释：特征空间$\ker(A-1I)$的特征空间是一维的（由向量$(1,0)^T$张成）。如果$A$可对角化，那么它应关于某个基具有对角阵$\begin{pmatrix}
     1&0\\0&1
 \end{pmatrix}$\footnote{注意，关于某个基具有对角阵$\begin{pmatrix}
     1&0\\0&1

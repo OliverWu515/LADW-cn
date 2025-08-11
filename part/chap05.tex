@@ -868,11 +868,11 @@ $$y=86/77-62x/77+43x^2/154$$
 \begin{remark*}
     早先，在第 \ref{chap:LinearSystems} 章第 \ref{sec:fundamental_subspace} 节中定义基本子空间时，用的是$A^T$而不是$A^*$（一般的文献中也都这样定义）。当然，对于实矩阵来说这两者并无差异，所以在实数情形下，上述定理能给出之前定义的基本子空间的几何描述。
 
-    利用$A^T$定义的基本子空间的几何阐释见于后面的第8章（见第3节定理3.7）。该定理中的公式和此处\autoref{thm:geometric_relation_adjoint_fundamental} 中的本质上一样，只是表述略有区别。
+    利用$A^T$定义的基本子空间的几何阐释见于后面的第8章（见第3节定理3.7）。该定理中的公式和此处定理 \ref{thm:geometric_relation_adjoint_fundamental} 中的本质上一样，只是表述略有区别。
     %TODO 添加引用
 \end{remark*}
 
-\begin{proof}[\autoref{thm:geometric_relation_adjoint_fundamental} 的证明]
+\begin{proof}[定理 \ref{thm:geometric_relation_adjoint_fundamental} 的证明]
     首先，注意到因为对于子空间$E$有$(E^\perp)^\perp = E$，所以结论1和3等价。同理，结论2和4也等价。最后，结论2就是将结论1应用到变换$A^*$的结果（此处我们运用了$(A^*)^*=A$）。
 
     所以要证明这个定理，只需证明结论1。
@@ -967,7 +967,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
     \[(\mathbf{x},\mathbf{x})=(U^*U\mathbf{x},\mathbf{x})=(U\mathbf{x},U\mathbf{x})\quad\forall\mathbf{x}\in X.\]
     因此$\|\mathbf{x}\|=\|U\mathbf{x}\|$，所以$U$是等距变换。
 
-    另一方面，若$U$是等距变换，那么由伴随变换的定义和\autoref{thm:isometry_preserve_inner}，可得对所有$\mathbf{x}\in X$
+    另一方面，若$U$是等距变换，那么由伴随变换的定义和定理 \ref{thm:isometry_preserve_inner}，可得对所有$\mathbf{x}\in X$
     \[(U^*U\mathbf{x},\mathbf{y})=(U\mathbf{x},U\mathbf{y})=(\mathbf{x},\mathbf{y})\quad\forall\mathbf{y}\in X,\]
     因此由推论 \ref{cor:inner_eq_vec_eq} 知$U^*U\mathbf{x}=\mathbf{x}$。因为此式对所有$\mathbf{x}\in X$都成立，所以$U^*U=I$。
 \end{proof}
@@ -984,7 +984,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 \begin{proof}
     因为$U$是等距变换，所以它是左可逆的，又因为$\dim X=\dim Y$，所以它可逆（左可逆的方阵是可逆的）。
 
-    另一方面，若$U:X\to Y$是可逆的，那么$\dim X=\dim Y$（只有方阵才可逆，而同构向量空间有相同的维数）。
+    另一方面，若$U:X\to Y$是可逆的，那么$\dim X=\dim Y$（只有方阵才可逆，而同构向量空间的维数相同）。
 \end{proof}
 
 称方阵$U$是{\bf 幺正的}，若$U^*U=I$，即幺正矩阵是作用于$\mathbb{F}^n$的幺正算子的矩阵。
@@ -1128,7 +1128,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 为证明该定理，我们需要下面这个简单的引理。
 
 \begin{lemma}\label{lem:no_translation_property}
-    令$T$定义如\autoref{thm:no_translation_orthogonal}。那么对于所有$\mathbf{x},\mathbf{y}\in X$：
+    令$T$定义如定理 \ref{thm:no_translation_orthogonal}。那么对于所有$\mathbf{x},\mathbf{y}\in X$：
     \begin{enumerate}
         \item $\|T\mathbf{x}\|=\|\mathbf{x}\|$；
         \item $\|T(\mathbf{x})-T(\mathbf{y})\|=\|\mathbf{x}-\mathbf{y}\|$；
@@ -1149,7 +1149,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
     回想一下$\|T(\mathbf{x})-T(\mathbf{y})\|=\|\mathbf{x}-\mathbf{y}\|$以及$\|T(\mathbf{x})\|=\|\mathbf{x}\|,\|T(\mathbf{y})\|=\|\mathbf{y}\|$，可立即得到待证结论。
 \end{proof}
 
-\begin{proof}[\autoref{thm:no_translation_orthogonal} 的证明]
+\begin{proof}[定理 \ref{thm:no_translation_orthogonal} 的证明]
     首先注意到对所有$\mathbf{x}\in X$，有\[\|T(\mathbf{x})\|=\|f(\mathbf{x})-f(\mathbf{0})\|=\|\mathbf{x}-\mathbf{0}\|=\|\mathbf{x}\|,\]
     所以$T$保持范数，即$\|T\mathbf{x}\|=\|\mathbf{x}\|$。
 

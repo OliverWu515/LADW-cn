@@ -259,13 +259,13 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 \begin{lemma}\label{lem:invert_elementary_prod}
   任意可逆矩阵都是一系列初等矩阵的乘积。\footnote{这其实是第 \ref{chap:LinearSystems} 章的定理 \ref{thm:invert_elementary_prod}。故原书此处的证明略去。——译者注}
 \end{lemma}
-\begin{proof}[\autoref{thm:det_trans} 的证明]
+\begin{proof}[定理 \ref{thm:det_trans} 的证明]
   首先，容易验证，对于任意初等矩阵都有$\det E = \det(E^T)$。注意，只需对于可逆矩阵$A$证明此定理，因为若$A$不可逆，那么$A^T$也不可逆，则两者的行列式都为零。
 
   由引理 \ref{lem:invert_elementary_prod}，矩阵$A$可表示为若干初等矩阵的乘积\[A=E_1E_2\ldots E_N,\]
   由推论 \ref{cor:det_multiply_elementary}，$A$的行列式等于初等矩阵的行列式之积。由于取转置只会将每个初等矩阵都变为其转置并将乘的顺序反过来，所以由推论 \ref{cor:det_multiply_elementary} 可知$\det A = \det A^T$。
 \end{proof}
-\begin{proof}[\autoref{thm:det_prod} 的证明]
+\begin{proof}[定理 \ref{thm:det_prod} 的证明]
   首先假设$B$可逆。那么由引理 \ref{lem:invert_elementary_prod} 可得，$B$可表示为若干初等矩阵之积
   \[B=E_1E_2\ldots E_N,\]
   因此由推论 \ref{cor:det_multiply_elementary}
