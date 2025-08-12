@@ -2,9 +2,105 @@
 
 \chapter{双线性型和二次型}\label{chap:BilinearandInner}
 
+诚然，{\bf 实}二次型（即二次齐次多项式）的研究是本章论题的源动机，不过复二次型$(A\mathbf{x},\mathbf{x}),\mathbf{x}\in\mathbb{C}^n,A=A^*$也相当有趣。因此，除非另有说明，本章的结论和计算过程适用于实数和复数情形。
+
+为了避免重复书写实质上相同的公式，我们都用复数情形下的记号。特别地，在实数情形下，以$A^*$代替$A^T$。
+
 \section{主要定义}
 
+\subsection{\texorpdfstring{$\mathbb{R}^n$}{R**n}上的双线性型}
+
+$\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\mathbf{y})$，它对每个自变量都是线性的，即
+\begin{enumerate}
+    \item $L(\alpha\mathbf{x}_1+\beta\mathbf{x}_2,\mathbf{y})=\alpha L(\mathbf{x}_1,\mathbf{y})+\beta L(\mathbf{x}_2,\mathbf{y})$；
+    \item $L(\mathbf{x},\alpha\mathbf{y}_1+\beta\mathbf{y}_2)=\alpha L(\mathbf{x},\mathbf{y}_1)+\beta L(\mathbf{x},\mathbf{y}_2)$。
+\end{enumerate}
+可以考察取值于任意向量空间的双线性型，不过本书中只考察取值于实数的双线性型。
+
+若$\mathbf{x}=(x_{1},x_{2},\ldots,x_{n})^{T}$及$\mathbf{y}=(y_{1},y_{2},\ldots,y_{n})^{T}$，则双线性型可表示成\[L(\mathbf{x},\mathbf{y})=\sum_{j,k=1}^na_{j,k}x_ky_j,\]
+或写为矩阵形式
+\[L(\mathbf{x},\mathbf{y})=(A\mathbf{x},\mathbf{y})\]
+其中
+\[A=\begin{pmatrix}a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&\ddots&\vdots\\a_{n,1}&a_{n,2}&\ldots&a_{n,n}\end{pmatrix}.\]
+由矩阵$A$可唯一确定双线性型$L$。
+
+\subsection{\texorpdfstring{$\mathbb{R}^n$}{R**n}上的二次型}
+
+二次型有几种等价的定义。
+
+一种是，$\mathbb{R}^n$上的二次型是双线性型$L$的“{\bf 对角线}”，即任意二次型$Q$都定义为$Q[\mathbf{x}]=L(\mathbf{x},\mathbf{x})=(A\mathbf{x},\mathbf{x})$。
+
+另一种更“代数”的定义是，二次型是{\bf 二次齐次多项式}，即$Q[\mathbf{x}]$是关于$n$个变量$x_1,x_2,\dots,x_n$的多项式，且其中只含有$2$次的项。这意味着其中只含形如$ax_k^2$和$cx_jx_k$的项。
+
+要将二次型$Q[\mathbf{x}]$写为$Q[\mathbf{x}]=(A\mathbf{x},\mathbf{x})$的形式，有很多方法（事实上有无穷多种方法）。例如，要将$\mathbb{R}^2$上的二次型$Q[\mathbf{x}]=x_1^2+x_2^2-4x_1x_2$表示为$(A\mathbf{x},\mathbf{x})$，则$A$可为下列矩阵之一
+\[\begin{pmatrix}1&-4\\0&1\end{pmatrix},\quad\begin{pmatrix}1&0\\-4&1\end{pmatrix},\quad\begin{pmatrix}1&-2\\-2&1\end{pmatrix}.\]
+事实上，任意形式如下的矩阵$A$都可以。
+\[\begin{pmatrix}1&a-4\\-a&1\end{pmatrix}\]
+但若要求$A$是对称的，那么$A$就是唯一的：
+\begin{center}
+    \fbox{\parbox{0.8\linewidth}{$\mathbb{R}^n$上的任意二次型$Q[\mathbf{x}]$可唯一表示为$Q[\mathbf{x}]=(A\mathbf{x},\mathbf{x})$，其中$A$是（实）对称矩阵。}}
+\end{center}
+
+例如，对于$\mathbb{R}^3$上的二次型\[Q[\mathbf{x}]=x_1^2+3x_2^2+5x_3^2+4x_1x_2-16x_1x_3+7x_2x_3\]
+对应的对称矩阵$A$是
+\[\begin{pmatrix}1&2&-8\\2&3&3.5\\-8&3.5&5\end{pmatrix}.\]
+
+\subsection{\texorpdfstring{$\mathbb{C}^n$}{C**n}上的二次型}
+
+还可以定义$\mathbb{C}^n$（乃至任意复内积空间）上的{\bf 二次型}，只需取自伴变换$A=A^*$，并定义$Q$为$Q[\mathbf{x}]=(A\mathbf{x},\mathbf{x})$。尽管我们主要举$\mathbb{R}^n$上的例子，但所有定理对于$\mathbb{C}^n$的情况也是成立的。做好这个心理准备后，我们总用$A^*$取代$A^T$。
+
+复数情形与实数情形的本质区别仅在于，如果二次型是实的，那么对应的矩阵一定是埃尔米特（自伴）的，我们没有选择的余地。
+
+注意到，如果$A=A^*$，那么
+\[(A\mathbf{x},\mathbf{x})=(\mathbf{x},A^*\mathbf{x})=(\mathbf{x},A\mathbf{x})=\overline{(A\mathbf{x},\mathbf{x})},\]
+所以$(A\mathbf{x},\mathbf{x})\in\mathbb{R}$。
+
+逆命题也是正确的。
+
+\begin{lemma}\label{lem:real_quad_self_adjoint}
+    令$(A\mathbf{x},\mathbf{x})$对所有$\mathbf{x}\in\mathbb{C}^n$都是实数。那么$A=A^*$。
+\end{lemma}
+
+我们将证明留给读者作为习题，见下习题 \ref{ex:7_1_4}。
+
+引理 \ref{lem:real_quad_self_adjoint} 的一种可行证法是利用极化恒等式的如下变种。
+
+\begin{lemma}\label{lem:polarization_eq_operator}
+    令$A$是内积空间$X$上的算子。
+    \begin{enumerate}
+        \item 若$X$是复向量空间，那么对所有$\mathbf{x},\mathbf{y}\in X$，
+        \[(A\mathbf{x},\mathbf{y})=\frac{1}{4}\sum_{\alpha\in\mathbb{C}:\alpha^4=1}\alpha(A(\mathbf{x}+\alpha\mathbf{y}),\mathbf{x}+\alpha\mathbf{y}).\]
+        \item 若$X$是实向量空间且$A=A^*$，那么对所有$\mathbf{x},\mathbf{y}\in X$，
+        \[(A\mathbf{x},\mathbf{y})=\frac{1}{4}\left[(A(\mathbf{x}+\mathbf{y}),\mathbf{x}+\mathbf{y})-(A(\mathbf{x}-\mathbf{y}),\mathbf{x}-\mathbf{y})\right].\]
+    \end{enumerate}
+\end{lemma}
+
+引理 \ref{lem:polarization_eq_operator} 的证明见第 \ref{chap:InnerProduct} 章的习题 \ref{ex:5_6_3}。
+
+\begin{problemset}
+    \item 求出$\mathbb{R}^3$上的如下双线性型$L$的矩阵。
+    \begin{align*}
+        L(\mathbf{x},\mathbf{y})=x_1y_1&+2x_1y_2+14x_1y_3-5x_2y_1+2x_2y_2\\
+        &-3x_2y_3+8x_3y_1+19x_3y_2-2x_3y_3.
+    \end{align*}
+    \item 定义$\mathbb{R}^2$上的双线性$L$为\[L(\mathbf{x},\mathbf{y})=\det[\mathbf{x},\mathbf{y}],\]
+    即，要计算$L(\mathbf{x},\mathbf{y})$，构造各列为$\mathbf{x},\mathbf{y}$的$2\times 2$矩阵并计算其行列式。
+    \item 求出$\mathbb{R}^3$上的如下二次型$Q$的矩阵
+    \[Q[\mathbf{x}]=x_1^2+2x_1x_2-3x_1x_3-9x_2^2+6x_2x_3+13x_3^2.\]
+    \item \label{ex:7_1_4} 证明上述引理 \ref{lem:real_quad_self_adjoint}。
+    
+    {\bf 提示}：利用极化恒等式（见引理 \ref{lem:polarization_eq_operator}）。或者，你可以考虑表达式$(A(\mathbf{x}+z\mathbf{y}),\mathbf{x}+z\mathbf{y})$，证明如果它对所有$z\in\mathbb{C}$都是实数，则$(A\mathbf{x},\mathbf{y})={\overline{(\mathbf{y},A^{*}\mathbf{x})}}$。
+\end{problemset}
+
 \section{二次型的对角化}
+
+你之前可能已经与二次型相识了——在你学习平面二次曲线的时候。你甚至可能还学过$\mathbb{R}^3$上的二次曲面。
+
+我们要给出这些对象的通用分类方法。
+
+\subsection{正交对角化}
+
+\subsection{非正交对角化}
 
 \section{西尔维斯特惯性定律}
 

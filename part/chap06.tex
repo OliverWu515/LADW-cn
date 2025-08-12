@@ -372,7 +372,7 @@ $A$的模显示了变换$A$的“大小”：
     \[\|U_0\mathbf{x}\|=\|A\mathbf{v}\|=\||A|\mathbf{v}\|=\|\mathbf{x}\|\]
     这样看来，$U_0$是从$\rg |A|$到$X$的等距变换。
 
-    但首先，我们需要证明$U_0$是定义完善的。令$\mathbf{v}_1$是另一个满足$\mathbf{x}=|A|\mathbf{v}_1$的向量。这样，由$\mathbf{x}=|A|\mathbf{v}=|A|\mathbf{v}_1$可得，$\mathbf{v}-\mathbf{v}_1\in\ker|A|=\ker A$（据推论 \ref{cor:ker_a_ker_moda}），所以$A\mathbf{v}=A\mathbf{v}_1$，这意味着$U_0\mathbf{x}$是定义完善的。
+    但首先，我们需要证明$U_0$是定义完善的。设另一个向量$\mathbf{v}_1$满足$\mathbf{x}=|A|\mathbf{v}_1$。这样，由$\mathbf{x}=|A|\mathbf{v}=|A|\mathbf{v}_1$可得，$\mathbf{v}-\mathbf{v}_1\in\ker|A|=\ker A$（据推论 \ref{cor:ker_a_ker_moda}），所以$A\mathbf{v}=A\mathbf{v}_1$，这意味着$U_0\mathbf{x}$是定义完善的。
 
     则构造出了$A=U_0|A|$。验证$U_0$是线性变换，留给读者作为习题。
 
@@ -460,7 +460,7 @@ $A$的模显示了变换$A$的“大小”：
 
 若矩阵$A$可逆，那么$m=n=r$，矩阵$\widetilde{V}$和$\widetilde{W}$是幺正的，$\widetilde{\Sigma}$是可逆的对角矩阵。
 
-其实，总可以用幺正的$V$和$W$（而不仅是$\widetilde{V}$和$\widetilde{W}$）来写出类似 \ref{schmidt_decomp_3} 的表达式，并且在许多情形下使用这种表达式更加便利。要写出这样的表达式，首先需要将向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$和$\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{r}$分别补全为$\mathbb{F}^n$和$\mathbb{F}^m$的规范正交基。
+其实，总可以用幺正的$V$和$W$（而不仅是$\widetilde{V}$和$\widetilde{W}$）来写出类似 \eqref{schmidt_decomp_3} 的表达式，并且在许多情形下使用这种表达式更加便利。要写出这样的表达式，首先需要将向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$和$\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{r}$分别补全为$\mathbb{F}^n$和$\mathbb{F}^m$的规范正交基。
 
 回忆一下，为了将$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$补全为$\mathbb{F}^n$的规范正交基，只需求出$\ker V^*$的规范正交基$\mathbf{v}_{r+1},\ldots,\mathbf{v}_{n}$，从而向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$就是$\mathbb{F}^n$的规范正交基。而从一般的基得到规范正交基，总可以通过格拉姆-施密特正交化来完成。
 
@@ -481,15 +481,15 @@ $A$的模显示了变换$A$的“大小”：
 \end{definition}
 
 \begin{remark}
-    容易看出，如果$A=W\Sigma V^*$是$A$的奇异值分解，那么$\sigma_k:=\sigma_{k,k}$是$A$的奇异值，即$\sigma_k^2$是$A^*A$的特征值。此外，$V$的各列$\mathbf{v}_k$是$A^*A$的对应特征向量，即$A^{*}A\mathbf{v}_{k}=\sigma_{k}^{2}\mathbf{v}_{k}$。还请注意，若$\sigma\ne 0$，那么$\mathbf{w}_k=\frac{1}{\sigma_k}A\mathbf{v}_k$。
+    容易看出，如果$A=W\Sigma V^*$是$A$的奇异值分解，那么$\sigma_k:=\sigma_{k,k}$是$A$的奇异值，即$\sigma_k^2$是$A^*A$的特征值。此外，$V$的各列$\mathbf{v}_k$是$A^*A$的对应特征向量，即$A^{*}A\mathbf{v}_{k}=\sigma_{k}^{2}\mathbf{v}_{k}$。又注意到，若$\sigma_k\ne 0$，那么$\mathbf{w}_k=\frac{1}{\sigma_k}A\mathbf{v}_k$。
 
     所有这些都意味着，按照本节前面叙述的方法，可由施密特分解 \eqref{schmidt_decomp_2} 构造出奇异值分解$A=W\Sigma V^*$。
 \end{remark}
 
-简化奇异值分解可解释为对不可逆矩阵$A$的施密特分解 \eqref{schmidt_decomp_2} 的矩阵形式。对可逆矩阵$A$，施密特分解的矩阵形式得到的是（非简化的）奇异值分解。
+简化奇异值分解可解释为对不可逆矩阵$A$的施密特分解 \eqref{schmidt_decomp_2} 的矩阵形式。对可逆矩阵$A$，施密特分解的矩阵形式是（非简化的）奇异值分解。
 
 \begin{remark}\label{remark:Singular_orthonormal_diag}
-    奇异值分解$A=W\Sigma V^*$的另一种解释是，$\Sigma$是$A$在（规范正交）基$\mathcal{A}=\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\}$和$\mathcal{B}=\{\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{n}\}$下的矩阵，即$\Sigma=[A]_\mathcal{BA}$。
+    奇异值分解$A=W\Sigma V^*$的另一种解释是，$\Sigma$是$A$在（规范正交）基$\mathcal{A}=\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\}$和$\mathcal{B}=\{\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{m}\}$下的矩阵，即$\Sigma=[A]_\mathcal{BA}$。
 
     我们将在后文用到这种解释。
 \end{remark}
@@ -509,7 +509,7 @@ $A$的模显示了变换$A$的“大小”：
 注意，此处的推证过程只适用于方阵，因为如果$A$不是方阵，那么乘积$V\Sigma$没有定义（维数不匹配，你能看出来是怎么回事吗？）。
 
 \begin{problemset}
-    \item \label{ex:6_3_1} 证明：矩阵$A$的非零奇异值的数量等于它的秩。
+    \item \label{ex:6_3_1} 证明：矩阵$A$的非零奇异值的数量（以重数计）等于它的秩。
     \item 求下列矩阵$A$的施密特分解$A=\sum_{k=1}^{r}s_{k}\mathbf{w}_{k}\mathbf{v}_{k}^{*}$：
     \[\begin{pmatrix}2&3\\0&2\end{pmatrix},\quad\begin{pmatrix}7&1\\0&0\\5&5\end{pmatrix},\quad\begin{pmatrix}1&1\\0&1\\-1&1\end{pmatrix}.\]
     \item 令$A$是可逆矩阵，并令$A=W\Sigma V^*$是它的奇异值分解。求出$A^*$和$A^{-1}$的奇异值分解。
@@ -538,37 +538,39 @@ $A$的模显示了变换$A$的“大小”：
     \item 令$A$是$m\times n$矩阵。证明：矩阵$A^*A$和$AA^*$的{\bf 非零}特征值（以重数计）相同。你能指出，何时$A^*A$和$AA^*$的零特征值具有相同的重数吗？
     \item 令$s$是算子$A$的最大奇异值，并令$\lambda$是$A$的特征值中绝对值最大的一个。证明$|\lambda|\le s$。
     \item （即为第一题，从略）
-    \item 证明：矩阵$A$的算子范数与其弗罗贝尼乌斯范数相同，当且仅当矩阵的秩为$1$。{\bf 提示}：第一题可能有用。
+    \item （移至习题 \ref{ex:6_4_7}）
     \item 对矩阵$A$\[A=\begin{pmatrix}2&-3\\0&2\end{pmatrix},\]
     描述单位球的逆像，即所有满足$\|A\mathbf{x}\|\le 1$的$\mathbf{x}\in\mathbb{R}^2$。利用奇异值分解。
 \end{problemset}
 
 \section{奇异值分解的应用}
 
-如前面所讨论的，奇异值分解就是关于两个不同的规范正交基的对角化。因为我们用了两个不同的基，所以从奇异值分解不太能看出算子在特征值方面的性质。例如，奇异值分解中的$\Sigma$  \eqref{SVD_diag} 的对角线项不是$A$的特征值。又注意到，对 \eqref{SVD} 所示的$A=W\Sigma V^*$，一般有$A^n\ne W\Sigma^n V^*$，所以这种对角化无助于求出关于该矩阵的函数。
+\enlargethispage{1.5em}
+
+如前面所讨论的，奇异值分解就是关于两个不同的规范正交基的对角化。因为我们用了两个不同的基，所以从奇异值分解不太能看出算子在特征值方面的性质。例如，奇异值分解中的$\Sigma$  \eqref{SVD_diag} 的对角线项不是$A$的特征值。又注意到，对 \eqref{SVD} 所示的$A=W\Sigma V^*$，一般有$A^n\ne W\Sigma^n V^*$，所以这种对角化无助于计算关于该矩阵的函数。
 
 然而，如下面几个例子所示，奇异值能给出大量有关线性变换的所谓{\bf 度量性质}的信息。
 
-注：进行奇异值分解，需要求出埃尔米特（自伴）矩阵$A^*A$的特征值和特征向量。要求特征值，通常要先计算特征多项式，再求根，云云。这看起来是个复杂的过程——尤其是考虑到高于$5$次的多项式没有求根公式。
+注：进行奇异值分解，需要求出埃尔米特（自伴）矩阵$A^*A$的特征值和特征向量。要求特征值，通常要先计算特征多项式，再求根，云云。这看起来是个复杂的过程——尤其是考虑到$5$次及以上的多项式没有求根公式。
 
-然而，求出埃尔米特矩阵的特征值和特征向量，已有很高效的数值方法，它们能达到要求的任意精度。这些方法并不涉及计算特征多项式以及求根，而是通过迭代直接计算特征值和特征向量。因为埃尔米特矩阵的特征向量能构成正交基，所以这些方法特别适用于它们。
+然而，求出埃尔米特矩阵的特征值和特征向量，已有很高效的数值方法，它们能达到要求的任意精度。这些方法并不涉及计算特征多项式以及求根，而是通过迭代直接计算特征值和特征向量的近似值。因为埃尔米特矩阵的特征向量能构成正交基，所以这些方法特别适用于它们。
 
-此处我们将不会讨论这些方法——这超出了本书的范围。然而，请你相信，计算埃尔米特矩阵的特征值和特征向量，进而求出奇异值分解，都有很高效的数值方法。这些方法非常高效，计算开销只比解线性方程组稍高一点点。
+此处我们将不会讨论这些方法——这超出了本书的范围。然而，请你相信，计算埃尔米特矩阵的特征值和特征向量，进而求出奇异值分解，都有很高效的数值方法。这些方法非常高效，计算开销只比解线性方程组稍大一点点。
 
 \subsection{单位球的像}
 
-以下面问题为例。令$A:\mathbb{R}^n\to \mathbb{R}^m$是线性变换，并令$B=\{\mathbf{x}\in\mathbb{R}^n:\|\mathbf{x}\|\le 1\}$是$\mathbb{R}^n$中的闭{\bf 单位球}。现要描述$A(B)$，即要求出单位球在线性变换下被变成了什么。
+以下面问题为例。令$A:\mathbb{R}^n\to \mathbb{R}^m$是线性变换，并令$B=\{\mathbf{x}\in\mathbb{R}^n:\|\mathbf{x}\|\le 1\}$是$\mathbb{R}^n$中的闭{\bf 单位球}。现要描述$A(B)$，即要得出单位球在线性变换下被变成了什么。
 
 我们首先考虑最简单的情况——$A$是对角阵$\operatorname{diag}\{\sigma_1,\sigma_2,\dots,\sigma_n\},$ $\sigma_k>0,k=1,2,\dots,n$。那么，对$\mathbf{x}=(x_{1},x_{2},\ldots,x_{n})^{T}$和$\mathbf{y}=A\mathbf{x}=(y_{1},y_{2},\ldots,y_{n})^{T}$，有$y_k=\sigma_k x_k$（等价地说，$x_k=y_k/\sigma_k$）对$k=1,2,\dots,n$成立。因此
 \[\mathbf{y}=(y_1,y_2,\ldots,y_n)^T=A\mathbf{x}\quad\text{对}~\|\mathbf{x}\|\leq1,\]
 当且仅当各坐标$y_1,y_2,\dots,y_n$满足下列不等式
 \[\frac{y_1^2}{\sigma_1^2}+\frac{y_2^2}{\sigma_2^2}+\cdots+\frac{y_n^2}{\sigma_n^2}=\sum_{k=1}^n\frac{y_k^2}{\sigma_k^2}\leq1\]
-（这其实就是不等式$\|\mathbf{x}\|^2=\sum_k x_k^2\leq1$）
+（这其实就是不等式$\|\mathbf{x}\|^2=\sum_k x_k^2\leq1$）。
 
 $\mathbb{R}^n$中满足上述不等式的点构成的集合称为椭球。若$n=2$，那么它是半长轴为$\sigma_1$和$\sigma_2$的椭圆；而若$n=3$，它是半长轴为$\sigma_1$、$\sigma_2$和$\sigma_3$的椭球。在$\mathbb{R}^n$中，这个集合的几何也很容易可视化，并且我们称该集合是半长轴为$\sigma_1,\sigma_2,\dots,\sigma_n$的椭球。向量$\mathbf{e}_{1},\mathbf{e}_{2},\ldots,\mathbf{e}_{n}$，或更准确地说，这些向量所在的直线，称为该椭球的{\bf 主轴}。
 
-奇异值分解本质上是说，内积空间上的任意算子都可关于一对规范正交基进行对角化（见注 \ref{remark:Singular_orthonormal_diag}）。也就是说，考虑奇异值分解 \eqref{schmidt_decomp_1} 中的规范正交基$\mathcal{A}=\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\}$和$\mathcal{B}=\{\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{n}\}$，那么$A$关于这些基的矩阵是对角阵
-\[[A]_{\mathcal{B}\mathcal{A}}=\mathrm{diag}\{\sigma_n:n=1,2,\ldots,n\}.\]
+奇异值分解本质上是说，内积空间上的任意算子都可关于一对规范正交基进行对角化（见注 \ref{remark:Singular_orthonormal_diag}）。也就是说，考虑奇异值分解 \eqref{SVD} 中的规范正交基$\mathcal{A}=\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\}$和$\mathcal{B}=\{\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{n}\}$\footnote{注意此处讨论的是算子，故$\mathcal{A}$和$\mathcal{B}$中有相同数量的向量。——译者注}，那么$A$关于这些基的矩阵是对角阵
+\[[A]_{\mathcal{B}\mathcal{A}}=\mathrm{diag}\{\sigma_k:k=1,2,\ldots,n\}.\]
 假设所有$\sigma_k>0$，并重复前述的推理过程，容易说明，任意的点$\mathbf{y}=A\mathbf{x}\in A(B)$当且仅当该点满足不等式\[\frac{y_1^2}{\sigma_1^2}+\frac{y_2^2}{\sigma_2^2}+\cdots+\frac{y_n^2}{\sigma_n^2}=\sum_{k=1}^n\frac{y_k^2}{\sigma_k^2}\leq1\]
 其中$y_1,y_2,\dots,y_n$是$\mathbf{y}$在规范正交基$\mathcal{B}=\{\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{n}\}$（而不仅是标准基）下的坐标。类似地，$(x_1,x_2,\ldots,x_n)^T=[\mathbf{x}]_{\mathcal{A}}$。
 
@@ -578,7 +580,7 @@ $\mathbb{R}^n$中满足上述不等式的点构成的集合称为椭球。若$n=
 
 考虑一般情形：矩阵$A$不一定是方阵，且（或）并非所有的奇异值都是非零的。首先考虑$A$是形如 \eqref{SVD_diag} 的“对角”矩阵$\Sigma$的情况。容易看出，单位球$B$的像$\Sigma B$是半长轴为$\sigma_1,\sigma_2,\dots,\sigma_r$的椭球（不在整个空间中，而仅在$\rg \Sigma$中）。
 
-现在考虑更一般的情况，即$A=W\Sigma V^*$，其中$V,W$是幺正算子。首先，幺正变换不会改变单位球（因为它保持范数），因此$V^*(B)=B$。然后，我们已知$\Sigma B$是$\rg \Sigma$中的半长轴为$\sigma_1,\sigma_2,\dots,\sigma_r$的椭球。接着，又由于幺正变换不改变几何形状，所以$W(\Sigma(B))$仍是具有相同半长轴的椭球。由于$W$和$V^*$都可逆，所以从$A=W\Sigma V^*$不难看出$W$将$\rg \Sigma$变换为$\rg A$，因此我们可得出结论：
+现在考虑更一般的情况，即$A=W\Sigma V^*$，其中$V,W$是幺正算子。首先，幺正变换不会改变单位球（因为它保持范数），因此$V^*(B)=B$。然后，我们已知$\Sigma (B)$是$\rg \Sigma$中的半长轴为$\sigma_1,\sigma_2,\dots,\sigma_r$的椭球。接着，又由于幺正变换不改变几何形状，所以$W(\Sigma(B))$仍是具有相同半长轴的椭球。由于$W$和$V^*$都可逆，所以从$A=W\Sigma V^*$不难看出$W$将$\rg \Sigma$变换为$\rg A$，因此我们可得出结论：
 \begin{center}
     \fbox{\parbox{0.96\linewidth}{闭单位球$B$的像$A(B)$是$\rg A$中的椭球，半长轴为$\sigma_1,\sigma_2,\dots,\sigma_r$。此处$r$是$A$的非零奇异值的个数，即$A$的秩。}}
 \end{center}
@@ -749,6 +751,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
     \item 利用奇异值分解$A=W\Sigma V^*$，写出摩尔-彭罗斯逆$A^+$的公式。
     \item {\bf 吉洪诺夫正则化}：证明摩尔-彭罗斯逆$A^+$可用下述极限计算：
     \[A^{+}=\lim_{\varepsilon\to0+}(A^{*}A+\varepsilon I)^{-1}A^{*}=\lim_{\varepsilon\to0+}A^{*}(AA^{*}+\varepsilon I)^{-1}.\]
+    \item \label{ex:6_4_7} 证明：矩阵$A$的算子范数与其弗罗贝尼乌斯范数相同，当且仅当矩阵的秩为$1$。{\bf 提示}：习题 \ref{ex:6_3_1} 可能有用。
 \end{problemset}
 
 \section{正交矩阵的结构}\label{sec:orthogonal_structure}
@@ -858,6 +861,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 \begin{theorem}\label{thm:rotation_det-1}
     令$U$是$\mathbb{R}^n$上的正交算子，并令$\det U=-1$。那么存在规范正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，使得$U$关于该基的矩阵具有如下分块对角形式
+    \pagebreak
     \[
         \begin{pNiceMatrix}
             R_{\varphi_1}             &               &        &               &       & \Block{2-1}<\LARGE>{0} \\
@@ -949,18 +953,16 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 你之前可能已经听过“取向”一词，并且你大概已经知道基a)与b)的取向为正，而基c)的取向为负。你大概还已经了解过一些判别取向的法则，比如物理学中的右手定则。所以，如果你能{\bf 看到}基（比如说$\mathbb{R}^3$的基），你大概就能判断它的取向。
 
-\enlargethispage{1em}
-
 \begin{figure}[htbp]
     \centering
-    \includegraphics{figures/fig6_6_1.pdf}
+    \includegraphics[scale=0.9]{figures/fig6_6_1.pdf}
     \caption{$\mathbb{R}^2$中的取向}
     \label{fig_6_1}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics{figures/fig6_6_2.pdf}
+    \includegraphics[scale=0.9]{figures/fig6_6_2.pdf}
     \caption{$\mathbb{R}^3$中的取向}
     \label{fig_6_2}
 \end{figure}
