@@ -584,12 +584,12 @@
 
 \subsection{迹与矩阵乘法}
 
-对于方阵（$n\times n$矩阵）$A=(a_{j,k})$，其迹（记为$\tr A$）是对角线项之和：
+对于方阵（$n\times n$矩阵）$A=(a_{j,k})$，其迹（记为$\tr A$）是对角项之和：
 \[\operatorname{trace}A=\sum_{k=1}^{n}a_{k,k}.\]
 \begin{theorem}\label{thm:trace_commute}
     令$A$和$B$分别为$m\times n$和$n\times m$矩阵（则乘积$AB$和$BA$都是定义完善的）。那么\[\tr (AB)=\tr(BA)\]
 \end{theorem}
-此定理的证明留作习题（见下习题 \ref{ex:1_5_6}）。其实，这个定理有两种证法。第一种方法是计算$AB$与$BA$的对角线项并比较两者的和。这种方法对于操作嵌套的求和有较高的要求。
+此定理的证明留作习题（见下习题 \ref{ex:1_5_6}）。其实，这个定理有两种证法。第一种方法是计算$AB$与$BA$的对角项并比较两者的和。这种方法对于操作嵌套的求和有较高的要求。
 
 如果你不擅长代数运算，还可用另一种方法。我们可以考虑两个从$M_{n\times m}$到$\mathbb{F}=\mathbb{F}^1$的线性变换$T$和$T_1$，定义为：\[T(X)=\mathrm{trace}(AX),\quad T_{1}(X)=\mathrm{trace}(XA)\]
 只需证明$T=T_1$即可得证——代入$X=B$可得到原定理。

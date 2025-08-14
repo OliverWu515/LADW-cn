@@ -115,15 +115,15 @@
 
 计算特征值等价于求出矩阵的特征多项式的根（有可能利用数值方法），而这或许非常耗时。然而，在一种特殊情况中，我们可以直接从矩阵里读出特征值。即
 \begin{center}
-    \fbox{\parbox{0.65\linewidth}{三角矩阵的特征值（以重数计）恰为对角线项$a_{1,1},a_{2,2},\ldots,a_{n,n}$。}}
+    \fbox{\parbox{0.65\linewidth}{三角矩阵的特征值（以重数计）恰为对角项$a_{1,1},a_{2,2},\ldots,a_{n,n}$。}}
 \end{center}
 
 “三角”此处可指上三角也可指下三角。因为对角矩阵是三角矩阵的一个特例（它既是上三角的又是下三角的），所以
 \begin{center}
-    \fbox{对角矩阵的特征值是其对角线项。}
+    \fbox{对角矩阵的特征值是其对角项。}
 \end{center}
 
-这个有关三角矩阵的结论很容易证明：只需将三角矩阵的对角线项减去$\lambda$，再利用“三角矩阵的行列式等于对角线项之积”，即得到特征多项式
+这个有关三角矩阵的结论很容易证明：只需将三角矩阵的对角项减去$\lambda$，再利用“三角矩阵的行列式等于对角项之积”，即得到特征多项式
 \[\det(A-\lambda I)=(a_{1,1}-\lambda)(a_{2,2}-\lambda)\ldots(a_{n,n}-\lambda)\]
 而它的根恰为$a_{1,1},a_{2,2},\ldots,a_{n,n}$。
 
@@ -147,7 +147,7 @@
     \item 求出下列矩阵的特征多项式和特征值：
     \[\begin{pmatrix}1&2&5&67\\0&2&3&6\\0&0&-2&5\\0&0&0&3\end{pmatrix},\begin{pmatrix}2&1&0&2\\0&\pi&43&2\\0&0&16&1\\0&0&0&54\end{pmatrix},\begin{pmatrix}4&0&0&0\\1&3&0&0\\2&4&e&0\\3&3&1&1\end{pmatrix},\begin{pmatrix}4&0&0&0\\1&0&0&0\\2&4&0&0\\3&3&1&1\end{pmatrix}.\]
     请勿展开特征多项式——保留为因式乘积的形式。
-    \item 证明：三角矩阵的特征值（以重数计）恰为其对角线项。
+    \item 证明：三角矩阵的特征值（以重数计）恰为其对角项。
     \item 称算子$A$是\textbf{幂零的}，若对某$k$有$A^k=\mathbf{0}$。证明：若$A$是幂零的，那么$\sigma(A)=\{0\}$（即$0$是$A$唯一的特征值）。
     \item 证明分块三角矩阵
     \[\begin{pmatrix}A&*\\\mathbf{0}&B\end{pmatrix},\]
@@ -175,7 +175,7 @@
 
 \subsection{预备知识}
 
-设向量空间$V$上的算子$A$满足$V$有由$A$的特征向量构成的基$\mathcal{B}=\{\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}\}$，$\lambda_1,\lambda_2,\dots,\lambda_n$是它们对应的特征值。那么$A$关于这个基的矩阵就是对角线项为$\lambda_1,\lambda_2,\dots,\lambda_n$的对角矩阵
+设向量空间$V$上的算子$A$满足$V$有由$A$的特征向量构成的基$\mathcal{B}=\{\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}\}$，$\lambda_1,\lambda_2,\dots,\lambda_n$是它们对应的特征值。那么$A$关于这个基的矩阵就是对角项为$\lambda_1,\lambda_2,\dots,\lambda_n$的对角矩阵
 \begin{equation}\label{diag_in_certain_basis}
     [A]_{\mathcal{BB}}=\operatorname{diag}\{\lambda_1,\lambda_2,\ldots,\lambda_n\}=
     \begin{pNiceMatrix}
@@ -196,7 +196,7 @@
 \begin{theorem}\label{thm:diagonalizable_iff_1}
     矩阵$A$（各项属于$\mathbb{F}$）可表示为$A=SDS^{-1}$，其中$D$是对角矩阵、$S$是可逆的（两矩阵的各项都属于$\mathbb{F}$），当且仅当$\mathbb{F}^n$中存在由$A$的特征向量构成的基。
 
-    此外，在这种情况下，$D$的对角线项是特征值，$S$的各列是对应的特征向量（第$k$列对应$D$的第$k$个对角线项）。
+    此外，在这种情况下，$D$的对角项是特征值，$S$的各列是对应的特征向量（第$k$列对应$D$的第$k$个对角项）。
 \end{theorem}
 \begin{proof}
     令$D=\operatorname{diag}\{\lambda_1,\lambda_2,\dots,\lambda_n\}$，并令$\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}$是$S$的列（注意因为$S$可逆，所以它的列形成$\mathbb{F}^n$的基）。那么，等式$A=SDS^{-1}$意味着$D=[A]_\mathcal{BB}$。
@@ -207,7 +207,7 @@
 \end{proof}
 
 \begin{remark*}
-    注意，如果矩阵可表示为$A=SDS^{-1}$（$D$为对角矩阵），那么可据此直接计算得$S$的各列是$A$的特征向量，$D$的对角线项是对应的特征值。这是定理 \ref{thm:diagonalizable_iff_1} 中对应结论的另一种证明方式。
+    注意，如果矩阵可表示为$A=SDS^{-1}$（$D$为对角矩阵），那么可据此直接计算得$S$的各列是$A$的特征向量，$D$的对角项是对应的特征值。这是定理 \ref{thm:diagonalizable_iff_1} 中对应结论的另一种证明方式。
 \end{remark*}
 
 前面我们讨论过，可对角化算子$A:V\to V$恰有$n=\dim V$个特征值（以重数计）。复向量空间$V$中的任意算子都有$n$个特征值（以重数计）；另一方面，实向量空间上的算子可能没有实特征值。

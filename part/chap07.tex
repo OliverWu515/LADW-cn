@@ -254,7 +254,7 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
 \end{remark*}
 
 \begin{remark}\label{remark:conjugate_of_row_operation}
-    对于有复数项的二次型（即对$(A\mathbf{x},\mathbf{x}),A=A^*$，非正交对角化与在实数情形下的步骤相同，唯一的区别在于，对应的“列变换”的系数取复共轭。
+    对于有复数项的二次型（即对$(A\mathbf{x},\mathbf{x}),A=A^*$），非正交对角化与在实数情形下的步骤相同，唯一的区别在于，对应的“列变换”的系数取复共轭。
 
     这是因为，如果行变换由左乘初等矩阵$E_k$给出，那么对应的列变换由右乘$E_k^*$给出，见 \eqref{congruent_elementary}。
 
@@ -270,6 +270,64 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
 \end{problemset}
 
 \section{西尔维斯特惯性定律}
+
+如前面所讨论的，将二次型对角化的方式有很多种，并且要注意获得的对角矩阵不唯一。例如，如果有对角矩阵
+\[D=\mathrm{diag}\{\lambda_1,\lambda_2,\ldots,\lambda_n\},\]
+那么总可以取对角矩阵
+\[S=\mathrm{diag}\{s_1,s_2,\ldots,s_n\},\quad s_k\in\mathbb{R},\quad s_k\neq0\]
+而将$D$变换为\[S^*DS=\mathrm{diag}\{s_1^2\lambda_1,s_2^2\lambda_2,\ldots,s_n^2\lambda_n\}.\]
+这一变换改变了$D$的对角项，但它并不改变对角项的{\bf 符号}，而且后者总是成立的！
+
+这也就是著名的西尔维斯特惯性定律：
+\begin{center}
+    \fbox{\parbox{0.8\linewidth}{对埃尔米特矩阵$A$（即对二次型$Q[\mathbf{x}]=(A\mathbf{x},\mathbf{x})$）和其任一对角化$D=S^*AS$，$D$的对角项中正数（或负数、或零）的个数仅取决于$A$，而与对角化的过程无关。}}
+\end{center}
+这里，我们仍假设$S$是可逆矩阵，$D$是对角矩阵。
+
+西尔维斯特惯性定律的证明思路，是将对角化$D=S^*AS$的对角项中正数（或负数、或零）的个数仅用$A$表达，而不牵涉到$S$和$D$。
+
+我们需要下面这个定义。
+
+\begin{definition*}
+    给定$n\times n$埃尔米特矩阵$A=A^*$（$\mathbb{F}^n$上的二次型$Q[\mathbf{x}]=(A\mathbf{x},\mathbf{x})$），称子空间$E\subset \mathbb{F}^n$是{\bf 正性的}（相应地，{\bf 负性的}或{\bf 中性的}），若
+    \[(A\mathbf{x},\mathbf{x})>0\quad(\text{相应地},(A\mathbf{x},\mathbf{x})<0,\text{或}~(A\mathbf{x},\mathbf{x})=0)\]
+    对于所有$\mathbf{x}\in E,\mathbf{x}\ne \mathbf{0}$成立。
+
+    有时，为了凸显$A$的重要性，也说成$A$-正性的（$A$-负性的、$A$-中性的）。
+\end{definition*}
+
+\begin{theorem}\label{thm:diag_positive_a_positive_dim}
+    令$A$为$n\times n$埃尔米特矩阵，并令$D=S^*AS$是其通过可逆矩阵$S$的对角化。那么$D$的对角项中，正数（相应地，负数）的数量等于$A$-正性子空间（相应地，$A$-负性子空间）的最大维数。
+\end{theorem}
+
+上述定理指出，如果$r_+$是$D$的正对角项的个数，那么存在维数为$r_+$的$A$-正性子空间$E$，但不存在满足$\dim E>r_+$的正性子空间$E$。
+
+我们需要下述引理——可视为上述定理的特例。
+
+\begin{lemma}
+    令$D$是对角矩阵$D=\mathrm{diag}\{\lambda_{1},\lambda_{2},\ldots,\lambda_{n}\}$。那么$D$的对角项中，正数（相应地，负数）的数量等于$D$-正性子空间（相应地，$D$-负性子空间）的最大维数。
+\end{lemma}
+
+\begin{proof}
+    通过重排$\mathbb{F}^n$的基（改改序号），总可以假设$D$的正对角项是前$r_+$个对角项，而不失一般性。
+
+    考虑由前$r_+$个坐标向量$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_{r_+}$张成的子空间$E_+$。显然$E_+$是$D$-正性子空间，且$\dim E_+=r_+$。
+
+    下面证明，任意其余$D$-正性子空间$E$都满足$\dim E\le r_+$。考虑正交投影$P=P_{E_+}$
+    \[P\mathbf{x}=(x_1,x_2,\ldots,x_{r_+},0\ldots,0)^T,\quad\mathbf{x}=(x_1,x_2,\ldots,x_n)^T.\]
+    对$D$-正性子空间$E$，定义变换$T:E\to E_+$为
+    \[T\mathbf{x}=P\mathbf{x},\quad \forall \mathbf{x}\in E.\]
+    换言之，$T$是对投影$P$的{\bf 限制}：$P$定义在整个空间上，通过将其定义域和目标空间分别限制于$E$和$E_+$，得到从$E$到$E_+$的变换，并用不同的字母将其与$P$区分开。
+
+    注意，$\ker T=\{\mathbf{0}\}$。的确，令$\mathbf{x}=(x_{1},x_{2},\ldots,x_{n})^{T}\in E$，我们有$T\mathbf{x}=P\mathbf{x}=\mathbf{0}$。于是由$P$的定义得\[x_1=x_2=\ldots=x_{r_+}=0,\]
+    因此\[(D\mathbf{x},\mathbf{x})=\sum_{k=r_++1}^n\lambda_kx_k^2\leq0\quad(\lambda_k\leq0\mathrm{for}k>r_+).\]
+    但是$\mathbf{x}$属于$D$-正性子空间$E$，所以不等式$(D\mathbf{x},\mathbf{x})\le 0$只对$\mathbf{x}=\mathbf{0}$成立。
+
+    现在应用秩定理（第 \ref{chap:LinearSystems} 章定理 \ref{thm:rank_theorem}。首先，$\operatorname{rank}T=\dim\operatorname{Ran}T\leq\dim E_+=r_+$，因为$\rg T\subset E_+$。由秩定理，$\dim\ker T+\rank T=\dim E$。但我们刚刚证明了$\ker T=\{\mathbf{0}\}$，即$\dim\ker T=0$，因此
+    \[\dim E=\operatorname{rank}T\leq\dim E_{+}=r_{+}.\]
+
+    为证明关于负对角项的相应结论，只需将上述论证用于矩阵$-D$。
+\end{proof}
 
 \section{正定型、特征值的极小极大刻画和西尔维斯特正定性判据}
 

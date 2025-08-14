@@ -47,7 +47,7 @@
 \begin{remark*}
     注意，即便$A$是实矩阵，矩阵$U$和$T$还是可能有复数项。比如，旋转矩阵
     \[\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix},\quad\alpha\neq k\pi,k\in\mathbb{Z}\]
-    就不幺正等价于实上三角矩阵（甚至不会与之相似）。的确如此：该矩阵的特征值是复数，而上三角矩阵的特征值恰为对角线项。
+    就不幺正等价于实上三角矩阵（甚至不会与之相似）。的确如此：该矩阵的特征值是复数，而上三角矩阵的特征值恰为对角项。
 \end{remark*}
 
 \begin{remark*}
@@ -306,7 +306,7 @@
     \end{enumerate}
 \end{theorem}
 \begin{proof}
-    选取一个规范正交基，使得$A$关于该基的矩阵是对角的（见定理 \ref{thm:self_adjoint_operator_real_eig}）。为完成证明，只需留意，对角矩阵是正定（正半定）的，当且仅当其所有对角线项都是正的（非负的）。
+    选取一个规范正交基，使得$A$关于该基的矩阵是对角的（见定理 \ref{thm:self_adjoint_operator_real_eig}）。为完成证明，只需留意，对角矩阵是正定（正半定）的，当且仅当其所有对角项都是正的（非负的）。
 \end{proof}
 
 \begin{corollary}
@@ -318,7 +318,7 @@
 \begin{proof}
     首先证明$\sqrt{A}$存在。令$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是由$A$的特征向量构成的规范正交基，并令$\lambda_{1},\lambda_{2},\ldots,\lambda_{n}$是对应的特征值。注意，因为$A\ge 0$，所以全体$\lambda_k\ge 0$。
 
-    关于基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，$A$的矩阵是对角线项为$\lambda_{1},\lambda_{2},\ldots,\lambda_{n}$的\linebreak 对角阵$\operatorname{diag}\{\lambda_{1},\lambda_{2},\ldots,\lambda_{n}\}$。定义算子$B$，其关于同一个基的矩阵为\linebreak $\mathrm{diag}\{\sqrt{\lambda_{1}},\sqrt{\lambda_{2}},\ldots,\sqrt{\lambda_{n}}\}$。
+    关于基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，$A$的矩阵是对角项为$\lambda_{1},\lambda_{2},\ldots,\lambda_{n}$的对角\linebreak 矩阵$\operatorname{diag}\{\lambda_{1},\lambda_{2},\ldots,\lambda_{n}\}$。定义算子$B$，其关于同一个基的矩阵为\linebreak $\mathrm{diag}\{\sqrt{\lambda_{1}},\sqrt{\lambda_{2}},\ldots,\sqrt{\lambda_{n}}\}$。
 
     显然，$B=B^*\ge 0$，并且$B^2=A$。
 
@@ -477,7 +477,7 @@ $A$的模显示了变换$A$的“大小”：
 \begin{definition}
     矩阵$A\in M_{m\times n}^{\mathbb{F}}$（回忆一下，$\mathbb{F}$是$\mathbb{C}$或$\mathbb{R}$）的{\bf 奇异值分解}（SVD）是形如 \eqref{SVD} 的分解，即$A=W\Sigma V^*$，其中$W\in M_{m\times m}^{\mathbb{F}}$和$V\in M_{n\times n}^{\mathbb{F}}$是幺正矩阵，$\Sigma\in M_{m\times n}^{\mathbb{R}_+}$是“对角”矩阵（意为对于所有$k=1,2,\dots,\min\{m,n\}$有$\sigma_{k,k}\ge 0$，而对于所有$j\ne k$有$\sigma_{j,k}=0$）。
 
-    表达式 \eqref{schmidt_decomp_3} 常称为{\bf 简化}或{\bf 紧凑} SVD。更确切地说，简化SVD的表达式为$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$，其中$\widetilde{\Sigma}\in M_{r\times r}^{\mathbb{R}_+},r\le\min\{m,n\}$是对角矩阵且各对角线项严格大于零，$\widetilde{W}\in M_{m\times r}^{\mathbb{F}}$和$\widetilde{V}\in M_{n\times r}^{\mathbb{F}}$是等距矩阵。此外，我们还要求$\widetilde{W}$和$\widetilde{V}$中至少有一个不是方阵。
+    表达式 \eqref{schmidt_decomp_3} 常称为{\bf 简化}或{\bf 紧凑} SVD。更确切地说，简化SVD的表达式为$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$，其中$\widetilde{\Sigma}\in M_{r\times r}^{\mathbb{R}_+},r\le\min\{m,n\}$是对角矩阵且各对角项严格大于零，$\widetilde{W}\in M_{m\times r}^{\mathbb{F}}$和$\widetilde{V}\in M_{n\times r}^{\mathbb{F}}$是等距矩阵。此外，我们还要求$\widetilde{W}$和$\widetilde{V}$中至少有一个不是方阵。
 \end{definition}
 
 \begin{remark}
@@ -547,7 +547,7 @@ $A$的模显示了变换$A$的“大小”：
 
 \enlargethispage{1.5em}
 
-如前面所讨论的，奇异值分解就是关于两个不同的规范正交基的对角化。因为我们用了两个不同的基，所以从奇异值分解不太能看出算子在特征值方面的性质。例如，奇异值分解中的$\Sigma$  \eqref{SVD_diag} 的对角线项不是$A$的特征值。又注意到，对 \eqref{SVD} 所示的$A=W\Sigma V^*$，一般有$A^n\ne W\Sigma^n V^*$，所以这种对角化无助于计算关于该矩阵的函数。
+如前面所讨论的，奇异值分解就是关于两个不同的规范正交基的对角化。因为我们用了两个不同的基，所以从奇异值分解不太能看出算子在特征值方面的性质。例如，奇异值分解中的$\Sigma$  \eqref{SVD_diag} 的对角项不是$A$的特征值。又注意到，对 \eqref{SVD} 所示的$A=W\Sigma V^*$，一般有$A^n\ne W\Sigma^n V^*$，所以这种对角化无助于计算关于该矩阵的函数。
 
 然而，如下面几个例子所示，奇异值能给出大量有关线性变换的所谓{\bf 度量性质}的信息。
 
@@ -589,7 +589,7 @@ $\mathbb{R}^n$中满足上述不等式的点构成的集合称为椭球。若$n=
 
 给定线性变换$A:X\to Y$，考虑以下最优化问题：求出单位球$B=\{\mathbf{x}\in\mathbb{R}^n:\|\mathbf{x}\|\le 1\}$上$\|A\mathbf{x}\|$的最大值。
 
-同样，可借助奇异值分解来解决此问题。对于各项非负的“对角”矩阵$A$（类似奇异值分解的定义中的矩阵$\Sigma$），上述最大值即最大的对角线项。的确如此：令$s_1,s_2,\ldots,s_r$是$A$的非零对角线项，并令$s_1$是其中的最大者。由于对$\mathbf{x}=(x_1,x_2,\ldots,x_n)^T$有
+同样，可借助奇异值分解来解决此问题。对于各项非负的“对角”矩阵$A$（类似奇异值分解的定义中的矩阵$\Sigma$），上述最大值即最大的对角项。的确如此：令$s_1,s_2,\ldots,s_r$是$A$的非零对角项，并令$s_1$是其中的最大者。由于对$\mathbf{x}=(x_1,x_2,\ldots,x_n)^T$有
 \begin{equation}\label{Ax_singular}
     A\mathbf{x}=\sum_{k=1}^rs_kx_k\mathbf{e}_k,
 \end{equation}
@@ -597,7 +597,7 @@ $\mathbb{R}^n$中满足上述不等式的点构成的集合称为椭球。若$n=
 \[\|A\mathbf{x}\|^{2}=\sum_{k=1}^{r}s_{k}^{2}|x_{k}|^{2}\leq s_{1}^{2}\sum_{k=1}^{r}|x_{k}|^{2}=s_{1}^{2}\cdot\|\mathbf{x}\|^{2},\]
 因此$\|A\mathbf{x}\|\le s_1\|\mathbf{x}\|$。另一方面，$\|A\mathbf{e}_{1}\|=\|s_{1}\mathbf{e}_{1}\|=s_{1}\|\mathbf{e}_{1}\|$，所以$s_1$确实是单位球$B$上$\|A\mathbf{x}\|$的最大值。注意，在上面的论证中，我们并未假设矩阵$A$是方阵，而仅仅假设“主对角线”之外的所有项都是$0$，因此 \eqref{Ax_singular} 成立。
 
-为处理一般情形，我们考虑奇异值分解 \eqref{SVD} $A=W\Sigma V^*$，其中$W,V$是幺正算子，$\Sigma$是各项非负的“对角”矩阵。因为幺正变换不改变范数，所以$\|A\mathbf{x}\|$在单位球$B$上的最大值是$\Sigma$的最大对角线项，即
+为处理一般情形，我们考虑奇异值分解 \eqref{SVD} $A=W\Sigma V^*$，其中$W,V$是幺正算子，$\Sigma$是各项非负的“对角”矩阵。因为幺正变换不改变范数，所以$\|A\mathbf{x}\|$在单位球$B$上的最大值是$\Sigma$的最大对角项，即
 \begin{center}
     \fbox{$\|A\mathbf{x}\|$在单位球$B$上的最大值是$A$的最大奇异值。}
 \end{center}
@@ -918,7 +918,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 \end{proof}
 
 \begin{lemma}\label{lem:elementary_rot_upper}
-    令$A$是$n\times n$实矩阵。存在初等旋转$R_1,R_2,\dots,R_N,N\le n(n-1)/2$，使得$B=R_N\dots R_2R_1A$是上三角的，此外，其对角线项除了最后一个（$B_{n,n}$）外，都是非负的。
+    令$A$是$n\times n$实矩阵。存在初等旋转$R_1,R_2,\dots,R_N,N\le n(n-1)/2$，使得$B=R_N\dots R_2R_1A$是上三角的，此外，其对角项除了最后一个（$B_{n,n}$）外，都是非负的。
 \end{lemma}
 
 \begin{proof}
@@ -936,13 +936,13 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 \end{proof}
 
 \begin{proof}[定理 \ref{thm:every_rot_elementary_rot} 的证明]
-    由引理 \ref{lem:elementary_rot_upper}，存在初等旋转$R_1,R_2,\dots,R_N$使得矩阵$U_1=R_N\dots R_2R_1U$是上三角的，并且所有对角线项都是非负的（除了最后一个可能不是）。
+    由引理 \ref{lem:elementary_rot_upper}，存在初等旋转$R_1,R_2,\dots,R_N$使得矩阵$U_1=R_N\dots R_2R_1U$是上三角的，并且所有对角项都是非负的（除了最后一个可能不是）。
 
     注意，矩阵$U_1$是正交的。任意正交矩阵都是正规的，而我们知道任意正规的上三角矩阵都是对角阵。所以$U_1$是对角阵。
 
-    我们知道，正交矩阵的特征值只能是$1$或$-1$，所以$U_1$的对角线上只能有$1$或$-1$。但我们知道$U_1$的所有对角线项都是非负的（除了最后一个可能不是），所以$U_1$的所有对角线项（除最后一个外）都是$1$，而最后一个可能是$\pm 1$。
+    我们知道，正交矩阵的特征值只能是$1$或$-1$，所以$U_1$的对角线上只能有$1$或$-1$。但我们知道$U_1$的所有对角项都是非负的（除了最后一个可能不是），所以$U_1$的所有对角项（除最后一个外）都是$1$，而最后一个可能是$\pm 1$。
 
-    因为初等旋转的行列式是$1$，故$\det U_1=\det U=1$，则最后一个对角线项也必为$1$。所以$U_1=I$，因此$U$可表示为一系列初等旋转的乘积$U=R_1^{-1}R_2^{-1}\dots R_N^{-1}$，此处用到了“初等旋转的逆也是初等旋转”。
+    因为初等旋转的行列式是$1$，故$\det U_1=\det U=1$，则最后一个对角项也必为$1$。所以$U_1=I$，因此$U$可表示为一系列初等旋转的乘积$U=R_1^{-1}R_2^{-1}\dots R_N^{-1}$，此处用到了“初等旋转的逆也是初等旋转”。
 \end{proof}
 
 \section{取向}
