@@ -587,15 +587,15 @@ $\mathbb{R}^n$中满足上述不等式的点构成的集合称为椭球。若$n=
 
 \subsection{线性变换的算子范数}
 
-给定线性变换$A:X\to Y$，考虑以下最优化问题：求出单位球$B=\{\mathbf{x}\in\mathbb{R}^n:\|\mathbf{x}\|\le 1\}$上$\|A\mathbf{x}\|$的最大值。
+给定线性变换$A:X\to Y$，考虑以下最优化问题：求出闭单位球$B=\{\mathbf{x}\in X:\|\mathbf{x}\|\le 1\}$上$\|A\mathbf{x}\|$的最大值。
 
-同样，可借助奇异值分解来解决此问题。对于各项非负的“对角”矩阵$A$（类似奇异值分解的定义中的矩阵$\Sigma$），上述最大值即最大的对角项。的确如此：令$s_1,s_2,\ldots,s_r$是$A$的非零对角项，并令$s_1$是其中的最大者。由于对$\mathbf{x}=(x_1,x_2,\ldots,x_n)^T$有
+同样，可借助奇异值分解来解决此问题。对于各项非负的“对角”矩阵$A$（类似奇异值分解的定义中的矩阵$\Sigma$），上述最大值恰为最大的对角项。的确如此：令$s_1,s_2,\ldots,s_r$是$A$的非零对角项，并令$s_1$是其中的最大者。由于对$\mathbf{x}=(x_1,x_2,\ldots,x_n)^T$有
 \begin{equation}\label{Ax_singular}
     A\mathbf{x}=\sum_{k=1}^rs_kx_k\mathbf{e}_k,
 \end{equation}
 故可得
 \[\|A\mathbf{x}\|^{2}=\sum_{k=1}^{r}s_{k}^{2}|x_{k}|^{2}\leq s_{1}^{2}\sum_{k=1}^{r}|x_{k}|^{2}=s_{1}^{2}\cdot\|\mathbf{x}\|^{2},\]
-因此$\|A\mathbf{x}\|\le s_1\|\mathbf{x}\|$。另一方面，$\|A\mathbf{e}_{1}\|=\|s_{1}\mathbf{e}_{1}\|=s_{1}\|\mathbf{e}_{1}\|$，所以$s_1$确实是单位球$B$上$\|A\mathbf{x}\|$的最大值。注意，在上面的论证中，我们并未假设矩阵$A$是方阵，而仅仅假设“主对角线”之外的所有项都是$0$，因此 \eqref{Ax_singular} 成立。
+因此$\|A\mathbf{x}\|\le s_1\|\mathbf{x}\|$。另一方面，$\|A\mathbf{e}_{1}\|=\|s_{1}\mathbf{e}_{1}\|=s_{1}\|\mathbf{e}_{1}\|$，所以$s_1$确实是闭单位球$B$上$\|A\mathbf{x}\|$的最大值。注意，在上面的论证中，我们并未假设矩阵$A$是方阵，而仅仅假设“主对角线”之外的所有项都是$0$，因此 \eqref{Ax_singular} 成立。
 
 为处理一般情形，我们考虑奇异值分解 \eqref{SVD} $A=W\Sigma V^*$，其中$W,V$是幺正算子，$\Sigma$是各项非负的“对角”矩阵。因为幺正变换不改变范数，所以$\|A\mathbf{x}\|$在单位球$B$上的最大值是$\Sigma$的最大对角项，即
 \begin{center}
@@ -621,7 +621,7 @@ $\mathbb{R}^n$中满足上述不等式的点构成的集合称为椭球。若$n=
 \[\|A\mathbf{x}\|\leq C\|\mathbf{x}\|\quad\forall\mathbf{x}\in X.\]
 的最好（最小）的$C$。这往往被用于定义算子范数。
 
-在线性变换构成的向量空间上，我们已经定义过一种范数——弗罗贝尼乌斯范数，或称希尔伯特-施密特范数 $\|A\|_2$，\[\|A\|_2=\tr (A^*A).\]
+在线性变换构成的向量空间上，我们已经定义过一种范数——弗罗贝尼乌斯范数，或称希尔伯特-施密特范数 $\|A\|_2$，\[\|A\|_2^2=\tr (A^*A).\]
 那么，我们来比较一下这两种范数。
 
 令$s_{1},s_{2},\ldots,s_{r}$是$A$的非零奇异值（以重数计），并令$s_1$是最大的奇异值。那么$s_1^2,s_2^2,\dots,s_r^2$是$A^*A$的非零特征值（同样以重数计）。回忆一下，迹等于特征值的和，于是\[\|A\|_2^2=\operatorname{trace}(A^*A)=\sum_{k=1}^rs_k^2.\]
@@ -659,7 +659,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 前面我们推得，$\frac{\|\Delta\mathbf{x}\|}{\|\mathbf{x}\|}\leq\|A^{-1}\|\cdot\|A\|\cdot\frac{\|\Delta\mathbf{b}\|}{\|\mathbf{b}\|}$。不难看出，这个估计是紧的，即可以选取右端项$\mathbf{b}$和误差$\Delta\mathbf{b}$，使得等号成立：
 \[\frac{\|\Delta\mathbf{x}\|}{\|\mathbf{x}\|}=\|A^{-1}\|\cdot\|A\|\cdot\frac{\|\Delta\mathbf{b}\|}{\|\mathbf{b}\|}.\]
-只需置$\mathbf{b}=\mathbf{w}_{1}$和$\Delta\mathbf{b}=\alpha\mathbf{w}_{n}$，其中$\mathbf{w}_{1}$和$\mathbf{w}_{n}$分别是奇异值分解$A=W\Sigma V^*$中矩阵$W$的第一列和最后一列，$\alpha$是任意标量。此处，按惯例，将奇异值按非增顺序排列为$s_{1}\geq s_{2}\geq\ldots\geq s_{n}$，故$s_1$是最大的奇异值，$s_n$是最小的奇异值。
+只需置$\mathbf{b}=\mathbf{w}_{1}$和$\Delta\mathbf{b}=\alpha\mathbf{w}_{n}$，其中$\mathbf{w}_{1}$和$\mathbf{w}_{n}$分别是奇异值分解$A=W\Sigma V^*$中矩阵$W$的第一列和最后一列，$\alpha\neq 0$是任意标量。此处，按惯例，将奇异值按非增顺序排列为$s_{1}\geq s_{2}\geq\ldots\geq s_{n}$，故$s_1$是最大的奇异值，$s_n$是最小的奇异值。
 
 我们将细节留给读者作为习题。
 
@@ -693,10 +693,10 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 方程$A\mathbf{x}=P_{\rg A}\mathbf{b}$的通解是
 \[\mathbf{x}=\mathbf{x}_0+\mathbf{y},\quad \mathbf{y}\in\operatorname{Ker}A,\]
-所以$\mathbf{x}_0$是$A\mathbf{x}=P_{\rg A}\mathbf{b}$的唯一最小范数解，或者等价地说，是$A\mathbf{x}=\mathbf{b}$的最小范数最小平方解。
+所以$\mathbf{x}_0$的确是$A\mathbf{x}=P_{\rg A}\mathbf{b}$的唯一最小范数解，或者等价地说，是$A\mathbf{x}=\mathbf{b}$的最小范数最小平方解。
 
 \begin{definition}
-    算子$A^+:=\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}$（其中$A$的{\bf 简化}奇异值分解为$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$）称为算子$A$的{\bf 摩尔-彭罗斯逆}（或{\bf 摩尔-彭罗斯伪逆}）。换言之，算子的{\bf 摩尔-彭罗斯逆}给出了$A\mathbf{x}=\mathbf{b}$的唯一最小平方解。
+    变换$A^+:=\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}$（其中$A$的{\bf 简化}奇异值分解为$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$）称为变换$A$的{\bf 摩尔-彭罗斯逆}（或{\bf 摩尔-彭罗斯伪逆}）。换言之，{\bf 摩尔-彭罗斯逆}是能给出$A\mathbf{x}=\mathbf{b}$的唯一最小平方解的变换。
 \end{definition}
 
 \begin{remark}
@@ -708,9 +708,9 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
         \item $(A^{+}A)^{*}=A^{+}A$。
     \end{enumerate}
 
-    很容易检验，算子$A^+:=\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}$满足上述性质1-4。
+    很容易检验，变换$A^+:=\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}$满足上述性质1-4。
 
-    还可以证明，满足上述性质1-4的算子$A^+$是唯一的，尽管证明稍有些难度。的确如此：将等式1右乘和左乘$A^+$，可分别得到$(A^+A)^{2}=A^{+}A$和$(AA^+)^{2}=AA^{+}$，再结合性质3和4，即得$A^{+}A$和$AA^{+}$都是正交投影（见第 \ref{chap:InnerProduct} 章习题 \ref{ex:5_5_6}）。
+    还可以证明，满足上述性质1-4的变换$A^+$是唯一的，尽管证明稍有些难度。的确如此：将等式1右乘和左乘$A^+$，可分别得到$(A^+A)^{2}=A^{+}A$和$(AA^+)^{2}=AA^{+}$，再结合性质3和4，即得$A^{+}A$和$AA^{+}$都是正交投影（见第 \ref{chap:InnerProduct} 章习题 \ref{ex:5_5_6}）。
 
     $\operatorname{Ker}A\subset\operatorname{Ker}A^{+}A$是平凡的，而由等式1，$\operatorname{Ker}A^{+}A\subset\operatorname{Ker}A$（为什么？），所以$\operatorname{Ker}A^{+}A=\operatorname{Ker}A$。而这就意味着$A^{+}A$是往$(\ker A)^\perp=\rg A^*$的正交投影：\[A^{+}A=P_{\rg A^*}.\]
 
@@ -719,7 +719,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
     已知$A^{+}A$和$AA^+$，可重写性质2为\[P_{\rg A^*}A^+=A^+\quad\text{或}\quad A^+P_{\rg A}=A^+.\]
     结合两式得到\[P_{\rg A^*}A^+P_{\rg A}=A^+.\]
 
-    最后，对目标空间$A$中的任意$\mathbf{b}$有\[\mathbf{x}_0:=A^+\mathbf{b}=P_{\operatorname{Ran}A^*}A^+\mathbf{b}\in\operatorname{Ran}A^*\]
+    最后，对$A$的目标空间中的任意$\mathbf{b}$有\[\mathbf{x}_0:=A^+\mathbf{b}=P_{\operatorname{Ran}A^*}A^+\mathbf{b}\in\operatorname{Ran}A^*\]
     以及\[A\mathbf{x}_{0}=AA^{+}\mathbf{b}=P_{\operatorname{Ran}A}\mathbf{b},\]
     即$\mathbf{x}_0$是$A\mathbf{x}=\mathbf{b}$的最小平方解。因为$\mathbf{x}_0\in \rg A^*=(\ker A)^\perp$，所以根据我们之前的讨论，$\mathbf{x}_0$是最小范数最小平方解。但是，如我们之前证明的，这样的最小平方解由 \eqref{ls_ln_sol} 给出，因此必有$A^+=\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}$。\qed
 \end{remark}
@@ -740,7 +740,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
     这里$A\mathbf{x}=\mathbf{b}$且$A\Delta\mathbf{x}=\Delta\mathbf{b}$。
     \item 令$A$是正规算子，并令$\lambda_1,\lambda_2,\ldots,\lambda_n$是它的特征值（以重数计）。证明：$A$的奇异值是$|\lambda_1|,|\lambda_2|,\dots,|\lambda_n|$。
     \item 求出矩阵\[A=\begin{pmatrix}2&1&1\\1&2&1\\1&1&2\end{pmatrix}\]
-    的奇异值、范数和条件数。如果你利用上题的结论并回答下列几个问题，可以不用任何计算就得出答案：
+    的奇异值、范数和条件数。如果你利用上题的结论并能回答下列几个问题，可以不用任何计算就得出答案：
     \begin{probenumerate}
         \item 往某子空间$E$上正交投影$P_E$的奇异值（特征值）是什么？
         \item 往由向量$(1,1,1)^T$张成的子空间上正交投影的矩阵是什么？

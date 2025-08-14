@@ -320,13 +320,23 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
     换言之，$T$是对投影$P$的{\bf 限制}：$P$定义在整个空间上，通过将其定义域和目标空间分别限制于$E$和$E_+$，得到从$E$到$E_+$的变换，并用不同的字母将其与$P$区分开。
 
     注意，$\ker T=\{\mathbf{0}\}$。的确，令$\mathbf{x}=(x_{1},x_{2},\ldots,x_{n})^{T}\in E$，我们有$T\mathbf{x}=P\mathbf{x}=\mathbf{0}$。于是由$P$的定义得\[x_1=x_2=\ldots=x_{r_+}=0,\]
-    因此\[(D\mathbf{x},\mathbf{x})=\sum_{k=r_++1}^n\lambda_kx_k^2\leq0\quad(\lambda_k\leq0\mathrm{for}k>r_+).\]
+    因此\[(D\mathbf{x},\mathbf{x})=\sum_{k=r_++1}^n\lambda_kx_k^2\leq0\quad(\lambda_k\leq0, k>r_+).\]
     但是$\mathbf{x}$属于$D$-正性子空间$E$，所以不等式$(D\mathbf{x},\mathbf{x})\le 0$只对$\mathbf{x}=\mathbf{0}$成立。
 
-    现在应用秩定理（第 \ref{chap:LinearSystems} 章定理 \ref{thm:rank_theorem}。首先，$\operatorname{rank}T=\dim\operatorname{Ran}T\leq\dim E_+=r_+$，因为$\rg T\subset E_+$。由秩定理，$\dim\ker T+\rank T=\dim E$。但我们刚刚证明了$\ker T=\{\mathbf{0}\}$，即$\dim\ker T=0$，因此
+    现在应用秩定理（第 \ref{chap:LinearSystems} 章定理 \ref{thm:rank_theorem}）。首先，$\operatorname{rank}T=\dim\operatorname{Ran}T\leq\dim E_+=r_+$，因为$\rg T\subset E_+$。由秩定理，$\dim\ker T+\rank T=\dim E$。但我们刚刚证明了$\ker T=\{\mathbf{0}\}$，即$\dim\ker T=0$，因此
     \[\dim E=\operatorname{rank}T\leq\dim E_{+}=r_{+}.\]
 
     为证明关于负对角项的相应结论，只需将上述论证用于矩阵$-D$。
+\end{proof}
+
+\begin{proof}[定理 \ref{thm:diag_positive_a_positive_dim} 的证明]
+    令$D=S^*AS$是$A$的对角化。因为
+    \[(D\mathbf{x},\mathbf{x})=(S^*AS\mathbf{x},\mathbf{x})=(AS\mathbf{x},S\mathbf{x})\]
+    所以对任意$D$-正性子空间$E$，子空间$SE$都是$A$-正性子空间。该等式还表明，对任意$A$-正性子空间$F$，子空间$S^{-1}F$都是$D$-正性子空间。
+
+    因为$S$和$S^{-1}$是可逆变换，所以$\dim E=\dim SE$且$\dim F=\dim S^{-1}F$。所以，对任意$D$-正性子空间$E$，可求出相同维数的$A$-正性子空间（即$SE$），反之亦然：对任意$A$-正性子空间$F$，可求出相同维数的$D$-正性子空间（即$S^{-1}F$）。因此，$A$-正性子空间和$D$-正性子空间的最大可能维数相同，定理得证。
+
+    对角项为负的情形可类似处理，留给读者作为习题。
 \end{proof}
 
 \section{正定型、特征值的极小极大刻画和西尔维斯特正定性判据}
