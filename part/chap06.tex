@@ -644,7 +644,7 @@ $\mathbb{R}^n$中满足上述不等式的点构成的集合称为椭球。若$n=
 
 我们想知道解的相对误差$\|\Delta\mathbf{x}\|/\|\mathbf{x}\|$相比于右端项的相对误差$\|\Delta\mathbf{b}\|/\|\mathbf{b}\|$有多大。容易看出
 \[\frac{\|\Delta\mathbf{x}\|}{\|\mathbf{x}\|}=\frac{\|A^{-1}\Delta\mathbf{b}\|}{\|\mathbf{x}\|}=\frac{\|A^{-1}\Delta\mathbf{b}\|}{\|\mathbf{b}\|}\frac{\|\mathbf{b}\|}{\|\mathbf{x}\|}=\frac{\|A^{-1}\Delta\mathbf{b}\|}{\|\mathbf{b}\|}\frac{\|A\mathbf{x}\|}{\|\mathbf{x}\|}.\]
-因为$\|A^{-1}\Delta\mathbf{b}\|\le A^{-1}\cdot \|\Delta\mathbf{b}\|$，并且$\|A\mathbf{x}\|\le\|A\|\cdot \|\mathbf{x}\|$，所以可得
+因为$\|A^{-1}\Delta\mathbf{b}\|\le \|A^{-1}\|\cdot \|\Delta\mathbf{b}\|$，并且$\|A\mathbf{x}\|\le\|A\|\cdot \|\mathbf{x}\|$，所以可得
 \[\frac{\|\Delta\mathbf{x}\|}{\|\mathbf{x}\|}\leq\|A^{-1}\|\cdot\|A\|\cdot\frac{\|\Delta\mathbf{b}\|}{\|\mathbf{b}\|}.\]
 
 $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的解$\mathbf{x}$的相对误差与右端项$\mathbf{b}$的相对误差的依赖程度。

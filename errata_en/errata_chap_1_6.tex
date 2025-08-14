@@ -1,0 +1,195 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+\usepackage{geometry}
+\geometry{
+    left=4.0cm, right=4.0cm,
+    top=3.0cm, bottom=3.0cm,
+    headheight=15pt, headsep=18pt,
+    footskip=28pt
+}
+
+\title{Errata for Chapter 1-6 of \\ {\it Linear Algebra Done Wrong}}
+\author{Oliver Wu}
+
+\begin{document}
+\maketitle
+
+\section*{Chapter 1}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Page 6, Definition 2.1, last paragraph}: 
+          $x_{1}\mathbf{v}_{1}+x_{2}\mathbf{v}_{2}+\ldots+x_{m}\mathbf{v}_{n}=\mathbf{v}$ should be 
+          $x_{1}\mathbf{v}_{1}+x_{2}\mathbf{v}_{2}+\ldots+x_{n}\mathbf{v}_{n}=\mathbf{v}$.
+    
+    \item \textbf{Page 6, Example 2.2, last displayed formula}: 
+          $\mathbf{v}=x_1\mathbf{e}_1+x_2\mathbf{e}_2+\ldots x_n\mathbf{e}_n=\sum_{k=1}^nx_k\mathbf{e}_k$ should be 
+          $\mathbf{v}=x_1\mathbf{e}_1+x_2\mathbf{e}_2+\ldots +x_n\mathbf{e}_n=\sum_{k=1}^nx_k\mathbf{e}_k$.
+    
+    \item \textbf{Page 8, Definition of linear combination, first paragraph}: 
+          $\alpha_{k}=\mathbf{0}\ \forall k$ should be $\alpha_{k}=0\ \forall k$.
+    
+    \item \textbf{Page 12, ``Reflection" example}: 
+          The note ``see the fig" should be included in the preceding example.
+    
+    \item \textbf{Page 20, First displayed formula}: 
+          $\forall {x}\in\mathbb{F}^r$ should be $\forall \mathbf{x}\in\mathbb{F}^r$.
+    
+    \item \textbf{Page 27, Last line}: 
+          $\sum_{k=0}^{n}a_{k}t^{k},\alpha_{k}\in\mathbb{F}$ should be 
+          $\sum_{k=0}^{n}a_{k}t^{k},a_{k}\in\mathbb{F}$.
+    
+    \item \textbf{Page 28, Item 3}: 
+          ``is isomorphic to $\mathbb{R}^6$" should be ``is isomorphic to $\mathbb{F}^6$".
+    
+    \item \textbf{Page 36, Footnote 3}: 
+          $\mathbb{R}^2$ should be $\mathbb{R}^3$, and $0$ should be $\mathbf{0}$.
+\end{enumerate}
+
+\section*{Chapter 2}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Page 54, Paragraph after Proposition 5.1, fourth line}: 
+          $n=\dim E$ should be $n=\dim V$.
+    
+    \item \textbf{Page 66, Last paragraph}: 
+          $\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r,\mathbf{v}_k\in\mathbb{F}^n$ should be 
+          $\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r\in\mathbb{F}^n$ (first line) , and
+          $\mathbb{R}^n$ should be $\mathbb{F}^n$ (last line).
+\end{enumerate}
+
+\section*{Chapter 3}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Page 77, First displayed formula}: 
+          ``the distance from $v_j$ to $\operatorname{span}\{\mathbf{v}_r : r \ne j\}$" should be 
+          ``the distance from $\mathbf{v}_j$ to $\operatorname{span}\{\mathbf{v}_r : r \ne j\}$".
+    
+    \item \textbf{Page 79, First displayed formula}: 
+          Remove the extra equals sign in the first line.
+    
+    \item \textbf{Pages 82-83, Matrix notation}: 
+          $A=\{a_{j,k}\}_{j,j=1}^{n}$ should be $A=\{a_{j,k}\}_{j,k=1}^{n}$.
+    
+    \item \textbf{Page 88, Second displayed formula and last line of following paragraph}: 
+          $D(\mathbf{e}_{j_1}.\mathbf{e}_{j_2},\ldots\mathbf{e}_{j_n})$ should be 
+          $D(\mathbf{e}_{j_1},\mathbf{e}_{j_2},\ldots,\mathbf{e}_{j_n})$.
+    
+    \item \textbf{Page 91, Last line}: 
+          ``interchanging rows 2 and 3" should be ``interchanging columns 2 and 3".
+    
+    \item \textbf{Page 94, Second line}: 
+          ``multiplying $j$th row of $A$ by $j$th column of $A$" should be 
+          ``multiplying $j$th row of $A$ by $j$th column of $C^T$".
+    
+    \item \textbf{Page 97, Proof of Corollary 6.2, second paragraph}: 
+          All instances of $k$ should be $r$.
+\end{enumerate}
+
+\section*{Chapter 4}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Page 99, Footnote}: 
+          $e^{tA}:=\sum_{k=0}^{\infty}t^{k}A^{n}/k!$ should be 
+          $e^{tA}:=\sum_{k=0}^{\infty}t^{k}A^{k}/k!$.
+    
+    \item \textbf{Page 106, Penultimate paragraph}: 
+          $D=S^{-1}AS=[I]_\mathcal{BS}A[I]_\mathcal{SB}]$ should be 
+          $D=S^{-1}AS=[I]_\mathcal{BS}A[I]_\mathcal{SB}$. 
+    
+    \item \textbf{Page 113, Subsection 2.7.2}: 
+          $\operatorname{Ker} (A-\lambda T)$ should be $\operatorname{Ker} (A-\lambda I)$.
+\end{enumerate}
+
+\section*{Chapter 5}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Page 127, First line}: 
+          $\|\mathbf{v}_k\|\ne\mathbf{0}$ should be $\|\mathbf{v}_k\|\ne0$.
+    
+    \item \textbf{Page 131, Second line}: 
+          $k=1,2,\dots,n$ should be $k=1,2,\dots,r$.
+    
+    \item \textbf{Page 137, Above second displayed formula}: 
+          $A\mathbf{x}\perp\operatorname{Ran} A$ should be $\mathbf{b}-A\mathbf{x}\perp\operatorname{Ran} A$.
+    
+    \item \textbf{Page 144, Proof of Theorem 5.1, penultimate line}: 
+          ${x}\in(\operatorname{Ran} A)^\perp$ should be $\mathbf{x}\in(\operatorname{Ran} A)^\perp$.
+    
+    \item \textbf{Page 153, Proof of Theorem 7.1, last displayed formula}: 
+          $T(\mathbf{x}-\alpha\mathbf{y})=T(\mathbf{x})+\alpha T(\mathbf{y})$ should be 
+          $T(\mathbf{x}+\alpha\mathbf{y})=T(\mathbf{x})+\alpha T(\mathbf{y})$.
+\end{enumerate}
+
+\section*{Chapter 6}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Page 165, Theorem 1.2, second line from bottom}: 
+          $T=UTU^*=UTU^T$ should be $A=UTU^*=UTU^T$.
+    
+    \item \textbf{Page 167, Proof of Proposition 2.3, first line}: 
+          ``Theorem 1.1" should be ``Theorem 2.1".
+    
+    \item \textbf{Page 171, Exercise 2.10}: 
+          ``where $\alpha$ is not a multiple of $\pi$" should be 
+          ``where $\alpha \ne n\pi$, $n \in \mathbb{Z}$".
+    
+    \item \textbf{Page 173, Section 3.2 title}: 
+          ``Singular values" should be ``Polar decomposition".
+    
+    \item \textbf{Page 173, Proof of Theorem 3.5, fifth line}: 
+          $U$ should be $U_0$.
+    
+    \item \textbf{Page 174, Third paragraph, fourth line}: 
+          ``(defining the {\it Schur} and singular value decompositions)" should be 
+          ``(defining the {\it Schmidt} and singular value decompositions)".
+    
+    \item \textbf{Page 177, Definition 3.9, third line}: 
+          $W \in M_{n\times n}^{\mathbb{F}}, V \in M_{m\times m}^{\mathbb{F}}$ should be 
+          $W \in M_{m\times m}^{\mathbb{F}}, V \in M_{n\times n}^{\mathbb{F}}$.
+    
+    \item \textbf{Page 177, Definition 3.9, second paragraph, third line}: 
+          $W \in M_{n\times r}^{\mathbb{F}}, V \in M_{m\times r}^{\mathbb{F}}$ should be 
+          $W \in M_{m\times r}^{\mathbb{F}}, V \in M_{r\times r}^{\mathbb{F}}$.
+    
+    \item \textbf{Page 177, Note 3.11, third line}: 
+          $\{\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{n}\}$ should be 
+          $\{\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{m}\}$.
+    
+    \item \textbf{Page 179, Section 4, first paragraph, second line from bottom}: 
+          ``(3.5)" should be ``(3.4)".
+    
+    \item \textbf{Page 180, Penultimate paragraph, third line}: 
+          $\sigma_1,\sigma_2$ and $\sigma_2$ should be 
+          $\sigma_1,\sigma_2$ and $\sigma_3$.
+    
+    \item \textbf{Page 180, Third line from bottom}: 
+          ``(3.1)" should be ``(3.4)".
+    
+    \item \textbf{Page 180, Last displayed formula}: 
+          $[A]_{\mathcal{B}\mathcal{A}} = \mathrm{diag}\{\sigma_n : n=1,2,\ldots,n\}$ should be 
+          $[A]_{\mathcal{B}\mathcal{A}} = \mathrm{diag}\{\sigma_k : k=1,2,\ldots,n\}$.
+    
+    \item \textbf{Page 182, Second paragraph, second line}: 
+          ``(3.5)" should be ``(3.4)", and 
+          $A = W\Sigma V$ should be $A = W\Sigma V^*$.
+    
+    \item \textbf{Page 183, Second line}: 
+          ``eigenvalues" should be ``singular value".
+    
+    \item \textbf{Page 185, Last displayed formula (after first equality sign)}: 
+          $\widetilde{W}\widetilde{\Sigma}\widetilde{V}\widetilde{V}^{*}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}\mathbf{b}$ should be 
+          $\widetilde{W}\widetilde{\Sigma}\widetilde{V}^{*}\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}\mathbf{b}$.
+    
+    \item \textbf{Page 186, First displayed formula}: 
+          $y \in \operatorname{Ker} A$ should be $\mathbf{y} \in \operatorname{Ker} A$.
+    
+    \item \textbf{Page 193, Proof of Theorem 5.3, first paragraph}: 
+          ``Lemma 5.5" should be ``Lemma 5.6", and 
+          $U_1 = R_N \dots R_2 R_2 U$ should be $U_1 = R_N \dots R_2 R_1 U$.
+    
+    \item \textbf{Page 194, Fourth paragraph, third line}: 
+          $\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_n$ should be 
+          $\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3$.
+    
+    \item \textbf{Page 197, Exercise 6.4, first line}: 
+          $A = A^* > \mathbf{0}$ should be $A = A^* > 0$.
+\end{enumerate}
+
+\end{document}
