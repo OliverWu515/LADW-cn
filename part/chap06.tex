@@ -33,13 +33,13 @@
 
     我们在意的是右下角$(n-1)\times (n-1)$的块，记其为$A_1$。
 
-    注意，$A_1$确定了$E$上的一个线性变换，又由于$\dim E=n-1$，所以由归纳假设可得，存在规范正交基（不妨记其为$\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$）使得$A_1$的矩阵是上三角的。
+    注意，$A_1$确定了$E$上的一个线性变换，又由于$\dim E=n-1$，所以由归纳假设可得，存在规范正交基（不妨记其为$\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$）使得$A_1$关于该基的矩阵是上三角的。
 
-    因此$A$关于规范正交基$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$的矩阵形如 \eqref{upper_triangular_with_ortho}，其中$A_1$是上三角的。因此$A$关于该基的矩阵也是上三角的。
+    因此$A$关于规范正交基$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$的矩阵形如 \eqref{upper_triangular_with_ortho}，其中矩阵$A_1$是上三角的。因此$A$关于该基的矩阵也是上三角的。
 \end{proof}
 
 \begin{remark*}
-    注意，此证明中引入的子空间$E=\mathbf{u}_1^\perp$在$A$下不是不变的\footnote{不变子空间的概念在本书第 \ref{chap:SpectralAdvanced} 章第 \ref{subsec:invariant_subspace} 节介绍。——译者注。}，即$AE\subset E$并不一定成立。这意味着$A_1$不是$A$的一部分，而是由$A$构造出来的变换。
+    注意，此证明中引入的子空间$E=\mathbf{u}_1^\perp$在$A$下不是不变的\footnote{不变子空间的概念在本书第 \ref{chap:SpectralAdvanced} 章第 \ref{subsec:invariant_subspace} 节介绍。——译者注。}，即$AE\subset E$并不一定成立。这意味着$A_1$不是$A$的一部分，而是由$A$构造出来的算子。
 
     还请注意，$AE\subset E$当且仅当记作$\ast$的所有项（即第一行中除了$\lambda_1$以外的项）都是零。
 \end{remark*}
@@ -67,21 +67,21 @@
 \begin{remark}\label{remark:eig_complex}
     回忆一下，我们在第 \ref{chap:SpectralIntro} 章第 \ref{subsec:complex_vs_real} 节中讨论过，“实向量空间$X$上算子$A$的特征值”总是指$X_\mathbb{C}$（$X$的复化）上的$A_\mathbb{C}$（$A$的复化）的特征值。
 
-    如果$X=\mathbb{R}^n$，那么允许各坐标为复数，即得到其复化$\mathbb{C}^n$。$\mathbb{R}^n$上算子$A$的复化（即与{\bf 实}矩阵$A$的乘法）仍是与同一实矩阵的乘法，只不过所乘向量属于$\mathbb{C}^n$。
+    如果$X=\mathbb{R}^n$，那么允许各坐标为复数，即得到其复化$\mathbb{C}^n$。$\mathbb{R}^n$上算子$A$（即与{\bf 实}矩阵$A$的乘法）的复化仍是与同一实矩阵的乘法，只不过所乘向量属于$\mathbb{C}^n$。
 
     有关复化的更多细节，详见第 \ref{chap:SpectralIntro} 章第 \ref{subsec:complex_vs_real} 节和第 \ref{chap:InnerProduct} 章第 \ref{subsec:complexification} 节。
 \end{remark}
 
 \begin{proof}[定理 \ref{thm:schur_real} 的证明]
-    为证明该定理，只需分析定理 \ref{thm:schur} 的证明。不失一般性，假设算子（矩阵）作用于$\mathbb{R}^n$。
+    为证明该定理，只需分析定理 \ref{thm:schur} 的证明。不失一般性，假设算子（矩阵）$A$作用于$\mathbb{R}^n$。
 
-    假设定理对于$(n-1)\times (n-1)$矩阵成立。如定理 \ref{thm:schur} 的证明，令$\lambda_1$是$A$的实特征值，$\mathbf{u}_1\in\mathbb{R}^n$（$\|\mathbf{u}_1\|=1$）是对应的特征向量，并令$\mathbf{u}_1,\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是$\mathbb{R}^n$的规范正交基。
+    假设定理对于$(n-1)\times (n-1)$矩阵成立。如定理 \ref{thm:schur} 的证明，令$\lambda_1$是$A$的实特征值，$\mathbf{u}_1\in\mathbb{R}^n$（$\|\mathbf{u}_1\|=1$）是对应的特征向量，并令$\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是（$\mathbb{R}^n$中的）规范正交向量组，使得$\mathbf{u}_1,\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是$\mathbb{R}^n$的规范正交基。
     
     在该基下，$A$的矩阵形如 \eqref{upper_triangular_with_ortho}，其中$A_1$是实矩阵。
 
-    如果我们能证明$A_1$只有实特征值，即可完成整个证明。的确如此：这样一来，由归纳假设，存在$E=\mathbf{u}_1^\perp$的规范正交基$\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$，使得$A_1$在该基下的矩阵是上三角的，所以$A$关于基$\mathbf{u}_1,\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$的矩阵也是上三角的。
+    如果我们能证明矩阵$A_1$只有实特征值，即可完成整个证明。的确如此：这样一来，由归纳假设，存在$E=\mathbf{u}_1^\perp$的规范正交基$\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$，使得$A_1$关于该基的矩阵是上三角的，所以$A$关于基$\mathbf{u}_1,\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$的矩阵也是上三角的。
 
-    为证明$A_1$只有实特征值，注意到\[\det(A-\lambda I)=(\lambda_1-\lambda)\det(A_1-\lambda)\]
+    为证明$A_1$只有实特征值，注意到\[\det(A-\lambda I)=(\lambda_1-\lambda)\det(A_1-\lambda I)\]
     （可按第一行进行余子式展开）于是$A_1$的任意特征值也是$A$的特征值，而$A$只有实特征值！
 \end{proof}
 

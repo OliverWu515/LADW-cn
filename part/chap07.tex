@@ -341,5 +341,56 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
 
 \section{正定型、特征值的极小极大刻画和西尔维斯特正定性判据}
 
+\begin{definition*}
+  称二次型$Q$是
+  \begin{itemize}
+    \item 正定的，若$Q[\mathbf{x}]>0$对所有$\mathbf{x}\ne\mathbf{0}$成立。
+    \item 正半定的，若$Q[\mathbf{x}]\ge 0$对所有$\mathbf{x}$成立。
+    \item 负定的，若$Q[\mathbf{x}]<0$对所有$\mathbf{x}\ne\mathbf{0}$成立。
+    \item 负半定的，若$Q[\mathbf{x}]\le 0$对所有$\mathbf{x}$成立。
+    \item 不定的，若它取值可正可负，即若存在向量$\mathbf{x}_1$和$\mathbf{x}_2$使得$Q[\mathbf{x}_1]>0$及$Q[\mathbf{x}_2]<0$。
+  \end{itemize}
+\end{definition*}
+
+\begin{definition*}
+  埃尔米特矩阵$A=A^*$称为正定的（负定的，及其他），若对应的二次型$Q[\mathbf{x}]=(A\mathbf{x},\mathbf{x})$是正定的（负定的，及其他）。
+\end{definition*}
+
+\begin{theorem}
+  令$A=A^*$。那么
+  \begin{enumerate}
+    \item $A$是正定的，当且仅当$A$的所有特征值都是正的。
+    \item $A$是正半定的，当且仅当$A$的所有特征值都是非负的。
+    \item $A$是负定的，当且仅当$A$的所有特征值都是负的。
+    \item $A$是负半定的，当且仅当$A$的所有特征值都是非正的。
+    \item $A$是不定的，当且仅当$A$的特征值有正有负。
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  由正交分解容易得证。的确如此：$A$关于一个规范正交基的矩阵是对角的，而对于对角矩阵，该定理是平凡的。
+\end{proof}
+
+\begin{remark*}
+  注意，要判断矩阵（或二次型）是正定的（负定的，及其他），不需要计算特征值。根据西尔维斯特惯性定律，只要进行对角化（不一定要是正交对角化）$D=S^*AS$，并观察$D$的对角项即可。
+\end{remark*}
+
+\subsection{西尔维斯特正定性判据}
+
+容易看出$2\times 2$矩阵\[A=\begin{pmatrix}a&b\\\bar{b}&c\end{pmatrix}\]
+是正定的，当且仅当
+\begin{equation}\label{positivity_for_2by2}
+  a > 0\quad \text{且}\quad \det A=ac-|b|^2>0
+\end{equation}
+的确如此：若$a>0$且$\det A = ac-|b|^2>0$，那么$c>0$，所以$\tr A=a+c>0$。所以我们知道如果$\lambda_1,\lambda_2$是$A$的特征值，那么$\lambda_1\lambda_2>0(\det A>0)$，并且$\lambda_1+\lambda_2=\tr A>0$。而这只有两个特征值都为正时才成立。所以我们证明了 \eqref{positivity_for_2by2} 能推出$A$是正定的。反方向的蕴含关系很简单，留给读者作为习题。
+
+这个结论可以推广到$n\times n$矩阵。也就是说，对于矩阵$A$
+\[A=\begin{pmatrix}a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&\ddots&\vdots\\a_{n,1}&a_{n,2}&\ldots&a_{n,n}\end{pmatrix}\]
+考虑其所有的{\bf 顺序主子阵}
+\[A_1=(a_{1,1}),A_2=\begin{pmatrix}a_{1,1}&a_{1,2}\\a_{2,1}&a_{2,2}\end{pmatrix},A_3=\begin{pmatrix}a_{1,1}&a_{1,2}&a_{1,3}\\a_{2,1}&a_{2,2}&a_{2,3}\\a_{3,1}&a_{3,2}&a_{3,3}\end{pmatrix},\ldots,A_n=A\]
+\begin{theorem}[西尔维斯特正定性判据]
+  矩阵$A=A^*$是正定的，当且仅当\[\det A_k > 0,\quad \text{对于所有}~k=1,2,\dots,n~\text{成立}\]
+\end{theorem}
+
 \section{正定型和内积}
 
