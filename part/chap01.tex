@@ -104,13 +104,13 @@
 
 正式的定义是：$(A^T)_{j,k}=(A)_{k,j}$，意为：$A^T$的第$j$行第$k$列的项等于$A$的第$k$行第$j$列的项。
 
-就线性变换而言，矩阵的转置可用于给出一个很优美的阐释，也即其能导出所谓{\bf 伴随}变换，我们将在后面详细研究它，目前转置仅仅是一种有用且正式的运算。
+就线性变换而言，矩阵的转置有一种很优美的阐释，也即其能导出所谓{\bf 伴随}变换，我们将在后面详细研究它，目前转置仅仅是一种有用且正式的运算。
 
 转置的用处首先在于使我们得以将列向量$\mathbf{x}\in\mathbb{F}^n$（回想一下，$\mathbb{F}$是指$\mathbb{R}$或$\mathbb{C}$）写为$\mathbf{x} = (x_1,x_2,\dots,x_n)^T$。如果我们将列向量竖着写，那么其占据的空间就会大大增加。
 
 \begin{problemset}
 \item 令$\mathbf{x}=(1,2,3)^{T},\mathbf{y}=(y_{1},y_{2},y_{3})^{T},\mathbf{z}=(4,2,1)^{T}$。计算$2\mathbf{x},3\mathbf{y},\mathbf{x}+2\mathbf{y}-3\mathbf{z}$。
-\item 下面哪些集合（具有自然的加法和标量乘法运算）是向量空间？论证你的结论。
+\item 下面哪些集合（具有自然的加法和标量乘法运算）是向量空间？论证你的回答。
 \begin{probenumerate}
     \item 所有区间$[0,1]$上的连续函数所成的集合；
     \item 所有区间$[0,1]$上的非负函数所成的集合；
@@ -139,7 +139,7 @@
 
 \begin{definition}
     称一组向量\footnote{原书对于若干向量有两种表达：“a system of vectors”和“a set of vectors”，此处一律采用国内通行翻译“向量组”。——译者注}$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\in V$为（向量空间$V$的）基，若任意向量$\mathbf{v}\in V$都能被{\bf 唯一}写成线性组合的形式：\[\mathbf{v}=\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\ldots+\alpha_n\mathbf{v}_n=\sum_{k=1}^n\alpha_k\mathbf{v}_k.\]
-    系数$\alpha_1,\alpha_2,\dots,\alpha_n$称为向量$\mathbf{v}$（在基下，或者说关于基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$）的{\bf 坐标}。
+    系数$\alpha_1,\alpha_2,\dots,\alpha_n$称为向量$\mathbf{v}$（在基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$下，或者说关于基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$）的{\bf 坐标}。
 
     $\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是基的另一种表述是，方程$x_{1}\mathbf{v}_{1}+x_{2}\mathbf{v}_{2}+\ldots+x_{n}\mathbf{v}_{n}=\mathbf{v}$（未知数为各$x_k$）对于任意右端项$\mathbf{v}$皆有唯一解。
 \end{definition}
@@ -154,7 +154,7 @@
     向量组$\mathbf{e}_1,\mathbf{e}_2,\dots,\mathbf{e}_n$是$\mathbb{F}^n$的基。的确，任意向量\[\mathbf{v}=\begin{pmatrix}x_1\\x_2\\\vdots\\x_n\end{pmatrix}\in\mathbb{F}^n\]
     都能被表示成线性组合
     \[\mathbf{v}=x_1\mathbf{e}_1+x_2\mathbf{e}_2+\ldots +x_n\mathbf{e}_n=\sum_{k=1}^nx_k\mathbf{e}_k\]
-    且该表示唯一。向量组$\mathbf{e}_1,\mathbf{e}_2,\dots,\mathbf{e}_n$称为$\mathbb{F}^n$的{\bf 标准基}。
+    且该表示唯一。向量组$\mathbf{e}_1,\mathbf{e}_2,\dots,\mathbf{e}_n\in \mathbb{F}^n$称为$\mathbb{F}^n$的{\bf 标准基}。
 \end{example}
 
 \begin{example}
@@ -183,7 +183,7 @@
     称一组向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}\in V$为$V$中的生成组（也称为{\bf 张成组}或{\bf 完备组}），若任意向量$\mathbf{v}\in V$都能被写成线性组合的形式：\[\mathbf{v}=\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\ldots+\alpha_p\mathbf{v}_p=\sum_{k=1}^p\alpha_k\mathbf{v}_k.\]
 \end{definition}
 
-该定义与基的定义的唯一区别在于，我们并不假设上述表示形式唯一。
+该定义与基的定义的唯一区别在于，我们并不假设上述表示唯一。
 
 此处{\bf 生成}、{\bf 张成}和{\bf 完备}是同义词。我本人更喜欢“完备”这个词，这是由于我在算子理论方面的专业背景。“生成”和“张成”则更经常用于线性代数教材中。
 
@@ -214,7 +214,7 @@
 还有一种定义（以方程的语言表述）是：向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}$是线性相关的，当且仅当方程\[x_1\mathbf{v}_1+x_2\mathbf{v}_2+\ldots+x_p\mathbf{v}_p=\mathbf{0}\]
 （未知数为$x_k$）有非平凡解。此处的“非平凡”还是指至少一个$x_{k}$是非零的，并可写作$\sum_{k=1}^{p}|x_{k}|\neq0$。
 
-以下命题又给出了线性相关组的一种描述。
+以下命题给出了线性相关组的又一种描述。
 \begin{proposition}
     一组向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}\in V$是线性相关的，当且仅当其中有一向量$\mathbf{v}_{k}$可被表示成其他向量的线性组合
     \begin{equation}\label{eq_2_1}
@@ -222,7 +222,7 @@
     \end{equation}
 \end{proposition}
 \begin{proof}
-    假设向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}$是线性相关的。那么存在标量$\alpha_{k}$，\\$\sum_{k=1}^{p}|\alpha_{k}|\neq0$使得
+    假设向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}$是线性相关的。那么存在标量$\alpha_{k}$，\linebreak $\sum_{k=1}^{p}|\alpha_{k}|\neq0$使得
     \[\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\cdots+\alpha_p\mathbf{v}_p=\mathbf{0}.\]
     令$k$为使得$\alpha_k\ne 0$的下标。于是，将除了$\alpha_{k}\mathbf{v}_{k}$之外的项移到右端可得\[\alpha_k\mathbf{v}_k=-\sum_{\begin{subarray}{c}j=1\\j\neq k\end{subarray}}^p\alpha_j\mathbf{v}_j.\]
     将两边都除以$\alpha_k$可得式 \eqref{eq_2_1}，其中$\beta_j = -\alpha_j/\alpha_k$。
@@ -231,7 +231,7 @@
 \end{proof}
 
 显然，任一基都是线性无关组。的确如此：若向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是基，那么$\mathbf{0}$可被唯一表示为\[\mathbf{0}=\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\cdots+\alpha_n\mathbf{v}_n=\sum_{k=1}^n\alpha_k\mathbf{v}_k.\]
-由于$\mathbf{0}$总可被平凡线性组合表出，所以平凡线性组合就是{\bf 唯一}线性表出$\mathbf{0}$的方法。
+由于$\mathbf{0}$总可被平凡线性组合表出，所以平凡线性组合必为{\bf 唯一}线性表出$\mathbf{0}$的方法。
 
 \marginpar{\small 在许多教材中，基被定义为既完备又线性无关的向量组。由命题 \ref{prop:complete_li_basis}，这种定义和本书的定义是等价的。}
 
@@ -353,8 +353,8 @@
 
 线性变换$T:\mathbb{F}^n\to\mathbb{F}^m$也可用一乘法表示，不过不是与标量相乘，而是与矩阵相乘。
 
-我们来看看是如何乘的。令$T:\mathbb{F}^n\to\mathbb{F}^m$为一线性变换。为了对所有向量$\mathbf{x}\in\mathbb{F}^{n}$计算$T(\mathbf{x})$，我们需要什么信息呢？我的观点是，知道$T$作用于$\mathbb{F}^{n}$中的标准基$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$的结果就足够了。也即，知道$\mathbb{F}^m$中的这$n$个向量（即若干长度为$m$的向量）就足够了：
-\[\mathbf{a}_1=T(\mathbf{e}_1),\quad\mathbf{a}_2:=T(\mathbf{e}_2),\quad\ldots,\quad\mathbf{a}_n:=T(\mathbf{e}_n).\]
+我们来看看是如何乘的。令$T:\mathbb{F}^n\to\mathbb{F}^m$为一线性变换。为了对所有向量$\mathbf{x}\in\mathbb{F}^{n}$计算$T(\mathbf{x})$，我们需要什么信息呢？我的观点是，知道$T$作用于$\mathbb{F}^{n}$的标准基$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$的结果就足够了。也即，知道$\mathbb{F}^m$中的这$n$个向量（即若干长度为$m$的向量）就足够了：
+\[\mathbf{a}_1:=T(\mathbf{e}_1),\quad\mathbf{a}_2:=T(\mathbf{e}_2),\quad\ldots,\quad\mathbf{a}_n:=T(\mathbf{e}_n).\]
 的确如此：令\[\mathbf{x}=\begin{pmatrix}x_1\\x_2\\\vdots\\x_n\end{pmatrix}.\]
 那么$\mathbf{x}=x_{1}\mathbf{e}_{1}+x_{2}\mathbf{e}_{2}+\ldots+x_{n}\mathbf{e}_{n}=\sum_{k=1}^{n}x_{k}\mathbf{e}_{k}$，且有
 \[T(\mathbf{x})=T\left(\sum_{k=1}^nx_k\mathbf{e}_k\right)=\sum_{k=1}^nT(x_k\mathbf{e}_k)=\sum_{k=1}^nx_kT(\mathbf{e}_k)=\sum_{k=1}^nx_k\mathbf{a}_k.\]

@@ -34,7 +34,9 @@
 
 设$A$作用在$\mathbb{F}^n$上（即$A:\mathbb{F}^n\to \mathbb{F}^n$）。因为$A$的矩阵是方阵，所以$A-\lambda I$有非平凡零空间，当且仅当它不可逆。我们知道方阵不可逆当且仅当其行列式为$0$。因此
 
-\centerline{\fbox{$\lambda\in\sigma(A)$，即$\lambda$为$A$的特征值$\iff$$\det(A-\lambda I)=0$}}
+\begin{center}
+    \fbox{$\lambda\in\sigma(A)$，即$\lambda$为$A$的特征值$\iff$$\det(A-\lambda I)=0$}
+\end{center}
 
 若$A$为$n\times n$矩阵，那么行列式$\det(A-\lambda I)$是关于变量$\lambda$的$n$次多项式。该多项式称为$A$的\textbf{特征多项式}。因此，要求出$A$的所有特征值，只需计算特征多项式并求出它的所有根。
 
@@ -44,17 +46,21 @@
 
 现在我们知道如何求出矩阵的谱了。但是，对于作用于抽象的向量空间的算子，我们如何求出其特征值呢？方法其实很简单：
 
-\centerline{\fbox{取任意一个基，并计算该算子关于这个基的矩阵的特征值。}}
+\begin{center}
+    \fbox{取任意一个基，并计算该算子关于这个基的矩阵的特征值。}
+\end{center}
 
 可是，我们怎么确保所得结果不会随着基的选取而改变呢？
 
 对此，有多种解释。其中一种解释基于\textbf{相似矩阵}这一概念。回想一下，称方阵$A$和$B$是相似的，如果存在可逆矩阵$S$使得\[A=SBS^{-1}.\]
-注意，相似矩阵的行列式是相同的。的确如此：因为$\det S^{-1}=1/\det S$，
+注意，相似矩阵的行列式是相同的。的确：因为$\det S^{-1}=1/\det S$，所以
 \[\det A=\det(SBS^{-1})=\det S\det B\det S^{-1}=\det B\]
 注意，如果$A=SBS^{-1}$那么\[A-\lambda I=SBS^{-1}-\lambda SIS^{-1}=S(BS^{-1}-\lambda IS^{-1})=S(B-\lambda I)S^{-1},\]
 因此矩阵$A-\lambda I$和$B-\lambda I$是相似的。因此\[\det(A-\lambda I)=\det(B-\lambda I),\]即
 
-\centerline{\fbox{相似矩阵的特征多项式是一样的。}}
+\begin{center}
+    \fbox{相似矩阵的特征多项式是一样的。}
+\end{center}
 
 若$T:V\to V$是线性变换，并且$\mathcal{A}$和$\mathcal{B}$是$V$中的两个基，那么\[\left[T\right]_{\mathcal{AA}}=\left[I\right]_{\mathcal{AB}}\left[T\right]_{\mathcal{BB}}\left[I\right]_{\mathcal{BA}}\]
 又因为$[I]_{\mathcal{BA}}=([I]_{\mathcal{AB}})^{-1}$，所以矩阵$\left[T\right]_{\mathcal{AA}}$和$\left[T\right]_{\mathcal{BB}}$相似。

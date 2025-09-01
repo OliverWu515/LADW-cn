@@ -27,7 +27,7 @@
             0 & & & \\
             \vdots & & A_1 & \\
             0 & & & 
-        \end{pNiceArray}
+        \end{pNiceArray};
     \end{equation}
     此处$\lambda_1$之下的所有项都是零，$\ast$表示我们不在意第一行中位于$\lambda_1$右侧的项。
 
@@ -110,7 +110,7 @@
 \end{theorem}
 
 \begin{proof}
-    为证明复内积空间中的定理 \ref{thm:self_adjoint_operator_real_eig} 和 \ref{thm:self_adjoint_matrix_diagonalize}，首先应用定理 \ref{thm:schur}，找出$X$的一个规范正交基，使得$A$关于该基的矩阵是上三角的。现在问：什么样的上三角矩阵是自伴的？
+    为证明复内积空间$X$中的定理 \ref{thm:self_adjoint_operator_real_eig} 和 \ref{thm:self_adjoint_matrix_diagonalize}，首先应用定理 \ref{thm:schur}，找出$X$的一个规范正交基，使得$A$关于该基的矩阵是上三角的。现在问：什么样的上三角矩阵是自伴的？
 
     答案显而易见：上三角矩阵是自伴的，当且仅当其为实对角矩阵。定理 \ref{thm:self_adjoint_operator_real_eig} 得证（从而也有定理 \ref{thm:self_adjoint_matrix_diagonalize}）。
 
@@ -879,7 +879,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 注意，由上述定理可得，行列式为$-1$的$2\times 2$正交矩阵$U$必为反射。
 
-下面，取定规范正交基（比如$\mathbb{R}^n$中的标准基）。我们称$x_j$-$x_k$平面中的旋转为{\bf 初等旋转}\footnote{这个术语并未被广泛采用。}，即仅仅改变坐标$x_j$和$x_k$，并且对这两个坐标的作用等同于平面旋转的线性变换。
+下面，取定规范正交基（比如$\mathbb{R}^n$的标准基）。我们称$x_j$-$x_k$平面中的旋转为{\bf 初等旋转}\footnote{这个术语并未被广泛采用。}，即仅仅改变坐标$x_j$和$x_k$，并且对这两个坐标的作用等同于平面旋转的线性变换。
 
 \begin{theorem}\label{thm:every_rot_elementary_rot}
     任意旋转$U$（即$\det U=1$的正交变换$U$）都可表示为至多$n(n-1)/2$个初等旋转的乘积。

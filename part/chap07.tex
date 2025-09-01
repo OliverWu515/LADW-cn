@@ -10,7 +10,7 @@
 
 \subsection{\texorpdfstring{$\mathbb{R}^n$}{R**n}上的双线性型}
 
-$\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\mathbf{y})$，它对每个自变量都是线性的，即
+$\mathbb{R}^n$上的双线性型是具有两个自变量$\mathbf{x},\mathbf{y}\in\mathbb{R}^n$的函数$L=L(\mathbf{x},\mathbf{y})$，它对每个自变量都是线性的，即
 \begin{enumerate}
     \item $L(\alpha\mathbf{x}_1+\beta\mathbf{x}_2,\mathbf{y})=\alpha L(\mathbf{x}_1,\mathbf{y})+\beta L(\mathbf{x}_2,\mathbf{y})$；
     \item $L(\mathbf{x},\alpha\mathbf{y}_1+\beta\mathbf{y}_2)=\alpha L(\mathbf{x},\mathbf{y}_1)+\beta L(\mathbf{x},\mathbf{y}_2)$。
@@ -22,7 +22,7 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
 \[L(\mathbf{x},\mathbf{y})=(A\mathbf{x},\mathbf{y})\]
 其中
 \[A=\begin{pmatrix}a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&\ddots&\vdots\\a_{n,1}&a_{n,2}&\ldots&a_{n,n}\end{pmatrix}.\]
-由矩阵$A$可唯一确定双线性型$L$。
+矩阵$A$由双线性型$L$唯一确定。
 
 \subsection{\texorpdfstring{$\mathbb{R}^n$}{R**n}上的二次型}
 
@@ -36,7 +36,7 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
 \[\begin{pmatrix}1&-4\\0&1\end{pmatrix},\quad\begin{pmatrix}1&0\\-4&1\end{pmatrix},\quad\begin{pmatrix}1&-2\\-2&1\end{pmatrix}.\]
 事实上，任意形式如下的矩阵$A$都可以。
 \[\begin{pmatrix}1&a-4\\-a&1\end{pmatrix}\]
-但若要求$A$是对称的，那么$A$就是唯一的：
+但若要求矩阵$A$是对称的，那么$A$就是唯一的：
 \begin{center}
     \fbox{\parbox{0.8\linewidth}{$\mathbb{R}^n$上的任意二次型$Q[\mathbf{x}]$可唯一表示为$Q[\mathbf{x}]=(A\mathbf{x},\mathbf{x})$，其中$A$是（实）对称矩阵。}}
 \end{center}
@@ -55,7 +55,7 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
 \[(A\mathbf{x},\mathbf{x})=(\mathbf{x},A^*\mathbf{x})=(\mathbf{x},A\mathbf{x})=\overline{(A\mathbf{x},\mathbf{x})},\]
 所以$(A\mathbf{x},\mathbf{x})\in\mathbb{R}$。
 
-逆命题也是正确的。
+逆命题也是成立的。
 
 \begin{lemma}\label{lem:real_quad_self_adjoint}
     令$(A\mathbf{x},\mathbf{x})$对所有$\mathbf{x}\in\mathbb{C}^n$都是实数。那么$A=A^*$。
@@ -84,7 +84,7 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
         &-3x_2y_3+8x_3y_1+19x_3y_2-2x_3y_3.
     \end{align*}
     \item 定义$\mathbb{R}^2$上的双线性$L$为\[L(\mathbf{x},\mathbf{y})=\det[\mathbf{x},\mathbf{y}],\]
-    即，要计算$L(\mathbf{x},\mathbf{y})$，构造各列为$\mathbf{x},\mathbf{y}$的$2\times 2$矩阵并计算其行列式。
+    即，要计算$L(\mathbf{x},\mathbf{y})$，构造各列为$\mathbf{x},\mathbf{y}$的$2\times 2$矩阵并计算其行列式。求$L$的矩阵。
     \item 求出$\mathbb{R}^3$上的如下二次型$Q$的矩阵
     \[Q[\mathbf{x}]=x_1^2+2x_1x_2-3x_1x_3-9x_2^2+6x_2x_3+13x_3^2.\]
     \item \label{ex:7_1_4} 证明上述引理 \ref{lem:real_quad_self_adjoint}。
@@ -109,11 +109,11 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
 
 因此，我们想求出可逆矩阵$S$，使得$S^*AS$是对角矩阵。注意，这不同于我们之前做过的对角化——将矩阵$A$表示为$A=SDS^{-1}$，从而$D=S^{-1}AS$是对角矩阵。然而，对于幺正矩阵$U$，有$U^*=U^{-1}$，并且我们可以将对称矩阵正交对角化。因此我们可以对二次型应用我们之前学过的正交对角化。
 
-也就是说，可以将矩阵$A$表示为$A=UDU^*=UDU^{-1}$。回忆一下，$D$是对角矩阵，且对角线上是$A$的特征值，而$U$是由特征向量构成的矩阵（我们需要选取由特征向量构成的正交基）。于是$D=U^*AU$，因此在变量$\mathbf{y}=S^{-1}\mathbf{x}$下，二次型具有对角矩阵。
+也就是说，可以将矩阵$A$表示为$A=UDU^*=UDU^{-1}$。回忆一下，$D$是对角矩阵，且对角线上是$A$的特征值，而$U$是由特征向量构成的矩阵（我们需要选取由特征向量构成的正交基）。于是$D=U^*AU$，因此在变量$\mathbf{y}=U^{-1}\mathbf{x}$下，二次型具有对角矩阵。
 
-现在来分析正交对角化的几何含义。幺正矩阵$U$的各列$\mathbf{u}_{1},$\linebreak $\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$形成$\mathbb{F}^n$的正交基，记其为$\mathcal{B}$。从该基到标准基的矩阵恰为$U$。我们知道$\mathbf{y}=(y_{1},y_{2},\ldots,y_{n})^{T}=U^{-1}\mathbf{x}$，因此各坐标$y_{1},y_{2},\ldots,y_{n}$可解释成向量$\mathbf{x}$在新基$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$下的坐标。
+现在来分析正交对角化的几何含义。幺正矩阵$U$的各列$\mathbf{u}_{1},$\linebreak $\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$形成$\mathbb{F}^n$的规范正交基，记其为$\mathcal{B}$。从该基到标准基的坐标变换矩阵$[I]_\mathcal{S,B}$恰为$U$。我们知道$\mathbf{y}=(y_{1},y_{2},\ldots,y_{n})^{T}=U^{-1}\mathbf{x}$，因此各坐标$y_{1},y_{2},\ldots,y_{n}$可解释成向量$\mathbf{x}$在新基$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$下的坐标。
 
-因此，正交对角化使我们得以很好地将集合$Q[\mathbf{x}]=1$（或与之类似的集合）可视化——只要能将对角矩阵可视化即可。
+因此，正交对角化使我们得以很好地将集合$Q[\mathbf{x}]=1$（或与之类似的集合）可视化——只要能将矩阵为对角的二次型可视化即可。
 
 \begin{example*}
     考虑双变量二次型（即$\mathbb{R}^2$上的二次型）$Q(x,y)=2x^{2}+2y^{2}+2xy$。现在描述满足$Q(x,y)=1$的点$(x,y)^T\in\mathbb{R}^2$构成的集合。
@@ -121,10 +121,10 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
     $Q$的矩阵是\[A=\begin{pmatrix}2&1\\1&2\end{pmatrix}.\]
     正交对角化该矩阵，可将其表示为\[A=U\begin{pmatrix}3&0\\0&1\end{pmatrix}U^*,\quad\text{其中}\quad U=\frac{1}{\sqrt{2}}\begin{pmatrix}1&-1\\1&1\end{pmatrix},\]
     或等价地写为\[U^*AU=\begin{pmatrix}3&0\\0&1\end{pmatrix}=:D.\]
-    集合$\{\mathbf{y}:(D\mathbf{y},\mathbf{y})=1\}$是椭圆，半长轴为$1/\sqrt3$和$1$。因此集合$\{\mathbf{x}:(D\mathbf{x},\mathbf{x})=1\}$是相同的椭圆，只不过是在基$(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})^{T},(-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})^{T}$下；或等价地说，相同的椭圆，只不过旋转了$\pi/4$。
+    集合$\{\mathbf{y}:(D\mathbf{y},\mathbf{y})=1\}$是椭圆，半长轴为$1/\sqrt3$和$1$。因此集合$\{\mathbf{x}\in\mathbb{R}^2:(A\mathbf{x},\mathbf{x})=1\}$是相同的椭圆，只不过是在基$(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})^{T},(-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})^{T}$下；或等价地说，相同的椭圆，只不过旋转了$\pi/4$。
 \end{example*}
 
-\subsection{非正交对角化}
+\subsection{非正交对角化}\label{subsec:diag_row_column_operation}
 
 正交对角化涉及计算特征值和特征向量，因此，$n$很大时，不借助计算机可能难以完成。另一方面，非正交对角化，即求出可逆的$S$（不要求$S^{-1}=S^*$）使得$D=S^*AS$是对角矩阵，要更容易计算，并且只通过代数运算（加减乘除）就能完成。
 
@@ -132,9 +132,9 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
 
 \subsubsection{通过配方法对角化}
 
-第一种方法基于配方法。我们将举实二次型（$\mathbb{R}^n$上的二次型）作为示例。经过简单的修改，这一方法可用于复数情形，不过此处不做讨论。如有必要，感兴趣的读者可以自行修改。
+第一种方法基于配方。我们将举实二次型（$\mathbb{R}^n$上的二次型）作为示例。经过简单的修改，这一方法可用于复数情形，不过此处不做讨论。如有必要，感兴趣的读者可以自行修改。
 
-再次考虑双变量二次型$Q(x,y)=2x_1^{2}+2x_1x_2+2x_2^{2}$（和上面例子中的二次型是一样的，只不过变量记作$x,y$而不是$x_1,x_2$）。由于
+再次考虑双变量二次型$Q[\mathbf{x}]=2x_1^{2}+2x_1x_2+2x_2^{2}$（和上面例子中的二次型是一样的，只不过变量记作$x_1,x_2$而不是$x,y$）。由于
 \[2\left(x_1+\frac{1}{2}x_2\right)^2=2\left(x_1^2+2x_1\frac{1}{2}x_2+\frac{1}{4}x_2^2\right)=2x_1^2+2x_1x_2+\frac{1}{2}x_2^2\]
 （注意，前两项与$Q$的前两项相同），所以我们有
 \[2x_1^2+2x_1x_2+2x_2^2=2\left(x_1+\frac{1}{2}x_2\right)^2+\frac{3}{2}x_2^2=2y_1^2+\frac{3}{2}y_2^2,\]
@@ -167,7 +167,6 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
 
 我们用一个例子来解释。假设我们想对角化的二次型具有矩阵\[A=\begin{pmatrix}1&-1&3\\-1&2&1\\3&1&1\end{pmatrix}.\]
 我们向矩阵$A$附上恒等矩阵，并对增广矩阵$(A|I)$做行/列变换。在每次行变换后，我们都需要对矩阵$A$做相同的列变换\footnote{对复埃尔米特矩阵，在每次行变换后，我们做的是对应的列变换的共轭，见下注 \ref{remark:conjugate_of_row_operation}。}。由此可得
-\pagebreak
 \begin{align*}
     &\begin{pNiceArray}{rrr|rrr}[margin,last-col]
   1&-1&3&1&0&0\\
@@ -221,7 +220,7 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
 在上面的例子中，其实我们很走运——因为我们不需要交换两行。而做这个变换有些技巧性。要猜出如何做行变换才能实现目的可能有些难度，但一旦知道了步骤，你就会发现其实很简单。例如，考虑一个二次型，其矩阵为\[A=\begin{pmatrix}0&1\\1&0\end{pmatrix}\]
 要通过行列变换将其对角化，最简单的思路是交换1、2两行。但这样就还要做相同的列变换，即交换1、2两列，最后又得到原先的矩阵。
 
-所以我们需要一些复杂点的方法。比如，恒等式 \eqref{no_square_decomp} 就可用于对角化这个二次型。然而，有个更为简单的方法也是可行的：用行变换使对角线上出现非零项！比如，如果要让$a_{1,1}$非零，就可用以下这一系列行变换（以及列变换）：
+所以我们需要一些复杂点的方法。比如，恒等式 \eqref{no_square_decomp} 就可用于对角化这个二次型。然而，有个更为简单的方法也是可行的：用行变换使对角线上出现非零项！比如，如果要让$a_{1,1}$非零，就可用以下这一系列行变换（以及对应的列变换）：
 \[
 \begin{array}{ll}
     \begin{pNiceArray}{rr|rr}[margin,last-col]
@@ -258,7 +257,7 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
 
     这是因为，如果行变换由左乘初等矩阵$E_k$给出，那么对应的列变换由右乘$E_k^*$给出，见 \eqref{congruent_elementary}。
 
-    注意，公式 \eqref{congruent_elementary} 适用于实数和复数情形。在实数情形下，我们可以用$E_k^T$替代$E_k^*$，不过如果要使公式对两种情形保持一致，就要用到埃尔米特伴随。
+    注意，公式 \eqref{congruent_elementary} 适用于实数和复数情形。在实数情形下，我们可以用$E_k^T$替代$E_k^*$，不过这里用到埃尔米特伴随，以使公式对两种情形保持一致。
 \end{remark}
 
 \begin{problemset}
@@ -284,7 +283,7 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
 \end{center}
 这里，我们仍假设$S$是可逆矩阵，$D$是对角矩阵。
 
-西尔维斯特惯性定律的证明思路，是将对角化$D=S^*AS$的对角项中正数（或负数、或零）的个数仅用$A$表达，而不牵涉到$S$和$D$。
+西尔维斯特惯性定律的证明思路，是将对角化$D=S^*AS$的对角项中正数（或负数、或零）的个数仅用$A$表达，而不牵涉$S$和$D$。
 
 我们需要下面这个定义。
 
@@ -319,7 +318,7 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
     \[T\mathbf{x}=P\mathbf{x},\quad \forall \mathbf{x}\in E.\]
     换言之，$T$是对投影$P$的{\bf 限制}：$P$定义在整个空间上，通过将其定义域和目标空间分别限制于$E$和$E_+$，得到从$E$到$E_+$的变换，并用不同的字母将其与$P$区分开。
 
-    注意，$\ker T=\{\mathbf{0}\}$。的确，令$\mathbf{x}=(x_{1},x_{2},\ldots,x_{n})^{T}\in E$，我们有$T\mathbf{x}=P\mathbf{x}=\mathbf{0}$。于是由$P$的定义得\[x_1=x_2=\ldots=x_{r_+}=0,\]
+    注意，$\ker T=\{\mathbf{0}\}$。的确，假设对$\mathbf{x}=(x_{1},x_{2},\ldots,x_{n})^{T}\in E$我们有$T\mathbf{x}=P\mathbf{x}=\mathbf{0}$。于是由$P$的定义得\[x_1=x_2=\ldots=x_{r_+}=0,\]
     因此\[(D\mathbf{x},\mathbf{x})=\sum_{k=r_++1}^n\lambda_kx_k^2\leq0\quad(\lambda_k\leq0, k>r_+).\]
     但是$\mathbf{x}$属于$D$-正性子空间$E$，所以不等式$(D\mathbf{x},\mathbf{x})\le 0$只对$\mathbf{x}=\mathbf{0}$成立。
 
@@ -356,7 +355,7 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
   埃尔米特矩阵$A=A^*$称为正定的（负定的，及其他），若对应的二次型$Q[\mathbf{x}]=(A\mathbf{x},\mathbf{x})$是正定的（负定的，及其他）。
 \end{definition*}
 
-\begin{theorem}
+\begin{theorem}\label{thm:pd_eig_pos}
   令$A=A^*$。那么
   \begin{enumerate}
     \item $A$是正定的，当且仅当$A$的所有特征值都是正的。
@@ -382,15 +381,42 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量的函数$L(\mathbf{x},\
 \begin{equation}\label{positivity_for_2by2}
   a > 0\quad \text{且}\quad \det A=ac-|b|^2>0
 \end{equation}
-的确如此：若$a>0$且$\det A = ac-|b|^2>0$，那么$c>0$，所以$\tr A=a+c>0$。所以我们知道如果$\lambda_1,\lambda_2$是$A$的特征值，那么$\lambda_1\lambda_2>0(\det A>0)$，并且$\lambda_1+\lambda_2=\tr A>0$。而这只有两个特征值都为正时才成立。所以我们证明了 \eqref{positivity_for_2by2} 能推出$A$是正定的。反方向的蕴含关系很简单，留给读者作为习题。
+的确如此：若$a>0$且$\det A = ac-|b|^2>0$，那么$c>0$，所以$\tr A=a+c>0$。所以我们知道如果$\lambda_1,\lambda_2$是$A$的特征值，那么$\lambda_1\lambda_2>0(\det A>0)$，并且$\lambda_1+\lambda_2=\tr A>0$。而这只有两个特征值都为正时才成立。所以我们证明了 \eqref{positivity_for_2by2} 能推出$A$是正定的。反方向的蕴涵关系很简单，留给读者作为习题。
 
 这个结论可以推广到$n\times n$矩阵。也就是说，对于矩阵$A$
 \[A=\begin{pmatrix}a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&\ddots&\vdots\\a_{n,1}&a_{n,2}&\ldots&a_{n,n}\end{pmatrix}\]
 考虑其所有的{\bf 顺序主子阵}
 \[A_1=(a_{1,1}),A_2=\begin{pmatrix}a_{1,1}&a_{1,2}\\a_{2,1}&a_{2,2}\end{pmatrix},A_3=\begin{pmatrix}a_{1,1}&a_{1,2}&a_{1,3}\\a_{2,1}&a_{2,2}&a_{2,3}\\a_{3,1}&a_{3,2}&a_{3,3}\end{pmatrix},\ldots,A_n=A\]
 \begin{theorem}[西尔维斯特正定性判据]
-  矩阵$A=A^*$是正定的，当且仅当\[\det A_k > 0,\quad \text{对于所有}~k=1,2,\dots,n~\text{成立}\]
+  矩阵$A=A^*$是正定的，当且仅当\[\det A_k > 0,\quad \text{对于所有}~k=1,2,\dots,n~\text{成立。}\]
+\end{theorem}
+
+首先我们注意到，如果$A>0$那么$A_k>0$（你能解释为何如此吗？）。这样一来，因为正定矩阵的所有特征值都是正的（见定理 \ref{thm:pd_eig_pos}），所以$\det A_k>0$对所有$k$成立。
+
+通过分析利用行列变换的二次型对角化（在 \ref{subsec:diag_row_column_operation} 节中描述），可以证明如果$\det A_k>0$对所有$k$成立，那么$A$的所有特征值均为正。关键在于，观察到如果按照自然的顺序做行/列变换（即首先将第一行/列从其他所有行/列中减掉，然后将第二行/列从第$3,4,\dots,n$行/列中减掉，以此类推），并且不做行交换，那么在此过程中我们顺带完成了对二次型$A_k$的对角化。也即，在减掉第一、二行/列后，我们就对角化了$A_2$；减掉第三行/列后，我们就对角化了$A_3$，以此类推。
+
+因为我们只做行替换，所以行列式不变。此外，由于我们未做行交换，并且以正确的顺序做行变换，所以各$A_k$的行列式也保持不变。因此，$\det A_k>0$这一条件确保了变换后每个对角项都是正的。
+
+当然，我们需要保证可以只用行替换且按正确顺序做变换，即我们不会碰到任何使该流程无法持续的情况。
+如果我们分析上述算法，就会发现此类情况只有一种：在某一步中主元位置的项是零。换言之，就是在减掉前$k$行和前$k$列并将$A_k$对角化后，第$k+1$行第$k+1$列的项是零。这种情况不可能发生，证明留给读者作为习题。{\hfill \qedsymbol}
+
+上面概述的证明思路非常简单。不过，下面我们要更细致地呈现另一种证明，这种证明常出现在更为进阶的教材中。我个人更为喜欢这种证明，因为它展示了一些重要的关系。
+
+我们需要对埃尔米特矩阵特征值的如下刻画。
+
+\subsection{特征值的极小极大刻画}
+
+首先，引入一个概念：子空间$E\subset X$的{\bf 余维数}是其正交补的维数，$\operatorname{codim}E = \dim(E^\perp)$。因为对子空间$E\subset X$及$\dim X=n$，我们有$\dim E+\dim E^\perp=n$，所以$\operatorname{codim}E = \dim X-\dim E$。
+
+回忆一下，平凡子空间$\{\mathbf{0}\}$的维数是零，因此整个向量空间$X$的余维数是$0$。
+
+\begin{theorem}[特征值的极小极大刻画]
+  令$A=A^*$是$n\times n$矩阵，并令$\lambda_1\geq\lambda_2\geq\ldots\geq\lambda_n$是其特征值，按降序排列。那么
+  \[\lambda_k=\max_{\begin{subarray}{c}E:\\ \dim E=k \end{subarray}}\min_{\begin{subarray}{c}\mathbf{x}\in E\\ \|\mathbf{x}\|=1 \end{subarray}}\left(A\mathbf{x},\mathbf{x}\right)=\min_{\begin{subarray}{c}F:\\ \operatorname{codim} F=k-1 \end{subarray}}\max_{\begin{subarray}{c}\mathbf{x}\in F\\ \|\mathbf{x}\|=1\end{subarray}}\left(A\mathbf{x},\mathbf{x}\right).\]
 \end{theorem}
 
 \section{正定型和内积}
 
+\[\begin{aligned}
+  (\mathbf{x},\mathbf{y})=\left(\sum_{k}x_{k}\mathbf{v}_{k},\sum_{j}y_{j}\mathbf{v}_{j}\right)&=\sum_{k,j=1}^{n}x_{k}\overline{y}_{j}(\mathbf{v}_{k},\mathbf{v}_{j})\\&=\sum_{j=1}^{n}\sum_{k=1}^{n}g_{j,k}x_{k}\overline{y}_{j}=(G[\mathbf{x}]_{\mathcal{B}},[\mathbf{y}]_{\mathcal{B}})_{\mathbb{C}^{n}},
+\end{aligned}\]
