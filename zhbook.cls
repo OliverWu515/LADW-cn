@@ -57,6 +57,7 @@
 \RequirePackage[leqno]{amsmath}
 \RequirePackage{amssymb,amsthm}
 \RequirePackage{mathrsfs}
+\RequirePackage{imakeidx}
 \RequirePackage{graphicx}
 \RequirePackage{tabularx}
 \RequirePackage{booktabs}
@@ -103,9 +104,9 @@
 \hypersetup{%
     colorlinks=true,
     linkcolor=black,
-    citecolor=blue,
-    filecolor=blue,
-    urlcolor=blue,
+    citecolor=black,
+    filecolor=black,
+    urlcolor=black,
     bookmarksdepth=3
 }
 \fi

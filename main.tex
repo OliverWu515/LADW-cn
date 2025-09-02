@@ -58,11 +58,11 @@
 %\bibliographystyle{thuthesis-author-year}
 
 %----- 参考文献引用格式 -----
-\usepackage[numbers,sort&compress]{natbib}
+% \usepackage[numbers,sort&compress]{natbib}
 %\usepackage[numbers,super,square,sort&compress]{natbib}
 %\usepackage[authoryear,sort&compress]{natbib}
-\def\bibfont{\small}  % 修改参考文献字体
-\setlength{\bibsep}{7pt plus 3pt minus 3pt}  % 调整参考文献间距
+% \def\bibfont{\small}  % 修改参考文献字体
+% \setlength{\bibsep}{7pt plus 3pt minus 3pt}  % 调整参考文献间距
 
 %----- 制作索引 -----
 % 自动编译 (默认字符编码排序)
@@ -72,7 +72,7 @@
 
 % 可使用 zhmakeindex 改变索引排序 (默认拼音字母排序)
 % \usepackage[noautomatic]{imakeidx}
-% \makeindex[columns=2,intoc=true,title={索~~引}]
+\makeindex[columns=2,intoc=true,title={索~~引},options=xxx]
 
 
 %----- 调整列表项的间距 -----
@@ -212,7 +212,9 @@
 %%%%%%%%%%%%%%%%%%%%%% 索引  %%%%%%%%%%%%%%%%%%%%%%%%
 
 \clearpage
-% \printindex
+\indexprologue{\kaishu 各条目按照汉语拼音排序。部分条目下有若干子条目，子条目中用波浪线“$\sim$”指代其所属的条目。除部分不必或不便翻译的条目可能采用“原文【解释】”形式外，所有条目（含子条目）后附注英文原文。
+例如，“基（basis）”条目下的“正交$\sim$（orthogonal）”，即表示“正交基”（orthogonal basis）。}
+\printindex
 
 
 %%%%%%%%%%%%%%%%%%%%%%% 后记 %%%%%%%%%%%%%%%%%%%%%%%%
