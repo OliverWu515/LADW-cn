@@ -88,7 +88,7 @@
 
 \subsection{矩阵记号}\label{subsec:matrix_notation}
 
-一个$m\times n$的矩阵是一个有$m$行$n$列的数阵。这个阵列中的元素称为矩阵的{\bf 项}。
+一个$m\times n$的矩阵是一个有$m$行$n$列的数阵\index{矩阵（matrix）}。这个阵列中的元素称为矩阵的{\bf 项}\index{项（entry, entries）!矩阵的$\sim$（of a matrix）}。
 
 将矩阵的项记作带下标的字母是很方便的：第一个下标代表该项的行号，而第二个下标则代表列号。例如
 \begin{equation}\label{matrix_notation}
@@ -98,7 +98,7 @@
 
 矩阵$A$中的第$j$行第$k$列的项往往表示为$A_{j,k}$或$(A)_{j,k}$，有时也像上面的式 \eqref{matrix_notation} 那样用小写字母加下标来表示。
 
-给定一矩阵$A$，其{\bf 转置}（或转置矩阵）$A^T$定义为将$A$的行变为列所得的矩阵。例如
+给定一矩阵$A$，其{\bf 转置}\index{转置（transpose）}（或转置矩阵）$A^T$定义为将$A$的行变为列所得的矩阵。例如
 \[\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}^T=\begin{pmatrix}1&4\\2&5\\3&6\end{pmatrix}.\]
 因此，$A^T$的各列就是$A$的各行。反之亦然：$A^T$的各行就是$A$的各列。
 
@@ -134,11 +134,11 @@
 
 \section{线性组合、基}
 
-令$V$为一向量空间，并令$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}\in V$为一系列向量。向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}$的{\bf 线性组合}是形式如下的求和式：
+令$V$为一向量空间，并令$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}\in V$为一系列向量。向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}$的{\bf 线性组合}\index{线性组合（linear combination）}是形式如下的求和式：
 \[\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\ldots+\alpha_p\mathbf{v}_p=\sum_{k=1}^p\alpha_k\mathbf{v}_k.\]
 
 \begin{definition}
-    称一组向量\footnote{原书对于若干向量有两种表达：“a system of vectors”和“a set of vectors”，此处一律采用国内通行翻译“向量组”。——译者注}$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\in V$为（向量空间$V$的）基，若任意向量$\mathbf{v}\in V$都能被{\bf 唯一}写成线性组合的形式：\[\mathbf{v}=\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\ldots+\alpha_n\mathbf{v}_n=\sum_{k=1}^n\alpha_k\mathbf{v}_k.\]
+    称一组向量\footnote{原书对于若干向量有两种表达：“a system of vectors”和“a set of vectors”，此处一律采用国内通行翻译“向量组”。——译者注}$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\in V$为（向量空间$V$的）基\index{基（basis）}，若任意向量$\mathbf{v}\in V$都能被{\bf 唯一}写成线性组合的形式：\[\mathbf{v}=\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\ldots+\alpha_n\mathbf{v}_n=\sum_{k=1}^n\alpha_k\mathbf{v}_k.\]
     系数$\alpha_1,\alpha_2,\dots,\alpha_n$称为向量$\mathbf{v}$（在基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$下，或者说关于基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$）的{\bf 坐标}。
 
     $\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是基的另一种表述是，方程$x_{1}\mathbf{v}_{1}+x_{2}\mathbf{v}_{2}+\ldots+x_{n}\mathbf{v}_{n}=\mathbf{v}$（未知数为各$x_k$）对于任意右端项$\mathbf{v}$皆有唯一解。
@@ -192,7 +192,7 @@
 现在，让我们将注意力转向唯一性。我们不想产生存在性方面的顾虑，因此我们考虑零向量$\mathbf{0}$，其总是能够以线性组合式表出。
 
 \begin{definition*}
-    称线性组合$\alpha_{1}\mathbf{v}_{1}+\alpha_{2}\mathbf{v}_{2}+\ldots+\alpha_{p}\mathbf{v}_{p}$是{\bf 平凡的}，若$\alpha_k = 0\ \forall k$。
+    称线性组合$\alpha_{1}\mathbf{v}_{1}+\alpha_{2}\mathbf{v}_{2}+\ldots+\alpha_{p}\mathbf{v}_{p}$是{\bf 平凡的}\index{线性组合（linear combination）!平凡$\sim$（trivial）}，若$\alpha_k = 0\ \forall k$。
 \end{definition*}
 
 平凡的线性组合总等于$\mathbf{0}$（无论向量$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_p$是什么），这可能也是其名称的来历。
@@ -751,7 +751,7 @@
     由定理 \ref{thm:basis_to_basis}，$A$为同构，故$\mathbb{P}_n^\mathbb{F}\cong\mathbb{F}^{n+1}$。
     \item 令$V$为$\mathbb{F}$上的向量空间，\marginpar{\small 任一具有基的实向量空间都与$\mathbb{R}^n$（$n$为适当的数）同构。类似地，任一具有基的复向量空间都与$\mathbb{C}^n$同构。}基为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$。定义变换$A:\mathbb{F}^{n}\to V$为\[A\mathbf{e}_k=\mathbf{v}_k,\quad k=1,2,\ldots,n,\]
     其中$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$是$\mathbb{F}^n$的标准基。同样由定理 \ref{thm:basis_to_basis}，$A$为同构，故$V\cong\mathbb{F}^{n}$。
-    \item 由$2\times 3$矩阵（各项属于$\mathbb{F}$）所构成的向量空间$M_{2\times3}^{\mathrm{F}}$同构于$\mathbb{F}^6$；
+    \item 由$2\times 3$矩阵（各项属于$\mathbb{F}$）所构成的向量空间$M_{2\times3}^{\mathbb{F}}$同构于$\mathbb{F}^6$；
     \item 更一般地，$M_{m\times n}^{\mathbb{F}}\cong\mathbb{F}^{m\cdot n}$。
 \end{enumerate}
 
@@ -800,7 +800,7 @@
     证明：$T_1$和$T_2$是可逆变换，并写出它们的逆的矩阵。{\bf 提示}：比起猜想（或计算）$T_1,T_2$这两个矩阵的逆，先描述出逆变换再求出逆变换的矩阵可能更为容易。
     \item 求出$\mathbb{R}^3$中绕向量$(1,2,3)^T$旋转$\alpha$角度这一变换的矩阵。我们假设从向量的尾端看向原点时，所做的旋转为逆时针方向。
     
-    你可以将答案写成若干矩阵相乘的形式，而不需要将所有乘法都算到最后。
+    你可以将答案写成若干矩阵相乘的形式，而不需要计算所有的乘法。
     \newpage
     \item 给出满足下面条件的矩阵（比如$2\times 2$矩阵）的例子：
     \begin{probenumerate}
@@ -860,11 +860,11 @@
 计算机显示屏可建模为$x$-$y$平面（更准确地说，其中的一个矩形）。显示屏上出现的任意图形都可用一系列{\bf 像素}来表示，而每个像素都被赋予了特定的颜色。每个像素的位置都由行号和列号所确定，二者充当了平面上$x$和$y$坐标的角色。因此，用带$x$-$y$坐标的平面中的矩形来表示计算机屏幕是很合适的——而一个图形只不过是一系列点。
 
 \begin{remark*}
-    图形分为两类：位图（会给出每个像素的信息）和矢量图（只给出{\bf 关键点}的信息，而绘图引擎将这些点连接起来以重构出完整图形）。位图的一个很好的例子是（数字）相片：其中每个像素都会被描述。位图可能包含大量的点，因此对于位图进行运算需要大量的算力。用位图处理程序（比如Adobe Photoshop）编辑过数字相片的人都知道程序的运行需要很强大的计算机，而且即便用了很现代也很强大的计算机，运算还是需要花费一定的时间。
+    图形分为两类：位图（会给出每个像素的信息）和矢量图（只给出{\bf 关键点}的信息，而绘图引擎将这些点连接起来以重构出完整图形）。位图的一个很好的例子是数字相片：其中每个像素都会被描述。位图可能包含大量的点，因此对于位图进行运算需要大量的算力。用位图处理程序（比如Adobe Photoshop）编辑过数字相片的人都知道程序的运行需要很强大的计算机，而且即便用了很现代也很强大的计算机，运算还是需要花费一定的时间。
 
-    这就是计算机屏幕上的图形中矢量图占大多数的原因：计算机只需要存储关键点。例如，为了描绘一个多边形，只需要给出其顶点的坐标，以及顶点之间的连接关系。当然，计算机屏幕上并非所有图形都可被表示为多边形，有些图形（例如字母）具有弯曲而光滑的边界。不过，绘制经过一系列点的光滑曲线已有成熟的方法（例如贝塞尔曲线），这些方法被用于PostScript与Adobe PDF（以及许多其他格式的文件中）。
+    这就是计算机屏幕上的图形中矢量图占大多数的原因：计算机只需要存储关键点。例如，为了描绘一个多边形，只需要给出其顶点的坐标，以及顶点之间的连接关系。当然，计算机屏幕上并非所有图形都可被表示为多边形，有些图形（例如字母）具有弯曲而光滑的边界。不过，绘制经过一系列点的光滑曲线已有成熟的方法（例如贝塞尔曲线），这些方法被用于PostScript与Adobe PDF（以及许多其他格式的文件）中。
 
-    无论如何，这是其他（与本书内容迥异的）书籍所涉及的主题，此处我们不做讨论。对我们来说，图形就是一系列的点（无论是线框模型还是矢量图），并且我们将要展示可以对这样的对象进行什么样的运算。
+    无论如何，这是其他（与本书内容迥异的）书籍所涉及的主题，此处我们不做讨论。对我们来说，图形就是一系列的点（无论是线框模型\footnote{就是上面所说的用“关键点”和“连接关系”来描述图形的方法。——译者注}还是位图），并且我们将要展示可以对这样的对象进行何种运算。
 \end{remark*}
 
 最简单的变换是平移，其中每个点（向量）$\mathbf{v}$的平移量为$\mathbf{a}$，也即向量$\mathbf{v}$会被$\mathbf{v}+\mathbf{a}$所取代（用$\mathbf{v}\mapsto\mathbf{v}+\mathbf{a}$这个记法来表示）。向量加法很适于计算机运算，因此平移是很容易实现的。

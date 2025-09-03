@@ -420,7 +420,7 @@ $A$的模显示了变换$A$的“大小”：
 所以 \eqref{schmidt_decomp_1} 的左右两侧对基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的作用相同，因此它们相同。
 
 \begin{definition*}
-    上述分解 \eqref{schmidt_decomp_1} 或 \eqref{schmidt_decomp_2} 称为变换$A$的{\bf 施密特分解}。
+    上述分解 \eqref{schmidt_decomp_1} 或 \eqref{schmidt_decomp_2} 称为变换$A$的{\bf 施密特分解}。\index{施密特分解（Schmidt decomposition）}
 \end{definition*}
 \begin{remark*}
     一个变换的施密特分解不唯一。为什么？
@@ -681,7 +681,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 如我们在第 \ref{chap:InnerProduct} 章第 \ref{sec:least_square} 节所讨论的，最小平方解给出了方程$A\mathbf{x}=\mathbf{b}$无解时的“次优解”（并且在$A\mathbf{x}=\mathbf{b}$有解时也能给出其解）。
 
-注意，最小平方解并未解决唯一性的问题：法方程$A^*A\mathbf{x}=A^*\mathbf{b}$的解未必是唯一的。其有一个自然的特解——最小范数解。这样的解是唯一的，并且可以通过取任意解往$(\operatorname{Ker}A^*A)^\perp=(\operatorname{Ker}A)^\perp$的投影来获得，见第 \ref{chap:InnerProduct} 章习题 \ref{ex:5_4_5} 和 \ref{ex:5_4_6}。
+注意，最小平方解并未解决唯一性的问题：法方程$A^*A\mathbf{x}=A^*\mathbf{b}$的解未必是唯一的。其有一个自然的特解——最小范数解。这样的解是唯一的，并且可以通过取任意解往$(\ker A^*A)^\perp=(\ker A)^\perp$的投影来获得，见第 \ref{chap:InnerProduct} 章习题 \ref{ex:5_4_5} 和 \ref{ex:5_4_6}。
 
 不难看出，如果$A$的{\bf 简化}奇异值分解是$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$，那么最小范数最小平方解$\mathbf{x}_0$由下式给出：
 \begin{equation}\label{ls_ln_sol}
@@ -692,7 +692,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 最后一个等号，是由于$\widetilde{W}\widetilde{W}^{*}=P_{\operatorname{Ran}\widetilde{W}}$（$P_{\rg\widetilde{W}}=\widetilde{W}(\widetilde{W}^{*}\widetilde{W})^{-1}\widetilde{W}^{*}=\widetilde{W}\widetilde{W}^{*}$）并且$\rg\widetilde{W}=\rg A$（见下习题 \ref{ex:6_4_4}）。
 
 方程$A\mathbf{x}=P_{\rg A}\mathbf{b}$的通解是
-\[\mathbf{x}=\mathbf{x}_0+\mathbf{y},\quad \mathbf{y}\in\operatorname{Ker}A,\]
+\[\mathbf{x}=\mathbf{x}_0+\mathbf{y},\quad \mathbf{y}\in\ker A,\]
 所以$\mathbf{x}_0$的确是$A\mathbf{x}=P_{\rg A}\mathbf{b}$的唯一最小范数解，或者等价地说，是$A\mathbf{x}=\mathbf{b}$的最小范数最小平方解。
 
 \begin{definition}
@@ -712,7 +712,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
     还可以证明，满足上述性质1-4的变换$A^+$是唯一的，尽管证明稍有些难度。的确如此：将等式1右乘和左乘$A^+$，可分别得到$(A^+A)^{2}=A^{+}A$和$(AA^+)^{2}=AA^{+}$，再结合性质3和4，即得$A^{+}A$和$AA^{+}$都是正交投影（见第 \ref{chap:InnerProduct} 章习题 \ref{ex:5_5_6}）。
 
-    $\operatorname{Ker}A\subset\operatorname{Ker}A^{+}A$是平凡的，而由等式1，$\operatorname{Ker}A^{+}A\subset\operatorname{Ker}A$（为什么？），所以$\operatorname{Ker}A^{+}A=\operatorname{Ker}A$。而这就意味着$A^{+}A$是往$(\ker A)^\perp=\rg A^*$的正交投影：\[A^{+}A=P_{\rg A^*}.\]
+    $\ker A\subset\ker A^{+}A$是平凡的，而由等式1，$\ker A^{+}A\subset\ker A$（为什么？），所以$\ker A^{+}A=\ker A$。而这就意味着$A^{+}A$是往$(\ker A)^\perp=\rg A^*$的正交投影：\[A^{+}A=P_{\rg A^*}.\]
 
     性质1还意味着，对所有$\mathbf{y}\in \rg A$，有$AA^{+}\mathbf{y}=\mathbf{y}$。因为$AA^+$是正交投影，所以$\rg A\subset \rg AA^+$。反方向的包含关系$\rg AA^+\subset \rg A$是平凡的，所以$AA^+$是往$\rg A$的正交投影：\[AA^+=P_{\rg A}.\]
 

@@ -127,7 +127,7 @@
 \end{proof}
 
 \begin{problemset}
-    \item 称算子$A$是{\bf 幂零的}，若$A^k=\mathbf{0}$对某$k$成立。证明：如果$A$是幂零的，那么$\sigma(A)=\{0\}$（即$0$是$A$的唯一特征值）。你能不用谱映射定理来证明吗？
+    \item \label{ex:9_2_1}称算子$A$是{\bf 幂零的}，若$A^k=\mathbf{0}$对某$k$成立。证明：如果$A$是幂零的，那么$\sigma(A)=\{0\}$（即$0$是$A$的唯一特征值）。你能不用谱映射定理来证明吗？
 \end{problemset}
 
 \section{广义特征空间、代数重数的几何意义}
@@ -135,10 +135,152 @@
 \subsection{不变子空间}\label{subsec:invariant_subspace}
 
 \begin{definition*}
-    令$A:V\to V$是向量空间$V$上的算子（线性变换）。称向量空间$V$的子空间$E$是算子$A$的不变子空间（或简称为$A$-不变子空间），若$AE\subset E$，即若$A\mathbf{v}\in E$对所有$\mathbf{v}\in E$成立。
+    令$A:V\to V$是向量空间$V$上的算子（线性变换）。称向量空间$V$的子空间$E$是算子$A$的不变子空间（或简称为$A$-不变子空间），若$AE\subset E$，即若$A\mathbf{v}\in E$对所有$\mathbf{v}\in E$成立。\index{不变子空间（invariant subspace）}
 \end{definition*}
 
+若$E$是$A$-不变的，那么\[A^2E = A(AE) \subset AE \subset E,\]
+即$E$是$A^2$-不变的。
+
+类似地，可以证明（可用归纳法），若$AE \subset E$，那么\[A^kE\subset E\quad \forall k\ge 1.\]
+这意味着对任意多项式$p$均有$p(A)E\subset E$，即
+\begin{center}
+    \fbox{任意$A$-不变子空间$E$都是$p(A)$的不变子空间。}
+\end{center}
+
+若$E$是$A$-不变子空间，那么对所有$\mathbf{v}\in E$，$A\mathbf{v}$同样属于$E$。因此，可将$A$看成作用于$E$（而不是整个向量空间$V$）的算子。
+
+正式而言，对$A$-不变子空间$E$，定义$A$的所谓限制算子$A|_E:E\to E$为
+\[(A|_E)\mathbf{v}=A\mathbf{v}\quad \forall \mathbf{v}\in E.\]
+此处我们改变了原算子的定义域和目标空间，但是自变量和取值之间的对应关系保持不变。
+
+我们会用到下面这个简单的引理。
+
+\begin{lemma}
+    令$p$为多项式，并令$E$是$A$-不变子空间。那么\[p(A|_E)=p(A)|_E.\]
+\end{lemma}
+\begin{proof}
+    证明很简单。
+\end{proof}
+
+若$E_{1},E_{2},\ldots,E_{r}$是由$A$-不变子空间构成的基，并且$A_k:=A|_{E_k}$是对应的限制算子，那么由于$AE_k = A_kE_k\subset E_k$，所以各算子$A_k$的作用是相互独立的（互不影响），并且要分析$A$的作用，只需分别分析各$A_k$的作用。
+
+特别地，如果在各子空间$E_k$中选取一个基，并且将它们组合起来以得到$V$的基（见第 \ref{chap:SpectralIntro} 章的定理 \ref{thm:union_of_basis_in_subspace_li_basis}），那么算子$A$在该基下的矩阵具有如下分块对角形式
+\[\begin{pNiceMatrix}
+    A_1                 &           &        &  \Block{2-1}<\LARGE>{\mathbf{0}}                         \\
+                                & A_2 &        &  \\
+    \Block[b]{2-1}<\LARGE>{\mathbf{0}} &           & \ddots &                           \\
+                                &           &        & A_r
+\end{pNiceMatrix}\]
+（当然，这里$V$的基需要有正确的顺序，即先取$E_1$的基，再取$E_2$的基，以此类推）。
+
+我们现在的目标是，选取由不变子空间$E_{1},E_{2},\ldots,E_{r}$构成的基，使得各限制算子$A_k$有简单的结构。在这种情况下，我们会得到一个基，使得$A$关于该基的矩阵有简单的结构。
+
+特征空间$\ker (A-\lambda_k I)$是个很好的备选项，因为限制于特征空间$\ker (A-\lambda_k I)$的$A$就是$\lambda_k I$。不幸的是，特征空间并不总能构成基（它们能构成基当且仅当$A$可对角化，见第 \ref{chap:SpectralIntro} 章的定理 \ref{thm:diagonalizable_iff_1}）。
+
+不过，所谓{\bf 广义特征空间}可以实现我们的目的。
+
 \subsection{广义特征空间}
+
+\begin{definition}
+    向量$\mathbf{v}$称为（对应于特征值$\lambda$的）广义特征向量，如果$(A-\lambda I)^k\mathbf{v}=\mathbf{0}$对某$k\ge 1$成立\index{广义特征向量（generalized eigenvector）}。
+
+    对应于特征值$\lambda$的所有广义特征向量连同$\mathbf{0}$构成的集合$E_\lambda$称为对应于特征值$\lambda$的广义特征空间\index{广义特征空间（generalized eigenspace）}。
+\end{definition}
+
+换言之，广义特征空间$E_\lambda$可表示为
+\begin{equation}\label{generalized_infinite_union}
+    E_\lambda = \bigcup_{k\ge 1}\ker (A-\lambda I)^k.
+\end{equation}
+序列$\ker (A-\lambda I)^k,k=1,2,3,\dots$是由一系列递增的子空间构成的，意即
+\[\ker(A-\lambda I)^{k}\subset\ker(A-\lambda I)^{k+1}\quad\forall k\geq1.\]
+
+表达式 \eqref{generalized_infinite_union} 看上去并不简单，因为它包含无限并集。然而，子空间$\ker (A-\lambda I)^k$会趋于稳定，即
+\[\ker(A-\lambda I)^{k}=\ker(A-\lambda I)^{k+1}\quad \forall k\ge k_\lambda,\]
+所以，表面上的“无限并集”其实是有限并集。
+
+为证明这一系列核会趋于稳定，首先注意到如果对有限维子空间$E$和$F$有$E\varsubsetneqq F$（符号$E\varsubsetneqq F$意为$E\subset F$但$E\neq F$），那么$\dim E<\dim F$。
+
+因为$\dim\ker(A-\lambda I)^k\le\dim V<\infty$，所以它不会增长至无穷，而会在某处满足
+\[\ker(A-\lambda I)^k = \ker(A-\lambda I)^{k+1}.\]
+
+剩余证明由下述引理完成。
+
+\begin{lemma}
+    令对某$k$有\[\ker(A-\lambda I)^k = \ker(A-\lambda I)^{k+1}.\]
+    那么\[\ker(A-\lambda I)^{k+r} = \ker(A-\lambda I)^{k+r+1}\quad \forall r\ge 0.\]
+\end{lemma}
+
+\begin{proof}
+    令$\mathbf{v}\in \ker(A-\lambda I)^{k+r+1}$，即$(A-\lambda I)^{k+r+1}\mathbf{v}=\mathbf{0}$。那么\[\mathbf{w}:=(A-\lambda I)^{r}\mathbf{v}\in\ker (A-\lambda I)^{k+1}.\]
+    但我们知道$\ker (A-\lambda I)^k = \ker(A-\lambda I)^{k+1}$，所以$\mathbf{w}\in \ker(A-\lambda I)^k$，这也就意味着$(A-\lambda I)^k\mathbf{w}=\mathbf{0}$。回顾$\mathbf{w}$的定义可得\[(A-\lambda I)^{k+r}\mathbf{v}=(A-\lambda I)^k\mathbf{w}=\mathbf{0}\]
+    因此$\mathbf{v}\in\ker (A-\lambda I)^{k+r}$。我们证明了$\ker (A-\lambda I)^{k+r+1}\subset \ker (A-\lambda I)^{k+r}$。反方向的包含关系是平凡的。
+\end{proof}
+
+\begin{definition*}
+    使得序列$\ker (A-\lambda I)^{k}$稳定的数$d=d(\lambda)$，也即使得下式成立的数$d=d(\lambda)$
+    \[\ker (A-\lambda I)^{d-1}\varsubsetneqq \ker (A-\lambda I)^{d} = \ker (A-\lambda I)^{d+1}\]
+    称为特征值$\lambda$的深度。
+\end{definition*}
+
+由深度的定义，可知对广义特征空间$E_\lambda$有
+\begin{equation}\label{gen_eigenspace_depth_0}
+    (A-\lambda I)^{d(\lambda)}\mathbf{v}=\mathbf{0}\quad \forall\mathbf{v}\in E_\lambda.
+\end{equation}
+
+现在，总结一下我们已知的有关广义特征空间的结论：
+\begin{itemize}
+    \item[a)]  $E_\lambda$是$A$的不变子空间，$AE_\lambda \subset E_\lambda$。
+    \item[b)] 若$d(\lambda)$是特征值$\lambda$的深度，那么
+    \[((A-\lambda I)|_{E_\lambda})^{d(\lambda)} = (A|_{E_\lambda} - \lambda I|_{E_\lambda})^{d(\lambda)} = \mathbf{0}.\]
+    （这仅仅是 \eqref{gen_eigenspace_depth_0} 的另一种写法）
+    \item[c)] $\sigma(A|_{E_\lambda})=\{\lambda\}$，因为算子$A|_{E_\lambda} - \lambda I|_{E_\lambda}$是幂零的【见 b)】，而幂零算子的谱只包含$0$，见习题 \ref{ex:9_2_1}。
+\end{itemize}
+
+这样，我们就做好了准备，可以陈述本节的核心结论了。令$A:V\to V$。
+
+\begin{theorem}\label{thm:gen_eigen_decomp}
+    令$\sigma(A)$包含$r$个值$\lambda_1,\lambda_2,\dots,\lambda_r$，并令$E_k:=E_{\lambda_k}$是对应的广义特征空间。那么子空间构成的组$E_1,E_2,\dots,E_r$是$V$的子空间构成的基。
+\end{theorem}
+
+\begin{remark}
+    如果我们将所有广义特征空间$E_k$的基合并起来，那么由第 \ref{chap:SpectralIntro} 章定理 \ref{thm:union_of_basis_in_subspace_li_basis}，我们就会得到整个空间的基。在该基下，算子$A$的矩阵具有分块对角形式$A=\operatorname{diag}\{A_1,A_2,\dots,A_r\}$，其中$A_k:=A|_{E_k},E_k=E_{\lambda_k}$。还容易从 \eqref{gen_eigenspace_depth_0} 看出，算子$N_k:=A_k-\lambda_k I|_{E_k}$是幂零的，$N_k^{d_k}=\mathbf{0}$。
+\end{remark}
+
+\begin{proof}[定理 \ref{thm:gen_eigen_decomp} 的证明]
+    令$m_k$是特征值$\lambda_k$的重数，所以$p(z)=\prod_{k=1}^{r}(z-\lambda_{k})^{m_{k}}$是$A$的特征多项式。定义\[p_k(z)=p(z)/(z-\lambda_k)^{m_k}=\prod_{j\neq k}(z-\lambda_j)^{m_j}.\]
+
+\begin{lemma}
+    \begin{equation}
+        (A-\lambda_k I)^{m_k}|_{E_k} = \mathbf{0}.
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    有两种可行的证法。第一种是，注意到$m_k\ge d_k$，其中$d_k$是特征值$\lambda_k$的深度，并应用下述结论\[(A-\lambda_kI)^{d_k}|_{E_k}=(A_k-\lambda_kI|_{E_k})^{m_k}=\mathbf{0},\]
+    其中$A_k:=A|_{E_k}$（广义特征空间的性质2）。
+\end{proof}
+
+为证明该定理，定义\[q(z)=\sum_{k=1}^rp_k(z).\]
+
+\begin{lemma}
+    
+\end{lemma}
+
+\end{proof}
+
+\subsection{代数重数的几何意义}
+
+\begin{proposition}
+    
+\end{proposition}
+
+\subsection{一个重要应用}
+
+下述推论对研究微分方程十分重要。
+
+\begin{corollary}
+    
+\end{corollary}
 
 \section{幂零算子的结构}
 
@@ -151,6 +293,10 @@
         0 &   &   &        & 0
     \end{pmatrix}
 \end{equation}
+
+\subsection{广义特征向量链}
+
+\subsection{幂零算子的若当标准型}
 
 \subsection{点图、若当标准型的唯一性}
 

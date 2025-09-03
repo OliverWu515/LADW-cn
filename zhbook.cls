@@ -58,6 +58,7 @@
 \RequirePackage{amssymb,amsthm}
 \RequirePackage{mathrsfs}
 \RequirePackage{imakeidx}
+\RequirePackage[totoc,itemlayout=relhang,unbalanced]{idxlayout}
 \RequirePackage{graphicx}
 \RequirePackage{tabularx}
 \RequirePackage{booktabs}
