@@ -4,7 +4,7 @@
 
 \section{凯莱-哈密尔顿定理}
 
-\begin{theorem}[凯莱-哈密尔顿定理]
+\begin{theorem}[凯莱-哈密尔顿定理]\label{thm:caylay-hamilton}
     令$A$为方阵，并令$p(\lambda)=\det(A-\lambda I)$是其特征多项式。那么$p(A)=\mathbf{0}$。
 \end{theorem}
 
@@ -34,7 +34,7 @@
     而我们在上面讨论过，凯莱-哈密尔顿定理对于可对角化矩阵是平凡的，所以$p_k(A_k)=\mathbf{0}$。因此$p(A)=\lim_{k\to \infty}\mathbf{0}=\mathbf{0}$。
 \end{proof}
 
-这个证明，是为熟知分析学中诸如连续、收敛之类概念\footnote{这里我说的是{\bf 分析学}，即关于连续、收敛之类的概念的严谨学问，而不是微积分，后者只教授一系列技巧。}的读者准备的。这样的读者应当能够补全所有的细节，并且这个证明对于他/她来说应该是极为简单而自然的。
+这个证明，是为熟知分析学中诸如连续、收敛之类概念\footnote{这里我说的是{\bf 分析学}，即关于连续、收敛之类的概念的严谨学问，而不是微积分，后者就现行教学而言，只是传授一系列技巧。}的读者准备的。这样的读者应当能够补全所有的细节，并且这个证明对于他/她来说应该是极为简单而自然的。
 
 然而，对于其余尚不熟悉这些概念的读者，这个证明看上去会很奇怪，甚至像是“作弊”（不过我还是要重申，这个证明绝对是正确且严谨的，只是借助了微分学中几个基本的结论）。那么，我们呈上该定理的另一种证明，它是线性代数教材中的“通行”证明。
 
@@ -109,7 +109,7 @@
 
 如果考虑上述定理的$\mu=0$这一特殊情况，就会得到下面推论。
 
-\begin{corollary}
+\begin{corollary}\label{cor:poly_invertible}
     令$A$是特征值为$\lambda_1,\lambda_2,\dots,\lambda_n$的方阵，并令$p$是多项式。那么$p(A)$是可逆的，当且仅当\[p(\lambda_k)\ne 0\quad \forall k=1,2,\dots,n.\]
 \end{corollary}
 
@@ -231,9 +231,9 @@
 \begin{itemize}
     \item[a)]  $E_\lambda$是$A$的不变子空间，$AE_\lambda \subset E_\lambda$。
     \item[b)] 若$d(\lambda)$是特征值$\lambda$的深度，那么
-    \[((A-\lambda I)|_{E_\lambda})^{d(\lambda)} = (A|_{E_\lambda} - \lambda I|_{E_\lambda})^{d(\lambda)} = \mathbf{0}.\]
+    \[((A-\lambda I)|_{E_\lambda})^{d(\lambda)} = (A|_{E_\lambda} - \lambda I_{E_\lambda})^{d(\lambda)} = \mathbf{0}.\]
     （这仅仅是 \eqref{gen_eigenspace_depth_0} 的另一种写法）
-    \item[c)] $\sigma(A|_{E_\lambda})=\{\lambda\}$，因为算子$A|_{E_\lambda} - \lambda I|_{E_\lambda}$是幂零的【见 b)】，而幂零算子的谱只包含$0$，见习题 \ref{ex:9_2_1}。
+    \item[c)] $\sigma(A|_{E_\lambda})=\{\lambda\}$，因为算子$A|_{E_\lambda} - \lambda I_{E_\lambda}$是幂零的【见 b)】，而幂零算子的谱只包含$0$，见习题 \ref{ex:9_2_1}。
 \end{itemize}
 
 这样，我们就做好了准备，可以陈述本节的核心结论了。令$A:V\to V$。
@@ -242,37 +242,82 @@
     令$\sigma(A)$包含$r$个值$\lambda_1,\lambda_2,\dots,\lambda_r$，并令$E_k:=E_{\lambda_k}$是对应的广义特征空间。那么子空间构成的组$E_1,E_2,\dots,E_r$是$V$的子空间构成的基。
 \end{theorem}
 
-\begin{remark}
-    如果我们将所有广义特征空间$E_k$的基合并起来，那么由第 \ref{chap:SpectralIntro} 章定理 \ref{thm:union_of_basis_in_subspace_li_basis}，我们就会得到整个空间的基。在该基下，算子$A$的矩阵具有分块对角形式$A=\operatorname{diag}\{A_1,A_2,\dots,A_r\}$，其中$A_k:=A|_{E_k},E_k=E_{\lambda_k}$。还容易从 \eqref{gen_eigenspace_depth_0} 看出，算子$N_k:=A_k-\lambda_k I|_{E_k}$是幂零的，$N_k^{d_k}=\mathbf{0}$。
+\begin{remark}\label{remark:gen_eigen_decomp}
+    如果我们将所有广义特征空间$E_k$的基合并起来，那么由第 \ref{chap:SpectralIntro} 章定理 \ref{thm:union_of_basis_in_subspace_li_basis}，我们就会得到整个空间的基。在该基下，算子$A$的矩阵具有分块对角形式$A=\operatorname{diag}\{A_1,A_2,\dots,A_r\}$，其中$A_k:=A|_{E_k},E_k=E_{\lambda_k}$。还容易从 \eqref{gen_eigenspace_depth_0} 看出，算子$N_k:=A_k-\lambda_k I_{E_k}$是幂零的，$N_k^{d_k}=\mathbf{0}$。
 \end{remark}
 
 \begin{proof}[定理 \ref{thm:gen_eigen_decomp} 的证明]
     令$m_k$是特征值$\lambda_k$的重数，所以$p(z)=\prod_{k=1}^{r}(z-\lambda_{k})^{m_{k}}$是$A$的特征多项式。定义\[p_k(z)=p(z)/(z-\lambda_k)^{m_k}=\prod_{j\neq k}(z-\lambda_j)^{m_j}.\]
 
 \begin{lemma}
-    \begin{equation}
+    \begin{equation}\label{power_zero}
         (A-\lambda_k I)^{m_k}|_{E_k} = \mathbf{0}.
     \end{equation}
 \end{lemma}
 
 \begin{proof}
-    有两种可行的证法。第一种是，注意到$m_k\ge d_k$，其中$d_k$是特征值$\lambda_k$的深度，并应用下述结论\[(A-\lambda_kI)^{d_k}|_{E_k}=(A_k-\lambda_kI|_{E_k})^{m_k}=\mathbf{0},\]
+    有两种可行的证法。第一种是，注意到$m_k\ge d_k$，其中$d_k$是特征值$\lambda_k$的深度，并应用下述结论\[(A-\lambda_kI)^{d_k}|_{E_k}=(A_k-\lambda_kI_{E_k})^{m_k}=\mathbf{0},\]
     其中$A_k:=A|_{E_k}$（广义特征空间的性质2）。
+
+    第二种证法是，注意到根据谱映射定理（见推论 \ref{cor:poly_invertible}），算子\linebreak $p_k(A)|_{E_k}=p_k(A_k)$是可逆的。由凯莱-哈密尔顿定理（定理 \ref{thm:caylay-hamilton}）\[\mathbf{0}=p(A)=(A-\lambda_k I)^{m_k}p_k(A),\]
+    将所有算子限制到$E_k$，可得\[\mathbf{0}=p(A_k)=(A_k-\lambda_k I_{E_k})^{m_k}p_k(A_k),\]
+    因此\[(A_k-\lambda_k I_{E_k})^{m_k}=p(A_k)p_k(A_k)^{-1}=\mathbf{0}p_k(A_k)^{-1}=\mathbf{0}.\]
 \end{proof}
 
 为证明该定理，定义\[q(z)=\sum_{k=1}^rp_k(z).\]
+因为$p_k(\lambda_j)=0$($j\ne k$)并且$p_k(\lambda_k)\ne 0$，我们可得$q(\lambda_k)\ne 0$对所有$k$成立。因此由谱映射定理（见推论 \ref{cor:poly_invertible}），算子
+\[B=q(A)\]可逆。
 
-\begin{lemma}
-    
+注意到$BE_k\subset E_k$（任意$A$-不变子空间也是$p(A)$-不变的）。因为$B$是可逆算子，所以$\dim(BE_k)=\dim E_k$，结合$BE_k\subset E_k$可得$BE_k= E_k$。将此式乘以$B^{-1}$可得$B^{-1}E_k=E_k$，即$E_k$是$B^{-1}$的不变子空间。
+
+还注意到，由 \eqref{power_zero}，\[p_k(A)|_{E_j}=\mathbf{0}\quad \forall j\ne k,\]
+因为$p_k(A)|_{E_j}=p_k(A_j)$，而$p_k(A_j)$包含因子$(A_j-\lambda_j I_{E_j})^{m_j}=\mathbf{0}$。
+
+定义算子$\mathcal{P}_k$为\[\mathcal{P}_k=B^{-1}p_k(A).\]
+
+\begin{lemma}\label{lem:prop_of_pk}
+    对于定义如上的算子$\mathcal{P}_k$有
+    \begin{itemize}
+        \item [a)] $\mathcal{P}_1+\mathcal{P}_2+\ldots+\mathcal{P}_r=I$；
+        \item [b)] $\mathcal{P}_k|_{E_j}=\mathbf{0}$对$j\ne k$成立；
+        \item [c)] $\rg \mathcal{P}_k\subset E_k$；
+        \item [d)] 此外，$\mathcal{P}_k\mathbf{v}=\mathbf{v} \ \forall\mathbf{v}\in E_k$，因此实际上$\rg \mathcal{P}_k= E_k$。
+    \end{itemize}
 \end{lemma}
+
+\begin{proof}
+    性质1是平凡的：\[\sum_{k=1}^r\mathcal{P}_k=B^{-1}\sum_{k=1}^rp_k(A)=B^{-1}B=I.\]
+    性质2源于 \eqref{power_zero}。的确：$p_k(A)$包含因子$(A-\lambda_j I)^{m_j}$，其限制到$E_j$上即为零。因此$p_k(A)|_{E_j}=\mathbf{0}$，进而$\mathcal{P}_k|_{E_j}=B^{-1}p_k(A)|_{E_j}=\mathbf{0}$。
+
+    为证明性质3，回忆一下，根据凯莱-哈密尔顿定理，$p(A)=\mathbf{0}$。因为$p(z)=(z-\lambda_k)^{m_k}p_k(z)$，故对于$\mathbf{w}=p_k(A)\mathbf{v}$有
+    \[(A-\lambda_kI)^{m_k}\mathbf{w}=(A-\lambda_kI)^{m_k}p_k(A)\mathbf{v}=p(A)\mathbf{v}=\mathbf{0}.\]
+    这就意味着，$\rg p_k(A)$中的任意向量$\mathbf{w}$可由$(A-\lambda_k I)$的若干次幂化为零向量，根据$p_k$的定义即得$\rg p_k(A)\subset E_k$。
+
+    为证明最后一条性质，注意到由 \eqref{power_zero}，对$\mathbf{v}\in E_k$
+    \[p_k(A)\mathbf{v}=\sum_{j=1}^{r}p_{j}(A)\mathbf{v}=B\mathbf{v},\]
+    这意味着$\mathcal{P}_k\mathbf{v}=B^{-1}B\mathbf{v}=\mathbf{v}$。
+\end{proof}
+
+现在我们就能完成定理的证明了。取$\mathbf{v}\in V$并定义$\mathbf{v}_k=\mathcal{P}_k\mathbf{v}$。然后根据引理 \ref{lem:prop_of_pk} 的表述 c) 有$\mathbf{v}_k\in E_k$，再根据表述 a)，\[\mathbf{v}=\sum_{k=1}^{r}\mathbf{v}_k,\]
+所以$\mathbf{v}$可被表示成线性组合。
+
+为证明该表示是唯一的，我们只需注意到，如果$\mathbf{v}$被表示为$\mathbf{v}=\sum_{k=1}^{r}\mathbf{v}_k,\mathbf{v}_k\in E_k$，那么由引理 \ref{lem:prop_of_pk} 的表述 b) 和 d) 有\[\mathcal{P}_k\mathbf{v} = \mathcal{P}_k(\mathbf{v}_1+\mathbf{v}_2+\dots+\mathbf{v}_r)=\mathcal{P}_k\mathbf{v}_k=\mathbf{v}_k.\]
 
 \end{proof}
 
 \subsection{代数重数的几何意义}
 
 \begin{proposition}
-    
+    特征值的代数重数等于对应广义特征空间的维数。
 \end{proposition}
+
+\begin{proof}
+    根据注 \ref{remark:gen_eigen_decomp}，如果将广义特征空间$E_k=E_{\lambda_k}$的基组合起来，以得到整个向量空间的基，则$A$在该基下的矩阵具有分块对角形式$A=\operatorname{diag}\{A_1,A_2,\dots,A_r\}$，其中$A_k:=A|_{E_k}$。算子$N_k=A_k-\lambda_k I_{E_k}$是幂零的，所以$\sigma(N_k)=\{0\}$。因此，算子$A_k$的谱（回顾：$A_k=N_k-\lambda_k I$）只包含一个特征值$\lambda_k$，其（代数）重数为$n_k=\dim E_k$。重数等于$n_k$，是因为有限维向量空间$V$上的算子恰有$\dim V$个特征值（以重数计），而$A_k$只有一个特征值。
+    
+    注意我们可以自由选取$E_k$的基，所以我们让对应的块$A_k$是上三角的。那么
+    \[\det(A-\lambda I)=\prod_{k=1}^{r}\det(A_{k}-\lambda I_{E_{k}})=\prod_{k=1}^{r}(\lambda_{k}-\lambda)^{n_{k}}.\]
+    而这意味着特征值$\lambda_k$的代数重数就是$n_k=\dim E_{\lambda_k}$。
+\end{proof}
 
 \subsection{一个重要应用}
 
