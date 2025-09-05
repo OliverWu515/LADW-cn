@@ -3,7 +3,7 @@
 
 \chapter{谱理论初步（特征值与特征向量）}\label{chap:SpectralIntro}
 
-谱理论是帮助我们理解线性算子之结构的主要工具。本章中，我们仅考虑从向量空间至其本身的算子（或与之等价的$n\times n$矩阵）。对于一个这样的线性变换$A:V\to V$，我们可以将其乘以自身，或取其任意次幂，以至将其放进多项式。
+谱理论\index{谱理论（spectral theory）}是帮助我们理解线性算子之结构的主要工具。本章中，我们仅考虑从向量空间至其本身的算子（或与之等价的$n\times n$矩阵）。对于一个这样的线性变换$A:V\to V$，我们可以将其乘以自身，或取其任意次幂，以至将其放进多项式。
 
 谱理论的主要思想是将算子分为简单的几块，并分别分析每块。
 
@@ -20,13 +20,13 @@
 
 \subsection{特征值、特征向量、谱}
 
-称标量$\lambda$为算子$A:V\to V$的\textbf{特征值}，若存在\textbf{非零}向量$\mathbf{v}\in V$使得\[A\mathbf{v}=\lambda\mathbf{v}.\]
-向量$\mathbf{v}$称为$A$（相应于特征值$\lambda$的）\textbf{特征向量}。
+称标量$\lambda$为算子$A:V\to V$的\textbf{特征值}，\index{特征值（eigenvalue）}若存在\textbf{非零}向量$\mathbf{v}\in V$使得\[A\mathbf{v}=\lambda\mathbf{v}.\]
+向量$\mathbf{v}$称为$A$（相应于特征值$\lambda$的）\textbf{特征向量}。\index{特征向量（eigenvector）}
 
 如果我们知道$\lambda$是特征值，则很容易求出特征向量：只需求解方程$A\mathbf{x}=\lambda\mathbf{x}$，或与之等价的\[(A-\lambda I)\mathbf{x}=\mathbf{0}.\]
 所以，求出\textbf{所有}相应于特征值$\lambda$的特征向量，就是求出$A-\lambda I$的零空间。这个零空间$\ker(A-\lambda I)$，即所有特征向量及$\mathbf{0}$向量所成的集合，称为\textbf{特征空间}。
 
-算子$A$的全体特征值构成的集合称为$A$的\textbf{谱}，常记为$\sigma(A)$。
+算子$A$的全体特征值构成的集合称为$A$的\textbf{谱}，常记为$\sigma(A)$。\index{谱（spectrum）}
 
 \subsection{求出特征值：特征多项式}
 
@@ -89,7 +89,7 @@
 
 如果$\lambda$是算子（矩阵）$A$的特征值，那么它是特征多项式$p(z)=\det(A-zI)$的根。此根的重数称为特征值$\lambda$的\textbf{（代数）重数}。
 
-任意次数为$n$的多项式$p(z)=\sum_{k=0}^{n}a_{k}z^{k}$都恰有$n$个复根（以重数计）。“\textbf{以重数计}”的意思是，如果一个根的重数为$d$，就需要列出它$d$次，并且在计数时重复数$d$次。换言之，$p$可表示为\[p(z)=a_n(z-\lambda_1)(z-\lambda_2)\ldots(z-\lambda_n).\]其中$\lambda_{1},\lambda_{2},\ldots,\lambda_{n}$是复根（以重数计）。
+任意次数为$n$的多项式$p(z)=\sum_{k=0}^{n}a_{k}z^{k}$都恰有$n$个复根（以重数计）\index{以重数计（counting multiplicities）}。“\textbf{以重数计}”的意思是，如果一个根的重数为$d$，就需要列出它$d$次，并且在计数时重复数$d$次。换言之，$p$可表示为\[p(z)=a_n(z-\lambda_1)(z-\lambda_2)\ldots(z-\lambda_n).\]其中$\lambda_{1},\lambda_{2},\ldots,\lambda_{n}$是复根（以重数计）。
 
 特征值还有另一种重数：特征空间$\ker(A-\lambda I)$的维数称为特征值$\lambda$的\textbf{几何重数}。
 

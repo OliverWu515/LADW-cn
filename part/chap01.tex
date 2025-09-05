@@ -198,7 +198,7 @@
 平凡的线性组合总等于$\mathbf{0}$（无论向量$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_p$是什么），这可能也是其名称的来历。
 
 \begin{definition*}
-    称一组向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}\in V$为{\bf 线性无关的}，若$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}$只有平凡线性组合（$\sum_{k=1}^{p}\alpha_{k}\mathbf{v}_{k}$，其中$\alpha_{k}=0\ \forall k$）等于$\mathbf{0}$。
+    称一组向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}\in V$为{\bf 线性无关的}，若$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}$只有平凡线性组合（$\sum_{k=1}^{p}\alpha_{k}\mathbf{v}_{k}$，其中$\alpha_{k}=0\ \forall k$）等于$\mathbf{0}$。\index{线性无关（linearly independent）}
 
     换言之，向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}$是线性无关的，当且仅当方程$x_1\mathbf{v}_1+x_2\mathbf{v}_2+\ldots+x_p\mathbf{v}_p=\mathbf{0}$（未知数为$x_k$）仅有平凡解（$x_{1}=x_{2}=\ldots=x_{p}=0$）。
 \end{definition*}
@@ -206,7 +206,7 @@
 若一向量组不是线性无关的，就称其为{\bf 线性相关的}。通过取线性无关定义的否定，我们得到以下定义：
 
 \begin{definition*}
-    称一组向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}\in V$为{\bf 线性相关的}，若$\mathbf{0}$可被表示为非平凡的线性组合$\mathbf{0}=\sum_{k=1}^{p}\alpha_{k}\mathbf{v}_{k}$。此处的“非平凡”是指至少一个系数$\alpha_{k}$是非零的。这可以写为（也通常表示为）$\sum_{k=1}^{p}|\alpha_{k}|\neq0$。
+    称一组向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}\in V$为{\bf 线性相关的}，若$\mathbf{0}$可被表示为非平凡的线性组合$\mathbf{0}=\sum_{k=1}^{p}\alpha_{k}\mathbf{v}_{k}$。此处的“非平凡”是指至少一个系数$\alpha_{k}$是非零的。这可以写为（也通常表示为）$\sum_{k=1}^{p}|\alpha_{k}|\neq0$。\index{线性相关（linearly dependent）}
 \end{definition*}
 
 换种方式表述该定义，我们可以说，向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}$是线性相关的，当且仅当存在标量$\alpha_1,\alpha_2,\ldots,\alpha_p$且$\sum_{k=1}^{p}|\alpha_{k}|\neq0$使得\[\sum_{k=1}^p\alpha_k\mathbf{v}_k=\mathbf{0}.\]
@@ -585,7 +585,7 @@
 
 \subsection{迹与矩阵乘法}
 
-对于方阵（$n\times n$矩阵）$A=(a_{j,k})$，其迹（记为$\tr A$）是对角项之和：
+对于方阵（$n\times n$矩阵）$A=(a_{j,k})$，其迹（记为$\tr A$）是对角项之和：\index{迹（trace）}
 \[\operatorname{trace}A=\sum_{k=1}^{n}a_{k,k}.\]
 \begin{theorem}\label{thm:trace_commute}
     令$A$和$B$分别为$m\times n$和$n\times m$矩阵（则乘积$AB$和$BA$都是定义完善的）。那么\[\tr (AB)=\tr(BA)\]
