@@ -106,7 +106,7 @@
 
 要看出与这些矩阵相乘能实现上述效果，\marginpar{\small 一种描述（或记忆）这些初等矩阵的方式是：它们是向$I$施加对应行变换的结果。}只需要观察列向量乘以这些矩阵会发生什么变化。
 
-注意所有初等矩阵都可逆（这对应于行变换的可逆性）。第一个矩阵的逆就是其本身。要得到第二个矩阵的逆，只需将$a$换成$1/a$。最后，通过将$a$换成$-a$可得第三个矩阵的逆。这些逆的正确性同样可通过观察列向量乘以这些矩阵会发生何种变化来检验。
+注意所有初等矩阵都可逆（这对应于行变换的可逆性）。第一个矩阵的逆就是其本身。要得到第二个矩阵的逆，只需将$a$换成$1/a$。最后，通过将$a$换成$-a$可得第三个矩阵的逆。这些逆的正确性同样可通过观察列向量乘以它们会发生何种变化来检验。
 
 因此，对方程组$A\mathbf{x}=\mathbf{b}$的增广矩阵做行变换等价于向该方程组左端乘上一个特殊的可逆矩阵$E$。在等式$A\mathbf{x}=\mathbf{b}$两端左乘$E$可得，方程\[A\mathbf{x}=\mathbf{b}\]的任意解也是方程\[EA\mathbf{x}=E\mathbf{b}\]的解。将这个方程左乘$E^{-1}$可得，其任意解是下述方程\[E^{-1}EA\mathbf{x}=E^{-1}E\mathbf{b}\]的解，也就是原方程$A\mathbf{x}=\mathbf{b}$的解。因此，行变换不改变方程组的解集。
 
@@ -384,7 +384,7 @@
   
   即，假设我们通过做任意行变换（不按照特定的算法）得到简化阶梯形矩阵。究竟是每次都会得到相同的矩阵，还是可能得到不同的矩阵？注意，只能做行变换，不允许做列变换。
 
-  {\bf 提示}：如果你是从可逆矩阵开始做变换呢？另外，主元是始终在同样的列中，还是根据所做的行变换不同而处于不同的列？如果你可以不通过（对简化阶梯形）做相反的行变换来推知主元列的位置，那么主元列的位置就不取决于行变换。
+  {\bf 提示}：如果你是从可逆矩阵开始做变换呢？另外，主元是始终在同样的列中，还是根据所做的行变换不同而处于不同的列？如果你可以不通过行变换来推知主元列的位置，那么主元列的位置就不取决于行变换。
 \end{problemset}
 
 \section{通过行化简求\texorpdfstring{$A^{-1}$}{A的逆}}
@@ -574,7 +574,7 @@
 
 该定理还可陈述为
 \begin{center}
-  \fbox{$A\mathbf{x}=\mathbf{b}$的通解} = \fbox{$A\mathbf{x}=\mathbf{b}$的一个特解} + \fbox{$A\mathbf{x}=\mathbf{0}$的通解}。
+  \fbox{$A\mathbf{x}=\mathbf{b}$的通解} $=$ \fbox{$A\mathbf{x}=\mathbf{b}$的一个特解} $+$ \fbox{$A\mathbf{x}=\mathbf{0}$的通解}。
 \end{center}
 \begin{proof}
   取定向量$\mathbf{x}_{1}$满足$A\mathbf{x}_{1}=\mathbf{b}$。令向量$\mathbf{x}_\mathrm{h}$满足$A\mathbf{x}_\mathrm{h}=\mathbf{0}$。那么对于$\mathbf{x}=\mathbf{x}_{1}+\mathbf{x}_{\mathrm{h}}$有\[A\mathbf{x}=A(\mathbf{x}_1+\mathbf{x}_\mathrm{h})=A\mathbf{x}_1+A\mathbf{x}_\mathrm{h}=\mathbf{b}+\mathbf{0}=\mathbf{b},\]
@@ -596,7 +596,6 @@
 此处的参数$x_3$和$x_5$可用任意其他字母替代，比如说$t$和$s$。用$x_3$和$x_5$来表示，只是为了提醒我们，这些参数来自相应的自由变量。
 
 现在假设这个解已给出，并要检验其是否正确。当然，我们可以重做行变换，但这太费时了。并且，如果解不是通过标准的方法获得的，那么它可能与从行化简得到的解看起来不同。例如，
-\pagebreak
 \begin{equation}\label{example_solution_2}
   \mathbf{x}=\begin{pmatrix}3\\1\\0\\2\\0\end{pmatrix}+s\begin{pmatrix}-2\\1\\1\\0\\0\end{pmatrix}+t\begin{pmatrix}0\\0\\1\\2\\1\end{pmatrix},\quad s,t\in\mathbb{F}
 \end{equation}
@@ -665,9 +664,9 @@
   （此处我们将向量竖写为列向量。究竟是像此处一样竖写为列向量还是横写为行向量，是个习惯问题。这里写成列向量的理由是，尽管我们称$\rg A^T$是{\bf 行空间}，但我们其实将它定义为$A^T$的列空间）
 
   为计算零空间$\ker A$的基，我们需要解方程$A\mathbf{x}=\mathbf{0}$。计算$A$的{\bf 简化}阶梯形，对于本例是\[\begin{pmatrix}\boxed{1}&1&0&0&1/3\\0&0&\boxed{1}&1&1/3\\0&0&0&0&0\\0&0&0&0&0\end{pmatrix}.\]
-  \pagebreak
-
-  \noindent 注意，在求解齐次方程$A\mathbf{x}=\mathbf{0}$时，并不需要写出完整的增广矩阵。的确，此时增广矩阵的最后一列全为$0$，在行变换中不会改变。因此，我们不需要真的写出它，而只需记得有这一列，则可从上述简化阶梯形中看出解为\[\left\{\begin{array}{l}x_1=-x_2-\frac{1}{3}x_5,\\x_2~\text{是自由变量},\\x_3=-x_4-\frac{1}{3}x_5\\x_4~\text{是自由变量},\\x_5~\text{是自由变量},\end{array}\right.\]
+注意，在求解齐次方程$A\mathbf{x}=\mathbf{0}$时，并不需要写出完整的增广矩阵。的确，此时增广矩阵的最后一列全为$0$，在行变换中不会改变。因此，我们不需要真的写出它，而只需记得有这一列，则可从上述简化阶梯形中看出解为
+\pagebreak
+\[\left\{\begin{array}{l}x_1=-x_2-\frac{1}{3}x_5,\\x_2~\text{是自由变量},\\x_3=-x_4-\frac{1}{3}x_5\\x_4~\text{是自由变量},\\x_5~\text{是自由变量},\end{array}\right.\]
   或写成向量形式
   \begin{equation}\label{basis_of_ker_a}
     \mathbf{x}=\begin{pmatrix}-x_2-\frac{1}{3}x_5\\x_2\\-x_4-\frac{1}{3}x_5\\x_4\\x_5\end{pmatrix}=x_2\begin{pmatrix}-1\\1\\0\\0\\0\end{pmatrix}+x_4\begin{pmatrix}0\\0\\-1\\1\\0\end{pmatrix}+x_5\begin{pmatrix}-1/3\\0\\-1/3\\0\\1\end{pmatrix}
@@ -835,7 +834,7 @@
   \item $A$和$B$的四个基本子空间相同，是否意味着$A=B$？
   \item 将下列矩阵的行补全为$\mathbb{R}^7$的基：\[\begin{pmatrix}e^3&3&4&0&-\pi&6&-2\\0&0&2&-1&\pi^e&1&1\\0&0&0&0&3&-3&2\\0&0&0&0&0&0&1\end{pmatrix}\]
   \item 求出下列矩阵的列空间和行空间的基\[\begin{pmatrix}1&2&-1&2&3\\2&2&1&5&5\\3&6&-3&0&24\\-1&-4&4&-7&11\end{pmatrix}\]
-  \item 对上题中的矩阵，将它的行补全为$\mathbb{R}^5$的基。
+  \item 对上题中的矩阵，将其行空间的基补全为$\mathbb{R}^5$的基。
   \item 对矩阵\[A=\begin{pmatrix}1&i\\i&-1\end{pmatrix}\]计算$\rg A$和$\ker A$。关于这些子空间的关系，可得出什么结论？
   \item $\rg A=\ker A^T$可能对于实矩阵$A$成立吗？复矩阵呢？
   \item 将向量$(1,2,-1,2,3)^{T},(2,2,1,5,5)^{T},(-1,-4,4,7,-11)^{T}$补全为$\mathbb{R}^5$的基。
@@ -888,7 +887,7 @@
 该矩阵就是第$k$列为列向量$\mathbf{v}_k$的矩阵$B$。另一方向的变换矩阵则是\[\left[I\right]_{\mathcal{BS}}=\left(\left[I\right]_{\mathcal{SB}}\right)^{-1}=B^{-1}.\]
 
 例如，考虑$\mathbb{F}^2$的基\[\mathcal{B}=\left\{\begin{pmatrix}1\\2\end{pmatrix},\quad\begin{pmatrix}2\\1\end{pmatrix}\right\}\]
-并令$\mathcal{S}$表示其的标准基。那么\[\left[I\right]_{\mathcal{SB}}=\begin{pmatrix}1&2\\2&1\end{pmatrix}=:B\]并且\[[I]_{\mathcal{BS}}=[I]_{\mathcal{SB}}^{-1}=B^{-1}=\frac{1}{3}\begin{pmatrix}-1&2\\2&-1\end{pmatrix}\]
+并令$\mathcal{S}$表示$\mathbb{F}^2$的标准基。那么\[\left[I\right]_{\mathcal{SB}}=\begin{pmatrix}1&2\\2&1\end{pmatrix}=:B\]并且\[[I]_{\mathcal{BS}}=[I]_{\mathcal{SB}}^{-1}=B^{-1}=\frac{1}{3}\begin{pmatrix}-1&2\\2&-1\end{pmatrix}\]
 （我们已经知道了逆的计算方法，并且也容易检验上述矩阵确实为$B$的逆）
 
 \subsubsection{示例：从标准基“中转”一下}
@@ -918,7 +917,7 @@
 
 设$V$是向量空间，$\mathcal{A}=\{\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{n}\}$是$V$的基。考察线性变换$T:V\to V$，令$[T]_{\mathcal{AA}}$是此变换相应于该基的矩阵（对于“输入”和“输出”使用相同的基）。
 
-对于“输入”和“输出”使用相同的基这一情形十分重要（因为在此情形下矩阵可以自乘），因此我们更细致地研究一下这个情形。注意，该情形下，常用更简单的记号$[T]_{\mathcal{A}}$而不用$[T]_{\mathcal{AA}}$。不过，有两个下标的记号$[T]_{\mathcal{AA}}$更符合“下标平衡”规则，所以我推荐在进行坐标变换时使用它（至少要对它有印象）。
+“输入”和“输出”使用相同的基这一情形十分重要（因为在此情形下矩阵可以自乘），因此我们更细致地研究一下这个情形。注意，该情形下，常用更简单的记号$[T]_{\mathcal{A}}$而不用$[T]_{\mathcal{AA}}$。不过，有两个下标的记号$[T]_{\mathcal{AA}}$更符合“下标平衡”规则，所以我推荐在进行坐标变换时使用它（至少要对它有印象）。
 
 令$\mathcal{B}=\{\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}\}$是$V$的另一个基。由前述坐标变换规则\[[T]_{\mathcal{BB}}=[I]_{\mathcal{BA}}[T]_{\mathcal{AA}}[I]_{\mathcal{AB}}\]
 回想一下：\[[I]_{\mathcal{BA}}=[I]_{\mathcal{AB}}^{-1}\]
