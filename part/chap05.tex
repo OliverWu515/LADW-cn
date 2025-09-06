@@ -317,7 +317,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 
 显然，如果$\dim V=n$，那么任意由$n$个非零向量构成的正交向量组都是正交基。
 
-我们前面讨论过，要求出向量在基下的坐标，需要求解线性方程组。然而，求出向量关于正交基的坐标要容易得多：设$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是正交基，并令\[\mathbf{x}=\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\cdots+\alpha_n\mathbf{v}_n=\sum_{j=1}^n\alpha_j\mathbf{v}_j.\]
+我们前面讨论过，要求出向量在基下的坐标，需要解线性方程组。然而，求出向量关于正交基的坐标要容易得多：设$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是正交基，并令\[\mathbf{x}=\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\cdots+\alpha_n\mathbf{v}_n=\sum_{j=1}^n\alpha_j\mathbf{v}_j.\]
 将此式两端与$\mathbf{v}_1$做内积可得（所有满足$j\ne 1$的内积$(\mathbf{v}_j,\mathbf{v}_1)=0$）
 \[(\mathbf{x},\mathbf{v}_1)=\sum_{j=1}^n\alpha_j(\mathbf{v}_j,\mathbf{v}_1)=\alpha_1(\mathbf{v}_1,\mathbf{v}_1)=\alpha_1\|\mathbf{v}_1\|^2\]
 所以\[\alpha_1=\frac{(\mathbf{x},\mathbf{v}_1)}{\|\mathbf{v}_1\|^2}.\]
@@ -329,7 +329,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 \end{equation}
 因此，
 \begin{center}
-    \fbox{\parbox{0.8\linewidth}{要求出向量在正交基下的坐标，无需求解线性方程组，而只需根据 \eqref{coeff_orthogonal} 确定坐标。}}
+    \fbox{\parbox{0.8\linewidth}{要求出向量在正交基下的坐标，无需解线性方程组，而只需根据 \eqref{coeff_orthogonal} 确定坐标。}}
 \end{center}
 这个公式对于规范正交基尤其简单（$\|\mathbf{v}_k\|=1$）。
 
@@ -613,9 +613,9 @@ $$
 
 如在第 \ref{chap:LinearSystems} 章中所讨论的，方程%此处行间改行内
 $A\mathbf{x}=\mathbf{b}$
-有解，当且仅当$\mathbf{b}\in\rg A$。但是，如何求解一个无解的方程组呢？
+有解，当且仅当$\mathbf{b}\in\rg A$。但是，如何解一个无解的方程组呢？
 
-这看起来是个蠢问题——如果无解的话，那就无解呀。但其实，要求解一个无解的方程组的情况会很自然地出现。比如，当我们的方程是从实验数据得到的时候。如果没有任何误差，那么右端项$\mathbf{b}$就属于列空间$\rg A$，并且方程组是相容的；但是，现实中测量误差是不可避免的，所以理论上有解的方程组在现实中也可能无解。那么，这种情况下我们怎么办呢？
+这看起来是个蠢问题——如果无解的话，那就无解呀。但其实，要解一个无解的方程组的情况会很自然地出现。比如，当我们的方程是从实验数据得到的时候。如果没有任何误差，那么右端项$\mathbf{b}$就属于列空间$\rg A$，并且方程组是相容的；但是，现实中测量误差是不可避免的，所以理论上有解的方程组在现实中也可能无解。那么，这种情况下我们怎么办呢？
 
 \subsection{最小平方解}
 
@@ -655,7 +655,7 @@ $A\mathbf{x}$是正交投影$P_{\rg A}\mathbf{b}$当且仅当$\mathbf{b}-A\mathb
 
 \subsection{正交投影的公式}
 
-如我们之前已讨论的，如果$\mathbf{x}$是\textbf{法方程}$A^*A\mathbf{x}=A^*\mathbf{b}$的解（即$A\mathbf{x}=\mathbf{b}$的最小平方解），那么$A\mathbf{x}=P_{\rg A}\mathbf{b}$。所以，为求$\mathbf{b}$往列空间$\rg A$上的正交投影，需要求解法方程$A^*A\mathbf{x}=A^*\mathbf{b}$，然后将所得的解乘以$A$。
+如我们之前已讨论的，如果$\mathbf{x}$是\textbf{法方程}$A^*A\mathbf{x}=A^*\mathbf{b}$的解（即$A\mathbf{x}=\mathbf{b}$的最小平方解），那么$A\mathbf{x}=P_{\rg A}\mathbf{b}$。所以，为求$\mathbf{b}$往列空间$\rg A$上的正交投影，需要解法方程$A^*A\mathbf{x}=A^*\mathbf{b}$，然后将所得的解乘以$A$。
 
 如果算子$A^*A$可逆，那么法方程$A^*A\mathbf{x}=A^*\mathbf{b}$的解是$\mathbf{x}=(A^*A)^{-1}$ $A^*\mathbf{b}$，所以正交投影$P_{\rg A}\mathbf{b}$可按下式计算\[P_{\rg A}\mathbf{b}=A(A^*A)^{-1}A^*\mathbf{b}\]
 因为这对于所有$\mathbf{b}$都成立，所以往$\rg A$上正交投影的矩阵的公式是\[P_{\rg A}=A(A^*A)^{-1}A^*\]

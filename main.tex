@@ -4,11 +4,11 @@
 % zhbook 中文书籍 LaTeX 模板
 
 %--- 正文前后都没有空白页 ---
-\documentclass[openany,twoside,zihao=-4]{zhbook}
+% \documentclass[openany,twoside,zihao=-4]{zhbook}
 % print 用于打印, 封面等生成空白页
 
 %--- 正文前后都有空白页, 正文一章结束可空白页使新的一章是在奇数页开始 ---
-% \documentclass[twoside,openright,zihao=-4]{zhbook}
+\documentclass[twoside,openright,zihao=-4]{zhbook}
 
 
 % 书籍信息设置
@@ -17,7 +17,7 @@
 \author{[美] Sergei Treil}  % 作者姓名
 \date{\today}  % 日期
 % \version{1.0}  % 版本
-\bioinfo{译者}{吴俊达}  % 其他信息
+\bioinfo{译者}{吴俊达、何阳}  % 其他信息
 \extrainfo{仅供个人学习使用，禁止传播}
 
 % \extrainfo{\plogo \\[8pt] 出版社}
@@ -131,7 +131,7 @@
 
 \input{part/preface_trans}
 \input{part/preface}
-\input{part/errata.tex}
+% \input{part/errata.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%% 目录 %%%%%%%%%%%%%%%%%%%%%%%
 

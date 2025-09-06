@@ -8,7 +8,7 @@
 谱理论的主要思想是将算子分为简单的几块，并分别分析每块。
 
 为了解释这一主要思想，我们来考虑{\bf 差分方程}。许多过程可用下面这类方程来描述：\[\mathbf{x}_{n+1}=A\mathbf{x}_{n},\quad n=0,1,2,\ldots,\]
-其中$A:V\to V$是线性变换，$\mathbf{x}_n$是时刻$n$处的系统状态。给定初始状态$\mathbf{x}_{0}$，我们想要知道时刻$n$处的状态$\mathbf{x}_n$、分析$\mathbf{x}_n$的长期演变，等等\footnote{差分方程类似于“离散时间下的\textbf{微分方程}$\mathbf{x}'(t)=A\mathbf{x}(t)$”。为求解微分方程，我们需要计算$e^{tA}:=\sum_{k=0}^{\infty}t^{k}A^{k}/k!$，而谱理论也能帮助我们进行该计算。}。
+其中$A:V\to V$是线性变换，$\mathbf{x}_n$是时刻$n$处的系统状态。给定初始状态$\mathbf{x}_{0}$，我们想要知道时刻$n$处的状态$\mathbf{x}_n$、分析$\mathbf{x}_n$的长期演变，等等\footnote{差分方程类似于“离散时间下的\textbf{微分方程}$\mathbf{x}'(t)=A\mathbf{x}(t)$”。为解微分方程，我们需要计算$e^{tA}:=\sum_{k=0}^{\infty}t^{k}A^{k}/k!$，而谱理论也能帮助我们进行该计算。}。
 
 乍一看，此问题很简单：用公式$\mathbf{x}_n=A^n\mathbf{x}_0$即可得解$\mathbf{x}_n$。但是，如果$n$很大，有几千甚至几百万呢？又，如果我们要分析$n\to\infty$时$\mathbf{x}_n$的演变呢？
 
@@ -23,7 +23,7 @@
 称标量$\lambda$为算子$A:V\to V$的\textbf{特征值}，\index{特征值（eigenvalue）}若存在\textbf{非零}向量$\mathbf{v}\in V$使得\[A\mathbf{v}=\lambda\mathbf{v}.\]
 向量$\mathbf{v}$称为$A$（相应于特征值$\lambda$的）\textbf{特征向量}。\index{特征向量（eigenvector）}
 
-如果我们知道$\lambda$是特征值，则很容易求出特征向量：只需求解方程$A\mathbf{x}=\lambda\mathbf{x}$，或与之等价的\[(A-\lambda I)\mathbf{x}=\mathbf{0}.\]
+如果我们知道$\lambda$是特征值，则很容易求出特征向量：只需解方程$A\mathbf{x}=\lambda\mathbf{x}$，或与之等价的\[(A-\lambda I)\mathbf{x}=\mathbf{0}.\]
 所以，求出\textbf{所有}相应于特征值$\lambda$的特征向量，就是求出$A-\lambda I$的零空间。这个零空间$\ker(A-\lambda I)$，即所有特征向量及$\mathbf{0}$向量所成的集合，称为\textbf{特征空间}。
 
 算子$A$的全体特征值构成的集合称为$A$的\textbf{谱}，常记为$\sigma(A)$。\index{谱（spectrum）}
@@ -465,7 +465,7 @@ $$\left|\begin{array}{cc}1-\lambda&1\\0&1-\lambda\end{array}\right|=(1-\lambda)^
     \item 转置变换的特征值：
     \begin{probenumerate}
         \item 考虑由$2\times 2$矩阵构成的向量空间$M_{2\times 2}$中的变换$T$，$T(A)=A^T$。求出它的所有特征值和特征向量。这个变换可对角化吗？{\bf 提示}：尽管可以通过写出这个线性变换关于某个基的矩阵，再计算特征多项式……的常规方法计算，但更为简单的办法是直接从定义出发。
-        \item 将$2\times 2$换成$n\times n$，再求解上述问题。
+        \item 将$2\times 2$换成$n\times n$，再解答上述问题。
     \end{probenumerate}
     \item 证明：两个子空间$V_1$和$V_2$线性无关，当且仅当$V_1\cap V_2=\{\mathbf{0}\}$。
 \end{problemset}

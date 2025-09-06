@@ -633,11 +633,11 @@ $\mathbb{R}^n$中满足上述不等式的点构成的集合称为椭球。若$n=
 
 \subsection{矩阵的条件数}
 
-假设有可逆矩阵$A$，欲求解方程$A\mathbf{x}=\mathbf{b}$。该方程的解自然是$\mathbf{x}=A^{-1}\mathbf{b}$，但我们要分析，如果方程中的数据仅仅是粗略的，会发生什么。
+假设有可逆矩阵$A$，欲解方程$A\mathbf{x}=\mathbf{b}$。该方程的解自然是$\mathbf{x}=A^{-1}\mathbf{b}$，但我们要分析，如果方程中的数据仅仅是粗略的，会发生什么。
 
 这在现实中是会发生的——比如数据是从实验中得到的。即便我们得到了确切的数据，计算机运算时产生的舍入误差也可能使数据产生相同的失真。
 
-我们考虑一个简单的失真模型——假设方程右侧有微小误差。这就意味着我们不是求解$A\mathbf{x}=\mathbf{b}$，而是求解\[A\mathbf{x}=\mathbf{b}+\Delta\mathbf{b},\]
+我们考虑一个简单的失真模型——假设方程右侧有微小误差。这就意味着我们不是解$A\mathbf{x}=\mathbf{b}$，而是解\[A\mathbf{x}=\mathbf{b}+\Delta\mathbf{b},\]
 其中$\Delta\mathbf{b}$是右端项$\mathbf{b}$的微小扰动。
 
 于是，我们并不是得到$A\mathbf{x}=\mathbf{b}$的精确解$\mathbf{x}$，而是得到$A(\mathbf{x}+\Delta\mathbf{x})=\mathbf{b}+\Delta\mathbf{b}$的近似解$\mathbf{x}+\Delta\mathbf{x}$。我们假设$A$可逆，从而$\Delta\mathbf{x}=A^{-1}\Delta\mathbf{b}$。

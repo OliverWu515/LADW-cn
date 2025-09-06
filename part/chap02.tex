@@ -14,13 +14,13 @@
     a_{m,1}x_1&+&a_{m,2}x_2&+&\ldots&+&a_{m,n}x_n&=&b_m
   \end{array}\right.\]
 
-求解该方程组即求出{\bf 所有}同时满足这$m$个方程的数$x_1,x_2,\dots,x_n$构成的$n$元组。
+解该方程组即求出{\bf 所有}同时满足这$m$个方程的数$x_1,x_2,\dots,x_n$构成的$n$元组。
 
 如果记$\mathbf{x}:=(x_{1},x_{2},\ldots,x_{n})^{T}\in\mathbb{F}^{n},\mathbf{b}=(b_{1},b_{2},\ldots,b_{m})^{T}\in\mathbb{F}^{m}$，且记
 \[A=\begin{pmatrix}a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&&\vdots\\a_{m,1}&a_{m,2}&\ldots&a_{m,n}\end{pmatrix},\]
 那么上述线性方程组可以写成{\bf 矩阵形式}（也即{\bf 矩阵-向量方程}）
 \[A\mathbf{x}=\mathbf{b}.\]
-求解上述方程即求出所有满足$A\mathbf{x}=\mathbf{b}$的向量$\mathbf{x}\in\mathbb{F}^{n}$。
+解上述方程即求出所有满足$A\mathbf{x}=\mathbf{b}$的向量$\mathbf{x}\in\mathbb{F}^{n}$。
 
 最后，回想一下矩阵-向量乘法的“列乘以坐标”规则，我们可以将原方程组写为{\bf 向量方程}
 \[x_1\mathbf{a}_1+x_2\mathbf{a}_2+\cdots+x_n\mathbf{a}_n=\mathbf{b},\]
@@ -28,7 +28,7 @@
 
 注意，上面三例本质上只是同种数学对象的不同表达而已。
 
-在开始解释如何求解线性方程组之前，我们首先要注意，未知数的记法——比如$x_k,y_k$或者其他名称——都无关紧要。所以，求解线性方程组所必需的信息全部包含于两者：矩阵$A$（称为线性方程组的{\bf 系数矩阵}）和（右端）向量$\mathbf{b}$。进而，我们所需的全部信息都包含于以下矩阵
+在开始解释如何解线性方程组之前，我们首先要注意，未知数的记法——比如$x_k,y_k$或者其他名称——都无关紧要。所以，解线性方程组所必需的信息全部包含于两者：矩阵$A$（称为线性方程组的{\bf 系数矩阵}）和（右端）向量$\mathbf{b}$。进而，我们所需的全部信息都包含于以下矩阵
 \pagebreak
 \[\left(
   \begin{array}{cccc|c}
@@ -408,7 +408,7 @@
   \item 如果通过行变换不能把$A$变换为恒等矩阵，那么$A$不可逆。
 \end{enumerate}
 
-上述算法有好几种解释。第一种（也是比较朴素的一种）是：我们知道对于可逆矩阵$A$，向量$A^{-1}\mathbf{b}$是方程$A\mathbf{x}=\mathbf{b}$的解。所以为了求出$A^{-1}$的第$k$列，我们需要求出$A\mathbf{x}=\mathbf{e}_k$的解，其中$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$是$\mathbb{R}^n$的标准基。上述算法就是同时求解了如下$n$个方程\[A\mathbf{x}=\mathbf{e}_k,\quad k=1,2,\ldots,n\]
+上述算法有好几种解释。第一种（也是比较朴素的一种）是：我们知道对于可逆矩阵$A$，向量$A^{-1}\mathbf{b}$是方程$A\mathbf{x}=\mathbf{b}$的解。所以为了求出$A^{-1}$的第$k$列，我们需要求出$A\mathbf{x}=\mathbf{e}_k$的解，其中$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$是$\mathbb{R}^n$的标准基。上述算法就是同时解了如下$n$个方程\[A\mathbf{x}=\mathbf{e}_k,\quad k=1,2,\ldots,n\]
 
 我们再展示一种更为“高级”的解释。之前我们讨论过，每次行变换都可通过左乘初等矩阵来实现。令$E_{1},E_{2},\ldots,E_{N}$是对应于我们所做的行变换的初等矩阵，并令$E=E_{N}\cdots E_{2}E_{1}$为它们的乘积\footnote{尽管此处顺序无关紧要，但请注意，若行变换$E_1$是最先进行的，那么在乘积中$E_1$是最右侧的一项。}。我们知道行变换可将$A$变为恒等矩阵，也即$EA=I$，故$E=A^{-1}$。而同样的行变换作用于扩充的矩阵$(A|I)$，会将其变为$(EA|E) = (I|A^{-1})$。{\hfill \qedsymbol}
 
@@ -531,7 +531,7 @@
   此外，若$\dim V= \dim W$，则$V=W$（仍假设$V$是$W$的子空间）。
 \end{theorem}
 \begin{remark*}
-  这定理初看上去没什么意思——似乎只是命题 \ref{prop:arbit_li_no_more} 的简单推论。然而，仅在已有$V$的基时，才能应用命题 \ref{prop:arbit_li_no_more}。但此处我们只有$W$的基，并且无法确定该基中有多少向量属于$V$。事实上，$W$的这个基中可能没有一个向量属于$V$——很容易举出这样的例子。
+  这定理初看上去索然无味——似乎只是命题 \ref{prop:arbit_li_no_more} 的简单推论。然而，仅在已有$V$的基时，才能应用命题 \ref{prop:arbit_li_no_more}。但此处我们只有$W$的基，并且无法确定该基中有多少向量属于$V$。事实上，$W$的这个基中可能没有一个向量属于$V$——很容易举出这样的例子。
 \end{remark*}
 
 \begin{proof}[定理 \ref{thm:subspace_finite_dimensional} 的证明]
@@ -607,7 +607,7 @@
 \begin{equation}\label{example_solution_2}
   \mathbf{x}=\begin{pmatrix}3\\1\\0\\2\\0\end{pmatrix}+s\begin{pmatrix}-2\\1\\1\\0\\0\end{pmatrix}+t\begin{pmatrix}0\\0\\1\\2\\1\end{pmatrix},\quad s,t\in\mathbb{F}
 \end{equation}
-与 \eqref{example_solution} 表示同样的解集（你能看出为什么吗？），这里我们只是将 \eqref{example_solution} 中的最后一个向量替换成了它和第二个向量之和。因此，虽然这个式子和我们根据行化简得到的解不同，但它是正确的。
+与 \eqref{example_solution} 表示同样的解集（你能看出为什么吗？），这里我们只是将 \eqref{example_solution} 中的最后一个向量替换成了它和第二个向量之和。因此，虽然这个式子和我们根据行化简得到的解不同，但它仍然是正确的。
 
 检验 \eqref{example_solution} 和 \eqref{example_solution_2} 给出了正确解的最简单方法，就是检验第一个向量$(3,1,0,2,0)^T$满足方程$A\mathbf{x} = \mathbf{b}$，并且其余两个向量（前面有参数的那两个向量）满足原方程组所关联的齐次方程组$A\mathbf{x} = \mathbf{0}$。
 
@@ -663,7 +663,7 @@
 \begin{enumerate}
   \item \textbf{原}矩阵$A$的主元列（即做行变换之后，所得阶梯形中具有主元的那些列）就是$\rg A$的一个基。
   \item 阶梯形$A_{\mathrm{e}}$的主元{\bf 行}给出了行空间的一个基。当然，也可以取原矩阵的转置并做行变换。但是，如果我们已经得到$A$的阶梯形（比如说在计算$\rg A$的过程中），那么我们就可马上得到$\rg A^T$。
-  \item 为了求出零空间$\ker A$的基，需要求解齐次方程$A\mathbf{x}=\mathbf{0}$：细节参见下面示例。
+  \item 为了求出零空间$\ker A$的基，需要解齐次方程$A\mathbf{x}=\mathbf{0}$：细节参见下面示例。
 \end{enumerate}
 
 \begin{example*}
@@ -674,7 +674,7 @@
   （此处我们将向量竖写为列向量。究竟是像此处一样竖写为列向量还是横写为行向量，是个习惯问题。这里写成列向量的理由是，尽管我们称$\rg A^T$是{\bf 行空间}，但我们其实将它定义为$A^T$的列空间）
 
   为计算零空间$\ker A$的基，我们需要解方程$A\mathbf{x}=\mathbf{0}$。计算$A$的{\bf 简化}阶梯形，对于本例是\[\begin{pmatrix}\boxed{1}&1&0&0&1/3\\0&0&\boxed{1}&1&1/3\\0&0&0&0&0\\0&0&0&0&0\end{pmatrix}.\]
-注意，在求解齐次方程$A\mathbf{x}=\mathbf{0}$时，并不需要写出完整的增广矩阵。的确，此时增广矩阵的最后一列全为$0$，在行变换中不会改变。因此，我们不需要真的写出它，而只需记得有这一列，则可从上述简化阶梯形中看出解为
+注意，在解齐次方程$A\mathbf{x}=\mathbf{0}$时，并不需要写出完整的增广矩阵。的确，此时增广矩阵的最后一列全为$0$，在行变换中不会改变。因此，我们不需要真的写出它，而只需记得有这一列，则可从上述简化阶梯形中看出解为
 \pagebreak
 \[\left\{\begin{array}{l}x_1=-x_2-\frac{1}{3}x_5,\\x_2~\text{是自由变量},\\x_3=-x_4-\frac{1}{3}x_5\\x_4~\text{是自由变量},\\x_5~\text{是自由变量},\end{array}\right.\]
   或写成向量形式
@@ -684,7 +684,7 @@
   每个自由变量之后的向量，也即向量\[\begin{pmatrix}-1\\1\\0\\0\\0\end{pmatrix},\quad\begin{pmatrix}0\\0\\-1\\1\\0\end{pmatrix},\quad\begin{pmatrix}-1/3\\0\\-1/3\\0\\1\end{pmatrix}\]
   形成$\ker A$的基。
 
-  遗憾的是，求出$\ker A^T$的基并没有捷径——必须求解方程$A^T\mathbf{x}=\mathbf{0}$。已知$A$的阶梯形并无帮助。
+  遗憾的是，求出$\ker A^T$的基并没有捷径——必须解方程$A^T\mathbf{x}=\mathbf{0}$。已知$A$的阶梯形并无帮助。
 \end{example*}
 
 \subsection{基本子空间的基的计算方式的解释}
@@ -693,7 +693,7 @@
 
 \subsubsection{零空间\texorpdfstring{$\ker A$}{Ker A}}
 
-零空间$\ker A$的基的求法解释起来可能最容易：因为我们求解了方程$A\mathbf{x}=\mathbf{0}$，即求出它所有的解，那么$\ker A$中所有向量都是我们所得各向量的线性组合。因此，我们所得各向量形成了$\ker A$的张成组。要看出这个向量组是线性无关的，将每个向量都乘以对应的自由变量并求和——见 \eqref{basis_of_ker_a}。那么对于任意自由变量$x_k$，求和结果的第$k$项恰为$x_k$（同样可见 \eqref{basis_of_ker_a}），因此该结果（线性组合）为$\mathbf{0}$只有一种可能，就是所有自由变量都为$0$。
+零空间$\ker A$的基的求法解释起来可能最容易：因为我们解了方程$A\mathbf{x}=\mathbf{0}$，即求出它所有的解，那么$\ker A$中所有向量都是我们所得各向量的线性组合。因此，我们所得各向量形成了$\ker A$的张成组。要看出这个向量组是线性无关的，将每个向量都乘以对应的自由变量并求和——见 \eqref{basis_of_ker_a}。那么对于任意自由变量$x_k$，求和结果的第$k$项恰为$x_k$（同样可见 \eqref{basis_of_ker_a}），因此该结果（线性组合）为$\mathbf{0}$只有一种可能，就是所有自由变量都为$0$。
 
 \subsubsection{列空间\texorpdfstring{$\rg A$}{Ran A}}
 
@@ -722,7 +722,7 @@
 
 \subsection{秩定理、基本子空间的维数}
 
-在许多实际应用中，都需要求出矩阵列空间或零空间的基。例如，如上所示，求解齐次方程组$A\mathbf{x}=\mathbf{0}$就是求出零空间$\ker A$的基。求出列空间的基也就意味着从张成组中“提取”出一个基（通过移除不必需的列向量）。
+在许多实际应用中，都需要求出矩阵列空间或零空间的基。例如，如上所示，解齐次方程组$A\mathbf{x}=\mathbf{0}$就是求出零空间$\ker A$的基。求出列空间的基也就意味着从张成组中“提取”出一个基（通过移除不必需的列向量）。
 
 然而，上述基本子空间的基的计算方法的最重要应用，就是得出这些子空间的维数关系。
 
@@ -886,7 +886,7 @@
 设向量空间$V$有两个基$\mathcal{A} = \{\mathbf{a}_1,\mathbf{a}_2,\ldots,\mathbf{a}_n\}$和$\mathcal{B} = \{\mathbf{b}_1,\mathbf{b}_2,\ldots,$ $\mathbf{b}_n\}$。考虑恒等变换$I=I_V$及其关于这些基的矩阵$[I]_{\mathcal{BA}}$。根据定义有\[\left[\mathbf{v}\right]_{\mathcal{B}}=[I]_{\mathcal{BA}}\left[\mathbf{v}\right]_{\mathcal{A}},\quad\forall\mathbf{v}\in V,\]
 也即，对于任意向量$\mathbf{v}\in V$，矩阵$[I]_{\mathcal{BA}}$将它在基$\mathcal{A}$中的坐标变换为在基$\mathcal{B}$中的坐标。矩阵$[I]_{\mathcal{BA}}$常称为（从基$\mathcal{A}$到基$\mathcal{B}$的）\textbf{坐标变换}矩阵。
 
-矩阵$[I]_{\mathcal{BA}}$很容易计算：根据求解线性变换矩阵的一般规则，它的第$k$列是基$\mathcal{A}$中第$k$个元素的坐标$\left[\mathbf{a}_k\right]_{\mathcal{B}}$。
+矩阵$[I]_{\mathcal{BA}}$很容易计算：根据线性变换矩阵的一般求法，它的第$k$列是基$\mathcal{A}$中第$k$个元素的坐标$\left[\mathbf{a}_k\right]_{\mathcal{B}}$。
 
 注意\[[I]_{\mathcal{AB}}=([I]_{\mathcal{BA}})^{-1},\]
 （由矩阵乘法法则 \eqref{mul_of_matrix} 可立得）因此任意坐标变换矩阵都是可逆的。
