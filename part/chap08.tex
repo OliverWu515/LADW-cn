@@ -2,11 +2,102 @@
 
 \chapter{对偶空间和张量}\label{chap:DualandTensor}
 
+本章中的所有向量空间均为有限维的。
+
 \section{对偶空间}
+
+\subsection{线性泛函和对偶空间。对偶空间中的坐标变换。}
+
+\begin{definition}
+    （域 $\mathbb{F}$ 上的）向量空间 $V$ 上的线性泛函即线性变换 $L : V \to \mathbb{F}$。
+\end{definition}
+
+这类特殊的线性变换非常重要，值得单独命名。%原文漏了个is
+
+如果将向量视为某种物理对象，例如力或速度，那么就可以将线性泛函视为一种（线性的）测量，其给出某个标量值作为结果（考虑给定方向上的力或速度）。%some a scalar quantity, emmm
+
+\begin{definition}
+    有限维\footnote{我们在这里只考虑有限维向量空间，是因为无限维向量空间的对偶空间仅包含所谓的{\bf 有界}线性泛函（而非所有线性泛函）。我们这里不给出精确定义，只是提及在有限维情形下（定义空间和目标空间均为有限维的）所有线性变换都是有界的，而不再需要提到{\bf 有界}这个词。}向量空间 $V$ 上的所有线性泛函所成的集合，称为 $V$ 的{\bf 对偶}，通常记作 $V^\prime$ 或 $V^*$。
+\end{definition}
+
+正如先前在第~\ref{chap:BasicNotion}~章第~\ref{sec:linear_transformations_as_vectors}~节中所讨论的那样，从 $V$ 到 $W$ 的所有线性变换所成的集合 $\mathcal{L}(V, W)$ 是向量空间（具有自然的加法和标量乘法运算）。因此，对偶空间 $V^\prime = \mathcal{L}(V, \mathbb{F})$ 也是向量空间。
+
+让我们来考虑一个例子。令空间 $V$ 为 $\mathbb{R}^n$，那它的对偶是什么？
+我们知道，线性变换 $T : \mathbb{R}^n \to \mathbb{R}^m$ 可以表示为一个 $m \times n$ 的矩阵，那么 $\mathbb{R}^n$ 上的线性泛函（即线性变换 $L : \mathbb{R}^n \to \mathbb{R}$）可由 $1 \times n$ 的矩阵（行矩阵）给出，我们将其记作 $[L]$。
+所有这样的行矩阵所称的集合与 $\mathbb{R}^n$ 同构（对应的同构由转置 $[L] \to [L]^T$ 得到）。
+
+于是，$\mathbb{R}^n$ 的对偶是其自身。
+这对于 $\mathbb{C}^n$ 也同样成立，当然，对于 $\mathbb{F}^n$ 都是如此（其中 $\mathbb{F}$ 是任意域）。
+由于域 $\mathbb{F}$（这里我们主要关注 $\mathbb{F} = \mathbb{R}$ 或 $\mathbb{F} = \mathbb{C}$ 的情形）上的 $n$ 维空间 $V$ 与 $\mathbb{F}^n$ 同构，并且 $\mathbb{F}^n$ 的对偶也与 $\mathbb{F}^n$ 同构，因此 $V^\prime$ 与 $V$ 同构。
+
+这样一来，对偶空间的定义就开始显得有点傻了，因为它好像并没有带来任何新的东西。
+
+然而，事实并非如此！如果我们仔细看看，就会发现对偶空间确实是新的对象。为了看出这点，让我们分析矩阵 $[L]$ 的元素（可以称之为 $L$ 的坐标）是怎样随着我们改变 $V$ 中的基而变化的。
+
+\subsubsection{坐标变换公式}
+
+令
+\[
+    \mathcal{A} = \{\mathbf{a}_1,\mathbf{a}_2,\ldots,\mathbf{a}_n\}, \quad
+    \mathcal{B} = \{\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n\}
+\]
+是 $V$ 的两个基，并且令 $[L]_{\mathcal{A}} = [L]_{\mathcal{S}, \mathcal{A}}$ 和 $[L]_{\mathcal{B}} = [L]_{\mathcal{S}, \mathcal{B}}$ 分别为 $L$ 在 $\mathcal{A}$ 和 $\mathcal{B}$ 这两个基中的矩阵（我们假设由标量所成的目标空间始终采用标准基，于是我们可以在记号中省略下标 $\mathcal{S}$）。
+那么，回忆一下第~\ref{chap:LinearSystems}~章~\ref{sec:matrix_in_different_basis}~节中的坐标变换规则，我们得到
+\[
+    [L]_{\mathcal{B}} = [L]_{\mathcal{A}} [I]_{\mathcal{A}, \mathcal{B}}.
+\]
+回忆一下，对于向量 $\mathbf{v} \in V$，其在不同的基中的坐标由公式
+\[
+    [\mathbf{v}]_{\mathcal{B}} = [I]_{\mathcal{B}, \mathcal{A}} [\mathbf{v}]_{\mathcal{A}}
+\]
+相关联，并且
+\[
+    [I]_{\mathcal{A}, \mathcal{B}} = [I]_{\mathcal{B}, \mathcal{A}}^{-1}.
+\]
+
+如果我们记 $S := [I]_{\mathcal{B}, \mathcal{A}}$，那么 $[\mathbf{v}]_{\mathcal{B}} = S [\mathbf{v}]_{\mathcal{A}}$，向量 $[L]_{\mathcal{B}}^T$ 和 $[L]_{\mathcal{A}}^T$ 的元素由公式
+\begin{equation}
+    [L]_{\mathcal{B}}^T = \left( S^{-1} \right)^T [L]_{\mathcal{A}}^T
+\end{equation}
+相关联（由于我们通常把向量表示为其坐标所成的列，所以我们用的是 $[L]_{\mathcal{A}}^T$ 和 $[L]_{\mathcal{B}}^T$ 而不是 $[L]_{\mathcal{A}}$ 和 $[L]_{\mathcal{B}}$）。
+
+用自然语言表达如下：
+
+\begin{center}
+    \fbox{\parbox{0.8\linewidth}{如果 $S$ 是 $X$ 中（从旧坐标到新坐标）的坐标变换矩阵，那么对偶空间 $X^\prime$ 中的坐标变换矩阵为 $\left( S^{-1} \right)^T$。}}
+\end{center}
+
+所以，$V$ 的对偶空间 $V^\prime$ 虽与 $V$ 同构但确实是不同的对象——不同之处在于当我们改变 $V$ 中的基时 $V$ 和 $V^\prime$ 中的坐标如何变化。
+
+\begin{remark*}
+    有人可能会问，为什么我们不能在 $X$ 中选择一个基而在对偶 $X^\prime$ 中选择某个完全不相关联的基？当然，我们可以这样做，但试想一下，如果我们知道的是 $\mathbf{x}$ 在某个基中的坐标以及 $L$ 在某个完全不相关联的基中的坐标，那么要计算 $L(\mathbf{x})$ 得付出怎样的代价？
+\end{remark*}
+
+所以，如果我们（已知 $\mathbf{x}$ 在某个基中的坐标）想要利用矩阵代数的标准规则计算得到线性泛函 $L$ 的作用，即用一行（泛函）乘以一列（向量），那么我们别无选择：线性泛函 $L$ 的“坐标”就应该是它（在同一基中）的矩阵的元素。
+
+正如我们将会看到的那样（见下文的~\ref{sec:dual_basis}~节），线性泛函的元素（“坐标”）确实是某个基（即所谓{\bf 对偶}基）中的坐标。
+
+\subsubsection{唯一性定理}
+
+\subsection{二次对偶}
+
+\subsection{对偶基，亦即双正交基}\label{sec:dual_basis}
+
+\subsection{对偶系统示例}
 
 \section{内积空间的对偶}
 
+\subsection{Riesz 表示定理}
+
+\subsection{内积空间与自身对偶吗？}
+
+\subsection{双正交系统与规范正交基}
+
 \section{伴随（对偶）变换和转置、三探基本子空间}
+
+\subsection{伴随（对偶）变换}
+
+\subsection{零化子和基本子空间之间的关系}
 
 \section{向量空间与其对偶有什么差异？}
 
