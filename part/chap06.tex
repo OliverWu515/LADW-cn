@@ -159,7 +159,7 @@
 \begin{proof}[定理 \ref{thm:normal_diag} 的证明]
     要证明定理 \ref{thm:normal_diag}，先应用定理 \ref{thm:schur}，从而得到一个规范正交基，$N$关于该基的矩阵是上三角的。为完成该定理的证明，只需证明上三角的正规矩阵一定是对角的。
 
-    我们将对矩阵的维数用归纳法来证明。$1\times 1$矩阵的情形是平凡的，因为任意$1\times 1$矩阵都是对角阵。
+    我们将对矩阵的大小用归纳法来证明。$1\times 1$矩阵的情形是平凡的，因为任意$1\times 1$矩阵都是对角阵。
 
     假设我们已经证明任意$(n-1)\times (n-1)$上三角正规矩阵都是对角的，现在要证明这对于$n\times n$矩阵也是成立的。令$N$是$n\times n$上三角正规矩阵。可将其写为
     \begin{equation*}
@@ -394,7 +394,7 @@ $A$的模显示了变换$A$的“大小”：
 
 考虑变换$A:X\to Y$，并令$\sigma_1,\sigma_2,\ldots,\sigma_n$是$A$的奇异值（以重数计）。假设$\sigma_1,\sigma_2,\ldots,\sigma_r$是$A$的{\bf 非零}奇异值（以重数计）。特别地，这意味着$\sigma_k=0,k>r$。
 
-根据奇异值的定义，$\sigma_{1}^{2},\sigma_{2}^{2},\ldots,\sigma_{n}^{2}$是$A^*A$的特征值。令$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是由$A^*A$的特征向量构成的规范正交基\footnote{我们知道，对于自伴算子（此处是$A^*A$），存在由其特征向量构成的规范正交基。}，$A^{*}A\mathbf{v}_{k}=\sigma_{k}^{2}\mathbf{v}_{k}$。
+根据奇异值的定义，$\sigma_{1}^{2},\sigma_{2}^{2},\ldots,\sigma_{n}^{2}$是$A^*A$的特征值。令$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,$\linebreak $\mathbf{v}_{n}$是由$A^*A$的特征向量构成的规范正交基\footnote{我们知道，对于自伴算子（此处是$A^*A$），存在由其特征向量构成的规范正交基。}，$A^{*}A\mathbf{v}_{k}=\sigma_{k}^{2}\mathbf{v}_{k}$。
 
 \begin{proposition}
     向量组\[\mathbf{w}_k:=\frac{1}{\sigma_k}A\mathbf{v}_k,\quad k=1,2,\ldots,r\]
@@ -792,7 +792,10 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
         &=((\cos\alpha)\mathbf{x}-(\sin\alpha)\mathbf{y})+i((\cos\alpha)\mathbf{y}+(\sin\alpha)\mathbf{x}).
     \end{align*}
     因此
-    \[U\mathbf{x}=\operatorname{Re}(\lambda\mathbf{u})=(\cos\alpha)\mathbf{x}-(\sin\alpha)\mathbf{y},\; U\mathbf{y}=\operatorname{Im}(\lambda\mathbf{u})=(\cos\alpha)\mathbf{y}+(\sin\alpha)\mathbf{x}.\]
+    \begin{align*}
+        U\mathbf{x}&=\operatorname{Re}(\lambda\mathbf{u})=(\cos\alpha)\mathbf{x}-(\sin\alpha)\mathbf{y},\\
+        U\mathbf{y}&=\operatorname{Im}(\lambda\mathbf{u})=(\cos\alpha)\mathbf{y}+(\sin\alpha)\mathbf{x}.
+    \end{align*}
     换言之，$U$保持由向量$\mathbf{x},\mathbf{y}$张成的$2$维子空间$E_\lambda$不变，并且限制于该子空间的$U$的矩阵是旋转矩阵
     \[R_{-\alpha}=\begin{pmatrix}\cos\alpha&\sin\alpha\\-\sin\alpha&\cos\alpha\end{pmatrix}\]
 

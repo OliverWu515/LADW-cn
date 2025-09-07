@@ -776,7 +776,7 @@
      1&1&1&1&-3\\0&1&-1&2&-3\\0&0&0&1&-2\\0&0&0&1&-2
   \end{pNiceArray}
 \end{align*}
-从中已能看出有三个主元，因此$\rank A\ge 3$。（其实我们已经能看出秩为$3$，但是此处只需要推到这个不等式就够了）。由定理 \ref{thm:fundamental_thm_of_la}，$\rank A+\dim\ker A = 5$，于是$\dim\ker A\le 2$，因此$\ker A$中不会有超过$2$个向量线性无关。因此，上面表达式中的最后两个向量都形成$\ker A$的基，则这两个表达式都给出了原方程的所有解。
+从中已能看出有三个主元，因此$\rank A\ge 3$。（其实我们已经能看出秩为$3$，但是此处只需要推到这个不等式就够了）。由定理 \ref{thm:fundamental_thm_of_la}，$\rank A+\dim\ker A = 5$，于是$\dim\ker A\le 2$，因此$\ker A$中不会有超过$2$个向量线性无关。因此，上面两个表达式中的最后$2$个向量都形成$\ker A$的基，则这两个表达式都给出了原方程的所有解。
 
 秩定理的一个重要推论，就是下面这个将线性方程组解的存在性和唯一性关联起来的定理。
 
@@ -798,13 +798,13 @@
 
 本小节给出补全为基的一种更为实用的方法。
 
-首先，注意到如果$m\times n$矩阵具有阶梯形，那么它的非零行（显然线性无关）很容易被补全为整个空间$\mathbb{F}^n$的基：只需在合适位置加入几行\footnote{并且不考虑零行，就是将所有零行全部去掉。后续向$A$（原矩阵）加入向量时，也要把对应的非主元行去掉。——译者注}，使所得矩阵仍然具有阶梯形并在每列都有主元。
+首先，注意到如果$m\times n$矩阵具有阶梯形，那么它的非零行（显然线性无关）很容易被补全为整个空间$\mathbb{F}^n$的基：只需在合适位置加入几行，使所得矩阵仍然具有阶梯形并在每列都有主元。
 
 这样，新矩阵的非零行就形成一个基，并且我们还可以按任意次序列出它们，因为向量组是否为基并不取决于向量的次序。
 
 现假设有线性无关向量$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r\in\mathbb{F}^n$。考虑各行是$\mathbf{v}_{1}^{T},\mathbf{v}_{2}^{T},\ldots,$ $\mathbf{v}_{r}^{T}$的矩阵$A$，做行变换得到其阶梯形$A_\mathrm{e}$。前面我们讨论过，很容易将$A_\mathrm{e}$的行补全为$\mathbb{F}^n$的基。而且，用于将$A_\mathrm{e}$的行补全为基的向量也能将原向量$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r$补全为基。
 
-为看出这一点，令向量$\mathbf{v}_{r+1},\ldots,\mathbf{v}_{n}$将$A_\mathrm{e}$的行补全为$\mathbb{F}^n$的基。那么，如果我们向矩阵$A_\mathrm{e}$加入行向量$\mathbf{v}_{r+1}^{T},\ldots,\mathbf{v}_{n}^{T}$，就能得到可逆矩阵。称该矩阵为$\widetilde{A}_{\mathrm{e}}$，并令$\widetilde{A}$为向$A$加入行向量$\mathbf{v}_{r+1}^{T},\ldots,\mathbf{v}_{n}^{T}$所得的矩阵。矩阵$\widetilde{A}_{\mathrm{e}}$可由$\widetilde{A}$通过行变换得到，因此\[\widetilde{A}_{\mathrm{e}} = E\widetilde{A},\]其中$E$是行变换对应初等矩阵的积。那么$\widetilde{A}=E^{-1}\widetilde{A}_{\mathrm{e}}$，则$\widetilde{A}$是一系列可逆矩阵的积，故可逆。
+为看出这一点，令向量$\mathbf{v}_{r+1},\ldots,\mathbf{v}_{n}$将$A_\mathrm{e}$的行补全为$\mathbb{F}^n$的基。那么，如果我们向矩阵$A_\mathrm{e}$加入行向量$\mathbf{v}_{r+1}^{T},\ldots,\mathbf{v}_{n}^{T}$，就能得到一个可逆矩阵\footnote{就是在加入向量后将所有零行全部去掉。下面向$A$（原矩阵）加入向量时，也要把对应的非主元行去掉。——译者注}。称该矩阵为$\widetilde{A}_{\mathrm{e}}$，并令$\widetilde{A}$为向$A$加入行向量$\mathbf{v}_{r+1}^{T},\ldots,\mathbf{v}_{n}^{T}$所得的矩阵。矩阵$\widetilde{A}_{\mathrm{e}}$可由$\widetilde{A}$通过行变换得到，因此\[\widetilde{A}_{\mathrm{e}} = E\widetilde{A},\]其中$E$是行变换对应初等矩阵的积。那么$\widetilde{A}=E^{-1}\widetilde{A}_{\mathrm{e}}$，则$\widetilde{A}$是一系列可逆矩阵的积，故可逆。
 
 这就意味着$\widetilde{A}$的行形成$\mathbb{F}^n$的基，即满足了我们的需求。
 
