@@ -16,7 +16,7 @@
 有\[a = \underbrace{a_{1,1}a_{2,2}a_{3,3} + a_{1,2}a_{2,3}a_{3,1} + a_{2,1}a_{3,2}a_{1,3}}_{\text{三条从左上往右下的对角项之积}} - (\underbrace{a_{1,3}a_{2,2}a_{3,1} + a_{1,2}a_{2,1}a_{3,3} + a_{2,3}a_{3,2}a_{1,1}}_{\text{三条从右上往左下的对角项之积}})\]
 ——译者注}求得。
 
-在本章中，我们期望引入$n\times n$矩阵的行列式。我不想仅仅给出正式的定义，而想首先给个引子，再导出行列式应具备的一些性质。接着，我们如果要使行列式具备这些性质，就必须按照若干（彼此等价的）方式来定义它，而没有别的选择。
+在本章中，我们期望引入$n\times n$矩阵的行列式。我不想仅仅给出形式化定义，而想首先给个引子，再导出行列式应具备的一些性质。接着，我们如果要使行列式具备这些性质，就必须按照若干（彼此等价的）方式来定义它，而没有别的选择。
 
 从向量组的行列式出发，会比从矩阵的行列式出发更为方便。而这两者并无实质差别——我们总能将向量（视作列向量）组合成矩阵。
 
@@ -327,9 +327,9 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
   {\bf 提示}：尽管可以通过做行变换将该矩阵转化为容易计算行列式的形式，最简单的方法还是将该矩阵右乘$\begin{pmatrix}I&\mathbf{0}\\B&I\end{pmatrix}$。
 \end{problemset}
 
-\section{正式定义、行列式的存在性与唯一性}\label{sec:determinant_formal}
+\section{形式化定义、行列式的存在性与唯一性}\label{sec:determinant_formal}
 
-本节我们介绍行列式的正式定义。我们说明，满足第 \ref{sec:construct_det} 节中基本性质1、2和3的函数存在，此外，它还是唯一的，也即，我们构造行列式时没有其他可选余地。
+本节我们介绍行列式的形式化定义。我们说明，满足第 \ref{sec:construct_det} 节中基本性质1、2和3的函数存在，此外，它还是唯一的，也即，我们构造行列式时没有其他可选余地。
 
 考虑$n\times n$矩阵$A=\{a_{j,k}\}_{j,k=1}^{n}$，并令$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$是它的列，也即\[\mathbf{v}_k=\begin{pmatrix}a_{1,k}\\a_{2,k}\\\vdots\\a_{n,k}\end{pmatrix}=a_{1,k}\mathbf{e}_1+a_{2,k}\mathbf{e}_2+\ldots+a_{n,k}\mathbf{e}_n=\sum_{j=1}^na_{j,k}\mathbf{e}_j.\]
 利用行列式的线性，对第一列$\mathbf{v}_1$展开：
@@ -400,7 +400,7 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
   \end{probenumerate}
   \item 为什么$(1,2,\dots,9)$的置换有偶数个，并且其中奇置换恰好占一半？\textbf{提示}：该问题用置换的知识可能很难解答，但利用行列式就很容易。
   \item 若$\sigma$ 是奇置换，解释为何$\sigma^{2}$是偶置换，而$\sigma^{-1}$是奇置换。
-  \item 利用正式定义 \eqref{formal_definition} 来计算$n\times n$矩阵的行列式需要多少次乘法和加法？不考虑$\operatorname{sign}\sigma$的计算过程。
+  \item 利用形式化定义 \eqref{formal_definition} 来计算$n\times n$矩阵的行列式需要多少次乘法和加法？不考虑$\operatorname{sign}\sigma$的计算过程。
 \end{problemset}
 
 \section{余子式展开}
