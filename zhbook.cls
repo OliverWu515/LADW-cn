@@ -457,8 +457,8 @@
     \clearpage
     \pagestyle{main}
     \phantomsection
-    \addcontentsline{toc}{chapter}{#1}
     \chapter*{#1}
+    \addcontentsline{toc}{chapter}{#1}
     \chaptermark{#1}
 }{%
     \clearpage
