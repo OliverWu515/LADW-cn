@@ -53,9 +53,10 @@
 可是，我们怎么确保所得结果不会随着基的选取而改变呢？
 
 对此，有多种解释。其中一种解释基于\textbf{相似矩阵}这一概念。回想一下，称方阵$A$和$B$是相似的，如果存在可逆矩阵$S$使得\[A=SBS^{-1}.\]
-注意，相似矩阵的行列式是相同的。的确：因为$\det S^{-1}=1/\det S$，所以
-\[\det A=\det(SBS^{-1})=\det S\det B\det S^{-1}=\det B\]
-注意，如果$A=SBS^{-1}$那么\[A-\lambda I=SBS^{-1}-\lambda SIS^{-1}=S(BS^{-1}-\lambda IS^{-1})=S(B-\lambda I)S^{-1},\]
+注意到，相似矩阵的行列式是相同的。的确：
+\[\det A=\det(SBS^{-1})=\det S\det B\det S^{-1}=\det B,\]
+这是因为$\det S^{-1}=1/\det S$。
+又注意到，如果$A=SBS^{-1}$，那么\[A-\lambda I=SBS^{-1}-\lambda SIS^{-1}=S(BS^{-1}-\lambda IS^{-1})=S(B-\lambda I)S^{-1},\]
 因此矩阵$A-\lambda I$和$B-\lambda I$是相似的。因此\[\det(A-\lambda I)=\det(B-\lambda I),\]即
 
 \begin{center}
@@ -119,7 +120,7 @@
 
 \subsection{三角矩阵的特征值}\label{subsec:eigen_of_tri}
 
-计算特征值等价于求出矩阵的特征多项式的根（有可能利用数值方法），而这或许非常耗时。然而，在一种特殊情况中，我们可以直接从矩阵里读出特征值。即
+计算特征值等价于求出矩阵的特征多项式的根（或者利用数值方法），而这可能非常耗时。然而，在一种特殊情况中，我们可以直接从矩阵里读出特征值。即
 \begin{center}
     \fbox{\parbox{0.65\linewidth}{三角矩阵的特征值（以重数计）恰为对角项$a_{1,1},a_{2,2},\ldots,a_{n,n}$。}}
 \end{center}
@@ -136,7 +137,7 @@
 \begin{problemset}
     \item 判断正误：
     \begin{probenumerate}
-        \item $n$维向量空间中的每个线性算子都有$n$个互异的特征值；
+        \item $n$维向量空间上的每个线性算子都有$n$个互异的特征值；
         \item 一矩阵如果有一个特征向量，就有无数个特征向量；
         \item 存在没有实特征值的实方阵；
         \item 存在没有（复）特征值的方阵；
@@ -464,7 +465,7 @@ $$\left|\begin{array}{cc}1-\lambda&1\\0&1-\lambda\end{array}\right|=(1-\lambda)^
     \item 令非零矩阵$A$满足$A^5=\mathbf{0}$。证明：$A$不可对角化。更一般地，任何非零的幂零矩阵，即满足$A^N=\mathbf{0}$的非零矩阵$A$都不可对角化。
     \item 转置变换的特征值：
     \begin{probenumerate}
-        \item 考虑由$2\times 2$矩阵构成的向量空间$M_{2\times 2}$中的变换$T$，$T(A)=A^T$。求出它的所有特征值和特征向量。这个变换可对角化吗？{\bf 提示}：尽管可以通过写出这个线性变换关于某个基的矩阵，再计算特征多项式……的常规方法计算，但更为简单的办法是直接从定义出发。
+        \item 考虑由$2\times 2$矩阵构成的向量空间$M_{2\times 2}$上的变换$T$，$T(A)=A^T$。求出它的所有特征值和特征向量。这个变换可对角化吗？{\bf 提示}：尽管可以通过写出这个线性变换关于某个基的矩阵，再计算特征多项式……的常规方法计算，但更为简单的办法是直接从定义出发。
         \item 将$2\times 2$换成$n\times n$，再解答上述问题。
     \end{probenumerate}
     \item 证明：两个子空间$V_1$和$V_2$线性无关，当且仅当$V_1\cap V_2=\{\mathbf{0}\}$。

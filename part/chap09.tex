@@ -183,7 +183,7 @@
 \subsection{广义特征空间}
 
 \begin{definition}
-    向量$\mathbf{v}$称为（对应于特征值$\lambda$的）广义特征向量，如果$(A-\lambda I)^k\mathbf{v}=\mathbf{0}$对某$k\ge 1$成立\index{广义特征向量（generalized eigenvector）}。
+    如果向量$\mathbf{v}$满足$(A-\lambda I)^k\mathbf{v}=\mathbf{0}$对某$k\ge 1$成立，则称向量$\mathbf{v}$为（对应于特征值$\lambda$的）广义特征向量\index{广义特征向量（generalized eigenvector）}。
 
     对应于特征值$\lambda$的所有广义特征向量连同$\mathbf{0}$构成的集合$E_\lambda$称为对应于特征值$\lambda$的广义特征空间\index{广义特征空间（generalized eigenspace）}。
 \end{definition}
@@ -214,7 +214,7 @@
 \begin{proof}
     令$\mathbf{v}\in \ker(A-\lambda I)^{k+r+1}$，即$(A-\lambda I)^{k+r+1}\mathbf{v}=\mathbf{0}$。那么\[\mathbf{w}:=(A-\lambda I)^{r}\mathbf{v}\in\ker (A-\lambda I)^{k+1}.\]
     但我们知道$\ker (A-\lambda I)^k = \ker(A-\lambda I)^{k+1}$，所以$\mathbf{w}\in \ker(A-\lambda I)^k$，这也就意味着$(A-\lambda I)^k\mathbf{w}=\mathbf{0}$。回顾$\mathbf{w}$的定义可得\[(A-\lambda I)^{k+r}\mathbf{v}=(A-\lambda I)^k\mathbf{w}=\mathbf{0}\]
-    因此$\mathbf{v}\in\ker (A-\lambda I)^{k+r}$。我们证明了$\ker (A-\lambda I)^{k+r+1}\subset \ker (A-\lambda I)^{k+r}$。反方向的包含关系是平凡的。
+    因此$\mathbf{v}\in\ker (A-\lambda I)^{k+r}$，证明了$\ker (A-\lambda I)^{k+r+1}\subset \ker (A-\lambda I)^{k+r}$。反方向的包含关系是平凡的。
 \end{proof}
 
 \begin{definition*}
@@ -352,7 +352,7 @@
 
 \section{幂零算子的结构}
 
-回忆一下，称向量空间$V$上的算子$A$是{\bf 幂零的}，若$A^k=\mathbf{0}$对某个幂次$k$成立。
+回忆一下，若向量空间$V$上的算子$A$满足$A^k=\mathbf{0}$对某个幂次$k$成立，则称$A$是{\bf 幂零的}。
 
 在前一节中我们证明了（见注 \ref{remark:gen_eigen_decomp}），如果将所有广义特征空间$E_k=E_{\lambda_k}$的基合并起来以得到整个向量空间的基，那么算子$A$在该基下的矩阵具有分块对角形式$\operatorname{diag}\{A_1,A_2,\dots,A_r\}$，算子$A_k$可表示为$A_k=\lambda_k I+N_k$，其中$N_k$是幂零算子。
 

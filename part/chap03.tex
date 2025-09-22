@@ -93,7 +93,7 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 
 \subsection{反对称性}
 
-行列式应具备的下个性质是，\marginpar{\small 称多变量函数是{\bf 反对称的}，若交换其任意两个自变量会导致函数值变号。}如果我们交换两个向量，那么行列式变号：
+行列式应具备的下个性质是，\marginpar{\small 若多变量函数在交换任意两个自变量后函数值变号，则称其是{\bf 反对称的}。}如果我们交换两个向量，那么行列式变号：
 \begin{equation}\label{antisymmetry}
   D(\mathbf{v}_1,\ldots,\underset{j}{\mathbf{v}_k},\ldots,\underset{k}{\mathbf{v}_j},\ldots,\mathbf{v}_n)=-D(\mathbf{v}_1,\ldots,\underset{j}{\mathbf{v}_j},\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_n).
 \end{equation}
@@ -193,14 +193,14 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 
 \subsection{对角矩阵与三角矩阵的行列式}
 
-下面我们准备计算几类重要的特殊矩阵的行列式。第一类是所谓的{\bf 对角}矩阵。回想一下，称方阵$A=\{a_{j,k}\}_{j,k=1}^{n}$是{\bf 对角的}，若其{\bf 主对角线}之外的项全部为零，也即对于所有$j\ne k$有$a_{j,k}=0$。我们常用记号$\operatorname{diag}\{a_1,a_2,\dots,a_n\}$来表示对角矩阵\[\begin{pmatrix}a_1&0&\ldots&0\\0&a_2&\ldots&0\\\vdots&\vdots&\ddots&0\\0&0&\ldots&a_n\end{pmatrix}.\]
+下面我们准备计算几类重要的特殊矩阵的行列式。第一类是所谓的{\bf 对角}矩阵。回想一下，若方阵$A=\{a_{j,k}\}_{j,k=1}^{n}${\bf 主对角线}之外的项全部为零，也即对于所有$j\ne k$有$a_{j,k}=0$，则称其是{\bf 对角的}。我们常用记号$\operatorname{diag}\{a_1,a_2,\dots,a_n\}$来表示对角矩阵\[\begin{pmatrix}a_1&0&\ldots&0\\0&a_2&\ldots&0\\\vdots&\vdots&\ddots&0\\0&0&\ldots&a_n\end{pmatrix}.\]
 
 由于对角矩阵$\operatorname{diag}\{a_1,a_2,\dots,a_n\}$可由恒等矩阵将各列乘以常数（第$k$列乘以$a_k$）得到，所以
 \begin{center}
   \fbox{\parbox{0.8\linewidth}{对角矩阵的行列式等于对角线上各项的乘积：\[\det(\mathrm{diag}\{a_1,a_2,\ldots,a_n\})=a_1a_2\ldots a_n.\]}}
 \end{center}
 
-下一类重要矩阵是所谓{\bf 三角}矩阵。称方阵$A=\{a_{j,k}\}_{j,k=1}^{n}$是{\bf 上三角的}，若所有在主对角线{\bf 之下}的项都为$0$，也即对于所有$k<j$有$a_{j,k}=0$。称方阵是{\bf 下三角的}，若所有在主对角线{\bf 之上}的项都为$0$，也即对于所有$j<k$有$a_{j,k}=0$。称一矩阵是{\bf 三角的}，若其是上三角的或是下三角的。
+下一类重要矩阵是所谓{\bf 三角}矩阵。若方阵$A=\{a_{j,k}\}_{j,k=1}^{n}$中所有在主对角线{\bf 之下}的项都为$0$，即对于所有$k<j$有$a_{j,k}=0$，则称其是{\bf 上三角的}；若方阵$A$中所有在主对角线{\bf 之上}的项都为$0$，即对于所有$j<k$有$a_{j,k}=0$，则称其是{\bf 下三角的}；若一矩阵是上三角的或是下三角的，则称其是{\bf 三角的}。
 
 容易看出\begin{center}
   \fbox{\parbox{0.8\linewidth}{{\bf 三角}矩阵的行列式等于对角线上各项的乘积：\[\det A=a_{1,1}a_{2,2}\ldots a_{n,n}.\]}}
