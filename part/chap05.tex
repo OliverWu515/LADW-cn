@@ -253,7 +253,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 \section{正交性、正交基与规范正交基}
 
 \begin{definition}
-    称两向量$\mathbf{u}$和$\mathbf{v}$是{\bf 正交的}（或{\bf 垂直的}），若$(\mathbf{u},\mathbf{v})=0$。我们用$\mathbf{u}\perp \mathbf{v}$表示两向量正交。
+    若两向量$\mathbf{u}$和$\mathbf{v}$满足$(\mathbf{u},\mathbf{v})=0$，则称它们是{\bf 正交的}（或{\bf 垂直的}）。我们用$\mathbf{u}\perp \mathbf{v}$表示两向量正交。
 \end{definition}
 
 注意，对于正交向量$\mathbf{u}$和$\mathbf{v}$，有所谓的毕达哥拉斯恒等式：
@@ -262,9 +262,9 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 （由于正交性，$(\mathbf{u},\mathbf{v})=(\mathbf{v},\mathbf{u})=0$）
 
 \begin{definition}
-    称向量$\mathbf{v}$正交于子空间$E$，若$\mathbf{v}$正交于$E$中的所有向量$\mathbf{w}$。
+    若向量$\mathbf{v}$正交于子空间$E$中的所有向量$\mathbf{w}$，则称$\mathbf{v}$正交于$E$。
 
-    称子空间$E$和$F$是正交的，如果$E$中的所有向量都正交于$F$，也即$E$中的所有向量都正交于$F$中的所有向量。
+    如果子空间$E$中的所有向量都正交于子空间$F$，也即$E$中的所有向量都正交于$F$中的所有向量，则称$E$和$F$是正交的。
 \end{definition}
 
 下面引理展示了检验一向量正交于一子空间的方法。
@@ -279,7 +279,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
     所以$\mathbf{v}\perp \mathbf{w}$。
 \end{proof}
 \begin{definition}
-    称向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是{\bf 正交的}，如果其中任意两个向量都彼此正交（即如果$(\mathbf{v}_{j},\mathbf{v}_{k})=0,j\neq k$）。
+    若向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$中任意两个向量都彼此正交（即如果$(\mathbf{v}_{j},\mathbf{v}_{k})=0,j\neq k$），则称该向量组是{\bf 正交的}。
 
     如果还有$\|\mathbf{v}_k\|=1$对所有$k$成立，就称该向量组是{\bf 规范正交的}。
 \end{definition}
@@ -408,7 +408,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 下面命题阐述了已知$E$的正交基的情况下求出正交投影的方法。
 
 \begin{proposition}\label{prop:projection_solution}
-    如果$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$是$E$的正交基。那么向量$\mathbf{v}$的正交投影$P_E\mathbf{v}$由下式给出
+    如果$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$是$E$的正交基，那么向量$\mathbf{v}$的正交投影$P_E\mathbf{v}$由下式给出
     \[P_E\mathbf{v}=\sum_{k=1}^r\alpha_k\mathbf{v}_k,\quad \text{其中}\quad\alpha_k=\frac{(\mathbf{v},\mathbf{v}_k)}{\|\mathbf{v}_k\|^2}.\]
     换言之
     \begin{equation}\label{projection_eq}
@@ -452,12 +452,12 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 
 现在叙述该算法。
 
-\noindent\textbf{第1步. }置$\mathbf{v}_{1}:=\mathbf{x}_{1}$。记$E_{1}:={\mathrm{span}}\{\mathbf{x}_{1}\}={\mathrm{span}}\{\mathbf{v}_{1}\}$。
+\noindent\textbf{第$1$步. }置$\mathbf{v}_{1}:=\mathbf{x}_{1}$。记$E_{1}:={\mathrm{span}}\{\mathbf{x}_{1}\}={\mathrm{span}}\{\mathbf{v}_{1}\}$。
 
-\noindent\textbf{第2步. }定义$\mathbf{v}_2$为\[\mathbf{v}_2=\mathbf{x}_2-P_{E_1}\mathbf{x}_2=\mathbf{x}_2-\frac{(\mathbf{x}_2,\mathbf{v}_1)}{\|\mathbf{v}_1\|^2}\mathbf{v}_1.\] 
+\noindent\textbf{第$2$步. }定义$\mathbf{v}_2$为\[\mathbf{v}_2=\mathbf{x}_2-P_{E_1}\mathbf{x}_2=\mathbf{x}_2-\frac{(\mathbf{x}_2,\mathbf{v}_1)}{\|\mathbf{v}_1\|^2}\mathbf{v}_1.\] 
 定义$E_2=\mathrm{span}\{\mathbf{v}_1,\mathbf{v}_2\}$。注意$\mathrm{span}\{\mathbf{x}_1,\mathbf{x}_2\}=E_2$。
 
-\noindent\textbf{第3步. }定义$\mathbf{v}_3$为\[\mathbf{v}_{3}:=\mathbf{x}_{3}-P_{E_{2}}\mathbf{x}_{3}=\mathbf{x}_{3}-\frac{(\mathbf{x}_{3},\mathbf{v}_{1})}{\|\mathbf{v}_{1}\|^{2}}\mathbf{v}_{1}-\frac{(\mathbf{x}_{3},\mathbf{v}_{2})}{\|\mathbf{v}_{2}\|^{2}}\mathbf{v}_{2}\]
+\noindent\textbf{第$3$步. }定义$\mathbf{v}_3$为\[\mathbf{v}_{3}:=\mathbf{x}_{3}-P_{E_{2}}\mathbf{x}_{3}=\mathbf{x}_{3}-\frac{(\mathbf{x}_{3},\mathbf{v}_{1})}{\|\mathbf{v}_{1}\|^{2}}\mathbf{v}_{1}-\frac{(\mathbf{x}_{3},\mathbf{v}_{2})}{\|\mathbf{v}_{2}\|^{2}}\mathbf{v}_{2}\]
 取$E_3=\mathrm{span}\{\mathbf{v}_1,\mathbf{v}_2,\mathbf{v}_3\}$。注意$\mathrm{span}\{\mathbf{x}_1,\mathbf{x}_2,\mathbf{x}_3\}=E_3$。同时注意$\mathbf{x}_3\notin E_2$，所以$\mathbf{v}_3\ne \mathbf{0}$。
 
 ……
