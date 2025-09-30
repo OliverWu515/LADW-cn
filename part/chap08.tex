@@ -6,7 +6,7 @@
 
 \section{对偶空间}
 
-\subsection{线性泛函和对偶空间。对偶空间中的坐标变换。}
+\subsection{线性泛函和对偶空间、对偶空间中的坐标变换}
 
 \begin{definition}
     （域 $\mathbb{F}$ 上的）向量空间 $V$ 上的线性泛函即线性变换 $L : V \to \mathbb{F}$。
@@ -14,7 +14,7 @@
 
 这类特殊的线性变换非常重要，值得单独命名。%原文漏了个is
 
-如果将向量视为某种物理对象，例如力或速度，那么就可以将线性泛函视为一种（线性的）测量，其给出某个标量值作为结果（考虑给定方向上的力或速度）。%some a scalar quantity, emmm
+如果将向量视为某种物理对象，例如力或速度，那么就可以将线性泛函视为一种（线性的）测量，其给出某个标量值作为结果（比如给定方向上的力或速度）。%some a scalar quantity, emmm
 
 \begin{definition}
     有限维\footnote{我们在这里只考虑有限维向量空间，是因为无限维向量空间的对偶空间仅包含所谓的{\bf 有界}线性泛函（而非所有线性泛函）。我们这里不给出精确定义，只是提及在有限维情形下（定义空间和目标空间均为有限维的）所有线性变换都是有界的，而不再需要提到{\bf 有界}这个词。}向量空间 $V$ 上的所有线性泛函所成的集合，称为 $V$ 的{\bf 对偶}，通常记作 $V^\prime$ 或 $V^*$。
@@ -24,7 +24,7 @@
 
 让我们来考虑一个例子。令空间 $V$ 为 $\mathbb{R}^n$，那它的对偶是什么？
 我们知道，线性变换 $T : \mathbb{R}^n \to \mathbb{R}^m$ 可以表示为一个 $m \times n$ 的矩阵，那么 $\mathbb{R}^n$ 上的线性泛函（即线性变换 $L : \mathbb{R}^n \to \mathbb{R}$）可由 $1 \times n$ 的矩阵（行矩阵）给出，我们将其记作 $[L]$。
-所有这样的行矩阵所称的集合与 $\mathbb{R}^n$ 同构（对应的同构由转置 $[L] \to [L]^T$ 得到）。
+所有这样的行矩阵所成的集合与 $\mathbb{R}^n$ 同构（对应的同构由转置 $[L] \to [L]^T$ 得到）。
 
 于是，$\mathbb{R}^n$ 的对偶是其自身。
 这对于 $\mathbb{C}^n$ 也同样成立，当然，对于 $\mathbb{F}^n$ 都是如此（其中 $\mathbb{F}$ 是任意域）。
@@ -71,11 +71,11 @@
 
 \begin{remark*}
     有人可能会问，为什么我们不能在 $X$ 中选择一个基而在对偶 $X^\prime$ 中选择某个完全不相关联的基？当然，我们可以这样做，但试想一下，如果我们知道的是 $\mathbf{x}$ 在某个基中的坐标以及 $L$ 在某个完全不相关联的基中的坐标，那么要计算 $L(\mathbf{x})$ 得付出怎样的代价？
+
+    所以，如果我们（已知 $\mathbf{x}$ 在某个基中的坐标）想要利用矩阵代数的标准规则计算得到线性泛函 $L$ 的作用，即用一行（泛函）乘以一列（向量），那么我们别无选择：线性泛函 $L$ 的“坐标”就应该是它（在同一基中）的矩阵的元素。
+
+    正如我们将会看到的那样（见下文的~\ref{sec:dual_basis}~节），线性泛函的元素（“坐标”）确实是某个基（即所谓{\bf 对偶}基）中的坐标。
 \end{remark*}
-
-所以，如果我们（已知 $\mathbf{x}$ 在某个基中的坐标）想要利用矩阵代数的标准规则计算得到线性泛函 $L$ 的作用，即用一行（泛函）乘以一列（向量），那么我们别无选择：线性泛函 $L$ 的“坐标”就应该是它（在同一基中）的矩阵的元素。
-
-正如我们将会看到的那样（见下文的~\ref{sec:dual_basis}~节），线性泛函的元素（“坐标”）确实是某个基（即所谓{\bf 对偶}基）中的坐标。
 
 \subsubsection{唯一性定理}
 
@@ -170,14 +170,14 @@
 所以，$\mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n$ 这个组确实是 $V^\prime$ 的基，而且 $[L]_{\mathcal{B}}$ 的元素是 $L$ 关于 $\mathcal{B}$ 这个基的坐标。
 
 \begin{definition}
-    令 $\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n$ 为 $V$ 的基。由式~\ref{eq:dual_basis_definition}~唯一定义的向量组
+    令 $\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n$ 为 $V$ 的基。由式~\eqref{eq:dual_basis_definition}~唯一定义的向量组
     \[
         \mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n \in V^\prime
     \]
     称为 $\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n$ 的对偶基（或双正交基）。
 \end{definition}
 
-注意，我们已经证明了基的对偶向量组是基。另外，如果 $\mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n$ 是基 $\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n$ 的对偶向量组，那么 $\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n$ 也是 $\mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n$ 这个基的对偶向量组。%Note also that in ...? Note also that if ...?
+注意，我们已经证明了基的对偶向量组是基。另外，如果\linebreak $\mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n$ 是基 $\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n$ 的对偶向量组，那么 $\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n$ 也是 $\mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n$ 这个基的对偶向量组。%Note also that in ...? Note also that if ...?
 
 \subsubsection{抽象的非正交傅里叶分解}
 
@@ -195,7 +195,7 @@
     \fbox{\parbox{0.8\linewidth}{向量 $\mathbf{v}$ 在基 $\mathcal{B} = \left\{ \mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n \right\}$ 中的第 $k$ 个坐标为 $\mathbf{b}^{\prime}_k (\mathbf{v})$，其中 $\mathcal{B}^{\prime} = \left\{ \mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n \right\}$ 为对偶基。}}
 \end{center}
 
-该式称为 $\mathbf{v}$（在基 $\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n$ 中）的{\bf 抽象的非正交傅里叶分解}（的婴儿版）。取这一名字的原因将在后面的~\ref{sec:dual_and_orthonormal_basis}~节中讲清楚。%宝宝巴士版
+该式称为 $\mathbf{v}$（在基 $\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n$ 中）的{\bf 抽象的非正交傅里叶分解}（的雏形）。取这一名字的原因将在后面的~\ref{sec:dual_and_orthonormal_basis}~节中讲清楚。%宝宝巴士版
 
 \begin{remark}
     令 $\mathcal{A} = \left\{ \mathbf{a}_1, \mathbf{a}_2, \ldots, \mathbf{a}_n \right\}$ 和 $\mathcal{B} = \left\{ \mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n \right\}$ 分别为 $X$ 和 $Y$ 的基，并且令 $\mathcal{B}^{\prime} = \left\{ \mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n \right\}$ 为 $\mathcal{B}$ 的对偶基。那么变换 $T$ 在基 $\mathcal{A}, \mathcal{B}$ 中的矩阵 $[T]_{\mathcal{B}, \mathcal{A}} =: A = {\left\{ a_{k,j} \right\}^{m}_{k=1}}^{n}_{j=1}$ 由下式给出：
@@ -231,14 +231,14 @@
 \]%\ldots -> \cdots
 我们可以很容易发现 $\left\{ \mathbf{e}^{\prime}_k \right\}^{n}_{k=0}$ 是幂函数向量组 $\left\{ \mathbf{e}_{k} \right\}^{n}_{k=0}$ 的对偶。
 
-将~\ref{eq:abstract_nonorthogonal_Fourier_decomposition}~应用于上面的 $\left\{ \mathbf{e}_{k} \right\}^{n}_{k=0}$ 及其对偶，我们得到，次数最多为 $n$ 的任何多项式 $p$ 都可以表示为
+将 \eqref{eq:abstract_nonorthogonal_Fourier_decomposition} 应用于上面的 $\left\{ \mathbf{e}_{k} \right\}^{n}_{k=0}$ 及其对偶，我们得到，次数最多为 $n$ 的任何多项式 $p$ 都可以表示为
 \begin{equation} \label{eq:Taylor_formula}
     p(t) = \sum_{k=0}^{n} \frac{p^{(k)}(0)}{k!} t^k.
 \end{equation}
 
 \section{内积空间的对偶}
 
-\subsection{Riesz 表示定理}
+\subsection{里斯表示定理}
 
 \subsection{内积空间与自身对偶吗？}
 
