@@ -1184,6 +1184,46 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 
 \section{复化和实化}
 
+本节可能会比本章其余部分稍抽象些，第一次阅读时读者可跳过本节。
+
 \subsection{实化}
 
+\subsubsection{向量空间的实化}
+
+任意复向量空间都能被理解为实向量空间：我们只需“忘掉”能将向量与复数相乘的规则，而只允许将向量与实数相乘。
+
+例如，向量空间$\mathbb{C}^n$\textbf{典范}等同于实向量空间$\mathbb{R}^{2n}$：每个复坐标$z_k = x_k+iy_k$都能给出两个实坐标$x_k$和$y_k$。
+
+此处“\textbf{典范}”的意思是，这种将$\mathbb{C}^n$和$\mathbb{R}^{2n}$等同起来的看法是最标准也最自然的。注意，尽管上述定义给出了从复坐标得到实坐标的典范方法，但它并未提及如何排列实坐标。
+
+实际上，排列坐标$x_k,y_k$有两种标准方法：第一种是先列出所有实部再列出所有虚部，因而顺序是$x_{1},x_{2},\ldots,x_{n},y_{1},y_{2},\ldots,y_{n}$；另一种标准排列则是$x_1,y_1,x_2,y_2,\ldots,x_n,y_n$。本节内容并不依赖于坐标的排列，因此读者不必为顺序而操心。
+
+\subsubsection{内积的实化}
+
+给出（复向量空间上的）复内积，我们就有一种典范的方式来从中得出一种实内积。下面看看如何操作。首先考虑上面“$\mathbb{C}^n$典范等同于$\mathbb{R}^{2n}$”这个例子。令$(\mathbf{x},\mathbf{y})_\mathbb{C}$表示$\mathbb{C}^n$上的标准内积，并令$(\mathbf{x},\mathbf{y})_\mathbb{R}$表示$\mathbb{R}^{2n}$上的标准内积（注意，$\mathbb{R}^{2n}$上的这一标准内积并不依赖于坐标的排序）。那么（见下习题 \ref{ex:8_8_1}）
+\begin{equation}\label{canonical_inner_prod}
+    (\mathbf{x},\mathbf{y})_\mathbb{R} = \operatorname{Re}(\mathbf{x},\mathbf{y})_\mathbb{C}
+\end{equation}
+
+这个公式可用于在一般情形下由复内积典范定义实内积。也即，容易证明，若$(\mathbf{x},\mathbf{y})_\mathbb{C}$是复内积空间上的内积，那么由 \eqref{canonical_inner_prod} 定义的$(\mathbf{x},\mathbf{y})_\mathbb{R}$就是（对应实向量空间上的）实内积。
+
+总结一下：
+\begin{center}
+    \fbox{\parbox{0.8\linewidth}{为将复内积空间实化，我们只需“忘掉”能将向量与复数相乘的规则，也即只允许向量与实数相乘。实化空间上的典范实内积由公式 \eqref{canonical_inner_prod} 给出。}}
+\end{center}
+
+\begin{remark*}
+    $\mathbb{C}^{n}$上的（或，更一般地说，复向量空间上的）任一（复）线性变换都能给出一个实线性变换：容易看出，如果$T(\alpha\mathbf{x}+\beta\mathbf{y})=\alpha T\mathbf{x}+\beta T\mathbf{y}$对$\alpha,\beta\in\mathbb{C}$成立，那么它当然对于$\alpha,\beta\in\mathbb{R}$成立。
+
+    逆命题并不成立，也即$\mathbb{C}^{n}$的实化$\mathbb{R}^{2n}$上的（实）线性变换并不总能够给出$\mathbb{C}^{n}$上的（复）线性变换（对于抽象的向量空间也是如此）。
+
+    例如，考虑$n=1$情形，那么若要将“与复数$z$相乘”（这是$\mathbb{C}^{1}$上线性变换的一般形式）视为$\mathbb{R}^{2}$上的线性变换，那么这个实线性变换须具有特殊结构（你能描述它吗？）。
+\end{remark*}
+
 \subsection{复化}\label{subsec:complexification}
+
+我们也可以反过来操作，即从实内积空间得出复内积空间。事实上，你可能在你尚未察觉时就已经进行过这个操作了。
+
+\begin{problemset}
+    \item \label{ex:8_8_1}
+\end{problemset}
