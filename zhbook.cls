@@ -308,7 +308,7 @@
     %\normalfont \topsep6\p@\@plus6\p@\relax
     \normalfont \topsep3\p@\@plus3\p@\relax
     \trivlist\item[\hskip\labelsep
-    \heiti #1\@addpunct{:\,}]\ignorespaces
+    \sffamily #1\@addpunct{:\,}]\ignorespaces
 }{%
     \popQED\endtrivlist\@endpefalse
 }
