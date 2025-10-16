@@ -8,9 +8,9 @@
 
 最后，当结论和计算过程适用于实数和复数情形时，我们用复数情形下的公式，它们在实数情形下也正确，虽然有时会复杂一点。
 
-\section{\texorpdfstring{$\mathbb{R}^n$}{R**n}和\texorpdfstring{$\mathbb{C}^n$}{C**n}上的内积、内积空间}
+\section{\texorpdfstring{$\mathbb{R}^n$}{R\^{}n}和\texorpdfstring{$\mathbb{C}^n$}{C\^{}n}上的内积、内积空间}
 
-\subsection{\texorpdfstring{$\mathbb{R}^n$}{R**n}上的内积和范数}
+\subsection{\texorpdfstring{$\mathbb{R}^n$}{R\^{}n}上的内积和范数}
 
 在$2$维和$3$维中，我们利用毕达哥拉斯法则\footnote{即勾股定理。——译者注}定义向量$\mathbf{x}$的长度（即从其终点到原点的距离），例如在$\mathbb{R}^3$中向量的长度定义为\[\|\mathbf{x}\|=\sqrt{x_1^2+x_2^2+x_3^2}.\]
 将该公式推广到所有的$n$是很自然的——向量$\mathbf{x}\in\mathbb{R}^n$的\textbf{范数}定义为\[\|\mathbf{x}\|=\sqrt{x_1^2+x_2^2+\ldots+x_n^2}.\]
@@ -24,7 +24,7 @@ $\mathbb{R}^3$上的\textbf{点积}定义为$\mathbf{x}\cdot\mathbf{y}=x_1y_1+x_
 
 注意，$\mathbf{y}^T\mathbf{x}=\mathbf{x}^T\mathbf{y}$，而我们都使用记号$\mathbf{y}^T\mathbf{x}$只是为了统一起见。
 
-\subsection{\texorpdfstring{$\mathbb{C}^n$}{C**n}上的内积和范数}
+\subsection{\texorpdfstring{$\mathbb{C}^n$}{C\^{}n}上的内积和范数}
 
 下面定义$\mathbb{C}^n$上的范数和内积。如之前所见，从谱理论的视角来看，复向量空间$\mathbb{C}^n$是最为自然的：即便研究的是各项为实数的矩阵（或者实向量空间上的算子），特征值也可能是复的，于是我们就需要在复向量空间中研究。
 
@@ -800,7 +800,7 @@ $$y=86/77-62x/77+43x^2/154$$
     \end{probenumerate}
     \item \label{ex:5_4_5}\textbf{最小范数解}。令方程$A\mathbf{x}=\mathbf{b}$有解，并令$A$有非平凡的核（因而解是不唯一的）。证明：
     \begin{probenumerate}
-        \item $A\mathbf{x}=\mathbf{b}$存在唯一能使得范数$\|\mathbf{x}\|$最小的解$\mathbf{x}_0$，即存在唯一的$\mathbf{x}_0$，使得$A\mathbf{x}_0=\mathbf{b}$且$\|\mathbf{x}_0\|\le \|\mathbf{x}\|$对所有满足$A\mathbf{x}=\mathbf{b}$的$\|\mathbf{x}\|$成立。
+        \item $A\mathbf{x}=\mathbf{b}$存在唯一能使得范数$\|\mathbf{x}\|$最小的解$\mathbf{x}_0$，即存在唯一的$\mathbf{x}_0$，使得$A\mathbf{x}_0=\mathbf{b}$且$\|\mathbf{x}_0\|\le \|\mathbf{x}\|$对所有满足$A\mathbf{x}=\mathbf{b}$的$\mathbf{x}$成立。
         \item 对于所有满足$A\mathbf{x}=\mathbf{b}$的$\mathbf{x}$，有$\mathbf{x}_{0}=P_{(\ker A)^{\perp}}\mathbf{x}$。
     \end{probenumerate}
     \item \label{ex:5_4_6}\textbf{最小范数最小平方解}。将上述问题的结论应用于方程$A\mathbf{x}=P_{\rg A}\mathbf{b}$以证明：
@@ -1113,7 +1113,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
     \end{probenumerate}
 \end{problemset}
 
-\section{\texorpdfstring{$\mathbb{R}^n$}{R**n}中的刚体运动}
+\section{\texorpdfstring{$\mathbb{R}^n$}{R\^{}n}中的刚体运动}
 
 内积空间$V$中的刚体运动，是保持间距的变换$f:V\to V$，即
 \[\|f(\mathbf{x})-f(\mathbf{y})\|=\|\mathbf{x}-\mathbf{y}\|\quad\forall\mathbf{x},\mathbf{y}\in V.\]
@@ -1223,6 +1223,29 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 \subsection{复化}\label{subsec:complexification}
 
 我们也可以反过来操作，即从实内积空间得出复内积空间。事实上，你可能在你尚未察觉时就已经进行过这个操作了。
+
+也即，给出实内积空间$\mathbb{R}^n$，允许其中向量坐标为复数，即可从中得到复向量空间$\mathbb{C}^n$（而两向量空间上的内积都是标准内积）。这样一来，向量空间$\mathbb{R}^n$就成为由坐标为实数的向量所构成的$\mathbb{C}^n$的实子空间\footnote{实子空间的意思是，该集合对求和以及与实数的乘法运算封闭。}。
+
+将这个构造过程抽象出来，可以这样描述：给定实向量空间$X$，我们可定义其复化$X_\mathbb{C}$为由所有$[\mathbf{x}_1,\mathbf{x}_2],\mathbf{x}_1,\mathbf{x}_2\in X$所构成的集合，且加法和与实数$\alpha$的乘法是逐坐标定义的：
+\[[\mathbf{x}_1,\mathbf{x}_2]+[\mathbf{y}_1,\mathbf{y}_2]=[\mathbf{x}_1+\mathbf{y}_1,\mathbf{x}_2+\mathbf{y}_2],\quad\alpha[\mathbf{x}_1,\mathbf{x}_2]=[\alpha\mathbf{x}_1,\alpha\mathbf{x}_2].\]
+若$X=\mathbb{R}^n$，那么向量$\mathbf{x}_1$由$\mathbb{C}^n$中复数坐标的实部构成，而向量$\mathbf{x}_2$则由虚部构成。于是，非正式而言，可将$[\mathbf{x}_1,\mathbf{x}_2]$写成$\mathbf{x}_1+i\mathbf{x}_2$。
+
+为定义与复数的乘法，我们定义与$i$相乘为
+\[i[\mathbf{x}_1,\mathbf{x}_2]=[-\mathbf{x}_2,\mathbf{x}_1]\]
+（将$[\mathbf{x}_1,\mathbf{x}_2]$写为$\mathbf{x}_1+i\mathbf{x}_2$，我们就能看出它必须这样定义）并利用第二条分配律${(\alpha+\beta)}\mathbf{v}=\alpha\mathbf{v}+\beta\mathbf{v}$来定义与任意复数的乘法。
+
+如果$X$还是内积空间，那么可以扩展其内积到$X_\mathbb{C}$上：
+\[\left([\mathbf{x}_1,\mathbf{x}_2],[\mathbf{y}_1,\mathbf{y}_2]\right)_{X_{\mathbb{C}}}=\left(\mathbf{x}_1,\mathbf{y}_1\right)_X+\left(\mathbf{x}_2,\mathbf{y}_2\right)_X-i(\mathbf{x}_1,\mathbf{y}_2)_X+i(\mathbf{x}_2,\mathbf{y}_1)_X.\]
+
+\subsection{向实向量空间引入复结构}
+
+\subsubsection{引入复结构的初等方法}
+
+\subsubsection{从初等方法到抽象构造}
+
+\subsubsection{复结构的抽象构造}
+
+\subsubsection{借初等方法完成抽象构造}
 
 \begin{problemset}
     \item \label{ex:8_8_1}
