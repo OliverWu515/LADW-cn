@@ -147,19 +147,19 @@
         \item 矩阵$A$的相应于同一特征值$\lambda$的两个特征向量的和（非零）总是特征向量。
     \end{probenumerate}
     \item 求出下列矩阵的特征多项式、特征值和特征向量：
-    \[\begin{pmatrix}4&-5\\2&-3\end{pmatrix},\quad\begin{pmatrix}2&1\\-1&4\end{pmatrix},\quad\begin{pmatrix}1&3&3\\-3&-5&-3\\3&3&1\end{pmatrix}.\]
+    \[\begin{pNiceMatrix}[margin]4&-5\\2&-3\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]2&1\\-1&4\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]1&3&3\\-3&-5&-3\\3&3&1\end{pNiceMatrix}.\]
     \item 求出旋转矩阵
-    \[\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix}.\]
+    \[\begin{pNiceMatrix}[margin]\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pNiceMatrix}.\]
     的特征值和特征向量。注意，特征值（以及特征向量）不一定是实的。
     \item 求出下列矩阵的特征多项式和特征值：
-    \[\begin{pmatrix}1&2&5&67\\0&2&3&6\\0&0&-2&5\\0&0&0&3\end{pmatrix},\begin{pmatrix}2&1&0&2\\0&\pi&43&2\\0&0&16&1\\0&0&0&54\end{pmatrix},\begin{pmatrix}4&0&0&0\\1&3&0&0\\2&4&e&0\\3&3&1&1\end{pmatrix},\begin{pmatrix}4&0&0&0\\1&0&0&0\\2&4&0&0\\3&3&1&1\end{pmatrix}.\]
+    \[\begin{pNiceMatrix}[margin]1&2&5&67\\0&2&3&6\\0&0&-2&5\\0&0&0&3\end{pNiceMatrix},\begin{pNiceMatrix}[margin]2&1&0&2\\0&\pi&43&2\\0&0&16&1\\0&0&0&54\end{pNiceMatrix},\begin{pNiceMatrix}[margin]4&0&0&0\\1&3&0&0\\2&4&e&0\\3&3&1&1\end{pNiceMatrix},\begin{pNiceMatrix}[margin]4&0&0&0\\1&0&0&0\\2&4&0&0\\3&3&1&1\end{pNiceMatrix}.\]
     请勿展开特征多项式——保留为因式乘积的形式。
     \item 证明：三角矩阵的特征值（以重数计）恰为其对角项。
     \item 称算子$A$是\textbf{幂零的}，若对某$k$有$A^k=\mathbf{0}$。证明：若$A$是幂零的，那么$\sigma(A)=\{0\}$（即$0$是$A$唯一的特征值）。
     \item 证明分块三角矩阵
-    \[\begin{pmatrix}A&*\\\mathbf{0}&B\end{pmatrix},\]
+    \[\begin{pNiceMatrix}[margin]A&*\\\mathbf{0}&B\end{pNiceMatrix},\]
     （其中$A$和$B$为方阵）的特征多项式等于$\det(A-\lambda I)\det(B-\lambda I)$。（利用第 \ref{chap:Determinant} 章的习题 \ref{ex:3_3_11}）
-    \item 令$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是向量空间$V$的基。又假设前$k$个基向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{k}$是算子$A$的特征向量，且对应于同一特征值$\lambda$（即$A\mathbf{v}_{j}=\lambda\mathbf{v}_{j},j=1,2,\ldots,k$）。证明：在该基下，算子$A$的矩阵具有分块三角形式\[\begin{pmatrix}\lambda I_k&*\\\mathbf{0}&B\end{pmatrix},\]
+    \item 令$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是向量空间$V$的基。又假设前$k$个基向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{k}$是算子$A$的特征向量，且对应于同一特征值$\lambda$（即$A\mathbf{v}_{j}=\lambda\mathbf{v}_{j},j=1,2,\ldots,k$）。证明：在该基下，算子$A$的矩阵具有分块三角形式\[\begin{pNiceMatrix}[margin]\lambda I_k&*\\\mathbf{0}&B\end{pNiceMatrix},\]
     其中$I_k$是$k\times k$恒等矩阵，$B$为某$(n-k)\times(n-k)$矩阵。
     \item \label{ex:4_1_9}利用上面两题的结论证明：特征值的几何重数不超过其代数重数。
     \item \label{ex:4_1_10}证明：矩阵$A$的行列式是其特征值之积（以重数计）。
@@ -185,7 +185,7 @@
 设向量空间$V$上的算子$A$满足$V$有由$A$的特征向量构成的基$\mathcal{B}=\{\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}\}$，$\lambda_1,\lambda_2,\dots,\lambda_n$是它们对应的特征值。那么$A$关于这个基的矩阵就是对角项为$\lambda_1,\lambda_2,\dots,\lambda_n$的对角矩阵
 \begin{equation}\label{diag_in_certain_basis}
     [A]_{\mathcal{BB}}=\operatorname{diag}\{\lambda_1,\lambda_2,\ldots,\lambda_n\}=
-    \begin{pNiceMatrix}
+    \begin{pNiceMatrix}[margin]
         \lambda_1                 &           &        &  \Block{2-1}<\LARGE>{0}                         \\
                                   & \lambda_2 &        &  \\
         \Block[b]{2-1}<\LARGE>{0} &           & \ddots &                           \\
@@ -228,7 +228,7 @@
 令算子$A$关于基$\mathcal{B}=\{\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}\}$的矩阵是由 \eqref{diag_in_certain_basis} 给出的对角矩阵。那么很容易求出算子$A$的$N$次幂。即，$A^N$关于基$\mathcal{B}$的矩阵是
 \[
 [A^N]_{\mathcal{BB}}=\operatorname{diag}\{\lambda_1^N,\lambda_2^N,\ldots,\lambda_n^N\}=
-    \begin{pNiceMatrix}
+    \begin{pNiceMatrix}[margin]
         \lambda_1^N                 &           &        &  \Block{2-1}<\LARGE>{0}                         \\
                                   & \lambda_2^N  &        &  \\
         \Block[b]{2-1}<\LARGE>{0} &           & \ddots &                           \\
@@ -237,7 +237,7 @@
 \]
 并且，关于算子的函数也很容易计算：例如，算子（矩阵）的指数$e^{tA}$定义为$e^{tA}=I+tA+\frac{t^{2}A^{2}}{2!}+\frac{t^3A^3}{3!}+\ldots=\sum_{k=0}^{\infty}\frac{t^kA^k}{k!}$，该算子在基$\mathcal{B}$下的矩阵是
 \[[e^{tA}]_\mathcal{BB} = \operatorname{diag}\{e^{\lambda_1t},e^{\lambda_2t},\ldots,e^{\lambda_nt}\}=
-    \begin{pNiceMatrix}
+    \begin{pNiceMatrix}[margin]
         e^{\lambda_1t}                 &           &        &  \Block{2-1}<\LARGE>{0}                         \\
                                   & e^{\lambda_2t} &        &  \\
         \Block[b]{2-1}<\LARGE>{0} &           & \ddots &                           \\
@@ -245,7 +245,7 @@
     \end{pNiceMatrix}.\]
 
 现设$A$是$\mathbb{F}^n$上的算子。为求出算子$A^N$和$e^{tA}$在标准基$\mathcal{S}$下的矩阵，回想一下坐标变换矩阵$[I]_\mathcal{SB}$是各列为$\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}$的矩阵。称该矩阵为$\mathcal{S}$，那么根据坐标变换公式可得
-\[A=[A]_\mathcal{SS} = S\begin{pNiceMatrix}
+\[A=[A]_\mathcal{SS} = S\begin{pNiceMatrix}[margin]
         \lambda_1                 &           &        &  \Block{2-1}<\LARGE>{0}                         \\
                                   & \lambda_2 &        &  \\
         \Block[b]{2-1}<\LARGE>{0} &           & \ddots &                           \\
@@ -253,7 +253,7 @@
     \end{pNiceMatrix}S^{-1}=SDS^{-1}\]
 其中用$D$指代中间的对角矩阵。
 
-类似地，\[A^N =SD^NS^{-1}= S\begin{pNiceMatrix}
+类似地，\[A^N =SD^NS^{-1}= S\begin{pNiceMatrix}[margin]
         \lambda_1^N                 &           &        &  \Block{2-1}<\LARGE>{0}                         \\
                                   & \lambda_2^N  &        &  \\
         \Block[b]{2-1}<\LARGE>{0} &           & \ddots &                           \\
@@ -417,11 +417,11 @@ $$A=\left(\begin{array}{cc}1&1\\0&1\end{array}\right).$$
 $$\left|\begin{array}{cc}1-\lambda&1\\0&1-\lambda\end{array}\right|=(1-\lambda)^2,$$
 所以$A$的特征值为$1$，且其重数为$2$。但很容易看出$\dim\ker(A-I)=1$（$A-I$有$1$个主元，所以有$2-1=1$个自由变量）。所以，特征值$1$的几何重数不等于代数重数，故$A$不可对角化。
 
-还有一种不用定理 \ref{thm:algebraic_eq_geometric} 的解释：特征空间$\ker(A-1I)$的特征空间是一维的（由向量$(1,0)^T$张成）。如果$A$可对角化，那么它应关于某个基具有对角阵$\begin{pmatrix}
+还有一种不用定理 \ref{thm:algebraic_eq_geometric} 的解释：特征空间$\ker(A-1I)$是一维的（由向量$(1,0)^T$张成）。如果$A$可对角化，那么它应关于某个基具有对角阵$\begin{pNiceMatrix}[margin]
     1&0\\0&1
-\end{pmatrix}$\footnote{注意，关于某个基具有对角阵$\begin{pmatrix}
+\end{pNiceMatrix}$\footnote{注意，关于某个基具有对角阵$\begin{pNiceMatrix}[margin]
     1&0\\0&1
-\end{pmatrix}$的唯一线性变换是恒等变换$I$。因为$A$肯定不是恒等变换，所以我们可以断定$A$不可对角化，所以其实没有必要计算特征空间的维数。}，则特征空间的维数应为$2$。因此$A$不可对角化。
+\end{pNiceMatrix}$的唯一线性变换是恒等变换$I$。因为$A$肯定不是恒等变换，所以我们可以断定$A$不可对角化，所以其实没有必要计算特征空间的维数。}，则特征空间的维数应为$2$。因此$A$不可对角化。
 
 \begin{problemset}
     \item 令$A$为$n\times n$矩阵。判断正误：
@@ -432,30 +432,30 @@ $$\left|\begin{array}{cc}1-\lambda&1\\0&1-\lambda\end{array}\right|=(1-\lambda)^
     \end{probenumerate}
     证明你的结论。
     \item \label{ex:4_2_2} 令$A$为各项为实数的方阵，并令$\lambda$为它的复特征值。令$\mathbf{v}=(v_{1},v_{2},\ldots,v_{n})^{T}$是对应的特征向量，$A\mathbf{v}=\lambda\mathbf{v}$。证明：$\overline{\lambda}$是$A$的特征值，且$A\mathbf{\overline{v}}=\overline{\lambda}\mathbf{\overline{v}}$，此处$\mathbf{\overline{v}}$是向量$\mathbf{v}$的复共轭，${\overline{\mathbf{v}}}:=({\overline{v}}_{1},{\overline{v}}_{2},\ldots,{\overline{v}}_{n})^{T}$。
-    \item 令\[A=\begin{pmatrix}4&3\\1&2\end{pmatrix}.\]通过对角化$A$，求$A^{2004}$。
+    \item 令\[A=\begin{pNiceMatrix}[margin]4&3\\1&2\end{pNiceMatrix}.\]通过对角化$A$，求$A^{2004}$。
     \item 构造矩阵$A$，其特征值为$1$和$3$，对应的特征向量分别是$(1,2)^T$和$(1,1)^T$。这样的矩阵是唯一的吗？
     \item 将下列的矩阵对角化（如果可以的话）
     \begin{probenumerate}
-        \item $\begin{pmatrix}{4}&{-2}\\{1}&{1}\end{pmatrix}$；
-        \item $\begin{pmatrix}{-1}&{-1}\\{6}&{4}\end{pmatrix}$；
-        \item $\begin{pmatrix}{-2}&{2}&{6}\\{5}&{1}&{-6}\\{-5}&{2}&{9}\end{pmatrix}$（$\lambda=2$是它的一个特征值）。
+        \item $\begin{pNiceMatrix}[margin]{4}&{-2}\\{1}&{1}\end{pNiceMatrix}$；
+        \item $\begin{pNiceMatrix}[margin]{-1}&{-1}\\{6}&{4}\end{pNiceMatrix}$；
+        \item $\begin{pNiceMatrix}[margin]{-2}&{2}&{6}\\{5}&{1}&{-6}\\{-5}&{2}&{9}\end{pNiceMatrix}$（$\lambda=2$是它的一个特征值）。
     \end{probenumerate}
-    \item 考虑矩阵\[A=\begin{pmatrix}2&6&-6\\0&5&-2\\0&0&4\end{pmatrix}.\]
+    \item 考虑矩阵\[A=\begin{pNiceMatrix}[margin]2&6&-6\\0&5&-2\\0&0&4\end{pNiceMatrix}.\]
     \begin{probenumerate}
         \item 求它的特征值。是否可以无需计算就求出特征值？
         \item 该矩阵可对角化吗？不要通过计算得出答案。
         \item 如果该矩阵可对角化，则将它对角化。
     \end{probenumerate}
-    \item 将下列矩阵对角化\[\begin{pmatrix}2&0&6\\0&2&4\\0&0&4\end{pmatrix}.\]
-    \item 求出下列矩阵的所有平方根\[A=\begin{pmatrix}5&2\\-3&0\end{pmatrix}\]
+    \item 将下列矩阵对角化\[\begin{pNiceMatrix}[margin]2&0&6\\0&2&4\\0&0&4\end{pNiceMatrix}.\]
+    \item 求出下列矩阵的所有平方根\[A=\begin{pNiceMatrix}[margin]5&2\\-3&0\end{pNiceMatrix}\]
     即求出所有满足$B^2=A$的矩阵$B$。{\bf 提示}：求出对角矩阵的平方根很容易。你可以将答案保留为乘积形式。
     \item 回忆一下，著名的斐波那契序列\[0,1,1,2,3,5,8,13,21\]
     定义如下：置$\varphi_0=0,\varphi_1=1$，并定义\[\varphi_{n+2}=\varphi_{n+1}+\varphi_n.\]现要求$\varphi_n$的公式。为此
     \begin{probenumerate}
-        \item 求$2\times 2$矩阵$A$满足\[\begin{pmatrix}\varphi_{n+2}\\\varphi_{n+1}\end{pmatrix}=A\begin{pmatrix}\varphi_{n+1}\\\varphi_{n}\end{pmatrix}\]
+        \item 求$2\times 2$矩阵$A$满足\[\begin{pNiceMatrix}[margin]\varphi_{n+2}\\\varphi_{n+1}\end{pNiceMatrix}=A\begin{pNiceMatrix}[margin]\varphi_{n+1}\\\varphi_{n}\end{pNiceMatrix}\]
         \textbf{提示}：将一个看似显然的公式$\varphi_{n+1}=\varphi_{n+1}$和斐波那契递推关系$\varphi_{n+2}=\varphi_{n+1}+\varphi_n$联立。
         \item 对角化$A$，并求出$A^n$的公式。
-        \item 注意到\[\begin{pmatrix}\varphi_{n+1}\\\varphi_n\end{pmatrix}=A^n\begin{pmatrix}\varphi_1\\\varphi_0\end{pmatrix}=A^n\begin{pmatrix}1\\0\end{pmatrix}\]求出$\varphi_n$的公式。（此处你需要计算逆和乘法）
+        \item 注意到\[\begin{pNiceMatrix}[margin]\varphi_{n+1}\\\varphi_n\end{pNiceMatrix}=A^n\begin{pNiceMatrix}[margin]\varphi_1\\\varphi_0\end{pNiceMatrix}=A^n\begin{pNiceMatrix}[margin]1\\0\end{pNiceMatrix}\]求出$\varphi_n$的公式。（此处你需要计算逆和乘法）
         \item 证明：向量$(\varphi_{n+1}/\varphi_{n},1)^{T}$收敛到$A$的一个特征向量。
         
         你觉得这是巧合吗？

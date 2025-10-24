@@ -28,7 +28,7 @@ $\mathbb{R}^3$上的\textbf{点积}定义为$\mathbf{x}\cdot\mathbf{y}=x_1y_1+x_
 
 下面定义$\mathbb{C}^n$上的范数和内积。如之前所见，从谱理论的视角来看，复向量空间$\mathbb{C}^n$是最为自然的：即便研究的是各项为实数的矩阵（或者实向量空间上的算子），特征值也可能是复的，于是我们就需要在复向量空间中研究。
 
-对于复数$z=x+iy$，我们有$|z|^2=x^2+y^2=z\overline{z}$。若$\mathbf{z}\in\mathbb{C}^{n}$形如\[\mathbf{z}=\begin{pmatrix}z_1\\z_2\\\vdots\\z_n\end{pmatrix}=\begin{pmatrix}x_1+iy_1\\x_2+iy_2\\\vdots\\x_n+iy_n\end{pmatrix},\]
+对于复数$z=x+iy$，我们有$|z|^2=x^2+y^2=z\overline{z}$。若$\mathbf{z}\in\mathbb{C}^{n}$形如\[\mathbf{z}=\begin{pNiceMatrix}[margin]z_1\\z_2\\\vdots\\z_n\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]x_1+iy_1\\x_2+iy_2\\\vdots\\x_n+iy_n\end{pNiceMatrix},\]
 就能很自然由下式定义其范数$\|\mathbf{z}\|$：\[\|\mathbf{z}\|^2=\sum_{k=1}^n(x_k^2+y_k^2)=\sum_{k=1}^n|z_k|^2.\]
 现在我们尝试定义$\mathbb{C}^n$上的内积使得$\|\mathbf{z}\|^2=(\mathbf{z},\mathbf{z})$。一种做法是定义$(\mathbf{z},\mathbf{w})$为\[(\mathbf{z},\mathbf{w})=z_{1}\overline{w}_{1}+z_{2}\overline{w}_{2}+\ldots+z_{n}\overline{w}_{n}=\sum_{k=1}^{n}z_{k}\overline{w}_{k},\]
 这就是$\mathbb{C}^n$上\textbf{标准}内积的定义。
@@ -679,7 +679,7 @@ $A\mathbf{x}$是正交投影$P_{\rg A}\mathbf{b}$当且仅当$\mathbf{b}-A\mathb
 理想情况下，系数$a$与$b$应满足方程\[a+bx_k=y_k,\quad k=1,2,\ldots,n\]
 （注意，$x_k$和$y_k$是固定的数，而未知数是$a$和$b$）如果能求出满足条件的$a$和$b$，那是我们走运；如果求不出，通行的做法是最小化总的二次误差\[\sum_{k=1}^n|a+bx_k-y_k|^2.\]
 而最小化这个误差恰恰就是求出下列方程组的最小平方解：
-\[\begin{pmatrix}1&x_1\\1&x_2\\\vdots&\vdots\\1&x_n\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix}=\begin{pmatrix}y_1\\y_2\\\vdots\\y_n\end{pmatrix}\]
+\[\begin{pNiceMatrix}[margin]1&x_1\\1&x_2\\\vdots&\vdots\\1&x_n\end{pNiceMatrix}\begin{pNiceMatrix}[margin]a\\b\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]y_1\\y_2\\\vdots\\y_n\end{pNiceMatrix}\]
 （回想一下，$x_k$和$y_k$是给定的数，而未知数是$a$和$b$）
 
 \subsubsection{例子}
@@ -784,12 +784,12 @@ $$y=86/77-62x/77+43x^2/154$$
 另一个例子是，将数据\[(x_k,y_k,z_k)\in\mathbb{R}^3,\quad k=1,2,\ldots n.\]
 拟合成平面$z=a+bx+cy$。在精确匹配的情况下，数据应满足方程
 \[a+bx_k+cy_k=z_k,\quad k=1,2,\ldots,n,\]
-或写成矩阵形式\[\begin{pmatrix}1&x_1&y_1\\1&x_2&y_2\\\vdots&\vdots&\vdots\\1&x_n&y_n\end{pmatrix}\begin{pmatrix}a\\b\\c\end{pmatrix}=\begin{pmatrix}z_1\\z_2\\\vdots\\z_n\end{pmatrix}.\]
+或写成矩阵形式\[\begin{pNiceMatrix}[margin]1&x_1&y_1\\1&x_2&y_2\\\vdots&\vdots&\vdots\\1&x_n&y_n\end{pNiceMatrix}\begin{pNiceMatrix}[margin]a\\b\\c\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]z_1\\z_2\\\vdots\\z_n\end{pNiceMatrix}.\]
 因此，要求出最佳拟合平面，就需要写出该方程组的最小平方解（未知数是$a,b,c$）。
 
 \begin{problemset}
-    \item 求出下列方程组的最小平方解\[\begin{pmatrix}1&0\\0&1\\1&1\end{pmatrix}\mathbf{x}=\begin{pmatrix}1\\1\\0\end{pmatrix}\]
-    \item 求出往矩阵\[\begin{pmatrix}1&1\\2&-1\\-2&4\end{pmatrix}.\]
+    \item 求出下列方程组的最小平方解\[\begin{pNiceMatrix}[margin]1&0\\0&1\\1&1\end{pNiceMatrix}\mathbf{x}=\begin{pNiceMatrix}[margin]1\\1\\0\end{pNiceMatrix}\]
+    \item 求出往矩阵\[\begin{pNiceMatrix}[margin]1&1\\2&-1\\-2&4\end{pNiceMatrix}.\]
     的列空间的正交投影$P$的矩阵。用两种方法完成：格拉姆-施密特正交化和投影的公式。比较两个结果。
     \item 求出点$(-2,4),(-1,3),(0,1),(2,0)$的最佳直线拟合（最小平方解）。
     \item 将四个点$(1,1,3),(0,3,6),(2,1,5),(0,0,0)$拟合成平面$z=a+bx+cy$。
@@ -916,7 +916,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 \begin{problemset}
     \item \label{ex:5_5_1}证明：对于方阵$A$，等式$\det(A^*)=\overline{\det (A)}$成立。
     \item 求出往下列矩阵的四个基本子空间上正交投影的矩阵。
-    \[A=\begin{pmatrix}1&1&1\\1&3&2\\2&4&3\end{pmatrix}.\]
+    \[A=\begin{pNiceMatrix}[margin]1&1&1\\1&3&2\\2&4&3\end{pNiceMatrix}.\]
     注意，你只需要求其中两个投影：如果你选择适当的两个来求，就很容易从中得到另外两个（回忆一下往$E$和$E^\perp$上的投影的关系）。
     \item 令$A$为$m\times n$矩阵。证明：$\ker A=\ker (A^*A)$。
     
@@ -1009,7 +1009,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 
 直接计算乘积$U^*U$即可检验该结论。
 
-容易检验，旋转矩阵\[\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix}\]
+容易检验，旋转矩阵\[\begin{pNiceMatrix}[margin]\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pNiceMatrix}\]
 的各列彼此正交，并且各列的范数都是$1$。因此，旋转矩阵是等距的，又因为它是方阵，所以它是幺正的。又因为旋转矩阵的各项都是实数，所以它是正交矩阵。
 
 下个例子要更抽象一些。令$X$和$Y$是内积空间，$\dim X=\dim Y=n$，并令$\mathbf{x}_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{n}$和$\mathbf{y}_1,\mathbf{y}_2,\ldots,\mathbf{y}_n$分别为$X$和$Y$的规范正交基。定义变换$U:X\to Y$为
@@ -1070,7 +1070,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 
 \begin{problemset}
     \item 正交分解下列矩阵：
-    \[\begin{pmatrix}1&2\\2&1\end{pmatrix},\quad\begin{pmatrix}0&-1\\1&0\end{pmatrix},\quad\begin{pmatrix}0&2&2\\2&0&2\\2&2&0\end{pmatrix}\]
+    \[\begin{pNiceMatrix}[margin]1&2\\2&1\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]0&-1\\1&0\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]0&2&2\\2&0&2\\2&2&0\end{pNiceMatrix}\]
     即，对每个矩阵$A$，求出幺正矩阵$U$和对角矩阵$D$使得$A=UDU^*$。
     \item 判断正误：矩阵幺正等价于对角矩阵，当且仅当存在它的特征向量构成的正交（或规范正交）基。
     \item \label{ex:5_6_3} 证明极化恒等式\[(A\mathbf{x},\mathbf{y})=\frac{1}{4}\left[(A(\mathbf{x}+\mathbf{y}),\mathbf{x}+\mathbf{y})-(A(\mathbf{x}-\mathbf{y}),\mathbf{x}-\mathbf{y})\right]\quad(\text{实数情形, }A=A^*),\]
@@ -1086,15 +1086,15 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
     \begin{probenumerate}
         \item 证明：$\tr(A^*A)=\tr(B^*B)$；
         \item 利用a)证明：\[\sum_{j,k=1}^n|A_{j,k}|^2=\sum_{j,k=1}^n|B_{j,k}|^2.\]
-        \item 利用b)证明：矩阵\[\begin{pmatrix}1&2\\2&i\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}i&4\\1&1\end{pmatrix}\]不是幺正等价的。
+        \item 利用b)证明：矩阵\[\begin{pNiceMatrix}[margin]1&2\\2&i\end{pNiceMatrix}\quad\text{和}\quad\begin{pNiceMatrix}[margin]i&4\\1&1\end{pNiceMatrix}\]不是幺正等价的。
     \end{probenumerate}
     \item 下列各对矩阵中，哪些是幺正等价的？
     \begin{probenumerate}
-        \item $\begin{pmatrix}1&0\\0&1\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}0&1\\1&0\end{pmatrix}$。
-        \item $\begin{pmatrix}0&1\\1&0\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}0&1/2\\1/2&0\end{pmatrix}$。
-        \item $\begin{pmatrix}0&1&0\\-1&0&0\\0&0&1\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}2&0&0\\0&-1&0\\0&0&0\end{pmatrix}$。
-        \item $\begin{pmatrix}0&1&0\\-1&0&0\\0&0&1\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}1&0&0\\0&-i&0\\0&0&i\end{pmatrix}$。
-        \item $\begin{pmatrix}1&1&0\\0&2&2\\0&0&3\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}1&0&0\\0&2&0\\0&0&3\end{pmatrix}$。
+        \item $\begin{pNiceMatrix}[margin]1&0\\0&1\end{pNiceMatrix}\quad\text{和}\quad\begin{pNiceMatrix}[margin]0&1\\1&0\end{pNiceMatrix}$。
+        \item $\begin{pNiceMatrix}[margin]0&1\\1&0\end{pNiceMatrix}\quad\text{和}\quad\begin{pNiceMatrix}[margin]0&1/2\\1/2&0\end{pNiceMatrix}$。
+        \item $\begin{pNiceMatrix}[margin]0&1&0\\-1&0&0\\0&0&1\end{pNiceMatrix}\quad\text{和}\quad\begin{pNiceMatrix}[margin]2&0&0\\0&-1&0\\0&0&0\end{pNiceMatrix}$。
+        \item $\begin{pNiceMatrix}[margin]0&1&0\\-1&0&0\\0&0&1\end{pNiceMatrix}\quad\text{和}\quad\begin{pNiceMatrix}[margin]1&0&0\\0&-i&0\\0&0&i\end{pNiceMatrix}$。
+        \item $\begin{pNiceMatrix}[margin]1&1&0\\0&2&2\\0&0&3\end{pNiceMatrix}\quad\text{和}\quad\begin{pNiceMatrix}[margin]1&0&0\\0&2&0\\0&0&3\end{pNiceMatrix}$。
     \end{probenumerate}
     {\bf 提示}：很容易排除不是幺正等价的矩阵：请记住，幺正等价矩阵是相似的，而相似矩阵的迹、行列式和特征值都是一样的。
 
@@ -1106,7 +1106,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
     \item 令$U$是$3\times 3$正交矩阵，$\det U=1$。证明：
     \begin{probenumerate}
         \item $1$是$U$的特征值。
-        \item 若$\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}$是规范正交基，并满足$U\mathbf{v}_{1}=\mathbf{v}_{1}$（记住，$1$是特征值之一），那么$U$关于该基的矩阵是\[\begin{pmatrix}1&0&0\\0&\cos\alpha&-\sin\alpha\\0&\sin\alpha&\cos\alpha\end{pmatrix},\]
+        \item 若$\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}$是规范正交基，并满足$U\mathbf{v}_{1}=\mathbf{v}_{1}$（记住，$1$是特征值之一），那么$U$关于该基的矩阵是\[\begin{pNiceMatrix}[margin]1&0&0\\0&\cos\alpha&-\sin\alpha\\0&\sin\alpha&\cos\alpha\end{pNiceMatrix},\]
         其中$\alpha$是一个角度值。
 
         {\bf 提示}：先证明，因为$\mathbf{v}_1$是$U$的特征向量，所以在$1$之下的所有项都必为零；因为$\mathbf{v}_1$也是$U^*$的特征向量（为什么？），所以在$1$右侧的所有项也都必为零。然后证明右下角的$2\times 2$矩阵是行列式为$1$的正交矩阵，再利用前一题的结论。

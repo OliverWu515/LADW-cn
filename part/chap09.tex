@@ -42,12 +42,12 @@
     我们知道（见第 \ref{chap:StructinInnerProdSpace} 章定理 \ref{thm:schur}），任意方阵都幺正等价于上三角矩阵。因为对任意多项式$P$，有$p(UAU^{-1})=Up(A)U^{-1}$，并且幺正等价矩阵的特征多项式是相同的，所以只要对上三角矩阵证明该定理即可。
 
     因此，令$A$是上三角矩阵。我们知道三角矩阵的对角项即为其特征值，所以令$\lambda_1,\lambda_2,\dots,\lambda_n$是$A$的特征值（按照它们在对角线上出现的顺序排列），那么
-    \[A=\begin{pmatrix}
+    \[A=\begin{pNiceMatrix}[margin]
         \lambda_1 & & & *\\
          & \lambda_2 & &\\
          &&\ddots&\\
          \mathbf{0}&&&\lambda_n
-    \end{pmatrix}.\]
+    \end{pNiceMatrix}.\]
     $A$的特征多项式$p(z)=\det(A-z I)$可表示为$p(z)=(\lambda_1-z)(\lambda_2-z)\dots(\lambda_n-z)=(-1)^n(z-\lambda_1)(z-\lambda_2)\dots(z-\lambda_n)$，因此
     \[p(A)=(-1)^n(A-\lambda_1I)(A-\lambda_2I)\ldots(A-\lambda_nI).\]
 
@@ -166,7 +166,7 @@
 若$E_{1},E_{2},\ldots,E_{r}$是由$A$-不变子空间构成的基，并且$A_k:=A|_{E_k}$是对应的限制算子，那么由于$AE_k = A_kE_k\subset E_k$，所以各算子$A_k$的作用是相互独立的（互不影响），并且要分析$A$的作用，只需分别分析各$A_k$的作用。
 
 特别地，如果在各子空间$E_k$中选取一个基，并且将它们组合起来以得到$V$的基（见第 \ref{chap:SpectralIntro} 章的定理 \ref{thm:union_of_basis_in_subspace_li_basis}），那么算子$A$在该基下的矩阵具有如下分块对角形式
-\[\begin{pNiceMatrix}
+\[\begin{pNiceMatrix}[margin]
     A_1                 &           &        &  \Block{2-1}<\LARGE>{\mathbf{0}}                         \\
                                 & A_2 &        &  \\
     \Block[b]{2-1}<\LARGE>{\mathbf{0}} &           & \ddots &                           \\
@@ -366,13 +366,13 @@
 
 我们来看看“矩阵具有简单的形式”是什么意思。容易看出，矩阵
 \begin{equation}\label{jordan_block}
-    \begin{pmatrix}
+    \begin{pNiceMatrix}[margin]
         0 & 1 &   &        & 0   \\
           & 0 & 1 &        &    \\
           &   & 0 & \ddots &    \\
           &   &   & \ddots & 1   \\
         0 &   &   &        & 0
-    \end{pmatrix}
+    \end{pNiceMatrix}
 \end{equation}
 是幂零的。
 
@@ -484,10 +484,10 @@
             \bullet &         &         &         &         &         \\
         \end{matrix}$
     \end{minipage}\qquad
-    \begin{minipage}[t]{0.65\textwidth}
+    \begin{minipage}[t]{0.68\textwidth}
         \vspace{0pt} 
         \centering
-        $\begin{pNiceMatrix}
+        $\begin{pNiceMatrix}[margin]
             \Block[borders={bottom,right}]{5-5}{}
             0 & 1 &   &   &   &   &   &   &   &   &   &   &   &  \\
             & 0 & 1 &   &   &   &   &   &   &   &   &   &   &  \\
@@ -548,7 +548,7 @@
 \begin{theorem}\label{thm:jordan_decomp}
     给定算子$A$，存在基（若当标准基），使得$A$关于该基的矩阵有分块对角形式，各块形如
     \begin{equation}
-        \begin{pmatrix}\lambda&1&&&0\\&\lambda&1&&\\&&\lambda&\ddots&\\&&&\ddots&1\\0&&&&\lambda\end{pmatrix}
+        \begin{pNiceMatrix}[margin]\lambda&1&&&0\\&\lambda&1&&\\&&\lambda&\ddots&\\&&&\ddots&1\\0&&&&\lambda\end{pNiceMatrix}
     \end{equation}
     其中$\lambda$是$A$的特征值。这里假设大小为$1$的块就是$\lambda$。
 \end{theorem}

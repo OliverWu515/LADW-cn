@@ -21,7 +21,7 @@
 
     令$\lambda_1$是$A$的特征值，并令$\mathbf{u}_1$（$\|\mathbf{u}_1\|=1$）是对应的特征向量，$A\mathbf{u}_1=\lambda_1\mathbf{u}_1$。记$E=\mathbf{u}_1^\perp$，并令$\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是$E$的规范正交基（显然$\dim E=\dim X-1=n-1$），因此$\mathbf{u}_1,\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是$X$的规范正交基。在该基下，$A$的矩阵形如
     \begin{equation}\label{upper_triangular_with_ortho}
-        \begin{pNiceArray}{c|ccc}
+        \begin{pNiceArray}{c|ccc}[margin]
             \lambda_1 & & * & \\
             \Hline
             0 & & & \\
@@ -46,7 +46,7 @@
 
 \begin{remark*}
     注意，即便$A$是实矩阵，矩阵$U$和$T$还是可能有复数项。比如，旋转矩阵
-    \[\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix},\quad\alpha\neq k\pi,k\in\mathbb{Z}\]
+    \[\begin{pNiceMatrix}[margin]\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pNiceMatrix},\quad\alpha\neq k\pi,k\in\mathbb{Z}\]
     就不幺正等价于实上三角矩阵（甚至不会与之相似）。的确如此：该矩阵的特征值是复数，而上三角矩阵的特征值恰为对角项。
 \end{remark*}
 
@@ -163,7 +163,7 @@
 
     假设我们已经证明任意$(n-1)\times (n-1)$上三角正规矩阵都是对角的，现在要证明这对于$n\times n$矩阵也是成立的。令$N$是$n\times n$上三角正规矩阵。可将其写为
     \begin{equation*}
-        \begin{pNiceArray}{c|ccc}
+        \begin{pNiceArray}{c|ccc}[margin]
             a_{1,1} & a_{1,2} & \ldots & a_{1,n}\\
             \Hline
             0 & & & \\
@@ -178,7 +178,7 @@
     且有\[(NN^*)_{1,1}=|a_{1,1}|^2+|a_{1,2}|^2+\ldots+|a_{1,n}|^2.\]
     因此，$(N^*N)_{1,1}=(NN^*)_{1,1}$当且仅当$a_{1,2}=\ldots=a_{1,n}=0$。因此，矩阵$N$形如
     \begin{equation*}
-        \begin{pNiceArray}{c|ccc}
+        \begin{pNiceArray}{c|ccc}[margin]
             a_{1,1} & 0 & \ldots & 0\\
             \Hline
             0 & & & \\
@@ -188,14 +188,14 @@
     \end{equation*}
     从上述表达式可得
     \begin{equation*}
-        N^*N = \begin{pNiceArray}{c|ccc}
+        N^*N = \begin{pNiceArray}{c|ccc}[margin]
             |a_{1,1}|^2 & 0 & \ldots & 0\\
             \Hline
             0 & & & \\
             \vdots & & N_1^*N_1 & \\
             0 & & & 
         \end{pNiceArray},\quad 
-        \begin{pNiceArray}{c|ccc}
+        \begin{pNiceArray}{c|ccc}[margin]
             |a_{1,1}|^2 & 0 & \ldots & 0\\
             \Hline
             0 & & & \\
@@ -242,13 +242,13 @@
     \end{probenumerate}
     \item 判断正误：正规算子之和仍然正规。论证你的结论。
     \item 证明：幺正等价于对角矩阵的算子是正规的。
-    \item 正交分解下列矩阵\[A=\begin{pmatrix}
+    \item 正交分解下列矩阵\[A=\begin{pNiceMatrix}[margin]
         3&2\\2&3
-    \end{pmatrix}\]求出$A$的所有平方根，即求出所有满足$B^2=A$的矩阵$B$。注意，$A$的所有平方根都是自伴的。
+    \end{pNiceMatrix}\]求出$A$的所有平方根，即求出所有满足$B^2=A$的矩阵$B$。注意，$A$的所有平方根都是自伴的。
     \item 判断正误：任意自伴矩阵有自伴的平方根。论证之。
-    \item 正交分解下列矩阵\[A=\begin{pmatrix}
+    \item 正交分解下列矩阵\[A=\begin{pNiceMatrix}[margin]
         7&2\\2&4
-    \end{pmatrix}\]即将其表示为$A=UDU^*$，其中$D$是对角阵，$U$是幺正的。
+    \end{pNiceMatrix}\]即将其表示为$A=UDU^*$，其中$D$是对角阵，$U$是幺正的。
 
     在$A$的所有平方根（即所有满足$B^2=A$的矩阵$B$）中，找出具有正特征值的那个。你可将$B$保留为矩阵乘积。
     \item 判断正误：
@@ -269,12 +269,12 @@
         \item 若$U$是幺正的，那么$U+\frac34I$是可逆的；
         \item 若$A$是实矩阵，那么$A-iI$是可逆的。
     \end{probenumerate}
-    \item 正交分解旋转矩阵\[R_\alpha=\begin{pmatrix}
+    \item 正交分解旋转矩阵\[R_\alpha=\begin{pNiceMatrix}[margin]
         \cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha
-    \end{pmatrix}\]其中$\alpha$不是$\pi$的整数倍。注意，此处你会得到复特征值。
-    \item 正交分解矩阵\[A=\begin{pmatrix}
+    \end{pNiceMatrix}\]其中$\alpha$不是$\pi$的整数倍。注意，此处你会得到复特征值。
+    \item 正交分解矩阵\[A=\begin{pNiceMatrix}[margin]
         \cos\alpha&\sin\alpha\\\sin\alpha&-\cos\alpha
-    \end{pmatrix}\]
+    \end{pNiceMatrix}\]
     {\bf 提示}：此处你会得到实特征值。三角函数的恒等式$\sin2x=2\sin x\cos x,$ $\sin^2x=(1-\cos2x)/2,\cos^2x=(1+\cos2x)/2$（应用于$x=\alpha/2$）有助于简化特征向量的表达式。
     \item 你能从几何角度描述上题中矩阵$A$所确定的线性变换吗？它的几何描述特别简单。
     \item 证明：具有单位模长特征值（即所有特征值都满足$|\lambda_k|=1$）的正规算子是幺正的。{\bf 提示}：考虑对角化。
@@ -511,16 +511,16 @@ $A$的模显示了变换$A$的“大小”：
 \begin{problemset}
     \item \label{ex:6_3_1} 证明：矩阵$A$的非零奇异值的数量（以重数计）等于它的秩。
     \item 求下列矩阵$A$的施密特分解$A=\sum_{k=1}^{r}s_{k}\mathbf{w}_{k}\mathbf{v}_{k}^{*}$：
-    \[\begin{pmatrix}2&3\\0&2\end{pmatrix},\quad\begin{pmatrix}7&1\\0&0\\5&5\end{pmatrix},\quad\begin{pmatrix}1&1\\0&1\\-1&1\end{pmatrix}.\]
+    \[\begin{pNiceMatrix}[margin]2&3\\0&2\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]7&1\\0&0\\5&5\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]1&1\\0&1\\-1&1\end{pNiceMatrix}.\]
     \item 令$A$是可逆矩阵，并令$A=W\Sigma V^*$是它的奇异值分解。求出$A^*$和$A^{-1}$的奇异值分解。
     \item 求下列矩阵的奇异值分解$A=W\Sigma V^*$，其中$V$和$W$是幺正矩阵：
     \begin{probenumerate}
-        \item $A=\begin{pmatrix}{-3}&{1}\\{6}&{-2}\\{6}&{-2}\end{pmatrix}$；
-        \item $A={\begin{pmatrix}{3}&{2}&{2}\\{2}&{3}&{-2}\end{pmatrix}}$。
+        \item $A=\begin{pNiceMatrix}[margin]{-3}&{1}\\{6}&{-2}\\{6}&{-2}\end{pNiceMatrix}$；
+        \item $A={\begin{pNiceMatrix}[margin]{3}&{2}&{2}\\{2}&{3}&{-2}\end{pNiceMatrix}}$。
     \end{probenumerate}
-    \item 求下列矩阵的奇异值分解\[A=\begin{pmatrix}
+    \item 求下列矩阵的奇异值分解\[A=\begin{pNiceMatrix}[margin]
         2&3\\0&2
-    \end{pmatrix}\]利用它求出
+    \end{pNiceMatrix}\]利用它求出
     \begin{probenumerate}
         \item $\max_{\|\mathbf{x}\|\leq1}\|A\mathbf{x}\|$，以及使之取得最大值的向量；
         \item $\min_{\|\mathbf{x}\|=1}\|A\mathbf{x}\|$，以及使之取得最小值的向量；
@@ -539,7 +539,7 @@ $A$的模显示了变换$A$的“大小”：
     \item 令$s$是算子$A$的最大奇异值，并令$\lambda$是$A$的特征值中绝对值最大的一个。证明$|\lambda|\le s$。
     \item （即为第一题，从略）
     \item （移至习题 \ref{ex:6_4_7}）
-    \item 对矩阵$A$\[A=\begin{pmatrix}2&-3\\0&2\end{pmatrix},\]
+    \item 对矩阵$A$\[A=\begin{pNiceMatrix}[margin]2&-3\\0&2\end{pNiceMatrix},\]
     描述单位球的逆像，即所有满足$\|A\mathbf{x}\|\le 1$的$\mathbf{x}\in\mathbb{R}^2$。利用奇异值分解。
 \end{problemset}
 
@@ -727,19 +727,19 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 \begin{problemset}
     \item 求出下列矩阵的范数和条件数：
     \begin{probenumerate}
-        \item $A=\begin{pmatrix}
+        \item $A=\begin{pNiceMatrix}[margin]
             4&0\\1&3
-        \end{pmatrix}$。
-        \item $A=\begin{pmatrix}
+        \end{pNiceMatrix}$。
+        \item $A=\begin{pNiceMatrix}[margin]
             5&3\\-3&3
-        \end{pmatrix}$。
+        \end{pNiceMatrix}$。
     \end{probenumerate}
 
     对a)问中的矩阵$A$，给出一个右端项$\mathbf{b}$和误差$\Delta\mathbf{b}$使得
     \[\frac{\|\Delta\mathbf{x}\|}{\|\mathbf{x}\|}=\|A\|\cdot\|A^{-1}\|\cdot\frac{\|\Delta\mathbf{b}\|}{\|\mathbf{b}\|};\]
     这里$A\mathbf{x}=\mathbf{b}$且$A\Delta\mathbf{x}=\Delta\mathbf{b}$。
     \item 令$A$是正规算子，并令$\lambda_1,\lambda_2,\ldots,\lambda_n$是它的特征值（以重数计）。证明：$A$的奇异值是$|\lambda_1|,|\lambda_2|,\dots,|\lambda_n|$。
-    \item 求出矩阵\[A=\begin{pmatrix}2&1&1\\1&2&1\\1&1&2\end{pmatrix}\]
+    \item 求出矩阵\[A=\begin{pNiceMatrix}[margin]2&1&1\\1&2&1\\1&1&2\end{pNiceMatrix}\]
     的奇异值、范数和条件数。如果你利用上题的结论并能回答下列几个问题，可以不用任何计算就得出答案：
     \begin{probenumerate}
         \item 往某子空间$E$上正交投影$P_E$的奇异值（特征值）是什么？
@@ -761,7 +761,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 \begin{theorem}\label{thm:rotation_det1}
     令$U$是$\mathbb{R}^n$上的正交算子，并令$\det U=1$。\footnote{对一般的正交矩阵$U$，$\det U=\pm 1$。}那么存在规范正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，使得$U$关于该基的矩阵具有如下分块对角形式
     \[
-        \begin{pNiceMatrix}
+        \begin{pNiceMatrix}[margin]
             R_{\varphi_1}             &               &        &               & \Block{2-1}<\LARGE>{0} \\
                                     & R_{\varphi_2} &        &               &                        \\
                                     &               & \ddots &               &                        \\
@@ -769,7 +769,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
                                     &               &        &               & I_{n-2k}
         \end{pNiceMatrix}.
     \]
-    其中$R_{\varphi_k}$是$2$维旋转，\[R_{\varphi_k}=\begin{pmatrix}\cos\varphi_k&-\sin\varphi_k\\\sin\varphi_k&\cos\varphi_k\end{pmatrix}\]
+    其中$R_{\varphi_k}$是$2$维旋转，\[R_{\varphi_k}=\begin{pNiceMatrix}[margin]\cos\varphi_k&-\sin\varphi_k\\\sin\varphi_k&\cos\varphi_k\end{pNiceMatrix}\]
     $I_{n-2k}$代表大小为$(n-2k)\times (n-2k)$的恒等矩阵。
 \end{theorem}
 
@@ -797,7 +797,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
         U\mathbf{y}&=\operatorname{Im}(\lambda\mathbf{u})=(\cos\alpha)\mathbf{y}+(\sin\alpha)\mathbf{x}.
     \end{align*}
     换言之，$U$保持由向量$\mathbf{x},\mathbf{y}$张成的$2$维子空间$E_\lambda$不变，并且限制于该子空间的$U$的矩阵是旋转矩阵
-    \[R_{-\alpha}=\begin{pmatrix}\cos\alpha&\sin\alpha\\-\sin\alpha&\cos\alpha\end{pmatrix}\]
+    \[R_{-\alpha}=\begin{pNiceMatrix}[margin]\cos\alpha&\sin\alpha\\-\sin\alpha&\cos\alpha\end{pNiceMatrix}\]
 
     注意，向量$\mathbf{u}$和$\overline{\mathbf{u}}$（都是幺正矩阵的特征向量，并且对应于不同的特征值）是正交的，故由毕达哥拉斯定理有
     \[\|\mathbf{x}\|=\|\mathbf{y}\|=\frac{\sqrt2}{2}\|\mathbf{u}\|.\]
@@ -805,7 +805,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
     下面将规范正交向量组$\mathbf{v}_1=\mathbf{x},\mathbf{v}_2=\mathbf{y}$补全为$\mathbb{R}^n$的规范正交基。因为$UE_\lambda\subset E_\lambda$，即$E_\lambda$是$U$的不变子空间，所以$U$关于该基的矩阵具有如下分块三角形式
     \begin{equation*}
-        \begin{pNiceArray}{c|ccc}
+        \begin{pNiceArray}{c|ccc}[margin]
             R_{-\alpha} &  & * & \\
             \Hline
             & & & \\
@@ -819,7 +819,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
     \[U^*E_\lambda = U^{-1}E_\lambda = E_\lambda,\]
     因此$U$关于该基的矩阵事实上是分块对角的：
     \begin{equation*}
-        \begin{pNiceArray}{c|ccc}
+        \begin{pNiceArray}{c|ccc}[margin]
             R_{-\alpha} &  & \mathbf{0} & \\
             \Hline
             & & & \\
@@ -829,7 +829,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
     \end{equation*}
     因为$U$是幺正的，所以
     \begin{equation*}
-        I = U^*U = \begin{pNiceArray}{c|ccc}
+        I = U^*U = \begin{pNiceArray}{c|ccc}[margin]
             I &  & \mathbf{0} & \\
             \Hline
             & & & \\
@@ -841,7 +841,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
     如果$U_1$有复特征值，我们可以对其应用上述步骤，将其大小减少$2$，直至剩余的块只有实特征值。实特征值只能是$+1$或$-1$，因此关于某规范正交基，$U$的矩阵形如
     \[
-        \begin{pNiceMatrix}
+        \begin{pNiceMatrix}[margin]
             R_{-\alpha_1}             &               &        &               &        & \Block{2-1}<\LARGE>{0} \\
                                     & R_{-\alpha_2} &        &               &        &                        \\
                                     &               & \ddots &               &        &                        \\
@@ -866,7 +866,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
     令$U$是$\mathbb{R}^n$上的正交算子，并令$\det U=-1$。那么存在规范正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，使得$U$关于该基的矩阵具有如下分块对角形式
     \pagebreak
     \[
-        \begin{pNiceMatrix}
+        \begin{pNiceMatrix}[margin]
             R_{\varphi_1}             &               &        &               &       & \Block{2-1}<\LARGE>{0} \\
                                     & R_{\varphi_2} &        &               &       &                        \\
                                     &               & \ddots &               &       &                        \\
@@ -875,7 +875,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
                                     &               &        &               &       & -1                     \\
         \end{pNiceMatrix}.
     \]
-    其中$r=n-2k-1$，$R_{\varphi_k}$是$2$维旋转，\[R_{\varphi_k}=\begin{pmatrix}\cos\varphi_k&-\sin\varphi_k\\\sin\varphi_k&\cos\varphi_k\end{pmatrix}\]
+    其中$r=n-2k-1$，$R_{\varphi_k}$是$2$维旋转，\[R_{\varphi_k}=\begin{pNiceMatrix}[margin]\cos\varphi_k&-\sin\varphi_k\\\sin\varphi_k&\cos\varphi_k\end{pNiceMatrix}\]
     $I_{n-2k}$代表大小为$(n-2k)\times (n-2k)$的恒等矩阵。
 \end{theorem}
 我们将证明留给读者作为习题。需要对定理 \ref{thm:rotation_det1} 的证明作出修改，而这修改是很显然的。
@@ -906,9 +906,9 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
     下面呈现正式的证明，对$n$用归纳法。$n=1$的情形是平凡的，因为$\mathbb{R}^1$中的任意向量都具有期望的形式，而$n=2$的情况由引理 \ref{lem:r2_rotation} 解决。
 
     现假设本引理对$n-1$情形成立，要证它对$n$的情形成立。由引理 \ref{lem:r2_rotation}，存在$2\times 2$矩阵$R_\alpha$，使得
-    \[R_\alpha\begin{pmatrix}x_{n-1}\\x_n\end{pmatrix}=\begin{pmatrix}a_{n-1}\\0\end{pmatrix},\]
+    \[R_\alpha\begin{pNiceMatrix}[margin]x_{n-1}\\x_n\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]a_{n-1}\\0\end{pNiceMatrix},\]
     其中$a_{n-1}=\sqrt{x_{n-1}^2+x_n^2}$。所以，如果定义$n\times n$初等旋转$R_1$为
-    \[R_1=\begin{pmatrix}I_{n-2}&\mathbf{0}\\\mathbf{0}&R_\alpha\end{pmatrix}\]
+    \[R_1=\begin{pNiceMatrix}[margin]I_{n-2}&\mathbf{0}\\\mathbf{0}&R_\alpha\end{pNiceMatrix}\]
     （$I_{n-2}$是$(n-2)\times (n-2)$恒等矩阵），那么
     \[R_1\mathbf{x}=(x_1,x_2,\dots,x_{n-2},a_{n-1},0)^T.\]
 
@@ -930,9 +930,9 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
     现在考虑$n=2$的情形。令$\mathbf{a}_1$是$A$的第一列。由引理 \ref{lem:r2_rotation}，存在旋转$R$可“消去”$\mathbf{a}_1$的第二个坐标且使第一个坐标非负。于是矩阵$B=RA$具有期望的形式。
 
     现在假设该引理对$(n-1)\times (n-1)$矩阵成立，并要证明它对$n\times n$矩阵成立。令$\mathbf{a}_1$是$n\times n$矩阵$A$的第一列。由引理 \ref{lem:rn_rotation}，可找到$n-1$个初等旋转（记为$R_1,R_2,\dots,R_{n-1}$）将$\mathbf{a}_1$变换为$(a,0,\dots,0)^T$。因此，矩阵$R_{n-1}\dots R_2R_1A$具有下面的分块三角形式
-    \[R_{n-1}\dots R_2R_1A=\begin{pmatrix}
+    \[R_{n-1}\dots R_2R_1A=\begin{pNiceMatrix}[margin]
         a & * \\ \mathbf{0} & A_1
-    \end{pmatrix}\]
+    \end{pNiceMatrix}\]
     其中$A_1$是$(n-1)\times (n-1)$的块。
 
     我们假设了该引理对$n-1$的情形成立，所以$A_1$可由至多$(n-1)(n-2)/2$个旋转变换为所需的上三角形式。注意，这些旋转作用于$\mathbb{R}^{n-1}$（只对坐标$x_2,x_3,\dots,x_n$有作用），但我们总可以假设它们作用于整个$\mathbb{R}^{n}$（只需假设它们不改变第一个坐标）。那么，这些旋转就不会改变向量$(a,0,\dots,0)^T$（$R_{n-1}\dots R_2R_1A$的第一列），因此矩阵$A$可由至多$n-1+(n-1)(n-2)/2=n(n-1)/2$个初等旋转化为所需的上三角形式。
@@ -1013,12 +1013,12 @@ $\mathbb{R}^n$中，一般假设标准基$\mathbf{e}_1,\mathbf{e}_2,\dots,\mathb
 
 \begin{problemset}
     \item 令$R_\alpha$是“旋转$\alpha$弧度”变换，则其关于标准基的矩阵是
-    \[\begin{pmatrix}
+    \[\begin{pNiceMatrix}[margin]
         \cos\alpha & -\sin\alpha \\ \sin\alpha & \cos\alpha
-    \end{pmatrix}.\]求$R_\alpha$关于基$\mathbf{v}_1,\mathbf{v}_2$的矩阵，其中$\mathbf{v}_1=\mathbf{e}_2,\mathbf{v}_2=\mathbf{e}_1$。
-    \item \label{ex:6_6_2} 令$R_\alpha$是旋转矩阵\[\begin{pmatrix}
+    \end{pNiceMatrix}.\]求$R_\alpha$关于基$\mathbf{v}_1,\mathbf{v}_2$的矩阵，其中$\mathbf{v}_1=\mathbf{e}_2,\mathbf{v}_2=\mathbf{e}_1$。
+    \item \label{ex:6_6_2} 令$R_\alpha$是旋转矩阵\[\begin{pNiceMatrix}[margin]
         \cos\alpha & -\sin\alpha \\ \sin\alpha & \cos\alpha
-    \end{pmatrix}.\]证明：$2\times 2$恒等矩阵$I_2$可通过可逆矩阵连续变换为$R_\alpha$。
+    \end{pNiceMatrix}.\]证明：$2\times 2$恒等矩阵$I_2$可通过可逆矩阵连续变换为$R_\alpha$。
     \item \label{ex:6_6_3} 令$U$是$n\times n$正交矩阵，并令$\det U>0$。证明：$n\times n$恒等矩阵$I_n$可通过可逆矩阵连续变换为$U$。{\bf 提示}：利用前一题的结论，以及将$\mathbb{R}^n$中的旋转表示为一系列平面旋转的乘积（见第 \ref{sec:orthogonal_structure} 节）。
     \item \label{ex:6_6_4} 令$A$是$n\times n$正定埃尔米特矩阵，$A=A^*>0$。证明：$n\times n$恒等矩阵$I_n$可通过可逆矩阵连续变换为$A$。{\bf 提示}：如果$A$是对角矩阵呢？
     \item \label{ex:6_6_5} 利用极分解和上述习题 \ref{ex:6_6_3}、\ref{ex:6_6_4}，完成定理 \ref{thm:orientation_continuous_trans} “仅当”部分的证明。

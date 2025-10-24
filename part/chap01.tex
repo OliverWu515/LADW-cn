@@ -52,9 +52,9 @@
 \subsection{例子}
 \begin{example*}
     向量空间$\mathbb{R}^n$由长度为$n$的列向量（如下）所构成：
-    \[\mathbf{v}=\begin{pmatrix}v_1\\v_2\\\vdots\\v_n\end{pmatrix}\]
+    \[\mathbf{v}=\begin{pNiceMatrix}[margin]v_1\\v_2\\\vdots\\v_n\end{pNiceMatrix}\]
     其中各项为实数。加法和乘法是逐项定义的，也即
-    \[\alpha\begin{pmatrix}v_1\\v_2\\\vdots\\v_n\end{pmatrix}=\begin{pmatrix}\alpha v_1\\\alpha v_2\\\vdots\\\alpha v_n\end{pmatrix},\quad\begin{pmatrix}v_1\\v_2\\\vdots\\v_n\end{pmatrix}+\begin{pmatrix}w_1\\w_2\\\vdots\\w_n\end{pmatrix}=\begin{pmatrix}v_1+w_1\\v_2+w_2\\\vdots\\v_n+w_n\end{pmatrix}\]
+    \[\alpha\begin{pNiceMatrix}[margin]v_1\\v_2\\\vdots\\v_n\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]\alpha v_1\\\alpha v_2\\\vdots\\\alpha v_n\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]v_1\\v_2\\\vdots\\v_n\end{pNiceMatrix}+\begin{pNiceMatrix}[margin]w_1\\w_2\\\vdots\\w_n\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]v_1+w_1\\v_2+w_2\\\vdots\\v_n+w_n\end{pNiceMatrix}\]
 \end{example*}
 
 \begin{example*}
@@ -92,14 +92,14 @@
 
 将矩阵的项记作带下标的字母是很方便的：第一个下标代表该项的行号，而第二个下标则代表列号。例如
 \begin{equation}\label{matrix_notation}
-    A=(a_{j,k})_{j=1,k=1}^{m,\quad n}=\begin{pmatrix}a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&&\vdots\\a_{m,1}&a_{m,2}&\ldots&a_{m,n}\end{pmatrix}
+    A=(a_{j,k})_{j=1,k=1}^{m,\quad n}=\begin{pNiceMatrix}[margin]a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&&\vdots\\a_{m,1}&a_{m,2}&\ldots&a_{m,n}\end{pNiceMatrix}
 \end{equation}
 就是$m\times n$矩阵的通常表示形式。
 
 矩阵$A$中的第$j$行第$k$列的项往往表示为$A_{j,k}$或$(A)_{j,k}$，有时也像上面的式 \eqref{matrix_notation} 那样用小写字母加下标来表示。
 
 给定一矩阵$A$，其{\bf 转置}\index{转置（transpose）}（或转置矩阵）$A^T$定义为将$A$的行变为列所得的矩阵。例如
-\[\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}^T=\begin{pmatrix}1&4\\2&5\\3&6\end{pmatrix}.\]
+\[\begin{pNiceMatrix}[margin]1&2&3\\4&5&6\end{pNiceMatrix}^T=\begin{pNiceMatrix}[margin]1&4\\2&5\\3&6\end{pNiceMatrix}.\]
 因此，$A^T$的各列就是$A$的各行。反之亦然：$A^T$的各行就是$A$的各列。
 
 形式化定义是：$(A^T)_{j,k}=(A)_{k,j}$，意为：$A^T$的第$j$行第$k$列的项等于$A$的第$k$行第$j$列的项。
@@ -148,10 +148,10 @@
 
 \begin{example}
     在这第一个例子当中，向量空间$V$等于$\mathbb{F}^n$，其中$\mathbb{F}$是$\mathbb{R}$或$\mathbb{C}$。考虑向量
-    \[\mathbf{e}_1=\begin{pmatrix}1\\0\\0\\\vdots\\0\end{pmatrix},\quad\mathbf{e}_2=\begin{pmatrix}0\\1\\0\\\vdots\\0\end{pmatrix},\quad\mathbf{e}_3=\begin{pmatrix}0\\0\\1\\\vdots\\0\end{pmatrix},\quad\ldots,\quad\mathbf{e}_n=\begin{pmatrix}0\\0\\0\\\vdots\\1\end{pmatrix},\]
+    \[\mathbf{e}_1=\begin{pNiceMatrix}[margin]1\\0\\0\\\vdots\\0\end{pNiceMatrix},\quad\mathbf{e}_2=\begin{pNiceMatrix}[margin]0\\1\\0\\\vdots\\0\end{pNiceMatrix},\quad\mathbf{e}_3=\begin{pNiceMatrix}[margin]0\\0\\1\\\vdots\\0\end{pNiceMatrix},\quad\ldots,\quad\mathbf{e}_n=\begin{pNiceMatrix}[margin]0\\0\\0\\\vdots\\1\end{pNiceMatrix},\]
     （向量$\mathbf{e}_k$除第$k$项为$1$外，其余各项均为$0$）。
     
-    向量组$\mathbf{e}_1,\mathbf{e}_2,\dots,\mathbf{e}_n$是$\mathbb{F}^n$的基。的确，任意向量\[\mathbf{v}=\begin{pmatrix}x_1\\x_2\\\vdots\\x_n\end{pmatrix}\in\mathbb{F}^n\]
+    向量组$\mathbf{e}_1,\mathbf{e}_2,\dots,\mathbf{e}_n$是$\mathbb{F}^n$的基。的确，任意向量\[\mathbf{v}=\begin{pNiceMatrix}[margin]x_1\\x_2\\\vdots\\x_n\end{pNiceMatrix}\in\mathbb{F}^n\]
     都能被表示成线性组合
     \[\mathbf{v}=x_1\mathbf{e}_1+x_2\mathbf{e}_2+\ldots +x_n\mathbf{e}_n=\sum_{k=1}^nx_k\mathbf{e}_k\]
     且该表示唯一。向量组$\mathbf{e}_1,\mathbf{e}_2,\dots,\mathbf{e}_n\in \mathbb{F}^n$称为$\mathbb{F}^n$的{\bf 标准基}。
@@ -340,7 +340,7 @@
 \begin{example*}
     反射：在本例中$V=W=\mathbb{R}^2$，变换$T_{\gamma}:\mathbb{R}^2\to\mathbb{R}^2$是关于第一轴的反射。可以从几何的角度证明该变换为线性的，但我们将用另一种方法来证明。
 
-    方法是：写出$T$的表达式\[T\left(\begin{pmatrix}x_1\\x_2\end{pmatrix}\right)=\begin{pmatrix}x_1\\-x_2\end{pmatrix}\]
+    方法是：写出$T$的表达式\[T\left(\begin{pNiceMatrix}[margin]x_1\\x_2\end{pNiceMatrix}\right)=\begin{pNiceMatrix}[margin]x_1\\-x_2\end{pNiceMatrix}\]
     根据该式，我们很容易检验该变换是线性的。
 \end{example*}
 
@@ -356,18 +356,18 @@
 
 我们来看看是如何乘的。令$T:\mathbb{F}^n\to\mathbb{F}^m$为一线性变换。为了对所有向量$\mathbf{x}\in\mathbb{F}^{n}$计算$T(\mathbf{x})$，我们需要什么信息呢？我的观点是，知道$T$作用于$\mathbb{F}^{n}$的标准基$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$的结果就足够了。也即，知道$\mathbb{F}^m$中的这$n$个向量（若干长度为$m$的向量）就足够了：
 \[\mathbf{a}_1:=T(\mathbf{e}_1),\quad\mathbf{a}_2:=T(\mathbf{e}_2),\quad\ldots,\quad\mathbf{a}_n:=T(\mathbf{e}_n).\]
-的确如此：令\[\mathbf{x}=\begin{pmatrix}x_1\\x_2\\\vdots\\x_n\end{pmatrix}.\]
+的确如此：令\[\mathbf{x}=\begin{pNiceMatrix}[margin]x_1\\x_2\\\vdots\\x_n\end{pNiceMatrix}.\]
 那么$\mathbf{x}=x_{1}\mathbf{e}_{1}+x_{2}\mathbf{e}_{2}+\ldots+x_{n}\mathbf{e}_{n}=\sum_{k=1}^{n}x_{k}\mathbf{e}_{k}$，且有
 \[T(\mathbf{x})=T\left(\sum_{k=1}^nx_k\mathbf{e}_k\right)=\sum_{k=1}^nT(x_k\mathbf{e}_k)=\sum_{k=1}^nx_kT(\mathbf{e}_k)=\sum_{k=1}^nx_k\mathbf{a}_k.\]
 
 因此，如果我们将列向量$\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{n}$一起放入一矩阵$A=[\mathbf{a}_1,$ $\mathbf{a}_2,\ldots,\mathbf{a}_n]$（$\mathbf{a}_{k}$是$A$的第$k$列，$k=1,2,\ldots,n$），该矩阵就包含了$T$的所有信息。
 
 下面我们说明如何定义矩阵和列向量的乘积才能将变换$T$表示为乘积$T(\mathbf{x})=A\mathbf{x}$。令
-\[A=\begin{pmatrix}a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&&\vdots\\a_{m,1}&a_{m,2}&\ldots&a_{m,n}\end{pmatrix}.\]
+\[A=\begin{pNiceMatrix}[margin]a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&&\vdots\\a_{m,1}&a_{m,2}&\ldots&a_{m,n}\end{pNiceMatrix}.\]
 
-回想一下，$A$的第$k$列是向量$\mathbf{a}_{k}$，即\[\mathbf{a}_k=\begin{pmatrix}a_{1,k}\\a_{2,k}\\\vdots\\a_{m,k}\end{pmatrix}.\]
+回想一下，$A$的第$k$列是向量$\mathbf{a}_{k}$，即\[\mathbf{a}_k=\begin{pNiceMatrix}[margin]a_{1,k}\\a_{2,k}\\\vdots\\a_{m,k}\end{pNiceMatrix}.\]
 于是，如果我们要使$A\mathbf{x} = T(\mathbf{x})$，我们就有
-\[A\mathbf{x}=\sum_{k=1}^nx_k\mathbf{a}_k=x_1\begin{pmatrix}a_{1,1}\\a_{2,1}\\\vdots\\a_{m,1}\end{pmatrix}+x_2\begin{pmatrix}a_{1,2}\\a_{2,2}\\\vdots\\a_{m,2}\end{pmatrix}+\ldots+x_n\begin{pmatrix}a_{1,n}\\a_{2,n}\\\vdots\\a_{m,n}\end{pmatrix}.\]
+\[A\mathbf{x}=\sum_{k=1}^nx_k\mathbf{a}_k=x_1\begin{pNiceMatrix}[margin]a_{1,1}\\a_{2,1}\\\vdots\\a_{m,1}\end{pNiceMatrix}+x_2\begin{pNiceMatrix}[margin]a_{1,2}\\a_{2,2}\\\vdots\\a_{m,2}\end{pNiceMatrix}+\ldots+x_n\begin{pNiceMatrix}[margin]a_{1,n}\\a_{2,n}\\\vdots\\a_{m,n}\end{pNiceMatrix}.\]
 
 因此，矩阵-向量乘法应该按照下述“{\bf 列乘以坐标}”法则来进行：
 \begin{center}
@@ -375,7 +375,7 @@
 \end{center}
 
 \begin{example*}
-    \[\begin{pmatrix}1&2&3\\3&2&1\end{pmatrix}\begin{pmatrix}1\\2\\3\end{pmatrix}=1\begin{pmatrix}1\\3\end{pmatrix}+2\begin{pmatrix}2\\2\end{pmatrix}+3\begin{pmatrix}3\\1\end{pmatrix}=\begin{pmatrix}14\\10\end{pmatrix}.\]
+    \[\begin{pNiceMatrix}[margin]1&2&3\\3&2&1\end{pNiceMatrix}\begin{pNiceMatrix}[margin]1\\2\\3\end{pNiceMatrix}=1\begin{pNiceMatrix}[margin]1\\3\end{pNiceMatrix}+2\begin{pNiceMatrix}[margin]2\\2\end{pNiceMatrix}+3\begin{pNiceMatrix}[margin]3\\1\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]14\\10\end{pNiceMatrix}.\]
 \end{example*}
 
 “列乘以坐标”法则很适于并行计算，在之后的一些理论推导中也很重要。
@@ -387,7 +387,7 @@
 此处$x_j$和$y_k$分别是向量$\mathbf{x}$和$\mathbf{y}$的坐标，$a_{j,k}$则为矩阵$A$的项。
 
 \begin{example*}
-    \[\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}\begin{pmatrix}1\\2\\3\end{pmatrix}=\begin{pmatrix}1\cdot1+2\cdot2+3\cdot3\\4\cdot1+5\cdot2+6\cdot3\end{pmatrix}=\begin{pmatrix}14\\32\end{pmatrix}\]
+    \[\begin{pNiceMatrix}[margin]1&2&3\\4&5&6\end{pNiceMatrix}\begin{pNiceMatrix}[margin]1\\2\\3\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]1\cdot1+2\cdot2+3\cdot3\\4\cdot1+5\cdot2+6\cdot3\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]14\\32\end{pNiceMatrix}\]
 \end{example*}
 
 \subsection{线性变换与生成组}
@@ -431,10 +431,10 @@
 \begin{problemset}
     \item 做乘法：
     \begin{probenumerate}
-        \item $\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}\begin{pmatrix}1\\3\\2\end{pmatrix}$；
-        \item $\left.\left(\begin{array}{cc}1&2\\0&1\\2&0\end{array}\right.\right)\begin{pmatrix}1\\3\end{pmatrix}$；
-        \item $\begin{pmatrix}1&2&0&0\\0&1&2&0\\0&0&1&2\\0&0&0&1\end{pmatrix}\begin{pmatrix}1\\2\\3\\4\end{pmatrix}$；
-        \item $\begin{pmatrix}1&2&0\\0&1&2\\0&0&1\\0&0&0\end{pmatrix}\begin{pmatrix}1\\2\\3\\4\end{pmatrix}$。
+        \item $\begin{pNiceMatrix}[margin]1&2&3\\4&5&6\end{pNiceMatrix}\begin{pNiceMatrix}[margin]1\\3\\2\end{pNiceMatrix}$；
+        \item $\begin{pNiceMatrix}[margin]1&2\\0&1\\2&0\end{pNiceMatrix}\begin{pNiceMatrix}[margin]1\\3\end{pNiceMatrix}$；
+        \item $\begin{pNiceMatrix}[margin]1&2&0&0\\0&1&2&0\\0&0&1&2\\0&0&0&1\end{pNiceMatrix}\begin{pNiceMatrix}[margin]1\\2\\3\\4\end{pNiceMatrix}$；
+        \item $\begin{pNiceMatrix}[margin]1&2&0\\0&1&2\\0&0&1\\0&0&0\end{pNiceMatrix}\begin{pNiceMatrix}[margin]1\\2\\3\\4\end{pNiceMatrix}$。
     \end{probenumerate}
     \item 设$\mathbb{R}^2$上的线性变换为关于直线$x_1=x_2$的反射。求其矩阵。
     \item 对于下述线性变换，求其矩阵：
@@ -547,16 +547,16 @@
     $T$的矩阵的一个更为简便的求法是，将$T$表示成若干简单线性变换的复合。具体而言，令$\gamma$为$x_1$轴和直线$x_1=3x_2$之间的夹角，并令$T_0$为沿$x_1$轴的反射。那么，要得到反射$T$，我们可以首先将平面旋转$-\gamma$以将直线$x_1=3x_2$转到$x_1$轴上，然后将向量沿$x_1$轴反射，最后将平面旋转$\gamma$以恢复原状。正式而言，这三步可以写成
     \[T=R_\gamma T_0R_{-\gamma}\]
     （注意各项的顺序！）其中$R_\gamma$表示旋转$\gamma$弧度。$T_0$的矩阵很容易计算：
-\[T_0=\begin{pmatrix}1&0\\0&-1\end{pmatrix},\]
+\[T_0=\begin{pNiceMatrix}[margin]1&0\\0&-1\end{pNiceMatrix},\]
 而旋转矩阵是我们已知的：
 \[\begin{aligned}
-    R_{\gamma}&=\begin{pmatrix}{\cos\gamma}&{-\sin\gamma}\\{\sin\gamma}&{\cos\gamma}\end{pmatrix},\\
-    R_{-\gamma}&=\left(\begin{array}{cc}{\cos(-\gamma)}&{-\sin(-\gamma)}\\{\sin(-\gamma)}&{\cos(-\gamma)}\end{array}\right)=\begin{pmatrix}{\cos\gamma}&{\sin\gamma}\\{-\sin\gamma}&{\cos\gamma}\end{pmatrix}\end{aligned}
+    R_{\gamma}&=\begin{pNiceMatrix}[margin]{\cos\gamma}&{-\sin\gamma}\\{\sin\gamma}&{\cos\gamma}\end{pNiceMatrix},\\
+    R_{-\gamma}&=\left(\begin{array}{cc}{\cos(-\gamma)}&{-\sin(-\gamma)}\\{\sin(-\gamma)}&{\cos(-\gamma)}\end{array}\right)=\begin{pNiceMatrix}[margin]{\cos\gamma}&{\sin\gamma}\\{-\sin\gamma}&{\cos\gamma}\end{pNiceMatrix}\end{aligned}
 \]
 为计算$\sin\gamma$和$\cos\gamma$，可在直线$x_1=3x_2$上取一向量，比如向量$(3,1)^T$。那么\[\cos\gamma=\frac{\text{第一个坐标}}{\text{长度}}=\frac{3}{\sqrt{3^2+1^2}}=\frac{3}{\sqrt{10}}\]
 类似地\[\sin\gamma=\frac{\text{第二个坐标}}{\text{长度}}=\frac{1}{\sqrt{3^2+1^2}}=\frac{1}{\sqrt{10}}\]
 将上面这些组合起来可得
-\[\begin{aligned}T=R_{\gamma}T_{0}R_{-\gamma}&=\frac{1}{\sqrt{10}}\begin{pmatrix}{3}&{-1}\\{1}&{3}\end{pmatrix}\begin{pmatrix}{1}&{0}\\{0}&{-1}\end{pmatrix}\frac{1}{\sqrt{10}}\begin{pmatrix}{3}&{1}\\{-1}&{3}\end{pmatrix}\\&=\frac{1}{10}\begin{pmatrix}3&-1\\1&3\end{pmatrix}\begin{pmatrix}1&0\\0&-1\end{pmatrix}\begin{pmatrix}3&1\\-1&3\end{pmatrix}\end{aligned}\]
+\[\begin{aligned}T=R_{\gamma}T_{0}R_{-\gamma}&=\frac{1}{\sqrt{10}}\begin{pNiceMatrix}[margin]{3}&{-1}\\{1}&{3}\end{pNiceMatrix}\begin{pNiceMatrix}[margin]{1}&{0}\\{0}&{-1}\end{pNiceMatrix}\frac{1}{\sqrt{10}}\begin{pNiceMatrix}[margin]{3}&{1}\\{-1}&{3}\end{pNiceMatrix}\\&=\frac{1}{10}\begin{pNiceMatrix}[margin]3&-1\\1&3\end{pNiceMatrix}\begin{pNiceMatrix}[margin]1&0\\0&-1\end{pNiceMatrix}\begin{pNiceMatrix}[margin]3&1\\-1&3\end{pNiceMatrix}\end{aligned}\]
 只需计算矩阵乘法，即可得到最终结果。
 \end{example*}
 
@@ -599,7 +599,7 @@
 
 \begin{problemset}
     \item 令
-    \[A=\begin{pmatrix}1&2\\3&1\end{pmatrix},B=\begin{pmatrix}1&0&2\\3&1&-2\end{pmatrix},C=\begin{pmatrix}1&-2&3\\-2&1&-1\end{pmatrix},D=\begin{pmatrix}-2\\2\\1\end{pmatrix}\]
+    \[A=\begin{pNiceMatrix}[margin]1&2\\3&1\end{pNiceMatrix},B=\begin{pNiceMatrix}[margin]1&0&2\\3&1&-2\end{pNiceMatrix},C=\begin{pNiceMatrix}[margin]1&-2&3\\-2&1&-1\end{pNiceMatrix},D=\begin{pNiceMatrix}[margin]-2\\2\\1\end{pNiceMatrix}\]
     \begin{probenumerate}
         \item 选出所有有定义的乘积，并给出乘积的大小：$AB,BA,ABC,ABD,BC,$ $BC^{T},B^{T}C,DC,D^{T}C^{T}.$
         \item 计算$AB,A(3B+C),B^{T}A,A(BD),(AB)D.$
@@ -621,7 +621,7 @@
 
 准确地说，恒等变换有无数多个：对任意向量空间$V$，都有一个恒等变换$I=I_{V}:V\to V,I_{V}\mathbf{x}=\mathbf{x},\forall\mathbf{x}\in V$。然而，不致混淆时，我们将用同一符号$I$表示所有的恒等算子（恒等变换）。只有在强调该变换作用于哪个空间时，我们才用记号$I_V$。
 
-显然，\marginpar{\small 通常，线性代数教材中用符号$E$表示恒等矩阵。我更中意$I$，因为在算子理论中用的是它。}如果$I:\mathbb{F}^n\to\mathbb{F}^n$是$\mathbb{F}^n$上的恒等变换，则其矩阵为$n\times n$矩阵\[I=I_n=\begin{pmatrix}1&0&\ldots&0\\0&1&\ldots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\ldots&1\end{pmatrix}\]
+显然，\marginpar{\small 通常，线性代数教材中用符号$E$表示恒等矩阵。我更中意$I$，因为在算子理论中用的是它。}如果$I:\mathbb{F}^n\to\mathbb{F}^n$是$\mathbb{F}^n$上的恒等变换，则其矩阵为$n\times n$矩阵\[I=I_n=\begin{pNiceMatrix}[margin]1&0&\ldots&0\\0&1&\ldots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\ldots&1\end{pNiceMatrix}\]
 （主对角线上全为$1$，而其余地方全为$0$）。当我们需要强调矩阵的大小时，就用$I_n$这个记号；否则我们用$I$即可。
 
 显然，对于任意线性变换$A$，等式\[AI=A,\quad IA=A\]成立（只要乘积是有定义的）。
@@ -667,7 +667,7 @@
 
 \begin{enumerate}
     \item 恒等变换（恒等矩阵）是可逆的，$I^{-1} = I$。
-    \item 旋转$R_\gamma$\[R_\gamma=\begin{pmatrix}\cos\gamma&-\sin\gamma\\\sin\gamma&\cos\gamma\end{pmatrix}\]
+    \item 旋转$R_\gamma$\[R_\gamma=\begin{pNiceMatrix}[margin]\cos\gamma&-\sin\gamma\\\sin\gamma&\cos\gamma\end{pNiceMatrix}\]
     是可逆的，且其逆为$(R_{\gamma})^{-1}=R_{-\gamma}$。从$R_\gamma$的几何描述很容易得到该等式，也可以通过矩阵乘法来检验它。
     \item 列向量$(1,1)^T$是左可逆的但不是右可逆的。其左逆可以是行向量$(1/2,1/2)$。
     
@@ -797,7 +797,7 @@
     \item 设$A$是$n\times n$矩阵。证明：若$A^2=\mathbf{0}$，那么$A$不可逆。
     \item 设$AB=\mathbf{0}$对某非零矩阵$B$成立。$A$可能是可逆的吗？论证之。
     \item 写出$\mathbb{F}^5$上线性变换$T_1$和$T_2$的矩阵。这两个变换的定义是：$T_1$将向量$\mathbf{x}$的坐标$x_2$和$x_4$互换，而$T_2$将$x_4$的$a$倍加到$x_2$且不改变其他坐标，即
-    \[T_1\begin{pmatrix}x_1\\x_2\\x_3\\x_4\\x_5\end{pmatrix}=\begin{pmatrix}x_1\\x_4\\x_3\\x_2\\x_5\end{pmatrix},\quad T_2\begin{pmatrix}x_1\\x_2\\x_3\\x_4\\x_5\end{pmatrix}=\begin{pmatrix}x_1\\x_2+ax_4\\x_3\\x_4\\x_5\end{pmatrix};\]
+    \[T_1\begin{pNiceMatrix}[margin]x_1\\x_2\\x_3\\x_4\\x_5\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]x_1\\x_4\\x_3\\x_2\\x_5\end{pNiceMatrix},\quad T_2\begin{pNiceMatrix}[margin]x_1\\x_2\\x_3\\x_4\\x_5\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]x_1\\x_2+ax_4\\x_3\\x_4\\x_5\end{pNiceMatrix};\]
     此处$a$为某固定的数。
 
     证明：$T_1$和$T_2$是可逆变换，并写出它们的逆的矩阵。{\bf 提示}：比起猜想（或计算）$T_1,T_2$这两个矩阵的逆，先描述出逆变换再求出逆变换的矩阵可能更为容易。
@@ -875,15 +875,15 @@
 注意，平移并不是线性变换（若$\mathbf{a}\ne\mathbf{0}$）：经此变换直线仍为直线，但$\mathbf{0}$不再为$\mathbf{0}$。
 
 计算机图形学中要用到的其他变换都是线性的。首先是旋转。绕原点$\mathbf{0}$旋转$\gamma$可表示为与旋转矩阵$R_\gamma$的乘法（我们之前讨论过）：
-\[R_\gamma=\begin{pmatrix}\cos\gamma&-\sin\gamma\\\sin\gamma&\cos\gamma\end{pmatrix}.\]
+\[R_\gamma=\begin{pNiceMatrix}[margin]\cos\gamma&-\sin\gamma\\\sin\gamma&\cos\gamma\end{pNiceMatrix}.\]
 如果我们要绕点$\mathbf{a}$旋转，我们首先需要将图形平移$-\mathbf{a}$以将点$\mathbf{a}$移到$\mathbf{0}$，然后绕着$\mathbf{0}$旋转（乘以$R_\gamma$），再平移$\mathbf{a}$以消去之前的平移。
 
-另一个很有用的变换是缩放，其由下述矩阵给出\[\begin{pmatrix}a&0\\0&b\end{pmatrix},\]
+另一个很有用的变换是缩放，其由下述矩阵给出\[\begin{pNiceMatrix}[margin]a&0\\0&b\end{pNiceMatrix},\]
 其中$a,b\ge 0$。若$a=b$，则其为{\bf 等倍缩放}，将图形放大或缩小的同时保持其形状。若$a\ne b$，则$x$和$y$坐标缩放比例不同，图形会变得“更高”或“更宽”。
 
-另一个常用的变换是{\bf 反射}：例如矩阵\[\begin{pmatrix}1&0\\0&-1\end{pmatrix}\]定义了沿$x$轴的反射。
+另一个常用的变换是{\bf 反射}：例如矩阵\[\begin{pNiceMatrix}[margin]1&0\\0&-1\end{pNiceMatrix}\]定义了沿$x$轴的反射。
 
-在本书的后续部分，我们将证明$\mathbb{R}^2$上的所有线性变换都是缩放、旋转和反射的复合。然而，有时考虑别的变换也可带来便利。例如由下面矩阵所给出的剪切变换：\[\begin{pmatrix}1&\cot\varphi\\0&1\end{pmatrix}.\]
+在本书的后续部分，我们将证明$\mathbb{R}^2$上的所有线性变换都是缩放、旋转和反射的复合。然而，有时考虑别的变换也可带来便利。例如由下面矩阵所给出的剪切变换：\[\begin{pNiceMatrix}[margin]1&\cot\varphi\\0&1\end{pNiceMatrix}.\]
 这个变换会使图形倾斜——水平线仍然保持水平，但是垂直线变成了与水平线夹角为$\varphi$的斜线。
 
 \subsection{\texorpdfstring{$3$}{3}维图形}
@@ -891,12 +891,12 @@
 三维图形学更为复杂。首先我们需要能够对三维的图形对象进行运算，然后我们还需要将其在二维平面（显示器）上显示出来。
 
 对三维图形对象的运算是很直截了当的，我们仍然是用基本的几种变换：平移、关于平面的反射、缩放和旋转。这些变换的矩阵很类似于$2\times 2$时的对应情形。例如，矩阵
-\[\begin{pmatrix}1&0&0\\0&1&0\\0&0&-1\end{pmatrix},\quad\begin{pmatrix}a&0&0\\0&b&0\\0&0&c\end{pmatrix},\quad\begin{pmatrix}\cos\gamma&-\sin\gamma&0\\\sin\gamma&\cos\gamma&0\\0&0&1\end{pmatrix}\]
+\[\begin{pNiceMatrix}[margin]1&0&0\\0&1&0\\0&0&-1\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]a&0&0\\0&b&0\\0&0&c\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]\cos\gamma&-\sin\gamma&0\\\sin\gamma&\cos\gamma&0\\0&0&1\end{pNiceMatrix}\]
 就分别表示关于$x$-$y$平面的反射、缩放和绕$z$轴的旋转。
 
 注意，上述旋转实际上是$2$维旋转——它并不改变$z$坐标。类似地，也可写出另外两种{\bf 基本旋转}——关于$x$轴和$y$轴的旋转——的矩阵。后面会证明，关于任意轴的旋转都可表示为一系列基本旋转的复合。
 
-这样，我们就知道如何对$3$维图形进行运算了。下面讨论如何将它在$2$维平面上显示出来。最简单的方法就是将其投影到一个平面上，例如$x$-$y$平面。为进行这一投影，只需将$z$坐标置$0$。该{\bf 投影}的矩阵是\[\begin{pmatrix}1&0&0\\0&1&0\\0&0&0\end{pmatrix}.\]
+这样，我们就知道如何对$3$维图形进行运算了。下面讨论如何将它在$2$维平面上显示出来。最简单的方法就是将其投影到一个平面上，例如$x$-$y$平面。为进行这一投影，只需将$z$坐标置$0$。该{\bf 投影}的矩阵是\[\begin{pNiceMatrix}[margin]1&0&0\\0&1&0\\0&0&0\end{pNiceMatrix}.\]
 
 此种方法常用于技术示意图中。将一个物体旋转再投影，就等价于从不同的视点观察它。然而，这种方法并不能给出非常逼真的图形，因为它没有考虑视角——即“近大远小”的规律。
 
@@ -923,15 +923,15 @@
 类似有\[y^*=\frac{y}{1-z/d}.\]
 注意，此公式同样适用于$z>d$和$z<0$的情况：你可以自行绘制对应的相似三角形来检验。
 
-于是透视投影将点$(x,y,z)^T$映射到点$\begin{pmatrix}\frac{x}{1-z/d},\frac{y}{1-z/d},0\end{pmatrix}^T$。
+于是透视投影将点$(x,y,z)^T$映射到点$\begin{pNiceMatrix}[margin]\frac{x}{1-z/d},\frac{y}{1-z/d},0\end{pNiceMatrix}^T$。
 
 该变换显然不是线性的（由于分母中的$z$）。然而，可以将它表示为线性变换。为此，我们引入所谓{\bf 齐次坐标}。
 
 在齐次坐标中，$\mathbb{R}^3$中的每个点都用$4$个坐标来表示，其中最后一个（即第$4$个）坐标充当缩放系数的角色。从而，要从向量$\mathbf{v}$的齐次坐标$(x_1,x_2,x_3,x_4)^T$恢复出通常的$3$维坐标$(x,y,z)^T$，我们需要将每项都除以最后一个坐标$x_4$，再取前三个坐标\footnote{如果我们将$\mathbb{R}^3$中一个点的齐次坐标乘以一个非零标量，这个点不会改变。换言之，在齐次坐标中，$\mathbb{R}^3$中的点是用$\mathbb{R}^4$中过$\mathbf{0}$的直线来表示的。}（若$x_4=0$，那么此办法就不奏效了，因此我们假设$x_4=0$对应的是处于无穷远处的点）。
 
 于是在齐次坐标中，向量$\mathbf{v}^{*}$可表示为$(x,y,0,1-z/d)^T$，因此在齐次坐标中，透视投影是线性变换：
-\[\begin{pmatrix}x\\y\\0\\1-z/d\end{pmatrix}=\begin{pmatrix}1&0&0&0\\0&1&0&0\\0&0&0&0\\0&0&-1/d&1\end{pmatrix}\begin{pmatrix}x\\y\\z\\1\end{pmatrix}.\]
-注意在齐次坐标中，平移也是线性变换：\[\begin{pmatrix}x+a_1\\y+a_2\\z+a_3\\1\end{pmatrix}=\begin{pmatrix}1&0&0&a_1\\0&1&0&a_2\\0&0&1&a_3\\0&0&0&1\end{pmatrix}\begin{pmatrix}x\\y\\z\\1\end{pmatrix}.\]
+\[\begin{pNiceMatrix}[margin]x\\y\\0\\1-z/d\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]1&0&0&0\\0&1&0&0\\0&0&0&0\\0&0&-1/d&1\end{pNiceMatrix}\begin{pNiceMatrix}[margin]x\\y\\z\\1\end{pNiceMatrix}.\]
+注意在齐次坐标中，平移也是线性变换：\[\begin{pNiceMatrix}[margin]x+a_1\\y+a_2\\z+a_3\\1\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]1&0&0&a_1\\0&1&0&a_2\\0&0&1&a_3\\0&0&0&1\end{pNiceMatrix}\begin{pNiceMatrix}[margin]x\\y\\z\\1\end{pNiceMatrix}.\]
 
 不过，如果投影中心不是$(0,0,d)^T$，而是任意的点$(d_1,d_2,d_3)^T$呢？那么，我们需要首先做平移量为$-(d_1,d_2,0)^T$的平移，将投影中心移到$(0,0,d_3)^T$（同时保持$x$-$y$平面不变），再作用该投影，然后再用平移量为$(d_1,d_2,0)^T$的平移来抵消之前的平移。类似地，如果投影平面不是$x$-$y$平面，就需要通过旋转和平移将投影平面转到$x$-$y$平面上，之后的逻辑类似上述过程。
 
@@ -942,7 +942,7 @@
 \begin{problemset}
     \item $\mathbb{R}^3$中的哪个向量具有齐次坐标$(10,20,30,5)$？
     \item 证明：旋转$\gamma$可表示为以下这两个“剪切与缩放”变换的复合：
-    \[T_1=\begin{pmatrix}1&0\\\sin\gamma&\cos\gamma\end{pmatrix},\quad T_2=\begin{pmatrix}\sec\gamma&-\tan\gamma\\0&1\end{pmatrix}.\]
+    \[T_1=\begin{pNiceMatrix}[margin]1&0\\\sin\gamma&\cos\gamma\end{pNiceMatrix},\quad T_2=\begin{pNiceMatrix}[margin]\sec\gamma&-\tan\gamma\\0&1\end{pNiceMatrix}.\]
     两变换的顺序应该是什么样？
     \item 将$2$维向量乘以任意$2\times 2$矩阵通常需要做$4$次乘法。
     

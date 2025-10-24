@@ -17,7 +17,7 @@
 解该方程组即求出{\bf 所有}同时满足这$m$个方程的数$x_1,x_2,\dots,x_n$构成的$n$元组。
 
 如果记$\mathbf{x}:=(x_{1},x_{2},\ldots,x_{n})^{T}\in\mathbb{F}^{n},\mathbf{b}=(b_{1},b_{2},\ldots,b_{m})^{T}\in\mathbb{F}^{m}$，且记
-\[A=\begin{pmatrix}a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&&\vdots\\a_{m,1}&a_{m,2}&\ldots&a_{m,n}\end{pmatrix},\]
+\[A=\begin{pNiceMatrix}[margin]a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&&\vdots\\a_{m,1}&a_{m,2}&\ldots&a_{m,n}\end{pNiceMatrix},\]
 那么上述线性方程组可以写成{\bf 矩阵形式}（也即{\bf 矩阵-向量方程}）
 \[A\mathbf{x}=\mathbf{b}.\]
 解上述方程即求出所有满足$A\mathbf{x}=\mathbf{b}$的向量$\mathbf{x}\in\mathbb{F}^{n}$。
@@ -178,7 +178,7 @@
 现在，我们就可用所谓{\bf 回代法}解此方程组了。也就是说，从最后一行（最后一个方程）得出$x_3 = -2$。接下来从第二个方程得到\[x_2=-1-2x_3=-1-2(-2)=3,\]
 最后从第一行（第一个方程）得到\[x_1=1-2x_2-3x_3=1-6+6=1.\]
 因此原方程组的解为\[\left\{\begin{array}{l}x_1=1,\\x_2=3,\\x_3=-2,\end{array}\right.\]
-或用向量形式表示为\[\mathbf{x}=\begin{pmatrix}1\\3\\-2\end{pmatrix}\]
+或用向量形式表示为\[\mathbf{x}=\begin{pNiceMatrix}[margin]1\\3\\-2\end{pNiceMatrix}\]
 或写为$\mathbf{x}=(1,3,-2)^T$。我们可以通过做乘法$A\mathbf{x}$来检验该解，其中$A$为系数矩阵。
 
 我们也可以不用回代法，而是从下到上做行变换，将系数矩阵主对角线上方的所有项全部变为$0$：首先将最后一行乘以$1/2$，后续过程则不言而喻：
@@ -231,7 +231,7 @@
 简化阶梯形的一个例子是系数矩阵等于$I$的方程组。在这种情况下，从简化阶梯形就很容易看出解。在一般的情形下，从简化阶梯形看出解也很容易。例如，令方程组（增广矩阵）的简化阶梯形是\[\left(\begin{array}{ccccc|c}\boxed{1}&2&0&0&0&1\\0&0&\boxed{1}&5&0&2\\0&0&0&0&\boxed{1}&3\end{array}\right);\]
 此处我们将主元框出来了。求解思路是，将没有主元的列所对应的变量（所谓{\bf 自由变量}）移到右侧。然后我们可直接写出解为\pagebreak\[\left\{\begin{array}{l}x_1=1-2x_2\\x_2~\text{为自由变量}\\x_3=2-5x_4\\x_4~\text{为自由变量}\\x_5=3\end{array}\right.\]
 或者写成向量形式
-\[\mathbf{x}=\begin{pmatrix}1-2x_2\\x_2\\2-5x_4\\x_4\\3\end{pmatrix}=\begin{pmatrix}1\\0\\2\\0\\3\end{pmatrix}+x_2\begin{pmatrix}-2\\1\\0\\0\\0\end{pmatrix}+x_4\begin{pmatrix}0\\0\\-5\\1\\0\end{pmatrix},\quad x_2,x_4\in\mathbb{F}.\]
+\[\mathbf{x}=\begin{pNiceMatrix}[margin]1-2x_2\\x_2\\2-5x_4\\x_4\\3\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]1\\0\\2\\0\\3\end{pNiceMatrix}+x_2\begin{pNiceMatrix}[margin]-2\\1\\0\\0\\0\end{pNiceMatrix}+x_4\begin{pNiceMatrix}[margin]0\\0\\-5\\1\\0\end{pNiceMatrix},\quad x_2,x_4\in\mathbb{F}.\]
 
 也可用回代法从阶梯形求出解：基本思路是从下到上操作，将所有自由变量移到右侧。
 \begin{problemset}
@@ -363,8 +363,8 @@
 \end{proof}
 
 \begin{problemset}
-  \item $b$取何值时，方程组\[\begin{pmatrix}1&2&2\\2&4&6\\1&2&3\end{pmatrix}\mathbf{x}=\begin{pmatrix}1\\4\\b\end{pmatrix}\]有解？对于该$b$，求方程组的通解。
-  \item 判断向量组\[\begin{pmatrix}1\\1\\0\\0\end{pmatrix},\quad\begin{pmatrix}1\\0\\1\\0\end{pmatrix},\quad\begin{pmatrix}0\\0\\1\\1\end{pmatrix},\quad\begin{pmatrix}0\\1\\0\\1\end{pmatrix}\]是否为线性无关的。
+  \item $b$取何值时，方程组\[\begin{pNiceMatrix}[margin]1&2&2\\2&4&6\\1&2&3\end{pNiceMatrix}\mathbf{x}=\begin{pNiceMatrix}[margin]1\\4\\b\end{pNiceMatrix}\]有解？对于该$b$，求方程组的通解。
+  \item 判断向量组\[\begin{pNiceMatrix}[margin]1\\1\\0\\0\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]1\\0\\1\\0\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]0\\0\\1\\1\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]0\\1\\0\\1\end{pNiceMatrix}\]是否为线性无关的。
   
   这四个向量能张成$\RR^4$吗？（换言之，它是生成组吗？）$\CC^4$呢？
   \item 判断下面哪些向量组是$\RR^3$的基？
@@ -464,7 +464,7 @@
     0&0&3&-1&1&1
   \end{pNiceArray}
 \]
-将第一行和第三行除以$3$，就得到了逆矩阵\[\begin{pmatrix}-35/3&2/3&14/3\\3&0&-1\\-1/3&1/3&1/3\end{pmatrix}\]
+将第一行和第三行除以$3$，就得到了逆矩阵\[\begin{pNiceMatrix}[margin]-35/3&2/3&14/3\\3&0&-1\\-1/3&1/3&1/3\end{pNiceMatrix}\]
 \end{example*}
 
 \begin{problemset}
@@ -596,16 +596,16 @@
 
 就本书内容而言，这个定理有个直接的应用：我们可借以检验方程组$A\mathbf{x}=\mathbf{b}$的解。
 例如，考虑方程组
-\[\begin{pmatrix}2&3&1&4&-9\\1&1&1&1&-3\\1&1&1&2&-5\\2&2&2&3&-8\end{pmatrix}\mathbf{x}=\begin{pmatrix}17\\6\\8\\14\end{pmatrix}.\]
+\[\begin{pNiceMatrix}[margin]2&3&1&4&-9\\1&1&1&1&-3\\1&1&1&2&-5\\2&2&2&3&-8\end{pNiceMatrix}\mathbf{x}=\begin{pNiceMatrix}[margin]17\\6\\8\\14\end{pNiceMatrix}.\]
 做行变换，可求出该方程组的解
 \begin{equation}\label{example_solution}
-  \mathbf{x}=\begin{pmatrix}3\\1\\0\\2\\0\end{pmatrix}+x_3\begin{pmatrix}-2\\1\\1\\0\\0\end{pmatrix}+x_5\begin{pmatrix}2\\-1\\0\\2\\1\end{pmatrix},\quad x_3,x_5\in\mathbb{F}.
+  \mathbf{x}=\begin{pNiceMatrix}[margin]3\\1\\0\\2\\0\end{pNiceMatrix}+x_3\begin{pNiceMatrix}[margin]-2\\1\\1\\0\\0\end{pNiceMatrix}+x_5\begin{pNiceMatrix}[margin]2\\-1\\0\\2\\1\end{pNiceMatrix},\quad x_3,x_5\in\mathbb{F}.
 \end{equation}
 此处的参数$x_3$和$x_5$可用任意其他字母替代，比如说$t$和$s$。用$x_3$和$x_5$来表示，只是为了提醒我们，这些参数来自相应的自由变量。
 
 现在假设这个解已给出，并要检验其是否正确。当然，我们可以重做行变换，但这太费时了。并且，如果解不是通过标准的方法获得的，那么它可能与从行化简得到的解看起来不同。例如，
 \begin{equation}\label{example_solution_2}
-  \mathbf{x}=\begin{pmatrix}3\\1\\0\\2\\0\end{pmatrix}+s\begin{pmatrix}-2\\1\\1\\0\\0\end{pmatrix}+t\begin{pmatrix}0\\0\\1\\2\\1\end{pmatrix},\quad s,t\in\mathbb{F}
+  \mathbf{x}=\begin{pNiceMatrix}[margin]3\\1\\0\\2\\0\end{pNiceMatrix}+s\begin{pNiceMatrix}[margin]-2\\1\\1\\0\\0\end{pNiceMatrix}+t\begin{pNiceMatrix}[margin]0\\0\\1\\2\\1\end{pNiceMatrix},\quad s,t\in\mathbb{F}
 \end{equation}
 与 \eqref{example_solution} 表示同样的解集（你能看出为什么吗？），这里我们只是将 \eqref{example_solution} 中的最后一个向量替换成了它和第二个向量之和。因此，虽然这个式子和我们根据行化简得到的解不同，但它仍然是正确的。
 
@@ -635,7 +635,7 @@
     \item 任意具有$m$个方程$n$个未知数的齐次线性方程组的解集都是$\mathbb{R}^n$的子空间。
   \end{probenumerate}
   \item 求出通解如下的$2\times 3$线性方程组（具有$2$个方程、$3$个未知数）。
-  \[\begin{pmatrix}1\\1\\0\end{pmatrix}+s\begin{pmatrix}1\\2\\1\end{pmatrix},\quad s\in\mathbb{R}.\]
+  \[\begin{pNiceMatrix}[margin]1\\1\\0\end{pNiceMatrix}+s\begin{pNiceMatrix}[margin]1\\2\\1\end{pNiceMatrix},\quad s\in\mathbb{R}.\]
 \end{problemset}
 
 \newpage
@@ -667,21 +667,21 @@
 \end{enumerate}
 
 \begin{example*}
-  考虑矩阵\[\begin{pmatrix}1&1&2&2&1\\2&2&1&1&1\\3&3&3&3&2\\1&1&-1&-1&0\end{pmatrix}.\]
-  做行变换可得阶梯形\[\begin{pmatrix}\boxed{1}&1&2&2&1\\0&0&\boxed{-3}&-3&-1\\0&0&0&0&0\\0&0&0&0&0\end{pmatrix}\]
-  （这里框出了主元）。因此，{\bf 原矩阵}的第1、3列，也即\[\begin{pmatrix}1\\2\\3\\1\end{pmatrix},\quad\begin{pmatrix}2\\1\\3\\-1\end{pmatrix}\]
-  给出了$\rg A$的一个基。我们还可马上得到行空间$\rg A^T$的基：$A$的{\bf 阶梯形}的第一、二行，即向量\[\begin{pmatrix}1\\1\\2\\2\\1\end{pmatrix},\quad\begin{pmatrix}0\\0\\-3\\-3\\-1\end{pmatrix}\]
+  考虑矩阵\[\begin{pNiceMatrix}[margin]1&1&2&2&1\\2&2&1&1&1\\3&3&3&3&2\\1&1&-1&-1&0\end{pNiceMatrix}.\]
+  做行变换可得阶梯形\[\begin{pNiceMatrix}[margin]\boxed{1}&1&2&2&1\\0&0&\boxed{-3}&-3&-1\\0&0&0&0&0\\0&0&0&0&0\end{pNiceMatrix}\]
+  （这里框出了主元）。因此，{\bf 原矩阵}的第1、3列，也即\[\begin{pNiceMatrix}[margin]1\\2\\3\\1\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]2\\1\\3\\-1\end{pNiceMatrix}\]
+  给出了$\rg A$的一个基。我们还可马上得到行空间$\rg A^T$的基：$A$的{\bf 阶梯形}的第一、二行，即向量\[\begin{pNiceMatrix}[margin]1\\1\\2\\2\\1\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]0\\0\\-3\\-3\\-1\end{pNiceMatrix}\]
   （此处我们将向量竖写为列向量。究竟是像此处一样竖写为列向量还是横写为行向量，是个习惯问题。这里写成列向量的理由是，尽管我们称$\rg A^T$是{\bf 行空间}，但我们其实将它定义为$A^T$的列空间）
 
-  为计算零空间$\ker A$的基，我们需要解方程$A\mathbf{x}=\mathbf{0}$。计算$A$的{\bf 简化}阶梯形，对于本例是\[\begin{pmatrix}\boxed{1}&1&0&0&1/3\\0&0&\boxed{1}&1&1/3\\0&0&0&0&0\\0&0&0&0&0\end{pmatrix}.\]
+  为计算零空间$\ker A$的基，我们需要解方程$A\mathbf{x}=\mathbf{0}$。计算$A$的{\bf 简化}阶梯形，对于本例是\[\begin{pNiceMatrix}[margin]\boxed{1}&1&0&0&1/3\\0&0&\boxed{1}&1&1/3\\0&0&0&0&0\\0&0&0&0&0\end{pNiceMatrix}.\]
 注意，在解齐次方程$A\mathbf{x}=\mathbf{0}$时，并不需要写出完整的增广矩阵。的确，此时增广矩阵的最后一列全为$0$，在行变换中不会改变。因此，我们不需要真的写出它，而只需记得有这一列，则可从上述简化阶梯形中看出解为
 \pagebreak
 \[\left\{\begin{array}{l}x_1=-x_2-\frac{1}{3}x_5,\\x_2~\text{是自由变量},\\x_3=-x_4-\frac{1}{3}x_5\\x_4~\text{是自由变量},\\x_5~\text{是自由变量},\end{array}\right.\]
   或写成向量形式
   \begin{equation}\label{basis_of_ker_a}
-    \mathbf{x}=\begin{pmatrix}-x_2-\frac{1}{3}x_5\\x_2\\-x_4-\frac{1}{3}x_5\\x_4\\x_5\end{pmatrix}=x_2\begin{pmatrix}-1\\1\\0\\0\\0\end{pmatrix}+x_4\begin{pmatrix}0\\0\\-1\\1\\0\end{pmatrix}+x_5\begin{pmatrix}-1/3\\0\\-1/3\\0\\1\end{pmatrix}
+    \mathbf{x}=\begin{pNiceMatrix}[margin]-x_2-\frac{1}{3}x_5\\x_2\\-x_4-\frac{1}{3}x_5\\x_4\\x_5\end{pNiceMatrix}=x_2\begin{pNiceMatrix}[margin]-1\\1\\0\\0\\0\end{pNiceMatrix}+x_4\begin{pNiceMatrix}[margin]0\\0\\-1\\1\\0\end{pNiceMatrix}+x_5\begin{pNiceMatrix}[margin]-1/3\\0\\-1/3\\0\\1\end{pNiceMatrix}
   \end{equation}
-  每个自由变量之后的向量，也即向量\[\begin{pmatrix}-1\\1\\0\\0\\0\end{pmatrix},\quad\begin{pmatrix}0\\0\\-1\\1\\0\end{pmatrix},\quad\begin{pmatrix}-1/3\\0\\-1/3\\0\\1\end{pmatrix}\]
+  每个自由变量之后的向量，也即向量\[\begin{pNiceMatrix}[margin]-1\\1\\0\\0\\0\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]0\\0\\-1\\1\\0\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]-1/3\\0\\-1/3\\0\\1\end{pNiceMatrix}\]
   形成$\ker A$的基。
 
   遗憾的是，求出$\ker A^T$的基并没有捷径——必须解方程$A^T\mathbf{x}=\mathbf{0}$。已知$A$的阶梯形并无帮助。
@@ -751,14 +751,14 @@
   而对于第二个结论，只需注意到$\rank A = \rank A^T$，就可知道它仅仅是将第一个结论应用于$A^T$的结果。
 \end{proof}
 
-为演示上述定理的应用，考虑第 \ref{sec:general_solution} 节的例子。彼时我们考虑了线性方程组\[\begin{pmatrix}2&3&1&4&-9\\1&1&1&1&-3\\1&1&1&2&-5\\2&2&2&3&-8\end{pmatrix}\mathbf{x}=\begin{pmatrix}17\\6\\8\\14\end{pmatrix}.\]
+为演示上述定理的应用，考虑第 \ref{sec:general_solution} 节的例子。彼时我们考虑了线性方程组\[\begin{pNiceMatrix}[margin]2&3&1&4&-9\\1&1&1&1&-3\\1&1&1&2&-5\\2&2&2&3&-8\end{pNiceMatrix}\mathbf{x}=\begin{pNiceMatrix}[margin]17\\6\\8\\14\end{pNiceMatrix}.\]
 并求出了其通解表达式
 \begin{equation*}
-  \mathbf{x}=\begin{pmatrix}3\\1\\0\\2\\0\end{pmatrix}+x_3\begin{pmatrix}-2\\1\\1\\0\\0\end{pmatrix}+x_5\begin{pmatrix}2\\-1\\0\\2\\1\end{pmatrix},\quad x_3,x_5\in\mathbb{F}.
+  \mathbf{x}=\begin{pNiceMatrix}[margin]3\\1\\0\\2\\0\end{pNiceMatrix}+x_3\begin{pNiceMatrix}[margin]-2\\1\\1\\0\\0\end{pNiceMatrix}+x_5\begin{pNiceMatrix}[margin]2\\-1\\0\\2\\1\end{pNiceMatrix},\quad x_3,x_5\in\mathbb{F}.
 \end{equation*}
 或
 \begin{equation*}
-  \mathbf{x}=\begin{pmatrix}3\\1\\0\\2\\0\end{pmatrix}+s\begin{pmatrix}-2\\1\\1\\0\\0\end{pmatrix}+t\begin{pmatrix}0\\0\\1\\2\\1\end{pmatrix},\quad s,t\in\mathbb{F}
+  \mathbf{x}=\begin{pNiceMatrix}[margin]3\\1\\0\\2\\0\end{pNiceMatrix}+s\begin{pNiceMatrix}[margin]-2\\1\\1\\0\\0\end{pNiceMatrix}+t\begin{pNiceMatrix}[margin]0\\0\\1\\2\\1\end{pNiceMatrix},\quad s,t\in\mathbb{F}
 \end{equation*}
 在第 \ref{sec:general_solution} 节中我们检验了这两个式子给出的向量$\mathbf{x}$都确实是原方程的解。但是，我们如何保证这两个式子给出了{\bf 所有}解呢？
 
@@ -826,7 +826,7 @@
   \end{probenumerate}
   \item 一个$54\times 37$矩阵的秩为$31$。它的四个基本子空间维数是多少？
   \item 计算下列矩阵的四个基本子空间的秩和基：
-  \[\begin{pmatrix}1&1&0\\0&1&1\\1&1&0\end{pmatrix},\quad\begin{pmatrix}1&2&3&1&1\\1&4&0&1&2\\0&2&-3&0&1\\1&0&0&0&0\end{pmatrix}.\]
+  \[\begin{pNiceMatrix}[margin]1&1&0\\0&1&1\\1&1&0\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]1&2&3&1&1\\1&4&0&1&2\\0&2&-3&0&1\\1&0&0&0&0\end{pNiceMatrix}.\]
   \item 证明：若$A:X\to Y$，且$V$是$X$的子空间，那么$\dim AV\le\rank A$。（$AV$此处表示将子空间$V$经$A$变换，即$AV$中的任意向量都可表示为$A\mathbf{v},\mathbf{v}\in V$）据此推导$\rank(AB)\le\rank A$。
   \begin{remark*}
     此处可用结论：若$V\subset W$则$\dim V\le \dim W$。你理解这为什么成立吗？
@@ -842,10 +842,10 @@
   \end{probenumerate}
   {\bf 提示}：首先检验维数关系。
   \item $A$和$B$的四个基本子空间相同，是否意味着$A=B$？
-  \item 将下列矩阵的行补全为$\mathbb{R}^7$的基：\[\begin{pmatrix}e^3&3&4&0&-\pi&6&-2\\0&0&2&-1&\pi^e&1&1\\0&0&0&0&3&-3&2\\0&0&0&0&0&0&1\end{pmatrix}\]
-  \item 求出下列矩阵的列空间和行空间的基\[\begin{pmatrix}1&2&-1&2&3\\2&2&1&5&5\\3&6&-3&0&24\\-1&-4&4&-7&11\end{pmatrix}\]
+  \item 将下列矩阵的行补全为$\mathbb{R}^7$的基：\[\begin{pNiceMatrix}[margin]e^3&3&4&0&-\pi&6&-2\\0&0&2&-1&\pi^e&1&1\\0&0&0&0&3&-3&2\\0&0&0&0&0&0&1\end{pNiceMatrix}\]
+  \item 求出下列矩阵的列空间和行空间的基\[\begin{pNiceMatrix}[margin]1&2&-1&2&3\\2&2&1&5&5\\3&6&-3&0&24\\-1&-4&4&-7&11\end{pNiceMatrix}\]
   \item 对上题中的矩阵，将其行空间的基补全为$\mathbb{R}^5$的基。
-  \item 对矩阵\[A=\begin{pmatrix}1&i\\i&-1\end{pmatrix}\]计算$\rg A$和$\ker A$。关于这些子空间的关系，可得出什么结论？
+  \item 对矩阵\[A=\begin{pNiceMatrix}[margin]1&i\\i&-1\end{pNiceMatrix}\]计算$\rg A$和$\ker A$。关于这些子空间的关系，可得出什么结论？
   \item $\rg A=\ker A^T$可能对于实矩阵$A$成立吗？复矩阵呢？
   \item 将向量$(1,2,-1,2,3)^{T},(2,2,1,5,5)^{T},(-1,-4,4,7,-11)^{T}$补全为$\mathbb{R}^5$的基。
 \end{problemset}
@@ -857,7 +857,7 @@
 \subsection{坐标向量}
 
 令$V$是向量空间，具有基$\mathcal{B}:=\{\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n\}$。任意向量$\mathbf{v}\in V$都可唯一表示为线性组合\[\mathbf{v}=x_1\mathbf{b}_1+x_2\mathbf{b}_2+\ldots+x_n\mathbf{b}_n=\sum_{k=1}^nx_k\mathbf{b}_k.\]
-数$x_1,x_2,\ldots,x_n$称为向量$\mathbf{v}$在基$\mathcal{B}$下的{\bf 坐标}。将$\mathbf{v}$相应于基$\mathcal{B}$的坐标组合成所谓\textbf{坐标向量}是很方便的。该向量为列向量\[\left[\mathbf{v}\right]_{\mathcal{B}}:=\begin{pmatrix}x_1\\x_2\\\vdots\\x_n\end{pmatrix}\in\mathbb{F}^n.\]
+数$x_1,x_2,\ldots,x_n$称为向量$\mathbf{v}$在基$\mathcal{B}$下的{\bf 坐标}。将$\mathbf{v}$相应于基$\mathcal{B}$的坐标组合成所谓\textbf{坐标向量}是很方便的。该向量为列向量\[\left[\mathbf{v}\right]_{\mathcal{B}}:=\begin{pNiceMatrix}[margin]x_1\\x_2\\\vdots\\x_n\end{pNiceMatrix}\in\mathbb{F}^n.\]
 
 注意，映射\[\mathbf{v}\mapsto\left[\mathbf{v}\right]_{\mathcal{B}}\]
 是$V$和$\mathbb{F}^n$之间的同构。它将基$\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n$变换为$\mathbb{F}^{n}$的标准基$\mathbf{e}_{1},\mathbf{e}_{2},\ldots,\mathbf{e}_{n}$。
@@ -866,7 +866,7 @@
 
 令$T:V\to W$是线性变换，并令$\mathcal{A}=\{\mathbf{a}_{1},\mathbf{a}_{2},\ldots,\mathbf{a}_{n}\},\mathcal{B}:=\{\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{m}\}$分别为$V$和$W$的基。
 
-变换$T$相应于基$\mathcal{A}$和$\mathcal{B}$的矩阵是一个$m\times n$矩阵，记为$[T]_{\mathcal{BA}}$，它将坐标向量$\left[T\mathbf{v}\right]_{\mathcal{B}}$与$\left[\mathbf{v}\right]_{\mathcal{A}}$联系起来：\[\begin{bmatrix}T\mathbf{v}\end{bmatrix}_{\mathcal{B}}=\begin{bmatrix}T\end{bmatrix}_{\mathcal{BA}}\begin{bmatrix}\mathbf{v}\end{bmatrix}_{\mathcal{A}}\]
+变换$T$相应于基$\mathcal{A}$和$\mathcal{B}$的矩阵是一个$m\times n$矩阵，记为$[T]_{\mathcal{BA}}$，它将坐标向量$\left[T\mathbf{v}\right]_{\mathcal{B}}$与$\left[\mathbf{v}\right]_{\mathcal{A}}$联系起来：\[[T\mathbf{v}]_{\mathcal{B}}=[T]_{\mathcal{BA}}[\mathbf{v}]_{\mathcal{A}}\]
 注意符号$\mathcal{A}$与$\mathcal{B}$的平衡——这就是我们将第一个基$\mathcal{A}$写在第二个位置的原因\footnote{矩阵的第二个下标$\mathcal{A}$与输入向量的下标$\mathcal{A}$匹配，作用之后就像“消去”了这个下标并留下第一个下标$\mathcal{B}$，而这与输出向量的下标 $\mathcal{B}$匹配。——译者注}。
 
 矩阵$[T]_{\mathcal{BA}}$很容易求：它的第$k$列就是坐标向量$\left[T\mathbf{a}_k\right]_{\mathcal{B}}$（对照$\mathbb{F}^n$到$\mathbb{F}^m$的线性变换的矩阵的求法）。
@@ -896,8 +896,8 @@
 令$V=\mathbb{F}^n$，并设其中有基$\mathcal{B}=\{\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{n}\}$，也有标准基$\mathcal{S}=\{\mathbf{e}_{1},\mathbf{e}_{2},\ldots,\mathbf{e}_{n}\}$。坐标变换矩阵$[I]_{\mathcal{SB}}$很容易计算：\[\left[I\right]_{\mathcal{SB}}=\left[\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n\right]=:B,\]
 该矩阵就是第$k$列为列向量$\mathbf{v}_k$的矩阵$B$。另一方向的变换矩阵则是\[\left[I\right]_{\mathcal{BS}}=\left(\left[I\right]_{\mathcal{SB}}\right)^{-1}=B^{-1}.\]
 
-例如，考虑$\mathbb{F}^2$的基\[\mathcal{B}=\left\{\begin{pmatrix}1\\2\end{pmatrix},\quad\begin{pmatrix}2\\1\end{pmatrix}\right\}\]
-并令$\mathcal{S}$表示$\mathbb{F}^2$的标准基。那么\[\left[I\right]_{\mathcal{SB}}=\begin{pmatrix}1&2\\2&1\end{pmatrix}=:B\]并且\[[I]_{\mathcal{BS}}=[I]_{\mathcal{SB}}^{-1}=B^{-1}=\frac{1}{3}\begin{pmatrix}-1&2\\2&-1\end{pmatrix}\]
+例如，考虑$\mathbb{F}^2$的基\[\mathcal{B}=\left\{\begin{pNiceMatrix}[margin]1\\2\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]2\\1\end{pNiceMatrix}\right\}\]
+并令$\mathcal{S}$表示$\mathbb{F}^2$的标准基。那么\[\left[I\right]_{\mathcal{SB}}=\begin{pNiceMatrix}[margin]1&2\\2&1\end{pNiceMatrix}=:B\]并且\[[I]_{\mathcal{BS}}=[I]_{\mathcal{SB}}^{-1}=B^{-1}=\frac{1}{3}\begin{pNiceMatrix}[margin]-1&2\\2&-1\end{pNiceMatrix}\]
 （我们已经知道了逆的计算方法，并且也容易检验上述矩阵确实为$B$的逆）
 
 \subsubsection{示例：从标准基“中转”一下}
@@ -907,11 +907,11 @@
 
 当然，可以从基$\mathcal{A}$中取向量并将它分解为基$\mathcal{B}$中向量的线性组合。此过程涉及解线性方程组，我们也知道如何求解。
 
-但是，我认为下面这种方式更简单。$\mathbb{P}_1$中还有标准基$\mathcal{S} =\{1,x\}$，并且关于该基有\[\left[I\right]_{\mathcal{SA}}=\begin{pmatrix}1&1\\0&1\end{pmatrix}=:A,\quad\left[I\right]_{\mathcal{SB}}=\begin{pmatrix}1&1\\2&-2\end{pmatrix}=:B,\]
-求其逆有\[\left[I\right]_{\mathcal{AS}}=A^{-1}=\begin{pmatrix}1&-1\\0&1\end{pmatrix},\quad\left[I\right]_{\mathcal{BS}}=B^{-1}=\frac{1}{4}\begin{pmatrix}2&1\\2&-1\end{pmatrix}.\]
+但是，我认为下面这种方式更简单。$\mathbb{P}_1$中还有标准基$\mathcal{S} =\{1,x\}$，并且关于该基有\[\left[I\right]_{\mathcal{SA}}=\begin{pNiceMatrix}[margin]1&1\\0&1\end{pNiceMatrix}=:A,\quad\left[I\right]_{\mathcal{SB}}=\begin{pNiceMatrix}[margin]1&1\\2&-2\end{pNiceMatrix}=:B,\]
+求其逆有\[\left[I\right]_{\mathcal{AS}}=A^{-1}=\begin{pNiceMatrix}[margin]1&-1\\0&1\end{pNiceMatrix},\quad\left[I\right]_{\mathcal{BS}}=B^{-1}=\frac{1}{4}\begin{pNiceMatrix}[margin]2&1\\2&-1\end{pNiceMatrix}.\]
 
-那么\[\left[I\right]_{\mathcal{BA}}=\left[I\right]_{\mathcal{BS}}\left[I\right]_{\mathcal{SA}}=B^{-1}A=\frac{1}{4}\begin{pmatrix}2&1\\2&-1\end{pmatrix}\begin{pmatrix}1&1\\0&1\end{pmatrix}\]
-并且\marginpar{\small 注意下标的平衡。}\[\left[I\right]_{\mathcal{AB}}=\left[I\right]_{\mathcal{AS}}\left[I\right]_{\mathcal{SB}}=A^{-1}B=\begin{pmatrix}1&-1\\0&1\end{pmatrix}\begin{pmatrix}1&1\\2&-2\end{pmatrix}\]
+那么\[\left[I\right]_{\mathcal{BA}}=\left[I\right]_{\mathcal{BS}}\left[I\right]_{\mathcal{SA}}=B^{-1}A=\frac{1}{4}\begin{pNiceMatrix}[margin]2&1\\2&-1\end{pNiceMatrix}\begin{pNiceMatrix}[margin]1&1\\0&1\end{pNiceMatrix}\]
+并且\marginpar{\small 注意下标的平衡。}\[\left[I\right]_{\mathcal{AB}}=\left[I\right]_{\mathcal{AS}}\left[I\right]_{\mathcal{SB}}=A^{-1}B=\begin{pNiceMatrix}[margin]1&-1\\0&1\end{pNiceMatrix}\begin{pNiceMatrix}[margin]1&1\\2&-2\end{pNiceMatrix}\]
 
 \subsection{变换在不同基下的矩阵与坐标变换}\label{sec:matrix_in_different_basis}
 
@@ -959,8 +959,8 @@
     \item 求坐标变换矩阵，将在这个基中的坐标变为$\mathbb{F}^4$中的标准坐标（即标准基$\mathbf{e}_{1},\ldots,\mathbf{e}_{4}$中的坐标）。
   \end{probenumerate}
   \item 求坐标变换矩阵，将在$\mathbb{P}_1$的基$1,1+t$中的坐标变为在基$1-t,2t$中的坐标。
-  \item 设$T$是$\mathbb{F}^2$中的线性算子，定义为（标准坐标下）\[T\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}3x+y\\x-2y\end{pmatrix}\]
+  \item 设$T$是$\mathbb{F}^2$中的线性算子，定义为（标准坐标下）\[T\begin{pNiceMatrix}[margin]x\\y\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]3x+y\\x-2y\end{pNiceMatrix}\]
   求出$T$在标准基以及在下面这个基中的坐标。\[(1,1)^T,\quad (1,2)^T\]
   \item 证明：若$A$和$B$为相似矩阵，那么$\tr A=\tr B$。{\bf 提示}：回忆$\tr(XY)$和$\tr(YX)$的联系。
-  \item 矩阵\[\begin{pmatrix}1&3\\2&2\end{pmatrix}\quad\text{和}\quad\begin{pmatrix}0&2\\4&2\end{pmatrix}\]是否相似？论证之。
+  \item 矩阵\[\begin{pNiceMatrix}[margin]1&3\\2&2\end{pNiceMatrix}\quad\text{和}\quad\begin{pNiceMatrix}[margin]0&2\\4&2\end{pNiceMatrix}\]是否相似？论证之。
 \end{problemset}
