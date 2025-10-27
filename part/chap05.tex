@@ -96,7 +96,7 @@ $\mathbb{R}^3$上的\textbf{点积}定义为$\mathbf{x}\cdot\mathbf{y}=x_1y_1+x_
 首先注意，性质1和2蕴涵
 
 \begin{enumerate}
-    \item[2$^\prime$] $(\mathbf{x},\alpha\mathbf{y}+\beta\mathbf{z})=\overline{\alpha}(\mathbf{x},\mathbf{y})+\overline{\beta}(\mathbf{x},\mathbf{z})$。
+    \item[2$^\prime$.] $(\mathbf{x},\alpha\mathbf{y}+\beta\mathbf{z})=\overline{\alpha}(\mathbf{x},\mathbf{y})+\overline{\beta}(\mathbf{x},\mathbf{z})$。
 \end{enumerate}
 的确：
 \[\begin{aligned}
@@ -257,7 +257,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 \end{definition}
 
 注意，对于正交向量$\mathbf{u}$和$\mathbf{v}$，有所谓的毕达哥拉斯恒等式：
-\[\|\mathbf{u}+\mathbf{v}\|^2=\|\mathbf{u}\|^2+\|\mathbf{v}\|^2\quad\text{若}~\mathbf{u}\perp\mathbf{v}.\]
+\[\text{若}~\mathbf{u}\perp\mathbf{v}\text{，则}~\|\mathbf{u}+\mathbf{v}\|^2=\|\mathbf{u}\|^2+\|\mathbf{v}\|^2\]
 证明就是简单计算：\[\|\mathbf{u}+\mathbf{v}\|^2=(\mathbf{u}+\mathbf{v},\mathbf{u}+\mathbf{v})=(\mathbf{u},\mathbf{u})+(\mathbf{v},\mathbf{v})+(\mathbf{u},\mathbf{v})+(\mathbf{v},\mathbf{u})=\|\mathbf{u}\|^2+\|\mathbf{v}\|^2\]
 （由于正交性，$(\mathbf{u},\mathbf{v})=(\mathbf{v},\mathbf{u})=0$）
 
@@ -754,8 +754,8 @@ y=2-1 / 2 x.$$
 
 唯一的约束就是，待求的参数需要以线性的形式被容纳进来。通用的算法如下：
 \begin{enumerate}
-    \item 求出你的数据应该满足的方程（如果能精确匹配）；
-    \item 将这些方程写成线性方程组，其中未知量是你要求的参数。注意，该方程组不需要是相容的（通常也不是）；
+    \item 求出在精确匹配时你的数据应该满足的方程；
+    \item 将这些方程写成线性方程组，其中未知量是你待求的参数。注意，该方程组不需要是相容的（通常也不是）；
     \item 求出方程组的最小平方解。
 \end{enumerate}
 
@@ -795,8 +795,8 @@ $$y=86/77-62x/77+43x^2/154$$
     \item 将四个点$(1,1,3),(0,3,6),(2,1,5),(0,0,0)$拟合成平面$z=a+bx+cy$。
     为此
     \begin{probenumerate}
-        \item 求出有$3$个未知数$a,b,c$的$4$个方程，满足平面经过全部$4$个点（这个方程组不一定有解）；
-        \item 求出方程组的最小平方解。
+        \item 写出有$3$个未知数$a,b,c$的$4$个方程，满足平面经过全部$4$个点（这个方程组不一定有解）；
+        \item 求出上述方程组的最小平方解。
     \end{probenumerate}
     \item \label{ex:5_4_5}\textbf{最小范数解}。令方程$A\mathbf{x}=\mathbf{b}$有解，并令$A$有非平凡的核（因而解是不唯一的）。证明：
     \begin{probenumerate}
@@ -896,7 +896,7 @@ $$y=86/77-62x/77+43x^2/154$$
 
 上述定理让变换$A$的结构和基本子空间的几何特性更清晰了。由该定理可得，变换$A$可表示为两变换的复合：往$\rg A^*$上的正交投影与从$\rg A^*$到$\rg A$的同构。
 
-的确如此：将$A$限制在定义域$\rg A^*$和目标空间$\rg A$，得到$\widetilde{A}:\rg A^*\to \rg A$，则
+的确如此：将$A$的定义域限为$\rg A^*$、目标空间限为$\rg A$，得到$\widetilde{A}:\rg A^*\to \rg A$，则
 \[\widetilde{A}\mathbf{x}=A\mathbf{x},\quad\forall\mathbf{x}\in\rg A^{*}.\]
 因为$\ker A=(\rg A^*)^\perp$，所以有\[A\mathbf{x}=AP_{\rg A^*}\mathbf{x}=\widetilde{A}P_{\rg A^*}\mathbf{x}\quad\forall\mathbf{x}\in X;\]
 这里用到了$\mathbf{x}-P_{\mathrm{Ran~}A^{*}}\mathbf{x}\in(\rg A^{*})^{\perp}=\ker A$。于是我们可写出
@@ -907,7 +907,7 @@ $$y=86/77-62x/77+43x^2/154$$
 
 还请注意，$\widetilde{A}:\rg A^{*}\to\rg A$是可逆变换。首先注意到$\ker \widetilde{A}=\{\mathbf{0}\}$：若$\mathbf{x}\in\rg A^*$满足$\widetilde{A}\mathbf{x}=A\mathbf{x}=\mathbf{0}$，那么$\mathbf{x}\in\ker A=(\rg A^*)^\perp$，所以$\mathbf{x}\in\rg A^{*}\cap(\rg A^{*})^{\perp}$，于是$\mathbf{x}=\mathbf{0}$。于是，要证明$\widetilde{A}$可逆，只需证明$\widetilde{A}$是满射。
 而这可由 \eqref{A_and_A_tilde} 立得：
-\[\rg \widetilde{A}=\widetilde{A}\rg A^*=AP_{\rg A^*}X=AX=\rg A.\]
+\[\rg \widetilde{A}=\widetilde{A}\rg A^*=\widetilde{A}P_{\rg A^*}X=AX=\rg A.\]
 
 同构$\widetilde{A}$有时称为算子$A$的“本质部分”（这是个不规范的用语）。
 
@@ -935,7 +935,8 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 \subsection{主要定义}
 
 \begin{definition*}
-    称变换$U:X\to Y$是{\bf 等距变换}，如果它保持范数：\[\|U\mathbf{x}\|=\|\mathbf{x}\|\quad\forall\mathbf{x}\in X.\]
+    若变换$U:X\to Y$保持范数：\[\|U\mathbf{x}\|=\|\mathbf{x}\|\quad\forall\mathbf{x}\in X.\]
+    则称其是{\bf 等距变换}。
 \end{definition*}
 
 下述定理说明等距变换保持内积。
@@ -945,7 +946,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 \end{theorem}
 
 \begin{proof}
-    利用极化恒等式（引理 \ref{lem:polarization}）来证明。例如，若$X$是复向量空间，则
+    利用极化恒等式（引理 \ref{lem:polarization}）来证。例如，若$X$是复向量空间，则
     \[\begin{aligned}
         (U\mathbf{x},U\mathbf{y})&=\frac{1}{4}\sum_{\alpha=\pm1,\pm i}\alpha\|U\mathbf{x}+\alpha U\mathbf{y}\|^2\\
         &=\frac{1}{4}\sum_{\alpha=\pm1,\pm i}\alpha\|U(\mathbf{x}+\alpha\mathbf{y})\|^2\\
@@ -975,7 +976,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 上述引理意味着等距变换总是左可逆的（$U^*$就是左逆）。
 
 \begin{definition*}
-    称等距变换$U:X\to Y$是{\bf 幺正}变换\footnote{unitary也常音译作“酉”。采用“幺正”，是因为该词中，“幺”既从音，也从义（“幺”即“一”），而“正”即“正规”。而“幺正”算子是特征值绝对值均为“一”的“正规”算子。——译者注。}，若其可逆。
+    若等距变换$U:X\to Y$可逆，则称其为{\bf 幺正}变换\footnote{unitary也常音译作“酉”。采用“幺正”，是因为该词中，“幺”既从音，也从义（“幺”即“一”），而“正”即“正规”。而“幺正”算子是特征值绝对值均为“一”的“正规”算子。——译者注。}。
 \end{definition*}
 
 \begin{proposition}\label{prop:iso_to_uni}
@@ -987,7 +988,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
     另一方面，若$U:X\to Y$是可逆的，那么$\dim X=\dim Y$（只有方阵才可逆，而同构向量空间的维数相同）。
 \end{proof}
 
-称方阵$U$是{\bf 幺正的}，若$U^*U=I$，即幺正矩阵是作用于$\mathbb{F}^n$的幺正算子的矩阵。
+若方阵$U$满足$U^*U=I$，则称其是{\bf 幺正的}，即幺正矩阵是作用于$\mathbb{F}^n$的幺正算子的矩阵。
 
 各项为实数的幺正矩阵称为{\bf 正交}矩阵。正交矩阵可理解为作用于实向量空间$\mathbb{R}^n$的幺正算子的矩阵。
 
@@ -1006,7 +1007,6 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 \begin{center}
     \fbox{矩阵$U$是等距的，当且仅当它的列形成规范正交向量组。}
 \end{center}
-
 直接计算乘积$U^*U$即可检验该结论。
 
 容易检验，旋转矩阵\[\begin{pNiceMatrix}[margin]\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pNiceMatrix}\]
@@ -1044,7 +1044,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 \subsection{幺正等价变换}
 
 \begin{definition*}
-    称变换（矩阵）$A$和$B$是{\bf 幺正等价的}，若存在幺正变换$U$使得$A=UBU^*$。
+    对于变换（矩阵）$A$和$B$，若存在幺正变换$U$使得$A=UBU^*$，则称它们是{\bf 幺正等价的}。
 \end{definition*}
 
 因为对于幺正变换$U$有$U^{-1}=U^*$，所以任意两个幺正等价矩阵都是相似的。
@@ -1072,14 +1072,14 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
     \item 正交分解下列矩阵：
     \[\begin{pNiceMatrix}[margin]1&2\\2&1\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]0&-1\\1&0\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]0&2&2\\2&0&2\\2&2&0\end{pNiceMatrix}\]
     即，对每个矩阵$A$，求出幺正矩阵$U$和对角矩阵$D$使得$A=UDU^*$。
-    \item 判断正误：矩阵幺正等价于对角矩阵，当且仅当存在它的特征向量构成的正交（或规范正交）基。
+    \item 判断正误：矩阵幺正等价于对角矩阵，当且仅当存在它的特征向量构成的正交基。
     \item \label{ex:5_6_3} 证明极化恒等式\[(A\mathbf{x},\mathbf{y})=\frac{1}{4}\left[(A(\mathbf{x}+\mathbf{y}),\mathbf{x}+\mathbf{y})-(A(\mathbf{x}-\mathbf{y}),\mathbf{x}-\mathbf{y})\right]\quad(\text{实数情形, }A=A^*),\]
     与\[(A\mathbf{x},\mathbf{y})=\frac{1}{4}\sum_{\alpha=\pm1,\pm i}\alpha(A(\mathbf{x}+\alpha\mathbf{y}),\mathbf{x}+\alpha\mathbf{y})\quad(\text{复数情形, }A\text{ 可任取})\]
     \item 证明：一系列幺正（正交）矩阵的乘积仍是幺正（正交）矩阵。
     \item 令$U:X\to X$是有限维内积空间上的线性变换。判断正误：
     \begin{probenumerate}
         \item 若对所有$\mathbf{x}\in X$有$\|U\mathbf{x}\|=\|\mathbf{x}\|$，那么$U$是幺正的；
-        \item 若对规范正交基$\mathbf{e}_{1},\mathbf{e}_{2},\ldots,\mathbf{e}_{n}$有$\|U\mathbf{e}_k\|=\|\mathbf{e}_k\|$，那么$U$是幺正的。
+        \item 若对规范正交基$\mathbf{e}_{1},\mathbf{e}_{2},\ldots,\mathbf{e}_{n}$有$\|U\mathbf{e}_k\|=\|\mathbf{e}_k\|,k=1,2,\dots,n$，那么$U$是幺正的。
     \end{probenumerate}
     证明你的结论，或举出反例。
     \item 令$A$和$B$是幺正等价的$n\times n$矩阵。
@@ -1102,7 +1102,6 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 
     最后，矩阵幺正等价于对角矩阵，当且仅当存在它的特征向量构成的正交基。
     \item 令$U$是$2\times 2$正交矩阵，$\det U=1$。证明：$U$是旋转矩阵。
-    \pagebreak
     \item 令$U$是$3\times 3$正交矩阵，$\det U=1$。证明：
     \begin{probenumerate}
         \item $1$是$U$的特征值。
