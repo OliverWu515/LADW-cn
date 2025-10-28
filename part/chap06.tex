@@ -139,7 +139,7 @@
 现在我们尝试找出什么样的矩阵幺正等价于对角矩阵。容易检验，对角矩阵$D$满足\[D^*D=DD^*.\]因此如果算子$A$关于某个规范正交基具有对角矩阵，那么$A^*A=AA^*$。
 
 \begin{definition*}
-    算子（矩阵）$N$称为{\bf 正规}的，若$N^*N=NN^*$。
+    若算子（矩阵）$N$满足$N^*N=NN^*$，则称其为{\bf 正规}的。
 \end{definition*}
 
 显然，任意自伴算子（$A=A^*$）都是正规的。并且，任意幺正算子$U:X\to X$也是正规的，因为$U^*U=UU^*=I$。
@@ -291,8 +291,9 @@
 \subsection{正定算子、平方根}
 
 \begin{definition*}
-    称自伴算子$A:X\to X$是{\bf 正定的}，若\[(A\mathbf{x},\mathbf{x})>0\quad\forall\mathbf{x}\neq\mathbf{0},\]
-    称其为{\bf 正半定的}，若\[(A\mathbf{x},\mathbf{x})\ge 0\quad\forall\mathbf{x}\in X,\]
+    若自伴算子$A:X\to X$满足\[(A\mathbf{x},\mathbf{x})>0\quad\forall\mathbf{x}\neq\mathbf{0},\]
+    则称其是{\bf 正定的}。若\[(A\mathbf{x},\mathbf{x})\ge 0\quad\forall\mathbf{x}\in X,\]
+    则称其为{\bf 正半定的}。
     我们将用记号$A>0$指代正定算子，并用记号$A\ge 0$指代正半定算子。
 \end{definition*}
 
