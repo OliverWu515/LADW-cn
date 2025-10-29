@@ -416,8 +416,8 @@ $A$的模显示了变换$A$的“大小”：
     A\mathbf{x}=\sum_{k=1}^r\sigma_k(\mathbf{x},\mathbf{v}_k)\mathbf{w}_k.
 \end{equation}
 的确如此：我们知道$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是$X$的规范正交基，那么将$\mathbf{x}=\mathbf{v}_j$代入 \eqref{schmidt_decomp_2} 可得
-\[\sum_{k=1}^r\sigma_k(\mathbf{v}_j,\mathbf{v}_k)\mathbf{w}_k=\sigma_j(\mathbf{v}_j,\mathbf{v}_j)\mathbf{w}_j=\sigma_j\mathbf{w}_j=A\mathbf{v}_j\quad\text{若}~j=1,2,\ldots,r,\]
-且有\[\sum_{k=1}^r\sigma_k(\mathbf{v}_k^*\mathbf{v}_j)\mathbf{w}_k=\mathbf{0}=A\mathbf{v}_j\quad\text{对于}~j>r.\]
+\[\text{若}~j=1,2,\ldots,r,~\text{则}~\sum_{k=1}^r\sigma_k(\mathbf{v}_j,\mathbf{v}_k)\mathbf{w}_k=\sigma_j(\mathbf{v}_j,\mathbf{v}_j)\mathbf{w}_j=\sigma_j\mathbf{w}_j=A\mathbf{v}_j\]
+且\[\text{对于}~j>r,~\text{有}~\sum_{k=1}^r\sigma_k(\mathbf{v}_k^*\mathbf{v}_j)\mathbf{w}_k=\mathbf{0}=A\mathbf{v}_j.\]
 所以 \eqref{schmidt_decomp_1} 的左右两侧对基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的作用相同，因此它们相同。
 
 \begin{definition*}
@@ -428,7 +428,7 @@ $A$的模显示了变换$A$的“大小”：
 \end{remark*}
 \begin{lemma}
     令$A$可表示为\[A=\sum_{k=1}^r\sigma_k\mathbf{w}_k\mathbf{v}_k^*\]
-    其中$\sigma_k>0$，$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r},\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{r}$是规范正交向量组。
+    其中$\sigma_k>0$，$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$和$\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{r}$是规范正交向量组。
     
     那么该表达式给出了$A$的一个施密特分解。
 \end{lemma}
@@ -463,7 +463,7 @@ $A$的模显示了变换$A$的“大小”：
 
 其实，总可以用幺正的$V$和$W$（而不仅是$\widetilde{V}$和$\widetilde{W}$）来写出类似 \eqref{schmidt_decomp_3} 的表达式，并且在许多情形下使用这种表达式更加便利。要写出这样的表达式，首先需要将向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$和$\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{r}$分别补全为$\mathbb{F}^n$和$\mathbb{F}^m$的规范正交基。
 
-回忆一下，为了将$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$补全为$\mathbb{F}^n$的规范正交基，只需求出$\ker V^*$的规范正交基$\mathbf{v}_{r+1},\ldots,\mathbf{v}_{n}$，从而向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$就是$\mathbb{F}^n$的规范正交基。而从一般的基得到规范正交基，总可以通过格拉姆-施密特正交化来完成。
+回忆一下，为了将$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$补全为$\mathbb{F}^n$的规范正交基，只需求出$\ker V^*$的规范正交基$\mathbf{v}_{r+1},\ldots,\mathbf{v}_{n}$，从而向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$就是$\mathbb{F}^n$的规范正交基。并且，从一般的基得到规范正交基，还总可以通过格拉姆-施密特正交化来完成。
 
 这样一来，$A$可表示为
 \begin{equation}\label{SVD}
@@ -563,7 +563,7 @@ $A$的模显示了变换$A$的“大小”：
 以下面问题为例。令$A:\mathbb{R}^n\to \mathbb{R}^m$是线性变换，并令$B=\{\mathbf{x}\in\mathbb{R}^n:\|\mathbf{x}\|\le 1\}$是$\mathbb{R}^n$中的闭{\bf 单位球}。现要描述$A(B)$，即要得出单位球在线性变换下被变成了什么。
 
 我们首先考虑最简单的情况——$A$是对角阵$\operatorname{diag}\{\sigma_1,\sigma_2,\dots,\sigma_n\},$ $\sigma_k>0,k=1,2,\dots,n$。那么，对$\mathbf{x}=(x_{1},x_{2},\ldots,x_{n})^{T}$和$\mathbf{y}=A\mathbf{x}=(y_{1},y_{2},\ldots,y_{n})^{T}$，有$y_k=\sigma_k x_k$（等价地说，$x_k=y_k/\sigma_k$）对$k=1,2,\dots,n$成立。因此
-\[\mathbf{y}=(y_1,y_2,\ldots,y_n)^T=A\mathbf{x}\quad\text{对}~\|\mathbf{x}\|\leq1,\]
+\[\text{对}~\|\mathbf{x}\|\leq1,~\text{有}~\mathbf{y}=(y_1,y_2,\ldots,y_n)^T=A\mathbf{x},\]
 当且仅当各坐标$y_1,y_2,\dots,y_n$满足下列不等式
 \[\frac{y_1^2}{\sigma_1^2}+\frac{y_2^2}{\sigma_2^2}+\cdots+\frac{y_n^2}{\sigma_n^2}=\sum_{k=1}^n\frac{y_k^2}{\sigma_k^2}\leq1\]
 （这其实就是不等式$\|\mathbf{x}\|^2=\sum_k x_k^2\leq1$）。
@@ -573,7 +573,7 @@ $\mathbb{R}^n$中满足上述不等式的点构成的集合称为椭球。若$n=
 奇异值分解本质上是说，内积空间上的任意算子都可关于一对规范正交基进行对角化（见注 \ref{remark:Singular_orthonormal_diag}）。也就是说，考虑奇异值分解 \eqref{SVD} 中的规范正交基$\mathcal{A}=\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\}$和$\mathcal{B}=\{\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{n}\}$\footnote{注意此处讨论的是算子，故$\mathcal{A}$和$\mathcal{B}$中有相同数量的向量。——译者注}，那么$A$关于这些基的矩阵是对角阵
 \[[A]_{\mathcal{B}\mathcal{A}}=\mathrm{diag}\{\sigma_k:k=1,2,\ldots,n\}.\]
 假设所有$\sigma_k>0$，并重复前述的推理过程，容易说明，任意的点$\mathbf{y}=A\mathbf{x}\in A(B)$当且仅当该点满足不等式\[\frac{y_1^2}{\sigma_1^2}+\frac{y_2^2}{\sigma_2^2}+\cdots+\frac{y_n^2}{\sigma_n^2}=\sum_{k=1}^n\frac{y_k^2}{\sigma_k^2}\leq1\]
-其中$y_1,y_2,\dots,y_n$是$\mathbf{y}$在规范正交基$\mathcal{B}=\{\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{n}\}$（而不仅是标准基）下的坐标。类似地，$(x_1,x_2,\ldots,x_n)^T=[\mathbf{x}]_{\mathcal{A}}$。
+其中$y_1,y_2,\dots,y_n$是$\mathbf{y}$在规范正交基$\mathcal{B}=\{\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{n}\}$（而不是标准基）下的坐标。类似地，$(x_1,x_2,\ldots,x_n)^T=[\mathbf{x}]_{\mathcal{A}}$。
 
 而这实质上就是之前的椭球，只不过旋转了（主轴与之前不同，但仍然正交）！
 
@@ -664,7 +664,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 我们将细节留给读者作为习题。
 
-称矩阵是{\bf 良态的}，如果它的条件数不太大。如果条件数很大，就称矩阵是病态的。“大”与“小”依问题而定——与可获得的右端项的精度，以及所需的解的精度等都有关系。
+如果一矩阵的条件数不太大，则称其是{\bf 良态的}；如果条件数很大，就称该矩阵是病态的。“大”的标准依问题而定——与可获得的右端项的精度，以及所需的解的精度等都有关系。
 
 \subsection{矩阵的有效秩}
 
@@ -672,7 +672,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 此外，即便我们知道确切的矩阵，大多数的计算程序在运算过程中都会引入舍入误差，所以实际上我们无法区分“为零的主元”和“很小的主元”。
 
-处理舍入误差的一个朴素的思路是，当计算秩（以及与之相关的其他对象，比如列空间、核等）时，设定一个容许值（很小的数），若某主元小于这个容许值，就视其为零。这个方法的优势就是它很简单，因为很容易编程实现。然而，这个方法有个关键的缺陷：无法看出容许值会造成什么影响。比如，如果将容许值设为$10^{-6}$，我们会损失什么？设成$10^{-8}$又会有多少改进？
+处理舍入误差的一种朴素的思路是，当计算秩（以及与之相关的其他对象，比如列空间、核等）时，设定一个容许值（很小的数），若某主元小于这个容许值，就视其为零。这个方法的优势就是它很简单，因为很容易编程实现。然而，这个方法有个关键的缺陷：无法看出容许值会造成什么影响。比如，如果将容许值设为$10^{-6}$，我们会损失什么？设成$10^{-8}$又会有多少改进？
 
 尽管上述方法对良态矩阵很好用，它在一般情形下并不十分可靠。
 
@@ -692,8 +692,19 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 \[A\mathbf{x}_{0}=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^{*}\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}\mathbf{b}=\widetilde{W}\widetilde{\Sigma}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}\mathbf{b}=\widetilde{W}\widetilde{W}^{*}\mathbf{b}=P_{\mathrm{Ran}A}\mathbf{b};\]
 最后一个等号，是由于$\widetilde{W}\widetilde{W}^{*}=P_{\operatorname{Ran}\widetilde{W}}$（$P_{\rg\widetilde{W}}=\widetilde{W}(\widetilde{W}^{*}\widetilde{W})^{-1}\widetilde{W}^{*}=\widetilde{W}\widetilde{W}^{*}$）并且$\rg\widetilde{W}=\rg A$（见下习题 \ref{ex:6_4_4}）。
 
-方程$A\mathbf{x}=P_{\rg A}\mathbf{b}$的通解是
-\[\mathbf{x}=\mathbf{x}_0+\mathbf{y},\quad \mathbf{y}\in\ker A,\]
+% 方程$A\mathbf{x}=P_{\rg A}\mathbf{b}$的通解是
+% \[\mathbf{x}=\mathbf{x}_0+\mathbf{y},\quad \mathbf{y}\in\ker A,\]
+对于所有$\mathbf{y}\in \ker A$，我们有$A\mathbf{y}=\mathbf{0}$，于是$\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*\mathbf{y}=\mathbf{0}$，
+则
+\begin{align*}
+    (\mathbf{y}, \mathbf{x}_0) & = (\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}\mathbf{b})^* \mathbf{y} \\
+    & = \mathbf{b}^* \widetilde{W} \widetilde{\Sigma}^{-1} \widetilde{V}^* \mathbf{y}\\
+    & = \mathbf{b}^* \widetilde{W} \widetilde{\Sigma}^{-1} \widetilde{\Sigma}^{-1} \widetilde{\Sigma} \widetilde{V}^* \mathbf{y}\\
+    & = \mathbf{b}^* \widetilde{W} \widetilde{\Sigma}^{-1} \widetilde{\Sigma}^{-1} (\widetilde{W}^{*}\widetilde{W})\widetilde{\Sigma} \widetilde{V}^* \mathbf{y}\\
+    & = \mathbf{b}^* \widetilde{W} \widetilde{\Sigma}^{-1} \widetilde{\Sigma}^{-1} \widetilde{W}^{*} (\widetilde{W} \widetilde{\Sigma} \widetilde{V}^* \mathbf{y})\\
+    & = 0.
+\end{align*}
+因此 $\mathbf{x}_0$ 正交于 $\mathbf{y}$，也就正交于 $\ker A$。
 所以$\mathbf{x}_0$的确是$A\mathbf{x}=P_{\rg A}\mathbf{b}$的唯一最小范数解，或者等价地说，是$A\mathbf{x}=\mathbf{b}$的最小范数最小平方解。
 
 \begin{definition}
@@ -747,7 +758,6 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
         \item 往由向量$(1,1,1)^T$张成的子空间上正交投影的矩阵是什么？
         \item 算子$T$与$aT+bI$（$a,b$为标量）的特征值有什么关系？
     \end{probenumerate}
-    \pagebreak
     \item \label{ex:6_4_4} 令$A$的{\bf 简化}奇异值分解为$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$。证明$\rg A=\rg \widetilde{W}$，再通过取伴随证明$\rg A^*=\rg \widetilde{V}$。
     \item 利用奇异值分解$A=W\Sigma V^*$，写出摩尔-彭罗斯逆$A^+$的公式。
     \item {\bf 吉洪诺夫正则化}：证明摩尔-彭罗斯逆$A^+$可用下述极限计算：
@@ -865,7 +875,6 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 \begin{theorem}\label{thm:rotation_det-1}
     令$U$是$\mathbb{R}^n$上的正交算子，并令$\det U=-1$。那么存在规范正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，使得$U$关于该基的矩阵具有如下分块对角形式
-    \pagebreak
     \[
         \begin{pNiceMatrix}[margin]
             R_{\varphi_1}             &               &        &               &       & \Block{2-1}<\LARGE>{0} \\
@@ -980,7 +989,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 \subsection{形式化定义}
 
-令$\mathcal{A}$和$\mathcal{B}$是{\bf 实}向量空间$X$的两个基。称基$\mathcal{A}$和$\mathcal{B}$取向相同，如果坐标变换矩阵$[I]_\mathcal{BA}$的行列式为正；称它们取向相异，如果坐标变换矩阵$[I]_\mathcal{BA}$的行列式为负。
+令$\mathcal{A}$和$\mathcal{B}$是{\bf 实}向量空间$X$的两个基。如果坐标变换矩阵$[I]_\mathcal{BA}$的行列式为正，则称基$\mathcal{A}$和$\mathcal{B}$取向相同；如果坐标变换矩阵$[I]_\mathcal{BA}$的行列式为负，则称它们取向相异。
 
 注意，因为$[I]_\mathcal{AB}=[I]_\mathcal{BA}^{-1}$，所以上述定义中也可以用矩阵$[I]_\mathcal{AB}$。
 
