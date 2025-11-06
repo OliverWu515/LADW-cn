@@ -694,17 +694,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 % 方程$A\mathbf{x}=P_{\rg A}\mathbf{b}$的通解是
 % \[\mathbf{x}=\mathbf{x}_0+\mathbf{y},\quad \mathbf{y}\in\ker A,\]
-对于所有$\mathbf{y}\in \ker A$，我们有$A\mathbf{y}=\mathbf{0}$，于是$\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*\mathbf{y}=\mathbf{0}$，
-则
-\begin{align*}
-    (\mathbf{y}, \mathbf{x}_0) & = (\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}\mathbf{b})^* \mathbf{y} \\
-    & = \mathbf{b}^* \widetilde{W} \widetilde{\Sigma}^{-1} \widetilde{V}^* \mathbf{y}\\
-    & = \mathbf{b}^* \widetilde{W} \widetilde{\Sigma}^{-1} \widetilde{\Sigma}^{-1} \widetilde{\Sigma} \widetilde{V}^* \mathbf{y}\\
-    & = \mathbf{b}^* \widetilde{W} \widetilde{\Sigma}^{-1} \widetilde{\Sigma}^{-1} (\widetilde{W}^{*}\widetilde{W})\widetilde{\Sigma} \widetilde{V}^* \mathbf{y}\\
-    & = \mathbf{b}^* \widetilde{W} \widetilde{\Sigma}^{-1} \widetilde{\Sigma}^{-1} \widetilde{W}^{*} (\widetilde{W} \widetilde{\Sigma} \widetilde{V}^* \mathbf{y})\\
-    & = 0.
-\end{align*}
-因此 $\mathbf{x}_0$ 正交于 $\mathbf{y}$，也就正交于 $\ker A$。
+并且，注意到$\mathbf{x}_0\in \rg \widetilde{V}$，由习题 \ref{ex:6_4_4}，$\mathbf{x}_0\in \rg A^*$，则 $\mathbf{x}_0\perp \ker A$。
 所以$\mathbf{x}_0$的确是$A\mathbf{x}=P_{\rg A}\mathbf{b}$的唯一最小范数解，或者等价地说，是$A\mathbf{x}=\mathbf{b}$的最小范数最小平方解。
 
 \begin{definition}
@@ -758,6 +748,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
         \item 往由向量$(1,1,1)^T$张成的子空间上正交投影的矩阵是什么？
         \item 算子$T$与$aT+bI$（$a,b$为标量）的特征值有什么关系？
     \end{probenumerate}
+    \pagebreak
     \item \label{ex:6_4_4} 令$A$的{\bf 简化}奇异值分解为$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$。证明$\rg A=\rg \widetilde{W}$，再通过取伴随证明$\rg A^*=\rg \widetilde{V}$。
     \item 利用奇异值分解$A=W\Sigma V^*$，写出摩尔-彭罗斯逆$A^+$的公式。
     \item {\bf 吉洪诺夫正则化}：证明摩尔-彭罗斯逆$A^+$可用下述极限计算：
@@ -875,6 +866,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 \begin{theorem}\label{thm:rotation_det-1}
     令$U$是$\mathbb{R}^n$上的正交算子，并令$\det U=-1$。那么存在规范正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，使得$U$关于该基的矩阵具有如下分块对角形式
+    \pagebreak
     \[
         \begin{pNiceMatrix}[margin]
             R_{\varphi_1}             &               &        &               &       & \Block{2-1}<\LARGE>{0} \\
@@ -904,7 +896,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
     令$\mathbf{x}=(x_1,x_2)^T\in\mathbb{R}^2$。存在$\mathbb{R}^2$上的旋转$R_\alpha$，将向量$\mathbf{x}$转到$(a,0)^T$，其中$a=\sqrt{x_1^2+x_2^2}$。
 \end{lemma}
 
-该引理的证明很简单，留给读者作为习题，只需画出$R_\alpha$的图形或者写出其公式。
+该引理的证明很简单，留给读者作为习题，只需画出图形或者写出$R_\alpha$的表达式。
 
 \begin{lemma}\label{lem:rn_rotation}
     令$\mathbf{x}=(x_1,x_2,\dots,x_n)^T\in\mathbb{R}^n$。存在$n-1$个初等旋转\linebreak $R_1,R_2,\dots,R_{n-1}$，使得$R_{n-1}\ldots R_2R_1\mathbf{x}=(a,0,0,\dots,0)^T$，其中$a=\sqrt{x_1^2+x_2^2+\dots+x_n^2}$。
