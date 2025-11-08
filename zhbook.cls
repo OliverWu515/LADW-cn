@@ -459,7 +459,8 @@
     \phantomsection
     \chapter*{#1}
     \addcontentsline{toc}{chapter}{#1}
-    \chaptermark{#1}
+    \markboth{#1}{#1}
+    % \chaptermark{#1}
 }{%
     \clearpage
     \if@openright\cleardoublepage\fi

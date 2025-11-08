@@ -205,7 +205,7 @@
 
 \subsection{阶梯形}\label{subsec:echelon}
 
-若矩阵满足如下两个条件，则称其具有{\bf 阶梯形}：
+若矩阵满足如下两个条件，则称其具有{\bf 阶梯形}：\index{阶梯形（echelon form）}
 \begin{enumerate}
   \item 所有的零行（即全部的项都等于$0$的行）位于所有非零项的下方；
 \end{enumerate}
@@ -214,13 +214,13 @@
   \item 任意非零行的先导元必定严格处于前一行先导元的右侧。
 \end{enumerate}
 
-阶梯形中每行的先导元也称为{\bf 主元}，\marginpar{\small 主元：一行中的先导元（最左侧的非零项）。}因为这些项恰为行化简时所用的{\bf 主元}。
+阶梯形中每行的先导元也称为{\bf 主元}，\marginpar{\small 主元：一行中的先导元（最左侧的非零项）。}因为这些项恰为行化简时所用的{\bf 主元}。\index{主元（pivot）}
 
 阶梯形有个特例是所谓{\bf 三角}形。在上面的例子中我们就得到了这种形式。在这种形式中，系数矩阵是方阵（$n\times n$矩阵），其主对角项均不为零，而主对角线之下的所有项都为零。右端项，或者说增广矩阵的最右列可以是任意的。
 
 在行化简的从下到上阶段之后，我们就得到了矩阵的所谓{\bf 简化阶梯形}：系数矩阵等于$I$（如上例所示）是简化阶梯形的一个特例。
 
-一般的定义是：称矩阵具有{\bf 简化阶梯形}，若其具有阶梯形且
+一般的定义是：称矩阵具有{\bf 简化阶梯形}，若其具有阶梯形且\index{阶梯形（echelon form）!简化$\sim$（reduced）}
 \begin{enumerate}[start=3]
   \item 所有主元都等于$1$；
   \item 主元之上的所有项都为$0$。注意，主元之下的所有项也都是$0$，因为该矩阵具有阶梯形。
@@ -480,7 +480,7 @@
 
   对于只包含零向量$\mathbf{0}$的向量空间，规定$\dim V=0$；若$V$不存在（有限的）基，则规定$\dim V=\infty$。
 
-  若$\dim V$是有限值，则称$V$是{\bf 有限维的}；否则称其为{\bf 无限维的}。
+  若$\dim V$是有限值，则称$V$是{\bf 有限维的}；否则称其为{\bf 无限维的}。\index{维数（dimension）}\index{有限维（finite-dimensional）}
 \end{definition*}
 
 命题 \ref{prop:basis_same_size} 确保了维数是定义完善的，也即，它并不依赖于基的选取。
@@ -650,9 +650,9 @@
 
 对于矩阵$A$，在$\rg A$和$\ker A$以外，还常讨论转置矩阵$A^T$的核与值域。通常，$\rg A^T$称为{\bf 行空间}，而$\ker A^T$称为{\bf 左零空间}（但往往不用特别的记号来表示它们）。
 
-称$\rg A,\ker A,\rg A^{T},\ker A^{T}$这四个子空间是矩阵$A$的{\bf 基本子空间}。本节我们将研究四个基本子空间维数上的重要关系。
+称$\rg A,\ker A,\rg A^{T},\ker A^{T}$这四个子空间是矩阵$A$的{\bf 基本子空间}。本节我们将研究四个基本子空间维数上的重要关系。\index{子空间（subspace）!基本$\sim$（fundamental）}
 
-我们将会用到下面定义——它是线性代数中基础性的定义之一。
+我们将会用到下面定义——它是线性代数中基础性的定义之一。\index{秩（rank）}
 \begin{definition*}
   对于线性变换（矩阵）$A$，其秩$\rank A$是$A$的值域的维数\[\rank A:=\dim \rg A.\]
 \end{definition*}
@@ -884,7 +884,7 @@
 \subsection{坐标变换矩阵}
 
 设向量空间$V$有两个基$\mathcal{A} = \{\mathbf{a}_1,\mathbf{a}_2,\ldots,\mathbf{a}_n\}$和$\mathcal{B} = \{\mathbf{b}_1,\mathbf{b}_2,\ldots,$ $\mathbf{b}_n\}$。考虑恒等变换$I=I_V$及其关于这些基的矩阵$[I]_{\mathcal{BA}}$。根据定义有\[\left[\mathbf{v}\right]_{\mathcal{B}}=[I]_{\mathcal{BA}}\left[\mathbf{v}\right]_{\mathcal{A}},\quad\forall\mathbf{v}\in V,\]
-也即，对于任意向量$\mathbf{v}\in V$，矩阵$[I]_{\mathcal{BA}}$将它在基$\mathcal{A}$中的坐标变换为在基$\mathcal{B}$中的坐标。矩阵$[I]_{\mathcal{BA}}$常称为（从基$\mathcal{A}$到基$\mathcal{B}$的）\textbf{坐标变换}矩阵。
+也即，对于任意向量$\mathbf{v}\in V$，矩阵$[I]_{\mathcal{BA}}$将它在基$\mathcal{A}$中的坐标变换为在基$\mathcal{B}$中的坐标。矩阵$[I]_{\mathcal{BA}}$常称为（从基$\mathcal{A}$到基$\mathcal{B}$的）\textbf{坐标变换}矩阵。\index{坐标（coordinates）!$\sim$变换（change of）}
 
 矩阵$[I]_{\mathcal{BA}}$很容易计算：根据线性变换矩阵的一般求法，它的第$k$列是基$\mathcal{A}$中第$k$个元素的坐标$\left[\mathbf{a}_k\right]_{\mathcal{B}}$。
 

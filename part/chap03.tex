@@ -5,7 +5,7 @@
 
 \section{引入}
 
-读者大概已在微积分或代数课中接触了行列式（至少接触过$2\times 2$与$3\times 3$矩阵的行列式）。对于$2\times 2$矩阵
+读者大概已在微积分或代数课中接触了行列式（至少接触过$2\times 2$与$3\times 3$矩阵的行列式）。对于$2\times 2$矩阵\index{杭@行列式（determinant）}
 \[\begin{pNiceMatrix}[margin]a&b\\c&d\end{pNiceMatrix}\]
 其行列式为$ad-bc$；$3\times 3$矩阵的行列式可用“大卫之星”法则\footnote{对于$3\times 3$行列式
 \[a = \begin{vNiceMatrix}[margin]
@@ -200,7 +200,7 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
   \fbox{\parbox{0.8\linewidth}{对角矩阵的行列式等于对角线上各项的乘积：\[\det(\mathrm{diag}\{a_1,a_2,\ldots,a_n\})=a_1a_2\ldots a_n.\]}}
 \end{center}
 
-下一类重要矩阵是所谓{\bf 三角}矩阵。若方阵$A=\{a_{j,k}\}_{j,k=1}^{n}$中所有在主对角线{\bf 之下}的项都为$0$，即对于所有$k<j$有$a_{j,k}=0$，则称其是{\bf 上三角的}；若方阵$A$中所有在主对角线{\bf 之上}的项都为$0$，即对于所有$j<k$有$a_{j,k}=0$，则称其是{\bf 下三角的}；若一矩阵是上三角的或是下三角的，则称其是{\bf 三角的}。
+下一类重要矩阵是所谓{\bf 三角}矩阵。若方阵$A=\{a_{j,k}\}_{j,k=1}^{n}$中所有在主对角线{\bf 之下}的项都为$0$，即对于所有$k<j$有$a_{j,k}=0$，则称其是{\bf 上三角的}；若方阵$A$中所有在主对角线{\bf 之上}的项都为$0$，即对于所有$j<k$有$a_{j,k}=0$，则称其是{\bf 下三角的}；若一矩阵是上三角的或是下三角的，则称其是{\bf 三角的}。\index{矩阵（matrix）!下三角$\sim$（lower triangular）}\index{矩阵（matrix）!三角$\sim$（triangular）}\index{矩阵（matrix）!上三角$\sim$（upper triangular）}\index{三角矩阵（triangular matrix）}
 
 容易看出\begin{center}
   \fbox{\parbox{0.8\linewidth}{{\bf 三角}矩阵的行列式等于对角线上各项的乘积：\[\det A=a_{1,1}a_{2,2}\ldots a_{n,n}.\]}}
@@ -408,7 +408,7 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 对$n\times n$矩阵$A=\{a_{j,k}\}_{j,k=1}^{n}$，令$A_{j,k}$表示将$A$的第$j$行和第$k$列划去后得到的$(n-1)\times (n-1)$矩阵。
 
 \begin{theorem}[行列式的余子式\footnote{本节所述“余子式”（cofactor）在国内教材中常称作“代数余子式”。——译者注}展开]
-  令$A$是$n\times n$矩阵。对每个$j,1\le j\le n$，$A$的行列式可按第$j$行展开成
+  令$A$是$n\times n$矩阵。对每个$j,1\le j\le n$，$A$的行列式可按第$j$行展开成\index{余子式（cofactor）}
   \[\begin{aligned}
     &\det A\\
     &= a_{j,1}(-1)^{j+1}\det A_{j,1}+a_{j,2}(-1)^{j+2}\det A_{j,2}+\ldots+a_{j,n}(-1)^{j+n}\det A_{j,n}\\

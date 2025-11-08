@@ -93,7 +93,7 @@
 
 本节中，我们讨论幺正等价于对角矩阵的矩阵（算子）。
 
-回忆一下，若算子$A$满足$A=A^*$，则称其为自伴的。自伴算子（关于规范正交基）的矩阵，即满足$A^*=A$的矩阵，称为埃尔米特矩阵。\index{矩阵（matrix）!埃尔米特$\sim$（Hermitian）}
+回忆一下，若算子$A$满足$A=A^*$，则称其为自伴的\index{自伴算子（self-adjoint operator）}。自伴算子（关于规范正交基）的矩阵，即满足$A^*=A$的矩阵，称为埃尔米特矩阵。\index{矩阵（matrix）!埃尔米特$\sim$（Hermitian）}
 
 术语{\bf 自伴}与{\bf 埃尔米特}本质上同义。人们通常在提及算子时用自伴而在提及矩阵时用埃尔米特。我们尽量遵循此惯例，但因为我们通常不区分算子及其矩阵，所以有时会混用这两个术语。
 
@@ -139,7 +139,7 @@
 现在我们尝试找出什么样的矩阵幺正等价于对角矩阵。容易检验，对角矩阵$D$满足\[D^*D=DD^*.\]因此如果算子$A$关于某个规范正交基具有对角矩阵，那么$A^*A=AA^*$。
 
 \begin{definition*}
-    若算子（矩阵）$N$满足$N^*N=NN^*$，则称其为{\bf 正规}的。
+    若算子（矩阵）$N$满足$N^*N=NN^*$，则称其为{\bf 正规}的。\index{正规算子（normal operator）}
 \end{definition*}
 
 显然，任意自伴算子（$A=A^*$）都是正规的。并且，任意幺正算子$U:X\to X$也是正规的，因为$U^*U=UU^*=I$。
@@ -603,7 +603,7 @@ $\mathbb{R}^n$中满足上述不等式的点构成的集合称为椭球。若$n=
     \fbox{$\|A\mathbf{x}\|$在单位球$B$上的最大值是$A$的最大奇异值。}
 \end{center}
 \begin{definition*}
-    $\max\{\|A\mathbf{x}\|:\mathbf{x}\in X,\|\mathbf{x}\|\le 1\}$称为$A$的算子范数，记作$\|A\|$。
+    $\max\{\|A\mathbf{x}\|:\mathbf{x}\in X,\|\mathbf{x}\|\le 1\}$称为$A$的算子范数，记作$\|A\|$。\index{范数（norm）!线性变换的算子$\sim$（operator, of a linear transformation）}
 \end{definition*}
 
 容易看出，$\|A\|$满足范数的所有性质（留作习题）：
@@ -648,7 +648,7 @@ $\mathbb{R}^n$中满足上述不等式的点构成的集合称为椭球。若$n=
 因为$\|A^{-1}\Delta\mathbf{b}\|\le \|A^{-1}\|\cdot \|\Delta\mathbf{b}\|$，并且$\|A\mathbf{x}\|\le\|A\|\cdot \|\mathbf{x}\|$，所以可得
 \[\frac{\|\Delta\mathbf{x}\|}{\|\mathbf{x}\|}\leq\|A^{-1}\|\cdot\|A\|\cdot\frac{\|\Delta\mathbf{b}\|}{\|\mathbf{b}\|}.\]
 
-$\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的解$\mathbf{x}$的相对误差与右端项$\mathbf{b}$的相对误差的依赖程度。
+$\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的解$\mathbf{x}$的相对误差与右端项$\mathbf{b}$的相对误差的依赖程度。\index{条件数（condition number）}
 
 我们看看这个量和奇异值有何关系。令$A$的奇异值是$s_{1},s_{2},\ldots,s_{n}$，并设$s_1$和$s_n$分别是最大的和最小的奇异值。我们知道算子的（算子）范数等于其最大奇异值，所以
 \[\|A\|=s_1,\quad\|A^{-1}\|=\frac{1}{s_n},\]
@@ -680,11 +680,11 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 \subsection{摩尔-彭罗斯（伪）逆}
 
-如我们在第 \ref{chap:InnerProduct} 章第 \ref{sec:least_square} 节所讨论的，最小平方解给出了方程$A\mathbf{x}=\mathbf{b}$无解时的“次优解”（并且在$A\mathbf{x}=\mathbf{b}$有解时也能给出其解）。\index{摩尔-彭罗斯逆（Moore–Penrose inverse）}
+如我们在第 \ref{chap:InnerProduct} 章第 \ref{sec:least_square} 节所讨论的，最小平方解给出了方程$A\mathbf{x}=\mathbf{b}$无解时的“次优解”（并且在$A\mathbf{x}=\mathbf{b}$有解时也能给出其解）。\index{摩尔-彭罗斯逆（Moore-Penrose inverse）}
 
 注意，最小平方解并未解决唯一性的问题：法方程$A^*A\mathbf{x}=A^*\mathbf{b}$的解未必是唯一的。其有一个自然的特解——最小范数解。这样的解是唯一的，并且可以通过取任意解往$(\ker A^*A)^\perp=(\ker A)^\perp$的投影来获得，见第 \ref{chap:InnerProduct} 章习题 \ref{ex:5_4_5} 和 \ref{ex:5_4_6}。
 
-不难看出，如果$A$的{\bf 简化}奇异值分解是$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$，那么最小范数最小平方解$\mathbf{x}_0$由下式给出：
+不难看出，如果$A$的{\bf 简化}奇异值分解是$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$，那么最小范数最小平方解$\mathbf{x}_0$由下式给出：\index{最小平方解（least square solution）!最小范数$\sim$（minimal norm）}
 \begin{equation}\label{ls_ln_sol}
     \mathbf{x}_{0}=\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}\mathbf{b}.
 \end{equation}
@@ -714,7 +714,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
     还可以证明，满足上述性质1-4的变换$A^+$是唯一的，尽管证明稍有些难度。的确如此：将等式1右乘和左乘$A^+$，可分别得到$(A^+A)^{2}=A^{+}A$和$(AA^+)^{2}=AA^{+}$，再结合性质3和4，即得$A^{+}A$和$AA^{+}$都是正交投影（见第 \ref{chap:InnerProduct} 章习题 \ref{ex:5_5_6}）。
 
-    $\ker A\subset\ker A^{+}A$是平凡的，而由等式1，$\ker A^{+}A\subset\ker A$（为什么？），所以$\ker A^{+}A=\ker A$。而这就意味着$A^{+}A$是往$(\ker A)^\perp=\rg A^*$的正交投影：\[A^{+}A=P_{\rg A^*}.\]
+    显然，$\ker A\subset\ker A^{+}A$，而由等式1，$\ker A^{+}A\subset\ker A$（为什么？），所以$\ker A^{+}A=\ker A$。而这就意味着$A^{+}A$是往$(\ker A)^\perp=\rg A^*$的正交投影：\[A^{+}A=P_{\rg A^*}.\]
 
     性质1还意味着，对所有$\mathbf{y}\in \rg A$，有$AA^{+}\mathbf{y}=\mathbf{y}$。因为$AA^+$是正交投影，所以$\rg A\subset \rg AA^+$。反方向的包含关系$\rg AA^+\subset \rg A$是平凡的，所以$AA^+$是往$\rg A$的正交投影：\[AA^+=P_{\rg A}.\]
 

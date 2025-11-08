@@ -88,11 +88,11 @@
 
 使得$(z-\lambda)^k$整除$p(z)$的最大正整数$k$称为$\lambda$这个根的重数。
 
-如果$\lambda$是算子（矩阵）$A$的特征值，那么它是特征多项式$p(z)=\det(A-zI)$的根。此根的重数称为特征值$\lambda$的\textbf{（代数）重数}。
+如果$\lambda$是算子（矩阵）$A$的特征值，那么它是特征多项式$p(z)=\det(A-zI)$的根。此根的重数称为特征值$\lambda$的\textbf{（代数）重数}。\index{虫@重数（multiplicity）!代数$\sim$（algebraic）}
 
 任意$n$次多项式$p(z)=\sum_{k=0}^{n}a_{k}z^{k}$都恰有$n$个复根（以重数计）。\index{以重数计（counting multiplicities）}“\textbf{以重数计}”的意思是，如果一个根的重数为$d$，就需要列出它$d$次，并且在计数时重复数$d$次。换言之，$p$可表示为\[p(z)=a_n(z-\lambda_1)(z-\lambda_2)\ldots(z-\lambda_n).\]其中$\lambda_{1},\lambda_{2},\ldots,\lambda_{n}$是复根（以重数计）。
 
-特征值还有另一种重数：特征空间$\ker(A-\lambda I)$的维数称为特征值$\lambda$的\textbf{几何重数}。
+特征值还有另一种重数：特征空间$\ker(A-\lambda I)$的维数称为特征值$\lambda$的\textbf{几何重数}。\index{虫@重数（multiplicity）!几何$\sim$（geometric）}
 
 几何重数不如代数重数运用得广泛。所以，当仅提及“重数”时，通常是指\textbf{代数重数}。
 
@@ -120,7 +120,7 @@
 
 \subsection{三角矩阵的特征值}\label{subsec:eigen_of_tri}
 
-计算特征值等价于求出矩阵的特征多项式的根（或者利用数值方法），而这可能非常耗时。然而，在一种特殊情况中，我们可以直接从矩阵里读出特征值。即
+计算特征值等价于求出矩阵的特征多项式的根（或者利用数值方法），而这可能非常耗时。然而，在一种特殊情况中，我们可以直接从矩阵里读出特征值。即\index{三角矩阵（triangular matrix）!$\sim$的特征值（eigenvalues of）}
 \begin{center}
     \fbox{\parbox{0.65\linewidth}{三角矩阵的特征值（以重数计）恰为对角项$a_{1,1},a_{2,2},\ldots,a_{n,n}$。}}
 \end{center}
@@ -303,7 +303,7 @@ $e^{tA}$的矩阵表达式也类似。
 \begin{equation}\label{linear_comb_subspaces}
     \mathbf{v}=\mathbf{v}_1+\mathbf{v}_2+\ldots+\mathbf{v}_p=\sum_{k=1}^p\mathbf{v}_k,\quad\mathbf{v}_k\in V_k.
 \end{equation}
-则称这组子空间是$V$的基。
+则称这组子空间是$V$的基。\index{基（basis）!子空间构成的$\sim$（of subspaces）}
 此外，若方程\[\mathbf{v}_1+\mathbf{v}_2+\ldots+\mathbf{v}_p=\mathbf{0},\quad\mathbf{v}_k\in V_k\]
 只有平凡解（$\mathbf{v}_{k}=\mathbf{0}\; \forall k=1,2,\ldots,p$），则称这组子空间$V_1,V_2,\ldots,V_p$是线性无关的。另一种表述方式是，称这组子空间$V_1,V_2,\ldots,V_p$是线性无关的，当且仅当任意非零向量$\mathbf{v}_k$（$\mathbf{v}_k\in V_k$）构成的向量组是线性无关的。
 

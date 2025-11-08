@@ -14,7 +14,7 @@
 
 在$2$维和$3$维中，我们利用毕达哥拉斯法则\footnote{即勾股定理。——译者注}定义向量$\mathbf{x}$的长度（即从其终点到原点的距离），例如在$\mathbb{R}^3$中向量的长度定义为\[\|\mathbf{x}\|=\sqrt{x_1^2+x_2^2+x_3^2}.\]
 将该公式推广到所有的$n$是很自然的——向量$\mathbf{x}\in\mathbb{R}^n$的\textbf{范数}定义为\[\|\mathbf{x}\|=\sqrt{x_1^2+x_2^2+\ldots+x_n^2}.\]
-“\textbf{范数}”这个花哨的词用于替代“长度”。
+“\textbf{范数}”这个花哨的词用于替代“长度”。\index{范数（norm）!$\mathbb{R}^n$或$\mathbb{C}^n$中的欧几里得$\sim$（Euclidean in $\mathbb{R}^n$ or $\mathbb{C}^n$）}\index{范数（norm）}
 
 $\mathbb{R}^3$上的\textbf{点积}定义为$\mathbf{x}\cdot\mathbf{y}=x_1y_1+x_2y_2+x_3y_3$，其中$\mathbf{x}=(x_1,x_2,x_3)^T$，$\mathbf{y}=(y_1,y_2,y_3)^T$。
 
@@ -31,7 +31,7 @@ $\mathbb{R}^3$上的\textbf{点积}定义为$\mathbf{x}\cdot\mathbf{y}=x_1y_1+x_
 对于复数$z=x+iy$，我们有$|z|^2=x^2+y^2=z\overline{z}$。若$\mathbf{z}\in\mathbb{C}^{n}$形如\[\mathbf{z}=\begin{pNiceMatrix}[margin]z_1\\z_2\\\vdots\\z_n\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]x_1+iy_1\\x_2+iy_2\\\vdots\\x_n+iy_n\end{pNiceMatrix},\]
 就能很自然由下式定义其范数$\|\mathbf{z}\|$：\[\|\mathbf{z}\|^2=\sum_{k=1}^n(x_k^2+y_k^2)=\sum_{k=1}^n|z_k|^2.\]
 现在我们尝试定义$\mathbb{C}^n$上的内积使得$\|\mathbf{z}\|^2=(\mathbf{z},\mathbf{z})$。一种做法是定义$(\mathbf{z},\mathbf{w})$为\[(\mathbf{z},\mathbf{w})=z_{1}\overline{w}_{1}+z_{2}\overline{w}_{2}+\ldots+z_{n}\overline{w}_{n}=\sum_{k=1}^{n}z_{k}\overline{w}_{k},\]
-这就是$\mathbb{C}^n$上\textbf{标准}内积的定义。
+这就是$\mathbb{C}^n$上\textbf{标准}内积的定义。\index{内积（inner product）!$\mathbb{C}^n$上的$\sim$（in $\mathbb{C}^n$）}
 
 为简化记号，我们引入一个新概念：定义矩阵$A$的\textbf{埃尔米特伴随}（或简称\textbf{伴随}）$A^\ast$为$A^\ast=\overline{A^T}$，意即先取矩阵的转置，再取各项的复共轭。注意对于实矩阵$A$，有$A^\ast={A}^T$。
 
@@ -47,7 +47,7 @@ $\mathbb{R}^3$上的\textbf{点积}定义为$\mathbf{x}\cdot\mathbf{y}=x_1y_1+x_
 
 \subsection{内积空间}\label{subsec:inner_prod}
 
-我们定义的$\mathbb{R}^n$和$\mathbb{C}^n$上的内积满足下列性质：
+我们定义的$\mathbb{R}^n$和$\mathbb{C}^n$上的内积满足下列性质：\index{内积（inner product）!抽象的$\sim$（abstract）}
 \begin{enumerate}
     \item （共轭）对称性：$(\mathbf{x},\mathbf{y})={\overline{(\mathbf{y},\mathbf{x})}}$；注意，对实向量空间，该性质简化为对称性，即$(\mathbf{x},\mathbf{y})=(\mathbf{y},\mathbf{x})$；
     \item 线性：对于所有向量$\mathbf{x},\mathbf{y},\mathbf{z}$和所有标量$\alpha,\beta$，有$(\alpha\mathbf{x}+\beta\mathbf{y},\mathbf{z})=\alpha(\mathbf{x},\mathbf{z})+\beta(\mathbf{y},\mathbf{z})$；
@@ -59,7 +59,7 @@ $\mathbb{R}^3$上的\textbf{点积}定义为$\mathbf{x}\cdot\mathbf{y}=x_1y_1+x_
 
 注意对实向量空间$V$，我们假设$(\mathbf{x},\mathbf{y})$总是实数，而对于复向量空间，内积$(\mathbf{x},\mathbf{y})$可能是复数。
 
-带有定义于其上的内积的向量空间$V$称为\textbf{内积空间}。给定内积空间，可定义其上的范数为\[\|\mathbf{x}\|=\sqrt{(\mathbf{x},\mathbf{x})}.\]
+带有定义于其上的内积的向量空间$V$称为\textbf{内积空间}。\index{内积空间（inner product space）}给定内积空间，可定义其上的范数为\[\|\mathbf{x}\|=\sqrt{(\mathbf{x},\mathbf{x})}.\]
 
 \subsubsection{例子}
 
@@ -190,7 +190,7 @@ $\mathbb{R}^3$上的\textbf{点积}定义为$\mathbf{x}\cdot\mathbf{y}=x_1y_1+x_
     \item 非退化性：$\|\mathbf{v}\|=0$当且仅当$\mathbf{v}=\mathbf{0}$。
 \end{enumerate}
 
-假设向量空间$V$中，我们将每个向量$\mathbf{v}$都对应到一个数$\|\mathbf{v}\|$，并且使得上述性质1-4成立。那么就称函数$\mathbf{v}\mapsto\|\mathbf{v}\|$为范数。配有范数的向量空间$V$称为\textbf{赋范空间}。\index{赋范空间（normed space）}
+假设向量空间$V$中，我们将每个向量$\mathbf{v}$都对应到一个数$\|\mathbf{v}\|$，并且使得上述性质1-4成立。那么就称函数$\mathbf{v}\mapsto\|\mathbf{v}\|$为范数。配有范数的向量空间$V$称为\textbf{赋范空间}。\index{范数（norm）}\index{赋范空间（normed space）}
 
 任何内积空间都是赋范空间，因为范数$\|\mathbf{v}\|=\sqrt{(\mathbf{v},\mathbf{v})}$满足上述性质1-4。然而，还有很多别的赋范空间。例如，给定$p$（$1\le p<\infty$），可在$\mathbb{R}^n$或$\mathbb{C}^n$上定义范数$\|\cdot\|_p$为
 \[\|\mathbf{x}\|_p=(|x_1|^p+|x_2|^p+\ldots+|x_n|^p)^{1/p}=\left(\sum_{k=1}^n|x_k|^p\right)^{1/p}.\]
@@ -337,7 +337,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 \begin{equation}\label{coeff_orthonormal}
     \mathbf{v}=\sum_{k=1}^n(\mathbf{v},\mathbf{v}_k)\mathbf{v}_k.
 \end{equation}
-这个公式有时称为\textbf{抽象正交傅里叶分解}（的雏形）。经典（非抽象）的傅里叶分解用的是一个具体的规范正交向量组（正余弦或复指数）。我们称上面的公式是\textbf{雏形}，因为真正的傅里叶分解用的是无限的规范正交向量组。
+这个公式有时称为\textbf{抽象正交傅里叶分解}（的雏形）。经典（非抽象）的傅里叶分解用的是一个具体的规范正交向量组（正余弦或复指数）。我们称上面的公式是\textbf{雏形}，因为真正的傅里叶分解用的是无限的规范正交向量组。\index{傅里叶分解（Fourier decomposition）!抽象正交$\sim$（abstract, orthogonal）}
 
 \begin{remark}
     规范正交基的重要性在于，如果我们在内积空间$V$中取定规范正交基，那么我们就可以如同处理$\mathbb{F}^n$中的向量一样处理在这个基下的坐标。也就是像在本书开头所讨论的那样（第 \ref{chap:BasicNotion} 章注 \ref{remark:fn_to_abstract}），如果我们处理的是（域$\mathbb{F}$上的）向量空间$V$，其具有基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，\marginpar{\small 这个注记很重要，它使我们得以将适用于标准内积空间$\mathbb{F}^n$的各种表述迁移至具有规范正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的内积空间$V$。}那么可以围绕关于基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的坐标列向量展开讨论，从而如同对标准坐标空间$\mathbb{F}^n$中的向量那样进行标准向量运算（向量加法与标量乘法）。
@@ -373,7 +373,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 回想一下经典平面几何（$2$维几何）中的正交投影的定义，可以引入下面的定义。令$E$是内积空间$V$的子空间。
 
 \begin{definition}
-    对向量$\mathbf{v}$，其往子空间$E$上的正交投影$P_E\mathbf{v}$是满足下面条件的向量$\mathbf{w}$：\index{正交投影（orthogonal projection）}
+    对向量$\mathbf{v}$，其往子空间$E$上的正交投影$P_E\mathbf{v}$是满足下面条件的向量$\mathbf{w}$：\index{投影（projection）!正交$\sim$（orthogonal）}
     \begin{enumerate}
         \item $\mathbf{w}\in E$；
         \item $\mathbf{v}-\mathbf{w}\perp E$。
@@ -450,7 +450,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 \[\mathrm{span}\{\mathbf{x}_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{n}\}=\mathrm{span}\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\}.\]
 此外，对所有$r\le n$有\[\mathrm{span}\{\mathbf{x}_1,\mathbf{x}_2,\ldots,\mathbf{x}_r\}=\mathrm{span}\{\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r\}\]
 
-现在叙述该算法。
+现在叙述该算法。\index{格拉姆-施密特正交化（Gram-Schmidt orthogonalization）}
 
 \noindent\textbf{第$1$步. }置$\mathbf{v}_{1}:=\mathbf{x}_{1}$。记$E_{1}:={\mathrm{span}}\{\mathbf{x}_{1}\}={\mathrm{span}}\{\mathbf{v}_{1}\}$。
 
@@ -556,7 +556,7 @@ $$
 \subsection{正交补、正交分解\texorpdfstring{$V=E\oplus E^\perp$}{V=E+Eperp}}\label{subsec:orthogonal_complement}
 
 \begin{definition*}
-    对子空间$E$，其{\bf 正交补} $E^{\perp}$是所有正交于$E$的向量所成的集合
+    对子空间$E$，其{\bf 正交补} $E^{\perp}$是所有正交于$E$的向量所成的集合\index{正交补（orthogonal complement）}
     \[E^{\perp}:=\{\mathbf{x}:\mathbf{x}\perp E\}.\]
 \end{definition*}
 
@@ -620,7 +620,7 @@ $A\mathbf{x}=\mathbf{b}$
 \subsection{最小平方解}
 
 最简单的想法就是写出误差\[\|A\mathbf{x}-\mathbf{b}\|\]
-并尝试求出使其最小的$\mathbf{x}$。如果可以求出使得误差为$0$的$\mathbf{x}$，那么方程组是相容的，并且我们得出了精确解。否则，我们就得到了所谓\textbf{最小平方}解\footnote{本术语国内多译为“最小二乘”，实从日文“最小二{\gothic 乗}”，比较生硬，本书将“square”按照“平方”来翻译，不从通行译法。——译者注}。
+并尝试求出使其最小的$\mathbf{x}$。如果可以求出使得误差为$0$的$\mathbf{x}$，那么方程组是相容的，并且我们得出了精确解。否则，我们就得到了所谓\textbf{最小平方}解\footnote{本术语国内多译为“最小二乘”，实从日文“最小二{\gothic 乗}”，比较生硬，本书将“square”按照“平方”来翻译，不从通行译法。——译者注}。\index{最小平方解（least square solution）}
 
 术语\textbf{最小平方}的来历是：最小化$\|A\mathbf{x}-\mathbf{b}\|$就等价于最小化
 \[\|A\mathbf{x}-\mathbf{b}\|^2=\sum_{k=1}^m|(A\mathbf{x})_k-b_k|^2=\sum_{k=1}^m\biggl|\sum_{j=1}^nA_{k,j}x_j-b_k\biggr|^2\]
@@ -856,7 +856,7 @@ $$y=86/77-62x/77+43x^2/154$$
 \subsection{基本子空间之间的关系}
 
 \begin{theorem}\label{thm:geometric_relation_adjoint_fundamental}
-    令$A:V\to W$是从一内积空间到另一内积空间的变换。那么
+    令$A:V\to W$是从一内积空间到另一内积空间的变换。那么\index{子空间（subspace）!基本$\sim$（fundamental）}
     \begin{enumerate}
         \item $\ker A^*=(\rg A)^\perp$；
         \item $\ker A=(\rg A^{*})^{\perp}$；
@@ -936,7 +936,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 
 \begin{definition*}
     若变换$U:X\to Y$保持范数：\[\|U\mathbf{x}\|=\|\mathbf{x}\|\quad\forall\mathbf{x}\in X,\]
-    则称其是{\bf 等距变换}。
+    则称其是{\bf 等距变换}。\index{等距变换（isometry）}
 \end{definition*}
 
 下述定理说明等距变换保持内积。
@@ -976,7 +976,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 上述引理意味着等距变换总是左可逆的（$U^*$就是左逆）。
 
 \begin{definition*}
-    若等距变换$U:X\to Y$可逆，则称其为{\bf 幺正}变换\footnote{unitary也常音译作“酉”。采用“幺正”，是因为该词中，“幺”既从音，也从义（“幺”即“一”），而“正”即“正规”。而“幺正”算子是特征值绝对值均为“一”的“正规”算子。——译者注。}。
+    若等距变换$U:X\to Y$可逆，则称其为{\bf 幺正}变换\footnote{unitary也常音译作“酉”。采用“幺正”，是因为该词中，“幺”既从音，也从义（“幺”即“一”），而“正”即“正规”。而“幺正”算子是特征值绝对值均为“一”的“正规”算子。——译者注。}。\index{幺正变换（unitary operator）}
 \end{definition*}
 
 \begin{proposition}\label{prop:iso_to_uni}

@@ -5,7 +5,7 @@
 \section{凯莱-哈密尔顿定理}
 
 \begin{theorem}[凯莱-哈密尔顿定理]\label{thm:caylay-hamilton}
-    令$A$为方阵，并令$p(\lambda)=\det(A-\lambda I)$是其特征多项式。那么$p(A)=\mathbf{0}$。
+    令$A$为方阵，并令$p(\lambda)=\det(A-\lambda I)$是其特征多项式。那么$p(A)=\mathbf{0}$。\index{凯莱-哈密尔顿定理（Cayley-Hamilton theorem）}
 \end{theorem}
 
 \begin{proof}[一种错误的证明]
@@ -310,7 +310,7 @@
 \subsection{代数重数的几何意义}
 
 \begin{proposition}
-    特征值的代数重数等于对应广义特征空间的维数。
+    特征值的代数重数等于对应广义特征空间的维数。\index{虫@重数（multiplicity）!代数$\sim$（algebraic）}
 \end{proposition}
 
 \begin{proof}
@@ -446,13 +446,13 @@
 \end{proof}
 
 \begin{definition*}
-    由幂零算子$A$的广义特征向量链的并集构成的基（其存在性由定理 \ref{thm:basis_cycle_gen_eigen} 保证）称为$A$的若当标准基。
+    由幂零算子$A$的广义特征向量链的并集构成的基（其存在性由定理 \ref{thm:basis_cycle_gen_eigen} 保证）称为$A$的若当标准基。\index{若当标准（Jordan canonical）!$\sim$基（basis）!幂零算子的$\sim$（for a nilpotent operator）}
 \end{definition*}
 
 注意，这样的基是不唯一的。
 
 \begin{corollary}\label{cor:jordan_canonical_nil}
-    设$A$是幂零算子。存在基（若当标准基），使得$A$关于该基的矩阵是分块对角矩阵$\operatorname{diag}\{A_1,A_2,\dots,A_r\}$，其中所有$A_k$都是形如 \eqref{jordan_block} 的块（除了可能有一个全为零的块）。
+    设$A$是幂零算子。存在基（若当标准基），使得$A$关于该基的矩阵是分块对角矩阵$\operatorname{diag}\{A_1,A_2,\dots,A_r\}$，其中所有$A_k$都是形如 \eqref{jordan_block} 的块（除了可能有一个全为零的块）。\index{若当标准（Jordan canonical）!$\sim$形（form）!幂零算子的$\sim$（for a nilpotent operator）}\index{若当分解定理（Jordan decomposition theorem）!幂零算子的$\sim$（for a nilpotent operator）}
 \end{corollary}
 
 算子$A$关于若当标准基的矩阵称为$A$的若当标准形。后面我们将看到，如果规定各块的顺序（即规定基中向量的排列顺序），那么若当标准形是唯一的。
@@ -550,10 +550,10 @@
     \begin{equation}
         \begin{pNiceMatrix}[margin]\lambda&1&&&0\\&\lambda&1&&\\&&\lambda&\ddots&\\&&&\ddots&1\\0&&&&\lambda\end{pNiceMatrix}
     \end{equation}
-    其中$\lambda$是$A$的特征值。这里假设大小为$1$的块就是$\lambda$。
+    其中$\lambda$是$A$的特征值。这里假设大小为$1$的块就是$\lambda$。\index{若当分解定理（Jordan decomposition theorem）}
 \end{theorem}
 
-定理 \ref{thm:jordan_decomp} 中的分块对角形式称为算子$A$的{\bf 若当标准形}。对应的基称为算子$A$的{\bf 若当标准基}。
+定理 \ref{thm:jordan_decomp} 中的分块对角形式称为算子$A$的{\bf 若当标准形}。对应的基称为算子$A$的{\bf 若当标准基}。\index{若当标准（Jordan canonical）!$\sim$基（basis）}\index{若当标准（Jordan canonical）!$\sim$形（form）}
 
 \begin{proof}[定理 \ref{thm:jordan_decomp} 的证明]
     根据定理 \ref{thm:gen_eigen_decomp} 和注 \ref{remark:gen_eigen_decomp}，如果将广义特征空间$E_k=E_{\lambda_k}$的基合并起来得到整个空间的基，那么$A$关于该基的矩阵具有分块对角形式$\operatorname{diag}\{A_1,A_2,\dots,A_r\}$，其中$A_k=A|_{E_k}$。算子$N_k=A_k-\lambda_k I_{E_k}$是幂零的，所以由定理 \ref{thm:basis_cycle_gen_eigen}（更准确地说，是由推论 \ref{cor:jordan_canonical_nil}），可以求出$E_k$的基，使得$N_k$关于该基的矩阵是$N_k$的若当标准形。要得到$A_k$关于该基的矩阵，只需将主对角线上的$0$换成$\lambda_k$即可。
