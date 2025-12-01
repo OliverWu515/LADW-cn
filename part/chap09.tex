@@ -81,7 +81,7 @@
 
 \subsection{算子的多项式}\label{subsec:poly_of_operator}
 
-回忆一下，对方阵（算子）$A$和多项式$p(z)=\sum_{k=1}^{N}a_kz^k$，算子$p(A)$定义为将$A$代入$p$的自变量位置
+回忆一下，对方阵（算子）$A$和多项式$p(z)=\sum_{k=0}^{N}a_kz^k$，算子$p(A)$定义为将$A$代入$p$的自变量位置
 \[p(A):=\sum_{k=0}^Na_kA^k=a_0I+a_1A+a_2A^2+\cdots+a_NA^N;\]
 此处规定$A^0=I$。
 
@@ -270,10 +270,10 @@
 因为$p_k(\lambda_j)=0(j\ne k)$并且$p_k(\lambda_k)\ne 0$，我们可得$q(\lambda_k)\ne 0$对所有$k$成立。因此由谱映射定理（见推论 \ref{cor:poly_invertible}），算子
 \[B=q(A)\]可逆。
 
-注意到$BE_k\subset E_k$（任意$A$-不变子空间也是$p(A)$-不变的）。因为$B$是可逆算子，所以$\dim(BE_k)=\dim E_k$，结合$BE_k\subset E_k$可得$BE_k= E_k$。将此式乘以$B^{-1}$可得$B^{-1}E_k=E_k$，即$E_k$是$B^{-1}$的不变子空间。
+% 注意到$BE_k\subset E_k$（任意$A$-不变子空间也是$p(A)$-不变的）。因为$B$是可逆算子，所以$\dim(BE_k)=\dim E_k$，结合$BE_k\subset E_k$可得$BE_k= E_k$。将此式乘以$B^{-1}$可得$B^{-1}E_k=E_k$，即$E_k$是$B^{-1}$的不变子空间。
 
-还注意到，由 \eqref{power_zero}，\[p_k(A)|_{E_j}=\mathbf{0}\quad \forall j\ne k,\]
-因为$p_k(A)|_{E_j}=p_k(A_j)$，而$p_k(A_j)$包含因子$(A_j-\lambda_j I_{E_j})^{m_j}=\mathbf{0}$。
+% 还注意到，由 \eqref{power_zero}，\[p_k(A)|_{E_j}=\mathbf{0}\quad \forall j\ne k,\]
+% 因为$p_k(A)|_{E_j}=p_k(A_j)$，而$p_k(A_j)$包含因子$(A_j-\lambda_j I_{E_j})^{m_j}=\mathbf{0}$。
 
 定义算子$\mathcal{P}_k$为\[\mathcal{P}_k=B^{-1}p_k(A).\]
 
@@ -293,7 +293,7 @@
 
     为证明性质3，回忆一下，根据凯莱-哈密尔顿定理，$p(A)=\mathbf{0}$。因为$p(z)=(z-\lambda_k)^{m_k}p_k(z)$，故对于$\mathbf{w}=p_k(A)\mathbf{v}$有
     \[(A-\lambda_kI)^{m_k}\mathbf{w}=(A-\lambda_kI)^{m_k}p_k(A)\mathbf{v}=p(A)\mathbf{v}=\mathbf{0}.\]
-    这就意味着，$\rg p_k(A)$中的任意向量$\mathbf{w}$可由$(A-\lambda_k I)$的若干次幂化为零向量，根据$p_k$的定义即得$\rg p_k(A)\subset E_k$。
+    这就意味着，$\rg p_k(A)$中的任意向量$\mathbf{w}$可由$(A-\lambda_k I)$的若干次幂化为零向量，根据$E_k$的定义即得$\rg p_k(A)\subset E_k$。注意到$BE_k\subset E_k$（任意$A$-不变子空间也是$p(A)$-不变的）。因为$B$是可逆算子，所以$\dim(BE_k)=\dim E_k$，结合$BE_k\subset E_k$可得$BE_k= E_k$。将此式乘以$B^{-1}$可得$B^{-1}E_k=E_k$，即$E_k$是$B^{-1}$的不变子空间。因此$\rg \mathcal{P}_k\subset E_k$。
 
     为证明最后一条性质，注意到由 \eqref{power_zero}，对$\mathbf{v}\in E_k$
     \[p_k(A)\mathbf{v}=\sum_{j=1}^{r}p_{j}(A)\mathbf{v}=B\mathbf{v},\]
@@ -330,7 +330,7 @@
 \end{corollary}
 
 \begin{proof}
-    如前面所讨论的（见注 \ref{remark:gen_eigen_decomp}），如果将$E_k$的基合并起来而得到$V$的基，那么在该基下，$A$具有分块对角形式$A=\operatorname{diag}\{A_1,A_2,\dots,A_r\}$，其中$A_k:=A|_{E_k}$，$E_k=E_{\lambda_k}$。算子$N_k:=A_k-\lambda_k I_{E_k}$是幂零的，并且算子$D=\operatorname{diag}\{\lambda_1 I_{E_1},\lambda_2 I_{E_2},\dots,\lambda_r I_{E_r}\}$在该基下是对角的。还请注意，$\lambda_k I_{E_k} N_k=N_k \lambda_k I_{E_k}$（恒等算子与任意算子都可交换），因此分块对角算子$N=\operatorname{diag}\{N_1,N_2,\dots,N_r\}$与$D$可交换，即$DN=ND$。因此，定义$N$为分块对角算子$N=\operatorname{diag}\{N_1,N_2,\dots,N_r\}$，我们就得到了所需的分解。
+    如前面所讨论的（见注 \ref{remark:gen_eigen_decomp}），如果将$E_k$的基合并起来而得到$V$的基，那么在该基下，$A$具有分块对角形式$A=\operatorname{diag}\{A_1,A_2,\dots,A_r\}$，其中$A_k:=A|_{E_k}$，$E_k=E_{\lambda_k}$。算子$N_k:=A_k-\lambda_k I_{E_k}$是幂零的，并且算子$D=\operatorname{diag}\{\lambda_1 I_{E_1},\lambda_2 I_{E_2},\dots,\lambda_r I_{E_r}\}$在该基下是对角的。又注意到$\lambda_k I_{E_k} N_k=N_k \lambda_k I_{E_k}$（恒等算子与任意算子都可交换），因此分块对角算子$N=\operatorname{diag}\{N_1,N_2,\dots,N_r\}$与$D$可交换，即$DN=ND$。因此，定义$N$为分块对角算子$N=\operatorname{diag}\{N_1,N_2,\dots,N_r\}$，我们就得到了所需的分解。
 \end{proof}
 
 本推论使我们得以计算关于算子的函数。回顾一下，如果$p$是$d$次多项式，那么$p(a+x)$可借助泰勒公式计算\[p(a+x)=\sum_{k=0}^{d}{\frac{p^{(k)}(a)}{k!}}x^{k}\]
@@ -378,14 +378,12 @@
 
 这样的矩阵（以及$1\times 1$零矩阵）将会成为我们的“构建基块”。也就是说，我们将证明，对于任意幂零算子，可以求出一个基，使得算子关于该基的矩阵具有分块对角形式$\operatorname{diag}\{A_1,A_2,\dots,A_r\}$，其中各$A_k$要么是形如 \eqref{jordan_block} 的块，要么是$1\times 1$零矩阵。
 
-我们看看应该找什么样的向量来构成基。假设算子关于基$\mathbf{v}_{1},$\linebreak $\mathbf{v}_{2},\ldots,\mathbf{v}_{p}$的矩阵形如 \eqref{jordan_block}。那么
-\begin{equation}\label{chain_relation_1}
-    A\mathbf{v}_1=\mathbf{0}
-\end{equation}
-并且
-\begin{equation}\label{chain_relation_2}
-    A\mathbf{v}_{k+1}=\mathbf{v}_k,\quad k=1,2,\dots,p-1.
-\end{equation}
+我们看看应该找什么样的向量来构成基。假设算子$A$关于基$\mathbf{v}_{1},$\linebreak $\mathbf{v}_{2},\ldots,\mathbf{v}_{p}$的矩阵形如 \eqref{jordan_block}。那么
+\begin{flalign}
+    A\mathbf{v}_1&=\mathbf{0}\label{chain_relation_1}\\
+    \intertext{并且}
+    A\mathbf{v}_{k+1}&=\mathbf{v}_k,\quad k=1,2,\dots,p-1.\label{chain_relation_2}
+\end{flalign}
 于是，我们应该求一串向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{p}$满足上述 关系 \eqref{chain_relation_1} 和 \eqref{chain_relation_2}。
 
 \subsection{广义特征向量链}\label{subsec:cycle_gen}
@@ -398,19 +396,19 @@
     \[(A-\lambda I)\mathbf{v}_{1}=\mathbf{0},\quad(A-\lambda I)\mathbf{v}_{k+1}=\mathbf{v}_{k},\quad k=1,2,\ldots,p-1.\]
 \end{remark*}
 \begin{theorem}\label{thm:cycle_li}
-    令$A$是幂零算子，并令${\mathcal{C}}_{1},{\mathcal{C}}_{2},\ldots,{\mathcal{C}}_{r}$都是其广义特征向量链，$\mathcal{C}_{k}=\mathbf{v}_{1}^{k},\mathbf{v}_{2}^{k},\ldots,\mathbf{v}_{p_{k}}^{k}$（$p_k$是链${\mathcal{C}}_{k}$的长度）。假设首向量$\mathbf{v}_{1}^{1},\mathbf{v}_{1}^{2},\ldots,\mathbf{v}_{1}^{r}$是线性无关的。那么这些链中的任意向量都不会同属于两个链，并且这些链中的所有向量是线性无关的。
+    令$A$是幂零算子，并令${\mathcal{C}}_{1},{\mathcal{C}}_{2},\ldots,{\mathcal{C}}_{r}$都是其广义特征向量链，$\mathcal{C}_{k}=\mathbf{v}_{1}^{k},\mathbf{v}_{2}^{k},\ldots,\mathbf{v}_{p_{k}}^{k}$（$p_k$是链${\mathcal{C}}_{k}$的长度）。假设首向量$\mathbf{v}_{1}^{1},\mathbf{v}_{1}^{2},\ldots,\mathbf{v}_{1}^{r}$是线性无关的。那么这些链中的任意向量都不会同属于两个链，并且这些链中的所有向量构成的并集是线性无关的。
 \end{theorem}
 \begin{proof}
     设$n=p_1+p_2+\dots+p_r$是这些链中向量的总数\footnote{这里我们仅仅是对每个链中的向量计数，然后将这些数量加在一起。我们并不在意是否有向量在各链中重复出现，而是该向量出现一次就计数一次（当然，根据这条定理，不会出现重复，但是一开始我们不能这样假设）。}。我们将对$n$用归纳法。如果$n=1$，该定理是平凡的。
 
     我们现在假设，当链中的向量总数严格小于$n$时，该定理对于所有算子和所有链都是成立的。
 
-    不失一般性，我们可假设向量$\mathbf{v}_j^k$张成整个向量空间$V$，因为如若不然，我们可以转而考虑将$A$限制在不变子空间$\mathrm{span}\{\mathbf{v}_{j}^{k}:k=1,2,\ldots,r,1\leq j\leq p_k\}$上所得的算子。
+    不失一般性，我们可假设向量$\mathbf{v}_j^k$的全体张成整个向量空间$V$，因为如若不然，我们可以转而考虑将$A$限制在不变子空间$\mathrm{span}\{\mathbf{v}_{j}^{k}:k=1,2,\ldots,r,1\leq j\leq p_k\}$上所得的算子。
 
-    考虑子空间$\rg A$。由 \eqref{chain_relation_1} 和 \eqref{chain_relation_2} 可得，向量$\mathbf{v}_{j}^{k}:k=1,2,\ldots,r,$\linebreak $1\leq j\leq p_{k}-1$张成$\rg A$。注意，如果$p_k>1$，那么向量组\linebreak $\mathbf{v}_{1}^{k},\mathbf{v}_{2}^{k},\ldots,\mathbf{v}_{p_{k}-1}^{k}$是一个链；另外，$A$会将任意长度为$1$的链化为零。
+    考虑子空间$\rg A$。由 \eqref{chain_relation_1} 和 \eqref{chain_relation_2} 可得，向量$\mathbf{v}_{j}^{k}:k=1,2,\ldots,r,$\linebreak $1\leq j\leq p_{k}-1$张成$\rg A$。注意，如果$p_k>1$，那么向量组\linebreak $\mathbf{v}_{1}^{k},\mathbf{v}_{2}^{k},\ldots,\mathbf{v}_{p_{k}-1}^{k}$仍为链；任意长度为$1$的链则都会被$A$化为零。
 
-    因此，我们得到有限多个链，并且这些链的首向量是线性无关的，因此由归纳假设可知，向量$\mathbf{v}_{j}^{k}:k=1,2,\ldots,r,1\leq j\leq p_{k}-1$是线性无关的。又因为这些向量张成$\rg A$，所以我们得到了一个基。因此\[\rank A=\dim \rg A=n-r\]
-    （原有$n$个向量，我们在每个链$\mathcal{C}_k,k=1,2,\dots,r$中移除了一个向量$\mathbf{v}_{p_k}^k$，所以基$\mathbf{v}_{j}^{k},k=1,2,\ldots,r,1\leq j\leq p_{k}-1$有$n-r$个向量）。另一方面，$A\mathbf{v}_1^k=\mathbf{0}$对$k=1,2,\dots,r$成立，又由于向量$\mathbf{v}_1^k$线性无关，所以$\dim\ker A\ge r$。由秩定理（第 \ref{chap:LinearSystems} 章定理 \ref{thm:fundamental_thm_of_la}）
+    因此，我们得到有限多个链，并且这些链的首向量是线性无关的，它们适用归纳假设，则可知向量$\mathbf{v}_{j}^{k}:k=1,2,\ldots,r,1\leq j\leq p_{k}-1$是线性无关的。又因为这些向量张成$\rg A$，所以我们得到了$\rg A$的一个基。因此\[\rank A=\dim \rg A=n-r\]
+    （原有$n$个向量，我们从每个链$\mathcal{C}_k,k=1,2,\dots,r$中移除了一个向量$\mathbf{v}_{p_k}^k$，所以基$\mathbf{v}_{j}^{k},k=1,2,\ldots,r,1\leq j\leq p_{k}-1$有$n-r$个向量）。另一方面，$A\mathbf{v}_1^k=\mathbf{0}$对$k=1,2,\dots,r$成立，又由于各向量$\mathbf{v}_1^k$线性无关，所以$\dim\ker A\ge r$。由秩定理（第 \ref{chap:LinearSystems} 章定理 \ref{thm:fundamental_thm_of_la}）
     \[\dim V=\rank A+\dim \ker A = (n-r)+\dim\ker A\ge (n-r)+r=n\]
     因此$\dim V\ge n$。
 
@@ -432,9 +430,9 @@
 
     因为$A$不可逆，所以$\dim \rg A<\dim V$，所以由归纳假设，存在广义特征向量链${\mathcal{C}}_{1},{\mathcal{C}}_{2},\ldots,{\mathcal{C}}_{r}$，使得它们的并形成$X$的基。令${\mathcal{C}}_{k}=\mathbf{v}_{1}^{k},\mathbf{v}_{2}^{k},\ldots,\mathbf{v}_{p_{k}}^{k}$，其中$\mathbf{v}_{1}^{k}$是该链的首向量。
 
-    因为尾向量$\mathbf{v}_{p_{k}}^k$属于 $\rg A$，所以可找到一个向量$\mathbf{v}_{p_{k}+1}^k$使得\linebreak $A\mathbf{v}_{p_{k}+1}^k=\mathbf{v}_{p_{k}}^k$。因此我们可以将每个链${\mathcal{C}}_{k}$都延拓为一个更长的链\linebreak $\widetilde{\mathcal{C}}_{k}=\mathbf{v}_{1}^{k},\mathbf{v}_{2}^{k},\ldots,\mathbf{v}_{p_{k}}^{k},\mathbf{v}_{p_{k}+1}^{k}$。因为链$\widetilde{\mathcal{C}}_{k},k=1,2,\dots,r$的首向量$\mathbf{v}_1^k$是线性无关的，所以上述定理 \ref{thm:cycle_li} 表明，这些链中的所有向量构成线性无关向量组。
+    因为尾向量$\mathbf{v}_{p_{k}}^k$属于 $\rg A$，所以可找到一个向量$\mathbf{v}_{p_{k}+1}^k$使得\linebreak $A\mathbf{v}_{p_{k}+1}^k=\mathbf{v}_{p_{k}}^k$。因此我们可以将每个链${\mathcal{C}}_{k}$都延拓为一个更长的链\linebreak $\widetilde{\mathcal{C}}_{k}=\mathbf{v}_{1}^{k},\mathbf{v}_{2}^{k},\ldots,\mathbf{v}_{p_{k}}^{k},\mathbf{v}_{p_{k}+1}^{k}$。因为链$\widetilde{\mathcal{C}}_{k},k=1,2,\dots,r$的首向量$\mathbf{v}_1^k$是线性无关的，所以上述定理 \ref{thm:cycle_li} 表明，这些链的并集构成线性无关向量组。
 
-    由链的定义可知$\mathbf{v}_1^k\in\ker A$，并且有假设$\mathbf{v}_1^k,k=1,2,\dots,r$线性无关。将这个向量组补全为$\ker A$的基，即求出向量$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{q}$使得向量组$\mathbf{v}_{1}^{1},\mathbf{v}_{1}^{2},\ldots,\mathbf{v}_{1}^{r},\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{q}$是$\ker A$的基（向量组$\mathbf{v}_1^k,k=1,2,\dots,r$有可能已经是$\ker A$的基，在此情形下置$q=0$，且不加入任何向量）。
+    由链的定义可知$\mathbf{v}_1^k\in\ker A$，并且有假设$\mathbf{v}_1^k,k=1,2,\dots,r$线性无关。将这个向量组补全为$\ker A$的基，即求出向量$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{q}$使得向量组$\mathbf{v}_{1}^{1},\mathbf{v}_{1}^{2},\ldots,\mathbf{v}_{1}^{r},\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{q}$是$\ker A$的基（向量组$\mathbf{v}_1^k,k=1,2,\dots,r$有可能已经是$\ker A$的基，在此情形下我们置$q=0$且不加入任何向量）。
 
     向量$\mathbf{u}_j$可视为长度为$1$的链，因此现有$\widetilde{\mathcal{C}}_{1},\widetilde{\mathcal{C}}_{2},\ldots,\widetilde{\mathcal{C}}_{r},\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{q}$这些链，并且它们的首向量线性无关。因此可以运用定理 \ref{thm:cycle_li} 得到：这些链的并集构成线性无关向量组。
 
@@ -465,11 +463,11 @@
 
 有一种可视化定理 \ref{thm:basis_cycle_gen_eigen} 和推论 \ref{cor:jordan_canonical_nil} 的好方法——点图。这种方法使我们得以回答许多自然的问题，比如，由推论 \ref{cor:jordan_canonical_nil} 给出的分块对角表示是否唯一？
 
-当然，从字面上处理这个问题，回答当然是“否”，因为我们总可以改变块的顺序。但是，如果我们排除这些琐碎的可能性，比如通过规定块的排列顺序（先将所有非零块按大小降序排列，然后再放置零矩阵块），那么矩阵表示是否唯一？
+从字面上处理这个问题，回答当然是“否”，因为我们总可以改变块的顺序。但是，如果我们排除这些琐碎的可能性，比如通过规定块的排列顺序（先将所有非零块按大小降序排列，然后再放置零矩阵块），那么矩阵表示是否唯一？
 
-为了更好理解 \ref{subsec:cycle_gen} 节中描述的幂零算子结构，我们先绘制所谓点图。方法是：假设我们有由广义特征向量链的并集构成的基。将这个基用一列点来表示，因此一列点代表一个向量链。第一行包含各链的首向量。我们根据各链的长度排列它们——将最长的链排在最左侧。
+为了更好理解 \ref{subsec:cycle_gen} 节中描述的幂零算子结构，我们来绘制所谓点图。方法是：假设我们有由广义特征向量链的并集构成的基。将这个基用一个点阵来表示，其中一列点代表一个向量链。第一行由各链的首向量构成，且各链以长度排序——最长的链排在最左侧。
 
-在图 \ref{fig:dotted_diagram} 中，我们给出了一幂零算子的点图及其若当标准形。点图表明，若当标准基含有$1$个长度为$5$的链、$1$个长度为$3$的链、$2$个长度为$2$的链，以及$2$个长度为$1$的链。长度为$5$的链对应矩阵中$5\times 5$的块，长度为$3$的链对应$3\times 3$的块，两条长度为$2$的链对应两个$2\times 2$的块，而两条长度为$1$的链对应对角线上的两个零项。此处，在每块中我们只给出主对角线及其上方的对角线的项，而该矩阵其余的项都是零。
+在图 \ref{fig:dotted_diagram} 中，我们给出了一幂零算子的点图及其若当标准形。点图表明，若当标准基含有$1$个长度为$5$的链、$1$个长度为$3$的链、$2$个长度为$2$的链，以及$2$个长度为$1$的链。长度为$5$的链对应矩阵中$5\times 5$的块，长度为$3$的链对应$3\times 3$的块，两个长度为$2$的链对应两个$2\times 2$的块，而两个长度为$1$的链对应对角线上的两个零项。此处，在每块中我们只给出主对角线及其上方的对角线的项，而该矩阵其余的项都是零。
 
 \begin{figure}[htbp]
     \centering
@@ -532,14 +530,16 @@
 
 现在我们要将点换成向量，并求出由向量链的并集构成的基。
 
-我们首先求最长的链（因为我们知道点图，所以我们也知道链的条数与每条链的长度）。考虑列空间$\rg (A^{p_1-1})$的基。将该基中的向量命名为$\mathbf{v}_1^1,\mathbf{v}_1^2,\ldots,\mathbf{v}_1^{r_1}$，而这些向量就是各最长链的首向量。然后通过解下列方程来求出这些链的尾向量$\mathbf{v}_{p_{1}}^{1},\mathbf{v}_{p_{1}}^{2},\ldots,\mathbf{v}_{p_{1}}^{r_{1}}$：
+我们首先求最长的链（因为我们知道点图，所以我们也知道链的个数与每个链的长度）。考虑列空间$\rg (A^{p_1-1})$的基。将该基中的向量命名为$\mathbf{v}_1^1,\mathbf{v}_1^2,\ldots,\mathbf{v}_1^{r_1}$，而这些向量就是各最长链的首向量。然后通过解下列方程来求出这些链的尾向量$\mathbf{v}_{p_{1}}^{1},\mathbf{v}_{p_{1}}^{2},\ldots,\mathbf{v}_{p_{1}}^{r_{1}}$：
 \[A^{p_1-1}\mathbf{v}_{p_1}^k=\mathbf{v}_1^k,\quad k=1,2,\ldots,r_1.\]
 对尾向量$\mathbf{v}_{p_1}^k$连续作用$A$，就能得到该链中的所有向量$\mathbf{v}_{j}^k$。这样，我们就构造出了所有最长的链。
 
-令$p_2$是剩余链中最长链的长度。考虑子空间$\rg (A^{p_2-1})$，并令$\dim \rg(A^{p_2-1})=r_2$。因为$\rg(A^{p_1-1})\subset \rg(A^{p_2-1})$，所以可将\linebreak $\rg(A^{p_1-1})$的基补全为$\rg(A^{p_2-1})$的基$\mathbf{v}_{1}^{1},\mathbf{v}_{1}^{2},\ldots,\mathbf{v}_{1}^{r_{1}},\mathbf{v}_{1}^{r_{1}+1},\ldots,\mathbf{v}_{1}^{r_{2}}$。那么，我们可以通过求以下方程\[A^{p_2-1}\mathbf{v}_{p_2}^k=\mathbf{v}_1^k,\quad k=r_1+1,r_1+2,\ldots,r_2,\]
+令$p_2$是待求链中最长链的长度。考虑子空间$\rg (A^{p_2-1})$，并令$\dim \rg(A^{p_2-1})=r_2$。因为$\rg(A^{p_1-1})\subset \rg(A^{p_2-1})$，所以可将\linebreak $\rg(A^{p_1-1})$的基补全为$\rg(A^{p_2-1})$的基$\mathbf{v}_{1}^{1},\mathbf{v}_{1}^{2},\ldots,\mathbf{v}_{1}^{r_{1}},\mathbf{v}_{1}^{r_{1}+1},\ldots,\mathbf{v}_{1}^{r_{2}}$。那么，我们可以通过求以下方程\[A^{p_2-1}\mathbf{v}_{p_2}^k=\mathbf{v}_1^k,\quad k=r_1+1,r_1+2,\ldots,r_2,\]
 来得出$\mathbf{v}_{p_2}^k$，进而求出链$\mathcal{C}_{r_{1}+1},\ldots,\mathcal{C}_{r_{2}}$。这样就构造了长度为$p_2$的链。
 
-令$p_3$是剩余链中最长链的长度。那么，将$\rg(A^{p_2-1})$的基$\mathbf{v}_{1}^{1},$\linebreak $\mathbf{v}_{1}^{2},\ldots,\mathbf{v}_{1}^{r_{2}}$补全为$\rg(A^{p_3-1})$的基，我们就可构造出长度为$p_3$的链，以此类推。
+令$p_3$是待求链中最长链的长度。那么，将$\rg(A^{p_2-1})$的基$\mathbf{v}_{1}^{1},$\linebreak $\mathbf{v}_{1}^{2},\ldots,\mathbf{v}_{1}^{r_{2}}$补全为$\rg(A^{p_3-1})$的基，我们就可构造出长度为$p_3$的链，以此类推。
+
+特别地，当$p_l=1$时，我们将$\rg(A^{p_{l-1}-1})$的基补全为$\ker A$的基，就得到了所有长度为$1$的链。
 
 最后说明一下：前面我们讨论过，如果我们知道点图，那么我们就知道标准形。所以，在求出若当标准基之后，我们不需要关于这个基计算矩阵——我们已经知道矩阵是什么了！
 
@@ -569,4 +569,4 @@
 
 在算出所有的广义特征空间后，有两种可行的做法。第一种是，求出每个广义特征空间的基，因而算子$A$关于该基的矩阵具有分块对角形式$\operatorname{diag}\{A_1,A_2,\dots,A_r\}$，其中$A_k=A|_{E_{\lambda_k}}$。接下来，我们就能分别处理每个矩阵$A_k$。算子$N_k=A_k-\lambda_k I$是幂零的，因此运用 \ref{subsec:compute_jordan} 节所述的算法，就能得到$N_k$的若当标准表示，再将主对角线上的$0$换成$\lambda_k$，我们就得到了$A_k$这个块的若当标准表示。这种方法的优势在于，我们是分别处理每小块（而不是整个矩阵）。但是，我们需要求出算子在新基下的矩阵，这就会涉及矩阵求逆和矩阵乘法。
 
-另一种方法是，直接考虑算子$A$（而不将其分块）来求出每个广义特征空间$E_{\lambda_k}$的若当标准基。\ref{subsec:compute_jordan} 节所述的算法仍然可用，但要稍作修改。具体而言，在计算广义特征空间$E_{\lambda_k}$的若当标准基时，我们不考虑子空间$\rg(A_k-\lambda_k I)^j$（这需要我们分别考虑各块$A_k$），而是考虑子空间$(A_k-\lambda_k I)^j E_{\lambda_k}$。
+另一种方法是，直接考虑算子$A$（而不将其分块）来求出每个广义特征空间$E_{\lambda_k}$的若当标准基。\ref{subsec:compute_jordan} 节所述的算法仍然可用，但要稍作修改。具体而言，在计算广义特征空间$E_{\lambda_k}$的若当标准基时，我们不考虑子空间$\rg(A_k-\lambda_k I)^j$（这需要我们分别考虑各块$A_k$），而是考虑子空间$(A-\lambda_k I)^j E_{\lambda_k}$。

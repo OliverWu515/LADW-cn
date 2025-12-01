@@ -195,7 +195,7 @@
             \vdots & & N_1^*N_1 & \\
             0 & & & 
         \end{pNiceArray},\quad 
-        \begin{pNiceArray}{c|ccc}[margin]
+        NN^* = \begin{pNiceArray}{c|ccc}[margin]
             |a_{1,1}|^2 & 0 & \ldots & 0\\
             \Hline
             0 & & & \\
@@ -690,7 +690,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 \end{equation}
 的确如此——$\mathbf{x}_0$是$A\mathbf{x}=\mathbf{b}$的最小平方解（即$A\mathbf{x}=P_{\rg A}\mathbf{b}$的解）：
 \[A\mathbf{x}_{0}=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^{*}\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}\mathbf{b}=\widetilde{W}\widetilde{\Sigma}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}\mathbf{b}=\widetilde{W}\widetilde{W}^{*}\mathbf{b}=P_{\mathrm{Ran}A}\mathbf{b};\]
-最后一个等号，是由于$\widetilde{W}\widetilde{W}^{*}=P_{\operatorname{Ran}\widetilde{W}}$（$P_{\rg\widetilde{W}}=\widetilde{W}(\widetilde{W}^{*}\widetilde{W})^{-1}\widetilde{W}^{*}=\widetilde{W}\widetilde{W}^{*}$）并且$\rg\widetilde{W}=\rg A$（见下习题 \ref{ex:6_4_4}）。
+最后一个等号成立，是由于$\widetilde{W}\widetilde{W}^{*}=P_{\operatorname{Ran}\widetilde{W}}$（$P_{\rg\widetilde{W}}=\widetilde{W}(\widetilde{W}^{*}\widetilde{W})^{-1}\widetilde{W}^{*}=\widetilde{W}\widetilde{W}^{*}$）并且$\rg\widetilde{W}=\rg A$（见下习题 \ref{ex:6_4_4}）。
 
 % 方程$A\mathbf{x}=P_{\rg A}\mathbf{b}$的通解是
 % \[\mathbf{x}=\mathbf{x}_0+\mathbf{y},\quad \mathbf{y}\in\ker A,\]
