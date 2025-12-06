@@ -26,14 +26,14 @@ $\mathbb{R}^3$上的\textbf{点积}定义为$\mathbf{x}\cdot\mathbf{y}=x_1y_1+x_
 
 \subsection{\texorpdfstring{$\mathbb{C}^n$}{C\^{}n}上的内积和范数}
 
-下面定义$\mathbb{C}^n$上的范数和内积。如之前所见，从谱理论的视角来看，复向量空间$\mathbb{C}^n$是最为自然的：即便研究的是各项为实数的矩阵（或者实向量空间上的算子），特征值也可能是复的，于是我们就需要在复向量空间中研究。
+下面定义$\mathbb{C}^n$上的范数和内积。如之前所见，从谱理论的视角来看，复向量空间$\mathbb{C}^n$是最为自然的：即便研究的是各元素为实数的矩阵（或者实向量空间上的算子），特征值也可能是复的，于是我们就需要在复向量空间中研究。
 
 对于复数$z=x+iy$，我们有$|z|^2=x^2+y^2=z\overline{z}$。若$\mathbf{z}\in\mathbb{C}^{n}$形如\[\mathbf{z}=\begin{pNiceMatrix}[margin]z_1\\z_2\\\vdots\\z_n\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]x_1+iy_1\\x_2+iy_2\\\vdots\\x_n+iy_n\end{pNiceMatrix},\]
 就能很自然由下式定义其范数$\|\mathbf{z}\|$：\[\|\mathbf{z}\|^2=\sum_{k=1}^n(x_k^2+y_k^2)=\sum_{k=1}^n|z_k|^2.\]
 现在我们尝试定义$\mathbb{C}^n$上的内积使得$\|\mathbf{z}\|^2=(\mathbf{z},\mathbf{z})$。一种做法是定义$(\mathbf{z},\mathbf{w})$为\[(\mathbf{z},\mathbf{w})=z_{1}\overline{w}_{1}+z_{2}\overline{w}_{2}+\ldots+z_{n}\overline{w}_{n}=\sum_{k=1}^{n}z_{k}\overline{w}_{k},\]
 这就是$\mathbb{C}^n$上\textbf{标准}内积的定义。\index{内积（inner product）!$\mathbb{C}^n$上的$\sim$（in $\mathbb{C}^n$）}
 
-为简化记号，我们引入一个新概念：定义矩阵$A$的\textbf{埃尔米特伴随}（或简称\textbf{伴随}）$A^\ast$为$A^\ast=\overline{A^T}$，意即先取矩阵的转置，再取各项的复共轭。注意对于实矩阵$A$，有$A^\ast={A}^T$。
+为简化记号，我们引入一个新概念：定义矩阵$A$的\textbf{埃尔米特伴随}（或简称\textbf{伴随}）$A^\ast$为$A^\ast=\overline{A^T}$，意即先取矩阵的转置，再取各元素的复共轭。注意对于实矩阵$A$，有$A^\ast={A}^T$。
 
 利用$A^\ast$的概念，可以将$\mathbb{C}^n$上的标准内积写成\[(\mathbf{z},\mathbf{w})=\mathbf{w}^\ast\mathbf{z}.\]
 \begin{remark*}
@@ -79,7 +79,7 @@ $\mathbb{R}^3$上的\textbf{点积}定义为$\mathbf{x}\cdot\mathbf{y}=x_1y_1+x_
     这个定义适用于实数和复数情形。在实数情形下，我们只考虑实系数多项式，则上式中的复共轭可去掉。
 \end{example}
 
-回忆一下，方阵$A$的\textbf{迹}定义为对角项之和：\[\operatorname{trace}A:=\sum_{k=1}^{n}a_{k,k}.\]
+回忆一下，方阵$A$的\textbf{迹}定义为对角元之和：\[\operatorname{trace}A:=\sum_{k=1}^{n}a_{k,k}.\]
 
 \begin{example}
     对由$m\times n$矩阵所构成的向量空间$M_{m\times n}$，定义所谓弗罗贝尼乌斯内积为\[(A,B)=\tr (B^\ast A).\]
@@ -292,7 +292,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 
 \begin{proof}[引理的证明]
     \[\left\|\sum_{k=1}^{n}\alpha_{k}\mathbf{v}_{k}\right\|^{2}=\left(\sum_{k=1}^{n}\alpha_{k}\mathbf{v}_{k},\sum_{j=1}^{n}\alpha_{j}\mathbf{v}_{j}\right)=\sum_{k=1}^{n}\sum_{j=1}^{n}\alpha_{k}\overline{\alpha}_{j}(\mathbf{v}_{k},\mathbf{v}_{j}).\]
-    因为正交性（若$j\neq k$则$(\mathbf{v}_{k},\mathbf{v}_{j})=0$），所以只需对$j=k$的项求和，这就恰好会给出\[\sum_{k=1}^n|\alpha_k|^2(\mathbf{v}_k,\mathbf{v}_k)=\sum_{k=1}^n|\alpha_k|^2\|\mathbf{v}_k\|^2.\qedhere\]
+    因为正交性（若$j\neq k$则$(\mathbf{v}_{k},\mathbf{v}_{j})=0$），所以只需对满足$j=k$的项求和，这就恰好会给出\[\sum_{k=1}^n|\alpha_k|^2(\mathbf{v}_k,\mathbf{v}_k)=\sum_{k=1}^n|\alpha_k|^2\|\mathbf{v}_k\|^2.\qedhere\]
 \end{proof}
 
 \begin{corollary}
@@ -550,7 +550,7 @@ $$
 
     特别地，在很多理论推导中，人们会将向量$\mathbf{v}_k$除以对应的范数$\|\mathbf{v}_k\|$来将它{\bf 归一化}。那么所得向量组是规范正交的，公式也会更简单。
 
-    不过，在做计算的时候，人们往往会通过将向量的每项乘上各项分母的最小公倍数来避免得出分数项。所以上述向量$\mathbf{v}_3$大概会被换成$(1,-2,1)^T$。
+    不过，在做计算的时候，人们往往会通过将向量的每个元素乘以各元素分母的最小公倍数来避免得出分数。所以上述向量$\mathbf{v}_3$大概会被换成$(1,-2,1)^T$。
 \end{remark*}
 
 \subsection{正交补、正交分解\texorpdfstring{$V=E\oplus E^\perp$}{V=E+Eperp}}\label{subsec:orthogonal_complement}
@@ -590,8 +590,8 @@ $$
     \item （利用特征值来计算行列式）
     \begin{probenumerate}
         \item 求往$\mathbb{R}^n$的由向量$(1,1,\dots,1)^T$张成的一维子空间的正交投影的矩阵；
-        \item 令$A$是所有项都等于$1$的$n\times n$矩阵。计算其特征值和对应的重数（利用前一题的结论）；
-        \item 计算矩阵$A-I$（即主对角项都为$0$而其他项都为$1$的矩阵）的特征值（及其重数）。
+        \item 令$A$是所有元素都等于$1$的$n\times n$矩阵。计算其特征值和对应的重数（利用前一题的结论）；
+        \item 计算矩阵$A-I$（即主对角元都为$0$而其他元素都为$1$的矩阵）的特征值（及其重数）。
         \item 计算$\det (A-I)$。
     \end{probenumerate}
     \item （勒让德多项式）令多项式所成的向量空间上的内积定义为 $(f,g)=$\linebreak $\int_{-1}^{1}f(t)\overline{g(t)}dt$。对向量组$1,t,t^2,t^3$应用格拉姆-施密特正交化。勒让德多项式是所谓正交多项式的一个特例，后者在数学的许多分支都有重要用途。
@@ -814,7 +814,7 @@ $$y=86/77-62x/77+43x^2/154$$
 
 \subsection{伴随矩阵和伴随变换}
 
-回忆一下，$m\times n$矩阵$A$的\textbf{埃尔米特伴随}（或简称\textbf{伴随}）定义为$A^*:=\overline{A^T}$。换言之，矩阵$A^*$是通过将转置矩阵$A^T$的各项取复共轭得到的。
+回忆一下，$m\times n$矩阵$A$的\textbf{埃尔米特伴随}（或简称\textbf{伴随}）定义为$A^*:=\overline{A^T}$。换言之，矩阵$A^*$是通过将转置矩阵$A^T$的各元素取复共轭得到的。
 
 下列恒等式是伴随矩阵的核心性质：
 \[\boxed{(A\mathbf{x},\mathbf{y})=(\mathbf{x},A^*\mathbf{y})\quad\forall\mathbf{x}\in\mathbb{C}^n,\forall\mathbf{y}\in\mathbb{C}^m.}\]
@@ -990,7 +990,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 
 若方阵$U$满足$U^*U=I$，则称其是{\bf 幺正的}，即幺正矩阵是作用于$\mathbb{F}^n$的幺正算子的矩阵。
 
-各项为实数的幺正矩阵称为{\bf 正交}矩阵。正交矩阵可理解为作用于实向量空间$\mathbb{R}^n$的幺正算子的矩阵。
+各元素为实数的幺正矩阵称为{\bf 正交}矩阵。正交矩阵可理解为作用于实向量空间$\mathbb{R}^n$的幺正算子的矩阵。
 
 幺正变换有几个性质：
 \begin{enumerate}
@@ -1010,7 +1010,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 直接计算乘积$U^*U$即可检验该结论。
 
 容易检验，旋转矩阵\[\begin{pNiceMatrix}[margin]\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pNiceMatrix}\]
-的各列彼此正交，并且各列的范数都是$1$。因此，旋转矩阵是等距的，又因为它是方阵，所以它是幺正的。又因为旋转矩阵的各项都是实数，所以它是正交矩阵。
+的各列彼此正交，并且各列的范数都是$1$。因此，旋转矩阵是等距的，又因为它是方阵，所以它是幺正的。又因为旋转矩阵的各元素都是实数，所以它是正交矩阵。
 
 下个例子要更抽象一些。令$X$和$Y$是内积空间，$\dim X=\dim Y=n$，并令$\mathbf{x}_{1},\mathbf{x}_{2},\ldots,\mathbf{x}_{n}$和$\mathbf{y}_1,\mathbf{y}_2,\ldots,\mathbf{y}_n$分别为$X$和$Y$的规范正交基。定义变换$U:X\to Y$为
 \[U\mathbf{x}_{k}=\mathbf{y}_{k},\quad k=1,2,\ldots,n.\]
@@ -1108,7 +1108,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
         \item 若$\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}$是规范正交基，并满足$U\mathbf{v}_{1}=\mathbf{v}_{1}$（记住，$1$是特征值之一），那么$U$关于该基的矩阵是\[\begin{pNiceMatrix}[margin]1&0&0\\0&\cos\alpha&-\sin\alpha\\0&\sin\alpha&\cos\alpha\end{pNiceMatrix},\]
         其中$\alpha$是一个角度值。
 
-        {\bf 提示}：先证明，因为$\mathbf{v}_1$是$U$的特征向量，所以在$1$之下的所有项都必为零；因为$\mathbf{v}_1$也是$U^*$的特征向量（为什么？），所以在$1$右侧的所有项也都必为零。然后证明右下角的$2\times 2$矩阵是行列式为$1$的正交矩阵，再利用前一题的结论。
+        {\bf 提示}：先证明，因为$\mathbf{v}_1$是$U$的特征向量，所以在$1$之下的所有元素都必为零；因为$\mathbf{v}_1$也是$U^*$的特征向量（为什么？），所以在$1$右侧的所有元素也都必为零。然后证明右下角的$2\times 2$矩阵是行列式为$1$的正交矩阵，再利用前一题的结论。
     \end{probenumerate}
 \end{problemset}
 

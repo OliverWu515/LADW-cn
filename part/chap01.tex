@@ -53,18 +53,18 @@
 \begin{example*}
     向量空间$\mathbb{R}^n$由长度为$n$的列向量（如下）所构成：
     \[\mathbf{v}=\begin{pNiceMatrix}[margin]v_1\\v_2\\\vdots\\v_n\end{pNiceMatrix}\]
-    其中各项为实数。加法和乘法是逐项定义的，也即
+    其中各元素为实数。加法和乘法是逐元素定义的，也即
     \[\alpha\begin{pNiceMatrix}[margin]v_1\\v_2\\\vdots\\v_n\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]\alpha v_1\\\alpha v_2\\\vdots\\\alpha v_n\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]v_1\\v_2\\\vdots\\v_n\end{pNiceMatrix}+\begin{pNiceMatrix}[margin]w_1\\w_2\\\vdots\\w_n\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]v_1+w_1\\v_2+w_2\\\vdots\\v_n+w_n\end{pNiceMatrix}\]
 \end{example*}
 
 \begin{example*}
-    向量空间$\mathbb{C}^n$同样由长度为$n$的列向量所构成，只是向量中各项为复数。加法和乘法与$\mathbb{R}^n$中的定义相同，唯一的区别在于如今可以将向量与{\bf 复}数相乘，也即，$\mathbb{C}^n$为{\bf 复}向量空间。
+    向量空间$\mathbb{C}^n$同样由长度为$n$的列向量所构成，只是向量中各元素为复数。加法和乘法与$\mathbb{R}^n$中的定义相同，唯一的区别在于如今可以将向量与{\bf 复}数相乘，也即，$\mathbb{C}^n$为{\bf 复}向量空间。
 \end{example*}
 
 本书中许多结论对于$\mathbb{R}^n$和$\mathbb{C}^n$都成立，在这样的情况下，我们将使用$\mathbb{F}^n$这个记号。
 
 \begin{example*}
-    向量空间$M_{m\times n}$（也记作$M_{m,n}$）由$m\times n$矩阵构成，加法和标量乘法是逐项定义的。如果我们限制各项为实数（并且只允许与实数相乘），那么我们就得到了一个实向量空间；如果我们允许各项为复数（并且允许与复数相乘），那么我们就得到了一个复向量空间。\index{$M_{m\times n}$}\index{$M_{m,n}$}
+    向量空间$M_{m\times n}$（也记作$M_{m,n}$）由$m\times n$矩阵构成，加法和标量乘法是逐元素定义的。如果我们限制各元素为实数（并且只允许与实数相乘），那么我们就得到了一个实向量空间；如果我们允许各元素为复数（并且允许与复数相乘），那么我们就得到了一个复向量空间。\index{$M_{m\times n}$}\index{$M_{m,n}$}
 
     正式而言，我们需要区分实数与复数情形，也即分别写为$M_{m, n}^{\mathbb{R}}$和$M_{m, n}^{\mathbb{C}}$。然而，在大多数场合中，实数和复数情形并没有区别，于是也没有必要明确到底在考虑哪种情形。如果有所区别，我们会说清楚考虑的是哪种情况。
 \end{example*}
@@ -72,9 +72,9 @@
 \begin{remark*}
     如上所提到的，向量空间的公理仅仅是实数或复数的通常代数运算规则，因此如果我们将标量（数）视作向量，那么所有的公理都是成立的。于是，实数集合$\mathbb{R}$是实向量空间，复数集合$\mathbb{C}$是复向量空间。
 
-    更重要的是，由于在上面的例子中，所有的向量运算（加法和标量乘法）都是逐项进行的，因此在这些例子中向量空间的公理是自动满足的，因为这些公理对标量成立（你能看出原因吗？）。因此，无需检验这些公理，我们就能得知上述例子中的集合的确是向量空间！
+    更重要的是，由于在上面的例子中，所有的向量运算（加法和标量乘法）都是逐元素进行的，因此在这些例子中向量空间的公理是自动满足的，因为这些公理对标量成立（你能看出原因吗？）。因此，无需检验这些公理，我们就能得知上述例子中的集合的确是向量空间！
 
-    同样的道理也适用于下面的例子，此处多项式的系数充当了（上述列向量或矩阵中）各项的角色。
+    同样的道理也适用于下面的例子，此处多项式的系数充当了（上述列向量或矩阵中）各元素的角色。
 \end{remark*}
 
 \begin{example*}
@@ -88,21 +88,21 @@
 
 \subsection{矩阵记号}\label{subsec:matrix_notation}
 
-一个$m\times n$的矩阵是一个有$m$行$n$列的数阵\index{矩阵（matrix）}。这个阵列中的元素称为矩阵的{\bf 项}\index{项（entry, entries）!矩阵的$\sim$（of a matrix）}。
+一个$m\times n$的矩阵是一个有$m$行$n$列的阵列\index{矩阵（matrix）}。这个阵列中的元素称为矩阵的{\bf 元素}。\index{元素（entry, entries）!矩阵的$\sim$（of a matrix）}
 
-将矩阵的项记作带下标的字母是很方便的：第一个下标代表该项的行号，而第二个下标则代表列号。例如
+将矩阵的元素记作带下标的字母是很方便的：第一个下标代表该元素的行号，而第二个下标则代表列号。例如
 \begin{equation}\label{matrix_notation}
     A=(a_{j,k})_{j=1,k=1}^{m,\quad n}=\begin{pNiceMatrix}[margin]a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&&\vdots\\a_{m,1}&a_{m,2}&\ldots&a_{m,n}\end{pNiceMatrix}
 \end{equation}
 就是$m\times n$矩阵的通常表示形式。
 
-矩阵$A$中的第$j$行第$k$列的项往往表示为$A_{j,k}$或$(A)_{j,k}$，有时也像上面的式 \eqref{matrix_notation} 那样用小写字母加下标来表示。
+矩阵$A$中的第$j$行第$k$列的元素往往表示为$A_{j,k}$或$(A)_{j,k}$，有时也像上面的式 \eqref{matrix_notation} 那样用小写字母加下标来表示。
 
 给定一矩阵$A$，其{\bf 转置}\index{转置（transpose）}（或转置矩阵）$A^T$定义为将$A$的行变为列所得的矩阵。例如
 \[\begin{pNiceMatrix}[margin]1&2&3\\4&5&6\end{pNiceMatrix}^T=\begin{pNiceMatrix}[margin]1&4\\2&5\\3&6\end{pNiceMatrix}.\]
 因此，$A^T$的各列就是$A$的各行。反之亦然：$A^T$的各行就是$A$的各列。
 
-形式化定义是：$(A^T)_{j,k}=(A)_{k,j}$，意为：$A^T$的第$j$行第$k$列的项等于$A$的第$k$行第$j$列的项。
+形式化定义是：$(A^T)_{j,k}=(A)_{k,j}$，意为：$A^T$的第$j$行第$k$列的元素等于$A$的第$k$行第$j$列的元素。
 
 就线性变换而言，矩阵的转置有一种很优美的阐释，也即其能导出所谓{\bf 伴随}变换，我们将在后面详细研究它，目前转置仅仅是一种有用且正式的运算。
 
@@ -149,7 +149,7 @@
 \begin{example}
     在这第一个例子当中，向量空间$V$等于$\mathbb{F}^n$，其中$\mathbb{F}$是$\mathbb{R}$或$\mathbb{C}$。考虑向量
     \[\mathbf{e}_1=\begin{pNiceMatrix}[margin]1\\0\\0\\\vdots\\0\end{pNiceMatrix},\quad\mathbf{e}_2=\begin{pNiceMatrix}[margin]0\\1\\0\\\vdots\\0\end{pNiceMatrix},\quad\mathbf{e}_3=\begin{pNiceMatrix}[margin]0\\0\\1\\\vdots\\0\end{pNiceMatrix},\quad\ldots,\quad\mathbf{e}_n=\begin{pNiceMatrix}[margin]0\\0\\0\\\vdots\\1\end{pNiceMatrix},\]
-    （向量$\mathbf{e}_k$除第$k$项为$1$外，其余各项均为$0$）。
+    （向量$\mathbf{e}_k$除第$k$个元素为$1$外，其余各元素均为$0$）。
     
     向量组$\mathbf{e}_1,\mathbf{e}_2,\dots,\mathbf{e}_n$是$\mathbb{F}^n$的基。的确，任意向量\[\mathbf{v}=\begin{pNiceMatrix}[margin]x_1\\x_2\\\vdots\\x_n\end{pNiceMatrix}\in\mathbb{F}^n\]
     都能被表示成线性组合
@@ -283,7 +283,7 @@
         \item 线性无关向量集合的子集是线性无关的；
         \item 若$\alpha_{1}\mathbf{v}_{1}+\alpha_{2}\mathbf{v}_{2}+\ldots+\alpha_{n}\mathbf{v}_{n}=\mathbf{0}$，那么所有标量$\alpha_{k}$都为零。
     \end{probenumerate}
-    \item 回想一下，若矩阵$A$满足$A^T=A$，则称其为{\bf 对称}的。写出由$2\times 2$\textbf{对称}矩阵所构成的向量空间的一个基（有很多可能的答案）。该基中包含几个元素？\index{矩阵（matrix）!对称$\sim$（symmetric）}
+    \item 回想一下，若矩阵$A$满足$A^T=A$，则称其为{\bf 对称}的。\index{矩阵（matrix）!对称$\sim$（symmetric）}写出由$2\times 2$\textbf{对称}矩阵所构成的向量空间的一个基（有很多可能的答案）。该基中包含几个元素？
     \item 写出由下列元素构成的空间的基：
     \begin{probenumerate}
         \item $3\times 3$对称矩阵；
@@ -380,11 +380,11 @@
 
 “列乘以坐标”法则很适于并行计算，在之后的一些理论推导中也很重要。
 
-不过，当手工进行计算时，逐项计算更为方便。这种计算可按以下“{\bf 行乘以列}”法则来进行：
+不过，当手工进行计算时，逐元素计算更为方便。这种计算可按以下“{\bf 行乘以列}”法则来进行：
 \begin{center}
-    \fbox{\parbox{0.8\linewidth}{要得到结果的第$k$项，我们需要将矩阵的第$k$行与向量相乘。也就是说，若$A\mathbf{x}=\mathbf{y}$，那么$y_{k}=\sum_{j=1}^{n}a_{k,j}x_{j},k=1,2,\ldots, m$。}}
+    \fbox{\parbox{0.8\linewidth}{要得到结果的第$k$个元素，我们需要将矩阵的第$k$行与向量相乘。也就是说，若$A\mathbf{x}=\mathbf{y}$，那么$y_{k}=\sum_{j=1}^{n}a_{k,j}x_{j},k=1,2,\ldots, m$。}}
 \end{center}
-此处$x_j$和$y_k$分别是向量$\mathbf{x}$和$\mathbf{y}$的坐标，$a_{j,k}$则为矩阵$A$的项。
+此处$x_j$和$y_k$分别是向量$\mathbf{x}$和$\mathbf{y}$的坐标，$a_{j,k}$则为矩阵$A$的元素。
 
 \begin{example*}
     \[\begin{pNiceMatrix}[margin]1&2&3\\4&5&6\end{pNiceMatrix}\begin{pNiceMatrix}[margin]1\\2\\3\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]1\cdot1+2\cdot2+3\cdot3\\4\cdot1+5\cdot2+6\cdot3\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]14\\32\end{pNiceMatrix}\]
@@ -421,7 +421,7 @@
 
     这是合理的，因为$m\times n$矩阵定义了$\mathbb{F}^n\to\mathbb{F}^m$的线性变换，所以向量$\mathbf{x}$必须属于$\mathbb{F}^n$。
 
-    记住这一点的最简单方法，\marginpar{\small 在用“行乘以列”法则计算矩阵-向量乘法时，确保矩阵的行中的项数和列向量中的项数相同。行中的项和列向量中的项应该被同时用尽；否则所做的乘法未定义。}就是记住如果在做乘法的时候有某种元素先被用光了，那么此乘法就是未定义的。例如，如果用“行乘以列”法则时，你将矩阵的行中各项都用尽了，而列向量中的项仍有未用到的，那么所做的乘法就是未定义的。同样，如果你先用尽列向量中的项，而矩阵的行中各项尚有未用到的，那么该乘法也是未定义的。
+    记住这一点的最简单方法，\marginpar{\small 在用“行乘以列”法则计算矩阵-向量乘法时，确保矩阵的行中的元素数和列向量中的元素数相同。行中的元素和列向量中的元素应该被同时用尽；否则所做的乘法未定义。}就是记住如果在做乘法的时候有某种元素先被用光了，那么此乘法就是未定义的。例如，如果用“行乘以列”法则时，你将矩阵的行中各元素都用尽了，而列向量中的元素仍有未用到的，那么所做的乘法就是未定义的。同样，如果你先用尽列向量中的元素，而矩阵的行中各元素尚有未用到的，那么该乘法也是未定义的。
 \end{remark*}
 
 \begin{remark*}
@@ -504,14 +504,14 @@
 
 在了解矩阵-向量乘法后，很容易猜出两矩阵乘积$AB$的一种自然的定义方式：将$B$的各列乘以$A$（用矩阵-向量乘法），再将所得各列向量组成矩阵。正式而言，
 \begin{center}
-    \fbox{\parbox{0.8\linewidth}{若$B$的各列是$\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{r}$，那么$A\mathbf{b}_{1},A\mathbf{b}_{2},\ldots,A\mathbf{b}_{r}$是矩阵$AB$的各列。}}
+    \fbox{\parbox{0.85\linewidth}{若$B$的各列是$\mathbf{b}_{1},\mathbf{b}_{2},\ldots,\mathbf{b}_{r}$，那么$A\mathbf{b}_{1},A\mathbf{b}_{2},\ldots,A\mathbf{b}_{r}$是矩阵$AB$的各列。}}
 \end{center}
 回忆矩阵-向量乘法的“{\bf 行乘以列}”规则，我们得到了下述{\bf 矩阵的}“{\bf 行乘以列}”{\bf 规则}：
 \begin{center}
-    \fbox{\parbox{0.8\linewidth}{乘积$AB$的项$(AB)_{j,k}$（第$j$行第$k$列中的项）定义为\[(AB)_{j,k}=(A~\text{的第}~j~\text{行})\cdot(B~\text{的第}~k~\text{列})\]}}
+    \fbox{\parbox{0.85\linewidth}{乘积$AB$的元素$(AB)_{j,k}$（第$j$行第$k$列中的元素）定义为\[(AB)_{j,k}=(A~\text{的第}~j~\text{行})\cdot(B~\text{的第}~k~\text{列})\]}}
 \end{center}
 正式而言，其可写为\[(AB)_{j,k}=\sum_{l}a_{j,l}b_{l,k},\]
-其中$a_{j,k}$和$b_{j,k}$分别表示矩阵$A$和$B$的项。
+其中$a_{j,k}$和$b_{j,k}$分别表示矩阵$A$和$B$的元素。
 
 我特地没说明矩阵$A$和$B$的大小，但是如果我们回想一下矩阵-向量乘法的“行乘以列”规则，我们就能看出，如果一个乘积是有定义的，那么$A$的行的长度应该等于$B$的列的长度。
 
@@ -519,7 +519,7 @@
 
 \subsection{缘起：线性变换的复合}
 
-这里，我们不妨问问自己：为什么要用如此复杂的方式定义乘法呢？为什么我们不直接将矩阵逐项相乘呢？
+这里，我们不妨问问自己：为什么要用如此复杂的方式定义乘法呢？为什么我们不直接将矩阵逐元素相乘呢？
 
 回答是：定义如上的这种乘法，是从线性变换的复合中自然产生的。
 
@@ -546,7 +546,7 @@
 
     $T$的矩阵的一个更为简便的求法是，将$T$表示成若干简单线性变换的复合。具体而言，令$\gamma$为$x_1$轴和直线$x_1=3x_2$之间的夹角，并令$T_0$为沿$x_1$轴的反射。那么，要得到反射$T$，我们可以首先将平面旋转$-\gamma$以将直线$x_1=3x_2$转到$x_1$轴上，然后将向量沿$x_1$轴反射，最后将平面旋转$\gamma$以恢复原状。正式而言，这三步可以写成
     \[T=R_\gamma T_0R_{-\gamma}\]
-    （注意各项的顺序！）其中$R_\gamma$表示旋转$\gamma$弧度。$T_0$的矩阵很容易计算：
+    （注意各矩阵的顺序！）其中$R_\gamma$表示旋转$\gamma$弧度。$T_0$的矩阵很容易计算：
 \[T_0=\begin{pNiceMatrix}[margin]1&0\\0&-1\end{pNiceMatrix},\]
 而旋转矩阵是我们已知的：
 \[\begin{aligned}
@@ -581,21 +581,21 @@
 \subsection{转置矩阵与乘法}
 
 简单分析“行乘以列”规则可得\[(AB)^{T}=B^{T}A^{T},\]
-即，当对乘积取转置时，需更改各项的顺序。\footnote{原书中本节的大多数内容在 \ref{subsec:matrix_notation} 节中已经陈述过了，此处将重复的部分略去。——译者注}
+即，当对乘积取转置时，需更改各乘积项的顺序。\footnote{原书中本节的大多数内容在 \ref{subsec:matrix_notation} 节中已经陈述过了，此处将重复的部分略去。——译者注}
 
 \subsection{迹与矩阵乘法}
 
-对于方阵（$n\times n$矩阵）$A=(a_{j,k})$，其迹（记为$\tr A$）是对角项之和：\index{迹（trace）}
+对于方阵（$n\times n$矩阵）$A=(a_{j,k})$，其迹（记为$\tr A$）是对角元之和：\index{迹（trace）}
 \[\operatorname{trace}A=\sum_{k=1}^{n}a_{k,k}.\]
 \begin{theorem}\label{thm:trace_commute}
     令$A$和$B$分别为$m\times n$和$n\times m$矩阵（则乘积$AB$和$BA$都是定义完善的）。那么\[\tr (AB)=\tr(BA)\]
 \end{theorem}
-此定理的证明留作习题（见下习题 \ref{ex:1_5_6}）。其实，这个定理有两种证法。第一种方法是计算$AB$与$BA$的对角项并比较两者的和。这种方法对于操作嵌套的求和有较高的要求。
+此定理的证明留作习题（见下习题 \ref{ex:1_5_6}）。其实，这个定理有两种证法。第一种方法是计算$AB$与$BA$的对角元并比较两者的和。这种方法对于操作嵌套的求和有较高的要求。
 
 如果你不擅长代数运算，还可用另一种方法。我们可以考虑两个从$M_{n\times m}$到$\mathbb{F}=\mathbb{F}^1$的线性变换$T$和$T_1$，定义为：\[T(X)=\mathrm{trace}(AX),\quad T_{1}(X)=\mathrm{trace}(XA)\]
 只需证明$T=T_1$即可得证——代入$X=B$可得到原定理。
 
-由于线性变换完全由其在生成组上的取值所决定，我们只需对一些简单的矩阵检验$T=T_1$——比如考虑矩阵$X_{j,k}$，其中除了第$j$列第$k$行的项为$1$外，其余各项均为$0$。
+由于线性变换完全由其在生成组上的取值所决定，我们只需对一些简单的矩阵检验$T=T_1$——比如考虑矩阵$X_{j,k}$，其中除了第$j$列第$k$行的元素为$1$外，其余各元素均为$0$。
 
 \begin{problemset}
     \item 令
@@ -754,7 +754,7 @@
     由定理 \ref{thm:basis_to_basis}，$A$为同构，故$\mathbb{P}_n^\mathbb{F}\cong\mathbb{F}^{n+1}$。
     \item 令$V$为$\mathbb{F}$上的向量空间，\marginpar{\small 任一具有基的实向量空间都与$\mathbb{R}^n$（$n$为适当的数）同构。类似地，任一具有基的复向量空间都与$\mathbb{C}^n$同构。}基为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$。定义变换$A:\mathbb{F}^{n}\to V$为\[A\mathbf{e}_k=\mathbf{v}_k,\quad k=1,2,\ldots,n,\]
     其中$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$是$\mathbb{F}^n$的标准基。同样由定理 \ref{thm:basis_to_basis}，$A$为同构，故$V\cong\mathbb{F}^{n}$。
-    \item 由$2\times 3$矩阵（各项属于$\mathbb{F}$）所构成的向量空间$M_{2\times3}^{\mathbb{F}}$同构于$\mathbb{F}^6$；
+    \item 由$2\times 3$矩阵（各元素属于$\mathbb{F}$）所构成的向量空间$M_{2\times3}^{\mathbb{F}}$同构于$\mathbb{F}^6$；
     \item 更一般地，$M_{m\times n}^{\mathbb{F}}\cong\mathbb{F}^{m\cdot n}$。
 \end{enumerate}
 
@@ -927,7 +927,7 @@
 
 该变换显然不是线性的（由于分母中的$z$）。然而，可以将它表示为线性变换。为此，我们引入所谓{\bf 齐次坐标}。\index{坐标（coordinates）!齐次$\sim$（homogeneous）}
 
-在齐次坐标中，$\mathbb{R}^3$中的每个点都用$4$个坐标来表示，其中最后一个（即第$4$个）坐标充当缩放系数的角色。从而，要从向量$\mathbf{v}$的齐次坐标$(x_1,x_2,x_3,x_4)^T$恢复出通常的$3$维坐标$(x,y,z)^T$，我们需要将每项都除以最后一个坐标$x_4$，再取前三个坐标\footnote{如果我们将$\mathbb{R}^3$中一个点的齐次坐标乘以一个非零标量，这个点不会改变。换言之，在齐次坐标中，$\mathbb{R}^3$中的点是用$\mathbb{R}^4$中过$\mathbf{0}$的直线来表示的。}（若$x_4=0$，那么此办法就不奏效了，因此我们假设$x_4=0$对应的是处于无穷远处的点）。
+在齐次坐标中，$\mathbb{R}^3$中的每个点都用$4$个坐标来表示，其中最后一个（即第$4$个）坐标充当缩放系数的角色。从而，要从向量$\mathbf{v}$的齐次坐标$(x_1,x_2,x_3,x_4)^T$恢复出通常的$3$维坐标$(x,y,z)^T$，我们需要将每个元素都除以最后一个坐标$x_4$，再取前三个坐标\footnote{如果我们将$\mathbb{R}^3$中一个点的齐次坐标乘以一个非零标量，这个点不会改变。换言之，在齐次坐标中，$\mathbb{R}^3$中的点是用$\mathbb{R}^4$中过$\mathbf{0}$的直线来表示的。}（若$x_4=0$，那么此办法就不奏效了，因此我们假设$x_4=0$对应的是处于无穷远处的点）。
 
 于是在齐次坐标中，向量$\mathbf{v}^{*}$可表示为$(x,y,0,1-z/d)^T$，因此在齐次坐标中，透视投影是线性变换：
 \[\begin{pNiceMatrix}[margin]x\\y\\0\\1-z/d\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]1&0&0&0\\0&1&0&0\\0&0&0&0\\0&0&-1/d&1\end{pNiceMatrix}\begin{pNiceMatrix}[margin]x\\y\\z\\1\end{pNiceMatrix}.\]

@@ -28,9 +28,9 @@
 
     第二点是，任意矩阵都能用可对角化矩阵来近似（且可以任意接近）。因为任意算子都关于规范正交基具有上三角矩阵（见第 \ref{chap:StructinInnerProdSpace} 章定理 \ref{thm:schur}），所以可假设$A$是上三角矩阵，而不失一般性。
 
-    我们可以对$A$的对角项施加扰动（可任意小），使得它们互不相同，于是经扰动的矩阵$\widetilde{A}$是可对角化的（三角矩阵的特征值是其对角项，见第 \ref{chap:SpectralIntro} 章第 \ref{subsec:eigen_of_tri} 节，并且由第 \ref{chap:SpectralIntro} 章推论 \ref{cor:diagonalizable_suff_1}，有$n$个互异特征值的$n\times n$矩阵是可对角化的）。
+    我们可以对$A$的对角元施加扰动（可任意小），使得它们互不相同，于是经扰动的矩阵$\widetilde{A}$是可对角化的（三角矩阵的特征值是其对角元，见第 \ref{chap:SpectralIntro} 章第 \ref{subsec:eigen_of_tri} 节，并且由第 \ref{chap:SpectralIntro} 章推论 \ref{cor:diagonalizable_suff_1}，有$n$个互异特征值的$n\times n$矩阵是可对角化的）。
 
-    刚刚提到，我们可对$A$的对角项施加任意小的扰动，从而弗罗贝尼乌斯范数$\|A-\widetilde{A}\|_2$可任意小。因此，可找到一列可对角化矩阵$A_k$，满足当$k\to \infty$时$A_k\to A$（比如，当$k\to \infty$时$\|A_k-A\|_2\to 0$）。可以证明，特征多项式$p_k(\lambda)=\det (A_k-\lambda I)$收敛至$A$的特征多项式$p(\lambda)=\det (A-\lambda I)$。因此\[p(A)=\lim_{k\to \infty}p_k(A_k).\]
+    刚刚提到，我们可对$A$的对角元施加任意小的扰动，从而弗罗贝尼乌斯范数$\|A-\widetilde{A}\|_2$可任意小。因此，可找到一列可对角化矩阵$A_k$，满足当$k\to \infty$时$A_k\to A$（比如，当$k\to \infty$时$\|A_k-A\|_2\to 0$）。可以证明，特征多项式$p_k(\lambda)=\det (A_k-\lambda I)$收敛至$A$的特征多项式$p(\lambda)=\det (A-\lambda I)$。因此\[p(A)=\lim_{k\to \infty}p_k(A_k).\]
     而我们在上面讨论过，凯莱-哈密尔顿定理对于可对角化矩阵是平凡的，所以$p_k(A_k)=\mathbf{0}$。因此$p(A)=\lim_{k\to \infty}\mathbf{0}=\mathbf{0}$。
 \end{proof}
 
@@ -41,7 +41,7 @@
 \begin{proof}[一种“通行的”证明]
     我们知道（见第 \ref{chap:StructinInnerProdSpace} 章定理 \ref{thm:schur}），任意方阵都幺正等价于上三角矩阵。因为对任意多项式$p$，有$p(UAU^{-1})=Up(A)U^{-1}$，并且幺正等价矩阵的特征多项式是相同的，所以只要对上三角矩阵证明该定理即可。
 
-    因此，令$A$是上三角矩阵。我们知道三角矩阵的对角项即为其特征值，所以令$\lambda_1,\lambda_2,\dots,\lambda_n$是$A$的特征值（按照它们在对角线上出现的顺序排列），那么
+    因此，令$A$是上三角矩阵。我们知道三角矩阵的对角元即为其特征值，所以令$\lambda_1,\lambda_2,\dots,\lambda_n$是$A$的特征值（按照它们在对角线上出现的顺序排列），那么
     \[A=\begin{pNiceMatrix}[margin]
         \lambda_1 & & & *\\
          & \lambda_2 & &\\
@@ -54,7 +54,7 @@
     定义子空间$E_k:=\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2,\dots,\mathbf{e}_k\}$，其中$\mathbf{e}_1,\mathbf{e}_2,\dots,\mathbf{e}_n$是$\mathbb{C}^n$的标准基。因为$A$的矩阵是上三角的，所以子空间$E_k$是算子$A$的所谓{\bf 不变}子空间，即$AE_k\subset E_k$（即$A\mathbf{v}\in E_k$对所有$\mathbf{v}\in E_k$成立）。此外，因为对任意$\mathbf{v}\in E_k$与任意$\lambda$有\[(A-\lambda I)\mathbf{v}=A\mathbf{v}-\lambda \mathbf{v}\in E_k,\]
     （这是因为$A\mathbf{v}$和$\lambda \mathbf{v}$都属于$E_k$），于是$(A-\lambda I)E_k\subset E_k$，即$E_k$是$A-\lambda I$的不变子空间。
 
-    我们还可进一步描述子空间$(A-\lambda_k I)E_k$。首先，$(A-\lambda_k I)\mathbf{e}_k\in$\linebreak $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2,\dots,\mathbf{e}_{k-1}\}$，这是因为$(A-\lambda_k I)$的矩阵的第$k$列只有前$k-1$项是非零的。此外，对$j<k$有$(A-\lambda_k I)\mathbf{e}_j\in E_j\subset E_k$（因为$E_j$是$A-\lambda_k I$的不变子空间）。
+    我们还可进一步描述子空间$(A-\lambda_k I)E_k$。首先，$(A-\lambda_k I)\mathbf{e}_k\in$\linebreak $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2,\dots,\mathbf{e}_{k-1}\}$，这是因为$(A-\lambda_k I)$的矩阵的第$k$列只有前$k-1$个元素是非零的。此外，对$j<k$有$(A-\lambda_k I)\mathbf{e}_j\in E_j\subset E_k$（因为$E_j$是$A-\lambda_k I$的不变子空间）。
 
     任取向量$\mathbf{v}\in E_k$。由$E_k$的定义，其可表示为向量$\mathbf{e}_1,\mathbf{e}_2,\dots,\mathbf{e}_k$的线性组合。因为所有向量$\mathbf{e}_1,\mathbf{e}_2,\dots,\mathbf{e}_k$都被$A-\lambda_k I$变换为$E_{k-1}$中的向量，所以
     \begin{equation}\label{triangle_invariant}
@@ -456,7 +456,7 @@
 算子$A$关于若当标准基的矩阵称为$A$的若当标准形。后面我们将看到，如果规定各块的顺序（即规定基中向量的排列顺序），那么若当标准形是唯一的。
 
 \begin{proof}[推论 \ref{cor:jordan_canonical_nil} 的证明]
-    由定理 \ref{thm:basis_cycle_gen_eigen}，可以求出由广义特征向量链的并集构成的基。长度为$p$的链将对应形如 \eqref{jordan_block} 的$p\times p$对角块，而长度为$1$的链对应$1\times 1$的零矩阵块。我们可以将这些$1\times 1$零矩阵合并成一个大块（因为非对角项也是$0$）。
+    由定理 \ref{thm:basis_cycle_gen_eigen}，可以求出由广义特征向量链的并集构成的基。长度为$p$的链将对应形如 \eqref{jordan_block} 的$p\times p$对角块，而长度为$1$的链对应$1\times 1$的零矩阵块。我们可以将这些$1\times 1$零矩阵合并成一个大块（因为非对角元也是$0$）。
 \end{proof}
 
 \subsection{点图、若当标准形的唯一性}
@@ -467,7 +467,7 @@
 
 为了更好理解 \ref{subsec:cycle_gen} 节中描述的幂零算子结构，我们来绘制所谓点图。方法是：假设我们有由广义特征向量链的并集构成的基。将这个基用一个点阵来表示，其中一列点代表一个向量链。第一行由各链的首向量构成，且各链以长度排序——最长的链排在最左侧。
 
-在图 \ref{fig:dotted_diagram} 中，我们给出了一幂零算子的点图及其若当标准形。点图表明，若当标准基含有$1$个长度为$5$的链、$1$个长度为$3$的链、$2$个长度为$2$的链，以及$2$个长度为$1$的链。长度为$5$的链对应矩阵中$5\times 5$的块，长度为$3$的链对应$3\times 3$的块，两个长度为$2$的链对应两个$2\times 2$的块，而两个长度为$1$的链对应对角线上的两个零项。此处，在每块中我们只给出主对角线及其上方的对角线的项，而该矩阵其余的项都是零。
+在图 \ref{fig:dotted_diagram} 中，我们给出了一幂零算子的点图及其若当标准形。点图表明，若当标准基含有$1$个长度为$5$的链、$1$个长度为$3$的链、$2$个长度为$2$的链，以及$2$个长度为$1$的链。长度为$5$的链对应矩阵中$5\times 5$的块，长度为$3$的链对应$3\times 3$的块，两个长度为$2$的链对应两个$2\times 2$的块，而两个长度为$1$的链对应对角线上的两个零元素。此处，在每块中我们只给出主对角线及其上方的对角线的元素，而该矩阵其余的元素都是零。
 
 \begin{figure}[htbp]
     \centering
