@@ -104,7 +104,7 @@
 该定理可按矩阵形式重述如下：
 
 \begin{theorem}\label{thm:self_adjoint_matrix_diagonalize}
-    令$A=A^*$是自伴矩阵（从而是方阵）。那么$A$可表示为\[A=UDU^*\]其中$U$是幺正矩阵，$D$是实对角矩阵。
+    令$A=A^*$是自伴矩阵（从而是方阵）。那么$A$可表示为\[A=UDU^*,\]其中$U$是幺正矩阵，$D$是实对角矩阵。
 
     此外，若$A$是实矩阵，那么$U$可选为实矩阵（即正交矩阵）。
 \end{theorem}
@@ -114,21 +114,21 @@
 
     答案显而易见：上三角矩阵是自伴的，当且仅当其为实对角矩阵。定理 \ref{thm:self_adjoint_operator_real_eig} 得证（从而也有定理 \ref{thm:self_adjoint_matrix_diagonalize}）。
 
-    为处理实向量空间的情形，首先注意到由刚刚证明的复数情形，$A$的特征值都是实数\footnote{回想一下（见上方的注 \ref{remark:eig_complex}），“实向量空间$X$上算子的特征值”总是指$X_\mathbb{C}$（$X$的复化）上原算子的{\bf 复化}的特征值。}。那么，只需应用定理 \ref{thm:schur_real}，并再次注意到自伴的上三角矩阵仅有对角阵即可。
+    为处理实向量空间的情形，首先注意到由刚刚证明的复数情形，$A$的特征值都是实数\footnote{回想一下（见上方的注 \ref{remark:eig_complex}），“实向量空间$X$上算子的特征值”总是指$X_\mathbb{C}$（$X$的{\bf 复化}）上原算子的复化的特征值。}。那么，只需应用定理 \ref{thm:schur_real}，并再次注意到自伴的上三角矩阵仅有对角阵即可。
 \end{proof}
 
 \begin{remark*}
     许多教材只考虑实矩阵，则定理 \ref{thm:self_adjoint_matrix_diagonalize} 常称为“{\bf 对称}矩阵的谱定理”。然而要强调，定理 \ref{thm:self_adjoint_matrix_diagonalize} 对{\bf 复}对称矩阵是不成立的：该定理是对埃尔米特矩阵成立，特别地，也对{\bf 实}对称矩阵成立。
 \end{remark*}
 
-现在给出“自伴算子的特征值为实数”的不依赖于基的证明。令$A=A^*$，$A\mathbf{x}=\lambda\mathbf{x},\mathbf{x}\neq\mathbf{0}$。那么\[(A\mathbf{x},\mathbf{x})=(\lambda\mathbf{x},\mathbf{x})=\lambda(\mathbf{x},\mathbf{x})=\lambda\|\mathbf{x}\|^2.\]
+现在单独证明一下“自伴算子的特征值为实数”这一结论。令$A=A^*$，并设$A\mathbf{x}=\lambda\mathbf{x},\mathbf{x}\neq\mathbf{0}$。那么\[(A\mathbf{x},\mathbf{x})=(\lambda\mathbf{x},\mathbf{x})=\lambda(\mathbf{x},\mathbf{x})=\lambda\|\mathbf{x}\|^2.\]
 另方面，\[(A\mathbf{x},\mathbf{x})=(\mathbf{x},A^*\mathbf{x})=(\mathbf{x},A\mathbf{x})=(\mathbf{x},\lambda\mathbf{x})=\overline{\lambda}(\mathbf{x},\mathbf{x})=\overline{\lambda}\|\mathbf{x}\|^2,\]
 因此$\lambda\|\mathbf{x}\|^2=\overline{\lambda}\|\mathbf{x}\|^2$。因为$\|\mathbf{x}\|\ne 0$（$\mathbf{x}\ne \mathbf{0}$），所以$\lambda=\overline{\lambda}$，故$\lambda$为实数。
 
 根据定理 \ref{thm:self_adjoint_operator_real_eig}，自伴算子的特征空间是正交的。下面给出该结论的另一种证明。
 
 \begin{proposition}
-    令$A=A^*$是自伴算子，并令$\mathbf{u},\mathbf{v}$是它的特征向量，$A\mathbf{u}=\lambda\mathbf{u},A\mathbf{v}=\mu\mathbf{v}$。那么，若$\lambda\ne\mu$，那么特征向量$\mathbf{u}$和$\mathbf{v}$正交。
+    令$A=A^*$是自伴算子，并令$\mathbf{u},\mathbf{v}$是它的特征向量，$A\mathbf{u}=\lambda\mathbf{u},A\mathbf{v}=\mu\mathbf{v}$。那么，若$\lambda\ne\mu$，则特征向量$\mathbf{u}$和$\mathbf{v}$正交。
 \end{proposition}
 \begin{proof}
     该命题可由谱定理（定理 \ref{thm:self_adjoint_operator_real_eig}）得到，但此处我们直接证明之。我们有\[(A\mathbf{u},\mathbf{v})=(\lambda\mathbf{u},\mathbf{v})=\lambda(\mathbf{u},\mathbf{v}).\]
@@ -136,7 +136,7 @@
     （最后一个等式成立，是因为自伴算子的特征值是实数）因此$\lambda(\mathbf{u},\mathbf{v})=\mu(\mathbf{u},\mathbf{v})$。若$\lambda\ne \mu$，则只能$(\mathbf{u},\mathbf{v})=0$。
 \end{proof}
 
-现在我们尝试找出什么样的矩阵幺正等价于对角矩阵。容易检验，对角矩阵$D$满足\[D^*D=DD^*.\]因此如果算子$A$关于某个规范正交基具有对角矩阵，那么$A^*A=AA^*$。
+现在我们来探究什么样的矩阵幺正等价于对角矩阵。容易检验，对角矩阵$D$满足\[D^*D=DD^*.\]因此如果算子$A$关于某个规范正交基具有对角矩阵，那么$A^*A=AA^*$。
 
 \begin{definition*}
     若算子（矩阵）$N$满足$N^*N=NN^*$，则称其为{\bf 正规}的。\index{正规算子（normal operator）}
@@ -159,7 +159,7 @@
 \begin{proof}[定理 \ref{thm:normal_diag} 的证明]
     要证明定理 \ref{thm:normal_diag}，先应用定理 \ref{thm:schur}，从而得到一个规范正交基，$N$关于该基的矩阵是上三角的。为完成该定理的证明，只需证明上三角的正规矩阵一定是对角的。
 
-    我们将对矩阵的大小用归纳法来证明。$1\times 1$矩阵的情形是平凡的，因为任意$1\times 1$矩阵都是对角阵。
+    我们将通过对矩阵的大小用归纳法来证明。$1\times 1$矩阵的情形是平凡的，因为任意$1\times 1$矩阵都是对角阵。
 
     假设我们已经证明任意$(n-1)\times (n-1)$上三角正规矩阵都是对角的，现在要证明这对于$n\times n$矩阵也是成立的。令$N$是$n\times n$上三角正规矩阵。可将其写为
     \begin{equation*}
@@ -271,11 +271,11 @@
     \end{probenumerate}
     \item 正交分解旋转矩阵\[R_\alpha=\begin{pNiceMatrix}[margin]
         \cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha
-    \end{pNiceMatrix}\]其中$\alpha$不是$\pi$的整数倍。注意，此处你会得到复特征值。
+    \end{pNiceMatrix},\]其中$\alpha$不是$\pi$的整数倍。注意，此处你会得到复特征值。
     \item 正交分解矩阵\[A=\begin{pNiceMatrix}[margin]
         \cos\alpha&\sin\alpha\\\sin\alpha&-\cos\alpha
-    \end{pNiceMatrix}\]
-    {\bf 提示}：此处你会得到实特征值。三角函数的恒等式$\sin2x=2\sin x\cos x,$ $\sin^2x=(1-\cos2x)/2,\cos^2x=(1+\cos2x)/2$（应用于$x=\alpha/2$）有助于简化特征向量的表达式。
+    \end{pNiceMatrix}.\]
+    {\bf 提示}：此处你会得到实特征值。另外，三角恒等式$\sin2x=2\sin x\cos x,$ $\sin^2x=(1-\cos2x)/2,\cos^2x=(1+\cos2x)/2$（应用于$x=\alpha/2$）有助于简化特征向量的表达式。
     \item 你能从几何角度描述上题中矩阵$A$所确定的线性变换吗？它的几何描述特别简单。
     \item 证明：具有单位模长特征值（即所有特征值都满足$|\lambda_k|=1$）的正规算子是幺正的。{\bf 提示}：考虑对角化。
     \item 证明：具有实特征值的正规算子是自伴的。
@@ -294,7 +294,7 @@
     若自伴算子$A:X\to X$满足\[(A\mathbf{x},\mathbf{x})>0\quad\forall\mathbf{x}\neq\mathbf{0},\]
     则称其是{\bf 正定的}。若\[(A\mathbf{x},\mathbf{x})\ge 0\quad\forall\mathbf{x}\in X,\]
     则称其为{\bf 正半定的}。
-    我们将用记号$A>0$指代正定算子，并用记号$A\ge 0$指代正半定算子。
+    我们将用记号$A>0$表示正定算子，并用记号$A\ge 0$表示正半定算子。
 \end{definition*}
 
 下述定理描述了正定和正半定算子。
@@ -411,7 +411,7 @@ $A$的模显示了变换$A$的“大小”：
 \begin{equation}\label{schmidt_decomp_1}
     A=\sum_{k=1}^r\sigma_k\mathbf{w}_k\mathbf{v}_k^*,
 \end{equation}
-或等价地说
+或等价地写成
 \begin{equation}\label{schmidt_decomp_2}
     A\mathbf{x}=\sum_{k=1}^r\sigma_k(\mathbf{x},\mathbf{v}_k)\mathbf{w}_k.
 \end{equation}
