@@ -192,7 +192,7 @@
 %---------- 定义页眉页脚 ----------
 \newcommand{\headstyle}{%
     %\fancyhead[C]{\fangsong\zihao{5} \@title}
-    \fancyhead[RO,LE]{\sffamily\zihao{5}$\cdot$\:\thepage\:$\cdot$}
+    \fancyhead[RO,LE]{\sffamily\zihao{5}\thepage}
     \fancyhead[LO]{\sffamily\fangsong\zihao{5}\nouppercase{\rightmark}}
     \fancyhead[RE]{\sffamily\fangsong\zihao{5}\nouppercase{\leftmark}}
 }

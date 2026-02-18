@@ -909,7 +909,7 @@ $$y=86/77-62x/77+43x^2/154$$
 而这可由 \eqref{A_and_A_tilde} 立得：
 \[\rg \widetilde{A}=\widetilde{A}\rg A^*=\widetilde{A}P_{\rg A^*}X=AX=\rg A.\]
 
-同构$\widetilde{A}$有时称为算子$A$的“本质部分”（这是个不规范的用语）。
+同构$\widetilde{A}$有时称为算子$A$的“本质部分”（这不是标准用语）。
 
 $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了“复”秩定理：$\rank A=\rank A^*$。不过，这个定理当然也可由一个简单的观察得到——复共轭不会改变矩阵的秩，即$\rank A=\rank \overline{A}$。
 
@@ -976,7 +976,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 上述引理意味着等距变换总是左可逆的（$U^*$就是左逆）。
 
 \begin{definition*}
-    若等距变换$U:X\to Y$可逆，则称其为{\bf 幺正}变换\footnote{unitary也常音译作“酉”。采用“幺正”，是因为该词中，“幺”既从音，也从义（“幺”即“一”），而“正”即“正规”。而“幺正”算子是特征值绝对值均为“一”的“正规”算子。——译者注。}。\index{幺正变换（unitary operator）}
+    若等距变换$U:X\to Y$可逆，则称其为{\bf 幺正}变换\footnote{unitary也常音译作“酉”。采用“幺正”，是因为该词中，“幺”既从音，也从义（“幺”即“一”），而“正”即“正规”。而“幺正”算子是特征值绝对值均为“一”的“正规”算子。——译者注}。\index{幺正变换（unitary operator）}
 \end{definition*}
 
 \begin{proposition}\label{prop:iso_to_uni}
@@ -1062,7 +1062,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 
     因此，令$A$幺正等价于对角矩阵$D$，即令$A=UDU^*$。标准基向量$\mathbf{e}_k$是$D$的特征向量，所以向量$U\mathbf{e}_k$是$A$的特征向量。因为$U$是幺正的，所以向量组$U\mathbf{e}_1,U\mathbf{e}_2,\ldots,U\mathbf{e}_n$是规范正交基。
 
-    现令$A$的特征向量构成正交基$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$。如有需要，可将各向量$\mathbf{u}_{k}$除以其范数，于是总可假设向量组$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$是\textbf{规范正交}基。令$D$是$A$关于基$\mathcal{B}=\{\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}\}$的矩阵。显然，$D$是对角矩阵。
+    现令$A$的特征向量构成正交基$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$。可将各向量$\mathbf{u}_{k}$除以其范数，于是总可假设向量组$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$是\textbf{规范正交}基。令$D$是$A$关于基$\mathcal{B}=\{\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}\}$的矩阵。显然，$D$是对角矩阵。
 
     记$U$是各列为$\mathbf{u}_{1},\mathbf{u}_{2},\ldots,\mathbf{u}_{n}$的矩阵。因为各列构成规范正交基，所以$U$是幺正的。由坐标变换公式得\[A=\left[A\right]_{\mathcal{SS}}=\left[I\right]_{\mathcal{SB}}[A]_{\mathcal{BB}}[I]_{\mathcal{BS}}=UDU^{-1}\]
     又由于$U$是幺正的，所以$A=UDU^*$。
@@ -1105,7 +1105,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
     \item 令$U$是$3\times 3$正交矩阵，$\det U=1$。证明：
     \begin{probenumerate}
         \item $1$是$U$的特征值。
-        \item 若$\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}$是规范正交基，并满足$U\mathbf{v}_{1}=\mathbf{v}_{1}$（记住，$1$是特征值之一），那么$U$关于该基的矩阵是\[\begin{pNiceMatrix}[margin]1&0&0\\0&\cos\alpha&-\sin\alpha\\0&\sin\alpha&\cos\alpha\end{pNiceMatrix},\]
+        \item 若$\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}$是规范正交基，并满足$U\mathbf{v}_{1}=\mathbf{v}_{1}$（回顾一下，$1$是特征值），那么$U$关于该基的矩阵是\[\begin{pNiceMatrix}[margin]1&0&0\\0&\cos\alpha&-\sin\alpha\\0&\sin\alpha&\cos\alpha\end{pNiceMatrix},\]
         其中$\alpha$是一个角度值。
 
         {\bf 提示}：先证明，因为$\mathbf{v}_1$是$U$的特征向量，所以在$1$之下的所有元素都必为零；因为$\mathbf{v}_1$也是$U^*$的特征向量（为什么？），所以在$1$右侧的所有元素也都必为零。然后证明右下角的$2\times 2$矩阵是行列式为$1$的正交矩阵，再利用前一题的结论。
@@ -1185,7 +1185,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 
 本节可能会比本章其余部分稍抽象些，第一次阅读时读者可跳过本节。
 
-\subsection{实化}
+\subsection{实化}\label{subsec:decomplexification}
 
 \subsubsection{向量空间的实化}
 
@@ -1214,7 +1214,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 \begin{remark*}
     $\mathbb{C}^{n}$上的（或，更一般地说，复向量空间上的）任一（复）线性变换都能给出一个实线性变换：容易看出，如果$T(\alpha\mathbf{x}+\beta\mathbf{y})=\alpha T\mathbf{x}+\beta T\mathbf{y}$对$\alpha,\beta\in\mathbb{C}$成立，那么它当然对于$\alpha,\beta\in\mathbb{R}$成立。
 
-    逆命题并不成立，也即$\mathbb{C}^{n}$的实化$\mathbb{R}^{2n}$上的（实）线性变换并不总能够给出$\mathbb{C}^{n}$上的（复）线性变换（对于抽象的向量空间也是如此）。
+    逆命题就不成立了，也即$\mathbb{C}^{n}$的实化$\mathbb{R}^{2n}$上的（实）线性变换并不总能够给出$\mathbb{C}^{n}$上的（复）线性变换（对于抽象的向量空间也是如此）。
 
     例如，考虑$n=1$情形，那么若要将“与复数$z$相乘”（这是$\mathbb{C}^{1}$上线性变换的一般形式）视为$\mathbb{R}^{2}$上的线性变换，那么这个实线性变换须具有特殊结构（你能描述它吗？）。
 \end{remark*}
@@ -1247,19 +1247,69 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
 
 注意，实向量空间$X$上的任意线性变换$T$都能诱导出复化$X_\mathbb{C}$上的线性变换$T_\mathbb{C}$。
 
+要看出这一点，最简单的办法是取定$X$的一个基（若$X$为是内积空间，则可取规范正交基），并观察坐标表示，可以发现$T_\mathbb{C}$和$T$有相同的矩阵。用抽象表示法可写为
 \[T_\mathbb{C}[\mathbf{x}_1,\mathbf{x}_2]=[T\mathbf{x}_1,T\mathbf{x}_2].\]
+另一方面，并非所有$X_\mathbb{C}$上的线性变换都能由$X$上的线性变换得到：如果对坐标进行复化，那么只有那些具有实矩阵的变换才能找到一个实线性变换与之对应。
 
-细心的读者可能已经注意到，复化和实化并不为彼此的逆。首先，向量空间及其复化的维数相同，然而$n$维向量空间的实化的维数是$2n$。此外，正如我们刚刚讨论的，在复化和实化中，实线性变换和复线性变换的关系是恰好相反的。
+注意，这与实化（\ref{subsec:decomplexification} 节）中的情况是完全相反的。
+
+细心的读者可能已经注意到，复化和实化并不为彼此的逆。首先，向量空间及其复化的维数相同，然而$n$维向量空间的实化的维数是$2n$。此外，正如我们刚刚讨论的，实线性变换和复线性变换的关系在复化和实化中是恰好相反的。
 
 下一节我们将讨论（某种意义上）相当于实化的逆的操作。
 
 \subsection{向实向量空间引入复结构}
 
+本节所述的构造只适用于维数为偶的实向量空间。
+
 \subsubsection{引入复结构的初等方法}
+
+令$X$是维数为$2n$的实内积空间。我们想要逆用实化过程以在$X$上引入复结构，即将该向量空间与一个实化（\ref{subsec:decomplexification} 节）后能得到原始空间$X$的复向量空间视作等同。最简单的想法是，取定$X$的一个规范正交基，再将关于该基的坐标分成两等份。
+
+接着，我们将其中一半（比如说，坐标$x_1,x_2,\dots,x_n$）视为复坐标的实部，而将其余视为虚部。然后，我们将实部和虚部组合起来：例如，若将$x_1,x_2,\dots,x_n$视为实部而将$x_{n+1},x_{n+2},\dots,x_{2n}$视为虚部，就可以定义复坐标为$z_k = x_k+ix_{n+k}$。
+
+诚然，所得结果会依赖于规范正交基的选取、把实坐标划分成实部和虚部的方式以及把它们重组的方式。
+
+从 \ref{subsec:decomplexification} 节所述实化的构造中，我们还能看出实内积空间$X$上的复结构总是可以通过这种方式得到。
 
 \subsubsection{从初等方法到抽象构造}
 
+上述构造还可以用一种抽象些的、不依赖于坐标的方式得到。这就是：分解向量空间$X$为$X = E\oplus E^\perp$，其中$E$是子空间，$\dim E = n$（于是$\dim E^\perp = n$），并令$U_0:E\to E^\perp$是幺正变换（更为准确地说，是正交变换，因为向量空间是实的）。
+
+注意，如果$\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n$是$E$的规范正交基，那么向量组$U_0\mathbf{v}_1,$ $U_0\mathbf{v}_2,\ldots,U_0\mathbf{v}_n$是$E^\perp$的规范正交基，因此
+\[\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_n,U_0\mathbf{v}_1,U_0\mathbf{v}_2,\ldots,U_0\mathbf{v}_n\]
+是整个向量空间$X$的规范正交基。
+
+若$x_1,x_2,\dots,x_{2n}$是向量$\mathbf{x}$在该基下的坐标，并视$x_k+ix_{n+k},k=1,2,\dots,n$为$\mathbf{x}$的复坐标，那么其中与$i$的乘法由正交变换$U$来表示，该变换在子空间$E,E^\perp$的正交基下可表示为分块矩阵
+\[U = \begin{pNiceMatrix}[margin]
+    \mathbf{0} & -U_0^* \\ U_0 & \mathbf{0}
+\end{pNiceMatrix}.\]
+这就意味着
+\[
+i\begin{pNiceMatrix}[margin]
+    \mathbf{x}_1 \\ \mathbf{x}_2
+\end{pNiceMatrix} = U\begin{pNiceMatrix}[margin]
+    \mathbf{x}_1 \\ \mathbf{x}_2
+\end{pNiceMatrix} = \begin{pNiceMatrix}[margin]
+    \mathbf{0} & -U_0^* \\ U_0 & \mathbf{0}
+\end{pNiceMatrix} \begin{pNiceMatrix}[margin]
+    \mathbf{x}_1 \\ \mathbf{x}_2
+\end{pNiceMatrix}
+\]
+其中$\mathbf{x}_1\in E, \mathbf{x}_2\in E^\perp$。
+
+显然，$U$是正交变换且满足$U^2 = -I$。因此，$X$上的任意复结构都由满足$U^2 = -I$的正交变换$U$导出——变换$U$为我们引入了同虚数单位$i$的乘法。
+
+逆命题也是正确的，也即任意满足$U^2 = -I$的正交变换$U$都在实内积空间$X$上定义了复结构。下面来解释如何完成这一点。
+
 \subsubsection{复结构的抽象构造}
+
+我们首先考虑一种抽象的解释。要定义复结构，就要定义向量与复数的乘法（原本向量只能和实数相乘）。事实上，只需要定义和$i$的乘法，其余过程由原实向量空间的线性自动完成。并且，与$i$相乘还能由满足$U^2 = -I$的正交变换$U$来给出。
+
+也就是说，若与$i$相乘由$U$给出，即$i\mathbf{x} = U\mathbf{x}$，那么复乘法就必须定义为
+\begin{equation}
+    (\alpha+\beta i)\mathbf{x}:=\alpha\mathbf{x} + \beta U\mathbf{x} = (\alpha I+\beta U)\mathbf{x},\quad \alpha,\beta\in\mathbb{R},\ \mathbf{x}\in X.
+\end{equation}
+从现在开始我们将用此公式作为复乘法的定义。
 
 \subsubsection{借初等方法完成抽象构造}
 

@@ -799,7 +799,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
         U\mathbf{y}&=\operatorname{Im}(\lambda\mathbf{u})=(\cos\alpha)\mathbf{y}+(\sin\alpha)\mathbf{x}.
     \end{align*}
     换言之，$U$保持由向量$\mathbf{x},\mathbf{y}$张成的$2$维子空间$E_\lambda$不变，并且限制于该子空间的$U$的矩阵是旋转矩阵
-    \[R_{-\alpha}=\begin{pNiceMatrix}[margin]\cos\alpha&\sin\alpha\\-\sin\alpha&\cos\alpha\end{pNiceMatrix}\]
+    \[R_{-\alpha}=\begin{pNiceMatrix}[margin]\cos\alpha&\sin\alpha\\-\sin\alpha&\cos\alpha\end{pNiceMatrix}.\]
 
     注意，向量$\mathbf{u}$和$\overline{\mathbf{u}}$（都是幺正矩阵的特征向量，并且对应于不同的特征值）是正交的，故由毕达哥拉斯定理有
     \[\|\mathbf{x}\|=\|\mathbf{y}\|=\frac{\sqrt2}{2}\|\mathbf{u}\|.\]
@@ -849,15 +849,15 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
                                     &               & \ddots &               &        &                        \\
                                     &               &        & R_{-\alpha_d} &        &                        \\
             \Block[b]{2-1}<\LARGE>{0} &               &        &               & -I_{r} &                        \\
-                                    &               &        &               &        & -I_{l}                 \\
+                                    &               &        &               &        & I_{l}                 \\
         \end{pNiceMatrix}.
     \]
     其中$I_r$和$I_l$分别是大小为$r\times r$和$l\times l$的恒等矩阵。因为$\det U=1$，所以特征值$-1$的重数（即$r$）必为偶数。
 
-    注意，$2\times 2$矩阵$-I_2$可解释为旋转$\pi$。因此，上述矩阵具有定理陈述中的形式，其中$\varphi_k=-\alpha_k$或$\varphi = \pi$。
+    注意，$2\times 2$矩阵$-I_2$可解释为旋转$\pi$。因此，上述矩阵具有定理陈述中的形式，其中$\varphi_k=-\alpha_k$或$\varphi_k = \pi$。
 \end{proof}
 
-我们给出定理 \ref{thm:rotation_det1} 的一种不同的解释。定义$T_j$是在由向量$\mathbf{v}_j,\mathbf{v}_{j+1}$张成的向量空间中旋转$\varphi_j$。那么定理 \ref{thm:rotation_det1} 其实表明，$U$是旋转$T_j,j=1,2,\dots,k$的复合。注意，因为各旋转$T_j$是作用在互相正交的向量空间上，所以它们是可交换的，也即复合的顺序是无关紧要的。因此，该定理可解释为：
+我们给出定理 \ref{thm:rotation_det1} 的一种不同的解释。定义$T_j$是在由向量$\mathbf{v}_j,\mathbf{v}_{j+1}$张成的向量空间中旋转$\varphi_j$。那么定理 \ref{thm:rotation_det1} 其实表明，$U$是旋转$T_j,j=1,2,\dots,k$的复合。注意，因为各旋转$T_j$作用在互相正交的平面上，所以它们是可交换的，也即复合的顺序是无关紧要的。因此，该定理可解释为：
 \begin{center}
     \fbox{$\mathbb{R}^n$上的任意旋转可表示为至多$n/2$个可交换的平面旋转的复合。}
 \end{center}
@@ -907,7 +907,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
     下面呈现正式的证明，对$n$用归纳法。$n=1$的情形是平凡的，因为$\mathbb{R}^1$中的任意向量都具有期望的形式，而$n=2$的情况由引理 \ref{lem:r2_rotation} 解决。
 
-    现假设本引理对$n-1$情形成立，要证它对$n$的情形成立。由引理 \ref{lem:r2_rotation}，存在$2\times 2$矩阵$R_\alpha$，使得
+    现假设本引理对$n-1$情形成立，要证它对$n$的情形成立。由引理 \ref{lem:r2_rotation}，存在$2\times 2$旋转矩阵$R_\alpha$，使得
     \[R_\alpha\begin{pNiceMatrix}[margin]x_{n-1}\\x_n\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]a_{n-1}\\0\end{pNiceMatrix},\]
     其中$a_{n-1}=\sqrt{x_{n-1}^2+x_n^2}$。所以，如果定义$n\times n$初等旋转$R_1$为
     \[R_1=\begin{pNiceMatrix}[margin]I_{n-2}&\mathbf{0}\\\mathbf{0}&R_\alpha\end{pNiceMatrix}\]
@@ -956,7 +956,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 在下面的图 \ref{fig_6_1} 和 \ref{fig_6_2} 中，我们分别看到$\mathbb{R}^2$和$\mathbb{R}^3$的三个规范正交基。在每张图中，b)都可由标准基a)经旋转得到，而c)则无法由标准基a)经旋转得到。
 
-你之前可能已经听过“取向”一词，并且你大概已经知道基a)与b)的取向为正，而基c)的取向为负。你大概还已经了解过一些判别取向的法则，比如物理学中的右手定则。所以，如果你能{\bf 看到}基（比如说$\mathbb{R}^3$的基），你大概就能判断它的取向。
+你之前可能已经听过“取向”一词，并且你大概已经知道基a)与b)的取向为正，而基c)的取向为负。你大概还了解过一些判别取向的法则，比如物理学中的右手定则。所以，如果你能{\bf 看到}基（比如说$\mathbb{R}^3$的基），你大概就能判断它的取向。
 
 \begin{figure}[htbp]
     \centering
@@ -992,7 +992,7 @@ $\mathbb{R}^n$中，一般假设标准基$\mathbf{e}_1,\mathbf{e}_2,\dots,\mathb
 \subsection{基和取向的连续变换}
 
 \begin{definition*}
-    称基$\mathcal{A}=\{\mathbf{a}_1,\mathbf{a}_2,\dots,\mathbf{a}_n\}$可连续变换为基$\mathcal{B}=\{\mathbf{b}_1,\mathbf{b}_2,\dots,\mathbf{b}_n\}$，若存在连续的一族基$\mathcal{V}(t)=\{\mathbf{v}_1(t),\mathbf{v}_2(t),\dots,\mathbf{v}_n(t),t\in[a,b]\}$，使得
+    称基$\mathcal{A}=\{\mathbf{a}_1,\mathbf{a}_2,\dots,\mathbf{a}_n\}$可连续变换为基$\mathcal{B}=\{\mathbf{b}_1,\mathbf{b}_2,\dots,\mathbf{b}_n\}$，若存在连续的一族基$\mathcal{V}(t)=\{\mathbf{v}_1(t),\mathbf{v}_2(t),\dots,\mathbf{v}_n(t)\},t\in[a,b]$，使得
     \[\mathbf{v}_k(a)=\mathbf{a}_k,\quad \mathbf{v}_k(b)=\mathbf{b}_k,\quad k=1,2,\dots,n.\]
     “连续的一族基”意为：各向量函数$\mathbf{v}_k(t)$是连续的（它们关于某个基的坐标是连续函数），并且对于所有$t\in[a,b]$，向量组$\mathbf{v}_1(t),\mathbf{v}_2(t),\dots,\mathbf{v}_n(t)$总是基（这点很重要）。
 \end{definition*}
