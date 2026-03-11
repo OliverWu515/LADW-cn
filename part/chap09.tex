@@ -275,6 +275,8 @@
 % 还注意到，由 \eqref{power_zero}，\[p_k(A)|_{E_j}=\mathbf{0}\quad \forall j\ne k,\]
 % 因为$p_k(A)|_{E_j}=p_k(A_j)$，而$p_k(A_j)$包含因子$(A_j-\lambda_j I_{E_j})^{m_j}=\mathbf{0}$。
 
+% TODO
+
 定义算子$\mathcal{P}_k$为\[\mathcal{P}_k=B^{-1}p_k(A).\]
 
 \begin{lemma}\label{lem:prop_of_pk}
@@ -287,7 +289,7 @@
     \end{itemize}
 \end{lemma}
 
-\begin{proof}
+\begin{proof} % TODO 该证明有改动
     性质1是平凡的：\[\sum_{k=1}^r\mathcal{P}_k=B^{-1}\sum_{k=1}^rp_k(A)=B^{-1}B=I.\]
     性质2源于 \eqref{power_zero}。的确：$p_k(A)$包含因子$(A-\lambda_j I)^{m_j}$，其限制到$E_j$上即为零。因此$p_k(A)|_{E_j}=\mathbf{0}$，进而$\mathcal{P}_k|_{E_j}=B^{-1}p_k(A)|_{E_j}=\mathbf{0}$。
 
