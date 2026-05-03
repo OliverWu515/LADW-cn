@@ -7,7 +7,7 @@
 
 向量空间$V$是一系列对象所构成的（非空）集合，这些对象称为向量（本书中以粗体小写字母表示，例如$\mathbf{v}$）。其上还定义了两种运算——向量的加法以及向量与数（标量）的乘法\footnote{我们需要让向量和其他对象看起来有些区别，因此在本书中我们使用粗体小写字母来表示向量，并用正体小写字母来表示数（标量）。一些（进阶的）教材中，拉丁字母用于表示向量而希腊字母用于表示标量；更为进阶的教材里，任意字母可用于表示任意对象，而读者须从上下文推断每个符号的含义。我认为，尤其对于初学者而言，对不同对象加以视觉上的区分是有助于理解的，因此总用粗体小写字母来表示向量。在黑板上，则用箭头来标识向量（如$\vec{v}$所示）。}，这两种运算满足所得结果总属于$V$，以及以下的八条性质（所谓向量空间的{\bf 公理}）：
 
-前 4 条性质是关于加法的：\marginpar{\small 问题来了：“这些性质怎么记得住呢？”回答是，不需要刻意去记，详见后文！}
+前 4 条性质是关于加法的：%\marginpar{\small 问题来了：“这些性质怎么记得住呢？”回答是，不需要刻意去记，详见后文！}
 \begin{enumerate}
     \item 交换律：对于所有 $\mathbf{v},\mathbf{w}\in V$，都有$\mathbf{v} + \mathbf{w} = \mathbf{w} + \mathbf{v}$；
     \item 结合律：对于所有 $\mathbf{u},\mathbf{v},\mathbf{w}\in V$，都有$(\mathbf{u}+\mathbf{v})+\mathbf{w}=\mathbf{u}+(\mathbf{v}+\mathbf{w})$；
@@ -43,7 +43,7 @@
 
 注意，任何的复向量空间也是实向量空间（如果我们可以做复数乘法，那么也可以做实数乘法），但反之不成立。
 
-还可以考虑标量为任意的域$\mathbb{F}$中的元素的情况。\marginpar{\small 如果你不知道什么是域也不必担心，因为在这本书中我们只考虑实向量空间和复向量空间。}在这种情况里，我们说$V$是域$\mathbb{F}$上的向量空间。尽管本书的许多章节（特别地，第 \ref{chap:BasicNotion} 至 \ref{chap:Determinant} 章的全部内容）对于一般的域都适用，在本书中我们只考虑实向量空间和复向量空间。
+还可以考虑标量为任意的域\footnote{如果你不知道什么是域也不必担心，因为在这本书中我们只考虑实向量空间和复向量空间。}$\mathbb{F}$中的元素的情况。在这种情况里，我们说$V$是域$\mathbb{F}$上的向量空间。尽管本书的许多章节（特别地，第 \ref{chap:BasicNotion} 至 \ref{chap:Determinant} 章的全部内容）对于一般的域都适用，在本书中我们只考虑实向量空间和复向量空间。
 
 如果我们不指明标量集合或使用$\mathbb{F}$来指代之，那么有关结论就对实向量空间和复向量空间都成立。如果需要区分实数和复数情形，那么我们就会说清楚到底在考虑何种情况。
 
@@ -166,11 +166,13 @@
 \end{example}
 
 \begin{remark}\label{remark:fn_to_abstract}
-    若向量空间$V$有基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，\marginpar{\small 这个注记很重要，整本书都会用到它。它使我们得以将适用于标准向量空间$\mathbb{F}^n$的各种表述迁移至具有基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的向量空间$V$。}那么任意向量$\mathbf{v}$都能被线性组合式$\mathbf{v}=\sum_{k=1}^{n}\alpha_{k}\mathbf{v}_{k}$中的系数唯一决定。因此，如果我们将各系数$\alpha_k$写在一列中，那么我们处理任意向量就如同处理列向量一样，也就是如同处理$\mathbb{F}^n$中的元素一样（此处$\mathbb{F}$仍然代表$\mathbb{R}$或$\mathbb{C}$，不过此处的结论对于任意的域$\mathbb{F}$也是成立的）。
+    若向量空间$V$有基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，那么任意向量$\mathbf{v}$都能被线性组合式$\mathbf{v}=\sum_{k=1}^{n}\alpha_{k}\mathbf{v}_{k}$中的系数唯一决定。因此，如果我们将各系数$\alpha_k$写在一列中，那么我们处理任意向量就如同处理列向量一样，也就是如同处理$\mathbb{F}^n$中的元素一样（此处$\mathbb{F}$仍然代表$\mathbb{R}$或$\mathbb{C}$，不过此处的结论对于任意的域$\mathbb{F}$也是成立的）。
 
     这就是说，若$\mathbf{v}=\sum_{k=1}^{n}\alpha_{k}\mathbf{v}_{k}$且$\mathbf{w}=\sum_{k=1}^{n}\beta_{k}\mathbf{v}_{k}$，则
     \[\mathbf{v}+\mathbf{w}=\sum_{k=1}^n\alpha_k\mathbf{v}_k+\sum_{k=1}^n\beta_k\mathbf{v}_k=\sum_{k=1}^n(\alpha_k+\beta_k)\mathbf{v}_k,\]
     即为了得到求和结果的坐标所构成的列向量，只需将各求和项的坐标所构成的列向量相加。类似地，为了得到$\alpha\mathbf{v}$的坐标，我们只需将$\mathbf{v}$的坐标所构成的列向量乘以$\alpha$。
+
+    这个注记很重要，整本书都会用到它。它使我们得以将适用于标准向量空间$\mathbb{F}^n$的各种表述迁移至具有基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的向量空间$V$。
 \end{remark}
 
 \subsection{生成组与线性无关组}
@@ -184,7 +186,7 @@
     则称这组向量为$V$中的生成组（也称为{\bf 张成组}或{\bf 完备组}）。\index{生成组（generating system）}
 \end{definition}
 
-该定义与基的定义的唯一区别在于，我们并不假设上述表示唯一。
+该定义与基的定义的区别仅在于，我们并不假设上述表示唯一。
 
 此处{\bf 生成}、{\bf 张成}和{\bf 完备}是同义词。我本人更喜欢“完备”这个词，这是由于我在算子理论方面的专业背景。“生成”和“张成”则更经常用于线性代数教材中。
 
@@ -234,7 +236,7 @@
 显然，任一基都是线性无关组。的确如此：若向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是基，那么$\mathbf{0}$可被唯一表示为\[\mathbf{0}=\alpha_1\mathbf{v}_1+\alpha_2\mathbf{v}_2+\cdots+\alpha_n\mathbf{v}_n=\sum_{k=1}^n\alpha_k\mathbf{v}_k.\]
 由于$\mathbf{0}$总可被平凡线性组合表出，所以平凡线性组合必为{\bf 唯一}线性表出$\mathbf{0}$的方法。
 
-所以，\marginpar{\small 在许多教材中，基被定义为既完备又线性无关的向量组。由命题 \ref{prop:complete_li_basis}，这种定义和本书的定义是等价的。}如我们已经讨论的，若一向量组是基，则其是完备（生成）组，也是线性无关组。下面命题表明，这句话反过来也是成立的。
+所以，如我们已经讨论的，若一向量组是基，则其是完备（生成）组，也是线性无关组。下面命题表明，这句话反过来也是成立的。
 
 \begin{proposition}\label{prop:complete_li_basis}
     向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}\in V$是基，当且仅当其既是完备（生成）组又线性无关。
@@ -296,11 +298,16 @@
 
 \section{线性变换、矩阵-向量乘法}
 
-从集合$X$到集合$Y$的\textbf{变换}$T$是一种对应关系，\marginpar{\small “变换”、“映射”、\\“算子”、“函数”都是指同类对象。\footnotemark}将任意自变量（输入）$x\in X$对应到一值（输出）$y=T(x)\in Y$。\footnotetext{一般来说，算子的定义域和陪域一样。本书有些地方的“算子”实为一般的变换，翻译将予以区分。——译者注}
+从集合$X$到集合$Y$的\textbf{变换}$T$是一种对应关系，将任意自变量（输入）$x\in X$对应到一值（输出）$y=T(x)\in Y$。
 
 集合$X$称为$T$的{\bf 定义域}，集合$Y$称为$T$的{\bf 目标空间}或{\bf 陪域}。
 
 我们记$T:X\to Y$表示$T$是定义域为$X$而目标空间为$Y$的变换。
+
+\begin{center}
+    \fbox{\parbox{0.8\linewidth}{“变换”、“映射”、“算子”、“函数”都是指同类对象。\footnotemark}}
+\end{center}
+\footnotetext{一般来说，算子的定义域和陪域一样。本书有些地方的“算子”实为一般的变换，翻译将予以区分。——译者注}
 
 \begin{definition*}
     令$V,W$为（同一域$\mathbb{F}$上的）向量空间。若变换$T:V\to W$满足
@@ -421,7 +428,7 @@
 
     这是合理的，因为$m\times n$矩阵定义了$\mathbb{F}^n\to\mathbb{F}^m$的线性变换，所以向量$\mathbf{x}$必须属于$\mathbb{F}^n$。
 
-    记住这一点的最简单方法，\marginpar{\small 在用“行乘以列”法则计算矩阵-向量乘法时，确保矩阵的行中的元素数和列向量中的元素数相同。行中的元素和列向量中的元素应该被同时用尽；否则所做的乘法未定义。}就是记住如果在做乘法的时候有某种元素先被用光了，那么此乘法就是未定义的。例如，如果用“行乘以列”法则时，你将矩阵的行中各元素都用尽了，而列向量中的元素仍有未用到的，那么所做的乘法就是未定义的。同样，如果你先用尽列向量中的元素，而矩阵的行中各元素尚有未用到的，那么该乘法也是未定义的。
+    记住这一点的最简单方法，就是记住如果在做乘法的时候有某种元素先被用光了，那么此乘法就是未定义的。例如，如果用“行乘以列”法则时，你将矩阵的行中各元素都用尽了，而列向量中的元素仍有未用到的，那么所做的乘法就是未定义的。同样，如果你先用尽列向量中的元素，而矩阵的行中各元素尚有未用到的，那么该乘法也是未定义的。%\marginpar{\small 在用“行乘以列”法则计算矩阵-向量乘法时，确保矩阵的行中的元素数和列向量中的元素数相同。行中的元素和列向量中的元素应该被同时用尽；否则所做的乘法未定义。}
 \end{remark*}
 
 \begin{remark*}
@@ -470,7 +477,8 @@
 \[\begin{aligned}
     (\alpha T)(\alpha_{1}\mathbf{v}_{1}+\alpha_{2}\mathbf{v}_{2})&=\alpha(T(\alpha_{1}\mathbf{v}_{1}+\alpha_{2}\mathbf{v}_{2}))\quad\text{由}~\alpha T~\text{的定义}\\
     &=\alpha(\alpha_{1}T\mathbf{v}_{1}+\alpha_{2}T\mathbf{v}_{2})\quad\text{由}~ T~\text{的线性}\\
-    &=\alpha_{1}\alpha T\mathbf{v}_{1}+\alpha_{2}\alpha T\mathbf{v}_{2}=\alpha_{1}(\alpha T)\mathbf{v}_{1}+\alpha_{2}(\alpha T)\mathbf{v}_{2}
+    &=\alpha_{1}\alpha T\mathbf{v}_{1}+\alpha_{2}\alpha T\mathbf{v}_{2}\\
+    &=\alpha_{1}(\alpha T)\mathbf{v}_{1}+\alpha_{2}(\alpha T)\mathbf{v}_{2}
 \end{aligned}\]
 
 若$T_1$和$T_2$是具有相同的定义域和目标空间的线性变换（$T_{1}:V\to W$并且$T_{2}:V\to W$，或者简写作$T_{1},T_{2}:V\to W$），那么我们可以将这两个线性变换相加，并定义新的变换$T=(T_1+T_2):V\to W$为
@@ -510,8 +518,7 @@
 \begin{center}
     \fbox{\parbox{0.85\linewidth}{乘积$AB$的元素$(AB)_{j,k}$（第$j$行第$k$列中的元素）定义为\[(AB)_{j,k}=(A~\text{的第}~j~\text{行})\cdot(B~\text{的第}~k~\text{列})\]}}
 \end{center}
-正式而言，其可写为\[(AB)_{j,k}=\sum_{l}a_{j,l}b_{l,k},\]
-其中$a_{j,k}$和$b_{j,k}$分别表示矩阵$A$和$B$的元素。
+正式而言，若用$a_{j,k}$和$b_{j,k}$分别表示矩阵$A$和$B$的元素，则其可写为\[(AB)_{j,k}=\sum_{l}a_{j,l}b_{l,k}.\]
 
 我特地没说明矩阵$A$和$B$的大小，但是如果我们回想一下矩阵-向量乘法的“行乘以列”规则，我们就能看出，如果一个乘积是有定义的，那么$A$的行的长度应该等于$B$的列的长度。
 
@@ -526,7 +533,11 @@
 假设我们有两个线性变换$T_1:\mathbb{F}^n\to\mathbb{F}^m$和$T_2:\mathbb{F}^r\to\mathbb{F}^n$。定义线性变换$T_1,T_2$的复合$T=T_1\circ T_2$为\[T(\mathbf{x})=T_1(T_2(\mathbf{x}))\quad\forall \mathbf{x}\in\mathbb{F}^r.\]
 注意$T_{2}(\mathbf{x})\in\mathbb{F}^{n}$。由于$T_{1}:\mathbb{F}^{n}\to\mathbb{F}^{m}$，所以表达式$T_1(T_2(\mathbf{x}))$是定义完善的，且变换后的结果属于$\mathbb{F}^m$。因此$T:\mathbb{F}^{r}\to\mathbb{F}^{m}$。
 
-容易证明，\marginpar{\small 我们通常会把线性变换与其矩阵等同起来看，不过在下面几段中我们会将它们区分开。}$T$是线性变换（留作习题），因此其由一$m\times r$矩阵所确定。如何在已知$T_1$和$T_2$的矩阵的情况下求出这个矩阵呢？
+容易证明，$T$是线性变换（留作习题），因此其由一$m\times r$矩阵所确定。如何在已知$T_1$和$T_2$的矩阵的情况下求出这个矩阵呢？
+
+\begin{remark*}
+    我们通常会把线性变换与其矩阵等同起来看，不过在下面几段中我们会将它们区分开。
+\end{remark*}
 
 令$A$是$T_1$的矩阵，$B$是$T_2$的矩阵。在之前的小节中我们讨论过，$T$的矩阵各列是向量$T(\mathbf{e}_{1}),T(\mathbf{e}_{2}),\ldots,T(\mathbf{e}_{r})$，其中$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_r$是$\mathbb{F}^r$的标准基。对$k=1,2,\ldots,r$我们有\[T(\mathbf{e}_k)=T_1(T_2(\mathbf{e}_k))=T_1(B\mathbf{e}_k)=T_1(\mathbf{b}_k)=A\mathbf{b}_k\]
 （变换$T_2$和$T_1$分别是与$B$和$A$做乘法）
@@ -535,7 +546,9 @@
 
 我们重新将线性变换与其矩阵等同起来看。由于矩阵乘法与线性变换的复合是一致的，我们可以（并且将要）用$T_1T_2$这种写法取代$T_1\circ T_2$，并且用$T_{1}T_{2}\mathbf{x}$这种写法取代$T_{1}(T_{2}(\mathbf{x}))$。
 
-注意，在复合$T_1T_2$中，\marginpar{\small {\bf 注意}：变换的顺序！}首先作用的是变换$T_2$！记住这一点的方法是，注意到在$T_1T_2\mathbf{x}$中，首先碰上$\mathbf{x}$的是变换$T_2$。
+\begin{remark*}
+    在复合$T_1T_2$中，首先作用的是变换$T_2$！记住这一点的方法是，注意到在$T_1T_2\mathbf{x}$中，首先碰上$\mathbf{x}$的是变换$T_2$。
+\end{remark*}
 
 \begin{remark*}
     除“行乘以列”法则以外，还有一种检验矩阵乘积中各矩阵大小的方法：要使复合$T_1T_2$有定义，$T_2\mathbf{x}$必须属于$T_1$的定义域。若$T_2$从某个空间（比如说$\mathbb{F}^r$）映射到$\mathbb{F}^n$，那么$T_1$一定要从$\mathbb{F}^n$映射到某个空间（比如说$\mathbb{F}^m$）。所以，要使$T_1T_2$有定义，$T_1$和$T_2$的矩阵的大小必须分别是$m\times n$和$n\times r$——这和我们由“{\bf 行乘以列}”法则所得到的条件是一样的。
@@ -544,7 +557,7 @@
 \begin{example*}
     令$T:\mathbb{R}^{2}\to\mathbb{R}^{2}$是关于直线$x_1=3x_2$的反射。它是线性变换，现在来求其矩阵。要求这个矩阵，我们需计算$T\mathbf{e}_{1}$和$T\mathbf{e}_{2}$。然而，直接计算$T\mathbf{e}_{1}$和$T\mathbf{e}_{2}$所需的三角学知识远远超出了一个正常人愿意记忆的范畴。
 
-    $T$的矩阵的一个更为简便的求法是，将$T$表示成若干简单线性变换的复合。具体而言，令$\gamma$为$x_1$轴和直线$x_1=3x_2$之间的夹角，并令$T_0$为沿$x_1$轴的反射。那么，要得到反射$T$，我们可以首先将平面旋转$-\gamma$以将直线$x_1=3x_2$转到$x_1$轴上，然后将向量沿$x_1$轴反射，最后将平面旋转$\gamma$以恢复原状。正式而言，这三步可以写成
+    $T$的矩阵的一个更为简便的求法是，将$T$表示成若干简单线性变换的复合。具体而言，令$\gamma$为$x_1$轴和直线$x_1=3x_2$之间的夹角，并令$T_0$为关于$x_1$轴的反射。那么，要得到反射$T$，我们可以首先将平面旋转$-\gamma$以将直线$x_1=3x_2$转到$x_1$轴上，然后将向量关于$x_1$轴反射，最后将平面旋转$\gamma$以恢复原状。正式而言，这三步可以写成
     \[T=R_\gamma T_0R_{-\gamma}\]
     （注意各矩阵的顺序！）其中$R_\gamma$表示旋转$\gamma$弧度。$T_0$的矩阵很容易计算：
 \[T_0=\begin{pNiceMatrix}[margin]1&0\\0&-1\end{pNiceMatrix},\]
@@ -621,8 +634,11 @@
 
 准确地说，恒等变换有无数多个：对任意向量空间$V$，都有一个恒等变换$I=I_{V}:V\to V,I_{V}\mathbf{x}=\mathbf{x},\forall\mathbf{x}\in V$。然而，不致混淆时，我们将用同一符号$I$表示所有的恒等算子（恒等变换）。只有在强调该变换作用于哪个空间时，我们才用记号$I_V$。
 
-显然，\marginpar{\small 通常，线性代数教材中用符号$E$表示恒等矩阵。我更中意$I$，因为在算子理论中用的是它。}如果$I:\mathbb{F}^n\to\mathbb{F}^n$是$\mathbb{F}^n$上的恒等变换，则其矩阵为$n\times n$矩阵\[I=I_n=\begin{pNiceMatrix}[margin]1&0&\ldots&0\\0&1&\ldots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\ldots&1\end{pNiceMatrix}\]
+显然，如果$I:\mathbb{F}^n\to\mathbb{F}^n$是$\mathbb{F}^n$上的恒等变换，则其矩阵为$n\times n$矩阵\[I=I_n=\begin{pNiceMatrix}[margin]1&0&\ldots&0\\0&1&\ldots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\ldots&1\end{pNiceMatrix}\]
 （主对角线上全为$1$，而其余地方全为$0$）。当我们需要强调矩阵的大小时，就用$I_n$这个记号；否则我们用$I$即可。
+\begin{remark*}
+    通常，线性代数教材中用符号$E$表示恒等矩阵。我更中意$I$，因为在算子理论中用的是它。
+\end{remark*}
 
 显然，对于任意线性变换$A$，等式\[AI=A,\quad IA=A\]成立（只要乘积是有定义的）。
 
@@ -645,9 +661,15 @@
 \end{theorem}
 
 \begin{corollary*}
-    线性变换$A:V\to W$是可逆的，\marginpar{\small 这条性质往往被用作可逆线性变换的定义。}当且仅当存在唯一的线性变换（记为$A^{-1}$），$A^{-1}:W\to V$使得\[A^{-1}A=I_V,\quad AA^{-1}=I_W.\]
+    线性变换$A:V\to W$是可逆的，当且仅当存在唯一的线性变换（记为$A^{-1}$），$A^{-1}:W\to V$使得
+    \begin{equation}\label{eq:a_inv}
+        A^{-1}A=I_V,\quad AA^{-1}=I_W.
+    \end{equation}
     变换$A^{-1}$称作$A$的{\bf 逆}。
 \end{corollary*}
+\begin{remark*}
+    “存在满足\eqref{eq:a_inv}的变换$A^{-1}$”往往被用作可逆线性变换的定义。
+\end{remark*}
 
 \begin{proof}[定理 \ref{thm:inverse_unique} 的证明]
     令$BA=I$且$AC=I$。那么\[BAC=B(AC)=BI=B.\]
@@ -678,14 +700,14 @@
 \begin{remark}
     可逆矩阵{\bf 必为}方阵（$n\times n$）。此外，若方阵$A$有左逆或右逆，那么其为可逆的。因此，只需检验等式$AA^{-1}=I,A^{-1}A=I$其中之一。
 
-    该结论会在后面证明。在证明该结论之前，我们将不会使用它。我在此处先提及它只是为了防止学生误入歧途。
+    该结论会在后面证明。在证明该结论之前，我们将不会使用它。我在此处先提及它只是为了防止读者误入歧途。
 \end{remark}
 
 \subsubsection{逆变换的性质}
 
 \begin{theorem}[乘积的逆]
     若线性变换$A$和$B$是可逆的（并且乘积$AB$是有定义的），那么乘积$AB$是可逆的，且\[(AB)^{-1}=B^{-1}A^{-1}\]
-    （注意顺序的变化！）
+    注意顺序的变化！
 \end{theorem}
 \begin{proof}
     直接计算有\[(AB)(B^{-1}A^{-1})=A(BB^{-1})A^{-1}=AIA^{-1}=AA^{-1}=I\]
@@ -752,16 +774,20 @@
 \begin{enumerate}
     \item 令$A:\mathbb{F}^{n+1}\to\mathbb{P}_{n}^{\mathbb{F}}$（$\mathbb{P}_{n}^{\mathbb{F}}$是次数最高为$n$的多项式$\sum_{k=0}^{n}a_{k}t^{k},a_{k}\in\mathbb{F}$所成的集合）定义为\[A\mathbf{e}_1=1,A\mathbf{e}_2=t,\ldots,A\mathbf{e}_n=t^{n-1},A\mathbf{e}_{n+1}=t^n\]
     由定理 \ref{thm:basis_to_basis}，$A$为同构，故$\mathbb{P}_n^\mathbb{F}\cong\mathbb{F}^{n+1}$。
-    \item 令$V$为$\mathbb{F}$上的向量空间，\marginpar{\small 任一具有基的实向量空间都与$\mathbb{R}^n$（$n$为适当的数）同构。类似地，任一具有基的复向量空间都与$\mathbb{C}^n$同构。}基为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$。定义变换$A:\mathbb{F}^{n}\to V$为\[A\mathbf{e}_k=\mathbf{v}_k,\quad k=1,2,\ldots,n,\]
+    \item 令$V$为$\mathbb{F}$上的向量空间，基为$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$。定义变换$A:\mathbb{F}^{n}\to V$为\[A\mathbf{e}_k=\mathbf{v}_k,\quad k=1,2,\ldots,n,\]
     其中$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$是$\mathbb{F}^n$的标准基。同样由定理 \ref{thm:basis_to_basis}，$A$为同构，故$V\cong\mathbb{F}^{n}$。
     \item 由$2\times 3$矩阵（各元素属于$\mathbb{F}$）所构成的向量空间$M_{2\times3}^{\mathbb{F}}$同构于$\mathbb{F}^6$；
     \item 更一般地，$M_{m\times n}^{\mathbb{F}}\cong\mathbb{F}^{m\cdot n}$。
 \end{enumerate}
 
+\begin{remark*}
+    任一具有基的实向量空间都与$\mathbb{R}^n$（$n$为适当的数）同构。类似地，任一具有基的复向量空间都与$\mathbb{C}^n$同构。
+\end{remark*}
+
 \subsection{可逆性与方程}\label{subsec:invert_eq}
 
 \begin{theorem}\label{thm:invert_unique}
-    令$A:X\to Y$为线性变换。\marginpar{\small 这是不是让你想起了基？}那么$A$可逆，当且仅当对任意右端项$\mathbf{b}\in Y$，方程\[A\mathbf{x}=\mathbf{b}\]有唯一解$\mathbf{x}\in X$。
+    令$A:X\to Y$为线性变换。那么$A$可逆，当且仅当对任意右端项$\mathbf{b}\in Y$，方程\[A\mathbf{x}=\mathbf{b}\]有唯一解$\mathbf{x}\in X$。
 \end{theorem}
 \begin{proof}
     设$A$是可逆的。那么$\mathbf{x}=A^{-1}\mathbf{b}$是方程$A\mathbf{x}=\mathbf{b}$的解。为证明该解是唯一的，设另一向量$\mathbf{x}_1\in X$满足\[A\mathbf{x}_1=\mathbf{b}\]
@@ -804,7 +830,6 @@
     \item 求出$\mathbb{R}^3$上绕向量$(1,2,3)^T$旋转$\alpha$角度这一变换的矩阵。我们假设从向量的尾端看向原点时，所做的旋转为逆时针方向。
     
     你可以将答案写成若干矩阵相乘的形式，而不需要计算所有的乘法。
-    \newpage
     \item 给出满足下面条件的矩阵（比如$2\times 2$矩阵）的例子：
     \begin{probenumerate}
         \item $A+B$不可逆，尽管$A$和$B$都可逆；
@@ -881,10 +906,10 @@
 另一个很有用的变换是缩放，其由下述矩阵给出\[\begin{pNiceMatrix}[margin]a&0\\0&b\end{pNiceMatrix},\]
 其中$a,b\ge 0$。若$a=b$，则其为{\bf 等倍缩放}，将图形放大或缩小的同时保持其形状。若$a\ne b$，则$x$和$y$坐标缩放比例不同，图形会变得“更高”或“更宽”。
 
-另一个常用的变换是{\bf 反射}：例如矩阵\[\begin{pNiceMatrix}[margin]1&0\\0&-1\end{pNiceMatrix}\]定义了沿$x$轴的反射。
+另一个常用的变换是{\bf 反射}：例如矩阵\[\begin{pNiceMatrix}[margin]1&0\\0&-1\end{pNiceMatrix}\]定义了关于$x$轴的反射。
 
-在本书的后续部分，我们将证明$\mathbb{R}^2$上的所有线性变换都是缩放、旋转和反射的复合。然而，有时考虑别的变换也可带来便利。例如由下面矩阵所给出的剪切变换：\[\begin{pNiceMatrix}[margin]1&\cot\varphi\\0&1\end{pNiceMatrix}.\]
-这个变换会使图形倾斜——水平线仍然保持水平，但是垂直线变成了与水平线夹角为$\varphi$的斜线。
+在本书的后续部分，我们将证明$\mathbb{R}^2$上的所有线性变换都是缩放、旋转和反射的复合。然而，有时考虑别的变换也可带来便利。例如由下面矩阵所给出的剪切变换：\[\begin{pNiceMatrix}[margin]1&\tan\varphi\\0&1\end{pNiceMatrix}.\]
+这个变换会使图形倾斜——水平线仍然保持水平，但是垂直线变成了与垂直方向夹角为$\varphi$的斜线。
 
 \subsection{\texorpdfstring{$3$}{3}维图形}
 
@@ -894,7 +919,7 @@
 \[\begin{pNiceMatrix}[margin]1&0&0\\0&1&0\\0&0&-1\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]a&0&0\\0&b&0\\0&0&c\end{pNiceMatrix},\quad\begin{pNiceMatrix}[margin]\cos\gamma&-\sin\gamma&0\\\sin\gamma&\cos\gamma&0\\0&0&1\end{pNiceMatrix}\]
 就分别表示关于$x$-$y$平面的反射、缩放和绕$z$轴的旋转。
 
-注意，上述旋转实际上是$2$维旋转——它并不改变$z$坐标。类似地，也可写出另外两种{\bf 基本旋转}——关于$x$轴和$y$轴的旋转——的矩阵。后面会证明，关于任意轴的旋转都可表示为一系列基本旋转的复合。
+注意，上述旋转实际上是$2$维旋转——它并不改变$z$坐标。类似地，也可写出另外两种{\bf 基本旋转}——绕$x$轴和$y$轴的旋转——的矩阵。后面会证明，绕任意轴的旋转都可表示为一系列基本旋转的复合。
 
 这样，我们就知道如何对$3$维图形进行运算了。下面讨论如何将它在$2$维平面上显示出来。最简单的方法就是将其投影到一个平面上，例如$x$-$y$平面。为进行这一投影，只需将$z$坐标置$0$。该{\bf 投影}的矩阵是\[\begin{pNiceMatrix}[margin]1&0&0\\0&1&0\\0&0&0\end{pNiceMatrix}.\]
 
