@@ -18,8 +18,11 @@
 
 $\mathbb{R}^3$上的\textbf{点积}定义为$\mathbf{x}\cdot\mathbf{y}=x_1y_1+x_2y_2+x_3y_3$，其中$\mathbf{x}=(x_1,x_2,x_3)^T$，$\mathbf{y}=(y_1,y_2,y_3)^T$。
 
+\begin{remark*}
+    尽管在文献中内积也表示为$\mathbf{x}\cdot\mathbf{y}$并且称作点积，我们更倾向于称其为内积，并将使用$(\mathbf{x},\mathbf{y})$（后面会说明原因）。
+\end{remark*}
 %TODO: 确认边注的句意
-类似地，\marginpar{\small 尽管内积也表示为$\mathbf{x}\cdot\mathbf{y}$并且称作点积，我们更倾向于使用$(\mathbf{x},\mathbf{y})$（后面会说明原因）。}在$\mathbb{R}^n$上我们可定义两向量$\mathbf{x}=(x_{1},x_{2},\ldots,x_{n})^{T},\mathbf{y}=(y_{1},y_{2},\ldots,y_{n})^{T}$的\textbf{内积}$(\mathbf{x},\mathbf{y})$为\[(\mathbf{x},\mathbf{y}):=x_1y_1+x_2y_2+\ldots+x_ny_n=\mathbf{y}^T\mathbf{x},\]
+类似地，在$\mathbb{R}^n$上我们可定义两向量$\mathbf{x}=(x_{1},x_{2},\ldots,x_{n})^{T},\mathbf{y}=(y_{1},y_{2},\ldots,y_{n})^{T}$的\textbf{内积}$(\mathbf{x},\mathbf{y})$为\[(\mathbf{x},\mathbf{y}):=x_1y_1+x_2y_2+\ldots+x_ny_n=\mathbf{y}^T\mathbf{x},\]
 故$\|\mathbf{x}\|=\sqrt{(\mathbf{x},\mathbf{x})}$。
 
 注意，$\mathbf{y}^T\mathbf{x}=\mathbf{x}^T\mathbf{y}$，而我们都使用记号$\mathbf{y}^T\mathbf{x}$只是为了统一起见。
@@ -340,12 +343,14 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 这个公式有时称为\textbf{抽象正交傅里叶分解}（的雏形）。经典（非抽象）的傅里叶分解用的是一个具体的规范正交向量组（正余弦或复指数）。我们称上面的公式是\textbf{雏形}，因为真正的傅里叶分解用的是无限的规范正交向量组。\index{傅里叶分解（Fourier decomposition）!抽象正交$\sim$（abstract, orthogonal）}
 
 \begin{remark}
-    规范正交基的重要性在于，如果我们在内积空间$V$中取定规范正交基，那么我们就可以如同处理$\mathbb{F}^n$中的向量一样处理在这个基下的坐标。也就是像在本书开头所讨论的那样（第 \ref{chap:BasicNotion} 章注 \ref{remark:fn_to_abstract}），如果我们处理的是（域$\mathbb{F}$上的）向量空间$V$，其具有基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，\marginpar{\small 这个注记很重要，它使我们得以将适用于标准内积空间$\mathbb{F}^n$的各种表述迁移至具有规范正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的内积空间$V$。}那么可以围绕关于基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的坐标列向量展开讨论，从而如同对标准坐标空间$\mathbb{F}^n$中的向量那样进行标准向量运算（向量加法与标量乘法）。
+    规范正交基的重要性在于，如果我们在内积空间$V$中取定规范正交基，那么我们就可以如同处理$\mathbb{F}^n$中的向量一样处理在这个基下的坐标。也就是像在本书开头所讨论的那样（第 \ref{chap:BasicNotion} 章注 \ref{remark:fn_to_abstract}），如果我们处理的是（域$\mathbb{F}$上的）向量空间$V$，其具有基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，那么可以围绕关于基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的坐标列向量展开讨论，从而如同对标准坐标空间$\mathbb{F}^n$中的向量那样进行标准向量运算（向量加法与标量乘法）。
 
     下方的习题 \ref{ex:5_2_3} 说明，如果我们有内积空间$V$的{\bf 规范正交}基，那么要计算$V$中两个向量的内积，就可以首先取它们关于这个规范正交基的坐标列向量，然后计算这两个列向量（在$\mathbb{C}^n$或$\mathbb{R}^n$上）的标准内积。
 
     第 \ref{sec:orthogonalization} 节中将证明，每个有限维内积空间都有规范正交基。于是，有限维内积空间本质上就是标准内积空间$\mathbb{C}^n$（对于实内积空间，就是$\mathbb{R}^n$）而已。
 \end{remark}
+
+这个注记很重要，它使我们得以将适用于标准内积空间$\mathbb{F}^n$的各种表述迁移至具有规范正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的内积空间$V$。
 
 \begin{problemset}
     \item 求出$\mathbb{R}^4$中正交于向量$(1,1,1,1)^T$和$(1,2,3,4)^T$的所有向量。

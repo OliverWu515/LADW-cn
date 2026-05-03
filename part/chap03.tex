@@ -93,10 +93,13 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 
 \subsection{反对称性}
 
-行列式应具备的下个性质是，\marginpar{\small 若多变量函数在交换任意两个自变量后函数值变号，则称其是{\bf 反对称的}。}如果我们交换两个向量，那么行列式变号：
+行列式应具备的下个性质是，如果我们交换两个向量，那么行列式变号：
 \begin{equation}\label{antisymmetry}
   D(\mathbf{v}_1,\ldots,\underset{j}{\mathbf{v}_k},\ldots,\underset{k}{\mathbf{v}_j},\ldots,\mathbf{v}_n)=-D(\mathbf{v}_1,\ldots,\underset{j}{\mathbf{v}_j},\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_n).
 \end{equation}
+\begin{remark*}
+  若多变量函数在交换任意两个自变量后函数值变号，则称其是{\bf 反对称的}。
+\end{remark*}
 这个性质一眼看上去并不自然，但其可由之前的性质推导出来。即，应用性质 \eqref{Preserve_column_replacement} 三次，再利用式 \eqref{Determinant_linear_1} 即得
 \begin{align*}
   D&(\mathbf{v}_{1},\ldots,\underset{j}{\mathbf{v}_j},\ldots,\underset{k}{\mathbf{v}_k},\ldots,\mathbf{v}_{n})\\
@@ -178,8 +181,10 @@ $n=2$时，即为面积；$n=3$时，即为体积。维数为$1$时，即为长�
 接下来的命题推广了性质 \eqref{Preserve_column_replacement}。如我们之前所述，该性质可从我们在本节所用的行列式的三大“基本”性质推导出来。
 
 \begin{proposition}
-  如果我们向其中一列加上其余列的线性组合（并保持其余列不变），\marginpar{\small 注意，此处向一列加入自身的若干倍是不允许的，我们只能加入其他列的倍数。}那么行列式不变。特别地，行列式在“列替换”（第三类列变换）下是保持原值的。
+  如果我们向其中一列加上其余列的线性组合（并保持其余列不变），那么行列式不变。特别地，行列式在“列替换”（第三类列变换）下是保持原值的。
 \end{proposition}
+
+注意，此处向一列加入自身的若干倍是不允许的，我们只能加入其他列的倍数。
 
 \begin{proof}
   取定向量$\mathbf{v}_k$，并令$\mathbf{u}$是其余向量的线性组合\[\mathbf{u}=\sum_{j\neq k}\alpha_j\mathbf{v}_j.\]

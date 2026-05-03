@@ -92,7 +92,7 @@
 
 将矩阵的元素记作带下标的字母是很方便的：第一个下标代表该元素的行号，而第二个下标则代表列号。例如
 \begin{equation}\label{matrix_notation}
-    A=(a_{j,k})_{j=1,k=1}^{m,\quad n}=\begin{pNiceMatrix}[margin]a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&&\vdots\\a_{m,1}&a_{m,2}&\ldots&a_{m,n}\end{pNiceMatrix}
+    A=(a_{j,k})_{j=1,}^{m,}\,{\vphantom{)}}_{k=1}^{n}=\begin{pNiceMatrix}[margin]a_{1,1}&a_{1,2}&\ldots&a_{1,n}\\a_{2,1}&a_{2,2}&\ldots&a_{2,n}\\\vdots&\vdots&&\vdots\\a_{m,1}&a_{m,2}&\ldots&a_{m,n}\end{pNiceMatrix}
 \end{equation}
 就是$m\times n$矩阵的通常表示形式。
 
@@ -171,9 +171,9 @@
     这就是说，若$\mathbf{v}=\sum_{k=1}^{n}\alpha_{k}\mathbf{v}_{k}$且$\mathbf{w}=\sum_{k=1}^{n}\beta_{k}\mathbf{v}_{k}$，则
     \[\mathbf{v}+\mathbf{w}=\sum_{k=1}^n\alpha_k\mathbf{v}_k+\sum_{k=1}^n\beta_k\mathbf{v}_k=\sum_{k=1}^n(\alpha_k+\beta_k)\mathbf{v}_k,\]
     即为了得到求和结果的坐标所构成的列向量，只需将各求和项的坐标所构成的列向量相加。类似地，为了得到$\alpha\mathbf{v}$的坐标，我们只需将$\mathbf{v}$的坐标所构成的列向量乘以$\alpha$。
-
-    这个注记很重要，整本书都会用到它。它使我们得以将适用于标准向量空间$\mathbb{F}^n$的各种表述迁移至具有基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的向量空间$V$。
 \end{remark}
+
+这个注记很重要，整本书都会用到它。它使我们得以将适用于标准向量空间$\mathbb{F}^n$的各种表述迁移至具有基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$的向量空间$V$。
 
 \subsection{生成组与线性无关组}
 
