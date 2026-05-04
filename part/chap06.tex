@@ -692,9 +692,9 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 \[A\mathbf{x}_{0}=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^{*}\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}\mathbf{b}=\widetilde{W}\widetilde{\Sigma}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}\mathbf{b}=\widetilde{W}\widetilde{W}^{*}\mathbf{b}=P_{\mathrm{Ran}A}\mathbf{b};\]
 最后一个等号成立，是由于$\widetilde{W}\widetilde{W}^{*}=P_{\operatorname{Ran}\widetilde{W}}$（$P_{\rg\widetilde{W}}=\widetilde{W}(\widetilde{W}^{*}\widetilde{W})^{-1}\widetilde{W}^{*}=\widetilde{W}\widetilde{W}^{*}$）并且$\rg\widetilde{W}=\rg A$（见下习题 \ref{ex:6_4_4}）。
 
-% 方程$A\mathbf{x}=P_{\rg A}\mathbf{b}$的通解是
-% \[\mathbf{x}=\mathbf{x}_0+\mathbf{y},\quad \mathbf{y}\in\ker A,\]
-并且，注意到$\mathbf{x}_0\in \rg \widetilde{V}$，由习题 \ref{ex:6_4_4}，$\mathbf{x}_0\in \rg A^*$，则 $\mathbf{x}_0\perp \ker A$。
+方程$A\mathbf{x}=P_{\rg A}\mathbf{b}$的通解是
+\[\mathbf{x}=\mathbf{x}_0+\mathbf{y},\quad \mathbf{y}\in\ker A,\]
+注意到$\mathbf{x}_0\in \rg \widetilde{V}$且$\rg \widetilde{V}=\rg A^*$（同样见下习题 \ref{ex:6_4_4}），因此 $\mathbf{x}_0\perp \ker A$（因为$\ker A = (\rg A^*)^\perp$，见第 \ref{chap:InnerProduct} 章的定理 \ref{thm:geometric_relation_adjoint_fundamental}）。
 所以$\mathbf{x}_0$的确是$A\mathbf{x}=P_{\rg A}\mathbf{b}$的唯一最小范数解，或者等价地说，是$A\mathbf{x}=\mathbf{b}$的最小范数最小平方解。
 
 \begin{definition}
@@ -748,7 +748,6 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
         \item 往由向量$(1,1,1)^T$张成的子空间上正交投影的矩阵是什么？
         \item 算子$T$与$aT+bI$（$a,b$为标量）的特征值有什么关系？
     \end{probenumerate}
-    \pagebreak
     \item \label{ex:6_4_4} 令$A$的{\bf 简化}奇异值分解为$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$。证明$\rg A=\rg \widetilde{W}$，再通过取伴随证明$\rg A^*=\rg \widetilde{V}$。
     \item 利用奇异值分解$A=W\Sigma V^*$，写出摩尔-彭罗斯逆$A^+$的公式。
     \item {\bf 吉洪诺夫正则化}：证明摩尔-彭罗斯逆$A^+$可用下述极限计算：
@@ -780,7 +779,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
     因此，实矩阵的所有复特征值都可按$\lambda_k,\overline{\lambda}_k$成对划分。
 
-    我们知道，幺正矩阵的特征值的绝对值都是$1$，因此$A$的所有复特征值都可写为$\lambda_k=\cos\alpha_k+i\sin\alpha_k$，$\overline{\lambda_k}=\cos\alpha_k-i\sin\alpha_k$。
+    我们知道，幺正矩阵的特征值的绝对值都是$1$，因此$U$（既为实的、又为幺正的）的所有复特征值都是以$\lambda_k=\cos\alpha_k+i\sin\alpha_k$，$\overline{\lambda_k}=\cos\alpha_k-i\sin\alpha_k$的形式成对出现。
 
     取定一对复特征值$\lambda$和$\overline{\lambda}$，并令$\mathbf{u}\in\mathbb{C}^n$是$U$的特征向量，$U\mathbf{u}=\lambda\mathbf{u}$。那么$U\overline{\mathbf{u}}=\overline{\lambda}\overline{\mathbf{u}}$。现在将$\mathbf{u}$分成实部和虚部，即定义
     \[\mathbf{x}:=\operatorname{Re}\mathbf{u}=(\mathbf{u}+\overline{\mathbf{u}})/2,\quad\mathbf{y}=\operatorname{Im}\mathbf{u}=(\mathbf{u}-\overline{\mathbf{u}})/(2i),\]
@@ -866,7 +865,6 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 \begin{theorem}\label{thm:rotation_det-1}
     令$U$是$\mathbb{R}^n$上的正交算子，并令$\det U=-1$。那么存在规范正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，使得$U$关于该基的矩阵具有如下分块对角形式
-    \pagebreak
     \[
         \begin{pNiceMatrix}[margin]
             R_{\varphi_1}             &               &        &               &       & \Block{2-1}<\LARGE>{0} \\
