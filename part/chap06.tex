@@ -678,9 +678,9 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 一种更好的方法是用奇异值。这种方法需要做更多计算，但会给出更好的结果，解释起来也更清晰。我们同样设定一个很小的数作为容许值，然后做奇异值分解。然后我们只需视小于容许值的奇异值为零。这种方法的优势在于我们知道自己在做什么：奇异值就是椭球$A(B)$（$B$是闭单位球）的半长轴，所以设定容许值就是在确定多“薄”的椭球应被视为“平”的。
 
-\subsection{摩尔-彭罗斯（伪）逆}
+\subsection{穆尔-彭罗斯（伪）逆}
 
-如我们在第 \ref{chap:InnerProduct} 章第 \ref{sec:least_square} 节所讨论的，最小平方解给出了方程$A\mathbf{x}=\mathbf{b}$无解时的“次优解”（并且在$A\mathbf{x}=\mathbf{b}$有解时也能给出其解）。\index{摩尔-彭罗斯逆（Moore-Penrose inverse）}
+如我们在第 \ref{chap:InnerProduct} 章第 \ref{sec:least_square} 节所讨论的，最小平方解给出了方程$A\mathbf{x}=\mathbf{b}$无解时的“次优解”（并且在$A\mathbf{x}=\mathbf{b}$有解时也能给出其解）。\index{穆尔-彭罗斯逆（Moore-Penrose inverse）}
 
 注意，最小平方解并未解决唯一性的问题：法方程$A^*A\mathbf{x}=A^*\mathbf{b}$的解未必是唯一的。其有一个自然的特解——最小范数解。这样的解是唯一的，并且可以通过取任意解往$(\ker A^*A)^\perp=(\ker A)^\perp$的投影来获得，见第 \ref{chap:InnerProduct} 章习题 \ref{ex:5_4_5} 和 \ref{ex:5_4_6}。
 
@@ -698,11 +698,11 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 所以$\mathbf{x}_0$的确是$A\mathbf{x}=P_{\rg A}\mathbf{b}$的唯一最小范数解，或者等价地说，是$A\mathbf{x}=\mathbf{b}$的最小范数最小平方解。
 
 \begin{definition}
-    变换$A^+:=\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}$（其中$A$的{\bf 简化}奇异值分解为$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$）称为变换$A$的{\bf 摩尔-彭罗斯逆}（或{\bf 摩尔-彭罗斯伪逆}）。换言之，{\bf 摩尔-彭罗斯逆}是能给出$A\mathbf{x}=\mathbf{b}$的唯一最小平方解的变换。
+    变换$A^+:=\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}$（其中$A$的{\bf 简化}奇异值分解为$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$）称为变换$A$的{\bf 穆尔-彭罗斯逆}（或{\bf 穆尔-彭罗斯伪逆}）。换言之，{\bf 穆尔-彭罗斯逆}是能给出$A\mathbf{x}=\mathbf{b}$的唯一最小平方解的变换。
 \end{definition}
 
 \begin{remark}
-    在文献中，摩尔-彭罗斯逆常定义为满足下列性质的矩阵$A^+$：
+    在文献中，穆尔-彭罗斯逆常定义为满足下列性质的矩阵$A^+$：
     \begin{enumerate}
         \item $AA^{+}A=A$；
         \item $A^{+}AA^{+}=A^{+}$；
@@ -749,8 +749,8 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
         \item 算子$T$与$aT+bI$（$a,b$为标量）的特征值有什么关系？
     \end{probenumerate}
     \item \label{ex:6_4_4} 令$A$的{\bf 简化}奇异值分解为$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$。证明$\rg A=\rg \widetilde{W}$，再通过取伴随证明$\rg A^*=\rg \widetilde{V}$。
-    \item 利用奇异值分解$A=W\Sigma V^*$，写出摩尔-彭罗斯逆$A^+$的公式。
-    \item {\bf 吉洪诺夫正则化}：证明摩尔-彭罗斯逆$A^+$可用下述极限计算：
+    \item 利用奇异值分解$A=W\Sigma V^*$，写出穆尔-彭罗斯逆$A^+$的公式。
+    \item {\bf 吉洪诺夫正则化}：证明穆尔-彭罗斯逆$A^+$可用下述极限计算：
     \[A^{+}=\lim_{\varepsilon\to0+}(A^{*}A+\varepsilon I)^{-1}A^{*}=\lim_{\varepsilon\to0+}A^{*}(AA^{*}+\varepsilon I)^{-1}.\]
     \item \label{ex:6_4_7} 证明：矩阵$A$的算子范数与其弗罗贝尼乌斯范数相同，当且仅当矩阵的秩为$1$。{\bf 提示}：习题 \ref{ex:6_3_1} 可能有用。
 \end{problemset}
