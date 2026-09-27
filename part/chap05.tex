@@ -430,7 +430,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
 \begin{remark}
     从公式 \eqref{projection_eq} 中容易看出正交投影$P_E$是线性变换。
 
-    也可以从正交投影的定义和唯一性中看出$P_E$的线性。的确如此：容易检验对任意$\mathbf{x},\mathbf{y}$，向量$\alpha\mathbf{x}+\beta\mathbf{y}-(\alpha P_{E}\mathbf{x}-\beta P_{E}\mathbf{y})$正交于$E$中的所有向量，所以由定义得$P_{E}(\alpha\mathbf{x}+\beta\mathbf{y})=\alpha P_{E}\mathbf{x}+\beta P_{E}\mathbf{y}$。
+    也可以从正交投影的定义和唯一性中看出$P_E$的线性。的确如此：容易检验对任意$\mathbf{x},\mathbf{y}$，向量$\alpha\mathbf{x}+\beta\mathbf{y}-(\alpha P_{E}\mathbf{x}+\beta P_{E}\mathbf{y})$正交于$E$中的所有向量，所以由定义得$P_{E}(\alpha\mathbf{x}+\beta\mathbf{y})=\alpha P_{E}\mathbf{x}+\beta P_{E}\mathbf{y}$。
 \end{remark}
 
 \begin{remark}
@@ -440,7 +440,7 @@ $p$为其他值时，三角不等式是成立的，但是证明不那么容易�
     \end{equation}
     其中列向量$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$形成$E$的正交基。
 \end{remark}
-\begin{proof}[命题 \ref{prop:projection_solution} 的证明]
+\begin{proof}[命题~\ref{prop:projection_solution}~的证明]
     令\[\mathbf{w}:=\sum_{k=1}^r\alpha_k\mathbf{v}_k,\quad \text{其中}\quad\alpha_k=\frac{(\mathbf{v},\mathbf{v}_k)}{\|\mathbf{v}_k\|^2}.\]
     欲证$\mathbf{v}-\mathbf{w}\in E$。由引理 \ref{lem:vec_ortho_subspace}，只需证明$\mathbf{v}-\mathbf{w}\perp \mathbf{v}_k,k=1,2,\dots,r$。计算内积即得，对$k=1,2,\dots,r$有
     \begin{align*}
@@ -618,7 +618,7 @@ $$
     \end{probenumerate}
 \end{problemset}
 
-\section{最小平方解、正交投影的公式}\label{sec:least_square}
+\section{最小二乘解、正交投影的公式}\label{sec:least_square}
 
 如在第 \ref{chap:LinearSystems} 章中所讨论的，方程%此处行间改行内
 $A\mathbf{x}=\mathbf{b}$
@@ -626,22 +626,22 @@ $A\mathbf{x}=\mathbf{b}$
 
 这看起来是个蠢问题——如果无解的话，那就无解呀。但其实，要解一个无解的方程组的情况会很自然地出现。比如，当我们的方程是从实验数据得到的时候。如果没有任何误差，那么右端项$\mathbf{b}$就属于列空间$\rg A$，并且方程组是相容的；但是，现实中测量误差是不可避免的，所以理论上有解的方程组在现实中也可能无解。那么，这种情况下我们怎么办呢？
 
-\subsection{最小平方解}
+\subsection{最小二乘解}
 
 最简单的想法就是写出误差\[\|A\mathbf{x}-\mathbf{b}\|\]
-并尝试求出使其最小的$\mathbf{x}$。如果可以求出使得误差为$0$的$\mathbf{x}$，那么方程组是相容的，并且我们得出了精确解。否则，我们就得到了所谓\textbf{最小平方}解\footnote{本术语国内多译为“最小二乘”，实从日文“最小二{\gothic 乗}”，比较生硬，本书将“square”按照“平方”来翻译，不从通行译法。——译者注}。\index{最小平方解（least square solution）}
+并尝试求出使其最小的$\mathbf{x}$。如果可以求出使得误差为$0$的$\mathbf{x}$，那么方程组是相容的，并且我们得出了精确解。否则，我们就得到了所谓\textbf{最小二乘}解\footnote{本译法实从日文“最小二{\gothic 乗}”。——译者注}。\index{最小二乘解（least square solution）}
 
-术语\textbf{最小平方}的来历是：最小化$\|A\mathbf{x}-\mathbf{b}\|$就等价于最小化
+术语\textbf{最小二乘}的来历是：最小化$\|A\mathbf{x}-\mathbf{b}\|$就等价于最小化
 \[\|A\mathbf{x}-\mathbf{b}\|^2=\sum_{k=1}^m|(A\mathbf{x})_k-b_k|^2=\sum_{k=1}^m\biggl|\sum_{j=1}^nA_{k,j}x_j-b_k\biggr|^2\]
 即最小化线性函数的平方和。
 
-求出最小平方解有多种方式。如果我们在$\mathbb{R}^n$中讨论，所有数都是实数，那么我们就可以去掉绝对值，从而对各$x_j$求偏导数，并且求出使这些偏导数都为$0$的$x_j$，从而得到最小值点。
+求出最小二乘解有多种方式。如果我们在$\mathbb{R}^n$中讨论，所有数都是实数，那么我们就可以去掉绝对值，从而对各$x_j$求偏导数，并且求出使这些偏导数都为$0$的$x_j$，从而得到最小值点。
 
 \subsubsection{几何方法}
 
 然而，求出最小值点有一种更简单的方法。即，如果取遍向量$\mathbf{x}$，那么$A\mathbf{x}$给出$\rg A$中的所有向量，所以$\|A\mathbf{x}-\mathbf{b}\|$的最小值恰为从$\mathbf{b}$到$\rg A$的距离。因此$\|A\mathbf{x}-\mathbf{b}\|$取得最小值，当且仅当$A\mathbf{x}=P_{\rg A}\mathbf{b}$，其中$P_{\rg A}$表示往列空间$\rg A$上的正交投影。
 
-所以，为求最小平方解，只需解方程\[A\mathbf{x}=P_{\rg A}\mathbf{b}.\]
+所以，为求最小二乘解，只需解方程\[A\mathbf{x}=P_{\rg A}\mathbf{b}.\]
 如果已知$\rg A$的正交基$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$，则可通过下式求出向量$P_{\rg A}\mathbf{b}$
 \[P_{\rg A}\mathbf{b}=\sum_{k=1}^{n}\frac{(\mathbf{b},\mathbf{v}_{k})}{\|\mathbf{v}_{k}\|^{2}}\mathbf{v}_{k}.\]
 如果仅仅知道$\rg A$的基，则需要用格拉姆-施密特正交化来从中得到正交基。
@@ -658,13 +658,13 @@ $A\mathbf{x}$是正交投影$P_{\rg A}\mathbf{b}$当且仅当$\mathbf{b}-A\mathb
 将$\mathbf{a}_k^*$写在一起即知这些方程等价于\[A^*(\mathbf{b}-A\mathbf{x})=\mathbf{0},\]
 这等价于所谓的\textbf{法方程}\footnote{英文为normal equation，也常译为“正规方程”，此处译法更侧重表示“垂直”含义，即残差$\mathbf{b}-A\mathbf{x}$须垂直于$A$的列空间。——译者注}
 \[A^*A\mathbf{x}=A^*\mathbf{b}\]
-该方程的解就给出了$A\mathbf{x}=\mathbf{b}$的最小平方解。
+该方程的解就给出了$A\mathbf{x}=\mathbf{b}$的最小二乘解。
 
-注意，最小平方解唯一，当且仅当$A^*A$可逆。
+注意，最小二乘解唯一，当且仅当$A^*A$可逆。
 
 \subsection{正交投影的公式}
 
-如我们之前已讨论的，如果$\mathbf{x}$是\textbf{法方程}$A^*A\mathbf{x}=A^*\mathbf{b}$的解（即$A\mathbf{x}=\mathbf{b}$的最小平方解），那么$A\mathbf{x}=P_{\rg A}\mathbf{b}$。所以，为求$\mathbf{b}$往列空间$\rg A$上的正交投影，需要解法方程$A^*A\mathbf{x}=A^*\mathbf{b}$，然后将所得的解乘以$A$。
+如我们之前已讨论的，如果$\mathbf{x}$是\textbf{法方程}$A^*A\mathbf{x}=A^*\mathbf{b}$的解（即$A\mathbf{x}=\mathbf{b}$的最小二乘解），那么$A\mathbf{x}=P_{\rg A}\mathbf{b}$。所以，为求$\mathbf{b}$往列空间$\rg A$上的正交投影，需要解法方程$A^*A\mathbf{x}=A^*\mathbf{b}$，然后将所得的解乘以$A$。
 
 如果算子$A^*A$可逆，那么法方程$A^*A\mathbf{x}=A^*\mathbf{b}$的解是$\mathbf{x}=(A^*A)^{-1}$ $A^*\mathbf{b}$，所以正交投影$P_{\rg A}\mathbf{b}$可按下式计算\[P_{\rg A}\mathbf{b}=A(A^*A)^{-1}A^*\mathbf{b}\]
 因为这对于所有$\mathbf{b}$都成立，所以往$\rg A$上正交投影的矩阵的公式是\[P_{\rg A}=A(A^*A)^{-1}A^*\]
@@ -681,13 +681,13 @@ $A\mathbf{x}$是正交投影$P_{\rg A}\mathbf{b}$当且仅当$\mathbf{b}-A\mathb
 
 \subsection{例子之一：拟合直线}
 
-我们介绍几个例子，这几个例子会很自然地用到最小平方解。假设我们知道两个量$x$和$y$的关系是$y=a+bx$。系数$a$和$b$是未知的，并且我们想根据实验数据求出它们。
+我们介绍几个例子，这几个例子会很自然地用到最小二乘解。假设我们知道两个量$x$和$y$的关系是$y=a+bx$。系数$a$和$b$是未知的，并且我们想根据实验数据求出它们。
 
-假设我们进行了$n$次实验并得到$n$个数对$(x_k,y_k),k=1,2,\dots,n$。理想情况下，所有点$(x_k,y_k)$都应该在一条直线上，但是由于测量误差，这往往不会发生——各点会接近一条直线但不会恰好在上面。这里最小平方解就会有用处了！
+假设我们进行了$n$次实验并得到$n$个数对$(x_k,y_k),k=1,2,\dots,n$。理想情况下，所有点$(x_k,y_k)$都应该在一条直线上，但是由于测量误差，这往往不会发生——各点会接近一条直线但不会恰好在上面。这里最小二乘解就会有用处了！
 
 理想情况下，系数$a$与$b$应满足方程\[a+bx_k=y_k,\quad k=1,2,\ldots,n\]
 （注意，$x_k$和$y_k$是固定的数，而未知数是$a$和$b$）如果能求出满足条件的$a$和$b$，那是我们走运；如果求不出，通行的做法是最小化总的二次误差\[\sum_{k=1}^n|a+bx_k-y_k|^2.\]
-而最小化这个误差恰恰就是求出下列方程组的最小平方解：
+而最小化这个误差恰恰就是求出下列方程组的最小二乘解：
 \[\begin{pNiceMatrix}[margin]1&x_1\\1&x_2\\\vdots&\vdots\\1&x_n\end{pNiceMatrix}\begin{pNiceMatrix}[margin]a\\b\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]y_1\\y_2\\\vdots\\y_n\end{pNiceMatrix}\]
 （回想一下，$x_k$和$y_k$是给定的数，而未知数是$a$和$b$）
 
@@ -695,7 +695,7 @@ $A\mathbf{x}$是正交投影$P_{\rg A}\mathbf{b}$当且仅当$\mathbf{b}-A\mathb
 
 假设数据 $(x_k, y_k)$ 由下列数对构成
 \[ (-2,4), (-1,2), (0,1), (2,1), (3,1)\]
-那么我们需要求出下列方程组的最小平方解
+那么我们需要求出下列方程组的最小二乘解
 $$\left(\begin{array}{rr}
 1 & -2 \\
 1 & -1 \\
@@ -759,13 +759,13 @@ y=2-1 / 2 x.$$
 
 \subsection{更多例子：曲线和平面}
 
-最小平方拟合并不只适用于直线，它还能应用于更为一般的曲线，以及更高维情形中的平面。
+最小二乘拟合并不只适用于直线，它还能应用于更为一般的曲线，以及更高维情形中的平面。
 
 唯一的约束就是，待求的参数需要以线性的形式被容纳进来。通用的算法如下：
 \begin{enumerate}
     \item 求出在精确匹配时你的数据应该满足的方程；
     \item 将这些方程写成线性方程组，其中未知量是你待求的参数。注意，该方程组不需要是相容的（通常也不是）；
-    \item 求出方程组的最小平方解。
+    \item 求出方程组的最小二乘解。
 \end{enumerate}
 
 \subsubsection{曲线拟合的例子}
@@ -774,7 +774,7 @@ y=2-1 / 2 x.$$
 $$a+bx_k+cx_k^2=y_k,\quad k=1,2,\ldots,n$$
 或写成矩阵形式
 $$\left(\begin{array}{ccc}1&x_1&x_1^2\\1&x_2&x_2^2\\\vdots&\vdots&\vdots\\1&x_n&x_n^2\end{array}\right)\left(\begin{array}{c}a\\b\\c\end{array}\right)=\left(\begin{array}{c}y_1\\y_2\\\vdots\\y_n\end{array}\right)$$
-例如，根据上个例子中的数据，我们需要求出如下线性方程组的最小平方解
+例如，根据上个例子中的数据，我们需要求出如下线性方程组的最小二乘解
 $$\left(\begin{array}{ccc}1&-2&4\\1&-1&1\\1&0&0\\1&2&4\\1&3&9\end{array}\right)\left(\begin{array}{c}a\\b\\c\end{array}\right)=\left(\begin{array}{c}4\\2\\1\\1\\1\end{array}\right).$$
 那么
 \[A^*A=\left(\begin{array}{ccccc}1&1&1&1&1\\-2&-1&0&2&3\\4&1&0&4&9\end{array}\right)\left(\begin{array}{ccc}1&-2&4\\1&-1&1\\1&0&0\\1&2&4\\1&3&9\end{array}\right)=\left(\begin{array}{ccc}5&2&18\\2&18&26\\18&26&114\end{array}\right)\]
@@ -794,28 +794,28 @@ $$y=86/77-62x/77+43x^2/154$$
 拟合成平面$z=a+bx+cy$。在精确匹配的情况下，数据应满足方程
 \[a+bx_k+cy_k=z_k,\quad k=1,2,\ldots,n,\]
 或写成矩阵形式\[\begin{pNiceMatrix}[margin]1&x_1&y_1\\1&x_2&y_2\\\vdots&\vdots&\vdots\\1&x_n&y_n\end{pNiceMatrix}\begin{pNiceMatrix}[margin]a\\b\\c\end{pNiceMatrix}=\begin{pNiceMatrix}[margin]z_1\\z_2\\\vdots\\z_n\end{pNiceMatrix}.\]
-因此，要求出最佳拟合平面，就需要写出该方程组的最小平方解（未知数是$a,b,c$）。
+因此，要求出最佳拟合平面，就需要写出该方程组的最小二乘解（未知数是$a,b,c$）。
 
 \begin{problemset}
-    \item 求出下列方程组的最小平方解\[\begin{pNiceMatrix}[margin]1&0\\0&1\\1&1\end{pNiceMatrix}\mathbf{x}=\begin{pNiceMatrix}[margin]1\\1\\0\end{pNiceMatrix}\]
+    \item 求出下列方程组的最小二乘解\[\begin{pNiceMatrix}[margin]1&0\\0&1\\1&1\end{pNiceMatrix}\mathbf{x}=\begin{pNiceMatrix}[margin]1\\1\\0\end{pNiceMatrix}\]
     \item 求出往矩阵\[\begin{pNiceMatrix}[margin]1&1\\2&-1\\-2&4\end{pNiceMatrix}.\]
     的列空间的正交投影$P$的矩阵。用两种方法完成：格拉姆-施密特正交化和投影的公式。比较两个结果。
-    \item 求出点$(-2,4),(-1,3),(0,1),(2,0)$的最佳直线拟合（最小平方解）。
+    \item 求出点$(-2,4),(-1,3),(0,1),(2,0)$的最佳直线拟合（最小二乘解）。
     \item 将四个点$(1,1,3),(0,3,6),(2,1,5),(0,0,0)$拟合成平面$z=a+bx+cy$。
     为此
     \begin{probenumerate}
         \item 写出有$3$个未知数$a,b,c$的$4$个方程，满足平面经过全部$4$个点（这个方程组不一定有解）；
-        \item 求出上述方程组的最小平方解。
+        \item 求出上述方程组的最小二乘解。
     \end{probenumerate}
     \item \label{ex:5_4_5}\textbf{最小范数解}。令方程$A\mathbf{x}=\mathbf{b}$有解，并令$A$有非平凡的核（因而解是不唯一的）。证明：
     \begin{probenumerate}
         \item $A\mathbf{x}=\mathbf{b}$存在唯一能使得范数$\|\mathbf{x}\|$最小的解$\mathbf{x}_0$，即存在唯一的$\mathbf{x}_0$，使得$A\mathbf{x}_0=\mathbf{b}$且$\|\mathbf{x}_0\|\le \|\mathbf{x}\|$对所有满足$A\mathbf{x}=\mathbf{b}$的$\mathbf{x}$成立。
         \item 对于所有满足$A\mathbf{x}=\mathbf{b}$的$\mathbf{x}$，有$\mathbf{x}_{0}=P_{(\ker A)^{\perp}}\mathbf{x}$。
     \end{probenumerate}
-    \item \label{ex:5_4_6}\textbf{最小范数最小平方解}。将上述问题的结论应用于方程$A\mathbf{x}=P_{\rg A}\mathbf{b}$以证明：
+    \item \label{ex:5_4_6}\textbf{最小范数最小二乘解}。将上述问题的结论应用于方程$A\mathbf{x}=P_{\rg A}\mathbf{b}$以证明：
     \begin{probenumerate}
-        \item 方程$A\mathbf{x}=\mathbf{b}$存在唯一能使得范数$\|\mathbf{x}\|$最小的最小平方解$\mathbf{x}_0$。
-        \item 对于$A\mathbf{x}=\mathbf{b}$的所有最小平方解$\mathbf{x}$，有$\mathbf{x}_{0}=P_{(\ker A)^{\perp}}\mathbf{x}$。
+        \item 方程$A\mathbf{x}=\mathbf{b}$存在唯一能使得范数$\|\mathbf{x}\|$最小的最小二乘解$\mathbf{x}_0$。
+        \item 对于$A\mathbf{x}=\mathbf{b}$的所有最小二乘解$\mathbf{x}$，有$\mathbf{x}_{0}=P_{(\ker A)^{\perp}}\mathbf{x}$。
     \end{probenumerate}
 \end{problemset}
 
@@ -881,7 +881,7 @@ $$y=86/77-62x/77+43x^2/154$$
     %TODO 添加引用
 \end{remark*}
 
-\begin{proof}[定理 \ref{thm:geometric_relation_adjoint_fundamental} 的证明]
+\begin{proof}[定理~\ref{thm:geometric_relation_adjoint_fundamental}~的证明]
     首先，注意到因为对于子空间$E$有$(E^\perp)^\perp = E$，所以结论1和3等价。同理，结论2和4也等价。最后，结论2就是将结论1应用到变换$A^*$的结果（此处我们运用了$(A^*)^*=A$）。
 
     所以要证明这个定理，只需证明结论1。
@@ -1041,7 +1041,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
     注意，正交矩阵的特征值不一定为实数（行列式则不是这样）。我们熟悉的旋转矩阵就是一个例子。
 \end{remark*}
 
-\begin{proof}[命题 \ref{prop:unitary_property} 的证明]
+\begin{proof}[命题~\ref{prop:unitary_property}~的证明]
     令$\det U=z$。因为$\det(U^*)=\overline{\det(U)}$（见习题 \ref{ex:5_5_1}），所以有\[|z|^2=\overline{z}z=\det(U^*U)=\det I=1,\]
     因此$|\det U|=|z|=1$。结论1得证。
 
@@ -1159,7 +1159,7 @@ $A$的“本质部分”$\widetilde{A}:\rg A^{*}\to\rg A$是同构，蕴涵了�
     回想一下$\|T(\mathbf{x})-T(\mathbf{y})\|=\|\mathbf{x}-\mathbf{y}\|$以及$\|T(\mathbf{x})\|=\|\mathbf{x}\|,\|T(\mathbf{y})\|=\|\mathbf{y}\|$，可立即得到待证结论。
 \end{proof}
 
-\begin{proof}[定理 \ref{thm:no_translation_orthogonal} 的证明]
+\begin{proof}[定理~\ref{thm:no_translation_orthogonal}~的证明]
     首先注意到对所有$\mathbf{x}\in X$，有\[\|T(\mathbf{x})\|=\|f(\mathbf{x})-f(\mathbf{0})\|=\|\mathbf{x}-\mathbf{0}\|=\|\mathbf{x}\|,\]
     所以$T$保持范数，即$\|T\mathbf{x}\|=\|\mathbf{x}\|$。
 

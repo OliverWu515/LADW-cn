@@ -328,7 +328,7 @@ $\mathbb{R}^n$上的双线性型是具有两个自变量$\mathbf{x},\mathbf{y}\i
     为证明关于负对角元的相应结论，只需将上述论证用于矩阵$-D$。
 \end{proof}
 
-\begin{proof}[定理 \ref{thm:diag_positive_a_positive_dim} 的证明]
+\begin{proof}[定理~\ref{thm:diag_positive_a_positive_dim}~的证明]
     令$D=S^*AS$是$A$的对角化。因为
     \[(D\mathbf{x},\mathbf{x})=(S^*AS\mathbf{x},\mathbf{x})=(AS\mathbf{x},S\mathbf{x})\]
     所以对任意$D$-正性子空间$E$，子空间$SE$都是$A$-正性子空间。该等式还表明，对任意$A$-正性子空间$F$，子空间$S^{-1}F$都是$D$-正性子空间。
@@ -437,7 +437,7 @@ $\min\max$的定义是类似的。
   至于在所有子空间上取最值，下面我们将要证明这样的最大值和最小值都是存在的。
 \end{remark*}
 
-\begin{proof}[定理 \ref{thm:minmax} 的证明]
+\begin{proof}[定理~\ref{thm:minmax}~的证明]
   首先，通过选取一个合适的规范正交基，可假设矩阵$A$是对角的（$A=\operatorname{diag}\{\lambda_1,\lambda_2,\dots,\lambda_n\}$），而不失一般性。
 
   选取子空间$E$和$F$，$\dim E=k$，$\operatorname{codim}F=k-1$，即$\dim F=n-k+1$。因为$\dim E+\dim F>n$，所以存在非零向量$\mathbf{x}_0\in E\cap F$。将其规范化，可假设$\|\mathbf{x}_0\|=1$，而不失一般性。我们总可将特征值按降序排列，因此假设$\lambda_{1}\geq\lambda_{2}\geq\ldots\geq\lambda_{n}$。
@@ -478,7 +478,7 @@ $\min\max$的定义是类似的。
   （如果将集合扩大，最小值只会更小）
 \end{proof}
 
-\begin{proof}[定理 \ref{thm:sylvester_positivity} 的证明]
+\begin{proof}[定理~\ref{thm:sylvester_positivity}~的证明]
   若$A>0$，那么$A_k>0$对$k=1,2,\dots,n$成立（你能解释原因吗？）。因为正定矩阵的所有特征值都是正的（见定理 \ref{thm:pd_eig_pos}），所以$\det A_k>0$对$k=1,2,\dots,n$成立。
 
   现在证明另一方向的蕴涵关系。令$\det A_k>0$对所有$k$成立。我们将通过对$k$用归纳法来证明所有$A_k$（进而，$A=A_n$）都是正定的。

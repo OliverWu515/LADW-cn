@@ -72,7 +72,7 @@
     有关复化的更多细节，详见第 \ref{chap:SpectralIntro} 章第 \ref{subsec:complex_vs_real} 节和第 \ref{chap:InnerProduct} 章第 \ref{subsec:complexification} 节。
 \end{remark}
 
-\begin{proof}[定理 \ref{thm:schur_real} 的证明]
+\begin{proof}[定理~\ref{thm:schur_real}~的证明]
     为证明该定理，只需分析定理 \ref{thm:schur} 的证明。不失一般性，假设算子（矩阵）$A$作用于$\mathbb{R}^n$。
 
     假设定理对于$(n-1)\times (n-1)$矩阵成立。如定理 \ref{thm:schur} 的证明，令$\lambda_1$是$A$的实特征值，$\mathbf{u}_1\in\mathbb{R}^n$（$\|\mathbf{u}_1\|=1$）是对应的特征向量，并令$\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是（$\mathbb{R}^n$中的）规范正交向量组，使得$\mathbf{u}_1,\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$是$\mathbb{R}^n$的规范正交基。
@@ -156,7 +156,7 @@
     注意，上述定理中即便$N$是实矩阵，也不能断定矩阵$U$和$D$是实的。此外，很容易证明如果$D$是实的，那么$N$一定是自伴的。
 \end{remark*}
 
-\begin{proof}[定理 \ref{thm:normal_diag} 的证明]
+\begin{proof}[定理~\ref{thm:normal_diag}~的证明]
     要证明定理 \ref{thm:normal_diag}，先应用定理 \ref{thm:schur}，从而得到一个规范正交基，$N$关于该基的矩阵是上三角的。为完成该定理的证明，只需证明上三角的正规矩阵一定是对角的。
 
     我们将通过对矩阵的大小用归纳法来证明。$1\times 1$矩阵的情形是平凡的，因为任意$1\times 1$矩阵都是对角阵。
@@ -366,7 +366,7 @@ $A$的模显示了变换$A$的“大小”：
     若$\dim X\le \dim Y$，那么这个等距变换扩展为从整个$X$到$Y$的等距变换（而若$\dim X=\dim Y$，这个变换就成为幺正算子）。
 \end{remark*}
 
-\begin{proof}[定理 \ref{thm:polar_decomp} 的证明]
+\begin{proof}[定理~\ref{thm:polar_decomp}~的证明]
     考虑向量$\mathbf{x}\in\operatorname{Ran}|A|$。那么向量$\mathbf{x}$可表示为$\mathbf{x}=|A|\mathbf{v}$（$\mathbf{v}\in X$）。
 
     定义$U_0\mathbf{x}:=A\mathbf{v}$。由命题 \ref{prop:modulus_preserve_norm}，
@@ -463,7 +463,7 @@ $A$的模显示了变换$A$的“大小”：
 
 其实，总可以用幺正的$V$和$W$（而不仅是$\widetilde{V}$和$\widetilde{W}$）来写出类似 \eqref{schmidt_decomp_3} 的表达式，并且在许多情形下使用这种表达式更加便利。要写出这样的表达式，首先需要将向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$和$\mathbf{w}_{1},\mathbf{w}_{2},\ldots,\mathbf{w}_{r}$分别补全为$\mathbb{F}^n$和$\mathbb{F}^m$的规范正交基。
 
-回忆一下，为了将$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$补全为$\mathbb{F}^n$的规范正交基，只需求出$\ker V^*$的规范正交基$\mathbf{v}_{r+1},\ldots,\mathbf{v}_{n}$，从而向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$就是$\mathbb{F}^n$的规范正交基。并且，从一般的基得到规范正交基，还总可以通过格拉姆-施密特正交化来完成。
+回忆一下，为了将$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}$补全为$\mathbb{F}^n$的规范正交基，只需求出$\operatorname{span}\{\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{r}\}^\perp$的规范正交基\linebreak$\mathbf{v}_{r+1},\ldots,\mathbf{v}_{n}$，从而向量组$\mathbf{v}_{1},\mathbf{v}_{2},\ldots,\mathbf{v}_{n}$就是$\mathbb{F}^n$的规范正交基。并且，从一般的基得到规范正交基，还总可以通过格拉姆-施密特正交化来完成。
 
 这样一来，$A$可表示为
 \begin{equation}\label{SVD}
@@ -680,25 +680,25 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
 \subsection{穆尔-彭罗斯（伪）逆}
 
-如我们在第 \ref{chap:InnerProduct} 章第 \ref{sec:least_square} 节所讨论的，最小平方解给出了方程$A\mathbf{x}=\mathbf{b}$无解时的“次优解”（并且在$A\mathbf{x}=\mathbf{b}$有解时也能给出其解）。\index{穆尔-彭罗斯逆（Moore-Penrose inverse）}
+如我们在第 \ref{chap:InnerProduct} 章第 \ref{sec:least_square} 节所讨论的，最小二乘解给出了方程$A\mathbf{x}=\mathbf{b}$无解时的“次优解”（并且在$A\mathbf{x}=\mathbf{b}$有解时也能给出其解）。\index{穆尔-彭罗斯逆（Moore-Penrose inverse）}
 
-注意，最小平方解并未解决唯一性的问题：法方程$A^*A\mathbf{x}=A^*\mathbf{b}$的解未必是唯一的。其有一个自然的特解——最小范数解。这样的解是唯一的，并且可以通过取任意解往$(\ker A^*A)^\perp=(\ker A)^\perp$的投影来获得，见第 \ref{chap:InnerProduct} 章习题 \ref{ex:5_4_5} 和 \ref{ex:5_4_6}。
+注意，最小二乘解并未解决唯一性的问题：法方程$A^*A\mathbf{x}=A^*\mathbf{b}$的解未必是唯一的。其有一个自然的特解——最小范数解。这样的解是唯一的，并且可以通过取任意解往$(\ker A^*A)^\perp=(\ker A)^\perp$的投影来获得，见第 \ref{chap:InnerProduct} 章习题 \ref{ex:5_4_5} 和 \ref{ex:5_4_6}。
 
-不难看出，如果$A$的{\bf 简化}奇异值分解是$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$，那么最小范数最小平方解$\mathbf{x}_0$由下式给出：\index{最小平方解（least square solution）!最小范数$\sim$（minimal norm）}
+不难看出，如果$A$的{\bf 简化}奇异值分解是$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$，那么最小范数最小二乘解$\mathbf{x}_0$由下式给出：\index{最小二乘解（least square solution）!最小范数$\sim$（minimal norm）}
 \begin{equation}\label{ls_ln_sol}
     \mathbf{x}_{0}=\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}\mathbf{b}.
 \end{equation}
-的确如此——$\mathbf{x}_0$是$A\mathbf{x}=\mathbf{b}$的最小平方解（即$A\mathbf{x}=P_{\rg A}\mathbf{b}$的解）：
+的确如此——$\mathbf{x}_0$是$A\mathbf{x}=\mathbf{b}$的最小二乘解（即$A\mathbf{x}=P_{\rg A}\mathbf{b}$的解）：
 \[A\mathbf{x}_{0}=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^{*}\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}\mathbf{b}=\widetilde{W}\widetilde{\Sigma}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}\mathbf{b}=\widetilde{W}\widetilde{W}^{*}\mathbf{b}=P_{\mathrm{Ran}A}\mathbf{b};\]
 最后一个等号成立，是由于$\widetilde{W}\widetilde{W}^{*}=P_{\operatorname{Ran}\widetilde{W}}$（$P_{\rg\widetilde{W}}=\widetilde{W}(\widetilde{W}^{*}\widetilde{W})^{-1}\widetilde{W}^{*}=\widetilde{W}\widetilde{W}^{*}$）并且$\rg\widetilde{W}=\rg A$（见下习题 \ref{ex:6_4_4}）。
 
 方程$A\mathbf{x}=P_{\rg A}\mathbf{b}$的通解是
 \[\mathbf{x}=\mathbf{x}_0+\mathbf{y},\quad \mathbf{y}\in\ker A,\]
 注意到$\mathbf{x}_0\in \rg \widetilde{V}$且$\rg \widetilde{V}=\rg A^*$（同样见下习题 \ref{ex:6_4_4}），因此 $\mathbf{x}_0\perp \ker A$（因为$\ker A = (\rg A^*)^\perp$，见第 \ref{chap:InnerProduct} 章的定理 \ref{thm:geometric_relation_adjoint_fundamental}）。
-所以$\mathbf{x}_0$的确是$A\mathbf{x}=P_{\rg A}\mathbf{b}$的唯一最小范数解，或者等价地说，是$A\mathbf{x}=\mathbf{b}$的最小范数最小平方解。
+所以$\mathbf{x}_0$的确是$A\mathbf{x}=P_{\rg A}\mathbf{b}$的唯一最小范数解，或者等价地说，是$A\mathbf{x}=\mathbf{b}$的最小范数最小二乘解。
 
 \begin{definition}
-    变换$A^+:=\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}$（其中$A$的{\bf 简化}奇异值分解为$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$）称为变换$A$的{\bf 穆尔-彭罗斯逆}（或{\bf 穆尔-彭罗斯伪逆}）。换言之，{\bf 穆尔-彭罗斯逆}是能给出$A\mathbf{x}=\mathbf{b}$的唯一最小平方解的变换。
+    变换$A^+:=\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}$（其中$A$的{\bf 简化}奇异值分解为$A=\widetilde{W}\widetilde{\Sigma}\widetilde{V}^*$）称为变换$A$的{\bf 穆尔-彭罗斯逆}（或{\bf 穆尔-彭罗斯伪逆}）。换言之，{\bf 穆尔-彭罗斯逆}是能给出$A\mathbf{x}=\mathbf{b}$的唯一最小范数最小二乘解的变换。
 \end{definition}
 
 \begin{remark}
@@ -723,7 +723,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
 
     最后，对$A$的目标空间中的任意$\mathbf{b}$有\[\mathbf{x}_0:=A^+\mathbf{b}=P_{\operatorname{Ran}A^*}A^+\mathbf{b}\in\operatorname{Ran}A^*\]
     以及\[A\mathbf{x}_{0}=AA^{+}\mathbf{b}=P_{\operatorname{Ran}A}\mathbf{b},\]
-    即$\mathbf{x}_0$是$A\mathbf{x}=\mathbf{b}$的最小平方解。因为$\mathbf{x}_0\in \rg A^*=(\ker A)^\perp$，所以根据我们之前的讨论，$\mathbf{x}_0$是最小范数最小平方解。但是，如我们之前证明的，这样的最小平方解由 \eqref{ls_ln_sol} 给出，因此必有$A^+=\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}$。\qed
+    即$\mathbf{x}_0$是$A\mathbf{x}=\mathbf{b}$的最小二乘解。因为$\mathbf{x}_0\in \rg A^*=(\ker A)^\perp$，所以根据我们之前的讨论，$\mathbf{x}_0$是最小范数最小二乘解。但是，如我们之前证明的，这样的最小二乘解由 \eqref{ls_ln_sol} 给出，因此必有$A^+=\widetilde{V}\widetilde{\Sigma}^{-1}\widetilde{W}^{*}$。\qed
 \end{remark}
 
 \begin{problemset}
@@ -752,7 +752,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
     \item 利用奇异值分解$A=W\Sigma V^*$，写出穆尔-彭罗斯逆$A^+$的公式。
     \item {\bf 吉洪诺夫正则化}：证明穆尔-彭罗斯逆$A^+$可用下述极限计算：
     \[A^{+}=\lim_{\varepsilon\to0+}(A^{*}A+\varepsilon I)^{-1}A^{*}=\lim_{\varepsilon\to0+}A^{*}(AA^{*}+\varepsilon I)^{-1}.\]
-    \item \label{ex:6_4_7} 证明：矩阵$A$的算子范数与其弗罗贝尼乌斯范数相同，当且仅当矩阵的秩为$1$。{\bf 提示}：习题 \ref{ex:6_3_1} 可能有用。
+    \item \label{ex:6_4_7} 证明：非零矩阵$A$的算子范数与其弗罗贝尼乌斯范数相同，当且仅当矩阵的秩为$1$。{\bf 提示}：习题 \ref{ex:6_3_1} 可能有用。
 \end{problemset}
 
 \section{正交矩阵的结构}\label{sec:orthogonal_structure}
@@ -938,7 +938,7 @@ $\|A\|\cdot\|A^{-1}\|$称为矩阵$A$的{\bf 条件数}。它估计了方程的�
     我们假设了该引理对$n-1$的情形成立，所以$A_1$可由至多$(n-1)(n-2)/2$个旋转变换为所需的上三角形式。注意，这些旋转作用于$\mathbb{R}^{n-1}$（只对坐标$x_2,x_3,\dots,x_n$有作用），但我们总可以假设它们作用于整个$\mathbb{R}^{n}$（只需假设它们不改变第一个坐标）。那么，这些旋转就不会改变向量$(a,0,\dots,0)^T$（$R_{n-1}\dots R_2R_1A$的第一列），因此矩阵$A$可由至多$n-1+(n-1)(n-2)/2=n(n-1)/2$个初等旋转化为所需的上三角形式。
 \end{proof}
 
-\begin{proof}[定理 \ref{thm:every_rot_elementary_rot} 的证明]
+\begin{proof}[定理~\ref{thm:every_rot_elementary_rot}~的证明]
     由引理 \ref{lem:elementary_rot_upper}，存在初等旋转$R_1,R_2,\dots,R_N$使得矩阵$U_1=R_N\dots R_2R_1U$是上三角的，并且所有对角元都是非负的（除了最后一个可能不是）。
 
     注意，矩阵$U_1$是正交的。任意正交矩阵都是正规的，而我们知道任意正规的上三角矩阵都是对角阵。所以$U_1$是对角阵。

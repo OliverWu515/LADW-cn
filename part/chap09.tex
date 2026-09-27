@@ -116,7 +116,7 @@
     令$A$是特征值为$\lambda_1,\lambda_2,\dots,\lambda_n$的方阵，并令$p$是多项式。那么$p(A)$是可逆的，当且仅当\[p(\lambda_k)\ne 0\quad \forall k=1,2,\dots,n.\]
 \end{corollary}
 
-\begin{proof}[定理 \ref{thm:spectral_mapping} 的证明]
+\begin{proof}[定理~\ref{thm:spectral_mapping}~的证明]
     如上讨论的，包含关系\[p(\sigma(A))\subset \sigma(p(A))\]是平凡的。
 
     为证明反方向的包含关系$\sigma(p(A))\subset p(\sigma(A))$，取$\mu\in \sigma(p(A))$。记$q(z)=p(z)-\mu$，因此$q(A)=p(A)-\mu I$。因为$\mu\in \sigma(p(A))$，所以算子$q(A)=p(A)-\mu I$不可逆。
@@ -249,7 +249,7 @@
     如果我们将所有广义特征空间$E_k$的基合并起来，那么由第 \ref{chap:SpectralIntro} 章定理 \ref{thm:union_of_basis_in_subspace_li_basis}，我们就会得到整个空间的基。在该基下，算子$A$的矩阵具有分块对角形式$A=\operatorname{diag}\{A_1,A_2,\dots,A_r\}$，其中$A_k:=A|_{E_k},E_k=E_{\lambda_k}$。还容易从 \eqref{gen_eigenspace_depth_0} 看出，算子$N_k:=A_k-\lambda_k I_{E_k}$是幂零的，$N_k^{d_k}=\mathbf{0}$。
 \end{remark}
 
-\begin{proof}[定理 \ref{thm:gen_eigen_decomp} 的证明]
+\begin{proof}[定理~\ref{thm:gen_eigen_decomp}~的证明]
     令$m_k$是特征值$\lambda_k$的重数，所以$p(z)=\prod_{k=1}^{r}(z-\lambda_{k})^{m_{k}}$是$A$的特征多项式。定义\[p_k(z)=p(z)/(z-\lambda_k)^{m_k}=\prod_{j\neq k}(z-\lambda_j)^{m_j}.\]
 
 \begin{lemma}
@@ -458,7 +458,7 @@
 
 算子$A$关于若当标准基的矩阵称为$A$的若当标准形。后面我们将看到，如果规定各块的顺序（即规定基中向量的排列顺序），那么若当标准形是唯一的。
 
-\begin{proof}[推论 \ref{cor:jordan_canonical_nil} 的证明]
+\begin{proof}[推论~\ref{cor:jordan_canonical_nil}~的证明]
     由定理 \ref{thm:basis_cycle_gen_eigen}，可以求出由广义特征向量链的并集构成的基。长度为$p$的链将对应形如 \eqref{jordan_block} 的$p\times p$对角块，而长度为$1$的链对应$1\times 1$的零矩阵块。我们可以将这些$1\times 1$零矩阵合并成一个大块（因为非对角元也是$0$）。
 \end{proof}
 
@@ -574,7 +574,7 @@ $\rg(A^{p_1-1})\cap\ker A$的基补全为$\rg(A^{p_2-1})\cap\ker A$的基$\mathb
 
 定理 \ref{thm:jordan_decomp} 中的分块对角形式称为算子$A$的{\bf 若当标准形}。对应的基称为算子$A$的{\bf 若当标准基}。\index{若当标准（Jordan canonical）!$\sim$基（basis）}\index{若当标准（Jordan canonical）!$\sim$形（form）}
 
-\begin{proof}[定理 \ref{thm:jordan_decomp} 的证明]
+\begin{proof}[定理~\ref{thm:jordan_decomp}~的证明]
     根据定理 \ref{thm:gen_eigen_decomp} 和注 \ref{remark:gen_eigen_decomp}，如果将广义特征空间$E_k=E_{\lambda_k}$的基合并起来得到整个空间的基，那么$A$关于该基的矩阵具有分块对角形式$\operatorname{diag}\{A_1,A_2,\dots,A_r\}$，其中$A_k=A|_{E_k}$。算子$N_k=A_k-\lambda_k I_{E_k}$是幂零的，所以由定理 \ref{thm:basis_cycle_gen_eigen}（更准确地说，是由推论 \ref{cor:jordan_canonical_nil}），可以求出$E_k$的基，使得$N_k$关于该基的矩阵是$N_k$的若当标准形。要得到$A_k$关于该基的矩阵，只需将主对角线上的$0$换成$\lambda_k$即可。
 \end{proof}
 
