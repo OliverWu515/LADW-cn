@@ -2,8 +2,6 @@
 
 \chapter{对偶空间和张量}\label{chap:DualandTensor}
 
-\textcolor{magenta}{$\clubsuit$ 本章尚未完稿。}
-
 本章中的所有向量空间均为有限维的。
 
 \section{对偶空间}
@@ -11,240 +9,485 @@
 \subsection{线性泛函和对偶空间、对偶空间中的坐标变换}
 
 \begin{definition}
-    （域 $\mathbb{F}$ 上的）向量空间 $V$ 上的线性泛函即线性变换 $L : V \to \mathbb{F}$。
+    （域 $\mathbb{F}$ 上的）向量空间 $V$ 上的线性泛函即线性变换 $L:V\to\mathbb{F}$。
 \end{definition}
 
 这类特殊的线性变换非常重要，值得单独命名。%原文漏了个is
 
-如果将向量视为某种物理对象，例如力或速度，那么就可以将线性泛函视为一种（线性的）测量，其给出某个标量值作为结果（比如给定方向上的力或速度）。%some a scalar quantity, emmm
+如果将向量视为某种物理对象，例如力或速度，那么就可以将线性泛函视为一种（线性的）测量，其给出某个标量值作为结果，比如给定方向上的力或速度。%some a scalar quantity, emmm
 
 \begin{definition}
-    有限维\footnote{我们在这里只考虑有限维向量空间，是因为无限维向量空间的对偶空间仅包含所谓的{\bf 有界}线性泛函（而非所有线性泛函）。我们这里不给出精确定义，只是提及在有限维情形下（定义空间和目标空间均为有限维的）所有线性变换都是有界的，而不再需要提到{\bf 有界}这个词。}向量空间 $V$ 上的所有线性泛函所成的集合，称为 $V$ 的{\bf 对偶}，通常记作 $V^\prime$ 或 $V^*$。
+    有限维\footnote{我们在这里只考虑有限维向量空间，是因为在无限维情形下，对偶空间仅由所谓的{\bf 有界}线性泛函构成，而不是任意线性泛函。这里不给出精确定义，只需指出：当定义域和目标空间均为有限维时，所有线性变换都是有界的，因此无需再特别写出{\bf 有界}二字。}向量空间 $V$ 上所有线性泛函所成的集合称为 $V$ 的{\bf 对偶空间}，通常记作 $V^\prime$ 或 $V^*$。
 \end{definition}
 
-正如先前在第~\ref{chap:BasicNotion}~章第~\ref{sec:linear_transformations_as_vectors}~节中所讨论的那样，从 $V$ 到 $W$ 的所有线性变换所成的集合 $\mathcal{L}(V, W)$ 是向量空间（具有自然的加法和标量乘法运算）。因此，对偶空间 $V^\prime = \mathcal{L}(V, \mathbb{F})$ 也是向量空间。
+正如先前在第~\ref{chap:BasicNotion}~章第~\ref{sec:linear_transformations_as_vectors}~节中讨论过的，从 $V$ 到 $W$ 的所有线性变换所成的集合 $\mathcal{L}(V,W)$ 是一个向量空间（加法和标量乘法均按自然方式定义）。因此，对偶空间 $V^\prime = \mathcal{L}(V, \mathbb{F})$ 也是向量空间。
 
-让我们来考虑一个例子。令空间 $V$ 为 $\mathbb{R}^n$，那它的对偶是什么？
-我们知道，线性变换 $T : \mathbb{R}^n \to \mathbb{R}^m$ 可以表示为一个 $m \times n$ 的矩阵，那么 $\mathbb{R}^n$ 上的线性泛函（即线性变换 $L : \mathbb{R}^n \to \mathbb{R}$）可由 $1 \times n$ 的矩阵（行矩阵）给出，我们将其记作 $[L]$。
-所有这样的行矩阵所成的集合与 $\mathbb{R}^n$ 同构（对应的同构由转置 $[L] \to [L]^T$ 得到）。
+让我们考虑一个例子。若 $V$为$\mathbb{R}^n$，那么它的对偶是什么？我们知道，线性变换 $T:\mathbb{R}^n\to\mathbb{R}^m$ 可以由一个 $m\times n$ 矩阵表示，因此 $\mathbb{R}^n$ 上的线性泛函，也就是线性变换 $L:\mathbb{R}^n\to\mathbb{R}$，由一个 $1\times n$ 的行矩阵给出，记作 $[L]$。所有这样的行矩阵所成的空间与 $\mathbb{R}^n$ 同构，同构可由转置 $[L]\to [L]^T$ 给出。
 
 于是，$\mathbb{R}^n$ 的对偶是其自身。
 这对于 $\mathbb{C}^n$ 也同样成立，当然，对于 $\mathbb{F}^n$ 都是如此（其中 $\mathbb{F}$ 是任意域）。
 由于域 $\mathbb{F}$（这里我们主要关注 $\mathbb{F} = \mathbb{R}$ 或 $\mathbb{F} = \mathbb{C}$ 的情形）上的 $n$ 维空间 $V$ 与 $\mathbb{F}^n$ 同构，并且 $\mathbb{F}^n$ 的对偶也与 $\mathbb{F}^n$ 同构，因此 $V^\prime$ 与 $V$ 同构。
 
-这样一来，对偶空间的定义就开始显得有点傻了，因为它好像并没有带来任何新的东西。
+这样一来，对偶空间的定义开始显得有点多余，因为它仿佛没有带来什么新对象。
 
-然而，事实并非如此！如果我们仔细看看，就会发现对偶空间确实是新的对象。为了看出这点，让我们分析矩阵 $[L]$ 的元素（可以称之为 $L$ 的坐标）是怎样随着我们改变 $V$ 中的基而变化的。
+然而事实并非如此！仔细观察便会发现，对偶空间确实是新的对象。为了看出这一点，让我们分析矩阵 $[L]$ 的元素（也可以把它们称为 $L$ 的坐标\footnote{$L$本身是对偶空间$V$中的元素，即也是向量，因此适用“向量的坐标”的说法。不过这里是将其作为线性变换来看，给出的是其矩阵表示，后文会说明，这个矩阵表示恰好就是其关于对偶基的坐标。——译者注}）在改变 $V$ 的基时怎样变化。
 
 \subsubsection{坐标变换公式}
 
 令
 \[
-    \mathcal{A} = \{\mathbf{a}_1,\mathbf{a}_2,\ldots,\mathbf{a}_n\}, \quad
-    \mathcal{B} = \{\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n\}
+    \mathcal{A}=\{\mathbf{a}_1,\mathbf{a}_2,\ldots,\mathbf{a}_n\},\qquad
+    \mathcal{B}=\{\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n\}
 \]
-是 $V$ 的两个基，并且令 $[L]_{\mathcal{A}} = [L]_{\mathcal{S}, \mathcal{A}}$ 和 $[L]_{\mathcal{B}} = [L]_{\mathcal{S}, \mathcal{B}}$ 分别为 $L$ 在 $\mathcal{A}$ 和 $\mathcal{B}$ 这两个基中的矩阵（我们假设由标量所成的目标空间始终采用标准基，于是我们可以在记号中省略下标 $\mathcal{S}$）。
-那么，回忆一下第~\ref{chap:LinearSystems}~章~\ref{sec:matrix_in_different_basis}~节中的坐标变换规则，我们得到
+是 $V$ 的两个基，且令 $[L]_{\mathcal{A}}=[L]_{\mathcal{S},\mathcal{A}}$ 和
+$[L]_{\mathcal{B}}=[L]_{\mathcal{S},\mathcal{B}}$ 分别为 $L$ 在基 $\mathcal{A}$ 和 $\mathcal{B}$ 下的矩阵。这里默认标量所成的目标空间始终采用标准基 $\mathcal{S}$，因此可省略下标 $\mathcal{S}$。回顾第~\ref{chap:LinearSystems}~章~\ref{sec:matrix_in_different_basis}~节中的坐标变换公式，我们可得
 \[
-    [L]_{\mathcal{B}} = [L]_{\mathcal{A}} [I]_{\mathcal{A}, \mathcal{B}}.
+    [L]_{\mathcal{B}}=[L]_{\mathcal{A}}[I]_{\mathcal{A},\mathcal{B}}.
 \]
-回忆一下，对于向量 $\mathbf{v} \in V$，其在不同的基中的坐标由公式
+另一方面，对向量 $\mathbf{v}\in V$，其在不同基下的坐标有以下关系
 \[
-    [\mathbf{v}]_{\mathcal{B}} = [I]_{\mathcal{B}, \mathcal{A}} [\mathbf{v}]_{\mathcal{A}}
+    [\mathbf{v}]_{\mathcal{B}}
+    =[I]_{\mathcal{B},\mathcal{A}}[\mathbf{v}]_{\mathcal{A}},
 \]
-相关联，并且
+且有
 \[
-    [I]_{\mathcal{A}, \mathcal{B}} = [I]_{\mathcal{B}, \mathcal{A}}^{-1}.
+    [I]_{\mathcal{A},\mathcal{B}}
+    =[I]_{\mathcal{B},\mathcal{A}}^{-1}.
 \]
 
-如果我们记 $S := [I]_{\mathcal{B}, \mathcal{A}}$，那么 $[\mathbf{v}]_{\mathcal{B}} = S [\mathbf{v}]_{\mathcal{A}}$，向量 $[L]_{\mathcal{B}}^T$ 和 $[L]_{\mathcal{A}}^T$ 的元素由公式
-\begin{equation}
-    [L]_{\mathcal{B}}^T = \left( S^{-1} \right)^T [L]_{\mathcal{A}}^T
+若记$S:=[I]_{\mathcal{B},\mathcal{A}}$，则 $[\mathbf{v}]_{\mathcal{B}}=S[\mathbf{v}]_{\mathcal{A}}$，且 $[L]_{\mathcal{B}}^T$ 与
+$[L]_{\mathcal{A}}^T$ 满足
+\begin{equation}\label{eq:dual_change_coordinate}
+    [L]_{\mathcal{B}}^T
+    =\left(S^{-1}\right)^T[L]_{\mathcal{A}}^T.
 \end{equation}
-相关联（由于我们通常把向量表示为其坐标所成的列，所以我们用的是 $[L]_{\mathcal{A}}^T$ 和 $[L]_{\mathcal{B}}^T$ 而不是 $[L]_{\mathcal{A}}$ 和 $[L]_{\mathcal{B}}$）。
+这里之所以写成$[L]_{\mathcal{B}}^T,[L]_{\mathcal{A}}^T$而不是$[L]_{\mathcal{B}},[L]_{\mathcal{A}}$，是因为我们通常把向量的坐标写成列向量。
 
-用自然语言表达如下：
-
+换句话说：
 \begin{center}
-    \fbox{\parbox{0.8\linewidth}{如果 $S$ 是 $X$ 中（从旧坐标到新坐标）的坐标变换矩阵，那么对偶空间 $X^\prime$ 中的坐标变换矩阵为 $\left( S^{-1} \right)^T$。}}
+    \fbox{\parbox{0.8\linewidth}{
+    如果 $S$ 是 $X$ 中从旧坐标到新坐标的坐标变换矩阵，那么对偶空间 $X^\prime$ 中相应的坐标变换矩阵为 $\left(S^{-1}\right)^T$。
+    }}
 \end{center}
 
-所以，$V$ 的对偶空间 $V^\prime$ 虽与 $V$ 同构但确实是不同的对象——不同之处在于当我们改变 $V$ 中的基时 $V$ 和 $V^\prime$ 中的坐标如何变化。
+因此，虽然 $V^\prime$ 与 $V$ 同构，但它们确实是不同的对象：区别就在于改变 $V$ 的基时，$V$ 与 $V^\prime$ 中的坐标按不同规则变化。
 
 \begin{remark*}
-    有人可能会问，为什么我们不能在 $X$ 中选择一个基而在对偶 $X^\prime$ 中选择某个完全不相关联的基？当然，我们可以这样做，但试想一下，如果我们知道的是 $\mathbf{x}$ 在某个基中的坐标以及 $L$ 在某个完全不相关联的基中的坐标，那么要计算 $L(\mathbf{x})$ 得付出怎样的代价？
+    有人可能会问：为什么不能在 $X$ 中选取一个基，而在对偶空间 $X^\prime$ 中选取某个完全无关的基？这样做当然可以，不过试想，如果已知 $\mathbf{x}$ 在某个基下的坐标，而 $L$ 的坐标却是在某个毫无关联的基中给出的，那么计算 $L(\mathbf{x})$ 就会相当麻烦。
 
-    所以，如果我们（已知 $\mathbf{x}$ 在某个基中的坐标）想要利用矩阵代数的标准规则计算得到线性泛函 $L$ 的作用，即用一行（泛函）乘以一列（向量），那么我们别无选择：线性泛函 $L$ 的“坐标”就应该是它（在同一基中）的矩阵的元素。
+    因而，如果我们希望在已知 $\mathbf{x}$ 在某基下坐标的情况下，仍可按标准矩阵代数的规则计算 $L(\mathbf{x})$，即用一行（泛函的矩阵表示）乘以一列（向量的矩阵表示），那么就别无选择：线性泛函 $L$ 的“坐标”应当就是它在同一基下的矩阵元素。
 
-    正如我们将会看到的那样（见下文的~\ref{sec:dual_basis}~节），线性泛函的元素（“坐标”）确实是某个基（即所谓{\bf 对偶}基）中的坐标。
+    正如下文~\ref{sec:dual_basis}~节将说明的，这些矩阵元素（或称“坐标”）确实是某个基——所谓{\bf 对偶基}——下的坐标。
 \end{remark*}
 
 \subsubsection{唯一性定理}
 
-\begin{lemma} \label{lem:uniqueness_of_functional}
-    令 $\mathbf{v} \in V$。如果 $L(\mathbf{v}) = 0$ 对所有 $L \in V^\prime$ 都成立，那么 $\mathbf{v} = \mathbf{0}$。并有推论：如果 $L(\mathbf{v}_1) = L(\mathbf{v}_2)$ 对所有 $L \in V^\prime$ 都成立，那么 $\mathbf{v}_1 = \mathbf{v}_2$。
+\begin{lemma}\label{lem:uniqueness_of_functional}
+    令 $\mathbf{v}\in V$。若对所有 $L\in V^\prime$ 都有 $L(\mathbf{v})=0$，则 $\mathbf{v}=\mathbf{0}$。
+    并有推论：若对所有 $L\in V^\prime$ 都有 $L(\mathbf{v}_1)=L(\mathbf{v}_2)$，则 $\mathbf{v}_1=\mathbf{v}_2$。
 \end{lemma}
 
 \begin{proof}
-    取定 $V$ 中的基 $\mathcal{B}$。那么，
+    取定 $V$ 中的一个基 $\mathcal{B}$。则
     \[
-        L (\mathbf{v}) = [L]_{\mathcal{B}} [\mathbf{v}]_{\mathcal{B}}.
+        L(\mathbf{v})=[L]_{\mathcal{B}}[\mathbf{v}]_{\mathcal{B}}.
     \]
-    选取不同的矩阵（即，不同的 $L$），我们可以很容易发现 $[\mathbf{v}]_{\mathcal{B}} = \mathbf{0}$。
-    实际上，如果
+    通过选择不同的矩阵，也就是不同的 $L$，很容易看出 $[\mathbf{v}]_{\mathcal{B}}=\mathbf{0}$。
+    实际上，取
     \[
-        L_k = [0, \ldots, 0, \underset{k}{1}, 0, \ldots, 0],
+        L_k=[0,\ldots,0,\underset{k}{1},0,\ldots,0],
     \]
-    那么由等式
-    \[
-        L_k [\mathbf{v}]_{\mathcal{B}} = 0
-    \]
-    可得 $[\mathbf{v}]_{\mathcal{B}}$ 的第 $k$ 个坐标为 $0$。
-
-    对所有 $k$ 应用这一等式，我们可得到 $[\mathbf{v}]_{\mathcal{B}} = \mathbf{0}$，所以 $\mathbf{v} = \mathbf{0}$。
+    则 \[L_k[\mathbf{v}]_{\mathcal{B}}=0\] 意味着 $[\mathbf{v}]_{\mathcal{B}}$ 的第 $k$ 个坐标为 $0$。对所有 $k$ 应用这一结论即可得到 $[\mathbf{v}]_{\mathcal{B}}=\mathbf{0}$，故 $\mathbf{v}=\mathbf{0}$。
 \end{proof}
 
 \subsection{二次对偶}
 
-正如我们上面讨论的那样，对偶空间 $V^\prime$ 是向量空间，因此可以考虑它的对偶 $V^{\prime\prime} = (V^\prime)^\prime$。
-看起来好像还可以继续考虑 $V^{\prime\prime}$ 的对偶 $V^{\prime\prime\prime}$，然后一直玩下去。%It looks like one that ...? It looks like that one ...?
-然而，游戏到 $V^{\prime\prime}$ 就可以结束了，因为
+上面讨论过，$V^\prime$ 本身也是向量空间，因此我们可以继续考虑它的对偶 $V^{\prime\prime}=(V^\prime)^\prime$。
+看起来还可以继续考虑 $V^{\prime\prime}$的对偶 $V^{\prime\prime\prime}$，如此反复下去。不过，$V^{\prime\prime}$之后的讨论就没什么意思了，因为
 \begin{center}
-    \fbox{\parbox{0.8\linewidth}{二次对偶 $V^{\prime\prime}$ 与 $V$ {\bf 典范}（即，很自然地）同构。}}
+    \fbox{\parbox{0.85\linewidth}{
+    二次对偶 $V^{\prime\prime}$ 与 $V$ {\bf 典范地}（也就是以一种自然的方式）同构。
+    }}
 \end{center}
 
-我们来理解一下这一表述。任何向量 $\mathbf{v} \in V$ 都自然地定义了一个在 $V^\prime$ 上的线性泛函 $L_\mathbf{v}$（即，二次对偶 $V^{\prime\prime}$ 中的元素），其定义为
+我们来阐释一下这个表述。任意向量 $\mathbf{v}\in V$ 都自然定义了 $V^\prime$ 上的一个线性泛函 $L_{\mathbf{v}}$，即二次对偶 $V^{\prime\prime}$ 中的一个元素：
 \[
-    L_\mathbf{v} (f) = f(\mathbf{v}), \quad \forall f \in V^\prime.
+    L_{\mathbf{v}}(f)=f(\mathbf{v}),\qquad \forall f\in V^\prime.
 \]
-很容易能够验证 $T : V \to V^{\prime\prime}, \  T \mathbf{v} = L_{\mathbf{v}}$ 这一映射是线性变换。
+容易验证映射$T:V\to V^{\prime\prime}, T\mathbf{v}=L_{\mathbf{v}}$
+是线性变换。
 
-注意到，$\ker T = \{\mathbf{0}\}$。确实如此，如果 $T \mathbf{v} = \mathbf{0}$，那么
+而且 $\ker T=\{\mathbf{0}\}$。的确如此：若 $T\mathbf{v}=\mathbf{0}$，则
 \[
-    f(\mathbf{v}) = \mathbf{0}, \quad \forall f \in V^\prime,
+    f(\mathbf{v})=0,\qquad \forall f\in V^\prime,
 \]
-且根据引理~\ref{lem:uniqueness_of_functional}~可知 $\mathbf{v} = \mathbf{0}$。
+由上引理~\ref{lem:uniqueness_of_functional}~可知 $\mathbf{v}=\mathbf{0}$。
 
-由于 $\dim V^{\prime\prime} = \dim V^\prime = \dim V$，所以 $\ker T = \{\mathbf{0}\}$ 这一条件表明 $T$ 是可逆变换（同构）。
+又因为$\dim V^{\prime\prime}=\dim V^\prime=\dim V$，
+所以 $\ker T=\{\mathbf{0}\}$ 蕴含 $T$ 可逆，即 $T$ 是一个同构。
 
-同构 $T$ 是很自然的（至少对于数学家来说）。特别地，它的定义不需要用到基，所以它不依赖于基的选取。所以，我们不正式地称 $V^{\prime\prime}$ 与 $V$ 典范同构——严谨的表述是，（我们认为自然且规范的）以上描述的映射 $T$ 是从 $V$ 到 $V^{\prime\prime}$ 的同构。
+这个同构非常自然，至少对数学家而言是这样。尤其是，它的定义完全没有使用任何基，因此不依赖于基的选择。于是我们非正式地说 $V^{\prime\prime}$ 与 $V$ 典范同构；严格地说，（我们认为自然且规范的）上述映射 $T$ 是从 $V$ 到 $V^{\prime\prime}$ 的同构。
 
 \subsection{对偶基，亦即双正交基}\label{sec:dual_basis}
 
-在前面的小节中，我们几次将线性泛函 $L$ 的矩阵元素称为坐标。但是本书中的{\bf 坐标}通常是指某个基中的坐标。那么线性泛函的“坐标”真是某个基中的坐标吗？答案是肯定的，所以这一术语是保持一致的。
+在前面的讨论中，我们曾多次把线性泛函 $L$ 的矩阵元素称为“坐标”。但是本书中“坐标”通常是指相对于某个基的坐标。那么，线性泛函的这些“坐标”真的是某个基下的坐标吗？答案是肯定的，于是“坐标”的用法就保持了一致。
 
-让我们来求出对应于 $L \in V^\prime$ 的坐标的基。令 $\left\{ \mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n \right\}$ 为 $V$ 中的基。对于 $L \in V^\prime$，令 $[L]_{\mathcal{B}} = [L_1, L_2, \ldots, L_n]$ 为其在基 $\mathcal{B}$ 中的矩阵（行）。考虑线性泛函 $\mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n \in V^\prime$，其定义为
-\begin{equation} \label{eq:dual_basis_definition}
-    \mathbf{b}^{\prime}_k (\mathbf{b}_j) = \delta_{k,j},
+我们来求出对应于 $L \in V^\prime$ 的坐标的基。令 $\mathcal{B}=\{\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n\}$ 为 $V$ 的一个基。对 $L\in V^\prime$，设$[L]_{\mathcal{B}}=[L_1,L_2,\ldots,L_n]$为其在基$\mathcal{B}$下的（行）矩阵。
+考虑线性泛函 $\mathbf{b}_1^\prime,\mathbf{b}_2^\prime,\ldots,\mathbf{b}_n^\prime\in V^\prime$，定义为
+\begin{equation}\label{eq:dual_basis_definition}
+    \mathbf{b}_k^\prime(\mathbf{b}_j)=\delta_{k,j},
 \end{equation}
-其中 $\delta_{k,j}$ 为{\bf 克罗内克尔符号}，即
+其中 $\delta_{k,j}$ 是{\bf 克罗内克尔符号}：\index{克罗内克尔符号（Kroneker delta）}
 \[
-    \delta_{k,j} =
+    \delta_{k,j}=
     \begin{cases}
-        1, & j = k, \\
-        0, & j \neq k.
+        1,&j=k,\\
+        0,&j\ne k.
     \end{cases}
 \]
-回想一下，线性泛函由它对基的作用来定义，因此 $\mathbf{b}^{\prime}_k$ 这些泛函是定义良好的。
+回顾一下，线性变换由其在一个基上的作用唯一确定，所以各泛函$\mathbf{b}_k^\prime$是定义良好的。
 
-可以很容易看到，泛函 $L$ 可以表示为
+容易看出，泛函$L$可表示为
 \[
-    L = \sum L_k \mathbf{b}^{\prime}_k.
+    L=\sum_k L_k\mathbf{b}_k^\prime.
 \]
-确实如此，取任意的 $\mathbf{v} = \sum_{k} \alpha_k \mathbf{b}_k \in V$，那么 $[\mathbf{v}]_{\mathcal{B}} = [\alpha_1, \alpha_2, \ldots, \alpha_n]^T$。由线性性和 $\mathbf{b}^{\prime}_k$ 的定义可得，
+的确如此：取任意$\mathbf{v}=\sum_j\alpha_j\mathbf{b}_j\in V$，从而$[\mathbf{v}]_\mathcal{B}=[\alpha_1,\alpha_2,\dots,\alpha_n]^T$。
+由$\mathbf{b}_k^\prime$的定义与线性可得
 \[
-    \mathbf{b}^{\prime}_k (\mathbf{v}) = \mathbf{b}^{\prime}_k \left( \sum_{j} \alpha_j \mathbf{b}_j \right) = \sum_j \alpha_j \mathbf{b}^{\prime}_k (\mathbf{b}_j) = \alpha_k.
+    \mathbf{b}_k^\prime(\mathbf{v})
+    =\mathbf{b}_k^\prime\left(\sum_j\alpha_j\mathbf{b}_j\right)
+    =\sum_j\alpha_j\mathbf{b}_k^\prime(\mathbf{b}_j)
+    =\alpha_k,
 \]
-因此，
+于是
 \[
-    L \mathbf{v} = [L]_{\mathcal{B}} [\mathbf{v}]_{\mathcal{B}} = \sum_k L_k \alpha_k = \sum_k L_k \mathbf{b}^{\prime}_k (\mathbf{v}).
+    L(\mathbf{v})
+    =[L]_{\mathcal{B}}[\mathbf{v}]_{\mathcal{B}}
+    =\sum_kL_k\alpha_k
+    =\sum_kL_k\mathbf{b}_k^\prime(\mathbf{v}).
 \]
-由于这一等式对所有 $\mathbf{v} \in V$ 都成立，所以我们可得 $L = \sum_k L_k \mathbf{b}^{\prime}_k$。
+因为上述等式对所有$\mathbf{v}\in V$都成立，所以$L=\sum_k L_k\mathbf{b}_k^\prime$。
 
-由于我们没有对 $L \in V^\prime$ 做任何假设，我们只是展示了任何线性泛函 $L$ 可以表示为 $\mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n$ 的线性组合，因此 $\left\{ \mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n \right\}$ 这一个组是生成组。
+因为我们没有对上述$L\in V^\prime$附加任何前提，所以上面我们证明了任意线性泛函$L$都能表示为$\mathbf{b}_1^\prime,\mathbf{b}_2^\prime,\ldots,\mathbf{b}_n^\prime$的线性组合，所以向量组$\mathbf{b}_1^\prime,\mathbf{b}_2^\prime,\ldots,\mathbf{b}_n^\prime$是生成组。
 
-让我们来证明这一个组是线性无关的（从而是基）。令 $\mathbf{0} = \sum_k L_k \mathbf{b}^{\prime}_k$。那么对于任意 $j = 1, 2, \ldots, n$，有
+接下来我们证明这个向量组是线性无关的，从而是一个基。令$\mathbf{0}=\sum_kL_k\mathbf{b}_k^\prime$，
+则对任意 $j=1,2,\dots,n$，
 \[
-    0 = \mathbf{0} \mathbf{b}_j = \left( \sum_k L_k \mathbf{b}^{\prime}_k \right) \left( \mathbf{b}_j \right) = \sum_k L_k \mathbf{b}^{\prime}_k (\mathbf{b}_j) = L_j,
+    0
+    =\mathbf{0}\mathbf{b}_j
+    =\left(\sum_kL_k\mathbf{b}_k^\prime\right)(\mathbf{b}_j)
+    =\sum_kL_k\mathbf{b}_k^\prime(\mathbf{b}_j)
+    =L_j,
 \]
-所以 $L_j = 0$。因此，所有的 $L_k$ 都为 $0$，从而这个组是线性无关的。
+所以该向量组线性无关。因此向量组$\mathbf{b}_1^\prime,\mathbf{b}_2^\prime,\ldots,\mathbf{b}_n^\prime$是对偶空间 $V^\prime$ 的基，且$[L]_\mathcal{B}$是$L$相应于这个基的坐标。
 
-所以，$\mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n$ 这个组确实是 $V^\prime$ 的基，而且 $[L]_{\mathcal{B}}$ 的元素是 $L$ 关于 $\mathcal{B}$ 这个基的坐标。
-
-\begin{definition}
-    令 $\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n$ 为 $V$ 的基。由式~\eqref{eq:dual_basis_definition}~唯一定义的向量组
+\begin{definition}\label{dual_basis_def}
+    令 $\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n$ 为 $V$ 的基。由式 \eqref{eq:dual_basis_definition}
+    唯一定义的向量组
     \[
-        \mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n \in V^\prime
+        \mathbf{b}_1^\prime,\mathbf{b}_2^\prime,\ldots,\mathbf{b}_n^\prime\in V^\prime
     \]
-    称为 $\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n$ 的对偶基（或双正交基）。
+    称为 $\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n$ 的{\bf 对偶基}，或{\bf 双正交基}。
 \end{definition}
 
-注意，我们已经证明了基的对偶向量组是基。另外，如果\linebreak $\mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n$ 是基 $\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n$ 的对偶向量组，那么 $\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n$ 也是 $\mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n$ 这个基的对偶向量组。%Note also that in ...? Note also that if ...?
+请注意，我们已经证明一个基的对偶向量组仍然是基。并且，若
+$\mathbf{b}_1^\prime,\mathbf{b}_2^\prime,\ldots,\mathbf{b}_n^\prime$ 是
+$\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n$ 的对偶基，那么
+$\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n$ 反过来也是
+$\mathbf{b}_1^\prime,\mathbf{b}_2^\prime,\ldots,\mathbf{b}_n^\prime$ 的对偶基。
 
 \subsubsection{抽象的非正交傅里叶分解}
 
-对偶向量组可以用来计算 $\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n$ 中的坐标。令 $\mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n$ 为 $\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n$ 的双正交向量组，令 $\mathbf{v} = \sum_k \alpha_k \mathbf{b}_k$。那么，正如先前所证明的那样，
+对偶向量组可以用于计算坐标。若
+$\mathbf{b}_1^\prime,\mathbf{b}_2^\prime,\ldots,\mathbf{b}_n^\prime$
+是 $\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n$ 的对偶基，且$\mathbf{v}=\sum_k\alpha_k\mathbf{b}_k$，
+则
 \[
-    \mathbf{b}^{\prime}_j (\mathbf{v}) = \mathbf{b}^{\prime}_j \left( \sum_k \alpha_k \mathbf{b}_k \right) = \sum_k \alpha_k \mathbf{b}^{\prime}_j \left( \mathbf{b}_k \right) = \alpha_j \mathbf{b}^{\prime}_j \left( \mathbf{b}_j \right) = \alpha_j.
-\]%\mathbf{b}_j -> \mathbf{b}^{\prime}_j
-所以 $\alpha_k = \mathbf{b}^{\prime}_k (\mathbf{v})$。那么我们可以写出
-\begin{equation} \label{eq:abstract_nonorthogonal_Fourier_decomposition}
-    \mathbf{v} = \sum_k \mathbf{b}^{\prime}_k (\mathbf{v}) \mathbf{b}_k.
+    \mathbf{b}_j^\prime(\mathbf{v})
+    =\mathbf{b}_j^\prime\left(\sum_k\alpha_k\mathbf{b}_k\right)
+    =\sum_k\alpha_k\mathbf{b}_j^\prime(\mathbf{b}_k)
+    =\alpha_j\mathbf{b}_j^\prime(\mathbf{b}_j)
+    =\alpha_j.
+\]
+因此$\alpha_k=\mathbf{b}_k^\prime(\mathbf{v})$，于是我们可写出
+\begin{equation}\label{eq:abstract_nonorthogonal_Fourier_decomposition}
+    \mathbf{v}
+    =\sum_k\mathbf{b}_k^\prime(\mathbf{v})\mathbf{b}_k.
 \end{equation}
 
-换言之，
+换言之：
 \begin{center}
-    \fbox{\parbox{0.8\linewidth}{向量 $\mathbf{v}$ 在基 $\mathcal{B} = \left\{ \mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n \right\}$ 中的第 $k$ 个坐标为 $\mathbf{b}^{\prime}_k (\mathbf{v})$，其中 $\mathcal{B}^{\prime} = \left\{ \mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n \right\}$ 为对偶基。}}
+    \fbox{\parbox{0.8\linewidth}{
+    向量 $\mathbf{v}$ 在基
+    $\mathcal{B}=\{\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n\}$ 中的第 $k$ 个坐标为
+    $\mathbf{b}_k^\prime(\mathbf{v})$，其中
+    $\mathcal{B}^\prime=\{\mathbf{b}_1^\prime,\mathbf{b}_2^\prime,\ldots,\mathbf{b}_n^\prime\}$
+    是对偶基。
+    }}
 \end{center}
 
-该式称为 $\mathbf{v}$（在基 $\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n$ 中）的{\bf 抽象的非正交傅里叶分解}（的雏形）。取这一名字的原因将在后面的~\ref{sec:dual_and_orthonormal_basis}~节中讲清楚。%宝宝巴士版
+式~\eqref{eq:abstract_nonorthogonal_Fourier_decomposition}~称为 $\mathbf{v}$ 在基
+$\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n$ 中的{\bf 抽象的非正交傅里叶分解}（的雏形）。这一名称的由来将在~\ref{sec:dual_and_orthonormal_basis}~节中说明。
 
 \begin{remark}
-    令 $\mathcal{A} = \left\{ \mathbf{a}_1, \mathbf{a}_2, \ldots, \mathbf{a}_n \right\}$ 和 $\mathcal{B} = \left\{ \mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n \right\}$ 分别为 $X$ 和 $Y$ 的基，并且令 $\mathcal{B}^{\prime} = \left\{ \mathbf{b}^{\prime}_1, \mathbf{b}^{\prime}_2, \ldots, \mathbf{b}^{\prime}_n \right\}$ 为 $\mathcal{B}$ 的对偶基。那么变换 $T$ 在基 $\mathcal{A}, \mathcal{B}$ 中的矩阵 $[T]_{\mathcal{B}, \mathcal{A}} =: A = {\left\{ a_{k,j} \right\}^{m}_{k=1}}^{n}_{j=1}$ 由下式给出：
+    令 $\mathcal{A}=\{\mathbf{a}_1,\mathbf{a}_2,\ldots,\mathbf{a}_n\}$ 和
+    $\mathcal{B}=\{\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_m\}$ 分别为 $X$ 与 $Y$ 的基，并令
+    $\mathcal{B}^\prime=\{\mathbf{b}_1^\prime,\mathbf{b}_2^\prime,\ldots,\mathbf{b}_m^\prime\}$ 为 $\mathcal{B}$ 的对偶基。
+    则变换$T$在基$\mathcal{A},\mathcal{B}$下的矩阵表示$[T]_{\mathcal{B},\mathcal{A}}=:A=\{a_{k,j}\}_{k=1,}^{m,}\,{\vphantom{)}}_{j=1}^{n}$
+    为
     \[
-        a_{k,j} = \mathbf{b}^{\prime}_k \left( T \mathbf{a}_j \right), \quad j = 1, 2, \ldots, n, \ k = 1, 2, \ldots, m.
+        a_{k,j}
+        =\mathbf{b}_k^\prime(T\mathbf{a}_j),
+        \qquad
+        j=1,2,\ldots,n,\quad k=1,2,\ldots,m.
     \]
 \end{remark}
 
 \subsection{对偶向量组示例}
 
-我们考虑的第一个例子很平凡。令 $V$ 为 $\mathbb{R}^n$（或 $\mathbb{C}^n$），令 $\mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_n$ 为其中的标准基。对偶空间就会是 $n$ 维行向量所成的空间，其与 $\mathbb{R}^n$（或 $\mathbb{C}^n$）同构，且其中的标准基是 $\mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_n$ 的对偶。$\left( \mathbb{R}^n \right)^{\prime}$ 或者 $\left( \mathbb{C}^n \right)^{\prime}$ 中的标准基为 $\mathbf{e}^T_1, \mathbf{e}^T_2, \ldots, \mathbf{e}^T_n$，其由 $\mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_n$ 转置而来。
+首先考虑一个平凡的例子。令 $V$ 为 $\mathbb{R}^n$（或 $\mathbb{C}^n$），并令 $\mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_n$ 为其中的标准基。对偶空间就会是 $n$ 维行向量所成的空间，其与 $\mathbb{R}^n$（或 $\mathbb{C}^n$）同构，且其中的标准基是 $\mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_n$ 的对偶。$\left( \mathbb{R}^n \right)^{\prime}$ 或者 $\left( \mathbb{C}^n \right)^{\prime}$ 中的标准基为 $\mathbf{e}^T_1, \mathbf{e}^T_2, \ldots, \mathbf{e}^T_n$，其由 $\mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_n$ 转置而来。
 
 \subsubsection{泰勒公式}
 
-下一个例子更有意思。让我们考虑由次数至多为 $n$ 的多项式所成的空间 $\mathbb{P}_n$。
-我们知道，幂函数 $\left\{ \mathbf{e}_k \right\}^{n}_{k=0},\  \mathbf{e}_{k}(t) = t^k$ 形成了该空间中的标准基。%\mathbf{e}(t) = t^n -> \mathbf{e}_k(t) = t^k
-那么该基的对偶基是什么呢？
+下面这个例子要更有意思一些。令 $\mathbb{P}_n$ 为次数至多为 $n$ 的多项式所成的空间。我们知道，该空间中的标准基由幂函数$\left\{ \mathbf{e}_k \right\}^{n}_{k=0},\  \mathbf{e}_{k}(t) = t^k$ 形成。这个基的对偶是什么呢？%\mathbf{e}(t) = t^n -> \mathbf{e}_k(t) = t^k
 
-答案可能没那么好猜，但要是你知道了答案，验证起来就很容易。
-即，考虑线性泛函 $\mathbf{e}^{\prime}_k \in \left( \mathbb{P}_n \right)^{\prime},\  k = 0, 1, \ldots, n$，作用于多项式如下：
+答案可能不太好猜，但要是知道了答案，验证起来就很容易。请看：考虑线性泛函 $\mathbf{e}^{\prime}_k \in \left( \mathbb{P}_n \right)^{\prime},\  k = 0, 1, \ldots, n$，作用于多项式如下：
 \[
-    \mathbf{e}^{\prime}_k (p) := \frac{1}{k!} \frac{d^k}{dt^k} p(t) \bigg|_{t=0} = \frac{1}{k!} p^{(k)}(0),
+    \mathbf{e}_k^\prime(p)
+    :=\frac{1}{k!}\frac{\mathrm{d}^k}{\mathrm{d}t^k}p(t)\bigg|_{t=0}
+    =\frac{1}{k!}p^{(k)}(0),
 \]
-其中我们采用通常的约定：$0! = 1$，$d^0 f / d t^0 = f$。
+其中我们采用通常的约定：$0!=1$ 且 $d^0f/\mathrm{d}t^0=f$。
 
 由于
 \[
-    \frac{d^k}{d t^k} t^j =
+    \frac{\mathrm{d}^k}{\mathrm{d}t^k}t^j
+    =
     \begin{cases}
-        j (j-1) \cdots (j-k+1) t^{j-k}, & k \leq j, \\
-        0, & k > j,
+        j(j-1)\cdots(j-k+1)t^{j-k},&k\le j,\\
+        0,&k>j,
     \end{cases}
-\]%\ldots -> \cdots
-我们可以很容易发现 $\left\{ \mathbf{e}^{\prime}_k \right\}^{n}_{k=0}$ 是幂函数向量组 $\left\{ \mathbf{e}_{k} \right\}^{n}_{k=0}$ 的对偶。
+\]
+容易验证 $\{\mathbf{e}_k^\prime\}_{k=0}^n$ 是
+$\{\mathbf{e}_k\}_{k=0}^n$ 的对偶基。
 
-将 \eqref{eq:abstract_nonorthogonal_Fourier_decomposition} 应用于上面的 $\left\{ \mathbf{e}_{k} \right\}^{n}_{k=0}$ 及其对偶，我们得到，次数最多为 $n$ 的任何多项式 $p$ 都可以表示为
-\begin{equation} \label{eq:Taylor_formula}
-    p(t) = \sum_{k=0}^{n} \frac{p^{(k)}(0)}{k!} t^k.
+将~\eqref{eq:abstract_nonorthogonal_Fourier_decomposition}~应用于这一对基，可知任意次数不超过$n$的多项式$p$都可如下表示：
+\begin{equation}\label{eq:Taylor_formula}
+    p(t)=\sum_{k=0}^{n}\frac{p^{(k)}(0)}{k!}t^k.
 \end{equation}
+这就是微积分中知名的多项式泰勒公式。更准确地说，它是泰勒公式的特殊情形，即所谓麦克劳林公式。一般的泰勒公式
+\[
+    p(t)=\sum_{k=0}^{n}\frac{p^{(k)}(a)}{k!}(t-a)^k
+\]
+可以把~\eqref{eq:Taylor_formula}~应用于多项式$p(\tau+a)$并令$\tau=t-a$得到，也可以直接考虑幂$(t-a)^k,k=0,1,\dots,n$
+并按与$t^k$相同的方法求出其对偶基。\footnote{注意，一般泰勒公式比这里的多项式恒等式包含更多内容：它还说明，一个 $n$ 次可微函数可在点 $a$ 附近由其泰勒多项式逼近；进一步，若函数有 $n+1$ 阶导数，还可以估计误差。这里的多项式公式可作为一般情形的动机与起点。}
+
+\subsubsection{拉格朗日插值}
+
+下一个例子涉及所谓的拉格朗日插值公式。令$a_1,a_2,\ldots,a_{n+1}$
+为 $\mathbb{R}$ 或 $\mathbb{C}$ 中互不相同的点，令 $\mathbb{P}_n$ 为次数至多为 $n$ 的多项式构成的空间。定义泛函
+$\mathbf{f}_k\in(\mathbb{P}_n)^\prime$为
+\[
+    \mathbf{f}_k(p)=p(a_k),\quad \forall p\in\mathbb{P}_n.
+\]
+这组泛函的对偶向量组是什么？
+
+虽然不难证明 $\mathbf{f}_k$ 线性无关，从而由于
+$\dim(\mathbb{P}_n)^\prime=\dim\mathbb{P}_n=n+1$
+可知它们构成 $(\mathbb{P}_n)^\prime$ 的基，但我们甚至不需要先证明这一点。我们直接构造其对偶向量组，然后再由此看出
+$\mathbf{f}_1,\mathbf{f}_2,\ldots,\mathbf{f}_{n+1}$ 的确构成一个基。
+
+定义多项式
+\[
+    p_k(t)
+    =
+    \frac{\displaystyle\prod_{\substack{1\le j\le n+1\\j\ne k}}(t-a_j)}
+         {\displaystyle\prod_{\substack{1\le j\le n+1\\j\ne k}}(a_k-a_j)},
+    \qquad k=1,2,\ldots,n+1.
+\]
+显然，
+\[
+    p_k(a_k)=1,\qquad
+    p_k(a_j)=0\quad(j\ne k),
+\]
+所以 $p_1,p_2,\ldots,p_{n+1}$ 与 $\mathbf{f}_1,\mathbf{f}_2,\ldots,\mathbf{f}_{n+1}$ 对偶。
+
+这里有一个小细节：我们先前只对“基”定义了对偶向量组，而目前还没有证明这两组中的任何一组是基。不过，很容易直接看出
+$p_1,p_2,\ldots,p_{n+1}$ 线性无关（想一想为什么），而它恰好含有
+$n+1=\dim\mathbb{P}_n$ 个向量，所以是基。于是
+$\mathbf{f}_1,\mathbf{f}_2,\ldots,\mathbf{f}_{n+1}$ 也构成 $\mathbb{P}_n^\prime$ 的一个基。
+
+\begin{remark}
+    这里并不是碰巧运气好，而是一种普遍的情况。事实上，下面习题 \ref{ex:8_1_1} 表明：若一个向量组存在与之“对偶”的泛函组，则该向量组必定线性无关。因此，构造对偶向量组也是证明线性无关的一种方法；若构造如上面的例子一样容易的话，这种方法甚至非常方便。
+\end{remark}
+
+将式~\eqref{eq:abstract_nonorthogonal_Fourier_decomposition}~用于这个例子，就得到：满足
+\begin{equation}\label{eq:lagrange_conditions}
+    p(a_k)=y_k,\qquad k=1,2,\ldots,n+1
+\end{equation}
+的唯一次数不超过 $n$ 的多项式$p$可由
+\begin{equation}\label{eq:lagrange_interpolation}
+    p(t)=\sum_{k=1}^{n+1}y_kp_k(t)
+\end{equation}
+重构。式~\eqref{eq:lagrange_interpolation}~就是数学中知名的{\bf 拉格朗日插值公式}。
+
+\begin{problemset}
+    \item \label{ex:8_1_1}令 $\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r$ 是 $X$ 中的一组向量，并假设存在一组线性泛函
+    $\mathbf{v}_1^\prime,\mathbf{v}_2^\prime,\ldots,\mathbf{v}_r^\prime$ 满足
+    \[
+        \mathbf{v}_k^\prime(\mathbf{v}_j)
+        =
+        \begin{cases}
+            1,&j=k,\\
+            0,&j\ne k.
+        \end{cases}
+    \]
+    \begin{probenumerate}
+        \item 证明 $\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r$ 线性无关；
+        \item 若 $\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r$ 不是生成组，证明这样的“双正交”泛函组 $\mathbf{v}_1^\prime,\mathbf{v}_2^\prime,\ldots,\mathbf{v}_r^\prime$ 并不唯一。提示：最简单的方法大概是先把 $\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_r$ 补成一个基，见第 \ref{chap:LinearSystems} 章命题 \ref{prop:completion}。
+    \end{probenumerate}
+    \item 给定互异的点 $a_1,a_2,\ldots,a_{n+1}$ 和任意（未必互异的）数值 $y_1,y_2,\ldots,y_{n+1}$，证明满足~\eqref{eq:lagrange_conditions}~的次数不超过 $n$ 的多项式 $p$ 是唯一的。试着只用线性代数的思想证明，而不要调用你关于多项式零点个数的已有知识。
+\end{problemset}
 
 \section{内积空间的对偶}
 
+回忆一下，内积空间并不是针对任意域定义的，我们只考虑实或复内积空间。
+
 \subsection{里斯表示定理}
+
+\begin{theorem}[里斯表示定理]\label{thm:Riesz_representation}
+    令 $H$ 为内积空间。给定 $H$ 上的线性泛函 $L$，存在唯一的向量 $\mathbf{y}\in H$，使得
+    \begin{equation}\label{eq:Riesz_representation}
+        L(\mathbf{v})=(\mathbf{v},\mathbf{y}),
+        \qquad \forall\mathbf{v}\in H.
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    在 $H$ 中固定一个规范正交基
+    $\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$，并设
+    \[
+        [L]=[L_1,L_2,\ldots,L_n]
+    \]
+    是 $L$ 在该基下的矩阵。定义向量
+    \begin{equation}\label{eq:Riesz_vector}
+        \mathbf{y}:=\sum_k\overline{L_k}\mathbf{e}_k.
+    \end{equation}
+    其中，$\overline{L_k}$表示${L_k}$的复共轭。在实空间中复共轭不起作用，可以直接忽略。
+
+    下面证明$\mathbf{y}$满足式 \eqref{eq:Riesz_representation}。
+    取任意$\mathbf{v}=\sum_k\alpha_k\mathbf{e}_k$，则
+    \[
+    [\mathbf{v}]=[\alpha_1,\alpha_2,\dots,\alpha_n]^T,
+    \]
+    且
+    \[
+        L(\mathbf{v})=[L][\mathbf{v}]=\sum_kL_k\alpha_k.
+    \]
+    另一方面，回顾一下，如果我们知道两个向量在规范正交基下的坐标，
+    我们就能通过取坐标向量在$\mathbb{F}^n$中的标准内积来计算
+    原本向量的内积，见第 \ref{chap:InnerProduct} 章习题 \ref{ex:5_2_4}。因此
+    \[
+        (\mathbf{v},\mathbf{y})
+        =\sum_k\alpha_k\overline{\overline{L_k}}
+        =\sum_k\alpha_kL_k.
+    \]
+    所以~\eqref{eq:Riesz_representation}~成立。
+
+    再证明唯一性。若 $\mathbf{y}$ 满足~\eqref{eq:Riesz_representation}，则对$k=1,2,\dots,n$，
+    \[
+        (\mathbf{e}_k,\mathbf{y})=L(\mathbf{e}_k)=L_k,
+    \]
+    因而$(\mathbf{y},\mathbf{e}_k)=\overline{L_k}$。
+    由规范正交基中的傅里叶分解（见第 \ref{chap:InnerProduct} 章 \ref{subsec:orthogonal_orthonormal} 节），
+    \[
+        \mathbf{y}
+        =\sum_k(\mathbf{y},\mathbf{e}_k)\mathbf{e}_k
+        =\sum_k\overline{L_k}\mathbf{e}_k,
+    \]
+    故满足式 \eqref{eq:Riesz_representation} 的向量只能是~\eqref{eq:Riesz_vector}~所定义的 $\mathbf{y}$。
+\end{proof}
+
+\begin{remark*}
+    定理的陈述本身不依赖于基，所得向量 $\mathbf{y}$ 当然也不依赖于基的选择\footnote{还有一种不需要用到基的证明，适用于无限维的情形，它采用的是内积空间中单位球的强凸性以及分析学中的完备性思想。}，但上面的证明使用了 $H$ 中的一个规范正交基。这个证明的优点是，它同时给出了计算表示向量 $\mathbf{y}$ 的公式。
+\end{remark*}
 
 \subsection{内积空间与自身对偶吗？}
 
-\subsection{双正交向量组与规范正交基} \label{sec:dual_and_orthonormal_basis}
+对内积空间 $H$ 中的向量 $\mathbf{y}$，可以定义线性泛函
+\[
+    L_{\mathbf{y}}(\mathbf{v})
+    :=(\mathbf{v},\mathbf{y}).
+\]
+很容易看出映射$\mathbf{y}\mapsto L_{\mathbf{y}}$
+从 $H$ 到其对偶 $H^\prime$ 是单射，而上述定理 \ref{thm:Riesz_representation} 说明它还是满射。因此我们很自然会想说：内积空间 $H$ 的对偶空间是 $H$ 自身（的典范同构，该典范同构由$\mathbf{y}\mapsto L_{\mathbf{y}}$给出）。
+
+若 $H$ 是{\bf 实}内积空间，这句话确实没有问题。易知此时
+$\mathbf{y}\mapsto L_{\mathbf{y}}$ 是{\bf 线性}映射，而且既单又满，因此是一个可逆线性变换——即{\bf 同构}。
+
+但若 $H$ 是复内积空间，就需要稍谨慎些了。事实上，将$\mathbf{y}\in H$映射到如定理 \ref{thm:Riesz_representation} 
+所示的线性泛函$L_\mathbf{y}$（$L_{\mathbf{y}}(\mathbf{v})=(\mathbf{v},\mathbf{y})$）的映射$\mathbf{y}\mapsto L_{\mathbf{y}}$不是线性的。
+
+更具体地说，虽然容易证明
+\begin{equation}
+    L_{\mathbf{y}_1+\mathbf{y}_2}
+    =L_{\mathbf{y}_1}+L_{\mathbf{y}_2},
+\end{equation}
+然而根据$L_{\mathbf{y}}$的定义和内积的性质却有
+\begin{equation}
+    L_{\alpha\mathbf{y}}(\mathbf{v})
+    =(\mathbf{v},\alpha\mathbf{y})
+    =\overline{\alpha}(\mathbf{v},\mathbf{y})
+    =\overline{\alpha}L_{\mathbf{y}}(\mathbf{v}),
+\end{equation}
+所以$L_{\alpha\mathbf{y}}=\overline{\alpha}L_{\mathbf{y}}$。
+
+换句话说，可以认为复内积空间的对偶是该空间本身，不过{\bf 线性结构发生了变化}：向量相加对应泛函相加，而向量乘以 $\alpha$ 对应泛函乘以 $\overline{\alpha}$。
+
+\begin{center}
+    \fbox{\parbox{0.85\linewidth}{满足$T(\alpha\mathbf{x}+\beta\mathbf{y})
+        =\overline{\alpha}\,T\mathbf{x}
+        +\overline{\beta}\,T\mathbf{y}$
+    的变换$T$有时称为{\bf 共轭线性}变换。}}
+\end{center}
+
+因此，在复内积空间$H$中，其对偶可与 $H$ 通过共轭线性同构（即可逆的共轭线性变换）典范地视作等同；
+在实内积空间中，由于$\alpha$为实数，复共轭可以忽略，故映射$\mathbf{y}\mapsto L_{\mathbf{y}}$ 是线性的，
+此时我们确实可以说内积空间$H$的对偶就是该空间自身了。
+
+无论实情形还是复情形，我们都仍可以说：内积空间的对偶可以典范地与空间本身视为等同。
+
+\subsection{双正交向量组与规范正交基}\label{sec:dual_and_orthonormal_basis}
+
+\begin{definition}
+    令 $\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n$ 为内积空间 $H$ 的一个基。由
+    \[
+        (\mathbf{b}_j,\mathbf{b}_k^\prime)=\delta_{j,k}
+    \]
+    （其中，$\delta_{j,k}$为克罗内克尔记号）唯一确定的向量组
+    $\mathbf{b}_1^\prime,\mathbf{b}_2^\prime,\ldots,\mathbf{b}_n^\prime\in H$
+    称为 $\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n$ 的{\bf 双正交基}或{\bf 对偶基}。
+\end{definition}
+
+运用上述讨论结果将 $H^\prime$ 与 $H$ 视作等同以后，这一定义显然与前面的定义 \ref{dual_basis_def} 一致。因此，根据 \ref{sec:dual_basis} 节的讨论，$\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n$的对偶向量组
+$\mathbf{b}_1^\prime,\mathbf{b}_2^\prime,\ldots,\mathbf{b}_n^\prime$
+唯一存在，而且仍然是 $H$ 的基；并且
+$\mathbf{b}_1,\mathbf{b}_2,\ldots,\mathbf{b}_n$ 也是
+$\mathbf{b}_1^\prime,\mathbf{b}_2^\prime,\ldots,\mathbf{b}_n^\prime$ 的对偶基。
+
+抽象的非正交傅里叶分解 \eqref{eq:abstract_nonorthogonal_Fourier_decomposition} 可重写为
+\[
+    \mathbf{v}
+    =\sum_{k=1}^n(\mathbf{v},\mathbf{b}_k^\prime)\mathbf{b}_k.
+\]
+
+注意，规范正交基与自身对偶。因此若
+$\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$ 是规范正交基，上式又可重写为
+\[
+    \mathbf{v}
+    =\sum_{k=1}^n(\mathbf{v},\mathbf{e}_k)\mathbf{e}_k,
+\]
+这正是经典的（正交的）抽象傅里叶分解，见第~\ref{chap:InnerProduct}~章 \ref{subsec:orthogonal_orthonormal} 节式 \eqref{coeff_orthonormal}。
 
 \section{伴随（对偶）变换和转置、三探基本子空间}
 
@@ -258,3 +501,4 @@
 
 \section{张量的坐标变换公式}
 
+\end{proof}
