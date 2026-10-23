@@ -2,6 +2,8 @@
 
 \chapter{对偶空间和张量}\label{chap:DualandTensor}
 
+\textcolor{magenta}{$\clubsuit$ 本章尚未完稿。}
+
 本章中的所有向量空间均为有限维的。
 
 \section{对偶空间}
@@ -491,7 +493,77 @@ $\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$ 是规范正交基，上式又�
 
 \section{伴随（对偶）变换和转置、三探基本子空间}
 
+仿照内积空间中的写法（见定理 \ref{thm:Riesz_representation}），我们习惯把线性泛函 $L\in V^\prime$ 对向量 $\mathbf{v}\in V$ 的作用写成下面这样类似内积的形式
+\[
+    L(\mathbf{v})=\langle\mathbf{v},L\rangle.
+\]
+注意，这里的 $\langle\mathbf{v},L\rangle$ 对两个变量都线性，而不像内积在复向量空间上只对第一个变量线性、而对第二个变量共轭线性。因此，为了与内积区别，我们使用尖括号。\footnote{这一记号虽然很常见，却远非统一标准。有些书在此处使用圆括号$(\mathbf{v},L)$，有些书反而用尖括号表示内积。因此在文献中遇到这样的符号时，必须很仔细地分清是表示内积还是表示线性泛函的作用。}
+
+还要注意，内积中的两个向量属于同一个空间；而这里的 $\mathbf{v}$ 与 $L$ 属于不同的空间；特别地，不能把二者相加。
+
 \subsection{伴随（对偶）变换}
+
+\begin{definition}
+    令 $A:X\to Y$ 为线性变换。若变换$A^\prime:Y^\prime\to X^\prime$（其中 $X^\prime$ 与 $Y^\prime$ 分别为 $X$ 与 $Y$ 的对偶空间）满足
+    \[
+        \langle A\mathbf{x},\mathbf{y}^\prime\rangle
+        =
+        \langle\mathbf{x},A^\prime\mathbf{y}^\prime\rangle,
+        \qquad
+        \forall\mathbf{x}\in X,\mathbf{y}^\prime\in Y^\prime,
+    \]
+    则称 $A^\prime$ 为 $A$ 的伴随变换或对偶变换。
+\end{definition}
+
+当然，从定义本身还看不出 $A^\prime$ 一定存在。下面将证明它不仅存在，而且唯一。
+
+\subsubsection{\texorpdfstring{变换$A:\mathbb{F}^n\to \mathbb{F}^m$}{F\^{}n到F\^{}m的变换A}的对偶}
+
+先考虑 $X=\mathbb{F}^n$、$Y=\mathbb{F}^m$的情形（与通常一样，这里的 $\mathbb{F}$ 表示 $\mathbb{R}$ 或 $\mathbb{C}$，不过对于任意的域而言，这里的结论也是成立的）。
+
+我们仍把$\mathbb{F}^n$中的向量与其标准坐标形成的列向量视作等同，并把上述线性变换与其（在标准基下的）矩阵视作等同。
+
+如之前讨论过的，$\mathbb{F}^n$ 的对偶可以看作 $n$ 维行向量所成的空间，因此可将其与 $\mathbb{F}^n$ 视作等同——我们同样把$(\mathbb{F}^n)^\prime$中的元素视作其标准坐标形成的列向量。
+
+在这些约定下，对 $\mathbf{x}\in\mathbb{F}^n$ 和
+$\mathbf{x}^\prime\in(\mathbb{F}^n)^\prime$，
+\[
+    \mathbf{x}^\prime(\mathbf{x})=
+    \langle\mathbf{x},\mathbf{x}^\prime\rangle
+    =(\mathbf{x}^\prime)^T\mathbf{x},
+\]
+其中等号右侧就是一个行矩阵和一个列矩阵的乘积。
+因此，对于任意 $\mathbf{x}\in X=\mathbb{F}^n$ 和
+$\mathbf{y}^\prime \in Y^\prime=(\mathbb{F}^m)^\prime$，
+\[
+    \langle A\mathbf{x},\mathbf{y}^\prime\rangle
+    =(\mathbf{y}^\prime)^TA\mathbf{x}
+    =(A^T\mathbf{y}^\prime)^T\mathbf{x}
+    =\langle\mathbf{x},A^T\mathbf{y}^\prime\rangle.
+\]
+中间的表达式其实就是矩阵的乘法。这就证明了伴随变换的存在性。
+
+再证唯一性。若某个变换 $B$ 也满足
+\[
+    \langle A\mathbf{x},\mathbf{y}^\prime\rangle
+    =\langle\mathbf{x},B\mathbf{y}^\prime\rangle,
+    \qquad
+    \forall\mathbf{x}\in \mathbb{F}^n,\mathbf{y}^\prime\in (\mathbb{F}^m)^\prime,
+\]
+则
+\[
+    \langle\mathbf{x},(A^T-B)\mathbf{y}^\prime\rangle=0,
+    \qquad
+    \forall\mathbf{x}\in \mathbb{F}^n,\mathbf{y}^\prime\in (\mathbb{F}^m)^\prime,
+\]
+依次分别取$\mathbf{x}$和$\mathbf{y}^\prime$为$\mathbb{F}^n$和$(\mathbb{F}^m)^\prime \cong \mathbb{F}^m$中的标准基向量，便得到 $B=A^T$。
+
+所以，$X=\mathbb{F}^n$、$Y=\mathbb{F}^m$ 时：
+\begin{center}
+    \fbox{\parbox{0.8\linewidth}{
+    对偶变换 $A^\prime$ 存在且唯一，并且其（在标准基下的）矩阵正是 $A$ 的转置矩阵 $A^T$。
+    }}
+\end{center}
 
 \subsection{零化子和基本子空间之间的关系}
 
@@ -500,5 +572,3 @@ $\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$ 是规范正交基，上式又�
 \section{多重线性函数、张量}
 
 \section{张量的坐标变换公式}
-
-\end{proof}
